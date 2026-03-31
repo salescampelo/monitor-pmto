@@ -15,11 +15,10 @@ import {
   ArrowUpRight,
   BrainCircuit,
   Layers,
-  Upload,
   RefreshCw,
-  Database,
   User,
-  Building
+  Building,
+  Loader2
 } from 'lucide-react';
 
 /* ─────────────────────────────────────────────
@@ -84,7 +83,7 @@ const classifyArticle = (article) => {
 };
 
 /* ─────────────────────────────────────────────
-   CLUSTERS
+   CLUSTERS & HELPERS
    ───────────────────────────────────────────── */
 
 const CLUSTERS = [
@@ -96,10 +95,6 @@ const CLUSTERS = [
   { id: 'Imprensa', label: 'Imprensa', icon: Radio, color: '#ec4899', bg: 'rgba(236,72,153,0.08)' },
   { id: 'Geral', label: 'Geral', icon: Newspaper, color: '#64748b', bg: 'rgba(100,116,139,0.08)' },
 ];
-
-/* ─────────────────────────────────────────────
-   HELPERS
-   ───────────────────────────────────────────── */
 
 const getSentimentColor = (score) => {
   if (score <= 0.2) return { text: '#ef4444', bg: 'rgba(239,68,68,0.1)', border: 'rgba(239,68,68,0.25)' };
@@ -224,45 +219,9 @@ const NewsCard = ({ item, expanded, onToggle }) => {
   );
 };
 
-const UploadScreen = ({ onLoad, isDragging }) => (
-  <div style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 40 }}>
-    <div style={{
-      textAlign: 'center', maxWidth: 480, padding: 48,
-      background: isDragging ? 'rgba(139,92,246,0.08)' : 'rgba(15,23,42,0.5)',
-      border: isDragging ? '2px dashed #8b5cf6' : '2px dashed rgba(51,65,85,0.4)',
-      borderRadius: 24, transition: 'all 0.3s ease'
-    }}>
-      <div style={{ background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.2)', borderRadius: 16, padding: 16, display: 'inline-flex', marginBottom: 24 }}>
-        <Upload size={32} style={{ color: '#8b5cf6' }} />
-      </div>
-      <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', margin: '0 0 12px 0' }}>Carregar dados do monitor</h2>
-      <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.7, margin: '0 0 28px 0' }}>
-        Arraste o arquivo <strong style={{ color: '#a78bfa' }}>mention_history.json</strong> da pasta <strong style={{ color: '#94a3b8' }}>data/</strong> para cá, ou clique abaixo.
-      </p>
-      <label style={{
-        display: 'inline-flex', alignItems: 'center', gap: 8,
-        padding: '12px 28px', background: '#8b5cf6', color: '#fff',
-        borderRadius: 12, fontSize: 13, fontWeight: 700, cursor: 'pointer', border: 'none'
-      }}>
-        <Database size={16} /> Selecionar arquivo
-        <input type="file" accept=".json" style={{ display: 'none' }} onChange={(e) => {
-          const file = e.target.files[0];
-          if (!file) return;
-          const reader = new FileReader();
-          reader.onload = (ev) => { try { onLoad(JSON.parse(ev.target.result)); } catch { alert('JSON inválido.'); } };
-          reader.readAsText(file);
-        }} />
-      </label>
-      <p style={{ fontSize: 11, color: '#334155', marginTop: 20 }}>monitor_pmto / data / mention_history.json</p>
-    </div>
-  </div>
-);
-
 /* ─────────────────────────────────────────────
    APP PRINCIPAL
    ───────────────────────────────────────────── */
-
-const STORAGE_KEY = 'pmto-monitor-data';
 
 const App = () => {
   const [rawData, setRawData] = useState(null);
@@ -270,51 +229,39 @@ const App = () => {
   const [expandedCards, setExpandedCards] = useState({});
   const [sortOrder, setSortOrder] = useState('date');
   const [filterType, setFilterType] = useState('all');
-  const [isDragging, setIsDragging] = useState(false);
   const [lastUpdate, setLastUpdate] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const load = async () => {
-      try {
-        const result = await window.storage.get(STORAGE_KEY);
-        if (result && result.value) {
-          const p = JSON.parse(result.value);
-          setRawData(p.data);
-          setLastUpdate(p.updatedAt);
-        }
-      } catch {}
-    };
-    load();
+  // 1. Defina a URL bruta do GitHub aqui (Altere SEU_USUARIO para o seu usuário real)
+  const GITHUB_JSON_URL = 'https://raw.githubusercontent.com/SEU_USUARIO/monitor-pmto/main/data/mention_history.json';
+
+  const fetchAutonomously = useCallback(async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(GITHUB_JSON_URL + '?t=' + new Date().getTime()); // Evita cache
+      if (!response.ok) throw new Error('Falha ao buscar os dados do repositório.');
+      const data = await response.json();
+      setRawData(data);
+      setLastUpdate(new Date().toLocaleString('pt-BR'));
+    } catch (err) {
+      console.error("Erro ao carregar os dados:", err);
+      setError("Não foi possível carregar as informações mais recentes.");
+    } finally {
+      setIsLoading(false);
+    }
   }, []);
+
+  // Busca inicial assim que o componente for montado
+  useEffect(() => {
+    fetchAutonomously();
+  }, [fetchAutonomously]);
 
   const articles = useMemo(() => {
     if (!rawData || !Array.isArray(rawData)) return [];
     return rawData.map(classifyArticle);
   }, [rawData]);
-
-  const handleLoad = useCallback(async (data) => {
-    setRawData(data);
-    const now = new Date().toLocaleString('pt-BR');
-    setLastUpdate(now);
-    try { await window.storage.set(STORAGE_KEY, JSON.stringify({ data, updatedAt: now })); } catch {}
-  }, []);
-
-  useEffect(() => {
-    const over = (e) => { e.preventDefault(); setIsDragging(true); };
-    const leave = () => setIsDragging(false);
-    const drop = (e) => {
-      e.preventDefault(); setIsDragging(false);
-      const file = e.dataTransfer.files[0];
-      if (!file || !file.name.endsWith('.json')) return;
-      const reader = new FileReader();
-      reader.onload = (ev) => { try { handleLoad(JSON.parse(ev.target.result)); } catch { alert('JSON inválido.'); } };
-      reader.readAsText(file);
-    };
-    window.addEventListener('dragover', over);
-    window.addEventListener('dragleave', leave);
-    window.addEventListener('drop', drop);
-    return () => { window.removeEventListener('dragover', over); window.removeEventListener('dragleave', leave); window.removeEventListener('drop', drop); };
-  }, [handleLoad]);
 
   const filteredNews = useMemo(() => {
     let f = articles;
@@ -332,10 +279,29 @@ const App = () => {
     return c;
   }, [articles]);
 
-  if (!articles.length) {
+  // Tela de Loading ou Erro
+  if (isLoading || error || !articles.length) {
     return (
-      <div style={{ minHeight: '100vh', background: '#060810', color: '#cbd5e1', fontFamily: "'SF Pro Display', 'Segoe UI', -apple-system, sans-serif" }}>
-        <UploadScreen onLoad={handleLoad} isDragging={isDragging} />
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#060810', color: '#cbd5e1', fontFamily: "'SF Pro Display', 'Segoe UI', -apple-system, sans-serif" }}>
+        <div style={{ textAlign: 'center', padding: 40 }}>
+          {isLoading ? (
+            <>
+              <Loader2 size={40} style={{ color: '#8b5cf6', animation: 'spin 1s linear infinite', margin: '0 auto 20px' }} />
+              <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9' }}>Sincronizando banco de dados...</h2>
+              <p style={{ color: '#64748b', fontSize: 14, marginTop: 10 }}>Buscando as menções mais recentes no servidor.</p>
+              <style>{`@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
+            </>
+          ) : (
+            <>
+               <AlertTriangle size={40} style={{ color: '#ef4444', margin: '0 auto 20px' }} />
+               <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9' }}>{error || "Nenhum dado encontrado."}</h2>
+               <p style={{ color: '#64748b', fontSize: 14, marginTop: 10, marginBottom: 20 }}>Verifique se o GitHub Actions rodou corretamente ou se o arquivo JSON existe no repositório.</p>
+               <button onClick={fetchAutonomously} style={{ padding: '10px 20px', background: '#8b5cf6', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 'bold', cursor: 'pointer' }}>
+                 Tentar Novamente
+               </button>
+            </>
+          )}
+        </div>
       </div>
     );
   }
@@ -356,7 +322,7 @@ const App = () => {
             <div>
               <h1 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', margin: 0 }}>Monitor de Menções — Cel. Márcio Barbosa</h1>
               <p style={{ fontSize: 11, color: '#475569', margin: '4px 0 0 0', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                PMTO • {lastUpdate ? `Atualizado: ${lastUpdate}` : 'Dados do scraper'}
+                PMTO • {lastUpdate ? `Última Sincronização: ${lastUpdate}` : 'Dados do servidor'}
               </p>
             </div>
           </div>
@@ -370,21 +336,14 @@ const App = () => {
               <p style={{ fontSize: 10, color: '#475569', fontWeight: 700, textTransform: 'uppercase', margin: '0 0 3px 0' }}>Menções</p>
               <p style={{ fontSize: 24, fontWeight: 900, color: '#f59e0b', margin: 0 }}>{metrics.total}</p>
             </div>
-            <label style={{
+            <button onClick={fetchAutonomously} style={{
               display: 'flex', alignItems: 'center', gap: 6,
               padding: '8px 14px', borderRadius: 10,
               background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.25)',
               color: '#a78bfa', fontSize: 11, fontWeight: 700, cursor: 'pointer'
             }}>
-              <RefreshCw size={13} /> Atualizar
-              <input type="file" accept=".json" style={{ display: 'none' }} onChange={(e) => {
-                const file = e.target.files[0];
-                if (!file) return;
-                const reader = new FileReader();
-                reader.onload = (ev) => { try { handleLoad(JSON.parse(ev.target.result)); } catch { alert('JSON inválido.'); } };
-                reader.readAsText(file);
-              }} />
-            </label>
+              <RefreshCw size={13} /> Sincronizar
+            </button>
           </div>
         </header>
 
@@ -457,4 +416,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App; //
