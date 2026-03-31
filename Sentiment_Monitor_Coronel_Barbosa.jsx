@@ -233,14 +233,13 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // LINK ATUALIZADO E POSICIONADO CORRETAMENTE AQUI:
   const GITHUB_JSON_URL = 'https://raw.githubusercontent.com/salescampelo/monitor-pmto/refs/heads/main/mention_history.json';
 
   const fetchAutonomously = useCallback(async () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch(GITHUB_JSON_URL + '?t=' + new Date().getTime()); // Evita cache
+      const response = await fetch(GITHUB_JSON_URL + '?t=' + new Date().getTime());
       if (!response.ok) throw new Error('Falha ao buscar os dados do repositório.');
       const data = await response.json();
       setRawData(data);
@@ -253,7 +252,6 @@ const App = () => {
     }
   }, []);
 
-  // Busca inicial assim que o componente for montado
   useEffect(() => {
     fetchAutonomously();
   }, [fetchAutonomously]);
@@ -279,7 +277,6 @@ const App = () => {
     return c;
   }, [articles]);
 
-  // Tela de Loading ou Erro
   if (isLoading || error || !articles.length) {
     return (
       <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#060810', color: '#cbd5e1', fontFamily: "'SF Pro Display', 'Segoe UI', -apple-system, sans-serif" }}>
@@ -339,4 +336,81 @@ const App = () => {
             <button onClick={fetchAutonomously} style={{
               display: 'flex', alignItems: 'center', gap: 6,
               padding: '8px 14px', borderRadius: 10,
-              background: 'rgba(139
+              background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.25)',
+              color: '#a78bfa', fontSize: 11, fontWeight: 700, cursor: 'pointer'
+            }}>
+              <RefreshCw size={13} /> Sincronizar
+            </button>
+          </div>
+        </header>
+
+        <div style={{ display: 'flex', gap: 10, marginBottom: 20, flexWrap: 'wrap' }}>
+          <MetricCard icon={User} label="Diretas" value={metrics.diretas} sub="Cel. Barbosa" accent="#ef4444" />
+          <MetricCard icon={Building} label="Institucionais" value={metrics.institucionais} sub="PMTO" accent="#f59e0b" />
+          <MetricCard icon={AlertTriangle} label="Impacto alto" value={metrics.highImpact} accent="#ef4444" />
+          <MetricCard icon={Newspaper} label="Fontes" value={metrics.sources} accent="#3b82f6" />
+        </div>
+
+        <div style={{ display: 'flex', gap: 6, marginBottom: 14 }}>
+          {[{ id: 'all', label: 'Todas' }, { id: 'direta', label: '● Diretas' }, { id: 'institucional', label: '○ Institucionais' }].map(t => (
+            <button key={t.id} onClick={() => setFilterType(t.id)} style={{
+              padding: '7px 14px', borderRadius: 10, fontSize: 11, fontWeight: 700,
+              border: filterType === t.id ? '1px solid #8b5cf6' : '1px solid rgba(51,65,85,0.4)',
+              background: filterType === t.id ? 'rgba(139,92,246,0.1)' : 'rgba(15,23,42,0.4)',
+              color: filterType === t.id ? '#8b5cf6' : '#64748b', cursor: 'pointer'
+            }}>{t.label}</button>
+          ))}
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18, flexWrap: 'wrap', gap: 10 }}>
+          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+            {CLUSTERS.map(c => {
+              const Icon = c.icon;
+              const active = selectedCluster === c.id;
+              const count = c.id === 'all' ? null : clusterCounts[c.id] || 0;
+              if (c.id !== 'all' && !count) return null;
+              return (
+                <button key={c.id} onClick={() => setSelectedCluster(c.id)} style={{
+                  display: 'flex', alignItems: 'center', gap: 5, padding: '7px 14px', borderRadius: 10, fontSize: 11, fontWeight: 700,
+                  border: active ? `1px solid ${c.color}` : '1px solid rgba(51,65,85,0.4)',
+                  background: active ? c.bg : 'rgba(15,23,42,0.4)',
+                  color: active ? c.color : '#64748b', cursor: 'pointer'
+                }}>
+                  <Icon size={12} /> {c.label} {count !== null && <span style={{ opacity: 0.6 }}>({count})</span>}
+                </button>
+              );
+            })}
+          </div>
+          <div style={{ display: 'flex', gap: 6 }}>
+            <button onClick={() => setSortOrder('date')} style={{
+              padding: '7px 12px', borderRadius: 10, fontSize: 11, fontWeight: 700,
+              border: sortOrder === 'date' ? '1px solid #3b82f6' : '1px solid rgba(51,65,85,0.4)',
+              background: sortOrder === 'date' ? 'rgba(59,130,246,0.1)' : 'rgba(15,23,42,0.4)',
+              color: sortOrder === 'date' ? '#3b82f6' : '#64748b', cursor: 'pointer'
+            }}><Calendar size={11} style={{ marginRight: 3, verticalAlign: -1 }} /> Data</button>
+            <button onClick={() => setSortOrder('score')} style={{
+              padding: '7px 12px', borderRadius: 10, fontSize: 11, fontWeight: 700,
+              border: sortOrder === 'score' ? '1px solid #ef4444' : '1px solid rgba(51,65,85,0.4)',
+              background: sortOrder === 'score' ? 'rgba(239,68,68,0.1)' : 'rgba(15,23,42,0.4)',
+              color: sortOrder === 'score' ? '#ef4444' : '#64748b', cursor: 'pointer'
+            }}><TrendingDown size={11} style={{ marginRight: 3, verticalAlign: -1 }} /> Toxicidade</button>
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 24 }}>
+          {filteredNews.map(item => (
+            <NewsCard key={item.id} item={item} expanded={!!expandedCards[item.id]} onToggle={() => setExpandedCards(prev => ({ ...prev, [item.id]: !prev[item.id] }))} />
+          ))}
+          {filteredNews.length === 0 && (
+            <div style={{ padding: 40, textAlign: 'center', background: 'rgba(15,23,42,0.4)', borderRadius: 16, border: '1px solid rgba(51,65,85,0.3)' }}>
+              <Eye size={24} style={{ color: '#334155', marginBottom: 8 }} />
+              <p style={{ color: '#475569', fontSize: 13 }}>Nenhuma menção para este filtro.</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default App;
