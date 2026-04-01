@@ -127,14 +127,29 @@ const computeMetrics = (data) => {
 };
 
 /* ═══════════════════════════════════════════════
-   STORAGE
+   STORAGE + AUTO-FETCH
+   O dashboard carrega dados automaticamente do
+   GitHub (atualizado pelo scraper 2x/dia).
+   Fallback: localStorage ou upload manual.
    ═══════════════════════════════════════════════ */
 
 const STORAGE_KEY = 'pmto-monitor-v2';
+const DATA_URL = 'https://raw.githubusercontent.com/salescampelo/monitor-pmto/main/data/mention_history.json';
+
 const storage = {
   get() { try { const r = localStorage.getItem(STORAGE_KEY); return r ? JSON.parse(r) : null; } catch { return null; } },
   set(v) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(v)); } catch {} },
   clear() { try { localStorage.removeItem(STORAGE_KEY); } catch {} }
+};
+
+const fetchRemoteData = async () => {
+  try {
+    const resp = await fetch(DATA_URL + '?t=' + Date.now());
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    if (Array.isArray(data) && data.length > 0) return data;
+    return null;
+  } catch { return null; }
 };
 
 /* ═══════════════════════════════════════════════
@@ -298,9 +313,27 @@ const App = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [lastUpdate, setLastUpdate] = useState(null);
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    const stored = storage.get();
-    if (stored) { setRawData(stored.data); setLastUpdate(stored.updatedAt); }
+    const load = async () => {
+      setLoading(true);
+      // 1. Tenta carregar do GitHub (fonte primária)
+      const remote = await fetchRemoteData();
+      if (remote) {
+        setRawData(remote);
+        const now = new Date().toLocaleString('pt-BR');
+        setLastUpdate(now + ' (auto)');
+        storage.set({ data: remote, updatedAt: now + ' (auto)' });
+        setLoading(false);
+        return;
+      }
+      // 2. Fallback: localStorage
+      const stored = storage.get();
+      if (stored) { setRawData(stored.data); setLastUpdate(stored.updatedAt); }
+      setLoading(false);
+    };
+    load();
   }, []);
 
   const articles = useMemo(() => {
@@ -360,6 +393,14 @@ const App = () => {
     base.forEach(n => { c[n.cluster] = (c[n.cluster] || 0) + 1; });
     return c;
   }, [articles, filterType, filterScope]);
+
+  if (loading) {
+    return (
+      <div style={{ minHeight: '100vh', background: '#060810', color: '#cbd5e1', fontFamily: "'SF Pro Display','Segoe UI',-apple-system,sans-serif", display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <p style={{ fontSize: 14, color: '#64748b' }}>Carregando dados do monitor...</p>
+      </div>
+    );
+  }
 
   if (!articles.length) {
     return (

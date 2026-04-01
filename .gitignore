@@ -3,10 +3,8 @@ dist/
 .env
 *.log
 *.py
-data/
 __pycache__/
 .DS_Store
 *.pyc
-mention_history.json
 seen_articles.json
 requirements.txt
