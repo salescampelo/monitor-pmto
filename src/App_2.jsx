@@ -348,12 +348,18 @@ const App = () => {
     return f;
   }, [articles, selectedCluster, sortOrder, filterType, filterScope]);
 
-  const metrics = useMemo(() => computeMetrics(articles), [articles]);
+  const totalMetrics = useMemo(() => computeMetrics(articles), [articles]);
+  const metrics = useMemo(() => computeMetrics(filteredNews), [filteredNews]);
   const clusterCounts = useMemo(() => {
+    const base = articles.filter(n => {
+      if (filterType !== 'all' && n.mentionType !== filterType) return false;
+      if (filterScope !== 'all' && n.scope !== filterScope) return false;
+      return true;
+    });
     const c = {};
-    articles.forEach(n => { c[n.cluster] = (c[n.cluster] || 0) + 1; });
+    base.forEach(n => { c[n.cluster] = (c[n.cluster] || 0) + 1; });
     return c;
-  }, [articles]);
+  }, [articles, filterType, filterScope]);
 
   if (!articles.length) {
     return (
@@ -404,12 +410,12 @@ const App = () => {
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
             <div style={{ textAlign: 'right' }}>
               <p style={{ fontSize: 9, color: '#475569', fontWeight: 700, textTransform: 'uppercase', margin: '0 0 2px 0' }}>Toxicidade</p>
-              <p style={{ fontSize: 22, fontWeight: 900, color: '#ef4444', margin: 0 }}>{metrics.toxicity}%</p>
+              <p style={{ fontSize: 22, fontWeight: 900, color: '#ef4444', margin: 0 }}>{totalMetrics.toxicity}%</p>
             </div>
             <div style={{ width: 1, height: 32, background: 'rgba(51,65,85,0.4)' }} />
             <div style={{ textAlign: 'right' }}>
               <p style={{ fontSize: 9, color: '#475569', fontWeight: 700, textTransform: 'uppercase', margin: '0 0 2px 0' }}>Menções</p>
-              <p style={{ fontSize: 22, fontWeight: 900, color: '#f59e0b', margin: 0 }}>{metrics.total}</p>
+              <p style={{ fontSize: 22, fontWeight: 900, color: '#f59e0b', margin: 0 }}>{totalMetrics.total}</p>
             </div>
             <FileInput><RefreshCw size={12} /> Atualizar</FileInput>
             <button onClick={handleClear} title="Limpar dados" style={{
@@ -498,9 +504,12 @@ const App = () => {
         </div>
 
         {/* ── CONTAGEM FILTRADA ── */}
-        <p style={{ fontSize: 11, color: '#475569', marginBottom: 12 }}>
-          {filteredNews.length} menção(ões) {filterType !== 'all' || filterScope !== 'all' || selectedCluster !== 'all' ? 'filtradas' : 'no total'}
-        </p>
+        <div style={{ fontSize: 11, color: '#475569', marginBottom: 12, display: 'flex', gap: 16, alignItems: 'center' }}>
+          <span>{filteredNews.length} menção(ões) {filterType !== 'all' || filterScope !== 'all' || selectedCluster !== 'all' ? 'filtradas' : 'no total'}</span>
+          {(filterType !== 'all' || filterScope !== 'all' || selectedCluster !== 'all') && (
+            <span style={{ color: '#ef4444' }}>Toxicidade do filtro: {metrics.toxicity}%</span>
+          )}
+        </div>
 
         {/* ── FEED ── */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
