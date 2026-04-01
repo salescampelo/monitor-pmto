@@ -3,574 +3,305 @@ import {
   ShieldAlert, TrendingDown, AlertTriangle, Eye, Calendar,
   ChevronDown, ChevronUp, Newspaper, Target, Radio, Clock,
   Hash, ArrowUpRight, BrainCircuit, Layers, Upload, RefreshCw,
-  Database, User, Building, Globe, MapPin, Bookmark, Trash2
+  Database, User, Building, Globe, MapPin, Bookmark, Trash2,
+  BarChart3, TrendingUp, Heart, MessageCircle, Users
 } from 'lucide-react';
+import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
 
-/* ═══════════════════════════════════════════════
-   CLASSIFICAÇÃO AUTOMÁTICA v2
-   Suporta: scope (TO/BR), menções eleitorais,
-   nome completo do Cel. Barbosa
-   ═══════════════════════════════════════════════ */
+const BASE = 'https://raw.githubusercontent.com/salescampelo/monitor-pmto/main/data';
+const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json` };
+const fetchJ = async u => { try { const r = await fetch(u+'?t='+Date.now()); return r.ok ? r.json() : null; } catch { return null; } };
 
-const CLUSTER_RULES = [
-  { id: 'Eleitoral', keywords: ['pré-candidat', 'pre-candidat', 'candidato', 'candidatura', 'deputado', 'eleição', 'eleições', 'eleitoral', 'desincompatibilização', 'pleito', 'campanha'] },
-  { id: 'Comando', keywords: ['comandante', 'comando', 'barbosa', 'márcio', 'marcio', 'cel.', 'coronel', 'mendonça', 'mendonca', 'passagem de comando', 'exoneração', 'nomeação'] },
-  { id: 'Letalidade', keywords: ['letalidade', 'intervenção policial', 'morte', 'morto', 'óbito', 'confronto', 'tiroteio', 'baleado', 'homicídio', 'resistência'] },
-  { id: 'Operações', keywords: ['operação', 'apreensão', 'prisão', 'preso', 'mandado', 'flagrante', 'tráfico', 'droga', 'arma', 'fuzil', 'canguçu'] },
-  { id: 'Gestão', keywords: ['promoção', 'formação', 'curso', 'concurso', 'efetivo', 'déficit', 'irregularidade', 'denúncia', 'mpe', 'tce', 'anuário'] },
-  { id: 'Imprensa', keywords: ['imprensa', 'blog', 'jornalista', 'gabinete do ódio', 'censura', 'nota oficial', 'comunicação'] },
+/* ── NEWS CLASSIFICATION ── */
+const CL_RULES = [
+  { id:'Eleitoral', kw:['pré-candidat','pre-candidat','candidato','candidatura','deputado','eleição','eleições','eleitoral','desincompatibilização','pleito','campanha'] },
+  { id:'Comando', kw:['comandante','comando','barbosa','márcio','marcio','cel.','coronel','mendonça','mendonca','passagem de comando','exoneração','nomeação'] },
+  { id:'Letalidade', kw:['letalidade','intervenção policial','morte','morto','óbito','confronto','tiroteio','baleado','homicídio','resistência'] },
+  { id:'Operações', kw:['operação','apreensão','prisão','preso','mandado','flagrante','tráfico','droga','arma','fuzil'] },
+  { id:'Gestão', kw:['promoção','formação','curso','concurso','efetivo','déficit','irregularidade','denúncia','mpe','tce','anuário'] },
+  { id:'Imprensa', kw:['imprensa','blog','jornalista','gabinete do ódio','censura','nota oficial'] },
 ];
+const NW=['morte','morto','denúncia','irregularidade','ilegal','ódio','censura','destruí','ferido','violência','abuso','crise','homicídio','tiroteio','baleado'];
+const PW=['homenage','conquista','reconhec','entrega','inaugur','capacita','formatur','solidariedade','integração','mediação','redução','queda','valorização'];
 
-const NEG_WORDS = ['morte','morto','denúncia','irregularidade','ilegal','ódio','censura','destruí','ferido','violência','abuso','crise','exoner','homicídio','tiroteio','baleado'];
-const POS_WORDS = ['homenage','conquista','reconhec','entrega','inaugur','capacita','formatur','solidariedade','integração','mediação','redução','queda','preservação','valorização'];
-
-const classifyArticle = (article) => {
-  const text = (article.title + ' ' + (article.snippet || '') + ' ' + (article.matched_terms || []).join(' ')).toLowerCase();
-
-  let cluster = 'Geral';
-  for (const rule of CLUSTER_RULES) {
-    if (rule.keywords.some(kw => text.includes(kw))) { cluster = rule.id; break; }
-  }
-
-  const negCount = NEG_WORDS.filter(w => text.includes(w)).length;
-  const posCount = POS_WORDS.filter(w => text.includes(w)).length;
-  let score = Math.max(0.05, Math.min(0.95, 0.5 + (posCount * 0.12) - (negCount * 0.13)));
-
-  let sentiment = 'Neutro';
-  if (score <= 0.2) sentiment = 'Muito Negativo';
-  else if (score <= 0.4) sentiment = 'Negativo';
-  else if (score >= 0.7) sentiment = 'Positivo';
-
-  let impact = 'Médio';
-  if (article.mention_type === 'direta') impact = 'Alto';
-  else if (article.mention_type === 'eleitoral') impact = 'Alto';
-  else if (article.priority === 'alta' && negCount > 0) impact = 'Alto';
-  else if (article.scope === 'BR') impact = 'Alto';
-  else if (article.priority === 'complementar' && negCount === 0) impact = 'Baixo';
-
-  return {
-    id: article.hash_id || Math.random().toString(36).substr(2, 9),
-    date: article.detected_at ? article.detected_at.split(' ')[0] : new Date().toISOString().split('T')[0],
-    source: article.source_name || 'Desconhecido',
-    sourceType: article.source_type || 'Portal',
-    title: article.title,
-    sentiment,
-    score: Math.round(score * 100) / 100,
-    cluster,
-    impact,
-    keywords: article.matched_terms || [],
-    url: article.url,
-    mentionType: article.mention_type || 'institucional',
-    scope: article.scope || 'TO',
-    analysisNote: buildAnalysisNote(article, cluster, sentiment),
-  };
+const classify = a => {
+  const t=(a.title+' '+(a.snippet||'')+' '+(a.matched_terms||[]).join(' ')).toLowerCase();
+  let cl='Geral';
+  for(const r of CL_RULES){if(r.kw.some(k=>t.includes(k))){cl=r.id;break;}}
+  const ng=NW.filter(w=>t.includes(w)).length, ps=PW.filter(w=>t.includes(w)).length;
+  let sc=Math.max(0.05,Math.min(0.95,0.5+ps*0.12-ng*0.13));
+  let sn='Neutro';if(sc<=0.2)sn='Muito Negativo';else if(sc<=0.4)sn='Negativo';else if(sc>=0.7)sn='Positivo';
+  let imp='Médio';if(a.mention_type==='direta'||a.mention_type==='eleitoral')imp='Alto';else if(a.scope==='BR')imp='Alto';else if(a.priority==='complementar'&&ng===0)imp='Baixo';
+  return{id:a.hash_id||Math.random().toString(36).substr(2,9),date:a.detected_at?a.detected_at.split(' ')[0]:'',source:a.source_name||'?',title:a.title,sentiment:sn,score:Math.round(sc*100)/100,cluster:cl,impact:imp,keywords:a.matched_terms||[],url:a.url,mentionType:a.mention_type||'institucional',scope:a.scope||'TO',analysisNote:`[${(a.scope||'TO')==='BR'?'NACIONAL':'LOCAL'}] ${a.mention_type||'institucional'} via ${a.source_name}. Termos: ${(a.matched_terms||[]).join(', ')}.`};
 };
 
-const buildAnalysisNote = (article, cluster, sentiment) => {
-  const scope = article.scope === 'BR' ? 'NACIONAL' : 'LOCAL (TO)';
-  const terms = (article.matched_terms || []).join(', ') || '—';
-  let note = `[${scope}] Menção ${article.mention_type || 'institucional'} detectada em ${article.source_name}. Termos: ${terms}.`;
-  if (article.scope === 'BR') note += ' Atenção: cobertura nacional amplia alcance e potencial de viralização.';
-  if (cluster === 'Eleitoral') note += ' Contexto eleitoral 2026: monitorar desdobramentos de candidatura.';
-  if (sentiment === 'Muito Negativo') note += ' Sentimento altamente negativo — avaliar necessidade de resposta.';
-  return note;
-};
+/* ── HELPERS ── */
+const CLUSTERS=[{id:'all',label:'Todas',icon:Layers,color:'#64748b'},{id:'Eleitoral',label:'Eleitoral',icon:Bookmark,color:'#6366f1'},{id:'Comando',label:'Comando',icon:User,color:'#8b5cf6'},{id:'Letalidade',label:'Letalidade',icon:AlertTriangle,color:'#ef4444'},{id:'Operações',label:'Operações',icon:Target,color:'#3b82f6'},{id:'Gestão',label:'Gestão',icon:Building,color:'#f59e0b'},{id:'Imprensa',label:'Imprensa',icon:Radio,color:'#ec4899'},{id:'Geral',label:'Geral',icon:Newspaper,color:'#64748b'}];
+const sC=s=>{if(s<=0.2)return{t:'#ef4444',b:'rgba(239,68,68,0.1)'};if(s<=0.4)return{t:'#f59e0b',b:'rgba(245,158,11,0.1)'};if(s<=0.6)return{t:'#64748b',b:'rgba(100,116,139,0.1)'};return{t:'#22c55e',b:'rgba(34,197,94,0.1)'};};
+const iC=i=>({Alto:'#ef4444',Médio:'#f59e0b',Baixo:'#22c55e'}[i]||'#f59e0b');
+const fmt=d=>{if(!d)return'—';const x=new Date(d+'T12:00:00');return x.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});};
+const metrics=data=>{if(!data.length)return{tox:'0.0',tot:0,dir:0,ins:0,ele:0,nac:0,loc:0,src:0};const a=data.reduce((s,n)=>s+n.score,0)/data.length;return{tox:((1-a)*100).toFixed(1),tot:data.length,dir:data.filter(n=>n.mentionType==='direta').length,ins:data.filter(n=>n.mentionType==='institucional').length,ele:data.filter(n=>n.mentionType==='eleitoral').length,nac:data.filter(n=>n.scope==='BR').length,loc:data.filter(n=>n.scope==='TO').length,src:[...new Set(data.map(n=>n.source))].length};};
+
+/* ── COMPONENTS ── */
+const Card=({children,style})=><div style={{background:'rgba(15,23,42,0.6)',border:'1px solid rgba(51,65,85,0.5)',borderRadius:16,padding:'14px 18px',...style}}>{children}</div>;
+const Met=({icon:I,label,value,sub,accent})=><Card style={{flex:1,minWidth:110}}><div style={{display:'flex',alignItems:'center',gap:5,marginBottom:8}}><I size={12} style={{color:accent}}/><span style={{fontSize:9,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.08em',color:'#64748b'}}>{label}</span></div><p style={{fontSize:24,fontWeight:800,color:accent,margin:0,lineHeight:1}}>{value}</p>{sub&&<p style={{fontSize:10,color:'#475569',marginTop:4}}>{sub}</p>}</Card>;
+const Bd=({children,color,bg})=><span style={{padding:'3px 8px',borderRadius:6,fontSize:9,fontWeight:700,background:bg||`${color}20`,color}}>{children}</span>;
+const Bt=({active,color,onClick,children})=><button onClick={onClick} style={{display:'flex',alignItems:'center',gap:4,padding:'6px 12px',borderRadius:10,fontSize:11,fontWeight:700,border:active?`1px solid ${color}`:'1px solid rgba(51,65,85,0.4)',background:active?`${color}15`:'rgba(15,23,42,0.4)',color:active?color:'#64748b',cursor:'pointer'}}>{children}</button>;
+
+/* ── NEWS CARD ── */
+const NC=({item,expanded,onToggle})=>{const sc=sC(item.score);const cl=CLUSTERS.find(c=>c.id===item.cluster);return(
+<div style={{background:'rgba(15,23,42,0.6)',border:'1px solid rgba(51,65,85,0.4)',borderRadius:16,borderLeft:`3px solid ${cl?.color||'#64748b'}`,padding:'16px 20px'}}>
+<div style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:6,marginBottom:8}}>
+<div style={{display:'flex',alignItems:'center',gap:6,flexWrap:'wrap'}}>
+<Bd color={item.mentionType==='direta'?'#ef4444':'#94a3b8'}>{item.mentionType==='direta'?'● DIRETA':'○ INSTITUCIONAL'}</Bd>
+<Bd color={item.scope==='BR'?'#818cf8':'#4ade80'}>{item.scope==='BR'?'NACIONAL':'TOCANTINS'}</Bd>
+<span style={{fontSize:11,color:'#475569'}}>{item.source} · {fmt(item.date)}</span>
+</div>
+<div style={{display:'flex',gap:4}}><Bd color={sc.t}>{item.sentiment}</Bd><Bd color={iC(item.impact)}>{item.impact}</Bd></div>
+</div>
+<h4 style={{fontSize:14,fontWeight:700,color:'#e2e8f0',margin:'0 0 6px',lineHeight:1.4}}>{item.title}</h4>
+{item.keywords.length>0&&<div style={{display:'flex',gap:4,flexWrap:'wrap',marginBottom:10}}>{item.keywords.slice(0,6).map(k=><span key={k} style={{fontSize:10,fontFamily:'monospace',color:'#475569'}}>#{k}</span>)}</div>}
+<div style={{borderTop:'1px solid rgba(51,65,85,0.3)',paddingTop:8,display:'flex',justifyContent:'space-between'}}>
+<button onClick={onToggle} style={{background:'none',border:'none',color:'#8b5cf6',fontSize:11,fontWeight:700,cursor:'pointer',display:'flex',alignItems:'center',gap:4}}><BrainCircuit size={12}/>{expanded?'Ocultar':'Análise'}{expanded?<ChevronUp size={12}/>:<ChevronDown size={12}/>}</button>
+<a href={item.url} target="_blank" rel="noopener noreferrer" style={{color:'#475569',fontSize:11,textDecoration:'none',fontWeight:600,display:'flex',alignItems:'center',gap:3}}>Fonte <ArrowUpRight size={11}/></a>
+</div>
+{expanded&&<div style={{marginTop:10,padding:12,background:'rgba(139,92,246,0.05)',border:'1px solid rgba(139,92,246,0.15)',borderRadius:10}}><p style={{fontSize:12,color:'#c4b5fd',lineHeight:1.6,margin:0}}>{item.analysisNote}</p></div>}
+</div>);};
 
 /* ═══════════════════════════════════════════════
-   CLUSTERS & HELPERS
+   SOCIAL MEDIA PANEL (M2)
    ═══════════════════════════════════════════════ */
+const DCOL={positivo:'#22c55e',negativo:'#ef4444',neutro:'#64748b'};
 
-const CLUSTERS = [
-  { id: 'all', label: 'Todas', icon: Layers, color: '#64748b', bg: 'rgba(100,116,139,0.1)' },
-  { id: 'Eleitoral', label: 'Eleitoral', icon: Bookmark, color: '#6366f1', bg: 'rgba(99,102,241,0.08)' },
-  { id: 'Comando', label: 'Comando', icon: User, color: '#8b5cf6', bg: 'rgba(139,92,246,0.08)' },
-  { id: 'Letalidade', label: 'Letalidade', icon: AlertTriangle, color: '#ef4444', bg: 'rgba(239,68,68,0.08)' },
-  { id: 'Operações', label: 'Operações', icon: Target, color: '#3b82f6', bg: 'rgba(59,130,246,0.08)' },
-  { id: 'Gestão', label: 'Gestão', icon: Building, color: '#f59e0b', bg: 'rgba(245,158,11,0.08)' },
-  { id: 'Imprensa', label: 'Imprensa', icon: Radio, color: '#ec4899', bg: 'rgba(236,72,153,0.08)' },
-  { id: 'Geral', label: 'Geral', icon: Newspaper, color: '#64748b', bg: 'rgba(100,116,139,0.08)' },
-];
+const SocialPanel=({socialData,sentimentData})=>{
+  const profiles=useMemo(()=>{
+    if(!socialData||!Array.isArray(socialData))return[];
+    return socialData.filter(p=>p.seguidores>0).sort((a,b)=>b.seguidores-a.seguidores);
+  },[socialData]);
+  const cand=profiles.find(p=>p.username==='marciobarbosa_cel');
+  const rank=useMemo(()=>profiles.map((p,i)=>({...p,rank:i+1})),[profiles]);
+  const candRank=rank.findIndex(p=>p.username==='marciobarbosa_cel')+1;
+  const donut=useMemo(()=>{
+    if(!sentimentData?.sentiment)return[];
+    const s=sentimentData.sentiment;
+    return[{name:'Positivo',value:s.positivo||0,color:DCOL.positivo},{name:'Negativo',value:s.negativo||0,color:DCOL.negativo},{name:'Neutro',value:s.neutro||0,color:DCOL.neutro}].filter(d=>d.value>0);
+  },[sentimentData]);
+  const engChart=useMemo(()=>profiles.slice(0,10).map(p=>({
+    name:'@'+p.username.substring(0,15),eng:p.taxa_engajamento_pct,
+    fill:p.username==='marciobarbosa_cel'?'#8b5cf6':'#334155',
+  })),[profiles]);
 
-const getSentimentColor = (score) => {
-  if (score <= 0.2) return { text: '#ef4444', bg: 'rgba(239,68,68,0.1)', border: 'rgba(239,68,68,0.25)' };
-  if (score <= 0.4) return { text: '#f59e0b', bg: 'rgba(245,158,11,0.1)', border: 'rgba(245,158,11,0.25)' };
-  if (score <= 0.6) return { text: '#64748b', bg: 'rgba(100,116,139,0.1)', border: 'rgba(100,116,139,0.25)' };
-  return { text: '#22c55e', bg: 'rgba(34,197,94,0.1)', border: 'rgba(34,197,94,0.25)' };
-};
-
-const getImpactBadge = (impact) => ({
-  'Alto': { color: '#ef4444', bg: 'rgba(239,68,68,0.1)' },
-  'Médio': { color: '#f59e0b', bg: 'rgba(245,158,11,0.1)' },
-  'Baixo': { color: '#22c55e', bg: 'rgba(34,197,94,0.1)' }
-}[impact] || { color: '#f59e0b', bg: 'rgba(245,158,11,0.1)' });
-
-const formatDate = (dateStr) => {
-  if (!dateStr) return '—';
-  const d = new Date(dateStr + 'T12:00:00');
-  return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
-};
-
-const computeMetrics = (data) => {
-  if (!data.length) return { toxicity: '0.0', highImpact: 0, sources: 0, total: 0, diretas: 0, institucionais: 0, eleitorais: 0, nacionais: 0, locais: 0 };
-  const avgScore = data.reduce((s, n) => s + n.score, 0) / data.length;
-  return {
-    toxicity: ((1 - avgScore) * 100).toFixed(1),
-    highImpact: data.filter(n => n.impact === 'Alto').length,
-    sources: [...new Set(data.map(n => n.source))].length,
-    total: data.length,
-    diretas: data.filter(n => n.mentionType === 'direta').length,
-    institucionais: data.filter(n => n.mentionType === 'institucional').length,
-    eleitorais: data.filter(n => n.mentionType === 'eleitoral').length,
-    nacionais: data.filter(n => n.scope === 'BR').length,
-    locais: data.filter(n => n.scope === 'TO').length,
-  };
-};
-
-/* ═══════════════════════════════════════════════
-   STORAGE + AUTO-FETCH
-   O dashboard carrega dados automaticamente do
-   GitHub (atualizado pelo scraper 2x/dia).
-   Fallback: localStorage ou upload manual.
-   ═══════════════════════════════════════════════ */
-
-const STORAGE_KEY = 'pmto-monitor-v2';
-const DATA_URL = 'https://raw.githubusercontent.com/salescampelo/monitor-pmto/main/data/mention_history.json';
-
-const storage = {
-  get() { try { const r = localStorage.getItem(STORAGE_KEY); return r ? JSON.parse(r) : null; } catch { return null; } },
-  set(v) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(v)); } catch {} },
-  clear() { try { localStorage.removeItem(STORAGE_KEY); } catch {} }
-};
-
-const fetchRemoteData = async () => {
-  try {
-    const resp = await fetch(DATA_URL + '?t=' + Date.now());
-    if (!resp.ok) return null;
-    const data = await resp.json();
-    if (Array.isArray(data) && data.length > 0) return data;
-    return null;
-  } catch { return null; }
-};
-
-/* ═══════════════════════════════════════════════
-   COMPONENTES
-   ═══════════════════════════════════════════════ */
-
-const MetricCard = ({ icon: Icon, label, value, sub, accent }) => (
-  <div style={{
-    background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(51,65,85,0.5)',
-    borderRadius: 16, padding: '14px 18px', flex: 1, minWidth: 110
-  }}>
-    <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginBottom: 8 }}>
-      <Icon size={12} style={{ color: accent || '#64748b' }} />
-      <span style={{ fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b' }}>{label}</span>
-    </div>
-    <p style={{ fontSize: 24, fontWeight: 800, color: accent || '#e2e8f0', margin: 0, lineHeight: 1 }}>{value}</p>
-    {sub && <p style={{ fontSize: 10, color: '#475569', marginTop: 4 }}>{sub}</p>}
-  </div>
-);
-
-const ScopeBadge = ({ scope }) => (
-  <span style={{
-    padding: '2px 7px', borderRadius: 4, fontSize: 9, fontWeight: 800,
-    background: scope === 'BR' ? 'rgba(99,102,241,0.15)' : 'rgba(34,197,94,0.1)',
-    color: scope === 'BR' ? '#818cf8' : '#4ade80',
-    textTransform: 'uppercase', letterSpacing: '0.05em',
-    display: 'inline-flex', alignItems: 'center', gap: 3
-  }}>
-    {scope === 'BR' ? <Globe size={9} /> : <MapPin size={9} />}
-    {scope === 'BR' ? 'Nacional' : 'Tocantins'}
-  </span>
-);
-
-const MentionTypeBadge = ({ type }) => {
-  const styles = {
-    direta: { bg: 'rgba(239,68,68,0.15)', color: '#ef4444', label: '● Direta' },
-    institucional: { bg: 'rgba(30,41,59,0.8)', color: '#94a3b8', label: '○ Institucional' },
-    eleitoral: { bg: 'rgba(99,102,241,0.15)', color: '#818cf8', label: '◆ Eleitoral' },
-  };
-  const s = styles[type] || styles.institucional;
-  return (
-    <span style={{
-      padding: '3px 8px', borderRadius: 6, fontSize: 10, fontWeight: 700,
-      background: s.bg, color: s.color, textTransform: 'uppercase'
-    }}>{s.label}</span>
-  );
-};
-
-const NewsCard = ({ item, expanded, onToggle }) => {
-  const sentColor = getSentimentColor(item.score);
-  const impactStyle = getImpactBadge(item.impact);
-  const cluster = CLUSTERS.find(c => c.id === item.cluster);
-
-  return (
-    <div style={{
-      background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(51,65,85,0.4)',
-      borderRadius: 16, overflow: 'hidden', borderLeft: `3px solid ${cluster?.color || '#64748b'}`
-    }}>
-      <div style={{ padding: '16px 20px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10, flexWrap: 'wrap', gap: 6 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
-            <MentionTypeBadge type={item.mentionType} />
-            <ScopeBadge scope={item.scope} />
-            <span style={{ fontSize: 11, color: '#475569', fontWeight: 600 }}>{item.source}</span>
-            <span style={{ fontSize: 11, color: '#334155' }}>•</span>
-            <span style={{ fontSize: 11, color: '#475569', display: 'flex', alignItems: 'center', gap: 3 }}>
-              <Clock size={10} /> {formatDate(item.date)}
-            </span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-            <span style={{
-              padding: '3px 7px', borderRadius: 6, fontSize: 9, fontWeight: 700,
-              background: sentColor.bg, color: sentColor.text, border: `1px solid ${sentColor.border}`
-            }}>{item.sentiment}</span>
-            <span style={{
-              padding: '3px 7px', borderRadius: 6, fontSize: 9, fontWeight: 700,
-              background: impactStyle.bg, color: impactStyle.color
-            }}>{item.impact}</span>
-          </div>
-        </div>
-
-        <h4 style={{ fontSize: 15, fontWeight: 700, color: '#e2e8f0', margin: '0 0 8px 0', lineHeight: 1.4 }}>{item.title}</h4>
-
-        {item.keywords.length > 0 && (
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginBottom: 12 }}>
-            {item.keywords.slice(0, 8).map(kw => (
-              <span key={kw} style={{ fontSize: 10, fontFamily: 'monospace', color: '#475569', display: 'flex', alignItems: 'center', gap: 2 }}>
-                <Hash size={8} />{kw}
-              </span>
-            ))}
-          </div>
-        )}
-
-        <div style={{ borderTop: '1px solid rgba(51,65,85,0.3)', paddingTop: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
-          <button onClick={onToggle} style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', color: '#8b5cf6', fontSize: 11, fontWeight: 700, cursor: 'pointer', padding: 0 }}>
-            <BrainCircuit size={12} /> {expanded ? 'Ocultar' : 'Análise'}
-            {expanded ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
-          </button>
-          <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 3, color: '#475569', fontSize: 11, textDecoration: 'none', fontWeight: 600 }}>
-            Fonte <ArrowUpRight size={11} />
-          </a>
-        </div>
-
-        {expanded && (
-          <div style={{ marginTop: 10, padding: 12, background: 'rgba(139,92,246,0.05)', border: '1px solid rgba(139,92,246,0.15)', borderRadius: 10 }}>
-            <p style={{ fontSize: 10, color: '#a78bfa', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 5 }}>Nota de inteligência</p>
-            <p style={{ fontSize: 12, color: '#c4b5fd', lineHeight: 1.6, margin: 0 }}>{item.analysisNote}</p>
-          </div>
-        )}
+  if(!profiles.length)return null;
+  return(
+  <div style={{marginTop:32}}>
+    <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:18}}>
+      <div style={{background:'rgba(139,92,246,0.1)',border:'1px solid rgba(139,92,246,0.2)',borderRadius:12,padding:10}}>
+        <Users size={22} style={{color:'#8b5cf6'}}/>
+      </div>
+      <div>
+        <h2 style={{fontSize:18,fontWeight:800,color:'#f1f5f9',margin:0}}>Monitor de redes sociais</h2>
+        <p style={{fontSize:10,color:'#475569',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>{profiles.length} perfis · Instagram · {sentimentData?.data_coleta||profiles[0]?.data_coleta||''}</p>
       </div>
     </div>
-  );
+
+    {cand&&<Card style={{marginBottom:14,borderLeft:'3px solid #8b5cf6'}}>
+      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:12}}>
+        <div>
+          <p style={{fontSize:10,color:'#8b5cf6',fontWeight:700,textTransform:'uppercase',margin:'0 0 4px'}}>Cel. Barbosa @{cand.username}</p>
+          <div style={{display:'flex',gap:24,flexWrap:'wrap'}}>
+            <div><p style={{fontSize:22,fontWeight:800,color:'#f1f5f9',margin:0}}>{cand.seguidores.toLocaleString('pt-BR')}</p><p style={{fontSize:10,color:'#475569',margin:0}}>seguidores</p></div>
+            <div><p style={{fontSize:22,fontWeight:800,color:'#8b5cf6',margin:0}}>{cand.taxa_engajamento_pct}%</p><p style={{fontSize:10,color:'#475569',margin:0}}>engajamento</p></div>
+            <div><p style={{fontSize:22,fontWeight:800,color:'#f59e0b',margin:0}}>{cand.media_likes_recentes}</p><p style={{fontSize:10,color:'#475569',margin:0}}>likes/post</p></div>
+            <div><p style={{fontSize:22,fontWeight:800,color:'#22c55e',margin:0}}>#{candRank}</p><p style={{fontSize:10,color:'#475569',margin:0}}>no ranking</p></div>
+          </div>
+        </div>
+      </div>
+    </Card>}
+
+    <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,1.5fr) minmax(0,1.5fr)',gap:12,marginBottom:14}}>
+      {/* Donut sentimento */}
+      <Card>
+        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#64748b',marginBottom:8}}>Sentimento dos comentários</p>
+        {donut.length>0?(
+          <>
+          <ResponsiveContainer width="100%" height={160}>
+            <PieChart><Pie data={donut} cx="50%" cy="50%" innerRadius={40} outerRadius={65} dataKey="value" stroke="none">{donut.map((d,i)=><Cell key={i} fill={d.color}/>)}</Pie></PieChart>
+          </ResponsiveContainer>
+          <div style={{display:'flex',justifyContent:'center',gap:12,marginTop:4}}>
+            {donut.map(d=><div key={d.name} style={{display:'flex',alignItems:'center',gap:4}}><div style={{width:8,height:8,borderRadius:2,background:d.color}}/><span style={{fontSize:10,color:'#94a3b8'}}>{d.name} {d.value}</span></div>)}
+          </div>
+          </>
+        ):(
+          <div style={{height:160,display:'flex',alignItems:'center',justifyContent:'center'}}>
+            <p style={{fontSize:11,color:'#475569',textAlign:'center',lineHeight:1.6}}>Execute<br/><code style={{fontSize:10,background:'rgba(139,92,246,0.1)',padding:'2px 6px',borderRadius:4,color:'#a78bfa'}}>python instagram_monitor.py</code><br/>para gerar dados de sentimento</p>
+          </div>
+        )}
+      </Card>
+
+      {/* Ranking seguidores */}
+      <Card>
+        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#64748b',marginBottom:8}}>Ranking de seguidores</p>
+        <div style={{maxHeight:210,overflowY:'auto'}}>
+          {rank.map(p=><div key={p.username} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'5px 4px',borderBottom:'1px solid rgba(51,65,85,0.2)',background:p.username==='marciobarbosa_cel'?'rgba(139,92,246,0.08)':'transparent',borderRadius:p.username==='marciobarbosa_cel'?6:0}}>
+            <div style={{display:'flex',alignItems:'center',gap:8}}>
+              <span style={{fontSize:10,fontWeight:700,color:'#475569',width:20}}>#{p.rank}</span>
+              <span style={{fontSize:11,color:p.username==='marciobarbosa_cel'?'#a78bfa':'#cbd5e1',fontWeight:p.username==='marciobarbosa_cel'?700:400}}>@{p.username}</span>
+            </div>
+            <span style={{fontSize:11,fontWeight:600,color:'#94a3b8',fontVariantNumeric:'tabular-nums'}}>{p.seguidores.toLocaleString('pt-BR')}</span>
+          </div>)}
+        </div>
+      </Card>
+
+      {/* Engajamento bar */}
+      <Card>
+        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#64748b',marginBottom:8}}>Taxa de engajamento (%)</p>
+        <ResponsiveContainer width="100%" height={210}>
+          <BarChart data={engChart} layout="vertical" margin={{left:0,right:8}}>
+            <XAxis type="number" tick={{fontSize:10,fill:'#475569'}} axisLine={false} tickLine={false}/>
+            <YAxis type="category" dataKey="name" tick={{fontSize:9,fill:'#64748b'}} width={105} axisLine={false} tickLine={false}/>
+            <Tooltip contentStyle={{background:'#1e293b',border:'1px solid #334155',borderRadius:8,fontSize:11}} formatter={v=>[`${v}%`,'Engajamento']}/>
+            <Bar dataKey="eng" radius={[0,4,4,0]}>{engChart.map((d,i)=><Cell key={i} fill={d.fill}/>)}</Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </Card>
+    </div>
+
+    {/* Insights */}
+    <Card style={{borderLeft:'3px solid #22c55e'}}>
+      <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#22c55e',marginBottom:6}}>Insights para a campanha</p>
+      <div style={{fontSize:12,color:'#94a3b8',lineHeight:1.7}}>
+        {cand&&<p style={{margin:'0 0 4px'}}>Cel. Barbosa: #{candRank} em seguidores ({cand.seguidores.toLocaleString('pt-BR')}) com engajamento de {cand.taxa_engajamento_pct}% — {cand.taxa_engajamento_pct>1.5?'acima da média de políticos brasileiros (~1%)':'dentro da média'}.</p>}
+        {cand&&<p style={{margin:'0 0 4px'}}>Média de {cand.media_likes_recentes} likes/post. Investir em Reels e vídeos curtos tende a amplificar o alcance orgânico em 3-5x no Instagram.</p>}
+        {sentimentData?.sentiment?.total>0&&<p style={{margin:0}}>Análise de {sentimentData.sentiment.total} comentários: {sentimentData.sentiment.pct_positivo}% positivos, {sentimentData.sentiment.pct_negativo}% negativos. {sentimentData.sentiment.pct_positivo>50?'Percepção pública favorável — explorar UGC e depoimentos.':'Monitorar narrativas negativas e preparar contra-narrativas.'}</p>}
+        {!sentimentData?.sentiment?.total&&<p style={{margin:0}}>Execute o scraper de comentários para gerar a análise de sentimento do público nas redes.</p>}
+      </div>
+    </Card>
+  </div>);
 };
 
-const UploadScreen = ({ onLoad, isDragging }) => (
-  <div style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 40 }}>
-    <div style={{
-      textAlign: 'center', maxWidth: 500, padding: 48,
-      background: isDragging ? 'rgba(139,92,246,0.08)' : 'rgba(15,23,42,0.5)',
-      border: isDragging ? '2px dashed #8b5cf6' : '2px dashed rgba(51,65,85,0.4)',
-      borderRadius: 24, transition: 'all 0.3s ease'
-    }}>
-      <div style={{ background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.2)', borderRadius: 16, padding: 16, display: 'inline-flex', marginBottom: 24 }}>
-        <Upload size={32} style={{ color: '#8b5cf6' }} />
-      </div>
-      <h2 style={{ fontSize: 22, fontWeight: 800, color: '#f1f5f9', margin: '0 0 8px 0' }}>Monitor de Menções v2</h2>
-      <p style={{ fontSize: 14, color: '#94a3b8', margin: '0 0 6px 0', fontWeight: 600 }}>Cel. Márcio Antônio Barbosa de Mendonça</p>
-      <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.7, margin: '0 0 28px 0' }}>
-        Arraste o <strong style={{ color: '#a78bfa' }}>mention_history.json</strong> para cá ou clique abaixo.
-      </p>
-      <label style={{
-        display: 'inline-flex', alignItems: 'center', gap: 8,
-        padding: '12px 28px', background: '#8b5cf6', color: '#fff',
-        borderRadius: 12, fontSize: 13, fontWeight: 700, cursor: 'pointer', border: 'none'
-      }}>
-        <Database size={16} /> Selecionar arquivo
-        <input type="file" accept=".json" style={{ display: 'none' }} onChange={(e) => {
-          const file = e.target.files[0];
-          if (!file) return;
-          const reader = new FileReader();
-          reader.onload = (ev) => { try { onLoad(JSON.parse(ev.target.result)); } catch { alert('JSON inválido.'); } };
-          reader.readAsText(file);
-        }} />
-      </label>
-      <p style={{ fontSize: 11, color: '#334155', marginTop: 20 }}>32 fontes · Tocantins + Brasil · Desde agosto 2022</p>
-    </div>
-  </div>
-);
-
 /* ═══════════════════════════════════════════════
-   APP PRINCIPAL
+   MAIN APP
    ═══════════════════════════════════════════════ */
+const App=()=>{
+  const[newsRaw,setNewsRaw]=useState(null);
+  const[socialData,setSocialData]=useState(null);
+  const[sentimentData,setSentimentData]=useState(null);
+  const[selectedCluster,setSelectedCluster]=useState('all');
+  const[expandedCards,setExpandedCards]=useState({});
+  const[sortOrder,setSortOrder]=useState('date');
+  const[filterType,setFilterType]=useState('all');
+  const[filterScope,setFilterScope]=useState('all');
+  const[lastUpdate,setLastUpdate]=useState(null);
+  const[loading,setLoading]=useState(true);
+  const[refreshing,setRefreshing]=useState(false);
 
-const App = () => {
-  const [rawData, setRawData] = useState(null);
-  const [selectedCluster, setSelectedCluster] = useState('all');
-  const [expandedCards, setExpandedCards] = useState({});
-  const [sortOrder, setSortOrder] = useState('date');
-  const [filterType, setFilterType] = useState('all');
-  const [filterScope, setFilterScope] = useState('all');
-  const [isDragging, setIsDragging] = useState(false);
-  const [lastUpdate, setLastUpdate] = useState(null);
+  useEffect(()=>{(async()=>{
+    setLoading(true);
+    const[m,s,st]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment)]);
+    if(m)setNewsRaw(m);if(s)setSocialData(s);if(st)setSentimentData(st);
+    setLastUpdate(new Date().toLocaleString('pt-BR')+' (auto)');
+    setLoading(false);
+  })();},[]);
 
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const load = async () => {
-      setLoading(true);
-      // 1. Tenta carregar do GitHub (fonte primária)
-      const remote = await fetchRemoteData();
-      if (remote) {
-        setRawData(remote);
-        const now = new Date().toLocaleString('pt-BR');
-        setLastUpdate(now + ' (auto)');
-        storage.set({ data: remote, updatedAt: now + ' (auto)' });
-        setLoading(false);
-        return;
-      }
-      // 2. Fallback: localStorage
-      const stored = storage.get();
-      if (stored) { setRawData(stored.data); setLastUpdate(stored.updatedAt); }
-      setLoading(false);
-    };
-    load();
-  }, []);
-
-  const articles = useMemo(() => {
-    if (!rawData || !Array.isArray(rawData)) return [];
-    return rawData.map(classifyArticle);
-  }, [rawData]);
-
-  const handleLoad = useCallback((data) => {
-    setRawData(data);
-    const now = new Date().toLocaleString('pt-BR');
-    setLastUpdate(now);
-    storage.set({ data, updatedAt: now });
-  }, []);
-
-  const handleClear = useCallback(() => {
-    setRawData(null);
-    setLastUpdate(null);
-    storage.clear();
-  }, []);
-
-  const [refreshing, setRefreshing] = useState(false);
-  const handleRefresh = useCallback(async () => {
+  const handleRefresh=useCallback(async()=>{
     setRefreshing(true);
-    const remote = await fetchRemoteData();
-    if (remote) {
-      setRawData(remote);
-      const now = new Date().toLocaleString('pt-BR');
-      setLastUpdate(now + ' (auto)');
-      storage.set({ data: remote, updatedAt: now + ' (auto)' });
-    }
+    const[m,s,st]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment)]);
+    if(m)setNewsRaw(m);if(s)setSocialData(s);if(st)setSentimentData(st);
+    setLastUpdate(new Date().toLocaleString('pt-BR')+' (auto)');
     setRefreshing(false);
-  }, []);
+  },[]);
 
-  useEffect(() => {
-    const over = (e) => { e.preventDefault(); setIsDragging(true); };
-    const leave = () => setIsDragging(false);
-    const drop = (e) => {
-      e.preventDefault(); setIsDragging(false);
-      const file = e.dataTransfer.files[0];
-      if (!file || !file.name.endsWith('.json')) return;
-      const reader = new FileReader();
-      reader.onload = (ev) => { try { handleLoad(JSON.parse(ev.target.result)); } catch { alert('JSON inválido.'); } };
-      reader.readAsText(file);
-    };
-    window.addEventListener('dragover', over);
-    window.addEventListener('dragleave', leave);
-    window.addEventListener('drop', drop);
-    return () => { window.removeEventListener('dragover', over); window.removeEventListener('dragleave', leave); window.removeEventListener('drop', drop); };
-  }, [handleLoad]);
+  useEffect(()=>{
+    const drop=e=>{e.preventDefault();const f=e.dataTransfer?.files[0];if(!f?.name.endsWith('.json'))return;const r=new FileReader();r.onload=ev=>{try{const d=JSON.parse(ev.target.result);if(Array.isArray(d)&&d[0]?.username)setSocialData(d);else if(Array.isArray(d)&&d[0]?.title)setNewsRaw(d);else if(d?.sentiment)setSentimentData(d);}catch{}};r.readAsText(f);};
+    const over=e=>e.preventDefault();
+    window.addEventListener('drop',drop);window.addEventListener('dragover',over);
+    return()=>{window.removeEventListener('drop',drop);window.removeEventListener('dragover',over);};
+  },[]);
 
-  const filteredNews = useMemo(() => {
-    let f = articles;
-    if (filterType !== 'all') f = f.filter(n => n.mentionType === filterType);
-    if (filterScope !== 'all') f = f.filter(n => n.scope === filterScope);
-    if (selectedCluster !== 'all') f = f.filter(n => n.cluster === selectedCluster);
-    if (sortOrder === 'score') f = [...f].sort((a, b) => a.score - b.score);
-    else f = [...f].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-    return f;
-  }, [articles, selectedCluster, sortOrder, filterType, filterScope]);
+  const articles=useMemo(()=>newsRaw?.map(classify)||[],[newsRaw]);
+  const filteredNews=useMemo(()=>{
+    let f=articles;
+    if(filterType!=='all')f=f.filter(n=>n.mentionType===filterType);
+    if(filterScope!=='all')f=f.filter(n=>n.scope===filterScope);
+    if(selectedCluster!=='all')f=f.filter(n=>n.cluster===selectedCluster);
+    return sortOrder==='score'?[...f].sort((a,b)=>a.score-b.score):[...f].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  },[articles,selectedCluster,sortOrder,filterType,filterScope]);
 
-  const totalMetrics = useMemo(() => computeMetrics(articles), [articles]);
-  const metrics = useMemo(() => computeMetrics(filteredNews), [filteredNews]);
-  const clusterCounts = useMemo(() => {
-    const base = articles.filter(n => {
-      if (filterType !== 'all' && n.mentionType !== filterType) return false;
-      if (filterScope !== 'all' && n.scope !== filterScope) return false;
-      return true;
-    });
-    const c = {};
-    base.forEach(n => { c[n.cluster] = (c[n.cluster] || 0) + 1; });
-    return c;
-  }, [articles, filterType, filterScope]);
+  const totalM=useMemo(()=>metrics(articles),[articles]);
+  const filtM=useMemo(()=>metrics(filteredNews),[filteredNews]);
+  const clCounts=useMemo(()=>{
+    const base=articles.filter(n=>{if(filterType!=='all'&&n.mentionType!==filterType)return false;if(filterScope!=='all'&&n.scope!==filterScope)return false;return true;});
+    const c={};base.forEach(n=>{c[n.cluster]=(c[n.cluster]||0)+1;});return c;
+  },[articles,filterType,filterScope]);
 
-  if (loading) {
-    return (
-      <div style={{ minHeight: '100vh', background: '#060810', color: '#cbd5e1', fontFamily: "'SF Pro Display','Segoe UI',-apple-system,sans-serif", display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <p style={{ fontSize: 14, color: '#64748b' }}>Carregando dados do monitor...</p>
+  if(loading)return<div style={{minHeight:'100vh',background:'#060810',color:'#64748b',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:"'SF Pro Display','Segoe UI',sans-serif"}}><p>Carregando dados...</p></div>;
+
+  return(
+  <div style={{minHeight:'100vh',background:'#060810',color:'#cbd5e1',fontFamily:"'SF Pro Display','Segoe UI',-apple-system,sans-serif",padding:'20px 16px'}}>
+  <div style={{maxWidth:1200,margin:'0 auto'}}>
+
+    {/* HEADER */}
+    <header style={{background:'rgba(15,23,42,0.5)',border:'1px solid rgba(51,65,85,0.4)',borderRadius:20,padding:'22px 26px',marginBottom:18,display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:14}}>
+      <div style={{display:'flex',alignItems:'center',gap:12}}>
+        <div style={{background:'rgba(239,68,68,0.08)',border:'1px solid rgba(239,68,68,0.2)',borderRadius:14,padding:11}}><ShieldAlert size={24} style={{color:'#ef4444'}}/></div>
+        <div>
+          <h1 style={{fontSize:18,fontWeight:800,color:'#f1f5f9',margin:0}}>Monitor — Cel. Márcio A. Barbosa de Mendonça</h1>
+          <p style={{fontSize:10,color:'#475569',margin:'3px 0 0',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em'}}>32 fontes · TO + Brasil · {lastUpdate||''}</p>
+        </div>
       </div>
-    );
-  }
-
-  if (!articles.length) {
-    return (
-      <div style={{ minHeight: '100vh', background: '#060810', color: '#cbd5e1', fontFamily: "'SF Pro Display','Segoe UI',-apple-system,sans-serif" }}>
-        <UploadScreen onLoad={handleLoad} isDragging={isDragging} />
+      <div style={{display:'flex',gap:16,alignItems:'center'}}>
+        <div style={{textAlign:'right'}}><p style={{fontSize:9,color:'#475569',fontWeight:700,textTransform:'uppercase',margin:'0 0 2px'}}>Toxicidade</p><p style={{fontSize:22,fontWeight:900,color:'#ef4444',margin:0}}>{totalM.tox}%</p></div>
+        <div style={{width:1,height:32,background:'rgba(51,65,85,0.4)'}}/>
+        <div style={{textAlign:'right'}}><p style={{fontSize:9,color:'#475569',fontWeight:700,textTransform:'uppercase',margin:'0 0 2px'}}>Menções</p><p style={{fontSize:22,fontWeight:900,color:'#f59e0b',margin:0}}>{totalM.tot}</p></div>
+        <button onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:5,padding:'7px 12px',borderRadius:10,background:'rgba(139,92,246,0.1)',border:'1px solid rgba(139,92,246,0.25)',color:'#a78bfa',fontSize:11,fontWeight:700,cursor:refreshing?'wait':'pointer',opacity:refreshing?0.6:1}}>
+          <RefreshCw size={12} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{refreshing?'Atualizando...':'Atualizar'}
+        </button>
       </div>
-    );
-  }
+    </header>
 
-  return (
-    <div style={{ minHeight: '100vh', background: '#060810', color: '#cbd5e1', fontFamily: "'SF Pro Display','Segoe UI',-apple-system,sans-serif", padding: '20px 16px' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+    {/* METRICS */}
+    <div style={{display:'flex',gap:8,marginBottom:16,flexWrap:'wrap'}}>
+      <Met icon={User} label="Diretas" value={filtM.dir} sub="Cel. Barbosa" accent="#ef4444"/>
+      <Met icon={Bookmark} label="Eleitorais" value={filtM.ele} sub="2026" accent="#6366f1"/>
+      <Met icon={Building} label="PMTO" value={filtM.ins} accent="#f59e0b"/>
+      <Met icon={Globe} label="Nacional" value={filtM.nac} sub="BR" accent="#3b82f6"/>
+      <Met icon={MapPin} label="Local" value={filtM.loc} sub="TO" accent="#22c55e"/>
+      <Met icon={Newspaper} label="Fontes" value={filtM.src} accent="#64748b"/>
+    </div>
 
-        {/* ── HEADER ── */}
-        <header style={{
-          background: 'rgba(15,23,42,0.5)', border: '1px solid rgba(51,65,85,0.4)',
-          borderRadius: 20, padding: '22px 26px', marginBottom: 18,
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 14
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 14, padding: 11 }}>
-              <ShieldAlert size={24} style={{ color: '#ef4444' }} />
-            </div>
-            <div>
-              <h1 style={{ fontSize: 18, fontWeight: 800, color: '#f1f5f9', margin: 0 }}>Monitor — Cel. Márcio A. Barbosa de Mendonça</h1>
-              <p style={{ fontSize: 10, color: '#475569', margin: '3px 0 0 0', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                32 fontes · TO + Brasil · {lastUpdate ? `Atualizado: ${lastUpdate}` : 'Ago/2022 – presente'}
-              </p>
-            </div>
-          </div>
-          <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-            <div style={{ textAlign: 'right' }}>
-              <p style={{ fontSize: 9, color: '#475569', fontWeight: 700, textTransform: 'uppercase', margin: '0 0 2px 0' }}>Toxicidade</p>
-              <p style={{ fontSize: 22, fontWeight: 900, color: '#ef4444', margin: 0 }}>{totalMetrics.toxicity}%</p>
-            </div>
-            <div style={{ width: 1, height: 32, background: 'rgba(51,65,85,0.4)' }} />
-            <div style={{ textAlign: 'right' }}>
-              <p style={{ fontSize: 9, color: '#475569', fontWeight: 700, textTransform: 'uppercase', margin: '0 0 2px 0' }}>Menções</p>
-              <p style={{ fontSize: 22, fontWeight: 900, color: '#f59e0b', margin: 0 }}>{totalMetrics.total}</p>
-            </div>
-            <button onClick={handleRefresh} disabled={refreshing} style={{
-              display: 'flex', alignItems: 'center', gap: 5, padding: '7px 12px', borderRadius: 10,
-              background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.25)',
-              color: '#a78bfa', fontSize: 11, fontWeight: 700, cursor: refreshing ? 'wait' : 'pointer',
-              opacity: refreshing ? 0.6 : 1
-            }}>
-              <RefreshCw size={12} style={{ animation: refreshing ? 'spin 1s linear infinite' : 'none' }} />
-              {refreshing ? 'Atualizando...' : 'Atualizar'}
-            </button>
-            <button onClick={handleClear} title="Limpar dados" style={{
-              display: 'flex', alignItems: 'center', padding: 7, borderRadius: 8,
-              background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)',
-              color: '#ef4444', cursor: 'pointer'
-            }}><Trash2 size={13} /></button>
-          </div>
-        </header>
-
-        {/* ── METRICS ── */}
-        <div style={{ display: 'flex', gap: 8, marginBottom: 16, flexWrap: 'wrap' }}>
-          <MetricCard icon={User} label="Diretas" value={metrics.diretas} sub="Cel. Barbosa" accent="#ef4444" />
-          <MetricCard icon={Bookmark} label="Eleitorais" value={metrics.eleitorais} sub="2026" accent="#6366f1" />
-          <MetricCard icon={Building} label="PMTO" value={metrics.institucionais} accent="#f59e0b" />
-          <MetricCard icon={Globe} label="Nacional" value={metrics.nacionais} sub="BR" accent="#3b82f6" />
-          <MetricCard icon={MapPin} label="Local" value={metrics.locais} sub="TO" accent="#22c55e" />
-          <MetricCard icon={Newspaper} label="Fontes" value={metrics.sources} accent="#64748b" />
-        </div>
-
-        {/* ── FILTROS: TIPO + ESCOPO ── */}
-        <div style={{ display: 'flex', gap: 6, marginBottom: 10, flexWrap: 'wrap' }}>
-          {[
-            { id: 'all', label: 'Todas' },
-            { id: 'direta', label: '● Diretas' },
-            { id: 'eleitoral', label: '◆ Eleitorais' },
-            { id: 'institucional', label: '○ PMTO' },
-          ].map(t => (
-            <button key={t.id} onClick={() => setFilterType(t.id)} style={{
-              padding: '6px 12px', borderRadius: 10, fontSize: 11, fontWeight: 700,
-              border: filterType === t.id ? '1px solid #8b5cf6' : '1px solid rgba(51,65,85,0.4)',
-              background: filterType === t.id ? 'rgba(139,92,246,0.1)' : 'rgba(15,23,42,0.4)',
-              color: filterType === t.id ? '#8b5cf6' : '#64748b', cursor: 'pointer'
-            }}>{t.label}</button>
-          ))}
-          <div style={{ width: 1, height: 28, background: 'rgba(51,65,85,0.3)', margin: '0 4px' }} />
-          {[
-            { id: 'all', label: 'TO + BR', icon: Layers },
-            { id: 'TO', label: 'Tocantins', icon: MapPin },
-            { id: 'BR', label: 'Nacional', icon: Globe },
-          ].map(s => (
-            <button key={s.id} onClick={() => setFilterScope(s.id)} style={{
-              padding: '6px 12px', borderRadius: 10, fontSize: 11, fontWeight: 700,
-              display: 'flex', alignItems: 'center', gap: 4,
-              border: filterScope === s.id ? '1px solid #22c55e' : '1px solid rgba(51,65,85,0.4)',
-              background: filterScope === s.id ? 'rgba(34,197,94,0.08)' : 'rgba(15,23,42,0.4)',
-              color: filterScope === s.id ? '#4ade80' : '#64748b', cursor: 'pointer'
-            }}><s.icon size={11} /> {s.label}</button>
-          ))}
-        </div>
-
-        {/* ── CLUSTERS + SORT ── */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16, flexWrap: 'wrap', gap: 8 }}>
-          <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap' }}>
-            {CLUSTERS.map(c => {
-              const Icon = c.icon;
-              const active = selectedCluster === c.id;
-              const count = c.id === 'all' ? null : clusterCounts[c.id] || 0;
-              if (c.id !== 'all' && !count) return null;
-              return (
-                <button key={c.id} onClick={() => setSelectedCluster(c.id)} style={{
-                  display: 'flex', alignItems: 'center', gap: 4, padding: '6px 12px', borderRadius: 10, fontSize: 11, fontWeight: 700,
-                  border: active ? `1px solid ${c.color}` : '1px solid rgba(51,65,85,0.4)',
-                  background: active ? c.bg : 'rgba(15,23,42,0.4)',
-                  color: active ? c.color : '#64748b', cursor: 'pointer'
-                }}>
-                  <Icon size={11} /> {c.label} {count !== null && <span style={{ opacity: 0.5 }}>({count})</span>}
-                </button>
-              );
-            })}
-          </div>
-          <div style={{ display: 'flex', gap: 5 }}>
-            <button onClick={() => setSortOrder('date')} style={{
-              padding: '6px 11px', borderRadius: 10, fontSize: 11, fontWeight: 700,
-              border: sortOrder === 'date' ? '1px solid #3b82f6' : '1px solid rgba(51,65,85,0.4)',
-              background: sortOrder === 'date' ? 'rgba(59,130,246,0.1)' : 'rgba(15,23,42,0.4)',
-              color: sortOrder === 'date' ? '#3b82f6' : '#64748b', cursor: 'pointer'
-            }}><Calendar size={10} style={{ marginRight: 3, verticalAlign: -1 }} /> Data</button>
-            <button onClick={() => setSortOrder('score')} style={{
-              padding: '6px 11px', borderRadius: 10, fontSize: 11, fontWeight: 700,
-              border: sortOrder === 'score' ? '1px solid #ef4444' : '1px solid rgba(51,65,85,0.4)',
-              background: sortOrder === 'score' ? 'rgba(239,68,68,0.1)' : 'rgba(15,23,42,0.4)',
-              color: sortOrder === 'score' ? '#ef4444' : '#64748b', cursor: 'pointer'
-            }}><TrendingDown size={10} style={{ marginRight: 3, verticalAlign: -1 }} /> Toxicidade</button>
-          </div>
-        </div>
-
-        {/* ── CONTAGEM FILTRADA ── */}
-        <div style={{ fontSize: 11, color: '#475569', marginBottom: 12, display: 'flex', gap: 16, alignItems: 'center' }}>
-          <span>{filteredNews.length} menção(ões) {filterType !== 'all' || filterScope !== 'all' || selectedCluster !== 'all' ? 'filtradas' : 'no total'}</span>
-          {(filterType !== 'all' || filterScope !== 'all' || selectedCluster !== 'all') && (
-            <span style={{ color: '#ef4444' }}>Toxicidade do filtro: {metrics.toxicity}%</span>
-          )}
-        </div>
-
-        {/* ── FEED ── */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
-          {filteredNews.map(item => (
-            <NewsCard key={item.id} item={item} expanded={!!expandedCards[item.id]} onToggle={() => setExpandedCards(prev => ({ ...prev, [item.id]: !prev[item.id] }))} />
-          ))}
-          {filteredNews.length === 0 && (
-            <div style={{ padding: 40, textAlign: 'center', background: 'rgba(15,23,42,0.4)', borderRadius: 16, border: '1px solid rgba(51,65,85,0.3)' }}>
-              <Eye size={24} style={{ color: '#334155', marginBottom: 8 }} />
-              <p style={{ color: '#475569', fontSize: 13 }}>Nenhuma menção para os filtros selecionados.</p>
-            </div>
-          )}
-        </div>
+    {/* FILTERS */}
+    <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap'}}>
+      {[{id:'all',l:'Todas'},{id:'direta',l:'● Diretas'},{id:'eleitoral',l:'◆ Eleitorais'},{id:'institucional',l:'○ PMTO'}].map(t=><Bt key={t.id} active={filterType===t.id} color="#8b5cf6" onClick={()=>setFilterType(t.id)}>{t.l}</Bt>)}
+      <div style={{width:1,height:28,background:'rgba(51,65,85,0.3)',margin:'0 4px'}}/>
+      {[{id:'all',l:'TO+BR',i:Layers},{id:'TO',l:'Tocantins',i:MapPin},{id:'BR',l:'Nacional',i:Globe}].map(s=><Bt key={s.id} active={filterScope===s.id} color="#22c55e" onClick={()=>setFilterScope(s.id)}><s.i size={11}/> {s.l}</Bt>)}
+    </div>
+    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:16,flexWrap:'wrap',gap:8}}>
+      <div style={{display:'flex',gap:5,flexWrap:'wrap'}}>
+        {CLUSTERS.map(c=>{const cnt=c.id==='all'?null:clCounts[c.id]||0;if(c.id!=='all'&&!cnt)return null;return<Bt key={c.id} active={selectedCluster===c.id} color={c.color} onClick={()=>setSelectedCluster(c.id)}><c.icon size={11}/> {c.label}{cnt!==null&&<span style={{opacity:0.5}}> ({cnt})</span>}</Bt>;})}
+      </div>
+      <div style={{display:'flex',gap:5}}>
+        <Bt active={sortOrder==='date'} color="#3b82f6" onClick={()=>setSortOrder('date')}><Calendar size={10}/> Data</Bt>
+        <Bt active={sortOrder==='score'} color="#ef4444" onClick={()=>setSortOrder('score')}><TrendingDown size={10}/> Toxicidade</Bt>
       </div>
     </div>
-  );
+
+    {/* COUNT */}
+    <div style={{fontSize:11,color:'#475569',marginBottom:12,display:'flex',gap:16}}>
+      <span>{filteredNews.length} menção(ões) {filterType!=='all'||filterScope!=='all'||selectedCluster!=='all'?'filtradas':'no total'}</span>
+      {(filterType!=='all'||filterScope!=='all'||selectedCluster!=='all')&&<span style={{color:'#ef4444'}}>Toxicidade: {filtM.tox}%</span>}
+    </div>
+
+    {/* FEED */}
+    <div style={{display:'flex',flexDirection:'column',gap:10,marginBottom:8}}>
+      {filteredNews.slice(0,50).map(item=><NC key={item.id} item={item} expanded={!!expandedCards[item.id]} onToggle={()=>setExpandedCards(prev=>({...prev,[item.id]:!prev[item.id]}))}/>)}
+      {filteredNews.length>50&&<p style={{fontSize:11,color:'#475569',textAlign:'center'}}>Mostrando 50 de {filteredNews.length}. Use filtros para refinar.</p>}
+      {filteredNews.length===0&&<Card><p style={{color:'#475569',fontSize:13,textAlign:'center'}}>Nenhuma menção para os filtros selecionados.</p></Card>}
+    </div>
+
+    {/* ═══ M2: REDES SOCIAIS ═══ */}
+    <SocialPanel socialData={socialData} sentimentData={sentimentData}/>
+
+  </div></div>);
 };
 
 export default App;
