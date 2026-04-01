@@ -354,6 +354,19 @@ const App = () => {
     storage.clear();
   }, []);
 
+  const [refreshing, setRefreshing] = useState(false);
+  const handleRefresh = useCallback(async () => {
+    setRefreshing(true);
+    const remote = await fetchRemoteData();
+    if (remote) {
+      setRawData(remote);
+      const now = new Date().toLocaleString('pt-BR');
+      setLastUpdate(now + ' (auto)');
+      storage.set({ data: remote, updatedAt: now + ' (auto)' });
+    }
+    setRefreshing(false);
+  }, []);
+
   useEffect(() => {
     const over = (e) => { e.preventDefault(); setIsDragging(true); };
     const leave = () => setIsDragging(false);
@@ -410,23 +423,6 @@ const App = () => {
     );
   }
 
-  const FileInput = ({ children }) => (
-    <label style={{
-      display: 'flex', alignItems: 'center', gap: 5, padding: '7px 12px', borderRadius: 10,
-      background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.25)',
-      color: '#a78bfa', fontSize: 11, fontWeight: 700, cursor: 'pointer'
-    }}>
-      {children}
-      <input type="file" accept=".json" style={{ display: 'none' }} onChange={(e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (ev) => { try { handleLoad(JSON.parse(ev.target.result)); } catch { alert('JSON inválido.'); } };
-        reader.readAsText(file);
-      }} />
-    </label>
-  );
-
   return (
     <div style={{ minHeight: '100vh', background: '#060810', color: '#cbd5e1', fontFamily: "'SF Pro Display','Segoe UI',-apple-system,sans-serif", padding: '20px 16px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
@@ -458,7 +454,15 @@ const App = () => {
               <p style={{ fontSize: 9, color: '#475569', fontWeight: 700, textTransform: 'uppercase', margin: '0 0 2px 0' }}>Menções</p>
               <p style={{ fontSize: 22, fontWeight: 900, color: '#f59e0b', margin: 0 }}>{totalMetrics.total}</p>
             </div>
-            <FileInput><RefreshCw size={12} /> Atualizar</FileInput>
+            <button onClick={handleRefresh} disabled={refreshing} style={{
+              display: 'flex', alignItems: 'center', gap: 5, padding: '7px 12px', borderRadius: 10,
+              background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.25)',
+              color: '#a78bfa', fontSize: 11, fontWeight: 700, cursor: refreshing ? 'wait' : 'pointer',
+              opacity: refreshing ? 0.6 : 1
+            }}>
+              <RefreshCw size={12} style={{ animation: refreshing ? 'spin 1s linear infinite' : 'none' }} />
+              {refreshing ? 'Atualizando...' : 'Atualizar'}
+            </button>
             <button onClick={handleClear} title="Limpar dados" style={{
               display: 'flex', alignItems: 'center', padding: 7, borderRadius: 8,
               background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)',
