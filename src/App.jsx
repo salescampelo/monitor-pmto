@@ -269,6 +269,9 @@ const App=()=>{
       <Met icon={Newspaper} label="Fontes" value={filtM.src} accent="#64748b"/>
     </div>
 
+    {/* ═══ M2: REDES SOCIAIS ═══ */}
+    <SocialPanel socialData={socialData} sentimentData={sentimentData}/>
+
     {/* FILTERS */}
     <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap'}}>
       {[{id:'all',l:'Todas'},{id:'direta',l:'● Diretas'},{id:'eleitoral',l:'◆ Eleitorais'},{id:'institucional',l:'○ PMTO'}].map(t=><Bt key={t.id} active={filterType===t.id} color="#8b5cf6" onClick={()=>setFilterType(t.id)}>{t.l}</Bt>)}
@@ -297,9 +300,6 @@ const App=()=>{
       {filteredNews.length>50&&<p style={{fontSize:11,color:'#475569',textAlign:'center'}}>Mostrando 50 de {filteredNews.length}. Use filtros para refinar.</p>}
       {filteredNews.length===0&&<Card><p style={{color:'#475569',fontSize:13,textAlign:'center'}}>Nenhuma menção para os filtros selecionados.</p></Card>}
     </div>
-
-    {/* ═══ M2: REDES SOCIAIS ═══ */}
-    <SocialPanel socialData={socialData} sentimentData={sentimentData}/>
 
   </div></div>);
 };
