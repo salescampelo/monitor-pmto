@@ -1,113 +1,51 @@
 [
     {
-        "id": "janad_valcari_2026-04-01",
-        "username": "janad_valcari",
-        "data_coleta": "2026-04-01",
-        "seguidores": 86791,
-        "seguindo": 4967,
-        "total_posts": 2071,
-        "media_likes_recentes": 1666.4,
-        "taxa_engajamento_pct": 2.19
-    },
-    {
-        "id": "carlosgaguim_2026-04-01",
-        "username": "carlosgaguim",
-        "data_coleta": "2026-04-01",
-        "seguidores": 78956,
-        "seguindo": 7416,
-        "total_posts": 4961,
-        "media_likes_recentes": 304.8,
-        "taxa_engajamento_pct": 0.54
-    },
-    {
-        "id": "tiagodimas_2026-04-01",
-        "username": "tiagodimas",
-        "data_coleta": "2026-04-01",
-        "seguidores": 68630,
-        "seguindo": 4065,
-        "total_posts": 2196,
-        "media_likes_recentes": 19529.1,
-        "taxa_engajamento_pct": 30.62
-    },
-    {
-        "id": "alexandreguimaraes15_2026-04-01",
-        "username": "alexandreguimaraes15",
-        "data_coleta": "2026-04-01",
-        "seguidores": 51125,
-        "seguindo": 3955,
-        "total_posts": 1359,
-        "media_likes_recentes": 1067.8,
-        "taxa_engajamento_pct": 2.37
-    },
-    {
-        "id": "celsomorais_2026-04-01",
-        "username": "celsomorais",
-        "data_coleta": "2026-04-01",
-        "seguidores": 44027,
-        "seguindo": 1824,
-        "total_posts": 2179,
-        "media_likes_recentes": 779.8,
-        "taxa_engajamento_pct": 1.83
-    },
-    {
         "id": "marciobarbosa_cel_2026-04-01",
         "username": "marciobarbosa_cel",
         "data_coleta": "2026-04-01",
-        "seguidores": 31067,
+        "seguidores": 31090,
         "seguindo": 1594,
-        "total_posts": 1142,
-        "media_likes_recentes": 532.5,
-        "taxa_engajamento_pct": 1.86
-    },
-    {
-        "id": "ricardoayres_to_2026-04-01",
-        "username": "ricardoayres_to",
-        "data_coleta": "2026-04-01",
-        "seguidores": 30159,
-        "seguindo": 3477,
-        "total_posts": 3728,
-        "media_likes_recentes": 208.8,
-        "taxa_engajamento_pct": 0.81
-    },
-    {
-        "id": "dep.eliborges_2026-04-01",
-        "username": "dep.eliborges",
-        "data_coleta": "2026-04-01",
-        "seguidores": 18941,
-        "seguindo": 774,
-        "total_posts": 1434,
-        "media_likes_recentes": 894.6,
-        "taxa_engajamento_pct": 6.39
+        "total_posts": 1143,
+        "media_likes_recentes": 569.8,
+        "media_comments_recentes": 47.8,
+        "taxa_engajamento_pct": 1.99,
+        "is_candidate": true
     },
     {
         "id": "filipemartinsto_2026-04-01",
         "username": "filipemartinsto",
         "data_coleta": "2026-04-01",
-        "seguidores": 18922,
+        "seguidores": 18924,
         "seguindo": 3747,
         "total_posts": 3187,
-        "media_likes_recentes": 261.2,
-        "taxa_engajamento_pct": 1.47
+        "media_likes_recentes": 265.0,
+        "media_comments_recentes": 17.0,
+        "taxa_engajamento_pct": 1.49,
+        "is_candidate": false
     },
     {
-        "id": "cesarhalum_2026-04-01",
-        "username": "cesarhalum",
+        "id": "carlosgaguim_2026-04-01",
+        "username": "carlosgaguim",
         "data_coleta": "2026-04-01",
-        "seguidores": 12904,
-        "seguindo": 2115,
-        "total_posts": 2236,
-        "media_likes_recentes": 44.7,
-        "taxa_engajamento_pct": 0.42
+        "seguidores": 78957,
+        "seguindo": 7416,
+        "total_posts": 4961,
+        "media_likes_recentes": 305.0,
+        "media_comments_recentes": 118.0,
+        "taxa_engajamento_pct": 0.54,
+        "is_candidate": false
     },
     {
-        "id": "nilmarruiz_2026-04-01",
-        "username": "nilmarruiz",
+        "id": "tiagodimas_2026-04-01",
+        "username": "tiagodimas",
         "data_coleta": "2026-04-01",
-        "seguidores": 10181,
-        "seguindo": 2887,
-        "total_posts": 898,
-        "media_likes_recentes": 88.7,
-        "taxa_engajamento_pct": 0.96
+        "seguidores": 68635,
+        "seguindo": 4065,
+        "total_posts": 2196,
+        "media_likes_recentes": 19530.2,
+        "media_comments_recentes": 1482.6,
+        "taxa_engajamento_pct": 30.62,
+        "is_candidate": false
     },
     {
         "id": "celiomourato_2026-04-01",
@@ -116,7 +54,93 @@
         "seguidores": 6728,
         "seguindo": 2115,
         "total_posts": 3459,
-        "media_likes_recentes": 126.4,
-        "taxa_engajamento_pct": 2.19
+        "media_likes_recentes": 126.7,
+        "media_comments_recentes": 20.7,
+        "taxa_engajamento_pct": 2.19,
+        "is_candidate": false
+    },
+    {
+        "id": "nilmarruiz_2026-04-01",
+        "username": "nilmarruiz",
+        "data_coleta": "2026-04-01",
+        "seguidores": 10182,
+        "seguindo": 2888,
+        "total_posts": 899,
+        "media_likes_recentes": 83.8,
+        "media_comments_recentes": 9.1,
+        "taxa_engajamento_pct": 0.91,
+        "is_candidate": false
+    },
+    {
+        "id": "janad_valcari_2026-04-01",
+        "username": "janad_valcari",
+        "data_coleta": "2026-04-01",
+        "seguidores": 86798,
+        "seguindo": 4967,
+        "total_posts": 2071,
+        "media_likes_recentes": 1676.1,
+        "media_comments_recentes": 239.2,
+        "taxa_engajamento_pct": 2.21,
+        "is_candidate": false
+    },
+    {
+        "id": "dep.eliborges_2026-04-01",
+        "username": "dep.eliborges",
+        "data_coleta": "2026-04-01",
+        "seguidores": 18949,
+        "seguindo": 774,
+        "total_posts": 1435,
+        "media_likes_recentes": 895.5,
+        "media_comments_recentes": 317.0,
+        "taxa_engajamento_pct": 6.4,
+        "is_candidate": false
+    },
+    {
+        "id": "ricardoayres_to_2026-04-01",
+        "username": "ricardoayres_to",
+        "data_coleta": "2026-04-01",
+        "seguidores": 30159,
+        "seguindo": 3477,
+        "total_posts": 3728,
+        "media_likes_recentes": 209.2,
+        "media_comments_recentes": 35.5,
+        "taxa_engajamento_pct": 0.81,
+        "is_candidate": false
+    },
+    {
+        "id": "celsomorais_2026-04-01",
+        "username": "celsomorais",
+        "data_coleta": "2026-04-01",
+        "seguidores": 44028,
+        "seguindo": 1824,
+        "total_posts": 2179,
+        "media_likes_recentes": 781.0,
+        "media_comments_recentes": 26.8,
+        "taxa_engajamento_pct": 1.83,
+        "is_candidate": false
+    },
+    {
+        "id": "alexandreguimaraes15_2026-04-01",
+        "username": "alexandreguimaraes15",
+        "data_coleta": "2026-04-01",
+        "seguidores": 51139,
+        "seguindo": 3955,
+        "total_posts": 1359,
+        "media_likes_recentes": 1109.9,
+        "media_comments_recentes": 150.4,
+        "taxa_engajamento_pct": 2.46,
+        "is_candidate": false
+    },
+    {
+        "id": "cesarhalum_2026-04-01",
+        "username": "cesarhalum",
+        "data_coleta": "2026-04-01",
+        "seguidores": 12905,
+        "seguindo": 2115,
+        "total_posts": 2236,
+        "media_likes_recentes": 45.2,
+        "media_comments_recentes": 9.8,
+        "taxa_engajamento_pct": 0.43,
+        "is_candidate": false
     }
 ]
