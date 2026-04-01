@@ -6,7 +6,7 @@ import {
   Database, User, Building, Globe, MapPin, Bookmark, Trash2,
   BarChart3, TrendingUp, Heart, MessageCircle, Users
 } from 'lucide-react';
-import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
 
 const BASE = 'https://raw.githubusercontent.com/salescampelo/monitor-pmto/main/data';
 const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json` };
@@ -214,6 +214,91 @@ const SocialPanel=({socialData,sentimentData})=>{
         </BarChart>
       </ResponsiveContainer>
     </Card>
+
+    {/* Evolução temporal de seguidores */}
+    {(()=>{
+      // Build time series: group socialData by date, pick top profiles
+      const allDates = [...new Set((socialData||[]).map(x=>x.data_coleta))].sort();
+      if(allDates.length < 2) return (
+        <Card style={{marginBottom:14}}>
+          <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#64748b',marginBottom:8}}>Evolução de seguidores (série temporal)</p>
+          <div style={{padding:'20px 0',textAlign:'center'}}>
+            <p style={{fontSize:12,color:'#475569'}}>Disponível a partir da 2a coleta semanal. Dados atuais: {allDates.length} coleta(s).</p>
+            <p style={{fontSize:11,color:'#64748b',marginTop:4}}>O Task Scheduler roda semanalmente — o gráfico será preenchido automaticamente.</p>
+          </div>
+        </Card>
+      );
+      // Top 6 profiles by latest followers + always include candidate
+      const latestDate = allDates[allDates.length-1];
+      const latestProfiles = (socialData||[]).filter(x=>x.data_coleta===latestDate&&x.seguidores>0).sort((a,b)=>b.seguidores-a.seguidores);
+      const topUsernames = [...new Set(['marciobarbosa_cel',...latestProfiles.slice(0,5).map(x=>x.username)])].slice(0,6);
+      const COLORS_LINE = ['#8b5cf6','#22c55e','#3b82f6','#f59e0b','#ef4444','#ec4899'];
+      const chartData = allDates.map(date=>{
+        const row = {date: date.substring(5)};  // MM-DD
+        topUsernames.forEach(u=>{
+          const entry = (socialData||[]).find(x=>x.username===u&&x.data_coleta===date);
+          row[u] = entry ? entry.seguidores : null;
+        });
+        return row;
+      });
+      return(
+      <Card style={{marginBottom:14}}>
+        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#64748b',marginBottom:8}}>Evolução de seguidores (série temporal)</p>
+        <ResponsiveContainer width="100%" height={250}>
+          <LineChart data={chartData} margin={{left:0,right:8,top:5}}>
+            <XAxis dataKey="date" tick={{fontSize:10,fill:'#475569'}} axisLine={false} tickLine={false}/>
+            <YAxis tick={{fontSize:10,fill:'#475569'}} axisLine={false} tickLine={false} tickFormatter={v=>v>=1000?`${(v/1000).toFixed(0)}K`:v}/>
+            <Tooltip contentStyle={{background:'#1e293b',border:'1px solid #334155',borderRadius:8,fontSize:11,color:'#e2e8f0'}} formatter={(v,name)=>[v?.toLocaleString('pt-BR'),`@${name}`]}/>
+            <Legend wrapperStyle={{fontSize:10,color:'#64748b'}} formatter={v=>`@${v}`}/>
+            {topUsernames.map((u,i)=>(
+              <Line key={u} type="monotone" dataKey={u} stroke={COLORS_LINE[i%6]} strokeWidth={u==='marciobarbosa_cel'?3:1.5} dot={{r:u==='marciobarbosa_cel'?4:2}} connectNulls/>
+            ))}
+          </LineChart>
+        </ResponsiveContainer>
+      </Card>);
+    })()}
+
+    {/* Nuvem de palavras dos comentários */}
+    {(()=>{
+      const comments = sentimentData?.comments_sample || [];
+      if(!comments.length) return null;
+      // Extract word frequencies from comments
+      const stopwords = new Set(['de','da','do','das','dos','e','a','o','que','em','um','uma','para','com','não','nao','no','na','se','por','mais','ao','os','as','é','esse','essa','este','esta','já','ja','foi','ser','tem','seu','sua','ou','muito','como','eu','me','meu','minha','ele','ela','nos','lhe','te','ti','são','sao','mas','isso','isto','aqui','ali','voce','você','vc','pra','pro','tb','tbm']);
+      const wordMap = {};
+      comments.forEach(c=>{
+        const words = (c.text||'').toLowerCase().replace(/[^\p{L}\s]/gu,'').split(/\s+/).filter(w=>w.length>2&&!stopwords.has(w));
+        words.forEach(w=>{wordMap[w]=(wordMap[w]||0)+1;});
+      });
+      const sorted = Object.entries(wordMap).sort((a,b)=>b[1]-a[1]).slice(0,40);
+      if(!sorted.length) return null;
+      const maxCount = sorted[0][1];
+      // Color by sentiment association
+      const posWords = new Set(['parabéns','parabens','excelente','otimo','ótimo','apoio','merece','sucesso','top','obrigado','obrigada','deus','bom','boa','forte','guerreiro','respeito','lindo','linda','maravilhoso','sensacional','orgulho','heroi','herói','amém','amem','bênção','bencao']);
+      const negWords = new Set(['corrupto','vergonha','mentiroso','lixo','nojo','pior','fora','nunca','fake','mentira']);
+      return(
+      <Card style={{marginBottom:14}}>
+        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#64748b',marginBottom:12}}>Nuvem de palavras — comentários do candidato</p>
+        <div style={{display:'flex',flexWrap:'wrap',gap:'6px 10px',justifyContent:'center',padding:'8px 0',minHeight:80}}>
+          {sorted.map(([word,count])=>{
+            const ratio = count/maxCount;
+            const size = Math.max(11,Math.round(11+ratio*22));
+            let color = '#94a3b8';
+            if(posWords.has(word)) color='#22c55e';
+            else if(negWords.has(word)) color='#ef4444';
+            else if(ratio>0.5) color='#e2e8f0';
+            return(
+              <span key={word} style={{fontSize:size,fontWeight:ratio>0.3?600:400,color,opacity:0.6+ratio*0.4,lineHeight:1.2,cursor:'default'}} title={`${word}: ${count}x`}>{word}</span>
+            );
+          })}
+        </div>
+        <div style={{display:'flex',justifyContent:'center',gap:12,marginTop:8}}>
+          <span style={{fontSize:9,color:'#22c55e'}}>■ positivo</span>
+          <span style={{fontSize:9,color:'#94a3b8'}}>■ neutro</span>
+          <span style={{fontSize:9,color:'#ef4444'}}>■ negativo</span>
+          <span style={{fontSize:9,color:'#475569'}}>(tamanho = frequência)</span>
+        </div>
+      </Card>);
+    })()}
 
     {/* Insights */}
     <Card style={{borderLeft:'3px solid #22c55e'}}>
