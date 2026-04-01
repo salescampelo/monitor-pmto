@@ -86,8 +86,8 @@ const SocialPanel=({socialData,sentimentData})=>{
     const s=sentimentData.sentiment;
     return[{name:'Positivo',value:s.positivo||0,color:DCOL.positivo},{name:'Negativo',value:s.negativo||0,color:DCOL.negativo},{name:'Neutro',value:s.neutro||0,color:DCOL.neutro}].filter(d=>d.value>0);
   },[sentimentData]);
-  const engChart=useMemo(()=>profiles.slice(0,10).map(p=>({
-    name:'@'+p.username.substring(0,15),eng:p.taxa_engajamento_pct,
+  const engChart=useMemo(()=>[...profiles].sort((a,b)=>b.taxa_engajamento_pct-a.taxa_engajamento_pct).slice(0,10).map(p=>({
+    name:'@'+p.username.substring(0,18),eng:p.taxa_engajamento_pct,
     fill:p.username==='marciobarbosa_cel'?'#8b5cf6':'#334155',
   })),[profiles]);
 
@@ -118,7 +118,7 @@ const SocialPanel=({socialData,sentimentData})=>{
       </div>
     </Card>}
 
-    <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,1.5fr) minmax(0,1.5fr)',gap:12,marginBottom:14}}>
+    <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,2.5fr)',gap:12,marginBottom:14}}>
       {/* Donut sentimento */}
       <Card>
         <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#64748b',marginBottom:8}}>Sentimento dos comentários</p>
@@ -138,33 +138,70 @@ const SocialPanel=({socialData,sentimentData})=>{
         )}
       </Card>
 
-      {/* Ranking seguidores */}
+      {/* Ranking unificado: seguidores + engajamento + tendência */}
       <Card>
-        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#64748b',marginBottom:8}}>Ranking de seguidores</p>
-        <div style={{maxHeight:210,overflowY:'auto'}}>
-          {rank.map(p=><div key={p.username} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'5px 4px',borderBottom:'1px solid rgba(51,65,85,0.2)',background:p.username==='marciobarbosa_cel'?'rgba(139,92,246,0.08)':'transparent',borderRadius:p.username==='marciobarbosa_cel'?6:0}}>
-            <div style={{display:'flex',alignItems:'center',gap:8}}>
-              <span style={{fontSize:10,fontWeight:700,color:'#475569',width:20}}>#{p.rank}</span>
-              <span style={{fontSize:11,color:p.username==='marciobarbosa_cel'?'#a78bfa':'#cbd5e1',fontWeight:p.username==='marciobarbosa_cel'?700:400}}>@{p.username}</span>
-            </div>
-            <span style={{fontSize:11,fontWeight:600,color:'#94a3b8',fontVariantNumeric:'tabular-nums'}}>{p.seguidores.toLocaleString('pt-BR')}</span>
-          </div>)}
+        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#64748b',marginBottom:8}}>Ranking completo — seguidores e engajamento</p>
+        <div style={{maxHeight:360,overflowY:'auto'}}>
+          {/* Header */}
+          <div style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 40px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid rgba(51,65,85,0.4)'}}>
+            <span style={{fontSize:9,color:'#475569',fontWeight:700}}>#</span>
+            <span style={{fontSize:9,color:'#475569',fontWeight:700}}>PERFIL</span>
+            <span style={{fontSize:9,color:'#475569',fontWeight:700,textAlign:'right'}}>SEGUIDORES</span>
+            <span style={{fontSize:9,color:'#475569',fontWeight:700,textAlign:'right'}}>ENGAJAMENTO</span>
+            <span style={{fontSize:9,color:'#475569',fontWeight:700,textAlign:'center'}}>TEND.</span>
+          </div>
+          {/* Rows */}
+          {rank.map(p=>{
+            const isCand = p.username==='marciobarbosa_cel';
+            // Trend: compare with previous week data (same username, earlier date)
+            const prevData = profiles.length > 0 ? null : null; // Will work when historical data exists
+            // For now, check if socialData has multiple entries for same username
+            const allEntries = (socialData||[]).filter(x=>x.username===p.username).sort((a,b)=>(a.data_coleta||'').localeCompare(b.data_coleta||''));
+            const prev = allEntries.length >= 2 ? allEntries[allEntries.length-2] : null;
+            const curr = allEntries[allEntries.length-1];
+            let trendColor = '#475569'; // cinza = sem dados
+            let trendIcon = '→';
+            if(prev && curr){
+              const diff = curr.taxa_engajamento_pct - prev.taxa_engajamento_pct;
+              if(diff > 0.1){trendColor='#22c55e';trendIcon='↑';}
+              else if(diff < -0.1){trendColor='#ef4444';trendIcon='↓';}
+              else{trendColor='#64748b';trendIcon='→';}
+            }
+            return(
+            <div key={p.username} style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 40px',gap:4,padding:'5px 4px',borderBottom:'1px solid rgba(51,65,85,0.15)',background:isCand?'rgba(139,92,246,0.08)':'transparent',borderRadius:isCand?6:0}}>
+              <span style={{fontSize:10,fontWeight:700,color:'#475569'}}>#{p.rank}</span>
+              <span style={{fontSize:11,color:isCand?'#a78bfa':'#cbd5e1',fontWeight:isCand?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
+              <span style={{fontSize:11,fontWeight:600,color:'#94a3b8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{p.seguidores.toLocaleString('pt-BR')}</span>
+              <span style={{fontSize:11,fontWeight:700,color:p.taxa_engajamento_pct>=3?'#22c55e':p.taxa_engajamento_pct>=1.5?'#f59e0b':'#ef4444',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{p.taxa_engajamento_pct}%</span>
+              <span style={{fontSize:13,fontWeight:700,color:trendColor,textAlign:'center'}}>{trendIcon}</span>
+            </div>);
+          })}
+        </div>
+        <div style={{display:'flex',gap:12,marginTop:8,paddingTop:6,borderTop:'1px solid rgba(51,65,85,0.2)'}}>
+          <span style={{fontSize:9,color:'#475569'}}>Engajamento:</span>
+          <span style={{fontSize:9,color:'#22c55e'}}>■ alto (3%+)</span>
+          <span style={{fontSize:9,color:'#f59e0b'}}>■ médio (1.5-3%)</span>
+          <span style={{fontSize:9,color:'#ef4444'}}>■ baixo (&lt;1.5%)</span>
+          <span style={{fontSize:9,color:'#475569',marginLeft:8}}>Tendência:</span>
+          <span style={{fontSize:9,color:'#22c55e'}}>↑ crescente</span>
+          <span style={{fontSize:9,color:'#64748b'}}>→ estável</span>
+          <span style={{fontSize:9,color:'#ef4444'}}>↓ queda</span>
         </div>
       </Card>
-
-      {/* Engajamento bar */}
-      <Card>
-        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#64748b',marginBottom:8}}>Taxa de engajamento (%)</p>
-        <ResponsiveContainer width="100%" height={210}>
-          <BarChart data={engChart} layout="vertical" margin={{left:0,right:8}}>
-            <XAxis type="number" tick={{fontSize:10,fill:'#475569'}} axisLine={false} tickLine={false}/>
-            <YAxis type="category" dataKey="name" tick={{fontSize:9,fill:'#64748b'}} width={105} axisLine={false} tickLine={false}/>
-            <Tooltip contentStyle={{background:'#1e293b',border:'1px solid #334155',borderRadius:8,fontSize:11}} formatter={v=>[`${v}%`,'Engajamento']}/>
-            <Bar dataKey="eng" radius={[0,4,4,0]}>{engChart.map((d,i)=><Cell key={i} fill={d.fill}/>)}</Bar>
-          </BarChart>
-        </ResponsiveContainer>
-      </Card>
     </div>
+
+    {/* Top 10 engajamento (bar chart) */}
+    <Card style={{marginBottom:14}}>
+      <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#64748b',marginBottom:8}}>Top 10 — taxa de engajamento (%)</p>
+      <ResponsiveContainer width="100%" height={280}>
+        <BarChart data={engChart} layout="vertical" margin={{left:0,right:8}}>
+          <XAxis type="number" tick={{fontSize:10,fill:'#475569'}} axisLine={false} tickLine={false}/>
+          <YAxis type="category" dataKey="name" tick={{fontSize:10,fill:'#64748b'}} width={140} axisLine={false} tickLine={false}/>
+          <Tooltip contentStyle={{background:'#1e293b',border:'1px solid #334155',borderRadius:8,fontSize:11}} formatter={v=>[`${v}%`,'Engajamento']}/>
+          <Bar dataKey="eng" radius={[0,4,4,0]}>{engChart.map((d,i)=><Cell key={i} fill={d.fill}/>)}</Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </Card>
 
     {/* Insights */}
     <Card style={{borderLeft:'3px solid #22c55e'}}>
