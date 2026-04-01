@@ -86,10 +86,12 @@ const SocialPanel=({socialData,sentimentData})=>{
     const s=sentimentData.sentiment;
     return[{name:'Positivo',value:s.positivo||0,color:DCOL.positivo},{name:'Negativo',value:s.negativo||0,color:DCOL.negativo},{name:'Neutro',value:s.neutro||0,color:DCOL.neutro}].filter(d=>d.value>0);
   },[sentimentData]);
-  const engChart=useMemo(()=>[...profiles].sort((a,b)=>b.taxa_engajamento_pct-a.taxa_engajamento_pct).slice(0,10).map(p=>({
-    name:'@'+p.username.substring(0,18),eng:p.taxa_engajamento_pct,
-    fill:p.username==='marciobarbosa_cel'?'#8b5cf6':'#334155',
-  })),[profiles]);
+  const engChart=useMemo(()=>[...profiles].sort((a,b)=>b.taxa_engajamento_pct-a.taxa_engajamento_pct).slice(0,10).map(p=>{
+    const isCand = p.username==='marciobarbosa_cel';
+    let color = p.taxa_engajamento_pct>=3?'#22c55e':p.taxa_engajamento_pct>=1.5?'#f59e0b':'#ef4444';
+    if(isCand) color='#8b5cf6';
+    return{name:'@'+p.username.substring(0,18),eng:p.taxa_engajamento_pct,fill:color,label:`${p.taxa_engajamento_pct}%`};
+  }),[profiles]);
 
   if(!profiles.length)return null;
   return(
@@ -192,13 +194,23 @@ const SocialPanel=({socialData,sentimentData})=>{
 
     {/* Top 10 engajamento (bar chart) */}
     <Card style={{marginBottom:14}}>
-      <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#64748b',marginBottom:8}}>Top 10 — taxa de engajamento (%)</p>
-      <ResponsiveContainer width="100%" height={280}>
-        <BarChart data={engChart} layout="vertical" margin={{left:0,right:8}}>
-          <XAxis type="number" tick={{fontSize:10,fill:'#475569'}} axisLine={false} tickLine={false}/>
-          <YAxis type="category" dataKey="name" tick={{fontSize:10,fill:'#64748b'}} width={140} axisLine={false} tickLine={false}/>
-          <Tooltip contentStyle={{background:'#1e293b',border:'1px solid #334155',borderRadius:8,fontSize:11}} formatter={v=>[`${v}%`,'Engajamento']}/>
-          <Bar dataKey="eng" radius={[0,4,4,0]}>{engChart.map((d,i)=><Cell key={i} fill={d.fill}/>)}</Bar>
+      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:10}}>
+        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#64748b',margin:0}}>Top 10 — taxa de engajamento (%)</p>
+        <div style={{display:'flex',gap:10}}>
+          <span style={{fontSize:9,color:'#22c55e'}}>■ alto (3%+)</span>
+          <span style={{fontSize:9,color:'#f59e0b'}}>■ médio</span>
+          <span style={{fontSize:9,color:'#ef4444'}}>■ baixo</span>
+          <span style={{fontSize:9,color:'#8b5cf6'}}>■ candidato</span>
+        </div>
+      </div>
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart data={engChart} layout="vertical" margin={{left:0,right:50}}>
+          <XAxis type="number" tick={{fontSize:10,fill:'#475569'}} axisLine={false} tickLine={false} domain={[0,'auto']}/>
+          <YAxis type="category" dataKey="name" tick={{fontSize:11,fill:'#94a3b8',fontWeight:500}} width={150} axisLine={false} tickLine={false}/>
+          <Tooltip contentStyle={{background:'#1e293b',border:'1px solid #334155',borderRadius:8,fontSize:12,color:'#e2e8f0'}} formatter={v=>[`${v}%`,'Engajamento']} cursor={{fill:'rgba(139,92,246,0.05)'}}/>
+          <Bar dataKey="eng" radius={[0,6,6,0]} barSize={20} label={{position:'right',fill:'#94a3b8',fontSize:11,fontWeight:600,formatter:v=>`${v}%`}}>
+            {engChart.map((d,i)=><Cell key={i} fill={d.fill} fillOpacity={0.85}/>)}
+          </Bar>
         </BarChart>
       </ResponsiveContainer>
     </Card>
