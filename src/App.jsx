@@ -3,7 +3,7 @@ import {
   ShieldAlert, TrendingDown, AlertTriangle, Eye, Calendar,
   ChevronDown, ChevronUp, Newspaper, Target, Radio, Clock,
   Hash, ArrowUpRight, BrainCircuit, Layers, Upload, RefreshCw,
-  Database, User, Building, Globe2, MapPin, Flag, Trash2
+  Database, User, Building, Globe, MapPin, Bookmark, Trash2
 } from 'lucide-react';
 
 /* ═══════════════════════════════════════════════
@@ -82,7 +82,7 @@ const buildAnalysisNote = (article, cluster, sentiment) => {
 
 const CLUSTERS = [
   { id: 'all', label: 'Todas', icon: Layers, color: '#64748b', bg: 'rgba(100,116,139,0.1)' },
-  { id: 'Eleitoral', label: 'Eleitoral', icon: Flag, color: '#6366f1', bg: 'rgba(99,102,241,0.08)' },
+  { id: 'Eleitoral', label: 'Eleitoral', icon: Bookmark, color: '#6366f1', bg: 'rgba(99,102,241,0.08)' },
   { id: 'Comando', label: 'Comando', icon: User, color: '#8b5cf6', bg: 'rgba(139,92,246,0.08)' },
   { id: 'Letalidade', label: 'Letalidade', icon: AlertTriangle, color: '#ef4444', bg: 'rgba(239,68,68,0.08)' },
   { id: 'Operações', label: 'Operações', icon: Target, color: '#3b82f6', bg: 'rgba(59,130,246,0.08)' },
@@ -163,7 +163,7 @@ const ScopeBadge = ({ scope }) => (
     textTransform: 'uppercase', letterSpacing: '0.05em',
     display: 'inline-flex', alignItems: 'center', gap: 3
   }}>
-    {scope === 'BR' ? <Globe2 size={9} /> : <MapPin size={9} />}
+    {scope === 'BR' ? <Globe size={9} /> : <MapPin size={9} />}
     {scope === 'BR' ? 'Nacional' : 'Tocantins'}
   </span>
 );
@@ -423,9 +423,9 @@ const App = () => {
         {/* ── METRICS ── */}
         <div style={{ display: 'flex', gap: 8, marginBottom: 16, flexWrap: 'wrap' }}>
           <MetricCard icon={User} label="Diretas" value={metrics.diretas} sub="Cel. Barbosa" accent="#ef4444" />
-          <MetricCard icon={Flag} label="Eleitorais" value={metrics.eleitorais} sub="2026" accent="#6366f1" />
+          <MetricCard icon={Bookmark} label="Eleitorais" value={metrics.eleitorais} sub="2026" accent="#6366f1" />
           <MetricCard icon={Building} label="PMTO" value={metrics.institucionais} accent="#f59e0b" />
-          <MetricCard icon={Globe2} label="Nacional" value={metrics.nacionais} sub="BR" accent="#3b82f6" />
+          <MetricCard icon={Globe} label="Nacional" value={metrics.nacionais} sub="BR" accent="#3b82f6" />
           <MetricCard icon={MapPin} label="Local" value={metrics.locais} sub="TO" accent="#22c55e" />
           <MetricCard icon={Newspaper} label="Fontes" value={metrics.sources} accent="#64748b" />
         </div>
@@ -449,7 +449,7 @@ const App = () => {
           {[
             { id: 'all', label: 'TO + BR', icon: Layers },
             { id: 'TO', label: 'Tocantins', icon: MapPin },
-            { id: 'BR', label: 'Nacional', icon: Globe2 },
+            { id: 'BR', label: 'Nacional', icon: Globe },
           ].map(s => (
             <button key={s.id} onClick={() => setFilterScope(s.id)} style={{
               padding: '6px 12px', borderRadius: 10, fontSize: 11, fontWeight: 700,
