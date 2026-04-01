@@ -83,31 +83,31 @@ const classifyArticle = (article) => {
 };
 
 /* ─────────────────────────────────────────────
-   CLUSTERS & HELPERS
+   CLUSTERS & HELPERS (CORES ATUALIZADAS PARA MODO CLARO)
    ───────────────────────────────────────────── */
 
 const CLUSTERS = [
-  { id: 'all', label: 'Todas', icon: Layers, color: '#64748b', bg: 'rgba(100,116,139,0.1)' },
-  { id: 'Comando', label: 'Comando', icon: User, color: '#8b5cf6', bg: 'rgba(139,92,246,0.08)' },
-  { id: 'Letalidade', label: 'Letalidade', icon: AlertTriangle, color: '#ef4444', bg: 'rgba(239,68,68,0.08)' },
-  { id: 'Operações', label: 'Operações', icon: Target, color: '#3b82f6', bg: 'rgba(59,130,246,0.08)' },
-  { id: 'Gestão', label: 'Gestão', icon: Building, color: '#f59e0b', bg: 'rgba(245,158,11,0.08)' },
-  { id: 'Imprensa', label: 'Imprensa', icon: Radio, color: '#ec4899', bg: 'rgba(236,72,153,0.08)' },
-  { id: 'Geral', label: 'Geral', icon: Newspaper, color: '#64748b', bg: 'rgba(100,116,139,0.08)' },
+  { id: 'all', label: 'Todas', icon: Layers, color: '#475569', bg: '#f1f5f9' },
+  { id: 'Comando', label: 'Comando', icon: User, color: '#4f46e5', bg: '#e0e7ff' },
+  { id: 'Letalidade', label: 'Letalidade', icon: AlertTriangle, color: '#dc2626', bg: '#fee2e2' },
+  { id: 'Operações', label: 'Operações', icon: Target, color: '#2563eb', bg: '#dbeafe' },
+  { id: 'Gestão', label: 'Gestão', icon: Building, color: '#d97706', bg: '#fef3c7' },
+  { id: 'Imprensa', label: 'Imprensa', icon: Radio, color: '#db2777', bg: '#fce7f3' },
+  { id: 'Geral', label: 'Geral', icon: Newspaper, color: '#64748b', bg: '#f1f5f9' },
 ];
 
 const getSentimentColor = (score) => {
-  if (score <= 0.2) return { text: '#ef4444', bg: 'rgba(239,68,68,0.1)', border: 'rgba(239,68,68,0.25)' };
-  if (score <= 0.4) return { text: '#f59e0b', bg: 'rgba(245,158,11,0.1)', border: 'rgba(245,158,11,0.25)' };
-  if (score <= 0.6) return { text: '#64748b', bg: 'rgba(100,116,139,0.1)', border: 'rgba(100,116,139,0.25)' };
-  return { text: '#22c55e', bg: 'rgba(34,197,94,0.1)', border: 'rgba(34,197,94,0.25)' };
+  if (score <= 0.2) return { text: '#dc2626', bg: '#fee2e2', border: '#fca5a5' };
+  if (score <= 0.4) return { text: '#d97706', bg: '#fef3c7', border: '#fcd34d' };
+  if (score <= 0.6) return { text: '#475569', bg: '#f1f5f9', border: '#cbd5e1' };
+  return { text: '#16a34a', bg: '#dcfce3', border: '#86efac' };
 };
 
 const getImpactBadge = (impact) => {
   const map = {
-    'Alto': { color: '#ef4444', bg: 'rgba(239,68,68,0.1)' },
-    'Médio': { color: '#f59e0b', bg: 'rgba(245,158,11,0.1)' },
-    'Baixo': { color: '#22c55e', bg: 'rgba(34,197,94,0.1)' }
+    'Alto': { color: '#dc2626', bg: '#fee2e2' },
+    'Médio': { color: '#d97706', bg: '#fef3c7' },
+    'Baixo': { color: '#16a34a', bg: '#dcfce3' }
   };
   return map[impact] || map['Médio'];
 };
@@ -130,20 +130,20 @@ const computeMetrics = (data) => {
 };
 
 /* ─────────────────────────────────────────────
-   COMPONENTES
+   COMPONENTES VISUAIS
    ───────────────────────────────────────────── */
 
 const MetricCard = ({ icon: Icon, label, value, sub, accent }) => (
   <div style={{
-    background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(51,65,85,0.5)',
+    background: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 2px 4px rgba(0,0,0,0.02)',
     borderRadius: 16, padding: '16px 20px', flex: 1, minWidth: 130
   }}>
     <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
-      <Icon size={13} style={{ color: accent || '#64748b' }} />
-      <span style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b' }}>{label}</span>
+      <Icon size={14} style={{ color: accent || '#64748b' }} />
+      <span style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748b' }}>{label}</span>
     </div>
-    <p style={{ fontSize: 26, fontWeight: 800, color: accent || '#e2e8f0', margin: 0, lineHeight: 1 }}>{value}</p>
-    {sub && <p style={{ fontSize: 11, color: '#475569', marginTop: 5 }}>{sub}</p>}
+    <p style={{ fontSize: 28, fontWeight: 800, color: '#0f172a', margin: 0, lineHeight: 1 }}>{value}</p>
+    {sub && <p style={{ fontSize: 12, color: '#94a3b8', marginTop: 5, fontWeight: 500 }}>{sub}</p>}
   </div>
 );
 
@@ -154,64 +154,64 @@ const NewsCard = ({ item, expanded, onToggle }) => {
 
   return (
     <div style={{
-      background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(51,65,85,0.4)',
-      borderRadius: 16, overflow: 'hidden', borderLeft: `3px solid ${cluster?.color || '#64748b'}`
+      background: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+      borderRadius: 16, overflow: 'hidden', borderLeft: `4px solid ${cluster?.color || '#cbd5e1'}`
     }}>
       <div style={{ padding: '18px 22px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10, flexWrap: 'wrap', gap: 8 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12, flexWrap: 'wrap', gap: 8 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
             <span style={{
-              padding: '3px 8px', borderRadius: 6, fontSize: 10, fontWeight: 700,
-              background: item.mentionType === 'direta' ? 'rgba(239,68,68,0.15)' : 'rgba(30,41,59,0.8)',
-              color: item.mentionType === 'direta' ? '#ef4444' : '#94a3b8', textTransform: 'uppercase'
+              padding: '4px 8px', borderRadius: 6, fontSize: 10, fontWeight: 700,
+              background: item.mentionType === 'direta' ? '#fee2e2' : '#f1f5f9',
+              color: item.mentionType === 'direta' ? '#dc2626' : '#64748b', textTransform: 'uppercase'
             }}>
               {item.mentionType === 'direta' ? '● Direta' : '○ Institucional'}
             </span>
-            <span style={{ fontSize: 11, color: '#475569', fontWeight: 600 }}>{item.source}</span>
-            <span style={{ fontSize: 11, color: '#334155' }}>•</span>
-            <span style={{ fontSize: 11, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>
-              <Clock size={11} /> {formatDate(item.date)}
+            <span style={{ fontSize: 12, color: '#475569', fontWeight: 700 }}>{item.source}</span>
+            <span style={{ fontSize: 11, color: '#cbd5e1' }}>•</span>
+            <span style={{ fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 4 }}>
+              <Clock size={12} /> {formatDate(item.date)}
             </span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <span style={{
-              padding: '3px 8px', borderRadius: 6, fontSize: 10, fontWeight: 700,
+              padding: '4px 8px', borderRadius: 6, fontSize: 10, fontWeight: 700,
               background: sentColor.bg, color: sentColor.text, border: `1px solid ${sentColor.border}`
             }}>{item.sentiment}</span>
             <span style={{
-              padding: '3px 8px', borderRadius: 6, fontSize: 10, fontWeight: 700,
+              padding: '4px 8px', borderRadius: 6, fontSize: 10, fontWeight: 700,
               background: impactStyle.bg, color: impactStyle.color
             }}>{item.impact}</span>
           </div>
         </div>
 
-        <h4 style={{ fontSize: 15, fontWeight: 700, color: '#e2e8f0', margin: '0 0 8px 0', lineHeight: 1.4 }}>{item.title}</h4>
+        <h4 style={{ fontSize: 16, fontWeight: 700, color: '#0f172a', margin: '0 0 10px 0', lineHeight: 1.4 }}>{item.title}</h4>
 
         {item.keywords.length > 0 && (
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 14 }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 16 }}>
             {item.keywords.map(kw => (
-              <span key={kw} style={{ fontSize: 10, fontFamily: 'monospace', color: '#475569', display: 'flex', alignItems: 'center', gap: 2 }}>
-                <Hash size={9} />{kw}
+              <span key={kw} style={{ fontSize: 11, fontFamily: 'monospace', color: '#64748b', display: 'flex', alignItems: 'center', gap: 2, background: '#f8fafc', padding: '2px 6px', borderRadius: 4, border: '1px solid #f1f5f9' }}>
+                <Hash size={10} />{kw}
               </span>
             ))}
           </div>
         )}
 
-        <div style={{ borderTop: '1px solid rgba(51,65,85,0.3)', paddingTop: 12, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
-          <button onClick={onToggle} style={{ display: 'flex', alignItems: 'center', gap: 5, background: 'none', border: 'none', color: '#8b5cf6', fontSize: 11, fontWeight: 700, cursor: 'pointer', padding: 0 }}>
-            <BrainCircuit size={13} />
-            {expanded ? 'Ocultar' : 'Análise'}
-            {expanded ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+        <div style={{ borderTop: '1px solid #f1f5f9', paddingTop: 14, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
+          <button onClick={onToggle} style={{ display: 'flex', alignItems: 'center', gap: 5, background: 'none', border: 'none', color: '#1e3a8a', fontSize: 12, fontWeight: 700, cursor: 'pointer', padding: 0 }}>
+            <BrainCircuit size={14} />
+            {expanded ? 'Ocultar Análise' : 'Ver Análise IA'}
+            {expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
           </button>
-          <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#475569', fontSize: 11, textDecoration: 'none', fontWeight: 600 }}>
-            Abrir fonte <ArrowUpRight size={12} />
+          <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#64748b', fontSize: 12, textDecoration: 'none', fontWeight: 600 }}>
+            Abrir na fonte original <ArrowUpRight size={14} />
           </a>
         </div>
 
         {expanded && (
-          <div style={{ marginTop: 12, padding: 14, background: 'rgba(139,92,246,0.05)', border: '1px solid rgba(139,92,246,0.15)', borderRadius: 10 }}>
-            <p style={{ fontSize: 11, color: '#a78bfa', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 6 }}>Nota de inteligência</p>
-            <p style={{ fontSize: 12, color: '#c4b5fd', lineHeight: 1.6, margin: 0 }}>{item.analysisNote}</p>
+          <div style={{ marginTop: 14, padding: 16, background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 10 }}>
+            <p style={{ fontSize: 11, color: '#1e3a8a', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>Nota de Inteligência</p>
+            <p style={{ fontSize: 13, color: '#334155', lineHeight: 1.6, margin: 0 }}>{item.analysisNote}</p>
           </div>
         )}
       </div>
@@ -279,21 +279,21 @@ const App = () => {
 
   if (isLoading || error || !articles.length) {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#060810', color: '#cbd5e1', fontFamily: "'SF Pro Display', 'Segoe UI', -apple-system, sans-serif" }}>
-        <div style={{ textAlign: 'center', padding: 40 }}>
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f4f7f9', color: '#334155', fontFamily: "'SF Pro Display', 'Segoe UI', -apple-system, sans-serif" }}>
+        <div style={{ textAlign: 'center', padding: 40, background: '#fff', borderRadius: 20, boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
           {isLoading ? (
             <>
-              <Loader2 size={40} style={{ color: '#8b5cf6', animation: 'spin 1s linear infinite', margin: '0 auto 20px' }} />
-              <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9' }}>Sincronizando banco de dados...</h2>
+              <Loader2 size={40} style={{ color: '#1e3a8a', animation: 'spin 1s linear infinite', margin: '0 auto 20px' }} />
+              <h2 style={{ fontSize: 20, fontWeight: 800, color: '#0f172a' }}>Sincronizando banco de dados...</h2>
               <p style={{ color: '#64748b', fontSize: 14, marginTop: 10 }}>Buscando as menções mais recentes no servidor.</p>
               <style>{`@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
             </>
           ) : (
             <>
                <AlertTriangle size={40} style={{ color: '#ef4444', margin: '0 auto 20px' }} />
-               <h2 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9' }}>{error || "Nenhum dado encontrado."}</h2>
-               <p style={{ color: '#64748b', fontSize: 14, marginTop: 10, marginBottom: 20 }}>Verifique se o GitHub Actions rodou corretamente ou se o arquivo JSON existe no repositório.</p>
-               <button onClick={fetchAutonomously} style={{ padding: '10px 20px', background: '#8b5cf6', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 'bold', cursor: 'pointer' }}>
+               <h2 style={{ fontSize: 20, fontWeight: 800, color: '#0f172a' }}>{error || "Nenhum dado encontrado."}</h2>
+               <p style={{ color: '#64748b', fontSize: 14, marginTop: 10, marginBottom: 20 }}>Verifique se o GitHub Actions rodou corretamente.</p>
+               <button onClick={fetchAutonomously} style={{ padding: '10px 20px', background: '#1e3a8a', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 'bold', cursor: 'pointer' }}>
                  Tentar Novamente
                </button>
             </>
@@ -304,66 +304,69 @@ const App = () => {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#060810', color: '#cbd5e1', fontFamily: "'SF Pro Display', 'Segoe UI', -apple-system, sans-serif", padding: '24px 20px' }}>
+    <div style={{ minHeight: '100vh', background: '#f4f7f9', color: '#334155', fontFamily: "'SF Pro Display', 'Segoe UI', -apple-system, sans-serif", padding: '24px 20px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
+        {/* CABEÇALHO AZUL MARINHO */}
         <header style={{
-          background: 'rgba(15,23,42,0.5)', border: '1px solid rgba(51,65,85,0.4)',
-          borderRadius: 20, padding: '24px 28px', marginBottom: 20,
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16
+          background: '#1e3a8a', // Azul Marinho
+          borderRadius: 20, padding: '24px 28px', marginBottom: 24,
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16,
+          boxShadow: '0 4px 12px rgba(30, 58, 138, 0.2)'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: 14, padding: 12 }}>
-              <ShieldAlert size={26} style={{ color: '#ef4444' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <div style={{ background: '#ffffff', borderRadius: 14, padding: 12, boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+              <ShieldAlert size={26} style={{ color: '#1e3a8a' }} />
             </div>
             <div>
-              <h1 style={{ fontSize: 20, fontWeight: 800, color: '#f1f5f9', margin: 0 }}>Monitor de Menções — Cel. Márcio Barbosa</h1>
-              <p style={{ fontSize: 11, color: '#475569', margin: '4px 0 0 0', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+              <h1 style={{ fontSize: 22, fontWeight: 800, color: '#ffffff', margin: 0 }}>Monitor de Menções — Cel. Márcio Barbosa</h1>
+              <p style={{ fontSize: 11, color: '#bfdbfe', margin: '4px 0 0 0', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                 PMTO • {lastUpdate ? `Última Sincronização: ${lastUpdate}` : 'Dados do servidor'}
               </p>
             </div>
           </div>
-          <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
             <div style={{ textAlign: 'right' }}>
-              <p style={{ fontSize: 10, color: '#475569', fontWeight: 700, textTransform: 'uppercase', margin: '0 0 3px 0' }}>Toxicidade</p>
-              <p style={{ fontSize: 24, fontWeight: 900, color: '#ef4444', margin: 0 }}>{metrics.toxicity}%</p>
+              <p style={{ fontSize: 10, color: '#bfdbfe', fontWeight: 700, textTransform: 'uppercase', margin: '0 0 3px 0' }}>Toxicidade</p>
+              <p style={{ fontSize: 26, fontWeight: 900, color: '#fca5a5', margin: 0 }}>{metrics.toxicity}%</p>
             </div>
-            <div style={{ width: 1, height: 36, background: 'rgba(51,65,85,0.4)' }} />
+            <div style={{ width: 1, height: 36, background: 'rgba(255,255,255,0.2)' }} />
             <div style={{ textAlign: 'right' }}>
-              <p style={{ fontSize: 10, color: '#475569', fontWeight: 700, textTransform: 'uppercase', margin: '0 0 3px 0' }}>Menções</p>
-              <p style={{ fontSize: 24, fontWeight: 900, color: '#f59e0b', margin: 0 }}>{metrics.total}</p>
+              <p style={{ fontSize: 10, color: '#bfdbfe', fontWeight: 700, textTransform: 'uppercase', margin: '0 0 3px 0' }}>Menções</p>
+              <p style={{ fontSize: 26, fontWeight: 900, color: '#fde047', margin: 0 }}>{metrics.total}</p>
             </div>
             <button onClick={fetchAutonomously} style={{
               display: 'flex', alignItems: 'center', gap: 6,
-              padding: '8px 14px', borderRadius: 10,
-              background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.25)',
-              color: '#a78bfa', fontSize: 11, fontWeight: 700, cursor: 'pointer'
+              padding: '10px 16px', borderRadius: 10,
+              background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',
+              color: '#ffffff', fontSize: 12, fontWeight: 700, cursor: 'pointer', transition: 'all 0.2s'
             }}>
-              <RefreshCw size={13} /> Sincronizar
+              <RefreshCw size={14} /> Atualizar
             </button>
           </div>
         </header>
 
-        <div style={{ display: 'flex', gap: 10, marginBottom: 20, flexWrap: 'wrap' }}>
-          <MetricCard icon={User} label="Diretas" value={metrics.diretas} sub="Cel. Barbosa" accent="#ef4444" />
-          <MetricCard icon={Building} label="Institucionais" value={metrics.institucionais} sub="PMTO" accent="#f59e0b" />
-          <MetricCard icon={AlertTriangle} label="Impacto alto" value={metrics.highImpact} accent="#ef4444" />
-          <MetricCard icon={Newspaper} label="Fontes" value={metrics.sources} accent="#3b82f6" />
+        <div style={{ display: 'flex', gap: 12, marginBottom: 24, flexWrap: 'wrap' }}>
+          <MetricCard icon={User} label="Diretas" value={metrics.diretas} sub="Cel. Barbosa" accent="#dc2626" />
+          <MetricCard icon={Building} label="Institucionais" value={metrics.institucionais} sub="PMTO" accent="#d97706" />
+          <MetricCard icon={AlertTriangle} label="Impacto alto" value={metrics.highImpact} accent="#dc2626" />
+          <MetricCard icon={Newspaper} label="Fontes" value={metrics.sources} accent="#2563eb" />
         </div>
 
-        <div style={{ display: 'flex', gap: 6, marginBottom: 14 }}>
-          {[{ id: 'all', label: 'Todas' }, { id: 'direta', label: '● Diretas' }, { id: 'institucional', label: '○ Institucionais' }].map(t => (
+        <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
+          {[{ id: 'all', label: 'Todas as Menções' }, { id: 'direta', label: '● Diretas' }, { id: 'institucional', label: '○ Institucionais' }].map(t => (
             <button key={t.id} onClick={() => setFilterType(t.id)} style={{
-              padding: '7px 14px', borderRadius: 10, fontSize: 11, fontWeight: 700,
-              border: filterType === t.id ? '1px solid #8b5cf6' : '1px solid rgba(51,65,85,0.4)',
-              background: filterType === t.id ? 'rgba(139,92,246,0.1)' : 'rgba(15,23,42,0.4)',
-              color: filterType === t.id ? '#8b5cf6' : '#64748b', cursor: 'pointer'
+              padding: '8px 16px', borderRadius: 10, fontSize: 12, fontWeight: 700,
+              border: filterType === t.id ? '1px solid #1e3a8a' : '1px solid #cbd5e1',
+              background: filterType === t.id ? '#eff6ff' : '#ffffff',
+              color: filterType === t.id ? '#1e3a8a' : '#475569', cursor: 'pointer',
+              boxShadow: filterType === t.id ? '0 2px 4px rgba(30,58,138,0.05)' : 'none'
             }}>{t.label}</button>
           ))}
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18, flexWrap: 'wrap', gap: 10 }}>
-          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, flexWrap: 'wrap', gap: 12 }}>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
             {CLUSTERS.map(c => {
               const Icon = c.icon;
               const active = selectedCluster === c.id;
@@ -371,40 +374,40 @@ const App = () => {
               if (c.id !== 'all' && !count) return null;
               return (
                 <button key={c.id} onClick={() => setSelectedCluster(c.id)} style={{
-                  display: 'flex', alignItems: 'center', gap: 5, padding: '7px 14px', borderRadius: 10, fontSize: 11, fontWeight: 700,
-                  border: active ? `1px solid ${c.color}` : '1px solid rgba(51,65,85,0.4)',
-                  background: active ? c.bg : 'rgba(15,23,42,0.4)',
+                  display: 'flex', alignItems: 'center', gap: 6, padding: '8px 14px', borderRadius: 10, fontSize: 12, fontWeight: 700,
+                  border: active ? `1px solid ${c.color}` : '1px solid #e2e8f0',
+                  background: active ? c.bg : '#ffffff',
                   color: active ? c.color : '#64748b', cursor: 'pointer'
                 }}>
-                  <Icon size={12} /> {c.label} {count !== null && <span style={{ opacity: 0.6 }}>({count})</span>}
+                  <Icon size={14} /> {c.label} {count !== null && <span style={{ opacity: 0.6 }}>({count})</span>}
                 </button>
               );
             })}
           </div>
-          <div style={{ display: 'flex', gap: 6 }}>
+          <div style={{ display: 'flex', gap: 8 }}>
             <button onClick={() => setSortOrder('date')} style={{
-              padding: '7px 12px', borderRadius: 10, fontSize: 11, fontWeight: 700,
-              border: sortOrder === 'date' ? '1px solid #3b82f6' : '1px solid rgba(51,65,85,0.4)',
-              background: sortOrder === 'date' ? 'rgba(59,130,246,0.1)' : 'rgba(15,23,42,0.4)',
-              color: sortOrder === 'date' ? '#3b82f6' : '#64748b', cursor: 'pointer'
-            }}><Calendar size={11} style={{ marginRight: 3, verticalAlign: -1 }} /> Data</button>
+              padding: '8px 14px', borderRadius: 10, fontSize: 12, fontWeight: 700,
+              border: sortOrder === 'date' ? '1px solid #2563eb' : '1px solid #cbd5e1',
+              background: sortOrder === 'date' ? '#eff6ff' : '#ffffff',
+              color: sortOrder === 'date' ? '#2563eb' : '#475569', cursor: 'pointer'
+            }}><Calendar size={12} style={{ marginRight: 4, verticalAlign: -2 }} /> Ordernar por Data</button>
             <button onClick={() => setSortOrder('score')} style={{
-              padding: '7px 12px', borderRadius: 10, fontSize: 11, fontWeight: 700,
-              border: sortOrder === 'score' ? '1px solid #ef4444' : '1px solid rgba(51,65,85,0.4)',
-              background: sortOrder === 'score' ? 'rgba(239,68,68,0.1)' : 'rgba(15,23,42,0.4)',
-              color: sortOrder === 'score' ? '#ef4444' : '#64748b', cursor: 'pointer'
-            }}><TrendingDown size={11} style={{ marginRight: 3, verticalAlign: -1 }} /> Toxicidade</button>
+              padding: '8px 14px', borderRadius: 10, fontSize: 12, fontWeight: 700,
+              border: sortOrder === 'score' ? '1px solid #dc2626' : '1px solid #cbd5e1',
+              background: sortOrder === 'score' ? '#fef2f2' : '#ffffff',
+              color: sortOrder === 'score' ? '#dc2626' : '#475569', cursor: 'pointer'
+            }}><TrendingDown size={12} style={{ marginRight: 4, verticalAlign: -2 }} /> Mais Tóxicos</button>
           </div>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 24 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 40 }}>
           {filteredNews.map(item => (
             <NewsCard key={item.id} item={item} expanded={!!expandedCards[item.id]} onToggle={() => setExpandedCards(prev => ({ ...prev, [item.id]: !prev[item.id] }))} />
           ))}
           {filteredNews.length === 0 && (
-            <div style={{ padding: 40, textAlign: 'center', background: 'rgba(15,23,42,0.4)', borderRadius: 16, border: '1px solid rgba(51,65,85,0.3)' }}>
-              <Eye size={24} style={{ color: '#334155', marginBottom: 8 }} />
-              <p style={{ color: '#475569', fontSize: 13 }}>Nenhuma menção para este filtro.</p>
+            <div style={{ padding: 60, textAlign: 'center', background: '#ffffff', borderRadius: 20, border: '1px solid #e2e8f0' }}>
+              <Eye size={32} style={{ color: '#cbd5e1', margin: '0 auto 12px' }} />
+              <p style={{ color: '#64748b', fontSize: 15, fontWeight: 500 }}>Nenhuma menção encontrada para este filtro.</p>
             </div>
           )}
         </div>
