@@ -7,6 +7,7 @@ import {
   BarChart3, TrendingUp, Heart, MessageCircle, Users
 } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
+import './App.css';
 
 const BASE = 'https://raw.githubusercontent.com/salescampelo/monitor-pmto/main/data';
 const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json`, geo: `${BASE}/geo_electoral.json` };
@@ -106,7 +107,7 @@ const SocialPanel=({socialData,sentimentData})=>{
       </div>
     </div>
 
-    {cand&&<Card style={{marginBottom:14,borderLeft:'3px solid #8b5cf6'}}>
+    {cand&&<Card style={{marginBottom:14,borderLeft:'3px solid #1a3a7a'}}>
       <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:12}}>
         <div>
           <p style={{fontSize:12,color:'#1a3a7a',fontWeight:700,textTransform:'uppercase',margin:'0 0 4px'}}>Cel. Barbosa @{cand.username}</p>
@@ -120,7 +121,7 @@ const SocialPanel=({socialData,sentimentData})=>{
       </div>
     </Card>}
 
-    <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,2.5fr)',gap:12,marginBottom:14}}>
+    <div className="grid-social">
       {/* Donut sentimento */}
       <Card>
         <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Sentimento dos comentários</p>
@@ -145,7 +146,7 @@ const SocialPanel=({socialData,sentimentData})=>{
         <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Ranking completo — seguidores e engajamento</p>
         <div style={{maxHeight:360,overflowY:'auto'}}>
           {/* Header */}
-          <div style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 40px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid #dfe3ed'}}>
+          <div className="rank-header" style={{padding:'4px 4px 6px',borderBottom:'1px solid #dfe3ed'}}>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>#</span>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>PERFIL</span>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>SEGUIDORES</span>
@@ -170,16 +171,16 @@ const SocialPanel=({socialData,sentimentData})=>{
               else{trendColor='#64748b';trendIcon='→';}
             }
             return(
-            <div key={p.username} style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 40px',gap:4,padding:'5px 4px',borderBottom:'1px solid #eef0f6',background:isCand?'rgba(139,92,246,0.08)':'transparent',borderRadius:isCand?6:0}}>
+            <div key={p.username} className="rank-row" style={{padding:'5px 4px',borderBottom:'1px solid #eef0f6',background:isCand?'rgba(26,58,122,0.08)':'transparent',borderRadius:isCand?6:0}}>
               <span style={{fontSize:12,fontWeight:700,color:'#8c93a8'}}>#{p.rank}</span>
-              <span style={{fontSize:11,color:isCand?'#a78bfa':'#cbd5e1',fontWeight:isCand?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
+              <span style={{fontSize:11,color:isCand?'#1a3a7a':'#4a5568',fontWeight:isCand?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
               <span style={{fontSize:13,fontWeight:600,color:'#5a6178',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{p.seguidores.toLocaleString('pt-BR')}</span>
               <span style={{fontSize:13,fontWeight:700,color:p.taxa_engajamento_pct>=3?'#22c55e':p.taxa_engajamento_pct>=1.5?'#f59e0b':'#ef4444',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{p.taxa_engajamento_pct}%</span>
-              <span style={{fontSize:13,fontWeight:700,color:trendColor,textAlign:'center'}}>{trendIcon}</span>
+              <span className="rank-trend" style={{fontSize:13,fontWeight:700,color:trendColor,textAlign:'center'}}>{trendIcon}</span>
             </div>);
           })}
         </div>
-        <div style={{display:'flex',gap:12,marginTop:8,paddingTop:6,borderTop:'1px solid rgba(51,65,85,0.2)'}}>
+        <div className="filter-legend">
           <span style={{fontSize:10,color:'#8c93a8'}}>Engajamento:</span>
           <span style={{fontSize:10,color:'#15803d'}}>■ alto (3%+)</span>
           <span style={{fontSize:10,color:'#d4a017'}}>■ médio (1.5-3%)</span>
@@ -207,7 +208,7 @@ const SocialPanel=({socialData,sentimentData})=>{
         <BarChart data={engChart} layout="vertical" margin={{left:0,right:50}}>
           <XAxis type="number" tick={{fontSize:12,fill:'#8c93a8'}} axisLine={false} tickLine={false} domain={[0,'auto']}/>
           <YAxis type="category" dataKey="name" tick={{fontSize:13,fill:'#5a6178',fontWeight:500}} width={150} axisLine={false} tickLine={false}/>
-          <Tooltip contentStyle={{background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:8,fontSize:14,color:'#1a1d2e'}} formatter={v=>[`${v}%`,'Engajamento']} cursor={{fill:'rgba(139,92,246,0.05)'}}/>
+          <Tooltip contentStyle={{background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:8,fontSize:14,color:'#1a1d2e'}} formatter={v=>[`${v}%`,'Engajamento']} cursor={{fill:'rgba(26,58,122,0.05)'}}/>
           <Bar dataKey="eng" radius={[0,6,6,0]} barSize={20} label={{position:'right',fill:'#5a6178',fontSize:11,fontWeight:600,formatter:v=>`${v}%`}}>
             {engChart.map((d,i)=><Cell key={i} fill={d.fill} fillOpacity={0.85}/>)}
           </Bar>
@@ -376,7 +377,7 @@ const GeoPanel=({geoData})=>{
       <Met icon={Target} label="Alta prior." value={summary.alta_prioridade||0} sub="score 60+" accent="#22c55e"/>
       <Met icon={Eye} label="Oportunidade" value={summary.oportunidade||0} sub="score 40-60" accent="#f59e0b"/>
       <Met icon={TrendingUp} label="Votos REP 2022" value={(summary.total_votos_republicanos_2022||0).toLocaleString('pt-BR')} accent="#1e40af"/>
-      <Met icon={BarChart3} label="Share estado" value={`${summary.share_republicanos_estado||0}%`} accent="#8b5cf6"/>
+      <Met icon={BarChart3} label="Share estado" value={`${summary.share_republicanos_estado||0}%`} accent="#1a3a7a"/>
     </div>
 
     {/* Category filters */}
@@ -388,32 +389,32 @@ const GeoPanel=({geoData})=>{
       })}
     </div>
 
-    <div style={{display:'grid',gridTemplateColumns:'minmax(0,1.8fr) minmax(0,1.2fr)',gap:12,marginBottom:14}}>
+    <div className="grid-geo">
       {/* Ranking table */}
       <Card>
         <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',marginBottom:8}}>
           Ranking por potencial — {municipios.length} municípios
         </p>
         <div style={{maxHeight:400,overflowY:'auto'}}>
-          <div style={{display:'grid',gridTemplateColumns:'32px 1fr 70px 70px 60px 90px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid #dfe3ed'}}>
+          <div className="geo-rank-header" style={{padding:'4px 4px 6px',borderBottom:'1px solid #dfe3ed'}}>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>#</span>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>MUNICÍPIO</span>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>ELEITORADO</span>
-            <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>VOTOS REP</span>
+            <span className="geo-col-votos" style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>VOTOS REP</span>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>SCORE</span>
-            <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'center'}}>CATEGORIA</span>
+            <span className="geo-col-cat" style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'center'}}>CATEGORIA</span>
           </div>
           {municipios.map(m=>(
-            <div key={m.municipio_upper} onClick={()=>setSelectedMun(selectedMun===m.municipio_upper?null:m.municipio_upper)}
-              style={{display:'grid',gridTemplateColumns:'32px 1fr 70px 70px 60px 90px',gap:4,padding:'5px 4px',borderBottom:'1px solid #eef0f6',cursor:'pointer',
+            <div key={m.municipio_upper} className="geo-rank-row" onClick={()=>setSelectedMun(selectedMun===m.municipio_upper?null:m.municipio_upper)}
+              style={{padding:'5px 4px',borderBottom:'1px solid #eef0f6',cursor:'pointer',
                 background:selectedMun===m.municipio_upper?'rgba(34,197,94,0.1)':'transparent',
                 borderRadius:selectedMun===m.municipio_upper?6:0}}>
               <span style={{fontSize:12,fontWeight:700,color:'#8c93a8'}}>#{m.ranking}</span>
               <span style={{fontSize:13,color:'#1a1d2e',fontWeight:500,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{m.municipio}</span>
               <span style={{fontSize:12,color:'#5a6178',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.eleitorado||0).toLocaleString('pt-BR')}</span>
-              <span style={{fontSize:12,color:'#1d4ed8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.votos_republicanos||0).toLocaleString('pt-BR')}</span>
+              <span className="geo-col-votos" style={{fontSize:12,color:'#1d4ed8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.votos_republicanos||0).toLocaleString('pt-BR')}</span>
               <span style={{fontSize:13,fontWeight:700,color:CAT_COLORS[m.categoria]||'#64748b',textAlign:'right'}}>{m.score_potencial}</span>
-              <span style={{fontSize:8,fontWeight:700,color:CAT_COLORS[m.categoria],textAlign:'center',textTransform:'uppercase'}}>{m.categoria.split(' ')[0]}</span>
+              <span className="geo-col-cat" style={{fontSize:8,fontWeight:700,color:CAT_COLORS[m.categoria],textAlign:'center',textTransform:'uppercase'}}>{m.categoria.split(' ')[0]}</span>
             </div>
           ))}
         </div>
@@ -530,14 +531,14 @@ const App=()=>{
     const c={};base.forEach(n=>{c[n.cluster]=(c[n.cluster]||0)+1;});return c;
   },[articles,filterType,filterScope]);
 
-  if(loading)return<div style={{minHeight:'100vh',background:'#f3f5f9',color:'#5a6178',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:"'SF Pro Display','Segoe UI',sans-serif"}}><p>Carregando dados...</p></div>;
+  if(loading)return<div style={{minHeight:'100dvh',background:'#f3f5f9',color:'#5a6178',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif"}}><p>Carregando dados...</p></div>;
 
   return(
-  <div style={{minHeight:'100vh',background:'#f3f5f9',color:'#3a3f52',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif",padding:'24px 32px'}}>
+  <div className="app-root" style={{background:'#f3f5f9',color:'#3a3f52',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif"}}>
   <div style={{maxWidth:1600,margin:'0 auto'}}>
 
     {/* HEADER */}
-    <header style={{background:'#1a3a7a',border:'1px solid #0f2555',borderRadius:16,padding:'24px 32px',marginBottom:20,display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:14}}>
+    <header className="app-header" style={{background:'#1a3a7a',border:'1px solid #0f2555',borderRadius:16,marginBottom:20}}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(212,160,23,0.2)',border:'1px solid rgba(212,160,23,0.4)',borderRadius:14,padding:11}}><ShieldAlert size={24} style={{color:'#d4a017'}}/></div>
         <div>
@@ -549,8 +550,8 @@ const App=()=>{
         <div style={{textAlign:'right'}}><p style={{fontSize:11,color:'rgba(255,255,255,0.6)',fontWeight:700,textTransform:'uppercase',margin:'0 0 2px'}}>Toxicidade</p><p style={{fontSize:26,fontWeight:900,color:'#f0c850',margin:0}}>{totalM.tox}%</p></div>
         <div style={{width:1,height:32,background:'rgba(255,255,255,0.2)'}}/>
         <div style={{textAlign:'right'}}><p style={{fontSize:11,color:'rgba(255,255,255,0.6)',fontWeight:700,textTransform:'uppercase',margin:'0 0 2px'}}>Menções</p><p style={{fontSize:26,fontWeight:900,color:'#ffffff',margin:0}}>{totalM.tot}</p></div>
-        <button onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:5,padding:'7px 12px',borderRadius:10,background:'rgba(255,255,255,0.15)',border:'1px solid rgba(255,255,255,0.3)',color:'#ffffff',fontSize:11,fontWeight:700,cursor:refreshing?'wait':'pointer',opacity:refreshing?0.6:1}}>
-          <RefreshCw size={12} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{refreshing?'Atualizando...':'Atualizar'}
+        <button aria-label="Atualizar dados" onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:5,padding:'7px 12px',borderRadius:10,background:'rgba(255,255,255,0.15)',border:'1px solid rgba(255,255,255,0.3)',color:'#ffffff',fontSize:11,fontWeight:700,cursor:refreshing?'wait':'pointer',opacity:refreshing?0.6:1}}>
+          <RefreshCw size={12} className={refreshing?'spin':''}/>{refreshing?'Atualizando...':'Atualizar'}
         </button>
       </div>
     </header>
@@ -586,7 +587,7 @@ const App=()=>{
 
     {/* FILTERS */}
     <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap'}}>
-      {[{id:'all',l:'Todas'},{id:'direta',l:'● Diretas'},{id:'eleitoral',l:'◆ Eleitorais'},{id:'institucional',l:'○ PMTO'}].map(t=><Bt key={t.id} active={filterType===t.id} color="#8b5cf6" onClick={()=>setFilterType(t.id)}>{t.l}</Bt>)}
+      {[{id:'all',l:'Todas'},{id:'direta',l:'● Diretas'},{id:'eleitoral',l:'◆ Eleitorais'},{id:'institucional',l:'○ PMTO'}].map(t=><Bt key={t.id} active={filterType===t.id} color="#1a3a7a" onClick={()=>setFilterType(t.id)}>{t.l}</Bt>)}
       <div style={{width:1,height:28,background:'#dfe3ed',margin:'0 4px'}}/>
       {[{id:'all',l:'TO+BR',i:Layers},{id:'TO',l:'Tocantins',i:MapPin},{id:'BR',l:'Nacional',i:Globe}].map(s=><Bt key={s.id} active={filterScope===s.id} color="#22c55e" onClick={()=>setFilterScope(s.id)}><s.i size={11}/> {s.l}</Bt>)}
     </div>

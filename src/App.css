@@ -1,0 +1,104 @@
+/* ── APP ROOT ── */
+.app-root {
+  min-height: 100dvh;
+  padding: 12px 14px;
+}
+@media (min-width: 640px) {
+  .app-root { padding: 20px 24px; }
+}
+@media (min-width: 1024px) {
+  .app-root { padding: 24px 32px; }
+}
+
+/* ── HEADER ── */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 16px;
+}
+@media (min-width: 768px) {
+  .app-header { padding: 24px 32px; gap: 14px; }
+}
+
+/* ── SOCIAL PANEL: 2-COL GRID ── */
+.grid-social {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+@media (min-width: 768px) {
+  .grid-social {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2.5fr);
+  }
+}
+
+/* ── GEO PANEL: 2-COL GRID ── */
+.grid-geo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+@media (min-width: 900px) {
+  .grid-geo {
+    grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+  }
+}
+
+/* ── SOCIAL RANKING TABLE ── */
+.rank-header,
+.rank-row {
+  display: grid;
+  grid-template-columns: 28px 1fr 90px 90px 40px;
+  gap: 4px;
+  align-items: center;
+}
+@media (max-width: 480px) {
+  .rank-header,
+  .rank-row {
+    grid-template-columns: 22px 1fr 76px 52px;
+  }
+  .rank-trend { display: none !important; }
+}
+
+/* ── GEO RANKING TABLE ── */
+.geo-rank-header,
+.geo-rank-row {
+  display: grid;
+  grid-template-columns: 32px 1fr 70px 70px 60px 90px;
+  gap: 4px;
+  align-items: center;
+}
+@media (max-width: 700px) {
+  .geo-rank-header,
+  .geo-rank-row {
+    grid-template-columns: 24px 1fr 62px 52px;
+  }
+  .geo-col-votos,
+  .geo-col-cat { display: none !important; }
+}
+
+/* ── FILTER LEGEND ── */
+.filter-legend {
+  display: flex;
+  gap: 10px 14px;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(51, 65, 85, 0.2);
+  flex-wrap: wrap;
+}
+
+/* ── TYPOGRAPHY ── */
+h1, h2, h3, h4 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+/* ── SPIN (respects reduced-motion) ── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 1s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .spin { animation: none; }
+}
