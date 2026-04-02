@@ -126,15 +126,15 @@ const SocialPanel=({socialData,sentimentData})=>{
         <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Sentimento dos comentários</p>
         {donut.length>0?(
           <>
-          <ResponsiveContainer width="100%" height={200}>
-            <PieChart><Pie data={donut} cx="50%" cy="50%" innerRadius={55} outerRadius={85} dataKey="value" stroke="none">{donut.map((d,i)=><Cell key={i} fill={d.color}/>)}</Pie></PieChart>
+          <ResponsiveContainer width="100%" height={260}>
+            <PieChart><Pie data={donut} cx="50%" cy="50%" innerRadius={70} outerRadius={110} dataKey="value" stroke="none">{donut.map((d,i)=><Cell key={i} fill={d.color}/>)}</Pie></PieChart>
           </ResponsiveContainer>
           <div style={{display:'flex',justifyContent:'center',gap:12,marginTop:4}}>
             {donut.map(d=><div key={d.name} style={{display:'flex',alignItems:'center',gap:4}}><div style={{width:8,height:8,borderRadius:2,background:d.color}}/><span style={{fontSize:12,color:'#5a6178'}}>{d.name} {d.value}</span></div>)}
           </div>
           </>
         ):(
-          <div style={{height:160,display:'flex',alignItems:'center',justifyContent:'center'}}>
+          <div style={{height:260,display:'flex',alignItems:'center',justifyContent:'center'}}>
             <p style={{fontSize:13,color:'#8c93a8',textAlign:'center',lineHeight:1.6}}>Execute<br/><code style={{fontSize:10,background:'rgba(26,58,122,0.08)',padding:'2px 6px',borderRadius:4,color:'#2a4fa0'}}>python instagram_monitor.py</code><br/>para gerar dados de sentimento</p>
           </div>
         )}
