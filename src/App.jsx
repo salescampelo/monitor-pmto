@@ -555,6 +555,19 @@ const App=()=>{
       </div>
     </header>
 
+    {/* ═══ M1: MONITOR DE IMPRENSA ═══ */}
+    <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:18,marginTop:32}}>
+      <div style={{background:'rgba(185,28,28,0.06)',border:'1px solid rgba(185,28,28,0.12)',borderRadius:12,padding:10}}>
+        <Newspaper size={22} style={{color:'#b91c1c'}}/>
+      </div>
+      <div>
+        <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Monitor de imprensa</h2>
+        <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
+          32 fontes · Tocantins + Brasil · Atualização 2x ao dia
+        </p>
+      </div>
+    </div>
+
     {/* METRICS */}
     <div style={{display:'flex',gap:8,marginBottom:16,flexWrap:'wrap'}}>
       <Met icon={User} label="Diretas" value={filtM.dir} sub="Cel. Barbosa" accent="#ef4444"/>
