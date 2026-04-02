@@ -123,11 +123,11 @@ const SocialPanel=({socialData,sentimentData})=>{
     <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,2.5fr)',gap:12,marginBottom:14}}>
       {/* Donut sentimento */}
       <Card>
-        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',marginBottom:8}}>Sentimento dos comentários</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Sentimento dos comentários</p>
         {donut.length>0?(
           <>
-          <ResponsiveContainer width="100%" height={160}>
-            <PieChart><Pie data={donut} cx="50%" cy="50%" innerRadius={40} outerRadius={65} dataKey="value" stroke="none">{donut.map((d,i)=><Cell key={i} fill={d.color}/>)}</Pie></PieChart>
+          <ResponsiveContainer width="100%" height={200}>
+            <PieChart><Pie data={donut} cx="50%" cy="50%" innerRadius={55} outerRadius={85} dataKey="value" stroke="none">{donut.map((d,i)=><Cell key={i} fill={d.color}/>)}</Pie></PieChart>
           </ResponsiveContainer>
           <div style={{display:'flex',justifyContent:'center',gap:12,marginTop:4}}>
             {donut.map(d=><div key={d.name} style={{display:'flex',alignItems:'center',gap:4}}><div style={{width:8,height:8,borderRadius:2,background:d.color}}/><span style={{fontSize:12,color:'#5a6178'}}>{d.name} {d.value}</span></div>)}
@@ -142,7 +142,7 @@ const SocialPanel=({socialData,sentimentData})=>{
 
       {/* Ranking unificado: seguidores + engajamento + tendência */}
       <Card>
-        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',marginBottom:8}}>Ranking completo — seguidores e engajamento</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Ranking completo — seguidores e engajamento</p>
         <div style={{maxHeight:360,overflowY:'auto'}}>
           {/* Header */}
           <div style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 40px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid #dfe3ed'}}>
@@ -195,7 +195,7 @@ const SocialPanel=({socialData,sentimentData})=>{
     {/* Top 10 engajamento (bar chart) */}
     <Card style={{marginBottom:14}}>
       <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:10}}>
-        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',margin:0}}>Top 10 — taxa de engajamento (%)</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',margin:0}}>Top 10 — taxa de engajamento (%)</p>
         <div style={{display:'flex',gap:10}}>
           <span style={{fontSize:10,color:'#15803d'}}>■ alto (3%+)</span>
           <span style={{fontSize:10,color:'#d4a017'}}>■ médio</span>
@@ -221,7 +221,7 @@ const SocialPanel=({socialData,sentimentData})=>{
       const allDates = [...new Set((socialData||[]).map(x=>x.data_coleta))].sort();
       if(allDates.length < 2) return (
         <Card style={{marginBottom:14}}>
-          <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',marginBottom:8}}>Evolução de seguidores (série temporal)</p>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Evolução de seguidores (série temporal)</p>
           <div style={{padding:'20px 0',textAlign:'center'}}>
             <p style={{fontSize:12,color:'#8c93a8'}}>Disponível a partir da 2a coleta semanal. Dados atuais: {allDates.length} coleta(s).</p>
             <p style={{fontSize:13,color:'#8c93a8',marginTop:4}}>O Task Scheduler roda semanalmente — o gráfico será preenchido automaticamente.</p>
@@ -243,7 +243,7 @@ const SocialPanel=({socialData,sentimentData})=>{
       });
       return(
       <Card style={{marginBottom:14}}>
-        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',marginBottom:8}}>Evolução de seguidores (série temporal)</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Evolução de seguidores (série temporal)</p>
         <ResponsiveContainer width="100%" height={250}>
           <LineChart data={chartData} margin={{left:0,right:8,top:5}}>
             <XAxis dataKey="date" tick={{fontSize:12,fill:'#8c93a8'}} axisLine={false} tickLine={false}/>
@@ -277,7 +277,7 @@ const SocialPanel=({socialData,sentimentData})=>{
       const negWords = new Set(['corrupto','vergonha','mentiroso','lixo','nojo','pior','fora','nunca','fake','mentira']);
       return(
       <Card style={{marginBottom:14}}>
-        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',marginBottom:12}}>Nuvem de palavras — comentários do candidato</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:12}}>Nuvem de palavras — comentários do candidato</p>
         <div style={{display:'flex',flexWrap:'wrap',gap:'6px 10px',justifyContent:'center',padding:'8px 0',minHeight:80}}>
           {sorted.map(([word,count])=>{
             const ratio = count/maxCount;
@@ -302,7 +302,7 @@ const SocialPanel=({socialData,sentimentData})=>{
 
     {/* Insights */}
     <Card style={{borderLeft:'3px solid #22c55e'}}>
-      <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#15803d',marginBottom:6}}>Insights para a campanha</p>
+      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#15803d',marginBottom:8}}>Insights para a campanha</p>
       <div style={{fontSize:14,color:'#5a6178',lineHeight:1.7}}>
         {cand&&<p style={{margin:'0 0 4px'}}>Cel. Barbosa: #{candRank} em seguidores ({cand.seguidores.toLocaleString('pt-BR')}) com engajamento de {cand.taxa_engajamento_pct}% — {cand.taxa_engajamento_pct>1.5?'acima da média de políticos brasileiros (~1%)':'dentro da média'}.</p>}
         {cand&&<p style={{margin:'0 0 4px'}}>Média de {cand.media_likes_recentes} likes/post. Investir em Reels e vídeos curtos tende a amplificar o alcance orgânico em 3-5x no Instagram.</p>}
@@ -423,7 +423,7 @@ const GeoPanel=({geoData})=>{
       <div style={{display:'flex',flexDirection:'column',gap:12}}>
         {/* Party distribution */}
         <Card>
-          <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',marginBottom:8}}>Votos por partido — dep. federal 2022</p>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Votos por partido — dep. federal 2022</p>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={partyChart} layout="vertical" margin={{left:0,right:40}}>
               <XAxis type="number" tick={{fontSize:9,fill:'#8c93a8'}} axisLine={false} tickLine={false} tickFormatter={v=>v>=1000?`${(v/1000).toFixed(0)}K`:v}/>
@@ -464,7 +464,7 @@ const GeoPanel=({geoData})=>{
 
     {/* Strategic insights */}
     <Card style={{borderLeft:'3px solid #22c55e',marginBottom:14}}>
-      <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#15803d',marginBottom:6}}>Insights geoeleitorais</p>
+      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#15803d',marginBottom:8}}>Insights geoeleitorais</p>
       <div style={{fontSize:14,color:'#5a6178',lineHeight:1.7}}>
         <p style={{margin:'0 0 4px'}}>Base eleitoral do Republicanos no TO: {(summary.total_votos_republicanos_2022||0).toLocaleString('pt-BR')} votos em 2022 ({summary.share_republicanos_estado}% share). {summary.alta_prioridade} municipios classificados como alta prioridade.</p>
         <p style={{margin:'0 0 4px'}}>Top municipios aliados: {(summary.municipios_aliados||[]).slice(0,5).join(', ')}. Foco de campanha: consolidar base existente e expandir nos municipios de oportunidade.</p>
@@ -541,14 +541,14 @@ const App=()=>{
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(212,160,23,0.2)',border:'1px solid rgba(212,160,23,0.4)',borderRadius:14,padding:11}}><ShieldAlert size={24} style={{color:'#d4a017'}}/></div>
         <div>
-          <h1 style={{fontSize:22,fontWeight:800,color:'#ffffff',margin:0}}>Monitor Coronel Barbosa 2026</h1>
-          <p style={{fontSize:12,color:'#d4a017',margin:'3px 0 0',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em'}}>32 fontes · TO + Brasil · {lastUpdate||''}</p>
+          <h1 style={{fontSize:26,fontWeight:800,color:'#ffffff',margin:0}}>Monitor Coronel Barbosa 2026</h1>
+          <p style={{fontSize:13,color:'#d4a017',margin:'4px 0 0',fontWeight:600,textTransform:'uppercase',letterSpacing:'0.1em'}}>32 fontes · TO + Brasil · {lastUpdate||''}</p>
         </div>
       </div>
       <div style={{display:'flex',gap:16,alignItems:'center'}}>
-        <div style={{textAlign:'right'}}><p style={{fontSize:9,color:'rgba(255,255,255,0.6)',fontWeight:700,textTransform:'uppercase',margin:'0 0 2px'}}>Toxicidade</p><p style={{fontSize:22,fontWeight:900,color:'#f0c850',margin:0}}>{totalM.tox}%</p></div>
+        <div style={{textAlign:'right'}}><p style={{fontSize:11,color:'rgba(255,255,255,0.6)',fontWeight:700,textTransform:'uppercase',margin:'0 0 2px'}}>Toxicidade</p><p style={{fontSize:26,fontWeight:900,color:'#f0c850',margin:0}}>{totalM.tox}%</p></div>
         <div style={{width:1,height:32,background:'rgba(255,255,255,0.2)'}}/>
-        <div style={{textAlign:'right'}}><p style={{fontSize:9,color:'rgba(255,255,255,0.6)',fontWeight:700,textTransform:'uppercase',margin:'0 0 2px'}}>Menções</p><p style={{fontSize:22,fontWeight:900,color:'#ffffff',margin:0}}>{totalM.tot}</p></div>
+        <div style={{textAlign:'right'}}><p style={{fontSize:11,color:'rgba(255,255,255,0.6)',fontWeight:700,textTransform:'uppercase',margin:'0 0 2px'}}>Menções</p><p style={{fontSize:26,fontWeight:900,color:'#ffffff',margin:0}}>{totalM.tot}</p></div>
         <button onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:5,padding:'7px 12px',borderRadius:10,background:'rgba(255,255,255,0.15)',border:'1px solid rgba(255,255,255,0.3)',color:'#ffffff',fontSize:11,fontWeight:700,cursor:refreshing?'wait':'pointer',opacity:refreshing?0.6:1}}>
           <RefreshCw size={12} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{refreshing?'Atualizando...':'Atualizar'}
         </button>
@@ -565,11 +565,11 @@ const App=()=>{
       <Met icon={Newspaper} label="Fontes" value={filtM.src} accent="#64748b"/>
     </div>
 
-    {/* ═══ M2: REDES SOCIAIS ═══ */}
-    <SocialPanel socialData={socialData} sentimentData={sentimentData}/>
-
     {/* ═══ M3: INTELIGÊNCIA ELEITORAL ═══ */}
     <GeoPanel geoData={geoData}/>
+
+    {/* ═══ M2: REDES SOCIAIS ═══ */}
+    <SocialPanel socialData={socialData} sentimentData={sentimentData}/>
 
     {/* FILTERS */}
     <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap'}}>
