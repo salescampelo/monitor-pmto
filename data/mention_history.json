@@ -12032,5 +12032,234 @@
     "detected_at": "2026-04-01 13:56",
     "snippet": "",
     "hash_id": "c3ed1e85603f"
+  },
+  {
+    "title": "Pré-candidato a deputado federal, Márcio Barbosa deixa comando da Polícia Militar; Cláudio Thomaz assume tropa",
+    "url": "https://clebertoledo.com.br/tocantins/pre-candidato-a-deputado-federal-marcio-antonio-deixa-comando-da-policia-militar-claudio-thomaz-assume-tropa/",
+    "source_name": "Cleber Toledo",
+    "source_type": "Blog",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "márcio barbosa",
+      "candidato a deputado",
+      "pré-candidato"
+    ],
+    "mention_type": "direta",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "979846c954c4"
+  },
+  {
+    "title": "PMTO tinha só 2 mulheres no início: conheça as pioneiras que abriram caminho",
+    "url": "https://afnoticias.com.br/vida-sociedade/dia-da-policial-militar-feminina-legado-e-protagonismo-na-pmto",
+    "source_name": "AF Notícias",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "pmto"
+    ],
+    "mention_type": "institucional",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "d5fdf06d8f4d"
+  },
+  {
+    "title": "Márcio Barbosa deixa Comando da PMTO como nome forte na disputa a deputado federal  e referência na segurança",
+    "url": "https://atitudeto.com.br/politica/marcio-barbosa-deixa-comando-da-pmto-como-nome-forte-na-disputa-a-deputado-federal-e-referencia-na-seguranca/",
+    "source_name": "Atitude Tocantins",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "pmto",
+      "márcio barbosa"
+    ],
+    "mention_type": "direta",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "40b09ab99661"
+  },
+  {
+    "title": "Cenário eleitoralGaguim diz ter total confiança no partido: “agradeço os convites que fizeram, mas minha candidata é a Dorinha e isso vai continuar”Maju Cotrim O deputado federal e pré-candidato ao Senado, Carlos Gaguim, conversou com a Gazeta do Cerrado sobre as articulações e garantiu que permanece no União Brasil. Nesta sexta-feira, 3, ele deixou claro que permanece no grupo. Ele mantém o diálogo com a senadora Professora Dorinha, o senador Eduardo Gomes e outros aliados sobre o […]",
+    "url": "https://gazetadocerrado.com.br/politica/gaguim-diz-ter-total-confianca-no-partido-agradeco-os-convites-que-fizeram-mas-minha-candidata-e-a-dorinha-e-isso-vai-continuar/",
+    "source_name": "Gazeta do Cerrado",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "pré-candidato"
+    ],
+    "mention_type": "eleitoral",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "544da26cc011"
+  },
+  {
+    "title": "Bastidores da políticaApós saída de Iratã, Laurez nega especulações e garante que terá chapa completa de federal: “Sou o candidato dos excluídos”Maju Cotrim O pré-candidato ao governo, Laurez Moreira, afirmou à Gazeta do Cerrado na manhã desta sexta-feira, 3, que a saída do empresário Iratã não desmontou a chapa de federal do PSD. Ele minimizou o assunto: “Foi escolha dele, não tem problema nenhum, cada qual faz política como acha certo”, disse. “Temos chapas de pessoas […]",
+    "url": "https://gazetadocerrado.com.br/politica/apos-saida-de-irata-laurez-nega-especulacoes-e-garante-que-tera-chapa-completa-de-federal-sou-o-candidato-dos-excluidos/",
+    "source_name": "Gazeta do Cerrado",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "pré-candidato"
+    ],
+    "mention_type": "eleitoral",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "ad4181cf9558"
+  },
+  {
+    "title": "Eleições 2026Republicanos apresenta 16 nomes para nominatas de estadual e seis para federal; Wanderlei: “uma chapa mais equilibrada”",
+    "url": "https://gazetadocerrado.com.br/politica/republicanos-apresenta-16-nomes-para-nominatas-de-estadual-e-seis-para-federal-wanderlei-uma-chapa-mais-equilibrada/",
+    "source_name": "Gazeta do Cerrado",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "eleições 2026"
+    ],
+    "mention_type": "eleitoral",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "a0ccc29939d3"
+  },
+  {
+    "title": "Eleições 2026DE FRENTE COM MAJU: Sem renúncia, Wanderlei diz que vai terminar mandato de cabeça erguida, exalta Dorinha e dá detalhes sobre articulação para o Senado: “Não temos chapa definida, temos pré-candidatos”O governador Wanderlei Barbosa participou do “De Frente com Maju” na manhã desta quarta-feira, 1º, e falou abertamente sobre várias questões. Ele começou deixando claro que fica até o final do mandato, abrindo mão de disputar o Senado. “Vamos terminar o governo, foi um compromisso que fiz comigo mesmo e com a minha família e […]",
+    "url": "https://gazetadocerrado.com.br/politica/de-frente-com-maju-sem-renuncia-wanderlei-diz-que-vai-terminar-mandato-de-cabeca-erguida-exalta-dorinha-e-da-detalhes-sobre-articulacao-para-o-senado-nao-temos-chapa-definida-temos-pre-c/",
+    "source_name": "Gazeta do Cerrado",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "eleições 2026",
+      "pré-candidato"
+    ],
+    "mention_type": "eleitoral",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "9aa19b61814a"
+  },
+  {
+    "title": "TocantinsLuana Nunes deixa Secretaria de Saúde de Gurupi com sentimento de missão cumprida e entra no páreo por vaga de federalA pré-candidata a deputada federal pelo Tocantins, Luana Nunes, deixa, a partir desta sexta-feira, 3 de abril, o cargo de secretária municipal de Saúde de Gurupi. O ato de exoneração está publicado no Diário Oficial do Município nº 1456 e atende ao prazo estabelecido pela legislação eleitoral para desincompatibilização de gestores públicos que pretendem disputar […]",
+    "url": "https://gazetadocerrado.com.br/tocantins/luana-nunes-deixa-secretaria-de-saude-de-gurupi-com-sentimento-de-missao-cumprida-e-entra-no-pareo-por-vaga-de-federal/",
+    "source_name": "Gazeta do Cerrado",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "desincompatibilização"
+    ],
+    "mention_type": "eleitoral",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "abfca5b6bc78"
+  },
+  {
+    "title": "Movimentação políticaColinas sob novo comando: Kasarin renuncia, transmite cargo a Zé Nagru e entra na disputa por vaga na AssembleiaColinas do Tocantins já está oficialmente sob nova condução administrativa. O prefeito reeleito, Kasarin transmitiu o cargo ao vice-prefeito Zé Nagru, em movimento estratégico dentro do prazo de desincompatibilização para as eleições deste ano. Com alta aprovação na gestão municipal e consolidado politicamente na região, Kasarin deixa o Executivo com foco na disputa por uma […]",
+    "url": "https://gazetadocerrado.com.br/politica/colinas-sob-novo-comando-kasarin-renuncia-transmite-cargo-a-ze-nagru-e-entra-na-disputa-por-vaga-na-assembleia/",
+    "source_name": "Gazeta do Cerrado",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "desincompatibilização"
+    ],
+    "mention_type": "eleitoral",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "27cbd38025f1"
+  },
+  {
+    "title": "Movimento eleitoralEfeito eleições: Dois secretários deixam gestão de Eduardo Siqueira e podem disputar mandatosEm contagem regressiva para o prazo de desincompatibilização eleitoral, dois integrantes do primeiro escalão da Prefeitura de Palmas oficializaram, nesta quarta-feira (1º), suas saídas dos cargos que ocupavam na gestão municipal. Deixam a administração o ex-prefeito e vereador Carlos Amastha, que respondia pela Secretaria Municipal Extraordinária do MATOPIBA, e Sérgio Vieira Marques, o Soró, então […]",
+    "url": "https://gazetadocerrado.com.br/politica/efeito-eleicoes-dois-secretarios-deixam-gestao-de-eduardo-siqueira-e-podem-disputar-mandatos/",
+    "source_name": "Gazeta do Cerrado",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "desincompatibilização"
+    ],
+    "mention_type": "eleitoral",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "5bf5bd2c7b18"
+  },
+  {
+    "title": "Soró e Carlos Amastha pedem exoneração em Palmas dias antes da desincompatibilização exigida para disputar as eleições",
+    "url": "https://soudepalmas.com.br/politica/soro-e-carlos-amastha-pedem-exoneracao-em-palmas-dias-antes-da-desincompatibilizacao-exigida-para-disputar-as-eleicoes",
+    "source_name": "Sou de Palmas",
+    "source_type": "Portal",
+    "priority": "media",
+    "scope": "TO",
+    "matched_terms": [
+      "desincompatibilização"
+    ],
+    "mention_type": "eleitoral",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "67caa4559982"
+  },
+  {
+    "title": "ELEIÇÕES 2026Filiação de Amélio Cayres ao MDB movimenta bastidores e consolida novo bloco político no TocantinsA filiação de Amélio Cayres ao MDB, realizada na noite desta terça-feira (31), em Palmas, movimentou fortemente o cenário político do Tocantins e confirmou a consolidação de um novo grupo de oposição no estado.",
+    "url": "https://focotocantins.com.br/noticia/6334/filiacao-de-amelio-cayres-ao-mdb-movimenta-bastidores-e-consolida-novo-bloco-politico-no-tocantins",
+    "source_name": "Foco Tocantins",
+    "source_type": "Portal",
+    "priority": "media",
+    "scope": "TO",
+    "matched_terms": [
+      "eleições 2026"
+    ],
+    "mention_type": "eleitoral",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "b89707aacef4"
+  },
+  {
+    "title": "Eleições 2026Dr. Marcelo Abrantes surge como possível candidato à Assembleia Legislativa e movimenta cenário político no Tocantins",
+    "url": "https://noticiatocantins.com.br/noticia/12389/dr-marcelo-abrantes-surge-como-possivel-candidato-a-assembleia-legislativa-e-movimenta-cenario-politico-no-tocantins",
+    "source_name": "Notícia Tocantins",
+    "source_type": "Portal",
+    "priority": "media",
+    "scope": "TO",
+    "matched_terms": [
+      "eleições 2026"
+    ],
+    "mention_type": "eleitoral",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "25bdf113ffa8"
+  },
+  {
+    "title": "Secretário Márcio Rocha recebe condecoração da Polícia Militar do Tocantins por atuação institucional",
+    "url": "https://ogirassol.com.br/homenagem/secretario-marcio-rocha-recebe-condecoracao-da-policia-militar-do-tocantins-por-atuacao-institucional/",
+    "source_name": "O Girassol",
+    "source_type": "Portal",
+    "priority": "media",
+    "scope": "TO",
+    "matched_terms": [
+      "polícia militar do tocantins"
+    ],
+    "mention_type": "institucional",
+    "detected_at": "2026-04-03 12:27",
+    "snippet": "",
+    "hash_id": "cdaa084c37c5"
+  },
+  {
+    "title": "Lucas Calil vai ser candidato a deputado federal pelo PRD, afirma pai do parlamentar",
+    "url": "https://www.jornalopcao.com.br/bastidores/lucas-calil-vai-ser-candidato-a-deputado-federal-pelo-prd-afirma-pai-do-parlamentar-811144/",
+    "source_name": "Jornal Opção (GO)",
+    "source_type": "Jornal",
+    "priority": "complementar",
+    "scope": "BR",
+    "matched_terms": [
+      "candidato a deputado"
+    ],
+    "mention_type": "eleitoral",
+    "detected_at": "2026-04-03 12:28",
+    "snippet": "",
+    "hash_id": "290e5dbc667f"
   }
 ]
