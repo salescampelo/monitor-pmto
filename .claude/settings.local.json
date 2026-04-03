@@ -3,7 +3,9 @@
     "allow": [
       "Bash(npm run:*)",
       "Bash(cmd:*)",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "Bash(python:*)",
+      "Bash(PYTHONUTF8=1 python add_relevance.py)"
     ]
   }
 }
