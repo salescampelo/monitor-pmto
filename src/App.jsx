@@ -4,9 +4,11 @@ import {
   ChevronDown, ChevronUp, Newspaper, Target, Radio, Clock,
   Hash, ArrowUpRight, BrainCircuit, Layers, Upload, RefreshCw,
   Database, User, Building, Globe, MapPin, Bookmark, Trash2,
-  BarChart3, TrendingUp, Heart, MessageCircle, Users
+  BarChart3, TrendingUp, Heart, MessageCircle, Users, LogOut
 } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
+import { supabase } from './lib/supabase.js';
+import LoginScreen from './components/LoginScreen.jsx';
 
 const useWW=()=>{const[w,setW]=useState(typeof window!=='undefined'?window.innerWidth:1024);useEffect(()=>{const h=()=>setW(window.innerWidth);window.addEventListener('resize',h);return()=>window.removeEventListener('resize',h);},[]);return w;};
 const CSS=`html{scroll-padding-top:72px;scroll-behavior:smooth}body{margin:0}*{box-sizing:border-box}@keyframes spin{to{transform:rotate(360deg)}}@keyframes blob-float{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(22px,-16px) scale(1.04)}70%{transform:translate(-14px,10px) scale(0.97)}}.hov-card{transition:transform 0.22s ease,box-shadow 0.22s ease}.hov-card:hover{transform:translateY(-4px)!important;box-shadow:0 20px 56px rgba(26,58,122,0.13)!important}.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}.reveal.visible{opacity:1;transform:none}@media(max-width:720px){.nav-items{display:none!important}}`;
@@ -763,7 +765,7 @@ const AdversariosPanel=({adversariosData})=>{
 /* ═══════════════════════════════════════════════
    MAIN APP
    ═══════════════════════════════════════════════ */
-const App=()=>{
+const App=({onLogout, userEmail})=>{
   const[newsRaw,setNewsRaw]=useState(null);
   const[socialData,setSocialData]=useState(null);
   const[sentimentData,setSentimentData]=useState(null);
@@ -861,6 +863,13 @@ const App=()=>{
       <button onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:6,padding:'8px 20px',borderRadius:24,background:'#1a3a7a',border:'none',color:'#fff',fontSize:12,fontWeight:700,cursor:refreshing?'wait':'pointer',marginLeft:8,opacity:refreshing?0.7:1,transition:'opacity 0.2s'}}>
         <RefreshCw size={12} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{refreshing?'Atualizando...':'Atualizar'}
       </button>
+      {onLogout&&(
+        <button onClick={onLogout} title={userEmail} style={{display:'flex',alignItems:'center',gap:6,padding:'8px 14px',borderRadius:24,background:'transparent',border:'1px solid #dfe3ed',color:'#5a6178',fontSize:12,fontWeight:700,cursor:'pointer',transition:'all 0.15s'}}
+          onMouseEnter={e=>{e.currentTarget.style.borderColor='#ef4444';e.currentTarget.style.color='#ef4444';}}
+          onMouseLeave={e=>{e.currentTarget.style.borderColor='#dfe3ed';e.currentTarget.style.color='#5a6178';}}>
+          <LogOut size={12}/>{!isMobile&&'Sair'}
+        </button>
+      )}
     </div>
   </nav>
 
@@ -988,4 +997,85 @@ const App=()=>{
   </div></div>);
 };
 
-export default App;
+/* ═══════════════════════════════════════════════
+   AUTH WRAPPER
+   ═══════════════════════════════════════════════ */
+const ALLOWED_CHECK_TABLE = 'allowed_users';
+
+export default function Root() {
+  const [session,     setSession]     = useState(undefined); // undefined = carregando
+  const [authorized,  setAuthorized]  = useState(null);      // null = verificando
+  const [authChecked, setAuthChecked] = useState(false);
+
+  // Escuta mudanças de sessão
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+      if (!session) { setAuthorized(null); setAuthChecked(false); }
+    });
+    return () => subscription.unsubscribe();
+  }, []);
+
+  // Verifica se e-mail está na tabela allowed_users
+  useEffect(() => {
+    if (!session?.user?.email) return;
+    setAuthChecked(false);
+    supabase
+      .from(ALLOWED_CHECK_TABLE)
+      .select('email')
+      .eq('email', session.user.email)
+      .maybeSingle()
+      .then(({ data }) => {
+        setAuthorized(!!data);
+        setAuthChecked(true);
+      });
+  }, [session]);
+
+  const handleLogout = () => supabase.auth.signOut();
+
+  // Carregando sessão inicial
+  if (session === undefined) {
+    return (
+      <div style={{minHeight:'100vh',background:'#1a3a7a',display:'flex',alignItems:'center',justifyContent:'center'}}>
+        <div style={{width:40,height:40,border:'3px solid rgba(212,160,23,0.2)',borderTop:'3px solid #d4a017',borderRadius:'50%',animation:'spin 0.8s linear infinite'}}/>
+        <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
+      </div>
+    );
+  }
+
+  // Não logado
+  if (!session) return <LoginScreen />;
+
+  // Logado mas ainda verificando autorização
+  if (!authChecked) {
+    return (
+      <div style={{minHeight:'100vh',background:'#1a3a7a',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:12,fontFamily:"'DM Sans',sans-serif"}}>
+        <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
+        <div style={{width:40,height:40,border:'3px solid rgba(212,160,23,0.2)',borderTop:'3px solid #d4a017',borderRadius:'50%',animation:'spin 0.8s linear infinite'}}/>
+        <p style={{color:'rgba(255,255,255,0.4)',fontSize:12,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.15em',margin:0}}>Verificando acesso...</p>
+      </div>
+    );
+  }
+
+  // Logado mas não autorizado
+  if (!authorized) {
+    return (
+      <div style={{minHeight:'100vh',background:'#1a3a7a',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:16,fontFamily:"'DM Sans',sans-serif",padding:20}}>
+        <ShieldAlert size={40} style={{color:'#ef4444'}}/>
+        <div style={{textAlign:'center'}}>
+          <p style={{color:'#fff',fontSize:16,fontWeight:800,margin:'0 0 6px'}}>Acesso não autorizado</p>
+          <p style={{color:'rgba(255,255,255,0.4)',fontSize:13,margin:'0 0 20px'}}>{session.user.email} não tem permissão de acesso.</p>
+        </div>
+        <button onClick={handleLogout} style={{display:'flex',alignItems:'center',gap:8,padding:'10px 24px',background:'rgba(255,255,255,0.1)',border:'1px solid rgba(255,255,255,0.2)',borderRadius:10,color:'#fff',fontSize:13,fontWeight:700,cursor:'pointer',fontFamily:'inherit'}}>
+          <LogOut size={14}/> Sair
+        </button>
+      </div>
+    );
+  }
+
+  // Autorizado — renderiza dashboard com botão de logout no header
+  return <App onLogout={handleLogout} userEmail={session.user.email} />;
+}
