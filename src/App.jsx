@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
 
+const CSS=`html{scroll-padding-top:72px;scroll-behavior:smooth}body{margin:0}*{box-sizing:border-box}@keyframes spin{to{transform:rotate(360deg)}}@keyframes blob-float{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(22px,-16px) scale(1.04)}70%{transform:translate(-14px,10px) scale(0.97)}}.hov-card{transition:transform 0.22s ease,box-shadow 0.22s ease}.hov-card:hover{transform:translateY(-4px)!important;box-shadow:0 20px 56px rgba(26,58,122,0.13)!important}.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}.reveal.visible{opacity:1;transform:none}@media(max-width:720px){.nav-items{display:none!important}}`;
 const BASE = '/data';
 const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json`, geo: `${BASE}/geo_electoral.json`, kpis: `${BASE}/campaign_kpis.json`, adversarios: `${BASE}/adversarios.json` };
 const fetchJ = async u => { try { const r = await fetch(u+'?t='+Date.now()); return r.ok ? r.json() : null; } catch { return null; } };
@@ -43,14 +44,14 @@ const fmt=d=>{if(!d)return'—';const x=new Date(d+'T12:00:00');return x.toLocal
 const metrics=data=>{if(!data.length)return{tox:'0.0',tot:0,dir:0,ins:0,ele:0,nac:0,loc:0,src:0};const a=data.reduce((s,n)=>s+n.score,0)/data.length;return{tox:((1-a)*100).toFixed(1),tot:data.length,dir:data.filter(n=>n.mentionType==='direta').length,ins:data.filter(n=>n.mentionType==='institucional').length,ele:data.filter(n=>n.mentionType==='eleitoral').length,nac:data.filter(n=>n.scope==='BR').length,loc:data.filter(n=>n.scope==='TO').length,src:[...new Set(data.map(n=>n.source))].length};};
 
 /* ── COMPONENTS ── */
-const Card=({children,style})=><div style={{background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:14,padding:'18px 22px',...style}}>{children}</div>;
-const Met=({icon:I,label,value,sub,accent})=><Card style={{flex:1,minWidth:140}}><div style={{display:'flex',alignItems:'center',gap:5,marginBottom:8}}><I size={12} style={{color:accent}}/><span style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.08em',color:'#8c93a8'}}>{label}</span></div><p style={{fontSize:28,fontWeight:800,color:accent,margin:0,lineHeight:1}}>{value}</p>{sub&&<p style={{fontSize:12,color:'#8c93a8',marginTop:4}}>{sub}</p>}</Card>;
+const Card=({children,style,noHover})=><div className={noHover?'':'hov-card'} style={{background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:14,padding:'18px 22px',...style}}>{children}</div>;
+const Met=({icon:I,label,value,sub,accent})=><Card style={{flex:1,minWidth:140}}><div style={{display:'flex',alignItems:'center',gap:5,marginBottom:10}}><I size={13} style={{color:accent}}/><span style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.09em',color:'#8c93a8'}}>{label}</span></div><p style={{fontSize:30,fontWeight:900,color:accent,margin:0,lineHeight:1,letterSpacing:'-0.02em'}}>{value}</p>{sub&&<p style={{fontSize:12,color:'#8c93a8',marginTop:6,fontWeight:500}}>{sub}</p>}</Card>;
 const Bd=({children,color,bg})=><span style={{padding:'3px 8px',borderRadius:6,fontSize:10,fontWeight:700,background:bg||`${color}12`,color}}>{children}</span>;
-const Bt=({active,color,onClick,children})=><button onClick={onClick} style={{display:'flex',alignItems:'center',gap:4,padding:'6px 12px',borderRadius:10,fontSize:13,fontWeight:700,border:active?`1px solid ${color}`:'1px solid #dfe3ed',background:active?`${color}10`:'#ffffff',color:active?color:'#8c93a8',cursor:'pointer'}}>{children}</button>;
+const Bt=({active,color,onClick,children})=><button onClick={onClick} style={{display:'flex',alignItems:'center',gap:4,padding:'6px 14px',borderRadius:20,fontSize:12,fontWeight:700,border:active?`1.5px solid ${color}`:'1.5px solid #dfe3ed',background:active?`${color}10`:'#ffffff',color:active?color:'#8c93a8',cursor:'pointer',transition:'all 0.15s ease'}}>{children}</button>;
 
 /* ── NEWS CARD ── */
 const NC=({item,expanded,onToggle})=>{const sc=sC(item.score);const cl=CLUSTERS.find(c=>c.id===item.cluster);return(
-<div style={{background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:14,borderLeft:`3px solid ${cl?.color||'#64748b'}`,padding:'16px 20px'}}>
+<div className="hov-card" style={{background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:14,borderLeft:`3px solid ${cl?.color||'#64748b'}`,padding:'18px 22px'}}>
 <div style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:6,marginBottom:8}}>
 <div style={{display:'flex',alignItems:'center',gap:6,flexWrap:'wrap'}}>
 <Bd color={item.mentionType==='direta'?'#ef4444':'#94a3b8'}>{item.mentionType==='direta'?'● DIRETA':item.mentionType==='eleitoral'?'◆ ELEITORAL':'○ INSTITUCIONAL'}</Bd>
@@ -61,7 +62,7 @@ const NC=({item,expanded,onToggle})=>{const sc=sC(item.score);const cl=CLUSTERS.
 </div>
 <div style={{display:'flex',gap:4}}><Bd color={sc.t}>{item.sentiment}</Bd><Bd color={iC(item.impact)}>{item.impact}</Bd></div>
 </div>
-<h4 style={{fontSize:18,fontWeight:700,color:'#1a1d2e',margin:'0 0 6px',lineHeight:1.4}}>{item.title}</h4>
+<h4 style={{fontSize:17,fontWeight:700,color:'#1a1d2e',margin:'0 0 8px',lineHeight:1.45,letterSpacing:'-0.01em'}}>{item.title}</h4>
 {item.keywords.length>0&&<div style={{display:'flex',gap:4,flexWrap:'wrap',marginBottom:10}}>{item.keywords.slice(0,6).map(k=><span key={k} style={{fontSize:10,fontFamily:'monospace',color:'#8c93a8'}}>#{k}</span>)}</div>}
 <div style={{borderTop:'1px solid #eef0f6',paddingTop:8,display:'flex',justifyContent:'space-between'}}>
 <button onClick={onToggle} style={{background:'none',border:'none',color:'#1a3a7a',fontSize:11,fontWeight:700,cursor:'pointer',display:'flex',alignItems:'center',gap:4}}><BrainCircuit size={12}/>{expanded?'Ocultar':'Análise'}{expanded?<ChevronUp size={12}/>:<ChevronDown size={12}/>}</button>
@@ -108,19 +109,20 @@ const SocialPanel=({socialData,sentimentData})=>{
       </div>
     </div>
 
-    {cand&&<Card style={{marginBottom:14,borderLeft:'3px solid #8b5cf6'}}>
-      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:12}}>
+    {cand&&<div className="hov-card" style={{marginBottom:18,borderRadius:16,background:'#1a3a7a',padding:'24px 28px',position:'relative',overflow:'hidden'}}>
+      <div style={{position:'absolute',width:280,height:280,borderRadius:'50%',background:'radial-gradient(circle,rgba(212,160,23,0.18),transparent 70%)',top:-80,right:-60,pointerEvents:'none',animation:'blob-float 9s ease-in-out infinite'}}/>
+      <div style={{position:'relative',zIndex:1,display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:16}}>
         <div>
-          <p style={{fontSize:12,color:'#1a3a7a',fontWeight:700,textTransform:'uppercase',margin:'0 0 4px'}}>Cel. Barbosa @{cand.username}</p>
-          <div style={{display:'flex',gap:24,flexWrap:'wrap'}}>
-            <div><p style={{fontSize:26,fontWeight:800,color:'#1a1d2e',margin:0}}>{cand.seguidores.toLocaleString('pt-BR')}</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>seguidores</p></div>
-            <div><p style={{fontSize:26,fontWeight:800,color:'#1a3a7a',margin:0}}>{cand.taxa_engajamento_pct}%</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>engajamento</p></div>
-            <div><p style={{fontSize:26,fontWeight:800,color:'#d4a017',margin:0}}>{cand.media_likes_recentes}</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>likes/post</p></div>
-            <div><p style={{fontSize:26,fontWeight:800,color:'#15803d',margin:0}}>#{candRank}</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>no ranking</p></div>
+          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.2em',color:'rgba(255,255,255,0.4)',margin:'0 0 6px'}}>Cel. Barbosa · @{cand.username}</p>
+          <div style={{display:'flex',gap:32,flexWrap:'wrap'}}>
+            <div><p style={{fontSize:36,fontWeight:900,color:'#ffffff',margin:0,lineHeight:1,letterSpacing:'-0.02em'}}>{cand.seguidores.toLocaleString('pt-BR')}</p><p style={{fontSize:10,color:'rgba(255,255,255,0.45)',margin:'4px 0 0',textTransform:'uppercase',letterSpacing:'0.1em',fontWeight:700}}>seguidores</p></div>
+            <div><p style={{fontSize:36,fontWeight:900,color:'#d4a017',margin:0,lineHeight:1,letterSpacing:'-0.02em'}}>{cand.taxa_engajamento_pct}%</p><p style={{fontSize:10,color:'rgba(255,255,255,0.45)',margin:'4px 0 0',textTransform:'uppercase',letterSpacing:'0.1em',fontWeight:700}}>engajamento</p></div>
+            <div><p style={{fontSize:36,fontWeight:900,color:'rgba(255,255,255,0.85)',margin:0,lineHeight:1,letterSpacing:'-0.02em'}}>{cand.media_likes_recentes}</p><p style={{fontSize:10,color:'rgba(255,255,255,0.45)',margin:'4px 0 0',textTransform:'uppercase',letterSpacing:'0.1em',fontWeight:700}}>likes/post</p></div>
+            <div><p style={{fontSize:36,fontWeight:900,color:'#d4a017',margin:0,lineHeight:1,letterSpacing:'-0.02em'}}>#{candRank}</p><p style={{fontSize:10,color:'rgba(255,255,255,0.45)',margin:'4px 0 0',textTransform:'uppercase',letterSpacing:'0.1em',fontWeight:700}}>no ranking</p></div>
           </div>
         </div>
       </div>
-    </Card>}
+    </div>}
 
     <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,2.5fr)',gap:12,marginBottom:14}}>
       {/* Donut sentimento */}
@@ -341,9 +343,10 @@ const KpiPanel=({kpiData})=>{
         </p>
       </div>
       {daysLeft!==null&&(
-        <div style={{textAlign:'center',background:'#1a3a7a',borderRadius:12,padding:'10px 18px',minWidth:80}}>
-          <p style={{fontSize:24,fontWeight:800,color:'#f0c850',margin:0,lineHeight:1}}>{daysLeft}</p>
-          <p style={{fontSize:9,color:'rgba(255,255,255,0.7)',margin:'2px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.08em'}}>dias para a eleição</p>
+        <div style={{textAlign:'center',background:'#1a3a7a',borderRadius:14,padding:'14px 22px',minWidth:90,position:'relative',overflow:'hidden'}}>
+          <div style={{position:'absolute',width:100,height:100,borderRadius:'50%',background:'radial-gradient(circle,rgba(212,160,23,0.2),transparent)',top:-30,right:-20,pointerEvents:'none'}}/>
+          <p style={{fontSize:32,fontWeight:900,color:'#d4a017',margin:0,lineHeight:1,letterSpacing:'-0.02em',position:'relative'}}>{daysLeft}</p>
+          <p style={{fontSize:9,color:'rgba(255,255,255,0.5)',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.12em',position:'relative'}}>dias para eleição</p>
         </div>
       )}
     </div>
@@ -756,6 +759,15 @@ const App=()=>{
     setLoading(false);
   })();},[]);
 
+  useEffect(()=>{
+    if(loading)return;
+    const obs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+    },{threshold:0.04,rootMargin:'0px 0px -20px 0px'});
+    const timer=setTimeout(()=>{document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));},80);
+    return()=>{clearTimeout(timer);obs.disconnect();};
+  },[loading]);
+
   const handleRefresh=useCallback(async()=>{
     setRefreshing(true);
     const[m,s,st,g,k,adv]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.geo),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)]);
@@ -789,44 +801,74 @@ const App=()=>{
     const c={};base.forEach(n=>{c[n.cluster]=(c[n.cluster]||0)+1;});return c;
   },[articles,filterType,filterScope]);
 
-  if(loading)return<div style={{minHeight:'100vh',background:'#f3f5f9',color:'#5a6178',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:"'SF Pro Display','Segoe UI',sans-serif"}}><p>Carregando dados...</p></div>;
+  if(loading)return(<div style={{minHeight:'100vh',background:'#1a3a7a',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,sans-serif"}}><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style><div style={{position:'relative',width:76,height:76,marginBottom:28}}><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid rgba(212,160,23,0.18)'}}/><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid transparent',borderTopColor:'#d4a017',animation:'spin 1s linear infinite'}}/><ShieldAlert size={26} style={{color:'#d4a017',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}/></div><p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',margin:0}}>Carregando dados</p></div>);
 
   return(
-  <div style={{minHeight:'100vh',background:'#f3f5f9',color:'#3a3f52',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif",padding:'24px 32px'}}>
-  <div style={{maxWidth:1600,margin:'0 auto'}}>
+  <div style={{minHeight:'100vh',background:'#f3f5f9',color:'#3a3f52',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif"}}>
+  <style>{CSS}</style>
 
-    {/* HEADER */}
-    <header style={{background:'#1a3a7a',border:'1px solid #0f2555',borderRadius:16,padding:'24px 32px',marginBottom:20,display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:14}}>
-      <div style={{display:'flex',alignItems:'center',gap:12}}>
-        <div style={{background:'rgba(212,160,23,0.2)',border:'1px solid rgba(212,160,23,0.4)',borderRadius:14,padding:11}}><ShieldAlert size={24} style={{color:'#d4a017'}}/></div>
+  {/* ── STICKY NAV ── */}
+  <nav style={{position:'sticky',top:0,zIndex:100,background:'rgba(255,255,255,0.97)',backdropFilter:'blur(16px)',WebkitBackdropFilter:'blur(16px)',borderBottom:'1px solid rgba(223,227,237,0.9)',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 32px',height:64,gap:16}}>
+    <div style={{display:'flex',alignItems:'center',gap:10}}>
+      <div style={{background:'#1a3a7a',borderRadius:10,padding:'7px 8px',display:'flex',alignItems:'center'}}><ShieldAlert size={18} style={{color:'#d4a017'}}/></div>
+      <span style={{fontSize:16,fontWeight:900,color:'#1a1d2e',letterSpacing:'-0.02em'}}>Monitor Coronel Barbosa<span style={{color:'#d4a017'}}>.</span></span>
+    </div>
+    <div className="nav-items" style={{display:'flex',alignItems:'center',gap:2}}>
+      {[['Inteligência','#sec-adversarios'],['Metas','#sec-kpis'],['Eleitoral','#sec-geo'],['Social','#sec-social'],['Imprensa','#sec-imprensa']].map(([l,h])=>(
+        <a key={l} href={h} style={{fontSize:13,fontWeight:600,color:'#5a6178',padding:'6px 14px',borderRadius:8,textDecoration:'none',transition:'color 0.15s'}}
+          onMouseEnter={e=>e.currentTarget.style.color='#1a3a7a'} onMouseLeave={e=>e.currentTarget.style.color='#5a6178'}>{l}</a>
+      ))}
+      <button onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:6,padding:'8px 20px',borderRadius:24,background:'#1a3a7a',border:'none',color:'#fff',fontSize:12,fontWeight:700,cursor:refreshing?'wait':'pointer',marginLeft:8,opacity:refreshing?0.7:1,transition:'opacity 0.2s'}}>
+        <RefreshCw size={12} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{refreshing?'Atualizando...':'Atualizar'}
+      </button>
+    </div>
+  </nav>
+
+  <div style={{maxWidth:1600,margin:'0 auto',padding:'0 32px 72px'}}>
+
+    {/* ── HERO ── */}
+    <div style={{position:'relative',background:'#1a3a7a',borderRadius:20,marginTop:24,overflow:'hidden',padding:'56px 48px 60px'}}>
+      <div style={{position:'absolute',width:640,height:640,borderRadius:'50%',background:'radial-gradient(circle,rgba(212,160,23,0.22),transparent 68%)',top:-220,right:-80,pointerEvents:'none',animation:'blob-float 11s ease-in-out infinite'}}/>
+      <div style={{position:'absolute',width:380,height:380,borderRadius:'50%',background:'radial-gradient(circle,rgba(255,255,255,0.06),transparent 70%)',bottom:-100,left:'38%',pointerEvents:'none',animation:'blob-float 16s ease-in-out infinite reverse'}}/>
+      <div style={{position:'absolute',width:220,height:220,borderRadius:'50%',background:'radial-gradient(circle,rgba(26,58,122,0.6),transparent 70%)',top:20,left:'55%',pointerEvents:'none',animation:'blob-float 9s ease-in-out infinite'}}/>
+      <div style={{position:'relative',zIndex:1,display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:36}}>
         <div>
-          <h1 style={{fontSize:26,fontWeight:800,color:'#ffffff',margin:0}}>Monitor Coronel Barbosa 2026</h1>
-          <p style={{fontSize:13,color:'#d4a017',margin:'4px 0 0',fontWeight:600,textTransform:'uppercase',letterSpacing:'0.1em'}}>32 fontes · TO + Brasil · {lastUpdate||''}</p>
+          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.28em',color:'rgba(255,255,255,0.38)',margin:'0 0 20px'}}>Central de inteligência · Campanha 2026</p>
+          <h1 style={{fontSize:'clamp(32px,4.2vw,58px)',fontWeight:900,color:'#ffffff',margin:0,lineHeight:1.0,letterSpacing:'-0.02em',textTransform:'uppercase'}}>
+            INTELIGÊNCIA<br/>ELEITORAL<br/><span style={{color:'#d4a017'}}>TOCANTINS.</span>
+          </h1>
+          <p style={{fontSize:14,color:'rgba(255,255,255,0.42)',margin:'22px 0 0',fontWeight:500,letterSpacing:'0.01em'}}>
+            32 fontes monitoradas · TO + Brasil · {lastUpdate||'Aguardando dados'}
+          </p>
+        </div>
+        <div style={{display:'flex',gap:44,alignItems:'center'}}>
+          <div style={{textAlign:'center'}}>
+            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 10px'}}>Toxicidade</p>
+            <p style={{fontSize:56,fontWeight:900,color:'#d4a017',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{totalM.tox}%</p>
+          </div>
+          <div style={{width:1,height:72,background:'rgba(255,255,255,0.12)'}}/>
+          <div style={{textAlign:'center'}}>
+            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 10px'}}>Menções</p>
+            <p style={{fontSize:56,fontWeight:900,color:'#ffffff',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{totalM.tot}</p>
+          </div>
         </div>
       </div>
-      <div style={{display:'flex',gap:16,alignItems:'center'}}>
-        <div style={{textAlign:'right'}}><p style={{fontSize:11,color:'rgba(255,255,255,0.6)',fontWeight:700,textTransform:'uppercase',margin:'0 0 2px'}}>Toxicidade</p><p style={{fontSize:26,fontWeight:900,color:'#f0c850',margin:0}}>{totalM.tox}%</p></div>
-        <div style={{width:1,height:32,background:'rgba(255,255,255,0.2)'}}/>
-        <div style={{textAlign:'right'}}><p style={{fontSize:11,color:'rgba(255,255,255,0.6)',fontWeight:700,textTransform:'uppercase',margin:'0 0 2px'}}>Menções</p><p style={{fontSize:26,fontWeight:900,color:'#ffffff',margin:0}}>{totalM.tot}</p></div>
-        <button onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:5,padding:'7px 12px',borderRadius:10,background:'rgba(255,255,255,0.15)',border:'1px solid rgba(255,255,255,0.3)',color:'#ffffff',fontSize:11,fontWeight:700,cursor:refreshing?'wait':'pointer',opacity:refreshing?0.6:1}}>
-          <RefreshCw size={12} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{refreshing?'Atualizando...':'Atualizar'}
-        </button>
-      </div>
-    </header>
+    </div>
 
     {/* ═══ INTELIGÊNCIA COMPETITIVA ═══ */}
-    <AdversariosPanel adversariosData={adversariosData}/>
+    <div id="sec-adversarios" className="reveal"><AdversariosPanel adversariosData={adversariosData}/></div>
 
     {/* ═══ METAS DA CAMPANHA ═══ */}
-    <KpiPanel kpiData={kpiData}/>
+    <div id="sec-kpis" className="reveal"><KpiPanel kpiData={kpiData}/></div>
 
     {/* ═══ M3: INTELIGÊNCIA ELEITORAL ═══ */}
-    <GeoPanel geoData={geoData}/>
+    <div id="sec-geo" className="reveal"><GeoPanel geoData={geoData}/></div>
 
     {/* ═══ M2: REDES SOCIAIS ═══ */}
-    <SocialPanel socialData={socialData} sentimentData={sentimentData}/>
+    <div id="sec-social" className="reveal"><SocialPanel socialData={socialData} sentimentData={sentimentData}/></div>
 
     {/* ═══ M1: MONITOR DE IMPRENSA ═══ */}
+    <section id="sec-imprensa" className="reveal">
     <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:18,marginTop:32}}>
       <div style={{background:'rgba(185,28,28,0.06)',border:'1px solid rgba(185,28,28,0.12)',borderRadius:12,padding:10}}>
         <Newspaper size={22} style={{color:'#b91c1c'}}/>
@@ -883,8 +925,9 @@ const App=()=>{
     <div style={{display:'flex',flexDirection:'column',gap:10,marginBottom:8}}>
       {filteredNews.slice(0,50).map(item=><NC key={item.id} item={item} expanded={!!expandedCards[item.id]} onToggle={()=>setExpandedCards(prev=>({...prev,[item.id]:!prev[item.id]}))}/>)}
       {filteredNews.length>50&&<p style={{fontSize:13,color:'#8c93a8',textAlign:'center'}}>Mostrando 50 de {filteredNews.length}. Use filtros para refinar.</p>}
-      {filteredNews.length===0&&<Card><p style={{color:'#8c93a8',fontSize:13,textAlign:'center'}}>Nenhuma menção para os filtros selecionados.</p></Card>}
+      {filteredNews.length===0&&<Card noHover><p style={{color:'#8c93a8',fontSize:13,textAlign:'center'}}>Nenhuma menção para os filtros selecionados.</p></Card>}
     </div>
+    </section>
 
   </div></div>);
 };
