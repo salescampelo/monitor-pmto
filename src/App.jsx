@@ -126,20 +126,15 @@ const SocialPanel=({socialData,sentimentData})=>{
     {open&&(
     <div>
 
-    {cand&&<div className="hov-card" style={{marginBottom:18,borderRadius:16,background:'#1a3a7a',padding:'24px 28px',position:'relative',overflow:'hidden'}}>
-      <div style={{position:'absolute',width:280,height:280,borderRadius:'50%',background:'radial-gradient(circle,rgba(212,160,23,0.18),transparent 70%)',top:-80,right:-60,pointerEvents:'none',animation:'blob-float 9s ease-in-out infinite'}}/>
-      <div style={{position:'relative',zIndex:1,display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:16}}>
-        <div>
-          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.2em',color:'rgba(255,255,255,0.4)',margin:'0 0 6px'}}>Cel. Barbosa · @{cand.username}</p>
-          <div style={{display:'flex',gap:32,flexWrap:'wrap'}}>
-            <div><p style={{fontSize:36,fontWeight:900,color:'#ffffff',margin:0,lineHeight:1,letterSpacing:'-0.02em'}}>{cand.seguidores.toLocaleString('pt-BR')}</p><p style={{fontSize:10,color:'rgba(255,255,255,0.45)',margin:'4px 0 0',textTransform:'uppercase',letterSpacing:'0.1em',fontWeight:700}}>seguidores</p></div>
-            <div><p style={{fontSize:36,fontWeight:900,color:'#d4a017',margin:0,lineHeight:1,letterSpacing:'-0.02em'}}>{cand.taxa_engajamento_pct}%</p><p style={{fontSize:10,color:'rgba(255,255,255,0.45)',margin:'4px 0 0',textTransform:'uppercase',letterSpacing:'0.1em',fontWeight:700}}>engajamento</p></div>
-            <div><p style={{fontSize:36,fontWeight:900,color:'rgba(255,255,255,0.85)',margin:0,lineHeight:1,letterSpacing:'-0.02em'}}>{cand.media_likes_recentes}</p><p style={{fontSize:10,color:'rgba(255,255,255,0.45)',margin:'4px 0 0',textTransform:'uppercase',letterSpacing:'0.1em',fontWeight:700}}>likes/post</p></div>
-            <div><p style={{fontSize:36,fontWeight:900,color:'#d4a017',margin:0,lineHeight:1,letterSpacing:'-0.02em'}}>#{candRank}</p><p style={{fontSize:10,color:'rgba(255,255,255,0.45)',margin:'4px 0 0',textTransform:'uppercase',letterSpacing:'0.1em',fontWeight:700}}>no ranking</p></div>
-          </div>
-        </div>
+    {cand&&<Card style={{marginBottom:14,borderLeft:'3px solid #8b5cf6'}}>
+      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10,letterSpacing:'0.1em'}}>Cel. Barbosa · @{cand.username}</p>
+      <div style={{display:'flex',gap:28,flexWrap:'wrap'}}>
+        <div><p style={{fontSize:26,fontWeight:800,color:'#1a1d2e',margin:0}}>{cand.seguidores.toLocaleString('pt-BR')}</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>seguidores</p></div>
+        <div><p style={{fontSize:26,fontWeight:800,color:'#1a3a7a',margin:0}}>{cand.taxa_engajamento_pct}%</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>engajamento</p></div>
+        <div><p style={{fontSize:26,fontWeight:800,color:'#d4a017',margin:0}}>{cand.media_likes_recentes}</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>likes/post</p></div>
+        <div><p style={{fontSize:26,fontWeight:800,color:'#22c55e',margin:0}}>#{candRank}</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>no ranking</p></div>
       </div>
-    </div>}
+    </Card>}
 
     <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,2.5fr)',gap:12,marginBottom:14}}>
       {/* Donut sentimento */}
@@ -192,8 +187,8 @@ const SocialPanel=({socialData,sentimentData})=>{
             }
             return(
             <div key={p.username} style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 40px',gap:4,padding:'5px 4px',borderBottom:'1px solid #eef0f6',background:isCand?'rgba(139,92,246,0.08)':'transparent',borderRadius:isCand?6:0}}>
-              <span style={{fontSize:12,fontWeight:700,color:'#8c93a8'}}>#{p.rank}</span>
-              <span style={{fontSize:11,color:isCand?'#a78bfa':'#cbd5e1',fontWeight:isCand?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
+              <span style={{fontSize:13,fontWeight:700,color:'#8c93a8'}}>#{p.rank}</span>
+              <span style={{fontSize:13,color:isCand?'#a78bfa':'#5a6178',fontWeight:isCand?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
               <span style={{fontSize:13,fontWeight:600,color:'#5a6178',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{p.seguidores.toLocaleString('pt-BR')}</span>
               <span style={{fontSize:13,fontWeight:700,color:p.taxa_engajamento_pct>=3?'#22c55e':p.taxa_engajamento_pct>=1.5?'#f59e0b':'#ef4444',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{p.taxa_engajamento_pct}%</span>
               <span style={{fontSize:13,fontWeight:700,color:trendColor,textAlign:'center'}}>{trendIcon}</span>
@@ -298,7 +293,7 @@ const SocialPanel=({socialData,sentimentData})=>{
       const negWords = new Set(['corrupto','vergonha','mentiroso','lixo','nojo','pior','fora','nunca','fake','mentira']);
       return(
       <Card style={{marginBottom:14}}>
-        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:12}}>Nuvem de palavras — comentários do candidato</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Nuvem de palavras — comentários do candidato</p>
         <div style={{display:'flex',flexWrap:'wrap',gap:'6px 10px',justifyContent:'center',padding:'8px 0',minHeight:80}}>
           {sorted.map(([word,count])=>{
             const ratio = count/maxCount;
@@ -323,7 +318,7 @@ const SocialPanel=({socialData,sentimentData})=>{
 
     {/* Insights */}
     <Card style={{borderLeft:'3px solid #22c55e'}}>
-      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#15803d',marginBottom:8}}>Insights para a campanha</p>
+      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Insights para a campanha</p>
       <div style={{fontSize:14,color:'#5a6178',lineHeight:1.7}}>
         {cand&&<p style={{margin:'0 0 4px'}}>Cel. Barbosa: #{candRank} em seguidores ({cand.seguidores.toLocaleString('pt-BR')}) com engajamento de {cand.taxa_engajamento_pct}% — {cand.taxa_engajamento_pct>1.5?'acima da média de políticos brasileiros (~1%)':'dentro da média'}.</p>}
         {cand&&<p style={{margin:'0 0 4px'}}>Média de {cand.media_likes_recentes} likes/post. Investir em Reels e vídeos curtos tende a amplificar o alcance orgânico em 3-5x no Instagram.</p>}
@@ -490,7 +485,7 @@ const GeoPanel=({geoData})=>{
     <div style={{display:'grid',gridTemplateColumns:isMobile?'1fr':'minmax(0,1.8fr) minmax(0,1.2fr)',gap:12,marginBottom:14}}>
       {/* Ranking table */}
       <Card>
-        <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',marginBottom:8}}>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>
           Ranking por potencial — {municipios.length} municípios
         </p>
         <div style={{maxHeight:400,overflowY:'auto'}}>
@@ -509,8 +504,8 @@ const GeoPanel=({geoData})=>{
                 borderRadius:selectedMun===m.municipio_upper?6:0}}>
               <span style={{fontSize:12,fontWeight:700,color:'#8c93a8'}}>#{m.ranking}</span>
               <span style={{fontSize:13,color:'#1a1d2e',fontWeight:500,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{m.municipio}</span>
-              {!isMobile&&<span style={{fontSize:12,color:'#5a6178',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.eleitorado||0).toLocaleString('pt-BR')}</span>}
-              {!isMobile&&<span style={{fontSize:12,color:'#1d4ed8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.votos_republicanos||0).toLocaleString('pt-BR')}</span>}
+              {!isMobile&&<span style={{fontSize:13,color:'#5a6178',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.eleitorado||0).toLocaleString('pt-BR')}</span>}
+              {!isMobile&&<span style={{fontSize:13,color:'#1d4ed8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.votos_republicanos||0).toLocaleString('pt-BR')}</span>}
               <span style={{fontSize:13,fontWeight:700,color:CAT_COLORS[m.categoria]||'#64748b',textAlign:'right'}}>{m.score_potencial}</span>
               {!isMobile&&<span style={{fontSize:8,fontWeight:700,color:CAT_COLORS[m.categoria],textAlign:'center',textTransform:'uppercase'}}>{m.categoria.split(' ')[0]}</span>}
             </div>
@@ -538,7 +533,7 @@ const GeoPanel=({geoData})=>{
         {/* Municipality detail (on click) */}
         {detail&&(
           <Card style={{borderLeft:`3px solid ${CAT_COLORS[detail.categoria]}`}}>
-            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:CAT_COLORS[detail.categoria],marginBottom:8}}>{detail.municipio} — #{detail.ranking}</p>
+            <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>{detail.municipio} — #{detail.ranking}</p>
             <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:10}}>
               <div><span style={{fontSize:10,color:'#8c93a8'}}>Eleitorado</span><p style={{fontSize:18,fontWeight:700,color:'#1a1d2e',margin:0}}>{(detail.eleitorado||0).toLocaleString('pt-BR')}</p></div>
               <div><span style={{fontSize:10,color:'#8c93a8'}}>População</span><p style={{fontSize:18,fontWeight:700,color:'#5a6178',margin:0}}>{(detail.populacao||0).toLocaleString('pt-BR')}</p></div>
@@ -547,9 +542,9 @@ const GeoPanel=({geoData})=>{
               <div><span style={{fontSize:10,color:'#8c93a8'}}>Comparecimento</span><p style={{fontSize:18,fontWeight:700,color:'#d4a017',margin:0}}>{detail.taxa_comparecimento}%</p></div>
               <div><span style={{fontSize:10,color:'#8c93a8'}}>Partido vencedor</span><p style={{fontSize:16,fontWeight:700,color:PARTY_COLORS[detail.partido_vencedor]||'#94a3b8',margin:0}}>{detail.partido_vencedor}</p></div>
             </div>
-            <p style={{fontSize:10,color:'#8c93a8',fontWeight:700,marginBottom:4}}>TOP CANDIDATOS 2022:</p>
+            <p style={{fontSize:12,color:'#5a6178',fontWeight:700,textTransform:'uppercase',marginBottom:10}}>TOP CANDIDATOS 2022:</p>
             {(detail.top_candidatos||[]).slice(0,3).map((c,i)=>(
-              <p key={i} style={{fontSize:11,color:'#3a3f52',margin:'2px 0'}}>{i+1}. {c.nome} ({c.partido}) — {(c.votos||0).toLocaleString('pt-BR')} votos</p>
+              <p key={i} style={{fontSize:13,color:'#5a6178',margin:'2px 0'}}>{i+1}. {c.nome} ({c.partido}) — {(c.votos||0).toLocaleString('pt-BR')} votos</p>
             ))}
           </Card>
         )}
@@ -563,7 +558,7 @@ const GeoPanel=({geoData})=>{
 
     {/* Strategic insights */}
     <Card style={{borderLeft:'3px solid #22c55e',marginBottom:14}}>
-      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#15803d',marginBottom:8}}>Insights geoeleitorais</p>
+      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Insights geoeleitorais</p>
       <div style={{fontSize:14,color:'#5a6178',lineHeight:1.7}}>
         <p style={{margin:'0 0 4px'}}>Base eleitoral do Republicanos no TO: {(summary.total_votos_republicanos_2022||0).toLocaleString('pt-BR')} votos em 2022 ({summary.share_republicanos_estado}% share). {summary.alta_prioridade} municipios classificados como alta prioridade.</p>
         <p style={{margin:'0 0 4px'}}>Top municipios aliados: {(summary.municipios_aliados||[]).slice(0,5).join(', ')}. Foco de campanha: consolidar base existente e expandir nos municipios de oportunidade.</p>
@@ -659,9 +654,9 @@ const AdversariosPanel=({adversariosData})=>{
     {open&&(
     <div>
       {/* Ranking + Stats */}
-      <div style={{display:'grid',gridTemplateColumns:'minmax(0,2fr) minmax(0,1fr)',gap:16,marginBottom:20}}>
+      <div style={{display:'grid',gridTemplateColumns:'minmax(0,2fr) minmax(0,1fr)',gap:16,marginBottom:14}}>
         <Card>
-          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',letterSpacing:'0.1em',marginBottom:14}}>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',letterSpacing:'0.1em',marginBottom:10}}>
             Ranking Instagram — Candidatos à Câmara
             {d?.data_atualizacao&&<span style={{fontWeight:400,color:'#8c93a8',marginLeft:8}}>· {d.data_atualizacao}</span>}
           </p>
@@ -688,7 +683,7 @@ const AdversariosPanel=({adversariosData})=>{
         </Card>
         <div style={{display:'flex',flexDirection:'column',gap:12}}>
           <Card style={{textAlign:'center',background:'linear-gradient(135deg,rgba(26,58,122,0.05),rgba(26,58,122,0.1))'}}>
-            <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',marginBottom:8,letterSpacing:'0.1em'}}>Posição do Cel. Barbosa</p>
+            <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10,letterSpacing:'0.1em'}}>Posição do Cel. Barbosa</p>
             <p style={{fontSize:52,fontWeight:900,color:'#1a3a7a',margin:0,lineHeight:1}}>{rankingWithMe.findIndex(r=>r.isMe)+1}º</p>
             <p style={{fontSize:12,color:'#8c93a8',marginTop:4}}>no ranking de Instagram<br/>{fmtK(candidato.seguidores)} seguidores</p>
             <div style={{display:'flex',justifyContent:'center',gap:16,marginTop:12}}>
@@ -698,7 +693,7 @@ const AdversariosPanel=({adversariosData})=>{
             </div>
           </Card>
           <Card>
-            <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',marginBottom:10,letterSpacing:'0.1em'}}>Vagas x Campo</p>
+            <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10,letterSpacing:'0.1em'}}>Vagas x Campo</p>
             {[{l:'Vagas disponíveis',v:d?.vagas||8,c:'#1a1d2e'},{l:'Candidatos relevantes',v:`${ranking.length}+`,c:'#1a1d2e'},{l:'Ameaças externas altas',v:stats.ameacas_altas,c:'#ef4444'},{l:'Concorrência interna Rep.',v:stats.internos,c:'#8b5cf6'},{l:'Saíram para majoritários',v:stats.saidos,c:'#22c55e'}].map((s,i)=>(
               <div key={i} style={{display:'flex',justifyContent:'space-between',marginBottom:6}}><span style={{fontSize:12,color:'#5a6178'}}>{s.l}</span><strong style={{color:s.c}}>{s.v}</strong></div>
             ))}
@@ -710,8 +705,8 @@ const AdversariosPanel=({adversariosData})=>{
       </div>
       {/* Threats */}
       {threats.length>0&&<>
-      <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',letterSpacing:'0.1em',marginBottom:12}}>Ameaças externas — nível alto</p>
-      <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))',gap:10,marginBottom:20}}>
+      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',letterSpacing:'0.1em',marginBottom:10}}>Ameaças externas — nível alto</p>
+      <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))',gap:10,marginBottom:14}}>
         {threats.map((t,i)=>(
           <div key={i} style={{background:'#ffffff',border:'1px solid #dfe3ed',borderTop:'2px solid #ef4444',borderRadius:10,padding:14}}>
             <span style={{fontSize:9,fontWeight:700,padding:'2px 8px',borderRadius:12,background:'rgba(239,68,68,0.1)',color:'#ef4444',border:'1px solid rgba(239,68,68,0.2)',display:'inline-block',marginBottom:8}}>Ameaça Alta</span>
@@ -724,9 +719,9 @@ const AdversariosPanel=({adversariosData})=>{
       </div>
       </>}
       {/* Internal + Migrations */}
-      <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,1fr)',gap:14,marginBottom:20}}>
+      <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,1fr)',gap:14,marginBottom:14}}>
         <Card style={{borderLeft:'3px solid #8b5cf6'}}>
-          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#8b5cf6',marginBottom:12,letterSpacing:'0.1em'}}>Concorrência interna — Republicanos</p>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10,letterSpacing:'0.1em'}}>Concorrência interna — Republicanos</p>
           {internals.map((n,i)=>(
             <div key={i} style={{display:'flex',gap:10,paddingBottom:10,marginBottom:10,borderBottom:i<internals.length-1?'1px solid #eef0f6':'none'}}>
               <div style={{width:8,height:8,borderRadius:4,background:'#8b5cf6',marginTop:5,flexShrink:0}}/>
@@ -735,7 +730,7 @@ const AdversariosPanel=({adversariosData})=>{
           ))}
         </Card>
         <Card style={{borderLeft:'3px solid #22c55e'}}>
-          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#22c55e',marginBottom:12,letterSpacing:'0.1em'}}>Saíram da disputa pela Câmara</p>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10,letterSpacing:'0.1em'}}>Saíram da disputa pela Câmara</p>
           {migrations.map((m,i)=>{const dc=DEST_C[m.destino]||'#64748b';return(
             <div key={i} style={{display:'flex',alignItems:'center',gap:10,paddingBottom:10,marginBottom:10,borderBottom:i<migrations.length-1?'1px solid #eef0f6':'none'}}>
               <div style={{width:34,height:34,borderRadius:'50%',background:`${dc}15`,color:dc,display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,fontSize:12,flexShrink:0}}>{m.abreviacao||m.ab}</div>
@@ -746,11 +741,11 @@ const AdversariosPanel=({adversariosData})=>{
       </div>
       {/* Recommendations */}
       <Card style={{borderLeft:'3px solid #d4a017'}}>
-        <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',marginBottom:14,letterSpacing:'0.1em'}}>Recomendações estratégicas</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10,letterSpacing:'0.1em'}}>Recomendações estratégicas</p>
         {recs.map((r,i)=>(
           <div key={i} style={{display:'flex',gap:12,marginBottom:i<recs.length-1?12:0}}>
             <div style={{width:26,height:26,borderRadius:'50%',background:'#1a3a7a',color:'#d4a017',fontSize:12,fontWeight:800,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginTop:1}}>{i+1}</div>
-            <p style={{fontSize:13,color:'#3a3f52',lineHeight:1.6,margin:0}}><strong>{r.titulo||r.t}</strong> {r.descricao||r.d}</p>
+            <p style={{fontSize:14,color:'#5a6178',lineHeight:1.7,margin:0}}><strong>{r.titulo||r.t}</strong> {r.descricao||r.d}</p>
           </div>
         ))}
       </Card>
