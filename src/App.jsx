@@ -84,7 +84,7 @@ const PANEL_PROFILES=new Set([
   'marciobarbosa_cel','janad_valcari','tiagodimas','ricardoayres_to','fabiopereiravaz',
   'depjairfariasoficial','lucascampelotocantins','filipemartinsto','cesarhalum','atosgomess',
   'nilmarruiz','sandovallobocardoso','larissarosenda','celiomourato','alfredojrto',
-  'dep.lazaro','osiresdamaso',
+  'dep.lazaro','osiresdamaso','sgtjorge_carneiro_',
 ]);
 
 const SocialPanel=({socialData,sentimentData})=>{
