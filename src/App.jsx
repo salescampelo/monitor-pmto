@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
 
+const useWW=()=>{const[w,setW]=useState(typeof window!=='undefined'?window.innerWidth:1024);useEffect(()=>{const h=()=>setW(window.innerWidth);window.addEventListener('resize',h);return()=>window.removeEventListener('resize',h);},[]);return w;};
 const CSS=`html{scroll-padding-top:72px;scroll-behavior:smooth}body{margin:0}*{box-sizing:border-box}@keyframes spin{to{transform:rotate(360deg)}}@keyframes blob-float{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(22px,-16px) scale(1.04)}70%{transform:translate(-14px,10px) scale(0.97)}}.hov-card{transition:transform 0.22s ease,box-shadow 0.22s ease}.hov-card:hover{transform:translateY(-4px)!important;box-shadow:0 20px 56px rgba(26,58,122,0.13)!important}.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}.reveal.visible{opacity:1;transform:none}@media(max-width:720px){.nav-items{display:none!important}}`;
 const BASE = '/data';
 const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json`, geo: `${BASE}/geo_electoral.json`, kpis: `${BASE}/campaign_kpis.json`, adversarios: `${BASE}/adversarios.json` };
@@ -413,6 +414,7 @@ const GeoPanel=({geoData})=>{
   const[open,setOpen]=useState(true);
   const[selectedMun,setSelectedMun]=useState(null);
   const[catFilter,setCatFilter]=useState('all');
+  const isMobile=useWW()<768;
 
   const summary=geoData?.summary||{};
   const municipios=useMemo(()=>{
@@ -477,32 +479,32 @@ const GeoPanel=({geoData})=>{
       })}
     </div>
 
-    <div style={{display:'grid',gridTemplateColumns:'minmax(0,1.8fr) minmax(0,1.2fr)',gap:12,marginBottom:14}}>
+    <div style={{display:'grid',gridTemplateColumns:isMobile?'1fr':'minmax(0,1.8fr) minmax(0,1.2fr)',gap:12,marginBottom:14}}>
       {/* Ranking table */}
       <Card>
         <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',marginBottom:8}}>
           Ranking por potencial — {municipios.length} municípios
         </p>
         <div style={{maxHeight:400,overflowY:'auto'}}>
-          <div style={{display:'grid',gridTemplateColumns:'32px 1fr 70px 70px 60px 90px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid #dfe3ed'}}>
+          <div style={{display:'grid',gridTemplateColumns:isMobile?'32px 1fr 56px':'32px 1fr 70px 70px 60px 90px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid #dfe3ed'}}>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>#</span>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>MUNICÍPIO</span>
-            <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>ELEITORADO</span>
-            <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>VOTOS REP</span>
+            {!isMobile&&<span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>ELEITORADO</span>}
+            {!isMobile&&<span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>VOTOS REP</span>}
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>SCORE</span>
-            <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'center'}}>CATEGORIA</span>
+            {!isMobile&&<span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'center'}}>CATEGORIA</span>}
           </div>
           {municipios.map(m=>(
             <div key={m.municipio_upper} onClick={()=>setSelectedMun(selectedMun===m.municipio_upper?null:m.municipio_upper)}
-              style={{display:'grid',gridTemplateColumns:'32px 1fr 70px 70px 60px 90px',gap:4,padding:'5px 4px',borderBottom:'1px solid #eef0f6',cursor:'pointer',
+              style={{display:'grid',gridTemplateColumns:isMobile?'32px 1fr 56px':'32px 1fr 70px 70px 60px 90px',gap:4,padding:'5px 4px',borderBottom:'1px solid #eef0f6',cursor:'pointer',
                 background:selectedMun===m.municipio_upper?'rgba(34,197,94,0.1)':'transparent',
                 borderRadius:selectedMun===m.municipio_upper?6:0}}>
               <span style={{fontSize:12,fontWeight:700,color:'#8c93a8'}}>#{m.ranking}</span>
               <span style={{fontSize:13,color:'#1a1d2e',fontWeight:500,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{m.municipio}</span>
-              <span style={{fontSize:12,color:'#5a6178',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.eleitorado||0).toLocaleString('pt-BR')}</span>
-              <span style={{fontSize:12,color:'#1d4ed8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.votos_republicanos||0).toLocaleString('pt-BR')}</span>
+              {!isMobile&&<span style={{fontSize:12,color:'#5a6178',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.eleitorado||0).toLocaleString('pt-BR')}</span>}
+              {!isMobile&&<span style={{fontSize:12,color:'#1d4ed8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.votos_republicanos||0).toLocaleString('pt-BR')}</span>}
               <span style={{fontSize:13,fontWeight:700,color:CAT_COLORS[m.categoria]||'#64748b',textAlign:'right'}}>{m.score_potencial}</span>
-              <span style={{fontSize:8,fontWeight:700,color:CAT_COLORS[m.categoria],textAlign:'center',textTransform:'uppercase'}}>{m.categoria.split(' ')[0]}</span>
+              {!isMobile&&<span style={{fontSize:8,fontWeight:700,color:CAT_COLORS[m.categoria],textAlign:'center',textTransform:'uppercase'}}>{m.categoria.split(' ')[0]}</span>}
             </div>
           ))}
         </div>
@@ -769,6 +771,7 @@ const App=()=>{
   const[loading,setLoading]=useState(true);
   const[refreshing,setRefreshing]=useState(false);
   const[openImprensa,setOpenImprensa]=useState(true);
+  const isMobile=useWW()<768;
 
   useEffect(()=>{(async()=>{
     setLoading(true);
@@ -827,7 +830,7 @@ const App=()=>{
   <style>{CSS}</style>
 
   {/* ── STICKY NAV ── */}
-  <nav style={{position:'sticky',top:0,zIndex:100,background:'rgba(255,255,255,0.97)',backdropFilter:'blur(16px)',WebkitBackdropFilter:'blur(16px)',borderBottom:'1px solid rgba(223,227,237,0.9)',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 32px',height:64,gap:16}}>
+  <nav style={{position:'sticky',top:0,zIndex:100,background:'rgba(255,255,255,0.97)',backdropFilter:'blur(16px)',WebkitBackdropFilter:'blur(16px)',borderBottom:'1px solid rgba(223,227,237,0.9)',display:'flex',alignItems:'center',justifyContent:'space-between',padding:isMobile?'0 16px':'0 32px',height:64,gap:16}}>
     <div style={{display:'flex',alignItems:'center',gap:10}}>
       <div style={{background:'#1a3a7a',borderRadius:10,padding:'7px 8px',display:'flex',alignItems:'center'}}><ShieldAlert size={18} style={{color:'#d4a017'}}/></div>
       <span style={{fontSize:16,fontWeight:900,color:'#1a1d2e',letterSpacing:'-0.02em'}}>Monitor Coronel Barbosa<span style={{color:'#d4a017'}}>.</span></span>
@@ -843,32 +846,32 @@ const App=()=>{
     </div>
   </nav>
 
-  <div style={{maxWidth:1600,margin:'0 auto',padding:'0 32px 72px'}}>
+  <div style={{maxWidth:1600,margin:'0 auto',padding:isMobile?'0 16px 48px':'0 32px 72px'}}>
 
     {/* ── HERO ── */}
-    <div style={{position:'relative',background:'#1a3a7a',borderRadius:20,marginTop:24,overflow:'hidden',padding:'56px 48px 60px'}}>
+    <div style={{position:'relative',background:'#1a3a7a',borderRadius:20,marginTop:24,overflow:'hidden',padding:isMobile?'32px 20px 36px':'56px 48px 60px'}}>
       <div style={{position:'absolute',width:640,height:640,borderRadius:'50%',background:'radial-gradient(circle,rgba(212,160,23,0.22),transparent 68%)',top:-220,right:-80,pointerEvents:'none',animation:'blob-float 11s ease-in-out infinite'}}/>
       <div style={{position:'absolute',width:380,height:380,borderRadius:'50%',background:'radial-gradient(circle,rgba(255,255,255,0.06),transparent 70%)',bottom:-100,left:'38%',pointerEvents:'none',animation:'blob-float 16s ease-in-out infinite reverse'}}/>
       <div style={{position:'absolute',width:220,height:220,borderRadius:'50%',background:'radial-gradient(circle,rgba(26,58,122,0.6),transparent 70%)',top:20,left:'55%',pointerEvents:'none',animation:'blob-float 9s ease-in-out infinite'}}/>
-      <div style={{position:'relative',zIndex:1,display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:36}}>
+      <div style={{position:'relative',zIndex:1,display:'flex',flexDirection:isMobile?'column':'row',justifyContent:'space-between',alignItems:isMobile?'flex-start':'center',gap:isMobile?24:36}}>
         <div>
-          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.28em',color:'rgba(255,255,255,0.38)',margin:'0 0 20px'}}>Central de inteligência · Campanha 2026</p>
-          <h1 style={{fontSize:'clamp(32px,4.2vw,58px)',fontWeight:900,color:'#ffffff',margin:0,lineHeight:1.0,letterSpacing:'-0.02em',textTransform:'uppercase'}}>
+          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.28em',color:'rgba(255,255,255,0.38)',margin:'0 0 16px'}}>Central de inteligência · Campanha 2026</p>
+          <h1 style={{fontSize:isMobile?'clamp(28px,8vw,38px)':'clamp(32px,4.2vw,58px)',fontWeight:900,color:'#ffffff',margin:0,lineHeight:1.0,letterSpacing:'-0.02em',textTransform:'uppercase'}}>
             INTELIGÊNCIA<br/>ELEITORAL<br/><span style={{color:'#d4a017'}}>TOCANTINS.</span>
           </h1>
-          <p style={{fontSize:14,color:'rgba(255,255,255,0.42)',margin:'22px 0 0',fontWeight:500,letterSpacing:'0.01em'}}>
-            32 fontes monitoradas · TO + Brasil · {lastUpdate||'Aguardando dados'}
+          <p style={{fontSize:13,color:'rgba(255,255,255,0.42)',margin:'16px 0 0',fontWeight:500,letterSpacing:'0.01em'}}>
+            32 fontes · TO + Brasil · {lastUpdate||'Aguardando dados'}
           </p>
         </div>
-        <div style={{display:'flex',gap:44,alignItems:'center'}}>
+        <div style={{display:'flex',flexDirection:isMobile?'row':'row',gap:isMobile?24:44,alignItems:'center'}}>
           <div style={{textAlign:'center'}}>
-            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 10px'}}>Toxicidade</p>
-            <p style={{fontSize:56,fontWeight:900,color:'#d4a017',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{totalM.tox}%</p>
+            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 8px'}}>Toxicidade</p>
+            <p style={{fontSize:isMobile?36:56,fontWeight:900,color:'#d4a017',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{totalM.tox}%</p>
           </div>
-          <div style={{width:1,height:72,background:'rgba(255,255,255,0.12)'}}/>
+          <div style={{width:1,height:isMobile?48:72,background:'rgba(255,255,255,0.12)'}}/>
           <div style={{textAlign:'center'}}>
-            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 10px'}}>Menções</p>
-            <p style={{fontSize:56,fontWeight:900,color:'#ffffff',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{totalM.tot}</p>
+            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 8px'}}>Menções</p>
+            <p style={{fontSize:isMobile?36:56,fontWeight:900,color:'#ffffff',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{totalM.tot}</p>
           </div>
         </div>
       </div>
