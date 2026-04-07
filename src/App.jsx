@@ -825,6 +825,15 @@ const App=()=>{
     return sortOrder==='score'?[...f].sort((a,b)=>a.score-b.score):[...f].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
   },[articles,selectedCluster,sortOrder,filterType,filterScope,filterRelevance]);
 
+  const todayM=useMemo(()=>{
+    const cutoff=new Date(Date.now()-24*60*60*1000);
+    const recent=articles.filter(n=>{
+      if(n.relevance<0.5)return false;
+      try{const d=new Date((n.date||'').replace(' ','T'));return d>=cutoff;}
+      catch{return false;}
+    });
+    return metrics(recent);
+  },[articles]);
   const totalM=useMemo(()=>metrics(articles.filter(n=>n.relevance>=0.5)),[articles]);
   const filtM=useMemo(()=>metrics(filteredNews),[filteredNews]);
   const clCounts=useMemo(()=>{
@@ -872,15 +881,20 @@ const App=()=>{
             32 fontes · TO + Brasil · {lastUpdate||'Aguardando dados'}
           </p>
         </div>
-        <div style={{display:'flex',flexDirection:isMobile?'row':'row',gap:isMobile?24:44,alignItems:'center'}}>
+        <div style={{display:'flex',flexDirection:isMobile?'row':'row',gap:isMobile?20:36,alignItems:'center'}}>
           <div style={{textAlign:'center'}}>
             <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 8px'}}>Toxicidade</p>
             <p style={{fontSize:isMobile?36:56,fontWeight:900,color:'#d4a017',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{totalM.tox}%</p>
           </div>
           <div style={{width:1,height:isMobile?48:72,background:'rgba(255,255,255,0.12)'}}/>
           <div style={{textAlign:'center'}}>
-            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 8px'}}>Menções</p>
-            <p style={{fontSize:isMobile?36:56,fontWeight:900,color:'#ffffff',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{totalM.tot}</p>
+            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 8px'}}>Hoje</p>
+            <p style={{fontSize:isMobile?36:56,fontWeight:900,color:'#ffffff',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{todayM.tot}</p>
+          </div>
+          <div style={{width:1,height:isMobile?48:72,background:'rgba(255,255,255,0.12)'}}/>
+          <div style={{textAlign:'center'}}>
+            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 8px'}}>Total</p>
+            <p style={{fontSize:isMobile?28:40,fontWeight:900,color:'rgba(255,255,255,0.55)',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{totalM.tot}</p>
           </div>
         </div>
       </div>
