@@ -607,8 +607,8 @@ const AdversariosPanel=({adversariosData})=>{
     return out;
   },[ranking,candidato]);
   return(
-  <div style={{marginTop:20,background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:16,overflow:'hidden'}}>
-    <div style={{padding:'18px 22px',display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer'}} onClick={()=>setOpen(o=>!o)}>
+  <Card style={{marginTop:32}}>
+    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#1a3a7a'}}/></div>
         <div>
@@ -618,15 +618,15 @@ const AdversariosPanel=({adversariosData})=>{
       </div>
       <div style={{display:'flex',alignItems:'center',gap:16}}>
         <div style={{display:'flex',gap:16}}>
-          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#ef4444',margin:0}}>6</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>ameaças altas</p></div>
-          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#8b5cf6',margin:0}}>4</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>internos</p></div>
-          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#22c55e',margin:0}}>5</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>saíram</p></div>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#ef4444',margin:0}}>{stats.ameacas_altas}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>ameaças altas</p></div>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#8b5cf6',margin:0}}>{stats.internos}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>internos</p></div>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#22c55e',margin:0}}>{stats.saidos}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>saíram</p></div>
         </div>
         {open?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
       </div>
     </div>
     {open&&(
-    <div style={{padding:'20px 24px'}}>
+    <div>
       {/* Ranking + Stats */}
       <div style={{display:'grid',gridTemplateColumns:'minmax(0,2fr) minmax(0,1fr)',gap:16,marginBottom:20}}>
         <Card>
@@ -725,7 +725,7 @@ const AdversariosPanel=({adversariosData})=>{
       </Card>
     </div>
     )}
-  </div>);
+  </Card>);
 };
 
 /* ═══════════════════════════════════════════════
