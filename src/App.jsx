@@ -587,7 +587,7 @@ const DEST_C={Senado:'#1a3a7a',Governo:'#22c55e',Desistiu:'#64748b'};
 const fmtK=n=>n>=1000?`${(n/1000).toFixed(n>=10000?0:1)}K`:String(n||0);
 
 const AdversariosPanel=({adversariosData})=>{
-  const[open,setOpen]=useState(false);
+  const[open,setOpen]=useState(true);
 
   // ── Dados dinâmicos (adversarios.json) ou fallback hardcoded ────────────
   const d=adversariosData;
