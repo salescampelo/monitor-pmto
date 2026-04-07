@@ -9,7 +9,7 @@ import {
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
 
 const BASE = '/data';
-const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json`, geo: `${BASE}/geo_electoral.json`, kpis: `${BASE}/campaign_kpis.json` };
+const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json`, geo: `${BASE}/geo_electoral.json`, kpis: `${BASE}/campaign_kpis.json`, adversarios: `${BASE}/adversarios.json` };
 const fetchJ = async u => { try { const r = await fetch(u+'?t='+Date.now()); return r.ok ? r.json() : null; } catch { return null; } };
 
 /* ── NEWS CLASSIFICATION ── */
@@ -547,54 +547,65 @@ const GeoPanel=({geoData})=>{
 /* ═══════════════════════════════════════════════
    ADVERSÁRIOS PANEL — Inteligência Competitiva
    ═══════════════════════════════════════════════ */
-const AdversariosPanel=()=>{
+const THREAT_C={alta:{bg:'rgba(239,68,68,0.1)',c:'#ef4444'},média:{bg:'rgba(245,158,11,0.1)',c:'#f59e0b'},baixa:{bg:'rgba(100,116,139,0.1)',c:'#64748b'},interno:{bg:'rgba(139,92,246,0.1)',c:'#8b5cf6'},candidato:{bg:'rgba(26,58,122,0.1)',c:'#1a3a7a'}};
+const DEST_C={Senado:'#1a3a7a',Governo:'#22c55e',Desistiu:'#64748b'};
+const fmtK=n=>n>=1000?`${(n/1000).toFixed(n>=10000?0:1)}K`:String(n||0);
+
+const AdversariosPanel=({adversariosData})=>{
   const[open,setOpen]=useState(false);
-  const MAX=87;
-  const ranking=[
-    {pos:1,name:'Janad Valcari',party:'PP',ig:87,threat:'alta',bar:'#ef4444'},
-    {pos:2,name:'Tiago Dimas',party:'Podemos',ig:69,threat:'alta',bar:'#ef4444'},
-    {pos:3,name:'Jair Farias',party:'União Brasil',ig:22,threat:'alta',bar:'#ef4444'},
-    {pos:4,name:'Fábio Vaz',party:'Republicanos*',ig:21,threat:'interno',bar:'#8b5cf6'},
-    {pos:5,name:'Filipe Martins',party:'PL',ig:19,threat:'alta',bar:'#ef4444'},
-    {pos:5,name:'Lucas Campelo',party:'Republicanos*',ig:19,threat:'interno',bar:'#8b5cf6'},
-    {pos:'★',name:'Cel. Barbosa',party:'Republicanos',ig:31,threat:'candidato',bar:'#1a3a7a',isMe:true},
-    {pos:8,name:'César Halum',party:'PP',ig:13,threat:'alta',bar:'#ef4444'},
-    {pos:9,name:'Nilmar Ruiz',party:'PL',ig:10,threat:'média',bar:'#f59e0b'},
-    {pos:10,name:'Sandoval Cardoso',party:'Podemos',ig:9,threat:'média',bar:'#f59e0b'},
-    {pos:11,name:'Larissa Rosenda',party:'PSD',ig:8,threat:'baixa',bar:'#64748b'},
-    {pos:12,name:'Célio Moura',party:'PT',ig:7,threat:'média',bar:'#f59e0b'},
-    {pos:13,name:'Lázaro Botelho',party:'PP',ig:3.6,threat:'alta',bar:'#ef4444'},
+
+  // ── Dados dinâmicos (adversarios.json) ou fallback hardcoded ────────────
+  const d=adversariosData;
+  const ranking=useMemo(()=>{
+    if(!d?.ranking)return[
+      {ranking:1,nome:'Janad Valcari',partido:'PP',seguidores:87000,nivel_ameaca:'alta'},
+      {ranking:2,nome:'Tiago Dimas',partido:'Podemos',seguidores:69000,nivel_ameaca:'alta'},
+      {ranking:3,nome:'Jair Farias',partido:'União Brasil',seguidores:22000,nivel_ameaca:'alta'},
+      {ranking:4,nome:'Fábio Vaz',partido:'Republicanos*',seguidores:21000,nivel_ameaca:'interno'},
+      {ranking:5,nome:'Filipe Martins',partido:'PL',seguidores:19000,nivel_ameaca:'alta'},
+      {ranking:5,nome:'Lucas Campelo',partido:'Republicanos*',seguidores:19000,nivel_ameaca:'interno'},
+      {ranking:8,nome:'César Halum',partido:'PP',seguidores:13000,nivel_ameaca:'alta'},
+      {ranking:9,nome:'Nilmar Ruiz',partido:'PL',seguidores:10000,nivel_ameaca:'média'},
+      {ranking:10,nome:'Sandoval Cardoso',partido:'Podemos',seguidores:9000,nivel_ameaca:'média'},
+      {ranking:11,nome:'Larissa Rosenda',partido:'PSD',seguidores:8000,nivel_ameaca:'baixa'},
+      {ranking:12,nome:'Célio Moura',partido:'PT',seguidores:7000,nivel_ameaca:'média'},
+      {ranking:13,nome:'Lázaro Botelho',partido:'PP',seguidores:3600,nivel_ameaca:'alta'},
+    ];
+    return d.ranking;
+  },[d]);
+  const candidato=d?.candidato||{nome:'Cel. Barbosa',partido:'Republicanos',seguidores:31000,nivel_ameaca:'candidato',is_candidato:true};
+  const threats=d?.ameacas_altas||ranking.filter(r=>r.nivel_ameaca==='alta'&&r.descricao);
+  const internals=d?.internos||ranking.filter(r=>r.nivel_ameaca==='interno');
+  const migrations=d?.migracoes||[
+    {ab:'CG',abreviacao:'CG',nome:'Carlos Gaguim',partido:'União Brasil',destino:'Senado',detalhe:'67K IG · 33K FB'},
+    {ab:'AG',abreviacao:'AG',nome:'Alexandre Guimarães',partido:'MDB',destino:'Senado',detalhe:'51K IG · Pres. MDB-TO'},
+    {ab:'EB',abreviacao:'EB',nome:'Eli Borges',partido:'Republicanos',destino:'Senado',detalhe:'19K IG'},
+    {ab:'PD',abreviacao:'PD',nome:'Profa. Dorinha',partido:'União Brasil',destino:'Governo',detalhe:'líder nas pesquisas'},
+    {ab:'VJ',abreviacao:'VJ',nome:'Vicentinho Júnior',partido:'PSDB',destino:'Governo',detalhe:'87K IG'},
+    {ab:'CM',abreviacao:'CM',nome:'Celso Morais',partido:'MDB',destino:'Desistiu',detalhe:'44K IG · prefeito reeleito'},
   ];
-  const threatC={alta:{bg:'rgba(239,68,68,0.1)',c:'#ef4444'},média:{bg:'rgba(245,158,11,0.1)',c:'#f59e0b'},baixa:{bg:'rgba(100,116,139,0.1)',c:'#64748b'},interno:{bg:'rgba(139,92,246,0.1)',c:'#8b5cf6'},candidato:{bg:'rgba(26,58,122,0.1)',c:'#1a3a7a'}};
-  const threats=[
-    {name:'Janad Valcari',party:'PP · Dep. Estadual',ig:'87K',desc:'Mais votada da história da ALETO (2022). 2ª em Palmas em 2024. Base feminina e bolsonarista consolidada. Disputa o mesmo eleitorado conservador de Palmas.'},
-    {name:'Tiago Dimas',party:'Podemos · Dep. Federal',ig:'69K',desc:'6.º mais votado do estado em 2022 (42.970 votos). Base fortíssima em Araguaína. Pode eleger dois nomes pelo Podemos junto com Sandoval.'},
-    {name:'Filipe Martins',party:'PL · Dep. Federal',ig:'19K',desc:'Mais votado de Palmas em 2022 (36.293 votos). PL com financiamento robusto. Ameaça direta em Palmas, base geográfica compartilhada.'},
-    {name:'Lázaro Botelho',party:'PP · Ex-Dep. Federal',ig:'3.6K',desc:'Quatro mandatos federais. "Uma vaga é minha." Capital político compensa presença digital fraca. Base estruturada no norte do estado.'},
-    {name:'César Halum',party:'PP · Ex-prefeito Araguaína',ig:'13K · FB 19.5K',desc:'Ex-dep. Federal, ex-secretário de Agricultura de Bolsonaro. Rede no agronegócio e norte do estado. Filiou-se ao PP em fev/2025.'},
-    {name:'Jair Farias',party:'União Brasil · Dep. Estadual',ig:'22K',desc:'Bicampeão no Bico do Papagaio (~300 mil eleitores). Aval da cúpula do União Brasil. Favorito na maior região eleitoral do norte do TO.'},
+  const recs=d?.recomendacoes||[
+    {titulo:'Construir presença no norte do estado.',descricao:'Jair Farias (UB) domina o Bico do Papagaio com ~300 mil eleitores.'},
+    {titulo:'Contrabalançar Janad Valcari em Palmas.',descricao:'Com 87K seguidores, ela é a principal adversária digital.'},
+    {titulo:'Ser o mais votado dentro do Republicanos.',descricao:'Com 4 concorrentes internos, a vaga depende de superar Fábio Vaz e Lucas Campelo.'},
+    {titulo:'Ampliar presença digital em 30–40%.',descricao:'Priorizar Reels e vídeos curtos — amplificam alcance orgânico em 3–5x no Instagram.'},
+    {titulo:'Monitorar novos entrantes.',descricao:'Gleydson Nato (PRD), Kátia Chaves e Osires Damaso podem impactar o quociente eleitoral.'},
   ];
-  const internals=[
-    {name:'Lucas Campelo',ig:'19K',desc:'Migrou do União Brasil. Disputa votos em Araguaína — mesma base geográfica do Cel. Barbosa. Estimativa: 20K votos em jogo.'},
-    {name:'Fábio Vaz',ig:'21K',desc:'Ex-secretário de Educação, ex-prefeito de Palmeirópolis. Entrou formalmente em abril/2026.'},
-    {name:'Alfredo Júnior',ig:'4K',desc:'Jovem empresário, indicação direta da chapa do governador. Capital financeiro elevado, presença digital baixa.'},
-    {name:'Atos Gomes',ig:'11K',desc:'Ex-secretário de Esporte e Juventude. Perfil jovem, base em esporte/eventos. Pode drenar votos do eleitorado mais jovem.'},
-  ];
-  const migrations=[
-    {ab:'CG',name:'Carlos Gaguim',detail:'União Brasil · 67K IG · 33K FB',dest:'Senado',c:'#1a3a7a'},
-    {ab:'AG',name:'Alexandre Guimarães',detail:'MDB · 51K IG · Pres. MDB-TO',dest:'Senado',c:'#1a3a7a'},
-    {ab:'EB',name:'Eli Borges',detail:'Republicanos · 19K IG',dest:'Senado',c:'#1a3a7a'},
-    {ab:'PD',name:'Profa. Dorinha',detail:'União Brasil · líder nas pesquisas',dest:'Governo',c:'#22c55e'},
-    {ab:'VJ',name:'Vicentinho Júnior',detail:'PSDB · 87K IG',dest:'Governo',c:'#22c55e'},
-    {ab:'CM',name:'Celso Morais',detail:'MDB · 44K IG · prefeito reeleito',dest:'Desistiu',c:'#64748b'},
-  ];
-  const recs=[
-    {t:'Construir presença no norte do estado.',d:'Jair Farias (UB) domina o Bico do Papagaio com ~300 mil eleitores. Ampliar eventos e conteúdo digital voltados à região é essencial para reduzir a vantagem territorial.'},
-    {t:'Contrabalançar Janad Valcari em Palmas.',d:'Com 87K seguidores, ela é a principal adversária digital. Diferenciar narrativa — experiência na segurança pública vs. perfil parlamentar estadual.'},
-    {t:'Ser o mais votado dentro do Republicanos.',d:'Com 4 concorrentes internos, a vaga depende de superar Fábio Vaz (~21K) e Lucas Campelo (~19K) em votos no estado.'},
-    {t:'Ampliar presença digital em 30–40%.',d:'Gap de 56K seguidores para Janad. Priorizar Reels e vídeos curtos — amplificam alcance orgânico em 3–5x no Instagram.'},
-    {t:'Monitorar novos entrantes.',d:'Gleydson Nato (PRD), Kátia Chaves e Osires Damaso (Podemos) podem impactar o quociente eleitoral da disputa proporcional.'},
-  ];
+  const stats=d?.stats||{ameacas_altas:6,internos:4,saidos:6};
+  const MAX=Math.max(...ranking.map(r=>r.seguidores),candidato.seguidores||0,1);
+
+  // ── Insere candidato na posição correta para o ranking visual ────────────
+  const rankingWithMe=useMemo(()=>{
+    const mePos=ranking.filter(r=>r.seguidores>(candidato.seguidores||0)).length+1;
+    const out=[];
+    let inserted=false;
+    ranking.forEach(r=>{
+      if(!inserted&&r.seguidores<=(candidato.seguidores||0)){out.push({...candidato,ranking:'★',isMe:true});inserted=true;}
+      out.push(r);
+    });
+    if(!inserted)out.push({...candidato,ranking:'★',isMe:true});
+    return out;
+  },[ranking,candidato]);
   return(
   <div style={{marginTop:20,background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:16,overflow:'hidden'}}>
     <div style={{padding:'18px 22px',display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer'}} onClick={()=>setOpen(o=>!o)}>
@@ -619,22 +630,26 @@ const AdversariosPanel=()=>{
       {/* Ranking + Stats */}
       <div style={{display:'grid',gridTemplateColumns:'minmax(0,2fr) minmax(0,1fr)',gap:16,marginBottom:20}}>
         <Card>
-          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',letterSpacing:'0.1em',marginBottom:14}}>Ranking Instagram — Candidatos à Câmara</p>
-          {ranking.map((r,i)=>{
-            const w=Math.max(4,Math.round((r.ig/MAX)*100));
-            const tc=threatC[r.threat]||{bg:'#eee',c:'#888'};
+          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',letterSpacing:'0.1em',marginBottom:14}}>
+            Ranking Instagram — Candidatos à Câmara
+            {d?.data_atualizacao&&<span style={{fontWeight:400,color:'#8c93a8',marginLeft:8}}>· {d.data_atualizacao}</span>}
+          </p>
+          {rankingWithMe.map((r,i)=>{
+            const w=Math.max(4,Math.round((r.seguidores/MAX)*100));
+            const tc=THREAT_C[r.nivel_ameaca]||{bg:'#eee',c:'#888'};
+            const barColor=r.isMe?'#1a3a7a':r.nivel_ameaca==='alta'?'#ef4444':r.nivel_ameaca==='interno'?'#8b5cf6':r.nivel_ameaca==='média'?'#f59e0b':'#64748b';
             return(
             <div key={i} style={{display:'flex',alignItems:'center',gap:8,marginBottom:r.isMe?0:7,background:r.isMe?'rgba(26,58,122,0.05)':'transparent',borderRadius:r.isMe?6:0,padding:r.isMe?'3px 4px':'0 4px',border:r.isMe?'1px solid rgba(26,58,122,0.15)':'none'}}>
-              <span style={{width:20,fontSize:11,fontWeight:700,color:r.isMe?'#d4a017':'#8c93a8',textAlign:'right',flexShrink:0}}>{r.pos}</span>
+              <span style={{width:20,fontSize:11,fontWeight:700,color:r.isMe?'#d4a017':'#8c93a8',textAlign:'right',flexShrink:0}}>{r.ranking}</span>
               <div style={{width:145,flexShrink:0}}>
-                <strong style={{fontSize:12,color:r.isMe?'#1a3a7a':'#1a1d2e',display:'block',lineHeight:1.2}}>{r.name}</strong>
-                <span style={{fontSize:10,color:'#8c93a8'}}>{r.party}</span>
+                <strong style={{fontSize:12,color:r.isMe?'#1a3a7a':'#1a1d2e',display:'block',lineHeight:1.2}}>{r.nome}</strong>
+                <span style={{fontSize:10,color:'#8c93a8'}}>{r.partido}{r.nivel_ameaca==='interno'?'*':''}</span>
               </div>
               <div style={{flex:1,background:'#eef0f6',borderRadius:3,height:16,overflow:'hidden'}}>
-                <div style={{width:`${w}%`,height:'100%',background:r.bar,borderRadius:3,display:'flex',alignItems:'center',paddingLeft:6,fontSize:10,fontWeight:700,color:'#fff',whiteSpace:'nowrap'}}>{r.ig}K</div>
+                <div style={{width:`${w}%`,height:'100%',background:barColor,borderRadius:3,display:'flex',alignItems:'center',paddingLeft:6,fontSize:10,fontWeight:700,color:'#fff',whiteSpace:'nowrap'}}>{fmtK(r.seguidores)}</div>
               </div>
               <div style={{width:60,textAlign:'right',flexShrink:0}}>
-                <span style={{fontSize:9,fontWeight:700,padding:'2px 6px',borderRadius:8,background:tc.bg,color:tc.c}}>{r.threat}</span>
+                <span style={{fontSize:9,fontWeight:700,padding:'2px 6px',borderRadius:8,background:tc.bg,color:tc.c}}>{r.nivel_ameaca}</span>
               </div>
             </div>);
           })}
@@ -643,17 +658,17 @@ const AdversariosPanel=()=>{
         <div style={{display:'flex',flexDirection:'column',gap:12}}>
           <Card style={{textAlign:'center',background:'linear-gradient(135deg,rgba(26,58,122,0.05),rgba(26,58,122,0.1))'}}>
             <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',marginBottom:8,letterSpacing:'0.1em'}}>Posição do Cel. Barbosa</p>
-            <p style={{fontSize:52,fontWeight:900,color:'#1a3a7a',margin:0,lineHeight:1}}>5º</p>
-            <p style={{fontSize:12,color:'#8c93a8',marginTop:4}}>no ranking de Instagram<br/>entre candidatos à Câmara</p>
+            <p style={{fontSize:52,fontWeight:900,color:'#1a3a7a',margin:0,lineHeight:1}}>{rankingWithMe.findIndex(r=>r.isMe)+1}º</p>
+            <p style={{fontSize:12,color:'#8c93a8',marginTop:4}}>no ranking de Instagram<br/>{fmtK(candidato.seguidores)} seguidores</p>
             <div style={{display:'flex',justifyContent:'center',gap:16,marginTop:12}}>
-              <div style={{textAlign:'center'}}><p style={{fontSize:18,fontWeight:800,color:'#22c55e',margin:0}}>3</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>à frente</p></div>
-              <div style={{textAlign:'center'}}><p style={{fontSize:18,fontWeight:800,color:'#ef4444',margin:0}}>4</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>atrás</p></div>
-              <div style={{textAlign:'center'}}><p style={{fontSize:18,fontWeight:800,color:'#8b5cf6',margin:0}}>4</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>internos</p></div>
+              <div style={{textAlign:'center'}}><p style={{fontSize:18,fontWeight:800,color:'#22c55e',margin:0}}>{ranking.filter(r=>r.seguidores<(candidato.seguidores||0)).length}</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>à frente</p></div>
+              <div style={{textAlign:'center'}}><p style={{fontSize:18,fontWeight:800,color:'#ef4444',margin:0}}>{ranking.filter(r=>r.seguidores>(candidato.seguidores||0)).length}</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>atrás</p></div>
+              <div style={{textAlign:'center'}}><p style={{fontSize:18,fontWeight:800,color:'#8b5cf6',margin:0}}>{stats.internos}</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>internos</p></div>
             </div>
           </Card>
           <Card>
             <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',marginBottom:10,letterSpacing:'0.1em'}}>Vagas x Campo</p>
-            {[{l:'Vagas disponíveis',v:'8',c:'#1a1d2e'},{l:'Candidatos relevantes',v:'13+',c:'#1a1d2e'},{l:'Ameaças externas altas',v:'6',c:'#ef4444'},{l:'Concorrência interna Rep.',v:'4',c:'#8b5cf6'},{l:'Saíram para majoritários',v:'5',c:'#22c55e'}].map((s,i)=>(
+            {[{l:'Vagas disponíveis',v:d?.vagas||8,c:'#1a1d2e'},{l:'Candidatos relevantes',v:`${ranking.length}+`,c:'#1a1d2e'},{l:'Ameaças externas altas',v:stats.ameacas_altas,c:'#ef4444'},{l:'Concorrência interna Rep.',v:stats.internos,c:'#8b5cf6'},{l:'Saíram para majoritários',v:stats.saidos,c:'#22c55e'}].map((s,i)=>(
               <div key={i} style={{display:'flex',justifyContent:'space-between',marginBottom:6}}><span style={{fontSize:12,color:'#5a6178'}}>{s.l}</span><strong style={{color:s.c}}>{s.v}</strong></div>
             ))}
             <div style={{background:'rgba(26,58,122,0.05)',borderRadius:8,padding:'8px 10px',marginTop:8}}>
@@ -663,18 +678,20 @@ const AdversariosPanel=()=>{
         </div>
       </div>
       {/* Threats */}
+      {threats.length>0&&<>
       <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',letterSpacing:'0.1em',marginBottom:12}}>Ameaças externas — nível alto</p>
       <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))',gap:10,marginBottom:20}}>
         {threats.map((t,i)=>(
           <div key={i} style={{background:'#ffffff',border:'1px solid #dfe3ed',borderTop:'2px solid #ef4444',borderRadius:10,padding:14}}>
             <span style={{fontSize:9,fontWeight:700,padding:'2px 8px',borderRadius:12,background:'rgba(239,68,68,0.1)',color:'#ef4444',border:'1px solid rgba(239,68,68,0.2)',display:'inline-block',marginBottom:8}}>Ameaça Alta</span>
-            <p style={{fontSize:13,fontWeight:700,color:'#1a1d2e',margin:'0 0 2px'}}>{t.name}</p>
-            <p style={{fontSize:10,color:'#8c93a8',margin:'0 0 6px'}}>{t.party}</p>
-            <p style={{fontSize:11,color:'#1a3a7a',margin:'0 0 6px',fontWeight:600}}>Instagram: {t.ig}</p>
-            <p style={{fontSize:11,color:'#5a6178',lineHeight:1.5,margin:0}}>{t.desc}</p>
+            <p style={{fontSize:13,fontWeight:700,color:'#1a1d2e',margin:'0 0 2px'}}>{t.nome}</p>
+            <p style={{fontSize:10,color:'#8c93a8',margin:'0 0 6px'}}>{t.partido}{t.cargo_label?` · ${t.cargo_label}`:''}</p>
+            <p style={{fontSize:11,color:'#1a3a7a',margin:'0 0 6px',fontWeight:600}}>Instagram: {fmtK(t.seguidores)}</p>
+            <p style={{fontSize:11,color:'#5a6178',lineHeight:1.5,margin:0}}>{t.descricao}</p>
           </div>
         ))}
       </div>
+      </>}
       {/* Internal + Migrations */}
       <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,1fr)',gap:14,marginBottom:20}}>
         <Card style={{borderLeft:'3px solid #8b5cf6'}}>
@@ -682,19 +699,18 @@ const AdversariosPanel=()=>{
           {internals.map((n,i)=>(
             <div key={i} style={{display:'flex',gap:10,paddingBottom:10,marginBottom:10,borderBottom:i<internals.length-1?'1px solid #eef0f6':'none'}}>
               <div style={{width:8,height:8,borderRadius:4,background:'#8b5cf6',marginTop:5,flexShrink:0}}/>
-              <div><strong style={{fontSize:12,color:'#1a1d2e',display:'block',marginBottom:2}}>{n.name} — {n.ig} IG</strong><p style={{fontSize:11,color:'#5a6178',lineHeight:1.5,margin:0}}>{n.desc}</p></div>
+              <div><strong style={{fontSize:12,color:'#1a1d2e',display:'block',marginBottom:2}}>{n.nome} — {fmtK(n.seguidores)} IG</strong><p style={{fontSize:11,color:'#5a6178',lineHeight:1.5,margin:0}}>{n.descricao}</p></div>
             </div>
           ))}
         </Card>
         <Card style={{borderLeft:'3px solid #22c55e'}}>
           <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#22c55e',marginBottom:12,letterSpacing:'0.1em'}}>Saíram da disputa pela Câmara</p>
-          {migrations.map((m,i)=>(
+          {migrations.map((m,i)=>{const dc=DEST_C[m.destino]||'#64748b';return(
             <div key={i} style={{display:'flex',alignItems:'center',gap:10,paddingBottom:10,marginBottom:10,borderBottom:i<migrations.length-1?'1px solid #eef0f6':'none'}}>
-              <div style={{width:34,height:34,borderRadius:'50%',background:`${m.c}15`,color:m.c,display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,fontSize:12,flexShrink:0}}>{m.ab}</div>
-              <div style={{flex:1}}><strong style={{fontSize:12,color:'#1a1d2e',display:'block'}}>{m.name}</strong><span style={{fontSize:10,color:'#8c93a8'}}>{m.detail}</span></div>
-              <span style={{fontSize:9,fontWeight:700,padding:'2px 8px',borderRadius:8,background:`${m.c}15`,color:m.c,flexShrink:0}}>{m.dest}</span>
-            </div>
-          ))}
+              <div style={{width:34,height:34,borderRadius:'50%',background:`${dc}15`,color:dc,display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,fontSize:12,flexShrink:0}}>{m.abreviacao||m.ab}</div>
+              <div style={{flex:1}}><strong style={{fontSize:12,color:'#1a1d2e',display:'block'}}>{m.nome}</strong><span style={{fontSize:10,color:'#8c93a8'}}>{m.partido} · {m.detalhe||m.detail}</span></div>
+              <span style={{fontSize:9,fontWeight:700,padding:'2px 8px',borderRadius:8,background:`${dc}15`,color:dc,flexShrink:0}}>{m.destino||m.dest}</span>
+            </div>);})}
         </Card>
       </div>
       {/* Recommendations */}
@@ -703,7 +719,7 @@ const AdversariosPanel=()=>{
         {recs.map((r,i)=>(
           <div key={i} style={{display:'flex',gap:12,marginBottom:i<recs.length-1?12:0}}>
             <div style={{width:26,height:26,borderRadius:'50%',background:'#1a3a7a',color:'#d4a017',fontSize:12,fontWeight:800,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginTop:1}}>{i+1}</div>
-            <p style={{fontSize:13,color:'#3a3f52',lineHeight:1.6,margin:0}}><strong>{r.t}</strong> {r.d}</p>
+            <p style={{fontSize:13,color:'#3a3f52',lineHeight:1.6,margin:0}}><strong>{r.titulo||r.t}</strong> {r.descricao||r.d}</p>
           </div>
         ))}
       </Card>
@@ -721,6 +737,7 @@ const App=()=>{
   const[sentimentData,setSentimentData]=useState(null);
   const[geoData,setGeoData]=useState(null);
   const[kpiData,setKpiData]=useState(null);
+  const[adversariosData,setAdversariosData]=useState(null);
   const[selectedCluster,setSelectedCluster]=useState('all');
   const[expandedCards,setExpandedCards]=useState({});
   const[sortOrder,setSortOrder]=useState('date');
@@ -733,16 +750,16 @@ const App=()=>{
 
   useEffect(()=>{(async()=>{
     setLoading(true);
-    const[m,s,st,g,k]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.geo),fetchJ(URLS.kpis)]);
-    if(m)setNewsRaw(m);if(s)setSocialData(s);if(st)setSentimentData(st);if(g)setGeoData(g);if(k)setKpiData(k);
+    const[m,s,st,g,k,adv]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.geo),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)]);
+    if(m)setNewsRaw(m);if(s)setSocialData(s);if(st)setSentimentData(st);if(g)setGeoData(g);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
     setLastUpdate(new Date().toLocaleString('pt-BR')+' (auto)');
     setLoading(false);
   })();},[]);
 
   const handleRefresh=useCallback(async()=>{
     setRefreshing(true);
-    const[m,s,st,g,k]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.geo),fetchJ(URLS.kpis)]);
-    if(m)setNewsRaw(m);if(s)setSocialData(s);if(st)setSentimentData(st);if(g)setGeoData(g);if(k)setKpiData(k);
+    const[m,s,st,g,k,adv]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.geo),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)]);
+    if(m)setNewsRaw(m);if(s)setSocialData(s);if(st)setSentimentData(st);if(g)setGeoData(g);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
     setLastUpdate(new Date().toLocaleString('pt-BR')+' (auto)');
     setRefreshing(false);
   },[]);
@@ -798,7 +815,7 @@ const App=()=>{
     </header>
 
     {/* ═══ INTELIGÊNCIA COMPETITIVA ═══ */}
-    <AdversariosPanel/>
+    <AdversariosPanel adversariosData={adversariosData}/>
 
     {/* ═══ METAS DA CAMPANHA ═══ */}
     <KpiPanel kpiData={kpiData}/>
