@@ -597,21 +597,21 @@ const AdversariosPanel=()=>{
   ];
   return(
   <div style={{marginTop:20,background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:16,overflow:'hidden'}}>
-    <div style={{background:'linear-gradient(135deg,#1a3a7a,#0f2555)',padding:'16px 24px',display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer'}} onClick={()=>setOpen(o=>!o)}>
+    <div style={{padding:'18px 22px',display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer'}} onClick={()=>setOpen(o=>!o)}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
-        <div style={{background:'rgba(212,160,23,0.2)',border:'1px solid rgba(212,160,23,0.4)',borderRadius:10,padding:8}}><Target size={18} style={{color:'#d4a017'}}/></div>
+        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#1a3a7a'}}/></div>
         <div>
-          <h2 style={{fontSize:17,fontWeight:800,color:'#ffffff',margin:0}}>Inteligência Competitiva — Câmara Federal TO 2026</h2>
-          <p style={{fontSize:11,color:'#d4a017',margin:'2px 0 0',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em'}}>8 vagas · 13+ candidatos · Levantamento 7 abr/2026</p>
+          <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Inteligência Competitiva — Câmara Federal TO 2026</h2>
+          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>8 vagas · 13+ candidatos · Levantamento 7 abr/2026</p>
         </div>
       </div>
       <div style={{display:'flex',alignItems:'center',gap:16}}>
         <div style={{display:'flex',gap:16}}>
-          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#ef4444',margin:0}}>6</p><p style={{fontSize:9,color:'rgba(255,255,255,0.6)',margin:0,textTransform:'uppercase'}}>ameaças altas</p></div>
-          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#8b5cf6',margin:0}}>4</p><p style={{fontSize:9,color:'rgba(255,255,255,0.6)',margin:0,textTransform:'uppercase'}}>internos</p></div>
-          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#22c55e',margin:0}}>5</p><p style={{fontSize:9,color:'rgba(255,255,255,0.6)',margin:0,textTransform:'uppercase'}}>saíram</p></div>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#ef4444',margin:0}}>6</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>ameaças altas</p></div>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#8b5cf6',margin:0}}>4</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>internos</p></div>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#22c55e',margin:0}}>5</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>saíram</p></div>
         </div>
-        {open?<ChevronUp size={18} style={{color:'rgba(255,255,255,0.5)'}}/>:<ChevronDown size={18} style={{color:'rgba(255,255,255,0.5)'}}/>}
+        {open?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
       </div>
     </div>
     {open&&(
