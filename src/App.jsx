@@ -582,6 +582,7 @@ const GeoPanel=({geoData})=>{
    ADVERSÁRIOS PANEL — Inteligência Competitiva
    ═══════════════════════════════════════════════ */
 const THREAT_C={alta:{bg:'rgba(239,68,68,0.1)',c:'#ef4444'},média:{bg:'rgba(245,158,11,0.1)',c:'#f59e0b'},baixa:{bg:'rgba(100,116,139,0.1)',c:'#64748b'},interno:{bg:'rgba(139,92,246,0.1)',c:'#8b5cf6'},candidato:{bg:'rgba(26,58,122,0.1)',c:'#1a3a7a'}};
+const NIVEL_ORDER={baixa:1,média:2,alta:3};
 const DEST_C={Senado:'#1a3a7a',Governo:'#22c55e',Desistiu:'#64748b'};
 const fmtK=n=>n>=1000?`${(n/1000).toFixed(n>=10000?0:1)}K`:String(n||0);
 
@@ -670,8 +671,14 @@ const AdversariosPanel=({adversariosData})=>{
           </p>
           {rankingWithMe.map((r,i)=>{
             const w=Math.max(4,Math.round((r.seguidores/MAX)*100));
-            const tc=THREAT_C[r.nivel_ameaca]||{bg:'#eee',c:'#888'};
-            const barColor=r.isMe?'#1a3a7a':r.nivel_ameaca==='alta'?'#ef4444':r.nivel_ameaca==='interno'?'#8b5cf6':r.nivel_ameaca==='média'?'#f59e0b':'#64748b';
+            const nivelDin=r.nivel_ameaca_dinamico||r.nivel_ameaca;
+            const tc=THREAT_C[nivelDin]||{bg:'#eee',c:'#888'};
+            const barColor=r.isMe?'#1a3a7a':nivelDin==='alta'?'#ef4444':nivelDin==='interno'?'#8b5cf6':nivelDin==='média'?'#f59e0b':'#64748b';
+            const baseOrd=NIVEL_ORDER[r.nivel_ameaca]||0;
+            const dynOrd=NIVEL_ORDER[nivelDin]||0;
+            const trend=!r.isMe&&r.nivel_ameaca!=='interno'&&nivelDin!=='interno'&&baseOrd!==dynOrd?(dynOrd>baseOrd?'↑':'↓'):null;
+            const trendC=trend==='↑'?'#ef4444':'#22c55e';
+            const scoreC=r.score_ameaca>=70?'#ef4444':r.score_ameaca>=40?'#f59e0b':'#64748b';
             return(
             <div key={i} style={{display:'flex',alignItems:'center',gap:8,marginBottom:r.isMe?0:7,background:r.isMe?'rgba(26,58,122,0.05)':'transparent',borderRadius:r.isMe?6:0,padding:r.isMe?'3px 4px':'0 4px',border:r.isMe?'1px solid rgba(26,58,122,0.15)':'none'}}>
               <span style={{width:20,fontSize:11,fontWeight:700,color:r.isMe?'#d4a017':'#8c93a8',textAlign:'right',flexShrink:0}}>{r.ranking}</span>
@@ -682,8 +689,14 @@ const AdversariosPanel=({adversariosData})=>{
               <div style={{flex:1,background:'#eef0f6',borderRadius:3,height:16,overflow:'hidden'}}>
                 <div style={{width:`${w}%`,height:'100%',background:barColor,borderRadius:3,display:'flex',alignItems:'center',paddingLeft:6,fontSize:10,fontWeight:700,color:'#fff',whiteSpace:'nowrap'}}>{fmtK(r.seguidores)}</div>
               </div>
-              <div style={{width:60,textAlign:'right',flexShrink:0}}>
-                <span style={{fontSize:9,fontWeight:700,padding:'2px 6px',borderRadius:8,background:tc.bg,color:tc.c}}>{r.nivel_ameaca}</span>
+              <div style={{width:76,textAlign:'right',flexShrink:0}}>
+                <div style={{display:'flex',alignItems:'center',justifyContent:'flex-end',gap:3,marginBottom:r.isMe||r.score_ameaca==null?0:2}}>
+                  <span style={{fontSize:9,fontWeight:700,padding:'2px 6px',borderRadius:8,background:tc.bg,color:tc.c}}>{nivelDin}</span>
+                  {trend&&<span style={{fontSize:10,fontWeight:800,color:trendC,lineHeight:1}}>{trend}</span>}
+                </div>
+                {!r.isMe&&r.score_ameaca!=null&&(
+                  <span style={{fontSize:9,fontWeight:700,color:scoreC}}>{r.score_ameaca}</span>
+                )}
               </div>
             </div>);
           })}
