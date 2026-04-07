@@ -1,437 +1,437 @@
 {
-    "data_coleta": "2026-04-01",
+    "data_coleta": "2026-04-07",
     "candidato": "marciobarbosa_cel",
     "sentiment": {
-        "positivo": 77,
+        "positivo": 61,
         "negativo": 0,
-        "neutro": 54,
-        "total": 131,
-        "pct_positivo": 58.8,
+        "neutro": 79,
+        "total": 140,
+        "pct_positivo": 43.6,
         "pct_negativo": 0.0,
-        "pct_neutro": 41.2
+        "pct_neutro": 56.4
     },
     "comments_sample": [
         {
-            "text": "👏👏👏👏👏👏",
+            "text": "👏👏👏👏👏💫🕺💯",
             "sentiment": "neutro",
-            "timestamp": "2026-04-01T21:49:15.000Z",
-            "owner": "jaimeporfiriodesouza",
-            "likes": 0
-        },
-        {
-            "text": "@andradecav39 força e honra 🪖!! Deus lhe abençoe.",
-            "sentiment": "neutro",
-            "timestamp": "2026-04-01T19:40:17.000Z",
-            "owner": "beto_agro_npk",
-            "likes": 0
-        },
-        {
-            "text": "👏🏻👏🏻",
-            "sentiment": "neutro",
-            "timestamp": "2026-04-01T18:32:30.000Z",
-            "owner": "coelho8698",
-            "likes": 0
-        },
-        {
-            "text": "🔥🔥🔥👏👏",
-            "sentiment": "neutro",
-            "timestamp": "2026-04-01T18:26:37.000Z",
-            "owner": "michel.saint.clair",
+            "timestamp": "2026-04-06T18:35:07.000Z",
+            "owner": "lucosta311",
             "likes": 0
         },
         {
             "text": "👏👏👏",
             "sentiment": "neutro",
-            "timestamp": "2026-04-01T19:15:36.000Z",
-            "owner": "alden.almeida",
-            "likes": 0
+            "timestamp": "2026-04-05T13:10:19.000Z",
+            "owner": "aprovadoscfo2026",
+            "likes": 1
         },
         {
-            "text": "❤️❤️",
+            "text": "👏👏👏👏",
             "sentiment": "neutro",
-            "timestamp": "2026-04-01T18:43:06.000Z",
-            "owner": "doug.lasrobertolima",
+            "timestamp": "2026-04-05T13:34:15.000Z",
+            "owner": "teixeiraalewagner",
+            "likes": 1
+        },
+        {
+            "text": "Merece nosso respeito",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T12:26:40.000Z",
+            "owner": "valtinhotocantins",
+            "likes": 1
+        },
+        {
+            "text": "Tenho 2 votos no Tocantins pra vc.por enquanto são dois",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T18:41:45.000Z",
+            "owner": "milhomensemivalcoelho",
+            "likes": 1
+        },
+        {
+            "text": "Pra cima  Deputado 👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-05T13:31:25.000Z",
+            "owner": "dariosousapinto",
             "likes": 0
         },
         {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
+            "text": "👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-05T12:06:09.000Z",
+            "owner": "sampa.marcos",
+            "likes": 1
+        },
+        {
+            "text": "Meu deputado federal estamos juntos",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-05T12:05:44.000Z",
+            "owner": "bar_do_magrao_oficial",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-05T18:18:05.000Z",
+            "owner": "carlosdanielpereira_brito",
+            "likes": 1
+        },
+        {
+            "text": "NOSSO CONCEITUADO E EXEMPLAR  DEPUTADO FEDERAL MARCIO BARBOSA TEM MEU APOIO E VOTO 🙌🙌🔥🔥👏👏",
             "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:52:26.000Z",
-            "owner": "heitor_pereirabr",
+            "timestamp": "2026-04-05T18:20:07.000Z",
+            "owner": "reginaldomagalhaesss",
+            "likes": 0
+        },
+        {
+            "text": "Deputado federal eleito",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-05T12:06:05.000Z",
+            "owner": "sampa.marcos",
             "likes": 2
         },
+        {
+            "text": "Márcio tem meu voto e toda minha família até porque é primo da minha irmã, e por ser um excelente profissional 👏",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T14:16:10.000Z",
+            "owner": "selene_rocha_133",
+            "likes": 1
+        },
+        {
+            "text": "Estamos juntos cel Márcio Barbosa",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-05T21:52:03.000Z",
+            "owner": "joaoborges.borges.9678",
+            "likes": 0
+        },
+        {
+            "text": "Ouvindo a população em suas súplicas para melhorar ainda mais nosso Estado. @marciobarbosa_cel atuará de forma brilhante como parlamentar, da mesma forma que foi como Comandante da Polícia Militar.",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T12:52:07.000Z",
+            "owner": "maigsomfernandes",
+            "likes": 0
+        },
+        {
+            "text": "Coronel, mostre dia força e nos convoque, o estado precisa desses 1000 praças na rua @marciobarbosa_cel",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-05T23:55:43.000Z",
+            "owner": "leivison_m",
+            "likes": 21
+        },
+        {
+            "text": "Uma vaga ja é dele.  @marciobarbosa_cel vai fazer um excelente mandato assim como foi a frente da PM.👏",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:47:22.000Z",
+            "owner": "willianmateusof",
+            "likes": 12
+        },
+        {
+            "text": "Um novo cenário politico se aproxima 🙌🚀🫡",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-05T23:17:00.000Z",
+            "owner": "nubyperes",
+            "likes": 19
+        },
+        {
+            "text": "Meu Deputado 🇧🇷",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-05T23:19:06.000Z",
+            "owner": "arlam_pinheiro",
+            "likes": 2
+        },
+        {
+            "text": "@marciobarbosa_cel A verdadeira inovação na política tocantinense 🔥🚀 alguém pra fazer a diferença",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-06T00:03:53.000Z",
+            "owner": "major_anisiovaz",
+            "likes": 3
+        },
+        {
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-06T00:03:22.000Z",
+            "owner": "ry4n_carloss",
+            "likes": 13
+        },
+        {
+            "text": "@wanderlei__barbosa @marciobarbosa_cel  parabéns! Pode ter certeza que vamos estar juntos nessa luta. Comandante, ajuda a gente para chamar todos os 1000 aprovados agora. Isso é uma oportunidade para ",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:54:07.000Z",
+            "owner": "diov.anyjunior",
+            "likes": 8
+        },
+        {
+            "text": "🙌👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-05T23:31:11.000Z",
+            "owner": "nayara.alves_b",
+            "likes": 1
+        },
+        {
+            "text": "👏🏽👏🏽👏🏽",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-06T00:10:40.000Z",
+            "owner": "fefecoymbra",
+            "likes": 1
+        },
+        {
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:57:41.000Z",
+            "owner": "thiagoalencarf",
+            "likes": 10
+        },
+        {
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:59:47.000Z",
+            "owner": "jota_negrao",
+            "likes": 8
+        },
+        {
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:58:36.000Z",
+            "owner": "gloria.multimarcasnovo",
+            "likes": 8
+        },
+        {
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:59:43.000Z",
+            "owner": "jota_negrao",
+            "likes": 9
+        },
+        {
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:59:50.000Z",
+            "owner": "jota_negrao",
+            "likes": 8
+        },
+        {
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:59:33.000Z",
+            "owner": "jota_negrao",
+            "likes": 9
+        },
+        {
+            "text": "Vendo isso, deu até vontade que  chegue logo o dia de sair de casa para votar e eleger um político. Que tenhamos mais homens assim na política espalhados pelo nosso Brasil!!! 🙌💪🏻🙏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T18:45:41.000Z",
+            "owner": "murillogarciasz",
+            "likes": 5
+        },
+        {
+            "text": "Parabéns @marciobarbosa_cel , é um homem com garra e determinação, lute pela convocação dos #1000 aprovados no concurso PMTO em turma única este ano de 2026.",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-02T13:30:21.000Z",
+            "owner": "m_olliv3r",
+            "likes": 6
+        },
+        {
+            "text": "Caramba, olha o peso de responsabilidade que esse palanque teve, com grandes pessoas importantes. Parabéns a todos e que Deus Abençoe sempre. E Vamos a vitória! 👊😌",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-02T18:09:38.000Z",
+            "owner": "ronald_flpe",
+            "likes": 1
+        },
+        {
+            "text": "Meu prino é tio do meus filhos de presidente Kennedy",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T14:32:55.000Z",
+            "owner": "elizangelafernandes88",
+            "likes": 2
+        },
+        {
+            "text": "Será um grande representante do povo tocantinense @marciobarbosa_cel",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T03:40:13.000Z",
+            "owner": "euluizdealmeida",
+            "likes": 8
+        },
+        {
+            "text": "@marciobarbosa_cel vamos pra cima tamo junto cmt",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T20:37:09.000Z",
+            "owner": "a_pereira04",
+            "likes": 1
+        },
+        {
+            "text": "Parabéns @marciobarbosa_cel, será um grande representante da segurança pública a nível nacional, representando nosso estado 👏👏",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-02T13:26:29.000Z",
+            "owner": "m_olliv3r",
+            "likes": 1
+        },
+        {
+            "text": "Seu Edson Grande Homem. Tive o Prazer  de conhecer  lo",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T18:44:26.000Z",
+            "owner": "apjorgefilhodedeus",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-03T02:11:29.000Z",
+            "owner": "fco_reishej",
+            "likes": 1
+        },
+        {
+            "text": "É nois. Tamo junto",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T19:46:20.000Z",
+            "owner": "robertocpoliveira",
+            "likes": 1
+        },
+        {
+            "text": "Precisamos de homens de coragem e enfrentamento na política 👏👏🇧🇷",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-02T09:59:11.000Z",
+            "owner": "letyoliveyra",
+            "likes": 3
+        },
+        {
+            "text": "@henriqueejuliano peça ao seu sogro para ele chamar os +1000 aprovados da PMTO. 🥲 @marciobarbosa_cel",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T13:39:46.000Z",
+            "owner": "brela_nathan",
+            "likes": 2
+        },
+        {
+            "text": "Vamos que vamos Nosso Deputado Federal @marciobarbosa_cel  Deus é conosco nessa jornada 🙏🏻",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T12:42:29.000Z",
+            "owner": "arlam_pinheiro",
+            "likes": 4
+        },
+        {
+            "text": "Amém 🙌🙌🙌🙌🙌 glória Jesus Cristo",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T11:09:05.000Z",
+            "owner": "cleusamelo.a",
+            "likes": 2
+        },
+        {
+            "text": "👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T21:29:26.000Z",
+            "owner": "larapime",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T21:06:32.000Z",
+            "owner": "cleide.dosanjos.9",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T21:12:27.000Z",
+            "owner": "josesousa731",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T21:08:47.000Z",
+            "owner": "goreteffarias13",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T21:05:47.000Z",
+            "owner": "carllossilva24",
+            "likes": 1
+        },
+        {
+            "text": "Parabéns ao Cel Barbosa pelos anos q comandou a PM de Tocantins c brilhantismo e competência q Deus o abençoe na nova caminhada e dizer q estamos juntos pro q der e vier, e sucesso ao Cel Claudio q De",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-02T23:41:59.000Z",
+            "owner": "sargentocastrooficial",
+            "likes": 2
+        },
+        {
+            "text": "👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T21:53:37.000Z",
+            "owner": "lorenavasconcelosperna",
+            "likes": 0
+        }
+    ],
+    "top_positive": [
         {
             "text": "👏👏👏 @marciobarbosa_cel desde já parabenizo pela finalização de mais esta etapa, a qual o Sr concluiu com afinco e muita disciplina, nós os mais de 1000 aprovados do concurso da PMTO somos gratos pela ",
             "sentiment": "positivo",
             "timestamp": "2026-04-01T21:39:37.000Z",
             "owner": "mateus.albuquerque.23",
-            "likes": 3
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:30:43.000Z",
-            "owner": "ry4n_carloss",
-            "likes": 5
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:52:27.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 1
-        },
-        {
-            "text": "Parabéns coronel missão cumprida com excelência que Deus possa abençoar na nova etapa da sua vida",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:27:07.000Z",
-            "owner": "kaveirado17_2003pmto",
-            "likes": 0
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:30:32.000Z",
-            "owner": "ry4n_carloss",
-            "likes": 2
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:52:24.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 1
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:30:39.000Z",
-            "owner": "ry4n_carloss",
-            "likes": 2
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:52:14.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 1
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:52:23.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 1
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:52:19.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 1
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:52:22.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 1
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:30:41.000Z",
-            "owner": "ry4n_carloss",
-            "likes": 1
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:52:08.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 1
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:52:20.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 1
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:07:00.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 3
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:06:35.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 3
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:07:13.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 3
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:07:14.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 3
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:07:12.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 3
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:07:15.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 3
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:07:11.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 3
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:06:53.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 2
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:07:18.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 3
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:07:02.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 2
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:06:58.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 2
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:07:17.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 3
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:06:58.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 2
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:07:08.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 2
-        },
-        {
-            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-01T21:06:32.000Z",
-            "owner": "heitor_pereirabr",
-            "likes": 2
-        },
-        {
-            "text": "Comandante @marciobarbosa_cel , fortaleça ao governador para que chame todos os aprovados do concurso da PMTO e fortaleza a segurança do estado, contamos com o senhor 🙌🏾💪🏾🇧🇷",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-28T10:36:32.000Z",
-            "owner": "reginalldojr",
             "likes": 14
         },
         {
-            "text": "Comandante Marcio Barbosa, contamos com sua liderança diante da real necessidade da segurança pública em nosso estado. O efetivo ainda é insuficiente para atender a população com a qualidade que merec",
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
             "sentiment": "positivo",
-            "timestamp": "2026-03-28T10:15:26.000Z",
+            "timestamp": "2026-04-06T00:03:22.000Z",
             "owner": "ry4n_carloss",
-            "likes": 27
+            "likes": 13
         },
         {
-            "text": "Prezado senhor CMD, Márcio Barbosa,\n\nVenho respeitosamente pedir ao senhor que intervenha na nossa convocação e chame os mais de 1000 candidatos aprovados na PMTO25, em turma única. O senhor, como tod",
+            "text": "Uma vaga ja é dele.  @marciobarbosa_cel vai fazer um excelente mandato assim como foi a frente da PM.👏",
             "sentiment": "positivo",
-            "timestamp": "2026-03-28T10:17:50.000Z",
-            "owner": "arasam.ms",
-            "likes": 14
+            "timestamp": "2026-04-05T23:47:22.000Z",
+            "owner": "willianmateusof",
+            "likes": 12
         },
         {
-            "text": "Prezado senhor CMD, Márcio Barbosa,\n\nVenho respeitosamente pedir ao senhor que intervenha na nossa convocação e chame os mais de 1000 candidatos aprovados na PMTO25, em turma única. O senhor, como tod",
+            "text": "Coronel @marciobarbosa_cel, respeitosamente, pedimos uma atenção especial aos mais de 1.000 Praças aprovados no PMTO 2025. Contamos com o seu apoio junto ao Governador @wanderlei__barbosa para que tod",
             "sentiment": "positivo",
-            "timestamp": "2026-03-28T10:19:01.000Z",
-            "owner": "arasam.ms",
-            "likes": 17
+            "timestamp": "2026-04-01T21:18:35.000Z",
+            "owner": "luiz_roberto_18",
+            "likes": 12
         },
         {
-            "text": "👏👏👏",
-            "sentiment": "neutro",
-            "timestamp": "2026-03-28T13:15:31.000Z",
-            "owner": "aprovadoscfo2026",
-            "likes": 1
-        },
-        {
-            "text": "Chame todos os +1000 aprovados no concurso da pm to 2025 em turma única, prontos para deixar o Tocantis um estado melhor 🙌 @wanderlei__barbosa @profdorinha",
+            "text": "Comandante, além de tudo de bom que já fez pela PMTO, deixe esse legado histórico: juntamente com o Governador @wanderlei__barbosa e nossa futura governadora @profdorinha , convoque os +1000 aprovados",
             "sentiment": "positivo",
-            "timestamp": "2026-03-28T10:40:07.000Z",
-            "owner": "mhenriquereis_",
-            "likes": 17
+            "timestamp": "2026-04-01T20:13:32.000Z",
+            "owner": "l.sousa47",
+            "likes": 11
         },
         {
-            "text": "\"Padrão total, Comandante! Sua dedicação garante um caminho de paz e mudança para a nossa gente. Reforçamos nossa confiança em seu comando para que a convocação dos 1000 aprovados aconteça em turma ún",
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
             "sentiment": "positivo",
-            "timestamp": "2026-03-28T12:24:46.000Z",
-            "owner": "carllossilva24",
+            "timestamp": "2026-04-05T23:57:41.000Z",
+            "owner": "thiagoalencarf",
+            "likes": 10
+        },
+        {
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:59:43.000Z",
+            "owner": "jota_negrao",
             "likes": 9
         },
         {
-            "text": "\"Padrão total, Comandante! Sua dedicação garante um caminho de paz e mudança para a nossa gente. Reforçamos nossa confiança em seu comando para que a convocação dos 1000 aprovados aconteça em turma ún",
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
             "sentiment": "positivo",
-            "timestamp": "2026-03-28T12:28:37.000Z",
-            "owner": "llimaaa_07",
-            "likes": 5
-        },
-        {
-            "text": "Parabéns, Sr. Comandante-Geral Márcio Barbosa,\nsua dedicação à tropa é admirável e tem sido reconhecida por todos. Confiamos na sua articulação junto ao Governo do Estado para viabilizar o chamamento ",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-28T13:00:33.000Z",
-            "owner": "llimaaa_07",
-            "likes": 1
-        },
-        {
-            "text": "Parabéns, Sr. Comandante-Geral Márcio Barbosa,\nsua dedicação à tropa é admirável e tem sido reconhecida por todos. Confiamos na sua articulação junto ao Governo do Estado para viabilizar o chamamento ",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-28T12:58:27.000Z",
-            "owner": "samuel_sousa_021",
-            "likes": 1
-        },
-        {
-            "text": "Parabéns, Comandante-Geral Márcio Barbosa, pelo excelente trabalho à frente da tropa. Sabemos da sua influência e compromisso com a segurança pública, e por isso contamos com sua articulação para o ch",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-28T13:04:59.000Z",
-            "owner": "gi.ovanna.s.s",
-            "likes": 2
-        },
-        {
-            "text": "Comandante, chame todos os + de 1000 praças aprovados no concurso 🙏🏼🙏🏼",
-            "sentiment": "neutro",
-            "timestamp": "2026-03-28T12:20:16.000Z",
-            "owner": "reneuan_brito",
-            "likes": 4
-        },
-        {
-            "text": "Padrão, Comandante! A tropa reconhece o empenho em transformar a segurança do nosso estado. Seguimos confiantes na sua liderança para que a convocação dos 1000 aprovados ocorra em turma única, unindo ",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-28T12:28:31.000Z",
-            "owner": "edu_andrade604",
-            "likes": 5
-        },
-        {
-            "text": "Esse e o nosso Deputado Federal 🇧🇷 @marciobarbosa_cel 🫡 👏🏻",
-            "sentiment": "neutro",
-            "timestamp": "2026-03-28T13:47:19.000Z",
-            "owner": "arlam_pinheiro",
-            "likes": 1
-        }
-    ],
-    "top_positive": [
-        {
-            "text": "Comandante Marcio Barbosa, contamos com sua liderança diante da real necessidade da segurança pública em nosso estado. O efetivo ainda é insuficiente para atender a população com a qualidade que merec",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-28T10:15:26.000Z",
-            "owner": "ry4n_carloss",
-            "likes": 27
-        },
-        {
-            "text": "Prezado senhor CMD, Márcio Barbosa,\n\nVenho respeitosamente pedir ao senhor que intervenha na nossa convocação e chame os mais de 1000 candidatos aprovados na PMTO25, em turma única. O senhor, como tod",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-28T10:19:01.000Z",
-            "owner": "arasam.ms",
-            "likes": 17
-        },
-        {
-            "text": "Chame todos os +1000 aprovados no concurso da pm to 2025 em turma única, prontos para deixar o Tocantis um estado melhor 🙌 @wanderlei__barbosa @profdorinha",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-28T10:40:07.000Z",
-            "owner": "mhenriquereis_",
-            "likes": 17
-        },
-        {
-            "text": "Comandante @marciobarbosa_cel , fortaleça ao governador para que chame todos os aprovados do concurso da PMTO e fortaleza a segurança do estado, contamos com o senhor 🙌🏾💪🏾🇧🇷",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-28T10:36:32.000Z",
-            "owner": "reginalldojr",
-            "likes": 14
-        },
-        {
-            "text": "Prezado senhor CMD, Márcio Barbosa,\n\nVenho respeitosamente pedir ao senhor que intervenha na nossa convocação e chame os mais de 1000 candidatos aprovados na PMTO25, em turma única. O senhor, como tod",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-28T10:17:50.000Z",
-            "owner": "arasam.ms",
-            "likes": 14
-        },
-        {
-            "text": "\"Padrão total, Comandante! Sua dedicação garante um caminho de paz e mudança para a nossa gente. Reforçamos nossa confiança em seu comando para que a convocação dos 1000 aprovados aconteça em turma ún",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-28T12:24:46.000Z",
-            "owner": "carllossilva24",
+            "timestamp": "2026-04-05T23:59:33.000Z",
+            "owner": "jota_negrao",
             "likes": 9
         },
         {
-            "text": "Evento maravilhoso, é preciso que seja mais divulgado, palmas  é carente de evento assim, principalmente onde a música é rock e o público é diferenciado. 💪🏽",
+            "text": "@wanderlei__barbosa @marciobarbosa_cel  parabéns! Pode ter certeza que vamos estar juntos nessa luta. Comandante, ajuda a gente para chamar todos os 1000 aprovados agora. Isso é uma oportunidade para ",
             "sentiment": "positivo",
-            "timestamp": "2026-03-29T14:35:38.000Z",
-            "owner": "oianbruno",
-            "likes": 7
-        },
-        {
-            "text": "Investimento importante para a segurança pública! A estrutura é fundamental, mas o diferencial está no efetivo. A convocação dos mais de 1.000 aprovados da PMTO seria um passo importante para fortalec",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-29T13:49:56.000Z",
+            "timestamp": "2026-04-05T23:54:07.000Z",
             "owner": "diov.anyjunior",
-            "likes": 7
+            "likes": 8
         },
         {
-            "text": "Parabéns a todos, ressaltamos que nossa polícia necessita de efetivo urgentemente para manter sempre o compromisso com a segurança de todos os residentes e turistas do nosso querido estado! @wanderlei",
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
             "sentiment": "positivo",
-            "timestamp": "2026-03-04T03:24:48.000Z",
-            "owner": "wandersondiasgomes",
-            "likes": 6
-        },
-        {
-            "text": "Uma tropa eficiente, de confiança, orgulho da nossa sociedade!!! Nossa classe precisa de valorização, contamos com os senhores @marciobarbosa_cel @wanderlei__barbosa",
-            "sentiment": "positivo",
-            "timestamp": "2026-02-28T17:01:32.000Z",
-            "owner": "pedrosaboia_z",
-            "likes": 6
+            "timestamp": "2026-04-05T23:59:47.000Z",
+            "owner": "jota_negrao",
+            "likes": 8
         }
     ],
     "top_negative": []
