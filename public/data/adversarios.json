@@ -1,5 +1,5 @@
 {
-  "data_atualizacao": "2026-04-07 15:02",
+  "data_atualizacao": "2026-04-07 15:05",
   "vagas": 8,
   "candidato": {
     "username": "marciobarbosa_cel",
@@ -11,9 +11,9 @@
     "descricao": "",
     "abreviacao": "MB",
     "is_candidato": true,
-    "seguidores": 31710,
-    "taxa_engajamento_pct": 3.71,
-    "media_likes_recentes": 1092.1,
+    "seguidores": 31721,
+    "taxa_engajamento_pct": 3.74,
+    "media_likes_recentes": 1103.4,
     "data_coleta": "2026-04-07"
   },
   "ranking": [
@@ -27,9 +27,9 @@
       "descricao": "Mais votada da história da ALETO (2022). 2ª em Palmas em 2024. Base feminina e bolsonarista consolidada. Disputa o mesmo eleitorado conservador de Palmas.",
       "abreviacao": "JV",
       "is_candidato": false,
-      "seguidores": 87181,
-      "taxa_engajamento_pct": 0.84,
-      "media_likes_recentes": 582.2,
+      "seguidores": 87210,
+      "taxa_engajamento_pct": 0.86,
+      "media_likes_recentes": 593.8,
       "data_coleta": "2026-04-07",
       "ranking": 1
     },
@@ -43,9 +43,9 @@
       "descricao": "6.º mais votado do estado em 2022 (42.970 votos). Base fortíssima em Araguaína. Pode eleger dois nomes pelo Podemos junto com Sandoval.",
       "abreviacao": "TD",
       "is_candidato": false,
-      "seguidores": 68752,
-      "taxa_engajamento_pct": 30.51,
-      "media_likes_recentes": 19488.4,
+      "seguidores": 68760,
+      "taxa_engajamento_pct": 30.53,
+      "media_likes_recentes": 19503.9,
       "data_coleta": "2026-04-07",
       "ranking": 2
     },
@@ -59,9 +59,9 @@
       "descricao": "Dep. Federal em exercício, chapa Republicanos. Concorrência interna.",
       "abreviacao": "RA",
       "is_candidato": false,
-      "seguidores": 30194,
+      "seguidores": 30199,
       "taxa_engajamento_pct": 0.66,
-      "media_likes_recentes": 165.6,
+      "media_likes_recentes": 166.9,
       "data_coleta": "2026-04-07",
       "ranking": 3
     },
@@ -75,9 +75,9 @@
       "descricao": "Ex-secretário de Educação, ex-prefeito de Palmeirópolis. Entrou formalmente em abril/2026. Reputação no interior sul do estado.",
       "abreviacao": "FV",
       "is_candidato": false,
-      "seguidores": 26156,
-      "taxa_engajamento_pct": 5.26,
-      "media_likes_recentes": 1215.5,
+      "seguidores": 26180,
+      "taxa_engajamento_pct": 5.34,
+      "media_likes_recentes": 1236.4,
       "data_coleta": "2026-04-07",
       "ranking": 4
     },
@@ -91,9 +91,9 @@
       "descricao": "Bicampeão no Bico do Papagaio (~300 mil eleitores). Aval da cúpula do União Brasil. Favorito na maior região eleitoral do norte do TO.",
       "abreviacao": "JF",
       "is_candidato": false,
-      "seguidores": 21832,
+      "seguidores": 21841,
       "taxa_engajamento_pct": 1.73,
-      "media_likes_recentes": 337.9,
+      "media_likes_recentes": 339.2,
       "data_coleta": "2026-04-07",
       "ranking": 5
     },
@@ -107,9 +107,9 @@
       "descricao": "Migrou do União Brasil. Disputa votos em Araguaína — mesma base geográfica do Cel. Barbosa. Estimativa: 20K votos em jogo.",
       "abreviacao": "LC",
       "is_candidato": false,
-      "seguidores": 19240,
+      "seguidores": 19250,
       "taxa_engajamento_pct": 2.64,
-      "media_likes_recentes": 460.2,
+      "media_likes_recentes": 461.0,
       "data_coleta": "2026-04-07",
       "ranking": 6
     },
@@ -123,11 +123,27 @@
       "descricao": "Mais votado de Palmas em 2022 (36.293 votos). PL com financiamento robusto. Ameaça direta em Palmas, base geográfica compartilhada.",
       "abreviacao": "FM",
       "is_candidato": false,
-      "seguidores": 19170,
-      "taxa_engajamento_pct": 6.97,
-      "media_likes_recentes": 1309.5,
+      "seguidores": 19173,
+      "taxa_engajamento_pct": 0.82,
+      "media_likes_recentes": 152.2,
       "data_coleta": "2026-04-07",
       "ranking": 7
+    },
+    {
+      "username": "osiresdamaso",
+      "nome": "Osires Damaso",
+      "partido": "Podemos",
+      "cargo_pretendido": "deputado_federal",
+      "cargo_label": "Pré-candidato",
+      "nivel_ameaca": "média",
+      "descricao": "Integra a chapa do Podemos com Tiago Dimas e Sandoval Cardoso.",
+      "abreviacao": "OD",
+      "is_candidato": false,
+      "seguidores": 18421,
+      "taxa_engajamento_pct": 0.61,
+      "media_likes_recentes": 100.8,
+      "data_coleta": "2026-04-07",
+      "ranking": 8
     },
     {
       "username": "cesarhalum",
@@ -140,10 +156,10 @@
       "abreviacao": "CH",
       "is_candidato": false,
       "seguidores": 12954,
-      "taxa_engajamento_pct": 0.47,
-      "media_likes_recentes": 55.1,
+      "taxa_engajamento_pct": 0.45,
+      "media_likes_recentes": 53.0,
       "data_coleta": "2026-04-07",
-      "ranking": 8
+      "ranking": 9
     },
     {
       "username": "atosgomess",
@@ -155,11 +171,11 @@
       "descricao": "Ex-secretário de Esporte e Juventude. Perfil jovem, base em esporte/eventos. Pode drenar votos do eleitorado mais jovem.",
       "abreviacao": "AG",
       "is_candidato": false,
-      "seguidores": 11778,
-      "taxa_engajamento_pct": 4.78,
-      "media_likes_recentes": 488.9,
+      "seguidores": 11775,
+      "taxa_engajamento_pct": 4.79,
+      "media_likes_recentes": 489.3,
       "data_coleta": "2026-04-07",
-      "ranking": 9
+      "ranking": 10
     },
     {
       "username": "nilmarruiz",
@@ -171,11 +187,11 @@
       "descricao": "Ex-dep. Federal, ex-prefeita de Palmas. Nicho feminino conservador, pode drenar votos entre mulheres evangélicas.",
       "abreviacao": "NR",
       "is_candidato": false,
-      "seguidores": 10278,
-      "taxa_engajamento_pct": 0.81,
-      "media_likes_recentes": 74.2,
+      "seguidores": 10287,
+      "taxa_engajamento_pct": 0.82,
+      "media_likes_recentes": 74.7,
       "data_coleta": "2026-04-07",
-      "ranking": 10
+      "ranking": 11
     },
     {
       "username": "sandovallobocardoso",
@@ -188,10 +204,10 @@
       "abreviacao": "SC",
       "is_candidato": false,
       "seguidores": 9417,
-      "taxa_engajamento_pct": 5.43,
-      "media_likes_recentes": 458.6,
+      "taxa_engajamento_pct": 5.46,
+      "media_likes_recentes": 460.8,
       "data_coleta": "2026-04-07",
-      "ranking": 11
+      "ranking": 12
     },
     {
       "username": "larissarosenda",
@@ -203,11 +219,11 @@
       "descricao": "Primeira candidatura relevante. Nicho feminino progressista.",
       "abreviacao": "LR",
       "is_candidato": false,
-      "seguidores": 8189,
-      "taxa_engajamento_pct": 9.93,
-      "media_likes_recentes": 747.0,
+      "seguidores": 8190,
+      "taxa_engajamento_pct": 9.76,
+      "media_likes_recentes": 733.2,
       "data_coleta": "2026-04-07",
-      "ranking": 12
+      "ranking": 13
     },
     {
       "username": "celiomourato",
@@ -219,11 +235,11 @@
       "descricao": "Ex-dep. Federal. Eleitorado diferente (esquerda), mas impacta o quociente eleitoral da chapa.",
       "abreviacao": "CL",
       "is_candidato": false,
-      "seguidores": 6741,
-      "taxa_engajamento_pct": 2.25,
-      "media_likes_recentes": 129.8,
+      "seguidores": 6739,
+      "taxa_engajamento_pct": 2.06,
+      "media_likes_recentes": 118.4,
       "data_coleta": "2026-04-07",
-      "ranking": 13
+      "ranking": 14
     },
     {
       "username": "alfredojrto",
@@ -235,11 +251,11 @@
       "descricao": "Jovem empresário, indicação direta da chapa do governador. Capital financeiro elevado, presença digital baixa.",
       "abreviacao": "AJ",
       "is_candidato": false,
-      "seguidores": 3911,
-      "taxa_engajamento_pct": 7.42,
-      "media_likes_recentes": 233.3,
+      "seguidores": 3917,
+      "taxa_engajamento_pct": 7.46,
+      "media_likes_recentes": 235.0,
       "data_coleta": "2026-04-07",
-      "ranking": 14
+      "ranking": 15
     },
     {
       "username": "dep.lazaro",
@@ -251,26 +267,10 @@
       "descricao": "Quatro mandatos federais. \"Uma vaga é minha.\" Capital político compensa presença digital fraca. Base estruturada no norte do estado.",
       "abreviacao": "LB",
       "is_candidato": false,
-      "seguidores": 3677,
+      "seguidores": 3678,
       "taxa_engajamento_pct": 2.09,
       "media_likes_recentes": 64.2,
       "data_coleta": "2026-04-07",
-      "ranking": 15
-    },
-    {
-      "username": "osiresdamaso",
-      "nome": "Osires Damaso",
-      "partido": "Podemos",
-      "cargo_pretendido": "deputado_federal",
-      "cargo_label": "Pré-candidato",
-      "nivel_ameaca": "média",
-      "descricao": "Integra a chapa do Podemos com Tiago Dimas e Sandoval Cardoso.",
-      "abreviacao": "OD",
-      "is_candidato": false,
-      "seguidores": 0,
-      "taxa_engajamento_pct": 0,
-      "media_likes_recentes": 0,
-      "data_coleta": "",
       "ranking": 16
     }
   ],
@@ -285,9 +285,9 @@
       "descricao": "Mais votada da história da ALETO (2022). 2ª em Palmas em 2024. Base feminina e bolsonarista consolidada. Disputa o mesmo eleitorado conservador de Palmas.",
       "abreviacao": "JV",
       "is_candidato": false,
-      "seguidores": 87181,
-      "taxa_engajamento_pct": 0.84,
-      "media_likes_recentes": 582.2,
+      "seguidores": 87210,
+      "taxa_engajamento_pct": 0.86,
+      "media_likes_recentes": 593.8,
       "data_coleta": "2026-04-07",
       "ranking": 1
     },
@@ -301,9 +301,9 @@
       "descricao": "6.º mais votado do estado em 2022 (42.970 votos). Base fortíssima em Araguaína. Pode eleger dois nomes pelo Podemos junto com Sandoval.",
       "abreviacao": "TD",
       "is_candidato": false,
-      "seguidores": 68752,
-      "taxa_engajamento_pct": 30.51,
-      "media_likes_recentes": 19488.4,
+      "seguidores": 68760,
+      "taxa_engajamento_pct": 30.53,
+      "media_likes_recentes": 19503.9,
       "data_coleta": "2026-04-07",
       "ranking": 2
     },
@@ -317,9 +317,9 @@
       "descricao": "Bicampeão no Bico do Papagaio (~300 mil eleitores). Aval da cúpula do União Brasil. Favorito na maior região eleitoral do norte do TO.",
       "abreviacao": "JF",
       "is_candidato": false,
-      "seguidores": 21832,
+      "seguidores": 21841,
       "taxa_engajamento_pct": 1.73,
-      "media_likes_recentes": 337.9,
+      "media_likes_recentes": 339.2,
       "data_coleta": "2026-04-07",
       "ranking": 5
     },
@@ -333,9 +333,9 @@
       "descricao": "Mais votado de Palmas em 2022 (36.293 votos). PL com financiamento robusto. Ameaça direta em Palmas, base geográfica compartilhada.",
       "abreviacao": "FM",
       "is_candidato": false,
-      "seguidores": 19170,
-      "taxa_engajamento_pct": 6.97,
-      "media_likes_recentes": 1309.5,
+      "seguidores": 19173,
+      "taxa_engajamento_pct": 0.82,
+      "media_likes_recentes": 152.2,
       "data_coleta": "2026-04-07",
       "ranking": 7
     },
@@ -350,10 +350,10 @@
       "abreviacao": "CH",
       "is_candidato": false,
       "seguidores": 12954,
-      "taxa_engajamento_pct": 0.47,
-      "media_likes_recentes": 55.1,
+      "taxa_engajamento_pct": 0.45,
+      "media_likes_recentes": 53.0,
       "data_coleta": "2026-04-07",
-      "ranking": 8
+      "ranking": 9
     },
     {
       "username": "dep.lazaro",
@@ -365,11 +365,11 @@
       "descricao": "Quatro mandatos federais. \"Uma vaga é minha.\" Capital político compensa presença digital fraca. Base estruturada no norte do estado.",
       "abreviacao": "LB",
       "is_candidato": false,
-      "seguidores": 3677,
+      "seguidores": 3678,
       "taxa_engajamento_pct": 2.09,
       "media_likes_recentes": 64.2,
       "data_coleta": "2026-04-07",
-      "ranking": 15
+      "ranking": 16
     }
   ],
   "internos": [
@@ -383,9 +383,9 @@
       "descricao": "Dep. Federal em exercício, chapa Republicanos. Concorrência interna.",
       "abreviacao": "RA",
       "is_candidato": false,
-      "seguidores": 30194,
+      "seguidores": 30199,
       "taxa_engajamento_pct": 0.66,
-      "media_likes_recentes": 165.6,
+      "media_likes_recentes": 166.9,
       "data_coleta": "2026-04-07",
       "ranking": 3
     },
@@ -399,9 +399,9 @@
       "descricao": "Ex-secretário de Educação, ex-prefeito de Palmeirópolis. Entrou formalmente em abril/2026. Reputação no interior sul do estado.",
       "abreviacao": "FV",
       "is_candidato": false,
-      "seguidores": 26156,
-      "taxa_engajamento_pct": 5.26,
-      "media_likes_recentes": 1215.5,
+      "seguidores": 26180,
+      "taxa_engajamento_pct": 5.34,
+      "media_likes_recentes": 1236.4,
       "data_coleta": "2026-04-07",
       "ranking": 4
     },
@@ -415,9 +415,9 @@
       "descricao": "Migrou do União Brasil. Disputa votos em Araguaína — mesma base geográfica do Cel. Barbosa. Estimativa: 20K votos em jogo.",
       "abreviacao": "LC",
       "is_candidato": false,
-      "seguidores": 19240,
+      "seguidores": 19250,
       "taxa_engajamento_pct": 2.64,
-      "media_likes_recentes": 460.2,
+      "media_likes_recentes": 461.0,
       "data_coleta": "2026-04-07",
       "ranking": 6
     },
@@ -431,11 +431,11 @@
       "descricao": "Ex-secretário de Esporte e Juventude. Perfil jovem, base em esporte/eventos. Pode drenar votos do eleitorado mais jovem.",
       "abreviacao": "AG",
       "is_candidato": false,
-      "seguidores": 11778,
-      "taxa_engajamento_pct": 4.78,
-      "media_likes_recentes": 488.9,
+      "seguidores": 11775,
+      "taxa_engajamento_pct": 4.79,
+      "media_likes_recentes": 489.3,
       "data_coleta": "2026-04-07",
-      "ranking": 9
+      "ranking": 10
     },
     {
       "username": "alfredojrto",
@@ -447,11 +447,11 @@
       "descricao": "Jovem empresário, indicação direta da chapa do governador. Capital financeiro elevado, presença digital baixa.",
       "abreviacao": "AJ",
       "is_candidato": false,
-      "seguidores": 3911,
-      "taxa_engajamento_pct": 7.42,
-      "media_likes_recentes": 233.3,
+      "seguidores": 3917,
+      "taxa_engajamento_pct": 7.46,
+      "media_likes_recentes": 235.0,
       "data_coleta": "2026-04-07",
-      "ranking": 14
+      "ranking": 15
     }
   ],
   "migracoes": [
