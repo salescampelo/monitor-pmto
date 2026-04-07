@@ -14055,5 +14055,212 @@
     "hash_id": "290e5dbc667f",
     "relevance_score": 0.8,
     "relevance_label": "DIRETA"
+  },
+  {
+    "title": "Eleições 2026: Cadastro fecha em 6/5; prazo para serviço online sem biometria é hoje",
+    "url": "https://t1noticias.com.br/estado/eleicoes-2026-cadastro-fecha-em-65-prazo-para-servico-online-sem-biometria-e-hoje/140912/",
+    "source_name": "T1 Notícias",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "eleições 2026"
+    ],
+    "mention_type": "eleitoral",
+    "relevance_score": 0.7,
+    "relevance_label": "ELEITORAL",
+    "detected_at": "2026-04-07 08:12",
+    "snippet": "",
+    "hash_id": "62d03ac38eca"
+  },
+  {
+    "title": "Republicanos já tem 17 pré-candidatos e projeta eleger até 7 deputados estaduais",
+    "url": "https://afnoticias.com.br/eleicoes/republicanos-ja-tem-17-pre-candidatos-e-projeta-eleger-ate-sete-deputados-estaduais-veja-nomes",
+    "source_name": "AF Notícias",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "pré-candidato"
+    ],
+    "mention_type": "eleitoral",
+    "relevance_score": 0.85,
+    "relevance_label": "DIRETA",
+    "detected_at": "2026-04-07 08:12",
+    "snippet": "",
+    "hash_id": "beabe57a3e4f"
+  },
+  {
+    "title": "Republicanos fecha chapa com 17 pré-candidatos à Assembleia Legislativa e projeta sete cadeiras",
+    "url": "https://atitudeto.com.br/politica/eleicoes/republicanos-fecha-chapa-com-17-pre-candidatos-a-assembleia-legislativa-e-projeta-sete-cadeiras/",
+    "source_name": "Atitude Tocantins",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "pré-candidato"
+    ],
+    "mention_type": "eleitoral",
+    "relevance_score": 0.85,
+    "relevance_label": "DIRETA",
+    "detected_at": "2026-04-07 08:12",
+    "snippet": "",
+    "hash_id": "abaa200dd7ee"
+  },
+  {
+    "title": "2026Amélio comenta sua pré-candidatura a vice de Vicentinho Jr: “a peça que faltava para dar início a um novo tempo no TO”O presidente da Assembleia, Amélio Cayres, falou sobre ter aceito o convite para ser vice do pré-candidato Vicentinho Júnior. Ele disse que é a peça que faltava para “dar início a um novo tempo no Tocantins”. “Tenho a plena consciência de que ninguém constrói nada sozinho. Estou aqui para somar, para ouvir e para trabalhar […]",
+    "url": "https://gazetadocerrado.com.br/noticias/amelio-comenta-sua-pre-candidatura-a-vice-de-vicentinho-jr-a-peca-que-faltava-para-dar-inicio-a-um-novo-tempo-no-to/",
+    "source_name": "Gazeta do Cerrado",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "pré-candidato"
+    ],
+    "mention_type": "eleitoral",
+    "relevance_score": 0.85,
+    "relevance_label": "DIRETA",
+    "detected_at": "2026-04-07 08:12",
+    "snippet": "",
+    "hash_id": "7f7bccc40e0d"
+  },
+  {
+    "title": "PolíticaCom cinco vagas já abertas, tabuleiro fecha com projeção de sete chapas de pré-candidatos a federais",
+    "url": "https://gazetadocerrado.com.br/politica/com-cinco-vagas-ja-abertas-tabuleiro-fecha-com-projecao-de-sete-chapas-de-pre-candidatos-a-federais/",
+    "source_name": "Gazeta do Cerrado",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "pré-candidato"
+    ],
+    "mention_type": "eleitoral",
+    "relevance_score": 0.8,
+    "relevance_label": "DIRETA",
+    "detected_at": "2026-04-07 08:12",
+    "snippet": "",
+    "hash_id": "ccf8cc33244e"
+  },
+  {
+    "title": "Cadastro eleitoralEleições 2026: eleitores têm até 6 de maio para regularizar título; saiba como fazer",
+    "url": "https://gazetadocerrado.com.br/tocantins/eleicoes-2026-eleitores-tem-ate-6-de-maio-para-regularizar-titulo-saiba-como-fazer/",
+    "source_name": "Gazeta do Cerrado",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "eleições 2026"
+    ],
+    "mention_type": "eleitoral",
+    "relevance_score": 0.7,
+    "relevance_label": "ELEITORAL",
+    "detected_at": "2026-04-07 08:12",
+    "snippet": "",
+    "hash_id": "c0e01f86f260"
+  },
+  {
+    "title": "Eleições 2026PSD de Laurez apresenta 10 nomes para nominata de federal; Veja quem são!",
+    "url": "https://gazetadocerrado.com.br/politica/psd-de-laurez-apresenta-10-nomes-para-nominata-de-federal-veja-quem-sao/",
+    "source_name": "Gazeta do Cerrado",
+    "source_type": "Portal",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "eleições 2026"
+    ],
+    "mention_type": "eleitoral",
+    "relevance_score": 0.7,
+    "relevance_label": "ELEITORAL",
+    "detected_at": "2026-04-07 08:12",
+    "snippet": "",
+    "hash_id": "31f5e109a969"
+  },
+  {
+    "title": "Eleições 2026Marcos Duarte se filia ao PRD e confirma pré-candidatura a deputado estadualPré-candidato a deputado estadual, parlamentar reafirma apoio ao vice-governador Laurez Moreira e projeta fortalecimento político no Tocantins",
+    "url": "https://focotocantins.com.br/noticia/6339/marcos-duarte-se-filia-ao-prd-e-confirma-pre-candidatura-a-deputado-estadual",
+    "source_name": "Foco Tocantins",
+    "source_type": "Portal",
+    "priority": "media",
+    "scope": "TO",
+    "matched_terms": [
+      "eleições 2026",
+      "candidato a deputado",
+      "pré-candidato"
+    ],
+    "mention_type": "eleitoral",
+    "relevance_score": 0.85,
+    "relevance_label": "DIRETA",
+    "detected_at": "2026-04-07 08:12",
+    "snippet": "",
+    "hash_id": "f12f0c72e883"
+  },
+  {
+    "title": "Eleições 2026Thiago Costa: o homem do povo. 🇧🇷Vereador de Araguaína é Pre candidato a deputado federal",
+    "url": "https://focotocantins.com.br/noticia/6337/thiago-costa-o-homem-do-povo",
+    "source_name": "Foco Tocantins",
+    "source_type": "Portal",
+    "priority": "media",
+    "scope": "TO",
+    "matched_terms": [
+      "eleições 2026",
+      "candidato a deputado"
+    ],
+    "mention_type": "eleitoral",
+    "relevance_score": 0.8,
+    "relevance_label": "DIRETA",
+    "detected_at": "2026-04-07 08:12",
+    "snippet": "",
+    "hash_id": "fc2d2044ba8d"
+  },
+  {
+    "title": "Regularizar títuloEleitores têm 30 dias para tirar título e regularizar cadastro para votar nas Eleições 2026",
+    "url": "https://focotocantins.com.br/noticia/6341/eleitores-tem-30-dias-para-tirar-titulo-e-regularizar-cadastro-para-votar-nas-eleicoes-2026",
+    "source_name": "Foco Tocantins",
+    "source_type": "Portal",
+    "priority": "media",
+    "scope": "TO",
+    "matched_terms": [
+      "eleições 2026"
+    ],
+    "mention_type": "eleitoral",
+    "relevance_score": 0.7,
+    "relevance_label": "ELEITORAL",
+    "detected_at": "2026-04-07 08:12",
+    "snippet": "",
+    "hash_id": "7c9d021541c4"
+  },
+  {
+    "title": "PMTO fortalece presença no Médio Tocantins com elevação da 6ª CIPM ao 16º Batalhão de Polícia Militar",
+    "url": "https://lealjunior.com.br/pmto-fortalece-presenca-no-medio-tocantins-com-elevacao-da-6a-cipm-ao-16o-batalhao-de-policia-militar/",
+    "source_name": "Portal LJ (Leal Júnior)",
+    "source_type": "Portal",
+    "priority": "media",
+    "scope": "TO",
+    "matched_terms": [
+      "pmto"
+    ],
+    "mention_type": "institucional",
+    "relevance_score": 0.2,
+    "relevance_label": "PMTO_GENÉRICA",
+    "detected_at": "2026-04-07 08:12",
+    "snippet": "",
+    "hash_id": "49825dc45f5e"
+  },
+  {
+    "title": "Polícia Militar do Tocantins inicia curso de Gestão Pública Integrada com investimento de 236 mil reais",
+    "url": "https://lealjunior.com.br/policia-militar-do-tocantins-inicia-curso-de-gestao-publica-integrada-com-investimento-de-236-mil-reais/",
+    "source_name": "Portal LJ (Leal Júnior)",
+    "source_type": "Portal",
+    "priority": "media",
+    "scope": "TO",
+    "matched_terms": [
+      "polícia militar do tocantins"
+    ],
+    "mention_type": "institucional",
+    "relevance_score": 0.2,
+    "relevance_label": "PMTO_GENÉRICA",
+    "detected_at": "2026-04-07 08:12",
+    "snippet": "",
+    "hash_id": "4c49f3bdc901"
   }
 ]
