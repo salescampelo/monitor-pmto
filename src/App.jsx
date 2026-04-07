@@ -77,6 +77,7 @@ const NC=({item,expanded,onToggle})=>{const sc=sC(item.score);const cl=CLUSTERS.
 const DCOL={positivo:'#22c55e',negativo:'#ef4444',neutro:'#64748b'};
 
 const SocialPanel=({socialData,sentimentData})=>{
+  const[open,setOpen]=useState(true);
   const profiles=useMemo(()=>{
     if(!socialData||!Array.isArray(socialData))return[];
     return socialData.filter(p=>p.seguidores>0).sort((a,b)=>b.seguidores-a.seguidores);
@@ -98,16 +99,23 @@ const SocialPanel=({socialData,sentimentData})=>{
 
   if(!profiles.length)return null;
   return(
-  <div style={{marginTop:32}}>
-    <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:18}}>
-      <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}>
-        <Users size={22} style={{color:'#1a3a7a'}}/>
+  <Card style={{marginTop:32}}>
+    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
+      <div style={{display:'flex',alignItems:'center',gap:12}}>
+        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Users size={22} style={{color:'#1a3a7a'}}/></div>
+        <div>
+          <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Monitor de redes sociais</h2>
+          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>{profiles.length} perfis · Instagram · {sentimentData?.data_coleta||profiles[0]?.data_coleta||''}</p>
+        </div>
       </div>
-      <div>
-        <h2 style={{fontSize:26,fontWeight:800,color:'#1a1d2e',margin:0}}>Monitor de redes sociais</h2>
-        <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>{profiles.length} perfis · Instagram · {sentimentData?.data_coleta||profiles[0]?.data_coleta||''}</p>
+      <div style={{display:'flex',alignItems:'center',gap:16}}>
+        {cand&&<div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#1a3a7a',margin:0}}>#{candRank}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>no ranking</p></div>}
+        {cand&&<div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#d4a017',margin:0}}>{cand.taxa_engajamento_pct}%</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>engajamento</p></div>}
+        {open?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
       </div>
     </div>
+    {open&&(
+    <div>
 
     {cand&&<div className="hov-card" style={{marginBottom:18,borderRadius:16,background:'#1a3a7a',padding:'24px 28px',position:'relative',overflow:'hidden'}}>
       <div style={{position:'absolute',width:280,height:280,borderRadius:'50%',background:'radial-gradient(circle,rgba(212,160,23,0.18),transparent 70%)',top:-80,right:-60,pointerEvents:'none',animation:'blob-float 9s ease-in-out infinite'}}/>
@@ -314,43 +322,42 @@ const SocialPanel=({socialData,sentimentData})=>{
         {!sentimentData?.sentiment?.total&&<p style={{margin:0}}>Execute o scraper de comentários para gerar a análise de sentimento do público nas redes.</p>}
       </div>
     </Card>
-  </div>);
+    </div>
+    )}
+  </Card>);
 };
 
 /* ═══════════════════════════════════════════════
    KPI PANEL — Painel de Metas da Campanha
    ═══════════════════════════════════════════════ */
 const KpiPanel=({kpiData})=>{
+  const[open,setOpen]=useState(true);
   if(!kpiData?.kpis?.length)return null;
   const phase = kpiData.current_phase || 1;
   const phaseInfo = kpiData.phases?.[String(phase)] || {};
-  
-  // Days until election
   const electionDate = kpiData.election_date ? new Date(kpiData.election_date+'T00:00:00') : null;
   const today = new Date();
   const daysLeft = electionDate ? Math.max(0, Math.ceil((electionDate - today) / (1000*60*60*24))) : null;
 
   return(
-  <div style={{marginTop:32}}>
-    <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:18}}>
-      <div style={{background:'rgba(212,160,23,0.1)',border:'1px solid rgba(212,160,23,0.2)',borderRadius:12,padding:10}}>
-        <Target size={22} style={{color:'#d4a017'}}/>
-      </div>
-      <div style={{flex:1}}>
-        <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Metas da campanha</h2>
-        <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
-          Fase {phase}: {phaseInfo.name||''} · {phaseInfo.period||''}
-        </p>
-      </div>
-      {daysLeft!==null&&(
-        <div style={{textAlign:'center',background:'#1a3a7a',borderRadius:14,padding:'14px 22px',minWidth:90,position:'relative',overflow:'hidden'}}>
-          <div style={{position:'absolute',width:100,height:100,borderRadius:'50%',background:'radial-gradient(circle,rgba(212,160,23,0.2),transparent)',top:-30,right:-20,pointerEvents:'none'}}/>
-          <p style={{fontSize:32,fontWeight:900,color:'#d4a017',margin:0,lineHeight:1,letterSpacing:'-0.02em',position:'relative'}}>{daysLeft}</p>
-          <p style={{fontSize:9,color:'rgba(255,255,255,0.5)',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.12em',position:'relative'}}>dias para eleição</p>
+  <Card style={{marginTop:32}}>
+    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
+      <div style={{display:'flex',alignItems:'center',gap:12}}>
+        <div style={{background:'rgba(212,160,23,0.1)',border:'1px solid rgba(212,160,23,0.2)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#d4a017'}}/></div>
+        <div>
+          <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Metas da campanha</h2>
+          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
+            Fase {phase}: {phaseInfo.name||''} · {phaseInfo.period||''}
+          </p>
         </div>
-      )}
+      </div>
+      <div style={{display:'flex',alignItems:'center',gap:16}}>
+        {daysLeft!==null&&<div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#d4a017',margin:0}}>{daysLeft}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>dias p/ eleição</p></div>}
+        {open?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
+      </div>
     </div>
-
+    {open&&(
+    <div>
     <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))',gap:10}}>
       {kpiData.kpis.map(kpi=>{
         const target = kpi.targets?.[String(phase)] || 0;
@@ -383,7 +390,9 @@ const KpiPanel=({kpiData})=>{
         </Card>);
       })}
     </div>
-  </div>);
+    </div>
+    )}
+  </Card>);
 };
 
 /* ═══════════════════════════════════════════════
@@ -401,6 +410,7 @@ const PARTY_COLORS={
 };
 
 const GeoPanel=({geoData})=>{
+  const[open,setOpen]=useState(true);
   const[selectedMun,setSelectedMun]=useState(null);
   const[catFilter,setCatFilter]=useState('all');
 
@@ -430,19 +440,25 @@ const GeoPanel=({geoData})=>{
   const detail=selectedMun?geoData.municipios.find(m=>m.municipio_upper===selectedMun):null;
 
   return(
-  <div style={{marginTop:32}}>
-    <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:18}}>
-      <div style={{background:'rgba(21,128,61,0.08)',border:'1px solid rgba(21,128,61,0.15)',borderRadius:12,padding:10}}>
-        <MapPin size={22} style={{color:'#15803d'}}/>
+  <Card style={{marginTop:32}}>
+    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
+      <div style={{display:'flex',alignItems:'center',gap:12}}>
+        <div style={{background:'rgba(21,128,61,0.08)',border:'1px solid rgba(21,128,61,0.15)',borderRadius:12,padding:10}}><MapPin size={22} style={{color:'#15803d'}}/></div>
+        <div>
+          <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Inteligência eleitoral — Tocantins</h2>
+          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
+            {summary.total_municipios||0} municípios · TSE 2022 + IBGE · Dep. Federal
+          </p>
+        </div>
       </div>
-      <div>
-        <h2 style={{fontSize:26,fontWeight:800,color:'#1a1d2e',margin:0}}>Inteligência eleitoral — Tocantins</h2>
-        <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
-          {summary.total_municipios||0} municípios · TSE 2022 + IBGE · Dep. Federal
-        </p>
+      <div style={{display:'flex',alignItems:'center',gap:16}}>
+        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#22c55e',margin:0}}>{summary.alta_prioridade||0}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>alta prior.</p></div>
+        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#1a3a7a',margin:0}}>{summary.total_municipios||0}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>municípios</p></div>
+        {open?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
       </div>
     </div>
-
+    {open&&(
+    <div>
     {/* Summary metrics */}
     <div style={{display:'flex',gap:8,marginBottom:14,flexWrap:'wrap'}}>
       <Met icon={MapPin} label="Municípios" value={summary.total_municipios||0} accent="#22c55e"/>
@@ -544,7 +560,9 @@ const GeoPanel=({geoData})=>{
         {(summary.municipios_adversarios||[]).length>0&&<p style={{margin:0}}>Territorios dominados por adversarios: {summary.municipios_adversarios.slice(0,5).join(', ')}. Avaliar custo-beneficio de investir nestas regioes vs. maximizar municipios de oportunidade.</p>}
       </div>
     </Card>
-  </div>);
+    </div>
+    )}
+  </Card>);
 };
 
 /* ═══════════════════════════════════════════════
@@ -750,6 +768,7 @@ const App=()=>{
   const[lastUpdate,setLastUpdate]=useState(null);
   const[loading,setLoading]=useState(true);
   const[refreshing,setRefreshing]=useState(false);
+  const[openImprensa,setOpenImprensa]=useState(true);
 
   useEffect(()=>{(async()=>{
     setLoading(true);
@@ -869,17 +888,25 @@ const App=()=>{
 
     {/* ═══ M1: MONITOR DE IMPRENSA ═══ */}
     <section id="sec-imprensa" className="reveal">
-    <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:18,marginTop:32}}>
-      <div style={{background:'rgba(185,28,28,0.06)',border:'1px solid rgba(185,28,28,0.12)',borderRadius:12,padding:10}}>
-        <Newspaper size={22} style={{color:'#b91c1c'}}/>
+    <Card style={{marginTop:32}}>
+    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:openImprensa?18:0}} onClick={()=>setOpenImprensa(o=>!o)}>
+      <div style={{display:'flex',alignItems:'center',gap:12}}>
+        <div style={{background:'rgba(185,28,28,0.06)',border:'1px solid rgba(185,28,28,0.12)',borderRadius:12,padding:10}}><Newspaper size={22} style={{color:'#b91c1c'}}/></div>
+        <div>
+          <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Monitor de imprensa</h2>
+          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
+            32 fontes · Tocantins + Brasil · Atualização 2x ao dia
+          </p>
+        </div>
       </div>
-      <div>
-        <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Monitor de imprensa</h2>
-        <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
-          32 fontes · Tocantins + Brasil · Atualização 2x ao dia
-        </p>
+      <div style={{display:'flex',alignItems:'center',gap:16}}>
+        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#ef4444',margin:0}}>{totalM.dir}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>diretas</p></div>
+        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#1a3a7a',margin:0}}>{totalM.tot}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>menções</p></div>
+        {openImprensa?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
       </div>
     </div>
+    {openImprensa&&(
+    <div>
 
     {/* METRICS */}
     <div style={{display:'flex',gap:8,marginBottom:16,flexWrap:'wrap'}}>
@@ -927,6 +954,9 @@ const App=()=>{
       {filteredNews.length>50&&<p style={{fontSize:13,color:'#8c93a8',textAlign:'center'}}>Mostrando 50 de {filteredNews.length}. Use filtros para refinar.</p>}
       {filteredNews.length===0&&<Card noHover><p style={{color:'#8c93a8',fontSize:13,textAlign:'center'}}>Nenhuma menção para os filtros selecionados.</p></Card>}
     </div>
+    </div>
+    )}
+    </Card>
     </section>
 
   </div></div>);
