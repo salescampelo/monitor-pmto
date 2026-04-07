@@ -86,7 +86,7 @@ const SocialPanel=({socialData,sentimentData})=>{
   const donut=useMemo(()=>{
     if(!sentimentData?.sentiment)return[];
     const s=sentimentData.sentiment;
-    return[{name:'Positivo',value:s.positivo||0,color:DCOL.positivo},{name:'Negativo',value:s.negativo||0,color:DCOL.negativo},{name:'Neutro',value:s.neutro||0,color:DCOL.neutro}].filter(d=>d.value>0);
+    return[{name:'Positivo',value:s.positivo||0,pct:s.pct_positivo||0,color:DCOL.positivo},{name:'Negativo',value:s.negativo||0,pct:s.pct_negativo||0,color:DCOL.negativo},{name:'Neutro',value:s.neutro||0,pct:s.pct_neutro||0,color:DCOL.neutro}].filter(d=>d.value>0);
   },[sentimentData]);
   const engChart=useMemo(()=>[...profiles].sort((a,b)=>b.taxa_engajamento_pct-a.taxa_engajamento_pct).slice(0,10).map(p=>{
     const isCand = p.username==='marciobarbosa_cel';
@@ -129,10 +129,10 @@ const SocialPanel=({socialData,sentimentData})=>{
         {donut.length>0?(
           <>
           <ResponsiveContainer width="100%" height={260}>
-            <PieChart><Pie data={donut} cx="50%" cy="50%" innerRadius={70} outerRadius={110} dataKey="value" stroke="none">{donut.map((d,i)=><Cell key={i} fill={d.color}/>)}</Pie></PieChart>
+            <PieChart><Pie data={donut} cx="50%" cy="50%" innerRadius={70} outerRadius={110} dataKey="value" stroke="none" label={({cx,cy,midAngle,innerRadius,outerRadius,pct})=>{const R=Math.PI/180,r=innerRadius+(outerRadius-innerRadius)*0.5,x=cx+r*Math.cos(-midAngle*R),y=cy+r*Math.sin(-midAngle*R);return pct>5?<text x={x} y={y} fill="#fff" textAnchor="middle" dominantBaseline="central" style={{fontSize:11,fontWeight:700}}>{pct}%</text>:null;}} labelLine={false}>{donut.map((d,i)=><Cell key={i} fill={d.color}/>)}</Pie></PieChart>
           </ResponsiveContainer>
           <div style={{display:'flex',justifyContent:'center',gap:12,marginTop:4}}>
-            {donut.map(d=><div key={d.name} style={{display:'flex',alignItems:'center',gap:4}}><div style={{width:8,height:8,borderRadius:2,background:d.color}}/><span style={{fontSize:12,color:'#5a6178'}}>{d.name} {d.value}</span></div>)}
+            {donut.map(d=><div key={d.name} style={{display:'flex',alignItems:'center',gap:4}}><div style={{width:8,height:8,borderRadius:2,background:d.color}}/><span style={{fontSize:12,color:'#5a6178'}}>{d.name} {d.value} ({d.pct}%)</span></div>)}
           </div>
           </>
         ):(
