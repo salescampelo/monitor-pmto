@@ -545,6 +545,174 @@ const GeoPanel=({geoData})=>{
 };
 
 /* ═══════════════════════════════════════════════
+   ADVERSÁRIOS PANEL — Inteligência Competitiva
+   ═══════════════════════════════════════════════ */
+const AdversariosPanel=()=>{
+  const[open,setOpen]=useState(false);
+  const MAX=87;
+  const ranking=[
+    {pos:1,name:'Janad Valcari',party:'PP',ig:87,threat:'alta',bar:'#ef4444'},
+    {pos:2,name:'Tiago Dimas',party:'Podemos',ig:69,threat:'alta',bar:'#ef4444'},
+    {pos:3,name:'Jair Farias',party:'União Brasil',ig:22,threat:'alta',bar:'#ef4444'},
+    {pos:4,name:'Fábio Vaz',party:'Republicanos*',ig:21,threat:'interno',bar:'#8b5cf6'},
+    {pos:5,name:'Filipe Martins',party:'PL',ig:19,threat:'alta',bar:'#ef4444'},
+    {pos:5,name:'Lucas Campelo',party:'Republicanos*',ig:19,threat:'interno',bar:'#8b5cf6'},
+    {pos:'★',name:'Cel. Barbosa',party:'Republicanos',ig:31,threat:'candidato',bar:'#1a3a7a',isMe:true},
+    {pos:8,name:'César Halum',party:'PP',ig:13,threat:'alta',bar:'#ef4444'},
+    {pos:9,name:'Nilmar Ruiz',party:'PL',ig:10,threat:'média',bar:'#f59e0b'},
+    {pos:10,name:'Sandoval Cardoso',party:'Podemos',ig:9,threat:'média',bar:'#f59e0b'},
+    {pos:11,name:'Larissa Rosenda',party:'PSD',ig:8,threat:'baixa',bar:'#64748b'},
+    {pos:12,name:'Célio Moura',party:'PT',ig:7,threat:'média',bar:'#f59e0b'},
+    {pos:13,name:'Lázaro Botelho',party:'PP',ig:3.6,threat:'alta',bar:'#ef4444'},
+  ];
+  const threatC={alta:{bg:'rgba(239,68,68,0.1)',c:'#ef4444'},média:{bg:'rgba(245,158,11,0.1)',c:'#f59e0b'},baixa:{bg:'rgba(100,116,139,0.1)',c:'#64748b'},interno:{bg:'rgba(139,92,246,0.1)',c:'#8b5cf6'},candidato:{bg:'rgba(26,58,122,0.1)',c:'#1a3a7a'}};
+  const threats=[
+    {name:'Janad Valcari',party:'PP · Dep. Estadual',ig:'87K',desc:'Mais votada da história da ALETO (2022). 2ª em Palmas em 2024. Base feminina e bolsonarista consolidada. Disputa o mesmo eleitorado conservador de Palmas.'},
+    {name:'Tiago Dimas',party:'Podemos · Dep. Federal',ig:'69K',desc:'6.º mais votado do estado em 2022 (42.970 votos). Base fortíssima em Araguaína. Pode eleger dois nomes pelo Podemos junto com Sandoval.'},
+    {name:'Filipe Martins',party:'PL · Dep. Federal',ig:'19K',desc:'Mais votado de Palmas em 2022 (36.293 votos). PL com financiamento robusto. Ameaça direta em Palmas, base geográfica compartilhada.'},
+    {name:'Lázaro Botelho',party:'PP · Ex-Dep. Federal',ig:'3.6K',desc:'Quatro mandatos federais. "Uma vaga é minha." Capital político compensa presença digital fraca. Base estruturada no norte do estado.'},
+    {name:'César Halum',party:'PP · Ex-prefeito Araguaína',ig:'13K · FB 19.5K',desc:'Ex-dep. Federal, ex-secretário de Agricultura de Bolsonaro. Rede no agronegócio e norte do estado. Filiou-se ao PP em fev/2025.'},
+    {name:'Jair Farias',party:'União Brasil · Dep. Estadual',ig:'22K',desc:'Bicampeão no Bico do Papagaio (~300 mil eleitores). Aval da cúpula do União Brasil. Favorito na maior região eleitoral do norte do TO.'},
+  ];
+  const internals=[
+    {name:'Lucas Campelo',ig:'19K',desc:'Migrou do União Brasil. Disputa votos em Araguaína — mesma base geográfica do Cel. Barbosa. Estimativa: 20K votos em jogo.'},
+    {name:'Fábio Vaz',ig:'21K',desc:'Ex-secretário de Educação, ex-prefeito de Palmeirópolis. Entrou formalmente em abril/2026.'},
+    {name:'Alfredo Júnior',ig:'4K',desc:'Jovem empresário, indicação direta da chapa do governador. Capital financeiro elevado, presença digital baixa.'},
+    {name:'Atos Gomes',ig:'11K',desc:'Ex-secretário de Esporte e Juventude. Perfil jovem, base em esporte/eventos. Pode drenar votos do eleitorado mais jovem.'},
+  ];
+  const migrations=[
+    {ab:'CG',name:'Carlos Gaguim',detail:'União Brasil · 67K IG · 33K FB',dest:'Senado',c:'#1a3a7a'},
+    {ab:'AG',name:'Alexandre Guimarães',detail:'MDB · 51K IG · Pres. MDB-TO',dest:'Senado',c:'#1a3a7a'},
+    {ab:'EB',name:'Eli Borges',detail:'Republicanos · 19K IG',dest:'Senado',c:'#1a3a7a'},
+    {ab:'PD',name:'Profa. Dorinha',detail:'União Brasil · líder nas pesquisas',dest:'Governo',c:'#22c55e'},
+    {ab:'VJ',name:'Vicentinho Júnior',detail:'PSDB · 87K IG',dest:'Governo',c:'#22c55e'},
+    {ab:'CM',name:'Celso Morais',detail:'MDB · 44K IG · prefeito reeleito',dest:'Desistiu',c:'#64748b'},
+  ];
+  const recs=[
+    {t:'Construir presença no norte do estado.',d:'Jair Farias (UB) domina o Bico do Papagaio com ~300 mil eleitores. Ampliar eventos e conteúdo digital voltados à região é essencial para reduzir a vantagem territorial.'},
+    {t:'Contrabalançar Janad Valcari em Palmas.',d:'Com 87K seguidores, ela é a principal adversária digital. Diferenciar narrativa — experiência na segurança pública vs. perfil parlamentar estadual.'},
+    {t:'Ser o mais votado dentro do Republicanos.',d:'Com 4 concorrentes internos, a vaga depende de superar Fábio Vaz (~21K) e Lucas Campelo (~19K) em votos no estado.'},
+    {t:'Ampliar presença digital em 30–40%.',d:'Gap de 56K seguidores para Janad. Priorizar Reels e vídeos curtos — amplificam alcance orgânico em 3–5x no Instagram.'},
+    {t:'Monitorar novos entrantes.',d:'Gleydson Nato (PRD), Kátia Chaves e Osires Damaso (Podemos) podem impactar o quociente eleitoral da disputa proporcional.'},
+  ];
+  return(
+  <div style={{marginTop:20,background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:16,overflow:'hidden'}}>
+    <div style={{background:'linear-gradient(135deg,#1a3a7a,#0f2555)',padding:'16px 24px',display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer'}} onClick={()=>setOpen(o=>!o)}>
+      <div style={{display:'flex',alignItems:'center',gap:12}}>
+        <div style={{background:'rgba(212,160,23,0.2)',border:'1px solid rgba(212,160,23,0.4)',borderRadius:10,padding:8}}><Target size={18} style={{color:'#d4a017'}}/></div>
+        <div>
+          <h2 style={{fontSize:17,fontWeight:800,color:'#ffffff',margin:0}}>Inteligência Competitiva — Câmara Federal TO 2026</h2>
+          <p style={{fontSize:11,color:'#d4a017',margin:'2px 0 0',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em'}}>8 vagas · 13+ candidatos · Levantamento 7 abr/2026</p>
+        </div>
+      </div>
+      <div style={{display:'flex',alignItems:'center',gap:16}}>
+        <div style={{display:'flex',gap:16}}>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#ef4444',margin:0}}>6</p><p style={{fontSize:9,color:'rgba(255,255,255,0.6)',margin:0,textTransform:'uppercase'}}>ameaças altas</p></div>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#8b5cf6',margin:0}}>4</p><p style={{fontSize:9,color:'rgba(255,255,255,0.6)',margin:0,textTransform:'uppercase'}}>internos</p></div>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#22c55e',margin:0}}>5</p><p style={{fontSize:9,color:'rgba(255,255,255,0.6)',margin:0,textTransform:'uppercase'}}>saíram</p></div>
+        </div>
+        {open?<ChevronUp size={18} style={{color:'rgba(255,255,255,0.5)'}}/>:<ChevronDown size={18} style={{color:'rgba(255,255,255,0.5)'}}/>}
+      </div>
+    </div>
+    {open&&(
+    <div style={{padding:'20px 24px'}}>
+      {/* Ranking + Stats */}
+      <div style={{display:'grid',gridTemplateColumns:'minmax(0,2fr) minmax(0,1fr)',gap:16,marginBottom:20}}>
+        <Card>
+          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',letterSpacing:'0.1em',marginBottom:14}}>Ranking Instagram — Candidatos à Câmara</p>
+          {ranking.map((r,i)=>{
+            const w=Math.max(4,Math.round((r.ig/MAX)*100));
+            const tc=threatC[r.threat]||{bg:'#eee',c:'#888'};
+            return(
+            <div key={i} style={{display:'flex',alignItems:'center',gap:8,marginBottom:r.isMe?0:7,background:r.isMe?'rgba(26,58,122,0.05)':'transparent',borderRadius:r.isMe?6:0,padding:r.isMe?'3px 4px':'0 4px',border:r.isMe?'1px solid rgba(26,58,122,0.15)':'none'}}>
+              <span style={{width:20,fontSize:11,fontWeight:700,color:r.isMe?'#d4a017':'#8c93a8',textAlign:'right',flexShrink:0}}>{r.pos}</span>
+              <div style={{width:145,flexShrink:0}}>
+                <strong style={{fontSize:12,color:r.isMe?'#1a3a7a':'#1a1d2e',display:'block',lineHeight:1.2}}>{r.name}</strong>
+                <span style={{fontSize:10,color:'#8c93a8'}}>{r.party}</span>
+              </div>
+              <div style={{flex:1,background:'#eef0f6',borderRadius:3,height:16,overflow:'hidden'}}>
+                <div style={{width:`${w}%`,height:'100%',background:r.bar,borderRadius:3,display:'flex',alignItems:'center',paddingLeft:6,fontSize:10,fontWeight:700,color:'#fff',whiteSpace:'nowrap'}}>{r.ig}K</div>
+              </div>
+              <div style={{width:60,textAlign:'right',flexShrink:0}}>
+                <span style={{fontSize:9,fontWeight:700,padding:'2px 6px',borderRadius:8,background:tc.bg,color:tc.c}}>{r.threat}</span>
+              </div>
+            </div>);
+          })}
+          <p style={{fontSize:10,color:'#8c93a8',marginTop:8}}>* Concorrência interna Republicanos</p>
+        </Card>
+        <div style={{display:'flex',flexDirection:'column',gap:12}}>
+          <Card style={{textAlign:'center',background:'linear-gradient(135deg,rgba(26,58,122,0.05),rgba(26,58,122,0.1))'}}>
+            <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',marginBottom:8,letterSpacing:'0.1em'}}>Posição do Cel. Barbosa</p>
+            <p style={{fontSize:52,fontWeight:900,color:'#1a3a7a',margin:0,lineHeight:1}}>5º</p>
+            <p style={{fontSize:12,color:'#8c93a8',marginTop:4}}>no ranking de Instagram<br/>entre candidatos à Câmara</p>
+            <div style={{display:'flex',justifyContent:'center',gap:16,marginTop:12}}>
+              <div style={{textAlign:'center'}}><p style={{fontSize:18,fontWeight:800,color:'#22c55e',margin:0}}>3</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>à frente</p></div>
+              <div style={{textAlign:'center'}}><p style={{fontSize:18,fontWeight:800,color:'#ef4444',margin:0}}>4</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>atrás</p></div>
+              <div style={{textAlign:'center'}}><p style={{fontSize:18,fontWeight:800,color:'#8b5cf6',margin:0}}>4</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>internos</p></div>
+            </div>
+          </Card>
+          <Card>
+            <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',marginBottom:10,letterSpacing:'0.1em'}}>Vagas x Campo</p>
+            {[{l:'Vagas disponíveis',v:'8',c:'#1a1d2e'},{l:'Candidatos relevantes',v:'13+',c:'#1a1d2e'},{l:'Ameaças externas altas',v:'6',c:'#ef4444'},{l:'Concorrência interna Rep.',v:'4',c:'#8b5cf6'},{l:'Saíram para majoritários',v:'5',c:'#22c55e'}].map((s,i)=>(
+              <div key={i} style={{display:'flex',justifyContent:'space-between',marginBottom:6}}><span style={{fontSize:12,color:'#5a6178'}}>{s.l}</span><strong style={{color:s.c}}>{s.v}</strong></div>
+            ))}
+            <div style={{background:'rgba(26,58,122,0.05)',borderRadius:8,padding:'8px 10px',marginTop:8}}>
+              <p style={{fontSize:11,color:'#5a6178',lineHeight:1.6,margin:0}}>Meta Republicanos: eleger <strong style={{color:'#1a3a7a'}}>2–3 nomes</strong>. Cel. Barbosa precisa ser o mais votado internamente para garantir a vaga.</p>
+            </div>
+          </Card>
+        </div>
+      </div>
+      {/* Threats */}
+      <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',letterSpacing:'0.1em',marginBottom:12}}>Ameaças externas — nível alto</p>
+      <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))',gap:10,marginBottom:20}}>
+        {threats.map((t,i)=>(
+          <div key={i} style={{background:'#ffffff',border:'1px solid #dfe3ed',borderTop:'2px solid #ef4444',borderRadius:10,padding:14}}>
+            <span style={{fontSize:9,fontWeight:700,padding:'2px 8px',borderRadius:12,background:'rgba(239,68,68,0.1)',color:'#ef4444',border:'1px solid rgba(239,68,68,0.2)',display:'inline-block',marginBottom:8}}>Ameaça Alta</span>
+            <p style={{fontSize:13,fontWeight:700,color:'#1a1d2e',margin:'0 0 2px'}}>{t.name}</p>
+            <p style={{fontSize:10,color:'#8c93a8',margin:'0 0 6px'}}>{t.party}</p>
+            <p style={{fontSize:11,color:'#1a3a7a',margin:'0 0 6px',fontWeight:600}}>Instagram: {t.ig}</p>
+            <p style={{fontSize:11,color:'#5a6178',lineHeight:1.5,margin:0}}>{t.desc}</p>
+          </div>
+        ))}
+      </div>
+      {/* Internal + Migrations */}
+      <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,1fr)',gap:14,marginBottom:20}}>
+        <Card style={{borderLeft:'3px solid #8b5cf6'}}>
+          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#8b5cf6',marginBottom:12,letterSpacing:'0.1em'}}>Concorrência interna — Republicanos</p>
+          {internals.map((n,i)=>(
+            <div key={i} style={{display:'flex',gap:10,paddingBottom:10,marginBottom:10,borderBottom:i<internals.length-1?'1px solid #eef0f6':'none'}}>
+              <div style={{width:8,height:8,borderRadius:4,background:'#8b5cf6',marginTop:5,flexShrink:0}}/>
+              <div><strong style={{fontSize:12,color:'#1a1d2e',display:'block',marginBottom:2}}>{n.name} — {n.ig} IG</strong><p style={{fontSize:11,color:'#5a6178',lineHeight:1.5,margin:0}}>{n.desc}</p></div>
+            </div>
+          ))}
+        </Card>
+        <Card style={{borderLeft:'3px solid #22c55e'}}>
+          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#22c55e',marginBottom:12,letterSpacing:'0.1em'}}>Saíram da disputa pela Câmara</p>
+          {migrations.map((m,i)=>(
+            <div key={i} style={{display:'flex',alignItems:'center',gap:10,paddingBottom:10,marginBottom:10,borderBottom:i<migrations.length-1?'1px solid #eef0f6':'none'}}>
+              <div style={{width:34,height:34,borderRadius:'50%',background:`${m.c}15`,color:m.c,display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,fontSize:12,flexShrink:0}}>{m.ab}</div>
+              <div style={{flex:1}}><strong style={{fontSize:12,color:'#1a1d2e',display:'block'}}>{m.name}</strong><span style={{fontSize:10,color:'#8c93a8'}}>{m.detail}</span></div>
+              <span style={{fontSize:9,fontWeight:700,padding:'2px 8px',borderRadius:8,background:`${m.c}15`,color:m.c,flexShrink:0}}>{m.dest}</span>
+            </div>
+          ))}
+        </Card>
+      </div>
+      {/* Recommendations */}
+      <Card style={{borderLeft:'3px solid #d4a017'}}>
+        <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#1a3a7a',marginBottom:14,letterSpacing:'0.1em'}}>Recomendações estratégicas</p>
+        {recs.map((r,i)=>(
+          <div key={i} style={{display:'flex',gap:12,marginBottom:i<recs.length-1?12:0}}>
+            <div style={{width:26,height:26,borderRadius:'50%',background:'#1a3a7a',color:'#d4a017',fontSize:12,fontWeight:800,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginTop:1}}>{i+1}</div>
+            <p style={{fontSize:13,color:'#3a3f52',lineHeight:1.6,margin:0}}><strong>{r.t}</strong> {r.d}</p>
+          </div>
+        ))}
+      </Card>
+    </div>
+    )}
+  </div>);
+};
+
+/* ═══════════════════════════════════════════════
    MAIN APP
    ═══════════════════════════════════════════════ */
 const App=()=>{
@@ -629,8 +797,17 @@ const App=()=>{
       </div>
     </header>
 
+    {/* ═══ INTELIGÊNCIA COMPETITIVA ═══ */}
+    <AdversariosPanel/>
+
     {/* ═══ METAS DA CAMPANHA ═══ */}
     <KpiPanel kpiData={kpiData}/>
+
+    {/* ═══ M3: INTELIGÊNCIA ELEITORAL ═══ */}
+    <GeoPanel geoData={geoData}/>
+
+    {/* ═══ M2: REDES SOCIAIS ═══ */}
+    <SocialPanel socialData={socialData} sentimentData={sentimentData}/>
 
     {/* ═══ M1: MONITOR DE IMPRENSA ═══ */}
     <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:18,marginTop:32}}>
@@ -654,12 +831,6 @@ const App=()=>{
       <Met icon={MapPin} label="Local" value={filtM.loc} sub="TO" accent="#22c55e"/>
       <Met icon={Newspaper} label="Fontes" value={filtM.src} accent="#64748b"/>
     </div>
-
-    {/* ═══ M3: INTELIGÊNCIA ELEITORAL ═══ */}
-    <GeoPanel geoData={geoData}/>
-
-    {/* ═══ M2: REDES SOCIAIS ═══ */}
-    <SocialPanel socialData={socialData} sentimentData={sentimentData}/>
 
     {/* RELEVANCE FILTER */}
     <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap',alignItems:'center'}}>
