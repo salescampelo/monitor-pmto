@@ -22507,5 +22507,22 @@
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMiakFVX3lxTE1EeEtMYXVuSWV5SzFfTkNqUGdtc052bHdpSW1iMmc2cEVEdXNWaWhBQkpJREFqb1Z1Zkh2d2tyZWRCQ0hmSkFRLVptSGVfN0g5RkJLc00tenFSMElvYUN1Yko5SE1nNWcwbWc?oc=5\" ",
     "relevance_score": 0.5,
     "relevance_label": "INSTITUCIONAL"
+  },
+  {
+    "hash_id": "0a7122b892d7",
+    "title": "Governador Wanderlei Barbosa decide permanecer no cargo e prioriza estabilidade do Tocantins mesmo com cenário favorável ao Senado",
+    "url": "https://news.google.com/rss/articles/CBMijgJBVV95cUxOSTJwYW5LRm5FY2pwOUtxc21TMHNNSnB5TXV3OTNIcVJZdDlDVWVlZC1tSFpab0xvN1NkZXVjMldQQnVSdGd2UU5qNV9nWkxuVlIyT3JzcU1UTFFHNzJDTmt4Nm9XUFQwY28tdHpxazBVdG80YTlPQ09JaFcza3lyaGliTE5qV2pZRVhDbDQyQmZIWDB1MFBpUDM3VXlEVHJXR2hpMk81ZWpNdzU5ZlBFald5RHJtdnNCUUlhenY0Y25YQVlkendFM0J5R2Q0TnV6S3pQeWZ4SzBMeFNGd2NncWZ6b21pZ05hVk1rTENrVlhoMzl4WUt5a1FBWTMzTG5zak8tM2NnNm4yX3BfR3c?oc=5",
+    "source_name": "Agência Tocantins",
+    "source_type": "google_news",
+    "priority": "media",
+    "scope": "TO",
+    "matched_terms": [
+      "\"Coronel Barbosa\" Tocantins when:1d"
+    ],
+    "mention_type": "institucional",
+    "detected_at": "2026-04-07 15:35",
+    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMijgJBVV95cUxOSTJwYW5LRm5FY2pwOUtxc21TMHNNSnB5TXV3OTNIcVJZdDlDVWVlZC1tSFpab0xvN1NkZXVjMldQQnVSdGd2UU5qNV9nWkxuVlIyT3JzcU1UTFFHNzJDTmt4Nm9XUFQwY28tdHpxaz",
+    "relevance_score": 0.7,
+    "relevance_label": "PROVÁVEL"
   }
 ]
