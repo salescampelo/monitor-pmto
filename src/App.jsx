@@ -77,16 +77,22 @@ const NC=({item,expanded,onToggle})=>{const sc=sC(item.score);const cl=CLUSTERS.
    ═══════════════════════════════════════════════ */
 const DCOL={positivo:'#22c55e',negativo:'#ef4444',neutro:'#64748b'};
 
-const RANKING_EXCLUDED=new Set(['carlosgaguim','alexandreguimaraes15','dep.eliborges']);
+// Perfis monitorados — espelha TARGET_PROFILES do instagram_monitor.py
+const PANEL_PROFILES=new Set([
+  'marciobarbosa_cel','janad_valcari','tiagodimas','ricardoayres_to','fabiopereiravaz',
+  'depjairfariasoficial','lucascampelotocantins','filipemartinsto','cesarhalum','atosgomess',
+  'nilmarruiz','sandovallobocardoso','larissarosenda','celiomourato','alfredojrto',
+  'dep.lazaro','osiresdamaso',
+]);
 
 const SocialPanel=({socialData,sentimentData})=>{
   const[open,setOpen]=useState(true);
-  // Uma entrada por username — a mais recente — excluindo migrados para Senado
+  // Uma entrada por username — a mais recente — apenas perfis monitorados
   const profiles=useMemo(()=>{
     if(!socialData||!Array.isArray(socialData))return[];
     const byUser={};
     socialData.forEach(e=>{
-      if(RANKING_EXCLUDED.has(e.username))return;
+      if(!PANEL_PROFILES.has(e.username))return;
       if(!byUser[e.username]||e.data_coleta>byUser[e.username].data_coleta)byUser[e.username]=e;
     });
     return Object.values(byUser).filter(p=>p.seguidores>0).sort((a,b)=>b.seguidores-a.seguidores);
@@ -233,8 +239,8 @@ const SocialPanel=({socialData,sentimentData})=>{
 
     {/* Evolução temporal de seguidores */}
     {(()=>{
-      // Build time series: group socialData by date, pick top profiles
-      const allDates = [...new Set((socialData||[]).map(x=>x.data_coleta))].sort();
+      // Build time series: apenas perfis monitorados
+      const allDates = [...new Set((socialData||[]).filter(x=>PANEL_PROFILES.has(x.username)).map(x=>x.data_coleta))].sort();
       if(allDates.length < 2) return (
         <Card style={{marginBottom:14}}>
           <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Evolução de seguidores (série temporal)</p>
@@ -246,7 +252,7 @@ const SocialPanel=({socialData,sentimentData})=>{
       );
       // Top 6 profiles by latest followers + always include candidate
       const latestDate = allDates[allDates.length-1];
-      const latestProfiles = (socialData||[]).filter(x=>x.data_coleta===latestDate&&x.seguidores>0).sort((a,b)=>b.seguidores-a.seguidores);
+      const latestProfiles = (socialData||[]).filter(x=>PANEL_PROFILES.has(x.username)&&x.data_coleta===latestDate&&x.seguidores>0).sort((a,b)=>b.seguidores-a.seguidores);
       const topUsernames = [...new Set(['marciobarbosa_cel',...latestProfiles.slice(0,5).map(x=>x.username)])].slice(0,6);
       const COLORS_LINE = ['#1a3a7a','#22c55e','#3b82f6','#f59e0b','#ef4444','#ec4899'];
       const chartData = allDates.map(date=>{
