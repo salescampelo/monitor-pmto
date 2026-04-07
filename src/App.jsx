@@ -77,11 +77,19 @@ const NC=({item,expanded,onToggle})=>{const sc=sC(item.score);const cl=CLUSTERS.
    ═══════════════════════════════════════════════ */
 const DCOL={positivo:'#22c55e',negativo:'#ef4444',neutro:'#64748b'};
 
+const RANKING_EXCLUDED=new Set(['carlosgaguim','alexandreguimaraes15','dep.eliborges']);
+
 const SocialPanel=({socialData,sentimentData})=>{
   const[open,setOpen]=useState(true);
+  // Uma entrada por username — a mais recente — excluindo migrados para Senado
   const profiles=useMemo(()=>{
     if(!socialData||!Array.isArray(socialData))return[];
-    return socialData.filter(p=>p.seguidores>0).sort((a,b)=>b.seguidores-a.seguidores);
+    const byUser={};
+    socialData.forEach(e=>{
+      if(RANKING_EXCLUDED.has(e.username))return;
+      if(!byUser[e.username]||e.data_coleta>byUser[e.username].data_coleta)byUser[e.username]=e;
+    });
+    return Object.values(byUser).filter(p=>p.seguidores>0).sort((a,b)=>b.seguidores-a.seguidores);
   },[socialData]);
   const cand=profiles.find(p=>p.username==='marciobarbosa_cel');
   const rank=useMemo(()=>profiles.map((p,i)=>({...p,rank:i+1})),[profiles]);
