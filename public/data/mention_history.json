@@ -22524,5 +22524,39 @@
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMijgJBVV95cUxOSTJwYW5LRm5FY2pwOUtxc21TMHNNSnB5TXV3OTNIcVJZdDlDVWVlZC1tSFpab0xvN1NkZXVjMldQQnVSdGd2UU5qNV9nWkxuVlIyT3JzcU1UTFFHNzJDTmt4Nm9XUFQwY28tdHpxaz",
     "relevance_score": 0.7,
     "relevance_label": "PROVÁVEL"
+  },
+  {
+    "hash_id": "5fe95708018d",
+    "title": "Coronel Márcio Barbosa é destaque em episódio especial do Esfera Podcast sobre segurança pública",
+    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPMDZDX1pwQkFNQm5xblNNb21pSE9YR29hLTFzbWtQb0dTRGtGVThnQXNQSWt2Mmk1WC1XTXZoQ3pmMTQwWGJTOEdPcGp1WXVtLWNPeDE4Z0VUXzk1RGxqVUY0UmZoWVNYdUhBZThIWXBzMHlaSmREYzlza1YzMEhncnJMaDhqcmRrYjFSZUtLMzFHOEY0c21hWEktclNndlVfeUdTczh3b213VDl0aFpUbFphZ0tBcEpON3RHS0s2VXQ5ckU?oc=5",
+    "source_name": "RR10 NOTÍCIAS |",
+    "source_type": "google_news",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "\"Márcio Barbosa\" PMTO when:1d"
+    ],
+    "mention_type": "direta",
+    "detected_at": "2026-04-08 09:05",
+    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMiwwFBVV95cUxPMDZDX1pwQkFNQm5xblNNb21pSE9YR29hLTFzbWtQb0dTRGtGVThnQXNQSWt2Mmk1WC1XTXZoQ3pmMTQwWGJTOEdPcGp1WXVtLWNPeDE4Z0VUXzk1RGxqVUY0UmZoWVNYdUhBZThIWX",
+    "relevance_score": 0.9,
+    "relevance_label": "DIRETA"
+  },
+  {
+    "hash_id": "675af9fbae57",
+    "title": "Associações militares destacam legado de integração e resultados do ex-comandante da PMTO",
+    "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQeE5mcm5sOEFkd0JsRVYxUDNpem1iMnY3WF9jNXJRcm1JZkxtd0c0Uy12Sjcya2R2VV9jeDdhNnE1aHlpdmpUWEVvUWZUeXA1X0R6eFU1QlZxNS0xaXZkaHU0ZkpNM1ZCVEc0Ukp0dlQxbVMxM2tST2lNcWZydk5WQXJFcmcxeWJ3U0NPRkxvejI0R21rS2RZSUktd09aS21uVXNkb2VjanFIQVpIeVN2YXBUbTRndk9nM0FtUnZwbk41ZDBhYmIyMXBOZVBaT21NcUNFRjFIZw?oc=5",
+    "source_name": "Agência Tocantins",
+    "source_type": "google_news",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "\"ex-comandante\" PMTO 2026 when:1d"
+    ],
+    "mention_type": "institucional",
+    "detected_at": "2026-04-08 09:05",
+    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi1wFBVV95cUxQeE5mcm5sOEFkd0JsRVYxUDNpem1iMnY3WF9jNXJRcm1JZkxtd0c0Uy12Sjcya2R2VV9jeDdhNnE1aHlpdmpUWEVvUWZUeXA1X0R6eFU1QlZxNS0xaXZkaHU0ZkpNM1ZCVEc0Ukp0dl",
+    "relevance_score": 0.8,
+    "relevance_label": "ELEITORAL"
   }
 ]
