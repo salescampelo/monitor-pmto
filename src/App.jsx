@@ -26,7 +26,7 @@ const CL_RULES = [
   { id:'Imprensa', kw:['imprensa','blog','jornalista','gabinete do ódio','censura','nota oficial'] },
 ];
 const NW=['morte','morto','denúncia','irregularidade','ilegal','ódio','censura','destruí','ferido','violência','abuso','crise','homicídio','tiroteio','baleado'];
-const PW=['homenage','conquista','reconhec','entrega','inaugur','capacita','formatur','solidariedade','integração','mediação','redução','queda','valorização'];
+const PW=['homenage','homenagem','conquista','reconhec','reconhecimento','entrega','inaugur','capacita','formatur','solidariedade','integração','mediação','redução','queda','valorização','destaque','especial','podcast','entrevista','legado','liderança','convite','participação','presença','prestígio','elogio','condecoração','medalha','resultado','avanço'];
 
 const classify = a => {
   const t=(a.title+' '+(a.snippet||'')+' '+(a.matched_terms||[]).join(' ')).toLowerCase();
@@ -41,7 +41,7 @@ const classify = a => {
 
 /* ── HELPERS ── */
 const CLUSTERS=[{id:'all',label:'Todas',icon:Layers,color:'#8c93a8'},{id:'Eleitoral',label:'Eleitoral',icon:Bookmark,color:'#1a3a7a'},{id:'Comando',label:'Comando',icon:User,color:'#1a3a7a'},{id:'Letalidade',label:'Letalidade',icon:AlertTriangle,color:'#b91c1c'},{id:'Operações',label:'Operações',icon:Target,color:'#1d4ed8'},{id:'Gestão',label:'Gestão',icon:Building,color:'#d4a017'},{id:'Imprensa',label:'Imprensa',icon:Radio,color:'#be185d'},{id:'Geral',label:'Geral',icon:Newspaper,color:'#8c93a8'}];
-const sC=s=>{if(s<=0.2)return{t:'#ef4444',b:'rgba(239,68,68,0.1)'};if(s<=0.4)return{t:'#f59e0b',b:'rgba(245,158,11,0.1)'};if(s<=0.6)return{t:'#64748b',b:'rgba(100,116,139,0.1)'};return{t:'#22c55e',b:'rgba(34,197,94,0.1)'};};
+const sC=s=>{if(s<=0.2)return{t:'#7F1D1D',b:'rgba(127,29,29,0.1)'};if(s<=0.4)return{t:'#B91C1C',b:'rgba(185,28,28,0.1)'};if(s<=0.6)return{t:'#8C93A8',b:'rgba(140,147,168,0.1)'};return{t:'#15803D',b:'rgba(21,128,61,0.1)'};};
 const iC=i=>({Alto:'#ef4444',Médio:'#f59e0b',Baixo:'#22c55e'}[i]||'#f59e0b');
 const fmt=d=>{if(!d)return'—';const x=new Date(d+'T12:00:00');return x.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});};
 const metrics=data=>{if(!data.length)return{tox:'0.0',tot:0,dir:0,ins:0,ele:0,nac:0,loc:0,src:0};const a=data.reduce((s,n)=>s+n.score,0)/data.length;return{tox:((1-a)*100).toFixed(1),tot:data.length,dir:data.filter(n=>n.mentionType==='direta').length,ins:data.filter(n=>n.mentionType==='institucional').length,ele:data.filter(n=>n.mentionType==='eleitoral').length,nac:data.filter(n=>n.scope==='BR').length,loc:data.filter(n=>n.scope==='TO').length,src:[...new Set(data.map(n=>n.source))].length};};
