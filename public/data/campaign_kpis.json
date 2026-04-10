@@ -1,4 +1,4 @@
-{
+﻿{
   "election_date": "2026-10-04",
   "current_phase": 1,
   "phases": {
@@ -39,7 +39,7 @@
       "id": "meta_votos",
       "label": "Projeção de votos",
       "current": 0,
-      "targets": { "1": 10000, "2": 25000, "3": 40000 },
+      "targets": { "1": 15000, "2": 30000, "3": 45000 },
       "format": "number"
     }
   ]
