@@ -44,6 +44,7 @@ const CLUSTERS=[{id:'all',label:'Todas',icon:Layers,color:'#8c93a8'},{id:'Eleito
 const sC=s=>{if(s<=0.2)return{t:'#7F1D1D',b:'rgba(127,29,29,0.1)'};if(s<=0.4)return{t:'#B91C1C',b:'rgba(185,28,28,0.1)'};if(s<=0.6)return{t:'#8C93A8',b:'rgba(140,147,168,0.1)'};return{t:'#15803D',b:'rgba(21,128,61,0.1)'};};
 const iC=i=>({Alto:'#ef4444',Médio:'#f59e0b',Baixo:'#22c55e'}[i]||'#f59e0b');
 const fmt=d=>{if(!d)return'—';const x=new Date(d+'T12:00:00');return x.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});};
+const fmtDt=d=>{if(!d)return'—';const[dt,hr]=d.split(' ');if(!dt)return'—';const[y,m,day]=dt.split('-');return`${day}/${m}/${y}${hr?' '+hr:''}`;};
 const metrics=data=>{if(!data.length)return{tox:'0.0',tot:0,dir:0,ins:0,ele:0,nac:0,loc:0,src:0};const a=data.reduce((s,n)=>s+n.score,0)/data.length;return{tox:((1-a)*100).toFixed(1),tot:data.length,dir:data.filter(n=>n.mentionType==='direta').length,ins:data.filter(n=>n.mentionType==='institucional').length,ele:data.filter(n=>n.mentionType==='eleitoral').length,nac:data.filter(n=>n.scope==='BR').length,loc:data.filter(n=>n.scope==='TO').length,src:[...new Set(data.map(n=>n.source))].length};};
 
 /* ── COMPONENTS ── */
@@ -667,7 +668,7 @@ const AdversariosPanel=({adversariosData})=>{
         <Card>
           <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',letterSpacing:'0.1em',marginBottom:10}}>
             Ranking Instagram — Candidatos à Câmara
-            {d?.data_atualizacao&&<span style={{fontWeight:400,color:'#8c93a8',marginLeft:8}}>· {d.data_atualizacao}</span>}
+            {d?.data_atualizacao&&<span style={{fontWeight:400,color:'#8c93a8',marginLeft:8}}>· {fmtDt(d.data_atualizacao)}</span>}
           </p>
           {rankingWithMe.map((r,i)=>{
             const w=Math.max(4,Math.round((r.seguidores/MAX)*100));
