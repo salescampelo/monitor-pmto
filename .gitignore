@@ -9,3 +9,5 @@ __pycache__/
 *.pyc
 seen_articles.json
 requirements.txt
+
+.vercel
