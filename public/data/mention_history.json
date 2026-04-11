@@ -22610,5 +22610,23 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro"
+  },
+  {
+    "hash_id": "c61c9f68d540",
+    "title": "Associações militares divulgam manifestação sobre gestão do ex-comandante-geral da PMTO, coronel Márcio Barbosa",
+    "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPak5IaVdnbnl1SXBLZ2FfTWhDTkRVVFQ5a3l3YXdJM1NrMUpnckw1RTZ6YkluTEI2aGZsX1lGd1M2ZUVDSE56V2ZSRk5oQzh0ajFSbUZzVGRaWUQ4d0hGcndKQmlUVWhjU1ZlSHc0dGQzSG1wVDdVSDRZZ2FzVF9oV1VNb1FFaF8xYnhMUTJ1WnhYS2k0U3Q3UVpudHBIUHNNRnd6ZmpTMlc3NEh4MjVPaE1QMUtxZ0xIaFZSUzRLQndXUFBuTFBrc0J2ODNEdTQ2N0Z6OHExTElxQTdJcUMxNQ?oc=5",
+    "source_name": "Jornal Folha Capital",
+    "source_type": "google_news",
+    "priority": "alta",
+    "scope": "BR",
+    "matched_terms": [
+      "\"Márcio Barbosa\" PMTO when:1d"
+    ],
+    "mention_type": "direta",
+    "detected_at": "2026-04-11 22:07",
+    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxPak5IaVdnbnl1SXBLZ2FfTWhDTkRVVFQ5a3l3YXdJM1NrMUpnckw1RTZ6YkluTEI2aGZsX1lGd1M2ZUVDSE56V2ZSRk5oQzh0ajFSbUZzVGRaWUQ4d0hGcndKQmlUVWhjU1ZlSHc0dG",
+    "relevance_score": 0.9,
+    "relevance_label": "DIRETA",
+    "sentiment": "Neutro"
   }
 ]
