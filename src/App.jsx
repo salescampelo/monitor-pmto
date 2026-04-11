@@ -795,8 +795,7 @@ const App=({onLogout, userEmail})=>{
   const[lastUpdate,setLastUpdate]=useState(null);
   const[loading,setLoading]=useState(true);
   const[refreshing,setRefreshing]=useState(false);
-  const[triggering,setTriggering]=useState(false);
-  const[triggerMsg,setTriggerMsg]=useState(null);
+
   const[openImprensa,setOpenImprensa]=useState(true);
   const isMobile=useWW()<768;
 
@@ -825,25 +824,6 @@ const App=({onLogout, userEmail})=>{
     setRefreshing(false);
   },[]);
 
-  const handleTrigger=useCallback(async()=>{
-    setTriggering(true);
-    setTriggerMsg(null);
-    try{
-      const r=await fetch('/api/trigger',{method:'POST',headers:{'x-trigger-secret':import.meta.env.VITE_TRIGGER_SECRET||''}});
-      const d=await r.json();
-      if(r.ok){
-        setTriggerMsg({ok:true,text:'Varredura iniciada — dados disponíveis em ~2 min.'});
-        setTimeout(()=>setTriggerMsg(null),10000);
-      } else {
-        setTriggerMsg({ok:false,text:d.error||'Erro ao disparar varredura.'});
-        setTimeout(()=>setTriggerMsg(null),6000);
-      }
-    }catch{
-      setTriggerMsg({ok:false,text:'Erro de conexão com /api/trigger.'});
-      setTimeout(()=>setTriggerMsg(null),6000);
-    }
-    setTriggering(false);
-  },[]);
 
   useEffect(()=>{
     const drop=e=>{e.preventDefault();const f=e.dataTransfer?.files[0];if(!f?.name.endsWith('.json'))return;const r=new FileReader();r.onload=ev=>{try{const d=JSON.parse(ev.target.result);if(Array.isArray(d)&&d[0]?.username)setSocialData(d);else if(Array.isArray(d)&&d[0]?.title)setNewsRaw(d);else if(d?.sentiment)setSentimentData(d);}catch{}};r.readAsText(f);};
@@ -896,13 +876,9 @@ const App=({onLogout, userEmail})=>{
         <a key={l} href={h} style={{fontSize:13,fontWeight:600,color:'#5a6178',padding:'6px 14px',borderRadius:8,textDecoration:'none',transition:'color 0.15s'}}
           onMouseEnter={e=>e.currentTarget.style.color='#1a3a7a'} onMouseLeave={e=>e.currentTarget.style.color='#5a6178'}>{l}</a>
       ))}
-      <button onClick={handleRefresh} disabled={refreshing||triggering} title="Recarregar dados do cache" style={{display:'flex',alignItems:'center',gap:6,padding:'8px 16px',borderRadius:24,background:'transparent',border:'1px solid #dfe3ed',color:'#5a6178',fontSize:12,fontWeight:700,cursor:refreshing?'wait':'pointer',marginLeft:8,opacity:refreshing?0.7:1,transition:'all 0.2s'}}>
+      <button onClick={handleRefresh} disabled={refreshing} title="Recarregar dados do cache" style={{display:'flex',alignItems:'center',gap:6,padding:'8px 16px',borderRadius:24,background:'transparent',border:'1px solid #dfe3ed',color:'#5a6178',fontSize:12,fontWeight:700,cursor:refreshing?'wait':'pointer',marginLeft:8,opacity:refreshing?0.7:1,transition:'all 0.2s'}}>
         <RefreshCw size={12} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{refreshing?'Recarregando...':'Recarregar'}
       </button>
-      <button onClick={handleTrigger} disabled={triggering||refreshing} title="Disparar nova varredura completa" style={{display:'flex',alignItems:'center',gap:6,padding:'8px 20px',borderRadius:24,background:'#1a3a7a',border:'none',color:'#fff',fontSize:12,fontWeight:700,cursor:triggering?'wait':'pointer',marginLeft:4,opacity:triggering?0.7:1,transition:'opacity 0.2s'}}>
-        <RefreshCw size={12} style={{animation:triggering?'spin 1s linear infinite':'none'}}/>{triggering?'Iniciando...':'Varrer agora'}
-      </button>
-      {triggerMsg&&<span style={{fontSize:11,fontWeight:600,color:triggerMsg.ok?'#15803d':'#b91c1c',marginLeft:8,maxWidth:220}}>{triggerMsg.text}</span>}
       {onLogout&&(
         <button onClick={onLogout} title={userEmail} style={{display:'flex',alignItems:'center',gap:6,padding:'8px 14px',borderRadius:24,background:'transparent',border:'1px solid #dfe3ed',color:'#5a6178',fontSize:12,fontWeight:700,cursor:'pointer',transition:'all 0.15s'}}
           onMouseEnter={e=>{e.currentTarget.style.borderColor='#ef4444';e.currentTarget.style.color='#ef4444';}}
