@@ -46,6 +46,19 @@ const iC=i=>({Alto:'#ef4444',Médio:'#f59e0b',Baixo:'#22c55e'}[i]||'#f59e0b');
 const fmt=d=>{if(!d)return'—';const x=new Date(d+'T12:00:00');return x.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});};
 const fmtDt=d=>{if(!d)return'—';const[dt,hr]=d.split(' ');if(!dt)return'—';const[y,m,day]=dt.split('-');return`${day}/${m}/${y}${hr?' '+hr:''}`;};
 const metrics=data=>{if(!data.length)return{tox:'0.0',tot:0,dir:0,ins:0,ele:0,nac:0,loc:0,src:0};const a=data.reduce((s,n)=>s+n.score,0)/data.length;return{tox:((1-a)*100).toFixed(1),tot:data.length,dir:data.filter(n=>n.mentionType==='direta').length,ins:data.filter(n=>n.mentionType==='institucional').length,ele:data.filter(n=>n.mentionType==='eleitoral').length,nac:data.filter(n=>n.scope==='BR').length,loc:data.filter(n=>n.scope==='TO').length,src:[...new Set(data.map(n=>n.source))].length};};
+const calcHeaderMetrics=(articles,adversariosRaw)=>{
+  if(!articles||!articles.length)return{mentions7d:0,delta:null,sentimentPct:null,alerts:0,totalAdv:adversariosRaw?.ranking?.length??0};
+  const now=Date.now(),ms7=7*24*60*60*1000,ms14=14*24*60*60*1000,ms48=48*60*60*1000;
+  const dt=a=>{try{return new Date(a.date+'T12:00:00').getTime();}catch{return 0;}};
+  const last7=articles.filter(a=>dt(a)>=now-ms7);
+  const prev7=articles.filter(a=>{const d=dt(a);return d>=now-ms14&&d<now-ms7;});
+  const last48=articles.filter(a=>dt(a)>=now-ms48);
+  const delta=prev7.length>0?last7.length-prev7.length:null;
+  const posCount=last7.filter(a=>a.sentiment==='Positivo').length;
+  const sentimentPct=last7.length>0?Math.round((posCount/last7.length)*100):null;
+  const alerts=last48.filter(a=>a.relevance>=0.8).length;
+  return{mentions7d:last7.length,delta,sentimentPct,alerts,totalAdv:adversariosRaw?.ranking?.length??0};
+};
 
 /* ── COMPONENTS ── */
 const Card=({children,style,noHover})=><div className={noHover?'':'hov-card'} style={{background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:14,padding:'18px 22px',...style}}>{children}</div>;
@@ -854,6 +867,7 @@ const App=({onLogout, userEmail})=>{
   },[articles]);
   const totalM=useMemo(()=>metrics(articles.filter(n=>n.relevance>=0.5)),[articles]);
   const filtM=useMemo(()=>metrics(filteredNews),[filteredNews]);
+  const hm=useMemo(()=>calcHeaderMetrics(articles,adversariosData),[articles,adversariosData]);
   const clCounts=useMemo(()=>{
     const base=articles.filter(n=>{if(filterType!=='all'&&n.mentionType!==filterType)return false;if(filterScope!=='all'&&n.scope!==filterScope)return false;return true;});
     const c={};base.forEach(n=>{c[n.cluster]=(c[n.cluster]||0)+1;});return c;
@@ -906,20 +920,36 @@ const App=({onLogout, userEmail})=>{
             32 fontes · TO + Brasil · {lastUpdate||'Aguardando dados'}
           </p>
         </div>
-        <div style={{display:'flex',flexDirection:isMobile?'row':'row',gap:isMobile?20:36,alignItems:'center'}}>
-          <div style={{textAlign:'center'}}>
-            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 8px'}}>Toxicidade</p>
-            <p style={{fontSize:isMobile?36:56,fontWeight:900,color:'#d4a017',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{totalM.tox}%</p>
+        <div style={{display:'flex',flexDirection:'row',flexWrap:isMobile?'wrap':'nowrap',gap:isMobile?12:0,alignItems:isMobile?'flex-start':'center',width:isMobile?'100%':'auto'}}>
+          {/* Card 1 — Menções 7d */}
+          <div style={{textAlign:'center',...(isMobile?{flexBasis:'calc(50% - 6px)'}:{})}}>
+            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 6px'}}>Menções 7d</p>
+            <div style={{display:'flex',alignItems:'baseline',justifyContent:'center',gap:4}}>
+              <p style={{fontSize:isMobile?32:48,fontWeight:900,color:'#ffffff',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{hm.mentions7d}</p>
+              {hm.delta!==null&&<span style={{fontSize:isMobile?14:18,fontWeight:800,color:hm.delta>0?'#22c55e':hm.delta<0?'#ef4444':'rgba(255,255,255,0.4)'}}>{hm.delta>0?'▲':hm.delta<0?'▼':'—'}</span>}
+            </div>
+            {hm.delta!==null&&<p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',fontWeight:500}}>vs sem. anterior {hm.delta>=0?'+':''}{hm.delta}</p>}
           </div>
-          <div style={{width:1,height:isMobile?48:72,background:'rgba(255,255,255,0.12)'}}/>
-          <div style={{textAlign:'center'}}>
-            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 8px'}}>Hoje</p>
-            <p style={{fontSize:isMobile?36:56,fontWeight:900,color:'#ffffff',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{todayM.tot}</p>
+          {!isMobile&&<div style={{width:1,height:72,background:'rgba(255,255,255,0.12)',margin:'0 28px'}}/>}
+          {/* Card 2 — Sentimento */}
+          <div style={{textAlign:'center',...(isMobile?{flexBasis:'calc(50% - 6px)'}:{})}}>
+            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 6px'}}>Sentimento</p>
+            <p style={{fontSize:isMobile?32:48,fontWeight:900,color:hm.sentimentPct===null?'rgba(255,255,255,0.4)':hm.sentimentPct>=60?'#22c55e':hm.sentimentPct>=40?'#f59e0b':'#ef4444',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{hm.sentimentPct===null?'—':`${hm.sentimentPct}%`}</p>
+            <p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',fontWeight:500}}>{hm.sentimentPct===null?'sem dados':'positivo (7 dias)'}</p>
           </div>
-          <div style={{width:1,height:isMobile?48:72,background:'rgba(255,255,255,0.12)'}}/>
-          <div style={{textAlign:'center'}}>
-            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 8px'}}>Total</p>
-            <p style={{fontSize:isMobile?28:40,fontWeight:900,color:'rgba(255,255,255,0.55)',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{totalM.tot}</p>
+          {!isMobile&&<div style={{width:1,height:72,background:'rgba(255,255,255,0.12)',margin:'0 28px'}}/>}
+          {/* Card 3 — Alertas */}
+          <div style={{textAlign:'center',...(isMobile?{flexBasis:'calc(50% - 6px)'}:{})}}>
+            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 6px'}}>Alertas</p>
+            <p style={{fontSize:isMobile?32:48,fontWeight:900,color:hm.alerts>0?'#ef4444':'#22c55e',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{hm.alerts}</p>
+            <p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',fontWeight:500}}>{hm.alerts>0?'relevantes (48h)':'nenhum alerta'}</p>
+          </div>
+          {!isMobile&&<div style={{width:1,height:72,background:'rgba(255,255,255,0.12)',margin:'0 28px'}}/>}
+          {/* Card 4 — Adversários */}
+          <div style={{textAlign:'center',...(isMobile?{flexBasis:'calc(50% - 6px)'}:{})}}>
+            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 6px'}}>Adversários</p>
+            <p style={{fontSize:isMobile?32:48,fontWeight:900,color:'rgba(255,255,255,0.55)',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{hm.totalAdv||'—'}</p>
+            <p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',fontWeight:500}}>monitorados</p>
           </div>
         </div>
       </div>
