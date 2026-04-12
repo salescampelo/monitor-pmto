@@ -22628,5 +22628,23 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro"
+  },
+  {
+    "hash_id": "cd9f52730255",
+    "title": "Wanderlei Barbosa define cartas: Oswaldo Stival, Coronel Barbosa e Eli Borges surgem como os favoritos para compor com Dorinha",
+    "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQbk9TdkJIMlRJOUR3eW83bjJsVGw4SVRHSXRtWkY2VExjZ25QVlExdndfU3RmbWRkV1M4YTJKSDhxZ1ZuZzh3bVFERmwxNmVKVkFMOW44cFZlU1ItbW5rb3AzTWk2Y2J3dER4MDBJZWtCVkh6WGJpS0dFZmJSemlsajRzWUlZRlB1X3dFeTM5V1NFc2dXU0FCRnJrRUR5VTdEeEc1a1RrY3hwaC12dDJ6VE9VM2pDcF9YNy1iZFkxbUx3YXc5S2hHUG5ONEtZRGtLQWpDOTRKNV9neVFfRnl1UVdfTFozdlNLazFwWkdEckk?oc=5",
+    "source_name": "Atitude Tocantins",
+    "source_type": "google_news",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "\"Coronel Barbosa\" Tocantins when:1d"
+    ],
+    "mention_type": "direta",
+    "detected_at": "2026-04-12 23:54",
+    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi8AFBVV95cUxQbk9TdkJIMlRJOUR3eW83bjJsVGw4SVRHSXRtWkY2VExjZ25QVlExdndfU3RmbWRkV1M4YTJKSDhxZ1ZuZzh3bVFERmwxNmVKVkFMOW44cFZlU1ItbW5rb3AzTWk2Y2J3dER4MDBJZW",
+    "relevance_score": 0.9,
+    "relevance_label": "DIRETA",
+    "sentiment": "Neutro"
   }
 ]
