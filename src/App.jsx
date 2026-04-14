@@ -1115,7 +1115,7 @@ const App=({onLogout, userEmail})=>{
       <span style={{fontSize:16,fontWeight:900,color:'#1a1d2e',letterSpacing:'-0.02em'}}>Monitor Coronel Barbosa<span style={{color:'#d4a017'}}>.</span></span>
     </div>
     <div className="nav-items" style={{display:'flex',alignItems:'center',gap:2}}>
-      {[['Inteligência','#sec-adversarios'],['Metas','#sec-kpis'],['Eleitoral','#sec-geo'],['Voto 2022','#sec-tendencia'],['Social','#sec-social'],['Imprensa','#sec-imprensa']].map(([l,h])=>(
+      {[['Voto 2022','#sec-tendencia'],['Inteligência','#sec-adversarios'],['Metas','#sec-kpis'],['Eleitoral','#sec-geo'],['Social','#sec-social'],['Imprensa','#sec-imprensa']].map(([l,h])=>(
         <a key={l} href={h} style={{fontSize:13,fontWeight:600,color:'#5a6178',padding:'6px 14px',borderRadius:8,textDecoration:'none',transition:'color 0.15s'}}
           onMouseEnter={e=>e.currentTarget.style.color='#1a3a7a'} onMouseLeave={e=>e.currentTarget.style.color='#5a6178'}>{l}</a>
       ))}
@@ -1184,6 +1184,9 @@ const App=({onLogout, userEmail})=>{
       </div>
     </div>
 
+    {/* ═══ TENDÊNCIA DE VOTO 2022 ═══ */}
+    <div id="sec-tendencia" className="reveal"><TendenciaVotoPanel tendenciaData={tendenciaData}/></div>
+
     {/* ═══ INTELIGÊNCIA COMPETITIVA ═══ */}
     <div id="sec-adversarios" className="reveal"><AdversariosPanel adversariosData={adversariosData}/></div>
 
@@ -1192,9 +1195,6 @@ const App=({onLogout, userEmail})=>{
 
     {/* ═══ M3: INTELIGÊNCIA ELEITORAL ═══ */}
     <div id="sec-geo" className="reveal"><GeoPanel geoData={geoData}/></div>
-
-    {/* ═══ TENDÊNCIA DE VOTO 2022 ═══ */}
-    <div id="sec-tendencia" className="reveal"><TendenciaVotoPanel tendenciaData={tendenciaData}/></div>
 
     {/* ═══ M2: REDES SOCIAIS ═══ */}
     <div id="sec-social" className="reveal"><SocialPanel socialData={socialData} sentimentData={sentimentData}/></div>
