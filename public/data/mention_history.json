@@ -22646,5 +22646,23 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro"
+  },
+  {
+    "hash_id": "d6a99c378a9f",
+    "title": "CORONEL MÁRCIO BARBOSA | O verdadeiro sentido da política e o desafio de romper com a velha prática no Tocantins",
+    "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNRXpnQUdVaGEwdTRvVVV0T1ZuYllGV3ZzS3hVVUw1bEFQOXlfcERPZHpCdUZSb2FOS3dWenpoZXc3UEY1V3R1bzFoSmJEY3VPY0dQRUFWbFEyZUgtenZaNlVPT3NIcEl3ZG5aTlh6Q192azZ0X05NT0xrLURPeWoyR1pLYndkeHJ3TkJmYzZ2UG9tWFU2UXFrMXFaYm9teVpaZTByc3lubi1jRVJaam5uR19wcm1rZHdPX0ZvX3dUTkc5SVVjT3hJUzdRejhBemNkWWlBdGFiSnBHUjJmQlRXRQ?oc=5",
+    "source_name": "Cleber Toledo",
+    "source_type": "google_news",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "\"Márcio Barbosa\" PMTO when:1d"
+    ],
+    "mention_type": "direta",
+    "detected_at": "2026-04-14 00:07",
+    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxNRXpnQUdVaGEwdTRvVVV0T1ZuYllGV3ZzS3hVVUw1bEFQOXlfcERPZHpCdUZSb2FOS3dWenpoZXc3UEY1V3R1bzFoSmJEY3VPY0dQRUFWbFEyZUgtenZaNlVPT3NIcEl3ZG5aTlh6Q1",
+    "relevance_score": 0.9,
+    "relevance_label": "DIRETA",
+    "sentiment": "Neutro"
   }
 ]
