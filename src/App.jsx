@@ -13,7 +13,7 @@ import LoginScreen from './components/LoginScreen.jsx';
 const useWW=()=>{const[w,setW]=useState(typeof window!=='undefined'?window.innerWidth:1024);useEffect(()=>{const h=()=>setW(window.innerWidth);window.addEventListener('resize',h);return()=>window.removeEventListener('resize',h);},[]);return w;};
 const CSS=`html{scroll-padding-top:72px;scroll-behavior:smooth}body{margin:0}*{box-sizing:border-box}@keyframes spin{to{transform:rotate(360deg)}}@keyframes blob-float{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(22px,-16px) scale(1.04)}70%{transform:translate(-14px,10px) scale(0.97)}}.hov-card{transition:transform 0.22s ease,box-shadow 0.22s ease}.hov-card:hover{transform:translateY(-4px)!important;box-shadow:0 20px 56px rgba(26,58,122,0.13)!important}.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}.reveal.visible{opacity:1;transform:none}@media(max-width:720px){.nav-items{display:none!important}}`;
 const BASE = '/data';
-const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json`, geo: `${BASE}/geo_electoral.json`, kpis: `${BASE}/campaign_kpis.json`, adversarios: `${BASE}/adversarios.json` };
+const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json`, geo: `${BASE}/geo_electoral.json`, kpis: `${BASE}/campaign_kpis.json`, adversarios: `${BASE}/adversarios.json`, tendencia: `${BASE}/tendencia_voto_2022.json` };
 const fetchJ = async u => { try { const r = await fetch(u+'?t='+Date.now()); return r.ok ? r.json() : null; } catch { return null; } };
 
 /* ── NEWS CLASSIFICATION ── */
@@ -394,6 +394,188 @@ const SocialPanel=({socialData,sentimentData})=>{
         {!sentimentData?.sentiment?.total&&<p style={{margin:0}}>Execute o scraper de comentários para gerar a análise de sentimento do público nas redes.</p>}
       </div>
     </Card>
+    </div>
+    )}
+  </Card>);
+};
+
+/* ═══════════════════════════════════════════════
+   TENDÊNCIA DE VOTO 2022 — Presidencial TO
+   ═══════════════════════════════════════════════ */
+const TV_CORES={Conservador:'#1A3A7A',Dividido:'#D4A017',Progressista:'#B91C1C',gap:'#15803D'};
+
+const TendenciaVotoPanel=({tendenciaData})=>{
+  const[open,setOpen]=useState(true);
+  const[filtroClass,setFiltroClass]=useState('all');
+  const[sortKey,setSortKey]=useState('margem');
+  const[sortDir,setSortDir]=useState(-1);
+  const[chartView,setChartView]=useState('conservadores');
+  if(!tendenciaData?.municipios?.length)return null;
+
+  const{agregado,municipios,top10_conservadores,top10_progressistas}=tendenciaData;
+  const hasShareRep=municipios.some(m=>m.share_republicanos_dep_federal>0);
+  const pctB=agregado.pct_bolsonaro_estado,pctL=agregado.pct_lula_estado;
+
+  const tabelaDados=useMemo(()=>{
+    const list=filtroClass==='all'?municipios:municipios.filter(m=>m.classificacao===filtroClass);
+    return[...list].sort((a,b)=>sortDir*((b[sortKey]||0)-(a[sortKey]||0)));
+  },[municipios,filtroClass,sortKey,sortDir]);
+
+  const chartData=(chartView==='conservadores'?top10_conservadores:top10_progressistas).map(m=>({
+    nome:'@'+m.nome.substring(0,14),bols:m.pct_bolsonaro,lula:m.pct_lula
+  }));
+
+  const toggleSort=k=>{if(sortKey===k)setSortDir(d=>d*-1);else{setSortKey(k);setSortDir(-1);}};
+  const sortArrow=k=>sortKey===k?(sortDir>0?'↑':'↓'):'';
+
+  const BadgeCl=({c})=>{
+    const cor=TV_CORES[c]||'#8c93a8';
+    return<span style={{padding:'2px 7px',borderRadius:5,fontSize:9,fontWeight:700,background:`${cor}18`,color:cor,whiteSpace:'nowrap'}}>{c||'—'}</span>;
+  };
+
+  return(
+  <Card style={{marginTop:32}}>
+    {/* Header clicável */}
+    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
+      <div style={{display:'flex',alignItems:'center',gap:12}}>
+        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><TrendingUp size={22} style={{color:'#1a3a7a'}}/></div>
+        <div>
+          <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Tendência de Voto 2022</h2>
+          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>2º turno presidencial · {agregado.total_municipios} municípios · Fonte: TSE</p>
+        </div>
+      </div>
+      <div style={{display:'flex',alignItems:'center',gap:16}}>
+        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:TV_CORES.Conservador,margin:0}}>{agregado.municipios_conservadores}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>conservadores</p></div>
+        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:TV_CORES.Dividido,margin:0}}>{agregado.municipios_divididos}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>divididos</p></div>
+        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:TV_CORES.Progressista,margin:0}}>{agregado.municipios_progressistas}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>progressistas</p></div>
+        {open?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
+      </div>
+    </div>
+
+    {open&&(
+    <div>
+      {/* Barra estadual */}
+      <div style={{marginBottom:16}}>
+        <div style={{display:'flex',justifyContent:'space-between',marginBottom:4}}>
+          <span style={{fontSize:12,fontWeight:700,color:TV_CORES.Conservador}}>Bolsonaro {pctB}%</span>
+          <span style={{fontSize:11,color:'#8c93a8',fontWeight:600}}>Tocantins — 2º Turno 2022</span>
+          <span style={{fontSize:12,fontWeight:700,color:TV_CORES.Progressista}}>Lula {pctL}%</span>
+        </div>
+        <div style={{height:10,borderRadius:6,background:`${TV_CORES.Progressista}22`,overflow:'hidden',display:'flex'}}>
+          <div style={{width:`${pctB}%`,background:TV_CORES.Conservador,borderRadius:'6px 0 0 6px',transition:'width 0.6s ease'}}/>
+          <div style={{width:`${pctL}%`,background:TV_CORES.Progressista,borderRadius:'0 6px 6px 0'}}/>
+        </div>
+      </div>
+
+      {/* Cards de resumo (3 colunas) */}
+      <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:12,marginBottom:16}}>
+        {[
+          {label:'Municípios Conservadores',val:agregado.municipios_conservadores,cor:TV_CORES.Conservador,sub:'>60% Bolsonaro'},
+          {label:'Municípios Divididos',val:agregado.municipios_divididos,cor:TV_CORES.Dividido,sub:'40–60% cada'},
+          {label:'Municípios Progressistas',val:agregado.municipios_progressistas,cor:TV_CORES.Progressista,sub:'>60% Lula'},
+        ].map(({label,val,cor,sub})=>(
+          <Card key={label} style={{padding:'14px 16px',borderLeft:`4px solid ${cor}`}}>
+            <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',margin:'0 0 6px',letterSpacing:'0.08em'}}>{label}</p>
+            <p style={{fontSize:32,fontWeight:900,color:cor,margin:0,lineHeight:1}}>{val}</p>
+            <p style={{fontSize:11,color:'#8c93a8',margin:'4px 0 0'}}>{sub}</p>
+          </Card>
+        ))}
+      </div>
+
+      {/* GAP de conversão */}
+      {agregado.municipios_com_gap>0&&(
+        <div style={{background:'#0f2a1a',border:'1px solid #15803D',borderRadius:12,padding:'16px 20px',marginBottom:16}}>
+          <p style={{margin:0,color:'#D4A017',fontWeight:800,fontSize:15}}>
+            {agregado.municipios_com_gap} municípios onde o eleitor votou conservador para presidente
+            mas <em>não</em> votou Republicanos para deputado federal
+          </p>
+          <p style={{margin:'6px 0 0',color:'rgba(255,255,255,0.65)',fontSize:12}}>
+            Potencial estimado de <strong style={{color:'#4ade80'}}>{agregado.potencial_votos_gap.toLocaleString('pt-BR')} votos</strong> a conquistar convertendo 5% do eleitorado conservador nessas regiões.
+          </p>
+        </div>
+      )}
+
+      {/* Gráfico de barras — Toggle Conservadores / Progressistas */}
+      <Card style={{marginBottom:16}}>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12}}>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',margin:0}}>
+            Top 10 — {chartView==='conservadores'?'Mais Conservadores':'Mais Progressistas'}
+          </p>
+          <div style={{display:'flex',gap:6}}>
+            {[['conservadores','Conservadores'],['progressistas','Progressistas']].map(([k,lbl])=>(
+              <button key={k} onClick={()=>setChartView(k)}
+                style={{padding:'4px 10px',borderRadius:6,border:'none',cursor:'pointer',fontSize:11,fontWeight:700,
+                  background:chartView===k?(k==='conservadores'?TV_CORES.Conservador:TV_CORES.Progressista):'#eef0f6',
+                  color:chartView===k?'#fff':'#5a6178'}}>
+                {lbl}
+              </button>
+            ))}
+          </div>
+        </div>
+        <ResponsiveContainer width="100%" height={260}>
+          <BarChart data={chartData} layout="vertical" margin={{left:0,right:50}}>
+            <XAxis type="number" tick={{fontSize:11,fill:'#8c93a8'}} axisLine={false} tickLine={false} domain={[0,100]} tickFormatter={v=>`${v}%`}/>
+            <YAxis type="category" dataKey="nome" tick={{fontSize:11,fill:'#5a6178'}} width={130} axisLine={false} tickLine={false}/>
+            <Tooltip formatter={(v,n)=>[`${v}%`,n==='bols'?'Bolsonaro':'Lula']}/>
+            <Bar dataKey="bols" name="bols" fill={TV_CORES.Conservador} radius={[0,4,4,0]} barSize={10} label={{position:'right',fill:TV_CORES.Conservador,fontSize:10,fontWeight:700,formatter:v=>`${v}%`}}/>
+            <Bar dataKey="lula" name="lula" fill={TV_CORES.Progressista} radius={[0,4,4,0]} barSize={10} label={{position:'right',fill:TV_CORES.Progressista,fontSize:10,fontWeight:700,formatter:v=>`${v}%`}}/>
+          </BarChart>
+        </ResponsiveContainer>
+      </Card>
+
+      {/* Tabela completa */}
+      <Card>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:8,marginBottom:10}}>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',margin:0}}>
+            Todos os municípios ({tabelaDados.length})
+          </p>
+          <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
+            {[['all','Todos'],['Conservador','Conservador'],['Dividido','Dividido'],['Progressista','Progressista']].map(([k,lbl])=>(
+              <button key={k} onClick={()=>setFiltroClass(k)}
+                style={{padding:'4px 10px',borderRadius:6,border:'none',cursor:'pointer',fontSize:11,fontWeight:700,
+                  background:filtroClass===k?(k==='all'?'#1a3a7a':TV_CORES[k]||'#1a3a7a'):'#eef0f6',
+                  color:filtroClass===k?'#fff':'#5a6178'}}>
+                {lbl}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div style={{overflowX:'auto'}}>
+          <table style={{width:'100%',borderCollapse:'collapse',fontSize:12}}>
+            <thead>
+              <tr style={{borderBottom:'2px solid #dfe3ed'}}>
+                {[
+                  ['#','',28],['Município','',null],
+                  ['Bolsonaro','pct_bolsonaro',80],['Lula','pct_lula',60],
+                  ['Margem','margem',70],['Classificação','classificacao',110],
+                  ...(hasShareRep?[['Share REP','share_republicanos_dep_federal',75],['Gap?','gap_conversao',50]]:[]),
+                ].map(([label,key,w],i)=>(
+                  <th key={i} onClick={key?()=>toggleSort(key):undefined}
+                    style={{padding:'6px 8px',textAlign:i<=1?'left':'right',color:'#8c93a8',fontWeight:700,fontSize:10,textTransform:'uppercase',cursor:key?'pointer':'default',userSelect:'none',whiteSpace:'nowrap',...(w?{width:w}:{})}}>
+                    {label}{key&&<span style={{marginLeft:3,opacity:0.6}}>{sortArrow(key)}</span>}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {tabelaDados.map((m,i)=>(
+                <tr key={m.nome} style={{borderBottom:'1px solid #eef0f6',background:i%2===0?'transparent':'#fafbfc'}}>
+                  <td style={{padding:'5px 8px',color:'#8c93a8',fontWeight:700,fontSize:11}}>{i+1}</td>
+                  <td style={{padding:'5px 8px',fontWeight:600,color:'#1a1d2e',whiteSpace:'nowrap'}}>{m.nome}</td>
+                  <td style={{padding:'5px 8px',textAlign:'right',fontWeight:700,color:TV_CORES.Conservador,fontVariantNumeric:'tabular-nums'}}>{m.pct_bolsonaro}%</td>
+                  <td style={{padding:'5px 8px',textAlign:'right',fontWeight:700,color:TV_CORES.Progressista,fontVariantNumeric:'tabular-nums'}}>{m.pct_lula}%</td>
+                  <td style={{padding:'5px 8px',textAlign:'right',fontWeight:700,color:m.margem>0?TV_CORES.Conservador:TV_CORES.Progressista,fontVariantNumeric:'tabular-nums'}}>{m.margem>0?'+':''}{m.margem}pp</td>
+                  <td style={{padding:'5px 8px',textAlign:'right'}}><BadgeCl c={m.classificacao}/></td>
+                  {hasShareRep&&<>
+                    <td style={{padding:'5px 8px',textAlign:'right',color:'#5a6178',fontVariantNumeric:'tabular-nums'}}>{m.share_republicanos_dep_federal>0?`${m.share_republicanos_dep_federal}%`:'—'}</td>
+                    <td style={{padding:'5px 8px',textAlign:'center'}}>{m.gap_conversao?<span style={{padding:'2px 6px',borderRadius:4,background:'#15803D18',color:TV_CORES.gap,fontSize:9,fontWeight:700}}>SIM</span>:null}</td>
+                  </>}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Card>
     </div>
     )}
   </Card>);
@@ -845,6 +1027,7 @@ const App=({onLogout, userEmail})=>{
   const[geoData,setGeoData]=useState(null);
   const[kpiData,setKpiData]=useState(null);
   const[adversariosData,setAdversariosData]=useState(null);
+  const[tendenciaData,setTendenciaData]=useState(null);
   const[selectedCluster,setSelectedCluster]=useState('all');
   const[expandedCards,setExpandedCards]=useState({});
   const[sortOrder,setSortOrder]=useState('date');
@@ -860,8 +1043,8 @@ const App=({onLogout, userEmail})=>{
 
   useEffect(()=>{(async()=>{
     setLoading(true);
-    const[m,s,st,g,k,adv]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.geo),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)]);
-    if(m)setNewsRaw(m);if(s)setSocialData(s);if(st)setSentimentData(st);if(g)setGeoData(g);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
+    const[m,s,st,g,k,adv,tv]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.geo),fetchJ(URLS.kpis),fetchJ(URLS.adversarios),fetchJ(URLS.tendencia)]);
+    if(m)setNewsRaw(m);if(s)setSocialData(s);if(st)setSentimentData(st);if(g)setGeoData(g);if(k)setKpiData(k);if(adv)setAdversariosData(adv);if(tv)setTendenciaData(tv);else console.log('Tendência de voto 2022: dados não disponíveis');
     setLastUpdate(new Date().toLocaleString('pt-BR')+' (auto)');
     setLoading(false);
   })();},[]);
@@ -877,8 +1060,8 @@ const App=({onLogout, userEmail})=>{
 
   const handleRefresh=useCallback(async()=>{
     setRefreshing(true);
-    const[m,s,st,g,k,adv]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.geo),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)]);
-    if(m)setNewsRaw(m);if(s)setSocialData(s);if(st)setSentimentData(st);if(g)setGeoData(g);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
+    const[m,s,st,g,k,adv,tv]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.geo),fetchJ(URLS.kpis),fetchJ(URLS.adversarios),fetchJ(URLS.tendencia)]);
+    if(m)setNewsRaw(m);if(s)setSocialData(s);if(st)setSentimentData(st);if(g)setGeoData(g);if(k)setKpiData(k);if(adv)setAdversariosData(adv);if(tv)setTendenciaData(tv);
     setLastUpdate(new Date().toLocaleString('pt-BR')+' (manual)');
     setRefreshing(false);
   },[]);
@@ -932,7 +1115,7 @@ const App=({onLogout, userEmail})=>{
       <span style={{fontSize:16,fontWeight:900,color:'#1a1d2e',letterSpacing:'-0.02em'}}>Monitor Coronel Barbosa<span style={{color:'#d4a017'}}>.</span></span>
     </div>
     <div className="nav-items" style={{display:'flex',alignItems:'center',gap:2}}>
-      {[['Inteligência','#sec-adversarios'],['Metas','#sec-kpis'],['Eleitoral','#sec-geo'],['Social','#sec-social'],['Imprensa','#sec-imprensa']].map(([l,h])=>(
+      {[['Inteligência','#sec-adversarios'],['Metas','#sec-kpis'],['Eleitoral','#sec-geo'],['Voto 2022','#sec-tendencia'],['Social','#sec-social'],['Imprensa','#sec-imprensa']].map(([l,h])=>(
         <a key={l} href={h} style={{fontSize:13,fontWeight:600,color:'#5a6178',padding:'6px 14px',borderRadius:8,textDecoration:'none',transition:'color 0.15s'}}
           onMouseEnter={e=>e.currentTarget.style.color='#1a3a7a'} onMouseLeave={e=>e.currentTarget.style.color='#5a6178'}>{l}</a>
       ))}
@@ -1009,6 +1192,9 @@ const App=({onLogout, userEmail})=>{
 
     {/* ═══ M3: INTELIGÊNCIA ELEITORAL ═══ */}
     <div id="sec-geo" className="reveal"><GeoPanel geoData={geoData}/></div>
+
+    {/* ═══ TENDÊNCIA DE VOTO 2022 ═══ */}
+    <div id="sec-tendencia" className="reveal"><TendenciaVotoPanel tendenciaData={tendenciaData}/></div>
 
     {/* ═══ M2: REDES SOCIAIS ═══ */}
     <div id="sec-social" className="reveal"><SocialPanel socialData={socialData} sentimentData={sentimentData}/></div>
