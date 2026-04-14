@@ -266,15 +266,40 @@ const SocialPanel=({socialData,sentimentData})=>{
     {(()=>{
       // Build time series: apenas perfis monitorados
       const allDates = [...new Set((socialData||[]).filter(x=>PANEL_PROFILES.has(x.username)).map(x=>x.data_coleta))].sort();
-      if(allDates.length < 2) return (
+      if(allDates.length < 2){
+        // Snapshot da data disponível para mostrar contexto enquanto histórico acumula
+        const snapDate = allDates[0]||'';
+        const snap = snapDate
+          ? (socialData||[]).filter(x=>PANEL_PROFILES.has(x.username)&&x.data_coleta===snapDate&&x.seguidores>0).sort((a,b)=>b.seguidores-a.seguidores).slice(0,5)
+          : [];
+        const snapMax = snap[0]?.seguidores||1;
+        const SNAP_COLORS=['#1a3a7a','#ef4444','#8b5cf6','#f59e0b','#22c55e'];
+        return(
         <Card style={{marginBottom:14}}>
-          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Evolução de seguidores (série temporal)</p>
-          <div style={{padding:'20px 0',textAlign:'center'}}>
-            <p style={{fontSize:12,color:'#8c93a8'}}>Disponível a partir da 2a coleta semanal. Dados atuais: {allDates.length} coleta(s).</p>
-            <p style={{fontSize:13,color:'#8c93a8',marginTop:4}}>O Task Scheduler roda semanalmente — o gráfico será preenchido automaticamente.</p>
+          <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12}}>
+            <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',margin:0}}>Evolução de seguidores (série temporal)</p>
+            <span style={{fontSize:11,fontWeight:700,color:'#d4a017',background:'rgba(212,160,23,0.1)',border:'1px solid rgba(212,160,23,0.25)',borderRadius:6,padding:'2px 8px',textTransform:'uppercase',letterSpacing:'0.05em'}}>Histórico sendo acumulado</span>
           </div>
-        </Card>
-      );
+          {snap.length>0?(
+            <div>
+              <p style={{fontSize:11,color:'#8c93a8',marginBottom:8}}>Snapshot {snapDate} — top 5 por seguidores. Série temporal disponível a partir da 2ª coleta.</p>
+              {snap.map((p,i)=>{
+                const w=Math.max(6,Math.round((p.seguidores/snapMax)*100));
+                const isCand=p.username==='marciobarbosa_cel';
+                return(
+                <div key={p.username} style={{display:'flex',alignItems:'center',gap:8,marginBottom:6}}>
+                  <span style={{width:130,fontSize:11,color:isCand?'#1a3a7a':'#5a6178',fontWeight:isCand?700:400,flexShrink:0,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
+                  <div style={{flex:1,background:'#eef0f6',borderRadius:3,height:14,overflow:'hidden'}}>
+                    <div style={{width:`${w}%`,height:'100%',background:SNAP_COLORS[i%5],borderRadius:3,display:'flex',alignItems:'center',paddingLeft:6,fontSize:10,fontWeight:700,color:'#fff',whiteSpace:'nowrap'}}>{fmtK(p.seguidores)}</div>
+                  </div>
+                </div>);
+              })}
+            </div>
+          ):(
+            <p style={{fontSize:12,color:'#8c93a8',textAlign:'center',padding:'16px 0'}}>Aguardando 1ª coleta de dados.</p>
+          )}
+        </Card>);
+      }
       // Top 6 profiles by latest followers + always include candidate
       const latestDate = allDates[allDates.length-1];
       const latestProfiles = (socialData||[]).filter(x=>PANEL_PROFILES.has(x.username)&&x.data_coleta===latestDate&&x.seguidores>0).sort((a,b)=>b.seguidores-a.seguidores);
