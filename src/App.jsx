@@ -102,6 +102,29 @@ const NC=({item,expanded,onToggle})=>{const sc=sC(item.score);const cl=CLUSTERS.
    ═══════════════════════════════════════════════ */
 const DCOL={positivo:'#22c55e',negativo:'#ef4444',neutro:'#64748b'};
 
+// Retorna delta semanal de seguidores: {delta, direction, label}
+function calcDelta(metrics, username) {
+  if (!metrics || !Array.isArray(metrics)) return {delta:0,direction:'stable',label:'—'};
+  const entries = metrics
+    .filter(e => e.username === username && e.seguidores > 0)
+    .sort((a, b) => (a.data_coleta||'').localeCompare(b.data_coleta||''));
+  if (entries.length < 2) return {delta:0,direction:'stable',label:'—'};
+  const curr = entries[entries.length - 1];
+  const weekAgo = new Date(curr.data_coleta);
+  weekAgo.setDate(weekAgo.getDate() - 7);
+  let prev = null, minDiff = Infinity;
+  for (const e of entries.slice(0, entries.length - 1)) {
+    const diff = Math.abs(new Date(e.data_coleta) - weekAgo);
+    if (diff < minDiff) { minDiff = diff; prev = e; }
+  }
+  if (!prev) return {delta:0,direction:'stable',label:'—'};
+  const delta = curr.seguidores - prev.seguidores;
+  const threshold = curr.seguidores * 0.01;
+  const direction = delta > threshold ? 'up' : delta < -threshold ? 'down' : 'stable';
+  const label = delta === 0 ? '—' : `${delta > 0 ? '+' : ''}${delta.toLocaleString('pt-BR')}`;
+  return {delta, direction, label};
+}
+
 // Perfis monitorados — espelha TARGET_PROFILES do instagram_monitor.py
 const PANEL_PROFILES=new Set([
   'marciobarbosa_cel','janad_valcari','tiagodimas','ricardoayres_to','fabiopereiravaz',
@@ -192,37 +215,26 @@ const SocialPanel=({socialData,sentimentData})=>{
         <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Ranking completo — seguidores e engajamento</p>
         <div style={{maxHeight:360,overflowY:'auto'}}>
           {/* Header */}
-          <div style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 40px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid #dfe3ed'}}>
+          <div style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 72px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid #dfe3ed'}}>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>#</span>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>PERFIL</span>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>SEGUIDORES</span>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>ENGAJAMENTO</span>
-            <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'center'}}>TEND.</span>
+            <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'center'}}>TEND. (7d)</span>
           </div>
           {/* Rows */}
           {rank.map(p=>{
             const isCand = p.username==='marciobarbosa_cel';
-            // Trend: compare with previous week data (same username, earlier date)
-            const prevData = profiles.length > 0 ? null : null; // Will work when historical data exists
-            // For now, check if socialData has multiple entries for same username
-            const allEntries = (socialData||[]).filter(x=>x.username===p.username).sort((a,b)=>(a.data_coleta||'').localeCompare(b.data_coleta||''));
-            const prev = allEntries.length >= 2 ? allEntries[allEntries.length-2] : null;
-            const curr = allEntries[allEntries.length-1];
-            let trendColor = '#475569'; // cinza = sem dados
-            let trendIcon = '→';
-            if(prev && curr){
-              const diff = curr.taxa_engajamento_pct - prev.taxa_engajamento_pct;
-              if(diff > 0.1){trendColor='#22c55e';trendIcon='↑';}
-              else if(diff < -0.1){trendColor='#ef4444';trendIcon='↓';}
-              else{trendColor='#64748b';trendIcon='→';}
-            }
+            const {direction, label} = calcDelta(socialData, p.username);
+            const trendColor = direction==='up'?'#15803D':direction==='down'?'#B91C1C':'#8C93A8';
+            const trendIcon = direction==='up'?'↑':direction==='down'?'↓':'→';
             return(
-            <div key={p.username} style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 40px',gap:4,padding:'5px 4px',borderBottom:'1px solid #eef0f6',background:isCand?'rgba(139,92,246,0.08)':'transparent',borderRadius:isCand?6:0}}>
+            <div key={p.username} style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 72px',gap:4,padding:'5px 4px',borderBottom:'1px solid #eef0f6',background:isCand?'rgba(139,92,246,0.08)':'transparent',borderRadius:isCand?6:0}}>
               <span style={{fontSize:13,fontWeight:700,color:'#8c93a8'}}>#{p.rank}</span>
               <span style={{fontSize:13,color:isCand?'#a78bfa':'#5a6178',fontWeight:isCand?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
               <span style={{fontSize:13,fontWeight:600,color:'#5a6178',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{p.seguidores.toLocaleString('pt-BR')}</span>
               <span style={{fontSize:13,fontWeight:700,color:p.taxa_engajamento_pct>=3?'#22c55e':p.taxa_engajamento_pct>=1.5?'#f59e0b':'#ef4444',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{p.taxa_engajamento_pct}%</span>
-              <span style={{fontSize:13,fontWeight:700,color:trendColor,textAlign:'center'}}>{trendIcon}</span>
+              <span style={{fontSize:11,fontWeight:700,color:trendColor,textAlign:'center',fontVariantNumeric:'tabular-nums'}}>{trendIcon} {label}</span>
             </div>);
           })}
         </div>
