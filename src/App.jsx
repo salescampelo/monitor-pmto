@@ -671,7 +671,7 @@ const AdversariosPanel=({adversariosData})=>{
         <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#1a3a7a'}}/></div>
         <div>
           <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Inteligência Competitiva — Câmara Federal TO 2026</h2>
-          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>8 vagas · 13+ candidatos · Levantamento 7 abr/2026</p>
+          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>8 vagas · 13+ candidatos · Levantamento {d?.data_atualizacao?fmtDt(d.data_atualizacao):'—'}</p>
         </div>
       </div>
       <div style={{display:'flex',alignItems:'center',gap:16}}>
