@@ -422,7 +422,7 @@ const TendenciaVotoPanel=({tendenciaData})=>{
   },[municipios,filtroClass,sortKey,sortDir]);
 
   const chartData=(chartView==='conservadores'?top10_conservadores:top10_progressistas).map(m=>({
-    nome:'@'+m.nome.substring(0,14),bols:m.pct_bolsonaro,lula:m.pct_lula
+    nome:m.nome.substring(0,16),bols:m.pct_bolsonaro,lula:m.pct_lula
   }));
 
   const toggleSort=k=>{if(sortKey===k)setSortDir(d=>d*-1);else{setSortKey(k);setSortDir(-1);}};
