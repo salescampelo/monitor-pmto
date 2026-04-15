@@ -421,8 +421,9 @@ const TendenciaVotoPanel=({tendenciaData})=>{
     return[...list].sort((a,b)=>sortDir*((b[sortKey]||0)-(a[sortKey]||0)));
   },[municipios,filtroClass,sortKey,sortDir]);
 
+  const titleCase=s=>s.split(' ').map(w=>w.charAt(0)+w.slice(1).toLowerCase()).join(' ');
   const chartData=(chartView==='conservadores'?top10_conservadores:top10_progressistas).map(m=>({
-    nome:m.nome.substring(0,16),bols:m.pct_bolsonaro,lula:m.pct_lula
+    nome:titleCase(m.nome),bols:m.pct_bolsonaro,lula:m.pct_lula
   }));
 
   const toggleSort=k=>{if(sortKey===k)setSortDir(d=>d*-1);else{setSortKey(k);setSortDir(-1);}};
@@ -517,13 +518,19 @@ const TendenciaVotoPanel=({tendenciaData})=>{
             ))}
           </div>
         </div>
-        <ResponsiveContainer width="100%" height={260}>
-          <BarChart data={chartData} layout="vertical" margin={{left:0,right:50}}>
+        <ResponsiveContainer width="100%" height={400}>
+          <BarChart data={chartData} layout="vertical" margin={{left:0,right:56}} barCategoryGap="30%" barGap={3}>
             <XAxis type="number" tick={{fontSize:11,fill:'#8c93a8'}} axisLine={false} tickLine={false} domain={[0,100]} tickFormatter={v=>`${v}%`}/>
-            <YAxis type="category" dataKey="nome" tick={{fontSize:11,fill:'#5a6178'}} width={130} axisLine={false} tickLine={false}/>
-            <Tooltip formatter={(v,n)=>[`${v}%`,n==='bols'?'Bolsonaro':'Lula']}/>
-            <Bar dataKey="bols" name="bols" fill={TV_CORES.Conservador} radius={[0,4,4,0]} barSize={10} label={{position:'right',fill:TV_CORES.Conservador,fontSize:10,fontWeight:700,formatter:v=>`${v}%`}}/>
-            <Bar dataKey="lula" name="lula" fill={TV_CORES.Progressista} radius={[0,4,4,0]} barSize={10} label={{position:'right',fill:TV_CORES.Progressista,fontSize:10,fontWeight:700,formatter:v=>`${v}%`}}/>
+            <YAxis type="category" dataKey="nome" width={160} axisLine={false} tickLine={false}
+              tick={(props)=>{
+                const{x,y,payload}=props;
+                const name=payload.value;
+                const display=name.length>20?name.substring(0,18)+'\u2026':name;
+                return <text x={x} y={y} dy={4} textAnchor="end" fill="#5a6178" fontSize={11} fontWeight={500}>{display}</text>;
+              }}/>
+            <Tooltip formatter={(v,n)=>[`${v}%`,n==='bols'?'Bolsonaro':'Lula']} contentStyle={{background:'#fff',border:'1px solid #dfe3ed',borderRadius:8,fontSize:13}}/>
+            <Bar dataKey="bols" name="bols" fill={TV_CORES.Conservador} radius={[0,4,4,0]} barSize={13} label={{position:'right',fill:TV_CORES.Conservador,fontSize:11,fontWeight:700,formatter:v=>`${v}%`}}/>
+            <Bar dataKey="lula" name="lula" fill={TV_CORES.Progressista} radius={[0,4,4,0]} barSize={13} label={{position:'right',fill:TV_CORES.Progressista,fontSize:11,fontWeight:700,formatter:v=>`${v}%`}}/>
           </BarChart>
         </ResponsiveContainer>
       </Card>
