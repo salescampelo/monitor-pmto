@@ -134,52 +134,9 @@ function PopupConteudo({ m }) {
   );
 }
 
-/* ── Painel principal ── */
-export default function MapaCampoPanel({ liderancasData }) {
-  const isMobile = useWW() < 768;
-  const [filtrosOpen, setFiltrosOpen] = useState(false);
-  const [busca, setBusca] = useState('');
-  const [statusFiltro, setStatusFiltro] = useState({
-    visitado: true, agendado: true, com_lideranca: true, prioritario: true, pendente: true,
-  });
-  const [ideologiaFiltro, setIdeologiaFiltro] = useState({
-    Conservador: true, Dividido: true, Progressista: true, '': true,
-  });
-
-  const municipios = liderancasData?.municipios || [];
-
-  const filtrados = useMemo(() => {
-    return municipios.filter(m => {
-      if (m.coordenadas_pendentes || (m.latitude === 0 && m.longitude === 0)) return false;
-      if (!statusFiltro[m.status_visita]) return false;
-      const idKey = m.classificacao_ideologica || '';
-      if (!ideologiaFiltro[idKey] && idKey !== '') return false;
-      if (busca && !m.nome.toLowerCase().includes(busca.toLowerCase())) return false;
-      return true;
-    });
-  }, [municipios, statusFiltro, ideologiaFiltro, busca]);
-
-  const contadores = useMemo(() => {
-    const c = { visitado: 0, agendado: 0, com_lideranca: 0, prioritario: 0, pendente: 0 };
-    municipios.forEach(m => { if (c[m.status_visita] !== undefined) c[m.status_visita]++; });
-    return c;
-  }, [municipios]);
-
-  const meta = liderancasData?.meta || {};
-
-  if (!liderancasData) {
-    return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 400, flexDirection: 'column', gap: 12 }}>
-        <div style={{ fontSize: 14, color: '#8C93A8' }}>Dados de lideranças não disponíveis.</div>
-        <div style={{ fontSize: 12, color: '#8C93A8' }}>Verifique se <code>public/data/liderancas.json</code> existe.</div>
-      </div>
-    );
-  }
-
-  const alturaMapaDesktop = '600px';
-  const alturaMapaMobile  = '420px';
-
-  const FiltrosSidebar = () => (
+/* ── Sidebar de filtros ── */
+function FiltrosSidebar({ busca, setBusca, statusFiltro, setStatusFiltro, ideologiaFiltro, setIdeologiaFiltro, filtrados, municipios, contadores, isMobile }) {
+  return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16, padding: isMobile ? '12px 0' : '0 16px 0 0' }}>
       {/* Busca */}
       <div>
@@ -226,6 +183,54 @@ export default function MapaCampoPanel({ liderancasData }) {
       </div>
     </div>
   );
+}
+
+/* ── Painel principal ── */
+export default function MapaCampoPanel({ liderancasData }) {
+  const isMobile = useWW() < 768;
+  const [filtrosOpen, setFiltrosOpen] = useState(false);
+  const [busca, setBusca] = useState('');
+  const [statusFiltro, setStatusFiltro] = useState({
+    visitado: true, agendado: true, com_lideranca: true, prioritario: true, pendente: true,
+  });
+  const [ideologiaFiltro, setIdeologiaFiltro] = useState({
+    Conservador: true, Dividido: true, Progressista: true, '': true,
+  });
+
+  const municipios = liderancasData?.municipios || [];
+
+  const filtrados = useMemo(() => {
+    return municipios.filter(m => {
+      if (m.coordenadas_pendentes || (m.latitude === 0 && m.longitude === 0)) return false;
+      if (!statusFiltro[m.status_visita]) return false;
+      const idKey = m.classificacao_ideologica || '';
+      if (!ideologiaFiltro[idKey] && idKey !== '') return false;
+      if (busca && !m.nome.toLowerCase().includes(busca.toLowerCase())) return false;
+      return true;
+    });
+  }, [municipios, statusFiltro, ideologiaFiltro, busca]);
+
+  const contadores = useMemo(() => {
+    const c = { visitado: 0, agendado: 0, com_lideranca: 0, prioritario: 0, pendente: 0 };
+    municipios.forEach(m => { if (c[m.status_visita] !== undefined) c[m.status_visita]++; });
+    return c;
+  }, [municipios]);
+
+  const meta = liderancasData?.meta || {};
+
+  if (!liderancasData) {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 400, flexDirection: 'column', gap: 12 }}>
+        <div style={{ fontSize: 14, color: '#8C93A8' }}>Dados de lideranças não disponíveis.</div>
+        <div style={{ fontSize: 12, color: '#8C93A8' }}>Verifique se <code>public/data/liderancas.json</code> existe.</div>
+      </div>
+    );
+  }
+
+  const alturaMapaDesktop = '600px';
+  const alturaMapaMobile  = '420px';
+
+  const filtroProps = { busca, setBusca, statusFiltro, setStatusFiltro, ideologiaFiltro, setIdeologiaFiltro, filtrados, municipios, contadores, isMobile };
 
   return (
     <div style={{ background: '#FFFFFF', border: '1px solid rgba(26,39,68,0.08)', borderRadius: 16, boxShadow: '0 1px 3px rgba(0,0,0,0.07)' }}>
@@ -255,7 +260,7 @@ export default function MapaCampoPanel({ liderancasData }) {
       {/* Filtros mobile accordion */}
       {isMobile && filtrosOpen && (
         <div style={{ padding: '12px 16px', borderBottom: '1px solid rgba(26,39,68,0.08)', background: '#FAFAF8' }}>
-          <FiltrosSidebar />
+          <FiltrosSidebar {...filtroProps} />
         </div>
       )}
 
@@ -264,7 +269,7 @@ export default function MapaCampoPanel({ liderancasData }) {
         {/* Sidebar de filtros (desktop) */}
         {!isMobile && (
           <div style={{ width: 200, flexShrink: 0, padding: '20px 0 20px 20px', borderRight: '1px solid rgba(26,39,68,0.08)', overflowY: 'auto' }}>
-            <FiltrosSidebar />
+            <FiltrosSidebar {...filtroProps} />
           </div>
         )}
 
