@@ -4,7 +4,7 @@ import {
   ChevronDown, ChevronUp, Newspaper, Target, Radio, Clock,
   Hash, ArrowUpRight, BrainCircuit, Layers, Upload, RefreshCw,
   Database, User, Building, Globe, MapPin, Bookmark, Trash2,
-  BarChart3, TrendingUp, Heart, MessageCircle, Users, LogOut, Menu,
+  BarChart3, TrendingUp, Heart, MessageCircle, Users, LogOut, Menu, Map,
 } from 'lucide-react';
 import { supabase } from './lib/supabase.js';
 import LoginScreen from './components/LoginScreen.jsx';
@@ -17,6 +17,7 @@ import TendenciaVotoPanel from './panels/TendenciaVotoPanel.jsx';
 import KpiPanel from './panels/KpiPanel.jsx';
 import GeoPanel from './panels/GeoPanel.jsx';
 import AdversariosPanel from './panels/AdversariosPanel.jsx';
+import MapaCampoPanel from './panels/MapaCampoPanel.jsx';
 
 /* ═══════════════════════════════════════════════
    MAIN APP
@@ -29,6 +30,7 @@ const App = ({onLogout, userEmail}) => {
   const[kpiData,setKpiData]=useState(null);
   const[adversariosData,setAdversariosData]=useState(null);
   const[tendenciaData,setTendenciaData]=useState(null);
+  const[liderancasData,setLiderancasData]=useState(null);
   const[selectedCluster,setSelectedCluster]=useState('all');
   const[expandedCards,setExpandedCards]=useState({});
   const[sortOrder,setSortOrder]=useState('date');
@@ -68,19 +70,22 @@ const App = ({onLogout, userEmail}) => {
     if(activePanel==='imprensa'&&!newsRaw)fetchJ(URLS.mentions).then(d=>{if(d)setNewsRaw(d);});
     if(activePanel==='geo'&&!geoData)fetchJ(URLS.geo).then(d=>{if(d)setGeoData(d);});
     if(activePanel==='tendencia'&&!tendenciaData)fetchJ(URLS.tendencia).then(d=>{if(d)setTendenciaData(d);});
-  },[activePanel,newsRaw,geoData,tendenciaData]);
+    if(activePanel==='campo'&&!liderancasData)fetchJ(URLS.liderancas).then(d=>{if(d)setLiderancasData(d);});
+  },[activePanel,newsRaw,geoData,tendenciaData,liderancasData]);
 
   const handleRefresh=useCallback(async()=>{
     setRefreshing(true);
     const bootFetches=[fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)];
     const panelFetches=activePanel==='imprensa'?[fetchJ(URLS.mentions)]:
       activePanel==='geo'?[fetchJ(URLS.geo)]:
-      activePanel==='tendencia'?[fetchJ(URLS.tendencia)]:[];
+      activePanel==='tendencia'?[fetchJ(URLS.tendencia)]:
+      activePanel==='campo'?[fetchJ(URLS.liderancas)]:[];
     const[s,st,k,adv,...panelResults]=await Promise.all([...bootFetches,...panelFetches]);
     if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
     if(activePanel==='imprensa'&&panelResults[0])setNewsRaw(panelResults[0]);
     if(activePanel==='geo'&&panelResults[0])setGeoData(panelResults[0]);
     if(activePanel==='tendencia'&&panelResults[0])setTendenciaData(panelResults[0]);
+    if(activePanel==='campo'&&panelResults[0])setLiderancasData(panelResults[0]);
     setLastUpdate(new Date().toLocaleString('pt-BR')+' (manual)');
     setRefreshing(false);
   },[activePanel]);
@@ -207,6 +212,7 @@ const App = ({onLogout, userEmail}) => {
         {id:'adversarios',label:'Inteligência',  icon:Target,      sub:'17 adversários'},
         {id:'kpis',      label:'Metas',          icon:BarChart3,   sub:'Fase 1 · KPIs'},
         {id:'geo',       label:'Eleitoral',       icon:MapPin,      sub:'139 municípios'},
+        {id:'campo',     label:'Mapa de Campo',   icon:Map,         sub:'Lideranças · Visitas'},
         {id:'social',    label:'Redes Sociais',   icon:Users,       sub:'18 perfis IG'},
         {id:'imprensa',  label:'Imprensa',        icon:Newspaper,   badge:hm.alerts, sub:'32 fontes'},
       ].map(({id,label,icon:Icon,badge,sub})=>{
@@ -265,6 +271,7 @@ const App = ({onLogout, userEmail}) => {
         {activePanel==='adversarios'&&<AdversariosPanel adversariosData={adversariosData}/>}
         {activePanel==='kpis'&&<KpiPanel kpiData={kpiData}/>}
         {activePanel==='geo'&&<GeoPanel geoData={geoData}/>}
+        {activePanel==='campo'&&<MapaCampoPanel liderancasData={liderancasData}/>}
         {activePanel==='social'&&<SocialPanel socialData={socialData} sentimentData={sentimentData}/>}
 
         {activePanel==='imprensa'&&(

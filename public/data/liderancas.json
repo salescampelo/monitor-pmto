@@ -1,0 +1,6545 @@
+{
+  "meta": {
+    "gerado_em": "2026-04-15",
+    "total_municipios": 139,
+    "total_municipios_com_lideranca": 0,
+    "total_liderancas": 0,
+    "municipios_com_coordenadas": 139,
+    "municipios_sem_coordenadas": 0
+  },
+  "municipios": [
+    {
+      "nome": "PALMAS",
+      "latitude": -10.1689,
+      "longitude": -48.3317,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Conservador",
+      "pct_bolsonaro_2022": 60.3,
+      "pct_lula_2022": 39.7,
+      "eleitorado": 198181,
+      "populacao": 302692,
+      "votos_republicanos": 27072,
+      "share_republicanos": 19.1,
+      "gap_conversao": true,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 88.9,
+      "ranking": 1,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Filipe Martins Dos Santos",
+          "partido": "PL",
+          "votos": 13051
+        },
+        {
+          "nome": "Eli Dias Borges",
+          "partido": "PL",
+          "votos": 10304
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 9342
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ARAGUAÍNA",
+      "latitude": -7.1911,
+      "longitude": -48.2072,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 58.2,
+      "pct_lula_2022": 41.8,
+      "eleitorado": 112767,
+      "populacao": 171301,
+      "votos_republicanos": 15743,
+      "share_republicanos": 19.4,
+      "gap_conversao": true,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.7,
+      "ranking": 15,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 14522
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 13732
+        },
+        {
+          "nome": "Angela Maria Silva",
+          "partido": "UNIÃO",
+          "votos": 7839
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "GURUPI",
+      "latitude": -11.7279,
+      "longitude": -49.0689,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 59.3,
+      "pct_lula_2022": 40.7,
+      "eleitorado": 58036,
+      "populacao": 85125,
+      "votos_republicanos": 6624,
+      "share_republicanos": 16.1,
+      "gap_conversao": true,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 71.9,
+      "ranking": 3,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "José Alves Maciel",
+          "partido": "PODE",
+          "votos": 7093
+        },
+        {
+          "nome": "Rodrigo Meneses Maciel",
+          "partido": "UNIÃO",
+          "votos": 6174
+        },
+        {
+          "nome": "Filipe Martins Dos Santos",
+          "partido": "PL",
+          "votos": 2436
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PORTO NACIONAL",
+      "latitude": -10.7082,
+      "longitude": -48.4177,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 47.4,
+      "pct_lula_2022": 52.6,
+      "eleitorado": 42779,
+      "populacao": 64418,
+      "votos_republicanos": 12865,
+      "share_republicanos": 41.5,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 74.3,
+      "ranking": 2,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 7210
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 4062
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 3762
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PARAÍSO DO TOCANTINS",
+      "latitude": -10.1753,
+      "longitude": -48.8824,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Conservador",
+      "pct_bolsonaro_2022": 68.0,
+      "pct_lula_2022": 32.0,
+      "eleitorado": 33115,
+      "populacao": 52360,
+      "votos_republicanos": 3199,
+      "share_republicanos": 13.7,
+      "gap_conversao": true,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 57.0,
+      "ranking": 98,
+      "partido_vencedor": "PSC",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 6272
+        },
+        {
+          "nome": "Vanessa Alencar Pinto",
+          "partido": "UNIÃO",
+          "votos": 3937
+        },
+        {
+          "nome": "Eli Dias Borges",
+          "partido": "PL",
+          "votos": 1457
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "COLINAS DO TOCANTINS",
+      "latitude": -8.0587,
+      "longitude": -48.4766,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 58.0,
+      "pct_lula_2022": 42.0,
+      "eleitorado": 23052,
+      "populacao": 34233,
+      "votos_republicanos": 2857,
+      "share_republicanos": 17.4,
+      "gap_conversao": true,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 59.7,
+      "ranking": 92,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Marcos Valério Soares",
+          "partido": "PODE",
+          "votos": 2842
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 1597
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 1595
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ARAGUATINS",
+      "latitude": -5.648,
+      "longitude": -48.1094,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 40.9,
+      "pct_lula_2022": 59.1,
+      "eleitorado": 21325,
+      "populacao": 31918,
+      "votos_republicanos": 2296,
+      "share_republicanos": 14.9,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 48.5,
+      "ranking": 115,
+      "partido_vencedor": "PSD",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Elizabete Rocha",
+          "partido": "PSD",
+          "votos": 4584
+        },
+        {
+          "nome": "Pedro Souza Catingueiro Junior",
+          "partido": "PL",
+          "votos": 1266
+        },
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 1137
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "GUARAÍ",
+      "latitude": -8.8354,
+      "longitude": -48.5113,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 54.1,
+      "pct_lula_2022": 45.9,
+      "eleitorado": 16799,
+      "populacao": 24775,
+      "votos_republicanos": 3508,
+      "share_republicanos": 29.2,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 71.7,
+      "ranking": 4,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 1690
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 1281
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 1160
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "TOCANTINÓPOLIS",
+      "latitude": -6.3316,
+      "longitude": -47.4177,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 32.6,
+      "pct_lula_2022": 67.4,
+      "eleitorado": 15700,
+      "populacao": 22615,
+      "votos_republicanos": 1284,
+      "share_republicanos": 11.0,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 41.3,
+      "ranking": 127,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Salomão Barros De Sousa",
+          "partido": "PODE",
+          "votos": 3079
+        },
+        {
+          "nome": "Hugo Weysfield Mendes",
+          "partido": "PSD",
+          "votos": 1491
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 1111
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "MIRACEMA DO TOCANTINS",
+      "latitude": -9.5679,
+      "longitude": -48.3912,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 39.4,
+      "pct_lula_2022": 60.6,
+      "eleitorado": 14089,
+      "populacao": 18566,
+      "votos_republicanos": 3764,
+      "share_republicanos": 38.0,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 71.4,
+      "ranking": 6,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 1972
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 1120
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 934
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "FORMOSO DO ARAGUAIA",
+      "latitude": -11.7966,
+      "longitude": -49.5312,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 55.0,
+      "pct_lula_2022": 45.0,
+      "eleitorado": 13683,
+      "populacao": 18881,
+      "votos_republicanos": 3237,
+      "share_republicanos": 32.7,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 71.4,
+      "ranking": 5,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Ronison Parente Santos",
+          "partido": "MDB",
+          "votos": 2366
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 1901
+        },
+        {
+          "nome": "Filipe Martins Dos Santos",
+          "partido": "PL",
+          "votos": 1453
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "DIANÓPOLIS",
+      "latitude": -11.6237,
+      "longitude": -46.8168,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 35.8,
+      "pct_lula_2022": 64.2,
+      "eleitorado": 12695,
+      "populacao": 17739,
+      "votos_republicanos": 2704,
+      "share_republicanos": 30.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 71.3,
+      "ranking": 7,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 1546
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 1531
+        },
+        {
+          "nome": "Jurimar José Trindade Júnior",
+          "partido": "PODE",
+          "votos": 1377
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "AUGUSTINÓPOLIS",
+      "latitude": -5.4699,
+      "longitude": -47.8878,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 40.1,
+      "pct_lula_2022": 59.9,
+      "eleitorado": 12479,
+      "populacao": 17484,
+      "votos_republicanos": 1398,
+      "share_republicanos": 15.1,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 66.3,
+      "ranking": 74,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Julio Da Silva Oliveira",
+          "partido": "PP",
+          "votos": 3459
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 894
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 837
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "TAGUATINGA",
+      "latitude": -12.4015,
+      "longitude": -46.4372,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 35.5,
+      "pct_lula_2022": 64.5,
+      "eleitorado": 10405,
+      "populacao": 14011,
+      "votos_republicanos": 2422,
+      "share_republicanos": 33.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 71.0,
+      "ranking": 8,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 956
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 834
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 757
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PEDRO AFONSO",
+      "latitude": -8.9666,
+      "longitude": -48.1753,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 49.3,
+      "pct_lula_2022": 50.7,
+      "eleitorado": 9838,
+      "populacao": 14055,
+      "votos_republicanos": 2019,
+      "share_republicanos": 27.8,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 71.0,
+      "ranking": 9,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 2150
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 1265
+        },
+        {
+          "nome": "Gylwander Luiz Peres Machado De Oliveira",
+          "partido": "PSD",
+          "votos": 464
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "MIRANORTE",
+      "latitude": -9.522,
+      "longitude": -48.579,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 49.8,
+      "pct_lula_2022": 50.2,
+      "eleitorado": 9715,
+      "populacao": 12701,
+      "votos_republicanos": 1302,
+      "share_republicanos": 18.7,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 56.1,
+      "ranking": 102,
+      "partido_vencedor": "PTB",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Weliton Pereira De Sousa",
+          "partido": "PTB",
+          "votos": 1773
+        },
+        {
+          "nome": "Eli Dias Borges",
+          "partido": "PL",
+          "votos": 723
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 595
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "AXIXÁ DO TOCANTINS",
+      "latitude": -5.617,
+      "longitude": -47.768,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 40.2,
+      "pct_lula_2022": 59.8,
+      "eleitorado": 8754,
+      "populacao": 10262,
+      "votos_republicanos": 2671,
+      "share_republicanos": 41.5,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.9,
+      "ranking": 10,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 1844
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 747
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 690
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "LAGOA DA CONFUSÃO",
+      "latitude": -10.7919,
+      "longitude": -49.6222,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 50.3,
+      "pct_lula_2022": 49.7,
+      "eleitorado": 8511,
+      "populacao": 15288,
+      "votos_republicanos": 4052,
+      "share_republicanos": 64.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.9,
+      "ranking": 11,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 2737
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 676
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 554
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "XAMBIOÁ",
+      "latitude": -6.4137,
+      "longitude": -48.534,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 50.4,
+      "pct_lula_2022": 49.6,
+      "eleitorado": 8327,
+      "populacao": 10517,
+      "votos_republicanos": 948,
+      "share_republicanos": 15.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 66.4,
+      "ranking": 73,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 1586
+        },
+        {
+          "nome": "Vanderlam Marques De Araújo",
+          "partido": "PSC",
+          "votos": 1131
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 739
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "GOIATINS",
+      "latitude": -7.713,
+      "longitude": -47.315,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 28.1,
+      "pct_lula_2022": 71.9,
+      "eleitorado": 8111,
+      "populacao": 12433,
+      "votos_republicanos": 1783,
+      "share_republicanos": 29.3,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.8,
+      "ranking": 13,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 1061
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 1044
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 882
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PARANÃ",
+      "latitude": -12.615,
+      "longitude": -47.877,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 20.3,
+      "pct_lula_2022": 79.7,
+      "eleitorado": 7915,
+      "populacao": 10542,
+      "votos_republicanos": 2215,
+      "share_republicanos": 40.4,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.8,
+      "ranking": 12,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 1392
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 793
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 565
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "NOVA OLINDA",
+      "latitude": -7.0899,
+      "longitude": -48.4266,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 45.8,
+      "pct_lula_2022": 54.2,
+      "eleitorado": 7821,
+      "populacao": 10367,
+      "votos_republicanos": 2008,
+      "share_republicanos": 34.5,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.8,
+      "ranking": 14,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 1778
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 1366
+        },
+        {
+          "nome": "Eli Dias Borges",
+          "partido": "PL",
+          "votos": 408
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SÃO MIGUEL DO TOCANTINS",
+      "latitude": -5.571,
+      "longitude": -47.333,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 35.3,
+      "pct_lula_2022": 64.7,
+      "eleitorado": 7793,
+      "populacao": 13241,
+      "votos_republicanos": 673,
+      "share_republicanos": 10.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 61.4,
+      "ranking": 87,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 2552
+        },
+        {
+          "nome": "Antonia Janeide Gabriel Cantilho Lopes",
+          "partido": "PL",
+          "votos": 1245
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 602
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ALVORADA",
+      "latitude": -12.478,
+      "longitude": -49.126,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 54.9,
+      "pct_lula_2022": 45.1,
+      "eleitorado": 7263,
+      "populacao": 8802,
+      "votos_republicanos": 1250,
+      "share_republicanos": 24.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.7,
+      "ranking": 18,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 1504
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 582
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 460
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ANANÁS",
+      "latitude": -6.3645,
+      "longitude": -48.0743,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 40.0,
+      "pct_lula_2022": 60.0,
+      "eleitorado": 7164,
+      "populacao": 10325,
+      "votos_republicanos": 450,
+      "share_republicanos": 8.4,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 43.7,
+      "ranking": 121,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 1162
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 669
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 535
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PEIXE",
+      "latitude": -12.018,
+      "longitude": -48.54,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 33.8,
+      "pct_lula_2022": 66.2,
+      "eleitorado": 7044,
+      "populacao": 9317,
+      "votos_republicanos": 1910,
+      "share_republicanos": 37.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.7,
+      "ranking": 16,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 856
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 741
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 622
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "WANDERLÂNDIA",
+      "latitude": -6.8524,
+      "longitude": -47.9626,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 39.6,
+      "pct_lula_2022": 60.4,
+      "eleitorado": 6893,
+      "populacao": 10522,
+      "votos_republicanos": 973,
+      "share_republicanos": 19.5,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 68.8,
+      "ranking": 64,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 915
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 913
+        },
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 719
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "NATIVIDADE",
+      "latitude": -11.7114,
+      "longitude": -47.7222,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 38.9,
+      "pct_lula_2022": 61.1,
+      "eleitorado": 6542,
+      "populacao": 8754,
+      "votos_republicanos": 1755,
+      "share_republicanos": 36.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.7,
+      "ranking": 17,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 868
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 775
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 650
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "COLMÉIA",
+      "latitude": -8.73,
+      "longitude": -48.76,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Conservador",
+      "pct_bolsonaro_2022": 61.4,
+      "pct_lula_2022": 38.6,
+      "eleitorado": 6381,
+      "populacao": 8941,
+      "votos_republicanos": 1947,
+      "share_republicanos": 40.7,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.6,
+      "ranking": 23,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 1159
+        },
+        {
+          "nome": "Eli Dias Borges",
+          "partido": "PL",
+          "votos": 928
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 683
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "BURITI DO TOCANTINS",
+      "latitude": -5.316,
+      "longitude": -48.212,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 39.8,
+      "pct_lula_2022": 60.2,
+      "eleitorado": 6333,
+      "populacao": 10307,
+      "votos_republicanos": 424,
+      "share_republicanos": 8.8,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 55.4,
+      "ranking": 104,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 1058
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 797
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 585
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ARAGUAÇU",
+      "latitude": -12.921,
+      "longitude": -49.827,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Conservador",
+      "pct_bolsonaro_2022": 70.4,
+      "pct_lula_2022": 29.6,
+      "eleitorado": 6316,
+      "populacao": 8133,
+      "votos_republicanos": 1383,
+      "share_republicanos": 30.0,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.6,
+      "ranking": 20,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 548
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 458
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 327
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "BABAÇULÂNDIA",
+      "latitude": -7.221,
+      "longitude": -47.765,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 32.0,
+      "pct_lula_2022": 68.0,
+      "eleitorado": 6313,
+      "populacao": 7880,
+      "votos_republicanos": 1323,
+      "share_republicanos": 27.3,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 67.7,
+      "ranking": 69,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 1146
+        },
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 1145
+        },
+        {
+          "nome": "Lazaro Botelho Martins",
+          "partido": "PP",
+          "votos": 460
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "FILADÉLFIA",
+      "latitude": -7.343,
+      "longitude": -47.504,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 37.3,
+      "pct_lula_2022": 62.7,
+      "eleitorado": 6159,
+      "populacao": 7712,
+      "votos_republicanos": 1104,
+      "share_republicanos": 24.2,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 59.7,
+      "ranking": 91,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 1689
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 1038
+        },
+        {
+          "nome": "Lazaro Botelho Martins",
+          "partido": "PP",
+          "votos": 710
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "CAMPOS LINDOS",
+      "latitude": -8.022,
+      "longitude": -46.882,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 36.7,
+      "pct_lula_2022": 63.3,
+      "eleitorado": 6082,
+      "populacao": 8653,
+      "votos_republicanos": 695,
+      "share_republicanos": 14.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 65.2,
+      "ranking": 80,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 2240
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 511
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 279
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ESPERANTINA",
+      "latitude": -5.366,
+      "longitude": -47.858,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 28.1,
+      "pct_lula_2022": 71.9,
+      "eleitorado": 6013,
+      "populacao": 7530,
+      "votos_republicanos": 870,
+      "share_republicanos": 19.8,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 65.7,
+      "ranking": 77,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 785
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 532
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 522
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PIUM",
+      "latitude": -10.437,
+      "longitude": -49.679,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 50.8,
+      "pct_lula_2022": 49.2,
+      "eleitorado": 5821,
+      "populacao": 7128,
+      "votos_republicanos": 1310,
+      "share_republicanos": 30.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.6,
+      "ranking": 21,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 1234
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 761
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 594
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PALMEIRÓPOLIS",
+      "latitude": -13.043,
+      "longitude": -48.397,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 55.0,
+      "pct_lula_2022": 45.0,
+      "eleitorado": 5517,
+      "populacao": 6975,
+      "votos_republicanos": 1078,
+      "share_republicanos": 26.2,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.6,
+      "ranking": 22,
+      "partido_vencedor": "PL",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 986
+        },
+        {
+          "nome": "Eli Dias Borges",
+          "partido": "PL",
+          "votos": 881
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 848
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PRAIA NORTE",
+      "latitude": -5.471,
+      "longitude": -48.095,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 31.4,
+      "pct_lula_2022": 68.6,
+      "eleitorado": 5508,
+      "populacao": 9044,
+      "votos_republicanos": 831,
+      "share_republicanos": 20.7,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.6,
+      "ranking": 19,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 731
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 588
+        },
+        {
+          "nome": "Eli Dias Borges",
+          "partido": "PL",
+          "votos": 538
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "CRISTALÂNDIA",
+      "latitude": -10.602,
+      "longitude": -49.194,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 45.7,
+      "pct_lula_2022": 54.3,
+      "eleitorado": 5358,
+      "populacao": 6371,
+      "votos_republicanos": 708,
+      "share_republicanos": 17.8,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 51.4,
+      "ranking": 112,
+      "partido_vencedor": "MDB",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 1202
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 497
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 477
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "DIVINÓPOLIS DO TOCANTINS",
+      "latitude": -9.93,
+      "longitude": -49.322,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 39.3,
+      "pct_lula_2022": 60.7,
+      "eleitorado": 5350,
+      "populacao": 7024,
+      "votos_republicanos": 711,
+      "share_republicanos": 18.1,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 45.6,
+      "ranking": 118,
+      "partido_vencedor": "MDB",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 1402
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 376
+        },
+        {
+          "nome": "José Roberto Ribeiro Forzani",
+          "partido": "PT",
+          "votos": 302
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PONTE ALTA DO TOCANTINS",
+      "latitude": -10.754,
+      "longitude": -47.529,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 47.8,
+      "pct_lula_2022": 52.2,
+      "eleitorado": 5346,
+      "populacao": 7586,
+      "votos_republicanos": 917,
+      "share_republicanos": 24.1,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.5,
+      "ranking": 24,
+      "partido_vencedor": "PL",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Eli Dias Borges",
+          "partido": "PL",
+          "votos": 845
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 575
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 412
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ITACAJÁ",
+      "latitude": -8.3916,
+      "longitude": -47.7699,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 36.1,
+      "pct_lula_2022": 63.9,
+      "eleitorado": 5317,
+      "populacao": 6819,
+      "votos_republicanos": 1290,
+      "share_republicanos": 31.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.5,
+      "ranking": 25,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 928
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 601
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 475
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ALMAS",
+      "latitude": -11.571,
+      "longitude": -47.172,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 33.0,
+      "pct_lula_2022": 67.0,
+      "eleitorado": 5090,
+      "populacao": 6499,
+      "votos_republicanos": 1381,
+      "share_republicanos": 36.5,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.5,
+      "ranking": 26,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 985
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 613
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 371
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "DOIS IRMÃOS DO TOCANTINS",
+      "latitude": -9.254,
+      "longitude": -49.068,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 34.4,
+      "pct_lula_2022": 65.6,
+      "eleitorado": 4899,
+      "populacao": 6327,
+      "votos_republicanos": 733,
+      "share_republicanos": 20.9,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 50.6,
+      "ranking": 113,
+      "partido_vencedor": "PSC",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 1042
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 589
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 487
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "TOCANTÍNIA",
+      "latitude": -9.556,
+      "longitude": -48.367,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 28.0,
+      "pct_lula_2022": 72.0,
+      "eleitorado": 4866,
+      "populacao": 7459,
+      "votos_republicanos": 923,
+      "share_republicanos": 24.3,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.5,
+      "ranking": 27,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 864
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 781
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 487
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ARAPOEMA",
+      "latitude": -7.687,
+      "longitude": -49.059,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 43.5,
+      "pct_lula_2022": 56.5,
+      "eleitorado": 4686,
+      "populacao": 5550,
+      "votos_republicanos": 582,
+      "share_republicanos": 17.2,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 52.1,
+      "ranking": 110,
+      "partido_vencedor": "MDB",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 915
+        },
+        {
+          "nome": "Lazaro Botelho Martins",
+          "partido": "PP",
+          "votos": 429
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 251
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "MONTE DO CARMO",
+      "latitude": -10.785,
+      "longitude": -48.099,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 37.0,
+      "pct_lula_2022": 63.0,
+      "eleitorado": 4602,
+      "populacao": 5694,
+      "votos_republicanos": 1009,
+      "share_republicanos": 29.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.5,
+      "ranking": 28,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 995
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 768
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 509
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SÃO BENTO DO TOCANTINS",
+      "latitude": -6.032,
+      "longitude": -47.905,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 29.6,
+      "pct_lula_2022": 70.4,
+      "eleitorado": 4506,
+      "populacao": 5654,
+      "votos_republicanos": 475,
+      "share_republicanos": 13.8,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 43.3,
+      "ranking": 123,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 917
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 452
+        },
+        {
+          "nome": "Hugo Weysfield Mendes",
+          "partido": "PSD",
+          "votos": 365
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SILVANÓPOLIS",
+      "latitude": -11.159,
+      "longitude": -48.092,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 40.1,
+      "pct_lula_2022": 59.9,
+      "eleitorado": 4485,
+      "populacao": 5108,
+      "votos_republicanos": 2096,
+      "share_republicanos": 64.0,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.4,
+      "ranking": 33,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 1402
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 592
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 235
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "BARROLÂNDIA",
+      "latitude": -9.857,
+      "longitude": -48.762,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 48.7,
+      "pct_lula_2022": 51.3,
+      "eleitorado": 4461,
+      "populacao": 4846,
+      "votos_republicanos": 576,
+      "share_republicanos": 17.2,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 67.6,
+      "ranking": 70,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 1550
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 460
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 433
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "FIGUEIRÓPOLIS",
+      "latitude": -11.671,
+      "longitude": -49.163,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 51.1,
+      "pct_lula_2022": 48.9,
+      "eleitorado": 4442,
+      "populacao": 5211,
+      "votos_republicanos": 746,
+      "share_republicanos": 22.4,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.4,
+      "ranking": 38,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 903
+        },
+        {
+          "nome": "Filipe Martins Dos Santos",
+          "partido": "PL",
+          "votos": 796
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 657
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ARAGOMINAS",
+      "latitude": -7.166,
+      "longitude": -48.533,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 37.6,
+      "pct_lula_2022": 62.4,
+      "eleitorado": 4435,
+      "populacao": 5290,
+      "votos_republicanos": 662,
+      "share_republicanos": 19.5,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 51.6,
+      "ranking": 111,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 1484
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 501
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 225
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ITAGUATINS",
+      "latitude": -5.776,
+      "longitude": -47.487,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 32.4,
+      "pct_lula_2022": 67.6,
+      "eleitorado": 4415,
+      "populacao": 5172,
+      "votos_republicanos": 566,
+      "share_republicanos": 17.3,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 67.7,
+      "ranking": 68,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 1049
+        },
+        {
+          "nome": "Lazaro Botelho Martins",
+          "partido": "PP",
+          "votos": 345
+        },
+        {
+          "nome": "Gylwander Luiz Peres Machado De Oliveira",
+          "partido": "PSD",
+          "votos": 241
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "GOIANORTE",
+      "latitude": -8.758,
+      "longitude": -48.943,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 47.6,
+      "pct_lula_2022": 52.4,
+      "eleitorado": 4356,
+      "populacao": 4738,
+      "votos_republicanos": 872,
+      "share_republicanos": 24.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.4,
+      "ranking": 37,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 1046
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 724
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 681
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "COUTO MAGALHÃES",
+      "latitude": -8.275,
+      "longitude": -49.233,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 37.5,
+      "pct_lula_2022": 62.5,
+      "eleitorado": 4293,
+      "populacao": 5331,
+      "votos_republicanos": 639,
+      "share_republicanos": 20.0,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 54.0,
+      "ranking": 108,
+      "partido_vencedor": "PT",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 727
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 625
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 494
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ALIANÇA DO TOCANTINS",
+      "latitude": -11.303,
+      "longitude": -48.936,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 46.2,
+      "pct_lula_2022": 53.8,
+      "eleitorado": 4202,
+      "populacao": 5147,
+      "votos_republicanos": 551,
+      "share_republicanos": 17.8,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 68.2,
+      "ranking": 65,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 797
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 454
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 432
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "DARCINÓPOLIS",
+      "latitude": -6.736,
+      "longitude": -47.765,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 36.6,
+      "pct_lula_2022": 63.4,
+      "eleitorado": 4105,
+      "populacao": 5827,
+      "votos_republicanos": 629,
+      "share_republicanos": 20.5,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 44.6,
+      "ranking": 119,
+      "partido_vencedor": "MDB",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 1158
+        },
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 309
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 258
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PEQUIZEIRO",
+      "latitude": -8.592,
+      "longitude": -48.945,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 43.0,
+      "pct_lula_2022": 57.0,
+      "eleitorado": 4102,
+      "populacao": 4921,
+      "votos_republicanos": 702,
+      "share_republicanos": 21.8,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.4,
+      "ranking": 31,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 970
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 563
+        },
+        {
+          "nome": "José Roberto Ribeiro Forzani",
+          "partido": "PT",
+          "votos": 366
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "RIO SONO",
+      "latitude": -9.804,
+      "longitude": -47.467,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 42.4,
+      "pct_lula_2022": 57.6,
+      "eleitorado": 4045,
+      "populacao": 4841,
+      "votos_republicanos": 303,
+      "share_republicanos": 9.3,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 41.3,
+      "ranking": 126,
+      "partido_vencedor": "PT",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 610
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 546
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 439
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "NAZARÉ",
+      "latitude": -6.374,
+      "longitude": -47.642,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 26.9,
+      "pct_lula_2022": 73.1,
+      "eleitorado": 4025,
+      "populacao": 4521,
+      "votos_republicanos": 942,
+      "share_republicanos": 29.5,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.4,
+      "ranking": 29,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 881
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 781
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 615
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SANTA ROSA DO TOCANTINS",
+      "latitude": -11.42,
+      "longitude": -48.124,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 30.1,
+      "pct_lula_2022": 69.9,
+      "eleitorado": 4020,
+      "populacao": 4653,
+      "votos_republicanos": 747,
+      "share_republicanos": 23.8,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.4,
+      "ranking": 36,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 1222
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 351
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 266
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "APARECIDA DO RIO NEGRO",
+      "latitude": -9.956,
+      "longitude": -47.945,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 44.7,
+      "pct_lula_2022": 55.3,
+      "eleitorado": 3905,
+      "populacao": 4856,
+      "votos_republicanos": 488,
+      "share_republicanos": 15.8,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 66.2,
+      "ranking": 75,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 1216
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 315
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 230
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "BREJINHO DE NAZARÉ",
+      "latitude": -11.007,
+      "longitude": -48.569,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 44.2,
+      "pct_lula_2022": 55.8,
+      "eleitorado": 3864,
+      "populacao": 4725,
+      "votos_republicanos": 758,
+      "share_republicanos": 25.3,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 54.1,
+      "ranking": 107,
+      "partido_vencedor": "MDB",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 1106
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 647
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 322
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "NOVO ACORDO",
+      "latitude": -9.966,
+      "longitude": -47.672,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 42.9,
+      "pct_lula_2022": 57.1,
+      "eleitorado": 3781,
+      "populacao": 3969,
+      "votos_republicanos": 833,
+      "share_republicanos": 29.4,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.4,
+      "ranking": 35,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 612
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 402
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 383
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PALMEIRANTE",
+      "latitude": -7.853,
+      "longitude": -47.935,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 33.2,
+      "pct_lula_2022": 66.8,
+      "eleitorado": 3759,
+      "populacao": 4798,
+      "votos_republicanos": 435,
+      "share_republicanos": 15.1,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 65.5,
+      "ranking": 78,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 726
+        },
+        {
+          "nome": "Pedro Souza Catingueiro Junior",
+          "partido": "PL",
+          "votos": 370
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 299
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "CASEARA",
+      "latitude": -9.271,
+      "longitude": -49.944,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 39.4,
+      "pct_lula_2022": 60.6,
+      "eleitorado": 3755,
+      "populacao": 4847,
+      "votos_republicanos": 641,
+      "share_republicanos": 22.8,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.4,
+      "ranking": 30,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 1145
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 542
+        },
+        {
+          "nome": "José Roberto Ribeiro Forzani",
+          "partido": "PT",
+          "votos": 271
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "AGUIARNÓPOLIS",
+      "latitude": -6.544,
+      "longitude": -47.458,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 35.8,
+      "pct_lula_2022": 64.2,
+      "eleitorado": 3749,
+      "populacao": 4497,
+      "votos_republicanos": 446,
+      "share_republicanos": 15.9,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 46.7,
+      "ranking": 117,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 1060
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 272
+        },
+        {
+          "nome": "Elizabete Rocha",
+          "partido": "PSD",
+          "votos": 247
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SÃO VALÉRIO",
+      "latitude": -11.99,
+      "longitude": -48.257,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 27.2,
+      "pct_lula_2022": 72.8,
+      "eleitorado": 3718,
+      "populacao": 4422,
+      "votos_republicanos": 849,
+      "share_republicanos": 31.5,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.4,
+      "ranking": 39,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 473
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 400
+        },
+        {
+          "nome": "Angela Maria Silva",
+          "partido": "UNIÃO",
+          "votos": 371
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SAMPAIO",
+      "latitude": -5.545,
+      "longitude": -47.893,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 30.1,
+      "pct_lula_2022": 69.9,
+      "eleitorado": 3670,
+      "populacao": 4215,
+      "votos_republicanos": 686,
+      "share_republicanos": 26.0,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.4,
+      "ranking": 34,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 618
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 534
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 338
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "COMBINADO",
+      "latitude": -12.779,
+      "longitude": -46.54,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 48.4,
+      "pct_lula_2022": 51.6,
+      "eleitorado": 3666,
+      "populacao": 4756,
+      "votos_republicanos": 468,
+      "share_republicanos": 17.3,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 67.7,
+      "ranking": 67,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 572
+        },
+        {
+          "nome": "Elizabete Rocha",
+          "partido": "PSD",
+          "votos": 413
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 330
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "BARRA DO OURO",
+      "latitude": -8.063,
+      "longitude": -47.031,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 35.7,
+      "pct_lula_2022": 64.3,
+      "eleitorado": 3599,
+      "populacao": 4476,
+      "votos_republicanos": 540,
+      "share_republicanos": 20.0,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.4,
+      "ranking": 32,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 1376
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 312
+        },
+        {
+          "nome": "Lazaro Botelho Martins",
+          "partido": "PP",
+          "votos": 174
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PINDORAMA DO TOCANTINS",
+      "latitude": -11.149,
+      "longitude": -47.579,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 39.7,
+      "pct_lula_2022": 60.3,
+      "eleitorado": 3575,
+      "populacao": 4478,
+      "votos_republicanos": 733,
+      "share_republicanos": 27.4,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.4,
+      "ranking": 40,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 1209
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 607
+        },
+        {
+          "nome": "José Roberto Ribeiro Forzani",
+          "partido": "PT",
+          "votos": 322
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ARAGUANÃ",
+      "latitude": -6.634,
+      "longitude": -48.109,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 49.8,
+      "pct_lula_2022": 50.2,
+      "eleitorado": 3565,
+      "populacao": 4310,
+      "votos_republicanos": 447,
+      "share_republicanos": 16.5,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 66.9,
+      "ranking": 71,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 1198
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 240
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 181
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "CARIRI DO TOCANTINS",
+      "latitude": -11.884,
+      "longitude": -49.261,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 49.6,
+      "pct_lula_2022": 50.4,
+      "eleitorado": 3499,
+      "populacao": 4007,
+      "votos_republicanos": 357,
+      "share_republicanos": 13.7,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 64.0,
+      "ranking": 84,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 1175
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 181
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 160
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "MARIANÓPOLIS DO TOCANTINS",
+      "latitude": -9.964,
+      "longitude": -49.699,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 46.1,
+      "pct_lula_2022": 53.9,
+      "eleitorado": 3445,
+      "populacao": 4615,
+      "votos_republicanos": 906,
+      "share_republicanos": 36.5,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.3,
+      "ranking": 46,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 796
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 664
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 216
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PONTE ALTA DO BOM JESUS",
+      "latitude": -12.086,
+      "longitude": -46.487,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 30.3,
+      "pct_lula_2022": 69.7,
+      "eleitorado": 3399,
+      "populacao": 4220,
+      "votos_republicanos": 1008,
+      "share_republicanos": 40.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.3,
+      "ranking": 45,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 930
+        },
+        {
+          "nome": "Natalia Rodrigues De Azevedo",
+          "partido": "REPUBLICANOS",
+          "votos": 565
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 383
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PAU D ARCO",
+      "latitude": -7.534,
+      "longitude": -49.338,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 47.6,
+      "pct_lula_2022": 52.4,
+      "eleitorado": 3391,
+      "populacao": 0,
+      "votos_republicanos": 339,
+      "share_republicanos": 13.2,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 42.3,
+      "ranking": 125,
+      "partido_vencedor": "MDB",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 785
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 458
+        },
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 361
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "BERNARDO SAYÃO",
+      "latitude": -7.882,
+      "longitude": -48.886,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 53.3,
+      "pct_lula_2022": 46.7,
+      "eleitorado": 3388,
+      "populacao": 4229,
+      "votos_republicanos": 631,
+      "share_republicanos": 24.6,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 57.4,
+      "ranking": 97,
+      "partido_vencedor": "PSC",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 865
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 342
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 157
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SANDOLÂNDIA",
+      "latitude": -12.572,
+      "longitude": -49.568,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 52.0,
+      "pct_lula_2022": 48.0,
+      "eleitorado": 3342,
+      "populacao": 3723,
+      "votos_republicanos": 532,
+      "share_republicanos": 20.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.3,
+      "ranking": 53,
+      "partido_vencedor": "PL",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Eli Dias Borges",
+          "partido": "PL",
+          "votos": 1207
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 418
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 303
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "DUERÉ",
+      "latitude": -11.34,
+      "longitude": -49.266,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 38.9,
+      "pct_lula_2022": 61.1,
+      "eleitorado": 3336,
+      "populacao": 4248,
+      "votos_republicanos": 538,
+      "share_republicanos": 21.8,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 55.3,
+      "ranking": 106,
+      "partido_vencedor": "PT",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Laena Reinaldo Medeiros Brito Lima",
+          "partido": "PT",
+          "votos": 546
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 407
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 365
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "CONCEIÇÃO DO TOCANTINS",
+      "latitude": -12.224,
+      "longitude": -46.994,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 24.2,
+      "pct_lula_2022": 75.8,
+      "eleitorado": 3314,
+      "populacao": 3887,
+      "votos_republicanos": 807,
+      "share_republicanos": 35.1,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.3,
+      "ranking": 51,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 593
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 434
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 297
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "LAJEADO",
+      "latitude": -9.756,
+      "longitude": -48.361,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 48.1,
+      "pct_lula_2022": 51.9,
+      "eleitorado": 3275,
+      "populacao": 3357,
+      "votos_republicanos": 850,
+      "share_republicanos": 36.4,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.3,
+      "ranking": 41,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 653
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 355
+        },
+        {
+          "nome": "Filipe Martins Dos Santos",
+          "partido": "PL",
+          "votos": 146
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ITAPIRATINS",
+      "latitude": -8.381,
+      "longitude": -48.064,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 35.6,
+      "pct_lula_2022": 64.4,
+      "eleitorado": 3244,
+      "populacao": 3577,
+      "votos_republicanos": 352,
+      "share_republicanos": 13.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 64.2,
+      "ranking": 83,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 1752
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 301
+        },
+        {
+          "nome": "José Roberto Ribeiro Forzani",
+          "partido": "PT",
+          "votos": 222
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "BOM JESUS DO TOCANTINS",
+      "latitude": -8.969,
+      "longitude": -48.007,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 44.9,
+      "pct_lula_2022": 55.1,
+      "eleitorado": 3208,
+      "populacao": 4038,
+      "votos_republicanos": 408,
+      "share_republicanos": 16.5,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 66.8,
+      "ranking": 72,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 1059
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 227
+        },
+        {
+          "nome": "José Roberto Ribeiro Forzani",
+          "partido": "PT",
+          "votos": 219
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "FÁTIMA",
+      "latitude": -10.774,
+      "longitude": -48.898,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 52.1,
+      "pct_lula_2022": 47.9,
+      "eleitorado": 3196,
+      "populacao": 3467,
+      "votos_republicanos": 1749,
+      "share_republicanos": 71.7,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.3,
+      "ranking": 50,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 1204
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 299
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 227
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SÃO SEBASTIÃO DO TOCANTINS",
+      "latitude": -5.342,
+      "longitude": -48.025,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 27.6,
+      "pct_lula_2022": 72.4,
+      "eleitorado": 3193,
+      "populacao": 4100,
+      "votos_republicanos": 492,
+      "share_republicanos": 20.1,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 43.5,
+      "ranking": 122,
+      "partido_vencedor": "MDB",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 1496
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 342
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 138
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "MAURILÂNDIA DO TOCANTINS",
+      "latitude": -6.35,
+      "longitude": -47.466,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 24.8,
+      "pct_lula_2022": 75.2,
+      "eleitorado": 3181,
+      "populacao": 3095,
+      "votos_republicanos": 282,
+      "share_republicanos": 11.7,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 42.7,
+      "ranking": 124,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 962
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 236
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 217
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "CARRASCO BONITO",
+      "latitude": -5.786,
+      "longitude": -47.608,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 32.6,
+      "pct_lula_2022": 67.4,
+      "eleitorado": 3062,
+      "populacao": 3318,
+      "votos_republicanos": 255,
+      "share_republicanos": 11.2,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 40.9,
+      "ranking": 128,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 870
+        },
+        {
+          "nome": "Gylwander Luiz Peres Machado De Oliveira",
+          "partido": "PSD",
+          "votos": 299
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 225
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "TABOCÃO",
+      "latitude": -9.045,
+      "longitude": -48.528,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 45.9,
+      "pct_lula_2022": 54.1,
+      "eleitorado": 3061,
+      "populacao": 3455,
+      "votos_republicanos": 281,
+      "share_republicanos": 12.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 62.9,
+      "ranking": 86,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 498
+        },
+        {
+          "nome": "Elizabete Rocha",
+          "partido": "PSD",
+          "votos": 266
+        },
+        {
+          "nome": "José Roberto Ribeiro Forzani",
+          "partido": "PT",
+          "votos": 205
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "AURORA DO TOCANTINS",
+      "latitude": -12.703,
+      "longitude": -46.408,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 34.9,
+      "pct_lula_2022": 65.1,
+      "eleitorado": 3035,
+      "populacao": 3342,
+      "votos_republicanos": 909,
+      "share_republicanos": 42.7,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.3,
+      "ranking": 44,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 588
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 419
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 244
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "LAGOA DO TOCANTINS",
+      "latitude": -10.001,
+      "longitude": -46.879,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 32.8,
+      "pct_lula_2022": 67.2,
+      "eleitorado": 2992,
+      "populacao": 3516,
+      "votos_republicanos": 216,
+      "share_republicanos": 9.6,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 59.9,
+      "ranking": 89,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 1062
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 309
+        },
+        {
+          "nome": "José Roberto Ribeiro Forzani",
+          "partido": "PT",
+          "votos": 169
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "LIZARDA",
+      "latitude": -9.594,
+      "longitude": -46.677,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 24.8,
+      "pct_lula_2022": 75.2,
+      "eleitorado": 2948,
+      "populacao": 2999,
+      "votos_republicanos": 705,
+      "share_republicanos": 32.4,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.3,
+      "ranking": 43,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 1046
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 324
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 203
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SANTA TEREZA DO TOCANTINS",
+      "latitude": -10.445,
+      "longitude": -47.427,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 48.7,
+      "pct_lula_2022": 51.3,
+      "eleitorado": 2862,
+      "populacao": 2781,
+      "votos_republicanos": 646,
+      "share_republicanos": 27.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.3,
+      "ranking": 48,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 1089
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 585
+        },
+        {
+          "nome": "Filipe Martins Dos Santos",
+          "partido": "PL",
+          "votos": 108
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "JAÚ DO TOCANTINS",
+      "latitude": -12.657,
+      "longitude": -48.015,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 45.9,
+      "pct_lula_2022": 54.1,
+      "eleitorado": 2815,
+      "populacao": 3334,
+      "votos_republicanos": 303,
+      "share_republicanos": 14.4,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 64.7,
+      "ranking": 82,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 667
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 304
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 243
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "CHAPADA DA NATIVIDADE",
+      "latitude": -11.616,
+      "longitude": -47.733,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 23.7,
+      "pct_lula_2022": 76.3,
+      "eleitorado": 2766,
+      "populacao": 3117,
+      "votos_republicanos": 1150,
+      "share_republicanos": 56.5,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.3,
+      "ranking": 52,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 892
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 152
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 120
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "NOVA ROSALÂNDIA",
+      "latitude": -10.627,
+      "longitude": -48.936,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 55.2,
+      "pct_lula_2022": 44.8,
+      "eleitorado": 2720,
+      "populacao": 3362,
+      "votos_republicanos": 358,
+      "share_republicanos": 17.3,
+      "gap_conversao": true,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 57.6,
+      "ranking": 96,
+      "partido_vencedor": "PSC",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 819
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 446
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 294
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ANGICO",
+      "latitude": -6.388,
+      "longitude": -47.866,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 41.1,
+      "pct_lula_2022": 58.9,
+      "eleitorado": 2681,
+      "populacao": 2876,
+      "votos_republicanos": 382,
+      "share_republicanos": 19.4,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 52.2,
+      "ranking": 109,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 1010
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 292
+        },
+        {
+          "nome": "Eli Dias Borges",
+          "partido": "PL",
+          "votos": 119
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PRESIDENTE KENNEDY",
+      "latitude": -8.927,
+      "longitude": -49.909,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 45.0,
+      "pct_lula_2022": 55.0,
+      "eleitorado": 2673,
+      "populacao": 3047,
+      "votos_republicanos": 576,
+      "share_republicanos": 27.5,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.3,
+      "ranking": 42,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 760
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 489
+        },
+        {
+          "nome": "Filipe Martins Dos Santos",
+          "partido": "PL",
+          "votos": 371
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "MURICILÂNDIA",
+      "latitude": -7.175,
+      "longitude": -48.61,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 36.7,
+      "pct_lula_2022": 63.3,
+      "eleitorado": 2647,
+      "populacao": 3367,
+      "votos_republicanos": 372,
+      "share_republicanos": 17.7,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 68.0,
+      "ranking": 66,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 950
+        },
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 335
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 255
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "BANDEIRANTES DO TOCANTINS",
+      "latitude": -8.454,
+      "longitude": -50.025,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 52.8,
+      "pct_lula_2022": 47.2,
+      "eleitorado": 2636,
+      "populacao": 3407,
+      "votos_republicanos": 712,
+      "share_republicanos": 34.4,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.3,
+      "ranking": 47,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 619
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 464
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 237
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "TALISMÃ",
+      "latitude": -12.563,
+      "longitude": -49.109,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 47.0,
+      "pct_lula_2022": 53.0,
+      "eleitorado": 2556,
+      "populacao": 2456,
+      "votos_republicanos": 173,
+      "share_republicanos": 9.5,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 59.8,
+      "ranking": 90,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 876
+        },
+        {
+          "nome": "Eli Dias Borges",
+          "partido": "PL",
+          "votos": 187
+        },
+        {
+          "nome": "José Roberto Ribeiro Forzani",
+          "partido": "PT",
+          "votos": 148
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SANTA MARIA DO TOCANTINS",
+      "latitude": -8.816,
+      "longitude": -47.609,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 44.7,
+      "pct_lula_2022": 55.3,
+      "eleitorado": 2510,
+      "populacao": 2680,
+      "votos_republicanos": 575,
+      "share_republicanos": 29.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.3,
+      "ranking": 49,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 882
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 486
+        },
+        {
+          "nome": "Pedro Souza Catingueiro Junior",
+          "partido": "PL",
+          "votos": 104
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "RIO DOS BOIS",
+      "latitude": -9.325,
+      "longitude": -48.875,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 36.8,
+      "pct_lula_2022": 63.2,
+      "eleitorado": 2502,
+      "populacao": 2738,
+      "votos_republicanos": 183,
+      "share_republicanos": 9.6,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 59.9,
+      "ranking": 88,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 574
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 232
+        },
+        {
+          "nome": "Elizabete Rocha",
+          "partido": "PSD",
+          "votos": 222
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "MONTE SANTO DO TOCANTINS",
+      "latitude": -10.007,
+      "longitude": -48.966,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 56.8,
+      "pct_lula_2022": 43.2,
+      "eleitorado": 2374,
+      "populacao": 2396,
+      "votos_republicanos": 94,
+      "share_republicanos": 5.2,
+      "gap_conversao": true,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 55.4,
+      "ranking": 105,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 461
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 402
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 265
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SÃO SALVADOR DO TOCANTINS",
+      "latitude": -12.777,
+      "longitude": -48.221,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 30.2,
+      "pct_lula_2022": 69.8,
+      "eleitorado": 2358,
+      "populacao": 2385,
+      "votos_republicanos": 223,
+      "share_republicanos": 13.6,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 48.0,
+      "ranking": 116,
+      "partido_vencedor": "PT",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 353
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 325
+        },
+        {
+          "nome": "José Roberto Ribeiro Forzani",
+          "partido": "PT",
+          "votos": 315
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ITAPORÃ DO TOCANTINS",
+      "latitude": -8.576,
+      "longitude": -48.664,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 45.5,
+      "pct_lula_2022": 54.5,
+      "eleitorado": 2336,
+      "populacao": 2404,
+      "votos_republicanos": 394,
+      "share_republicanos": 20.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.2,
+      "ranking": 57,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 1165
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 363
+        },
+        {
+          "nome": "Eli Dias Borges",
+          "partido": "PL",
+          "votos": 75
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "CARMOLÂNDIA",
+      "latitude": -7.284,
+      "longitude": -48.42,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 38.7,
+      "pct_lula_2022": 61.3,
+      "eleitorado": 2331,
+      "populacao": 2201,
+      "votos_republicanos": 117,
+      "share_republicanos": 6.6,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 56.8,
+      "ranking": 100,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 633
+        },
+        {
+          "nome": "Angela Maria Silva",
+          "partido": "UNIÃO",
+          "votos": 267
+        },
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 189
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PORTO ALEGRE DO TOCANTINS",
+      "latitude": -12.533,
+      "longitude": -46.939,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 29.6,
+      "pct_lula_2022": 70.4,
+      "eleitorado": 2267,
+      "populacao": 2866,
+      "votos_republicanos": 237,
+      "share_republicanos": 14.8,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 65.0,
+      "ranking": 81,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 801
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 194
+        },
+        {
+          "nome": "José Roberto Ribeiro Forzani",
+          "partido": "PT",
+          "votos": 169
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "CHAPADA DE AREIA",
+      "latitude": -10.125,
+      "longitude": -49.128,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 51.1,
+      "pct_lula_2022": 48.9,
+      "eleitorado": 2195,
+      "populacao": 1501,
+      "votos_republicanos": 251,
+      "share_republicanos": 15.1,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 48.6,
+      "ranking": 114,
+      "partido_vencedor": "MDB",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 475
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 270
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 242
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PIRAQUÊ",
+      "latitude": -6.757,
+      "longitude": -48.293,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 40.1,
+      "pct_lula_2022": 59.9,
+      "eleitorado": 2189,
+      "populacao": 2282,
+      "votos_republicanos": 428,
+      "share_republicanos": 25.9,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 55.7,
+      "ranking": 103,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 753
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 349
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 76
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "NOVO JARDIM",
+      "latitude": -11.974,
+      "longitude": -46.651,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 29.5,
+      "pct_lula_2022": 70.5,
+      "eleitorado": 2127,
+      "populacao": 2230,
+      "votos_republicanos": 610,
+      "share_republicanos": 39.1,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.2,
+      "ranking": 62,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 535
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 448
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 108
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "PUGMIL",
+      "latitude": -10.05,
+      "longitude": -49.159,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 53.1,
+      "pct_lula_2022": 46.9,
+      "eleitorado": 2049,
+      "populacao": 2193,
+      "votos_republicanos": 395,
+      "share_republicanos": 25.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.2,
+      "ranking": 59,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 580
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 375
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 149
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "NOVO ALEGRE",
+      "latitude": -12.912,
+      "longitude": -46.548,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 36.1,
+      "pct_lula_2022": 63.9,
+      "eleitorado": 2040,
+      "populacao": 1846,
+      "votos_republicanos": 797,
+      "share_republicanos": 54.0,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.2,
+      "ranking": 56,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 477
+        },
+        {
+          "nome": "Charles Nunes De Oliveira",
+          "partido": "AVANTE",
+          "votos": 336
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 240
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "JUARINA",
+      "latitude": -8.979,
+      "longitude": -49.621,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 44.5,
+      "pct_lula_2022": 55.5,
+      "eleitorado": 2040,
+      "populacao": 2243,
+      "votos_republicanos": 903,
+      "share_republicanos": 55.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.2,
+      "ranking": 60,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 630
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 267
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 174
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SANTA RITA DO TOCANTINS",
+      "latitude": -10.843,
+      "longitude": -48.893,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 48.9,
+      "pct_lula_2022": 51.1,
+      "eleitorado": 2021,
+      "populacao": 2219,
+      "votos_republicanos": 370,
+      "share_republicanos": 23.6,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 58.2,
+      "ranking": 95,
+      "partido_vencedor": "PSC",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 533
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 176
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 175
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "MATEIROS",
+      "latitude": -10.548,
+      "longitude": -46.422,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 31.8,
+      "pct_lula_2022": 68.2,
+      "eleitorado": 1952,
+      "populacao": 2748,
+      "votos_republicanos": 469,
+      "share_republicanos": 31.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.2,
+      "ranking": 61,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 545
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 254
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 147
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "TAIPAS DO TOCANTINS",
+      "latitude": -11.985,
+      "longitude": -46.938,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 24.3,
+      "pct_lula_2022": 75.7,
+      "eleitorado": 1930,
+      "populacao": 2021,
+      "votos_republicanos": 998,
+      "share_republicanos": 79.4,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 69.8,
+      "ranking": 63,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 862
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 90
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 72
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "TUPIRAMA",
+      "latitude": -8.975,
+      "longitude": -48.193,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 41.1,
+      "pct_lula_2022": 58.9,
+      "eleitorado": 1886,
+      "populacao": 1909,
+      "votos_republicanos": 329,
+      "share_republicanos": 23.0,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.2,
+      "ranking": 58,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 765
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 195
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 119
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "CACHOEIRINHA",
+      "latitude": -6.07,
+      "longitude": -47.925,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 35.1,
+      "pct_lula_2022": 64.9,
+      "eleitorado": 1853,
+      "populacao": 1961,
+      "votos_republicanos": 116,
+      "share_republicanos": 8.3,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 58.5,
+      "ranking": 94,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 506
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 164
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 141
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "TUPIRATINS",
+      "latitude": -8.399,
+      "longitude": -48.13,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 32.2,
+      "pct_lula_2022": 67.8,
+      "eleitorado": 1840,
+      "populacao": 1874,
+      "votos_republicanos": 805,
+      "share_republicanos": 60.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.2,
+      "ranking": 54,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 777
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 299
+        },
+        {
+          "nome": "Eli Dias Borges",
+          "partido": "PL",
+          "votos": 70
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "CENTENÁRIO",
+      "latitude": -8.764,
+      "longitude": -46.935,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 30.9,
+      "pct_lula_2022": 69.1,
+      "eleitorado": 1813,
+      "populacao": 2131,
+      "votos_republicanos": 248,
+      "share_republicanos": 17.3,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 44.6,
+      "ranking": 120,
+      "partido_vencedor": "PT",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 297
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 223
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 188
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "BRASILÂNDIA DO TOCANTINS",
+      "latitude": -8.499,
+      "longitude": -48.491,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 43.2,
+      "pct_lula_2022": 56.8,
+      "eleitorado": 1804,
+      "populacao": 1974,
+      "votos_republicanos": 457,
+      "share_republicanos": 32.3,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 56.2,
+      "ranking": 101,
+      "partido_vencedor": "PSC",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 589
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 328
+        },
+        {
+          "nome": "Gylwander Luiz Peres Machado De Oliveira",
+          "partido": "PSD",
+          "votos": 100
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "LAVANDEIRA",
+      "latitude": -12.798,
+      "longitude": -46.622,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 35.5,
+      "pct_lula_2022": 64.5,
+      "eleitorado": 1764,
+      "populacao": 1626,
+      "votos_republicanos": 428,
+      "share_republicanos": 32.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 65.5,
+      "ranking": 79,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 375
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 221
+        },
+        {
+          "nome": "Roberval Paulo De Castro",
+          "partido": "REPUBLICANOS",
+          "votos": 154
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "IPUEIRAS",
+      "latitude": -10.967,
+      "longitude": -48.413,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 27.1,
+      "pct_lula_2022": 72.9,
+      "eleitorado": 1690,
+      "populacao": 1590,
+      "votos_republicanos": 490,
+      "share_republicanos": 35.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 70.2,
+      "ranking": 55,
+      "partido_vencedor": "REPUBLICANOS",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 339
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 271
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 144
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SUCUPIRA",
+      "latitude": -11.945,
+      "longitude": -48.915,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 48.1,
+      "pct_lula_2022": 51.9,
+      "eleitorado": 1618,
+      "populacao": 1577,
+      "votos_republicanos": 207,
+      "share_republicanos": 15.9,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 66.1,
+      "ranking": 76,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 687
+        },
+        {
+          "nome": "Ricardo Ayres De Carvalho",
+          "partido": "REPUBLICANOS",
+          "votos": 181
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 157
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "CRIXÁS DO TOCANTINS",
+      "latitude": -11.116,
+      "longitude": -48.904,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 47.3,
+      "pct_lula_2022": 52.7,
+      "eleitorado": 1599,
+      "populacao": 1470,
+      "votos_republicanos": 121,
+      "share_republicanos": 9.5,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 59.7,
+      "ranking": 93,
+      "partido_vencedor": "UNIÃO",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 554
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 189
+        },
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 84
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "SÃO FÉLIX DO TOCANTINS",
+      "latitude": -10.155,
+      "longitude": -46.663,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 25.9,
+      "pct_lula_2022": 74.1,
+      "eleitorado": 1593,
+      "populacao": 1783,
+      "votos_republicanos": 80,
+      "share_republicanos": 6.7,
+      "gap_conversao": false,
+      "categoria_geo": "OPORTUNIDADE",
+      "score_potencial": 56.9,
+      "ranking": 99,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 483
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 430
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 58
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "OLIVEIRA DE FÁTIMA",
+      "latitude": -10.706,
+      "longitude": -49.028,
+      "coordenadas_pendentes": false,
+      "status_visita": "prioritario",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 43.4,
+      "pct_lula_2022": 56.6,
+      "eleitorado": 1585,
+      "populacao": 1164,
+      "votos_republicanos": 155,
+      "share_republicanos": 13.6,
+      "gap_conversao": false,
+      "categoria_geo": "ALTA PRIORIDADE",
+      "score_potencial": 63.8,
+      "ranking": 85,
+      "partido_vencedor": "PP",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 597
+        },
+        {
+          "nome": "Antonio Poincare Andrade Filho",
+          "partido": "REPUBLICANOS",
+          "votos": 140
+        },
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 131
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "alta"
+    },
+    {
+      "nome": "ARRAIAS",
+      "latitude": -12.929,
+      "longitude": -46.9369,
+      "coordenadas_pendentes": false,
+      "status_visita": "pendente",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 25.6,
+      "pct_lula_2022": 74.4,
+      "eleitorado": 7824,
+      "populacao": 10287,
+      "votos_republicanos": 742,
+      "share_republicanos": 14.0,
+      "gap_conversao": false,
+      "categoria_geo": "DESENVOLVIMENTO",
+      "score_potencial": 38.0,
+      "ranking": 131,
+      "partido_vencedor": "PT",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Osires Rodrigues Damaso",
+          "partido": "PSC",
+          "votos": 1087
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 866
+        },
+        {
+          "nome": "José Roberto Ribeiro Forzani",
+          "partido": "PT",
+          "votos": 758
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "media"
+    },
+    {
+      "nome": "SÍTIO NOVO DO TOCANTINS",
+      "latitude": -5.601,
+      "longitude": -48.178,
+      "coordenadas_pendentes": false,
+      "status_visita": "pendente",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 31.4,
+      "pct_lula_2022": 68.6,
+      "eleitorado": 7671,
+      "populacao": 10830,
+      "votos_republicanos": 238,
+      "share_republicanos": 4.1,
+      "gap_conversao": false,
+      "categoria_geo": "DESENVOLVIMENTO",
+      "score_potencial": 29.0,
+      "ranking": 137,
+      "partido_vencedor": "MDB",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 2587
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 793
+        },
+        {
+          "nome": "Elizabete Rocha",
+          "partido": "PSD",
+          "votos": 343
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "media"
+    },
+    {
+      "nome": "SANTA FÉ DO ARAGUAIA",
+      "latitude": -6.682,
+      "longitude": -48.981,
+      "coordenadas_pendentes": false,
+      "status_visita": "pendente",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 42.7,
+      "pct_lula_2022": 57.3,
+      "eleitorado": 5150,
+      "populacao": 7216,
+      "votos_republicanos": 171,
+      "share_republicanos": 4.5,
+      "gap_conversao": false,
+      "categoria_geo": "DESENVOLVIMENTO",
+      "score_potencial": 34.3,
+      "ranking": 132,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 1569
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 496
+        },
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 409
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "media"
+    },
+    {
+      "nome": "ARAGUACEMA",
+      "latitude": -8.812,
+      "longitude": -49.556,
+      "coordenadas_pendentes": false,
+      "status_visita": "pendente",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 39.0,
+      "pct_lula_2022": 61.0,
+      "eleitorado": 4769,
+      "populacao": 5927,
+      "votos_republicanos": 371,
+      "share_republicanos": 10.9,
+      "gap_conversao": false,
+      "categoria_geo": "DESENVOLVIMENTO",
+      "score_potencial": 32.3,
+      "ranking": 134,
+      "partido_vencedor": "MDB",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 1545
+        },
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 299
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 253
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "media"
+    },
+    {
+      "nome": "PALMEIRAS DO TOCANTINS",
+      "latitude": -6.638,
+      "longitude": -47.539,
+      "coordenadas_pendentes": false,
+      "status_visita": "pendente",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 37.6,
+      "pct_lula_2022": 62.4,
+      "eleitorado": 4080,
+      "populacao": 4872,
+      "votos_republicanos": 233,
+      "share_republicanos": 7.5,
+      "gap_conversao": false,
+      "categoria_geo": "DESENVOLVIMENTO",
+      "score_potencial": 26.5,
+      "ranking": 139,
+      "partido_vencedor": "MDB",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 1123
+        },
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 507
+        },
+        {
+          "nome": "Elizabete Rocha",
+          "partido": "PSD",
+          "votos": 401
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "media"
+    },
+    {
+      "nome": "RIACHINHO",
+      "latitude": -5.731,
+      "longitude": -48.115,
+      "coordenadas_pendentes": false,
+      "status_visita": "pendente",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 37.6,
+      "pct_lula_2022": 62.4,
+      "eleitorado": 3605,
+      "populacao": 3960,
+      "votos_republicanos": 95,
+      "share_republicanos": 3.4,
+      "gap_conversao": false,
+      "categoria_geo": "DESENVOLVIMENTO",
+      "score_potencial": 29.8,
+      "ranking": 136,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 1228
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 372
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 268
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "media"
+    },
+    {
+      "nome": "RECURSOLÂNDIA",
+      "latitude": -8.816,
+      "longitude": -47.285,
+      "coordenadas_pendentes": false,
+      "status_visita": "pendente",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 27.1,
+      "pct_lula_2022": 72.9,
+      "eleitorado": 2831,
+      "populacao": 3421,
+      "votos_republicanos": 205,
+      "share_republicanos": 9.2,
+      "gap_conversao": false,
+      "categoria_geo": "DESENVOLVIMENTO",
+      "score_potencial": 28.1,
+      "ranking": 138,
+      "partido_vencedor": "PT",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 988
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 715
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 167
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "media"
+    },
+    {
+      "nome": "LUZINÓPOLIS",
+      "latitude": -6.199,
+      "longitude": -47.857,
+      "coordenadas_pendentes": false,
+      "status_visita": "pendente",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 36.3,
+      "pct_lula_2022": 63.7,
+      "eleitorado": 2447,
+      "populacao": 2717,
+      "votos_republicanos": 36,
+      "share_republicanos": 1.8,
+      "gap_conversao": false,
+      "categoria_geo": "DESENVOLVIMENTO",
+      "score_potencial": 31.2,
+      "ranking": 135,
+      "partido_vencedor": "PODE",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Tiago Dimas Braga Pereira",
+          "partido": "PODE",
+          "votos": 917
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 207
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 126
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "media"
+    },
+    {
+      "nome": "ABREULÂNDIA",
+      "latitude": -9.619,
+      "longitude": -49.157,
+      "coordenadas_pendentes": false,
+      "status_visita": "pendente",
+      "data_visita": null,
+      "classificacao_ideologica": "Dividido",
+      "pct_bolsonaro_2022": 42.1,
+      "pct_lula_2022": 57.9,
+      "eleitorado": 2339,
+      "populacao": 2576,
+      "votos_republicanos": 190,
+      "share_republicanos": 10.7,
+      "gap_conversao": false,
+      "categoria_geo": "DESENVOLVIMENTO",
+      "score_potencial": 33.4,
+      "ranking": 133,
+      "partido_vencedor": "PT",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 666
+        },
+        {
+          "nome": "Dulce Ferreira Pagani Miranda",
+          "partido": "MDB",
+          "votos": 317
+        },
+        {
+          "nome": "José Roberto Ribeiro Forzani",
+          "partido": "PT",
+          "votos": 178
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "media"
+    },
+    {
+      "nome": "SANTA TEREZINHA DO TOCANTINS",
+      "latitude": -6.646,
+      "longitude": -47.588,
+      "coordenadas_pendentes": false,
+      "status_visita": "pendente",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 35.4,
+      "pct_lula_2022": 64.6,
+      "eleitorado": 2051,
+      "populacao": 2406,
+      "votos_republicanos": 289,
+      "share_republicanos": 18.0,
+      "gap_conversao": false,
+      "categoria_geo": "DESENVOLVIMENTO",
+      "score_potencial": 39.4,
+      "ranking": 130,
+      "partido_vencedor": "PSD",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Elizabete Rocha",
+          "partido": "PSD",
+          "votos": 449
+        },
+        {
+          "nome": "Eudes Ribeiro Dos Santos",
+          "partido": "PRTB",
+          "votos": 303
+        },
+        {
+          "nome": "José Alexandre Domingues Guimarães",
+          "partido": "REPUBLICANOS",
+          "votos": 252
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "media"
+    },
+    {
+      "nome": "RIO DA CONCEIÇÃO",
+      "latitude": -11.234,
+      "longitude": -46.971,
+      "coordenadas_pendentes": false,
+      "status_visita": "pendente",
+      "data_visita": null,
+      "classificacao_ideologica": "Progressista",
+      "pct_bolsonaro_2022": 32.2,
+      "pct_lula_2022": 67.8,
+      "eleitorado": 2040,
+      "populacao": 1768,
+      "votos_republicanos": 120,
+      "share_republicanos": 8.3,
+      "gap_conversao": false,
+      "categoria_geo": "DESENVOLVIMENTO",
+      "score_potencial": 39.9,
+      "ranking": 129,
+      "partido_vencedor": "PT",
+      "deputados_mais_votados_2022": [
+        {
+          "nome": "Célio Alves De Moura",
+          "partido": "PT",
+          "votos": 452
+        },
+        {
+          "nome": "Carlos Henrique Amorim",
+          "partido": "UNIÃO",
+          "votos": 225
+        },
+        {
+          "nome": "Vicente Alves De Oliveira Junior",
+          "partido": "PP",
+          "votos": 185
+        }
+      ],
+      "liderancas": [
+        {
+          "nome": "",
+          "telefone": "",
+          "cargo_local": "",
+          "observacao": ""
+        }
+      ],
+      "notas_coordenacao": "",
+      "prioridade": "media"
+    }
+  ]
+}

@@ -5,8 +5,9 @@ export const URLS = {
   sentiment:  `${BASE}/social_sentiment.json`,
   geo:        `${BASE}/geo_electoral.json`,
   kpis:       `${BASE}/campaign_kpis.json`,
-  adversarios:`${BASE}/adversarios.json`,
-  tendencia:  `${BASE}/tendencia_voto_2022.json`,
+  adversarios: `${BASE}/adversarios.json`,
+  tendencia:   `${BASE}/tendencia_voto_2022.json`,
+  liderancas:  `${BASE}/liderancas.json`,
 };
 const FETCH_TIMEOUT = 10000;
 export const fetchJ = async u => {
