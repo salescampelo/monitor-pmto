@@ -1167,47 +1167,57 @@ const handleRefresh=useCallback(async()=>{
     {isMobile&&sidebarOpen&&<div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.6)',zIndex:149}} onClick={()=>setSidebarOpen(false)}/>}
 
     {/* ── SIDEBAR ── */}
-    <aside style={{position:'fixed',top:96,left:0,bottom:0,width:isMobile?(sidebarOpen?240:0):isTablet?60:240,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
+    <aside style={{position:'fixed',top:96,left:0,bottom:0,width:isMobile?(sidebarOpen?260:0):isTablet?60:260,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
       {[
-        {id:'tendencia',label:'Tendência 2022',icon:TrendingUp},
-        {id:'adversarios',label:'Inteligência',icon:Target},
-        {id:'kpis',label:'Metas',icon:BarChart3},
-        {id:'geo',label:'Eleitoral',icon:MapPin},
-        {id:'social',label:'Redes Sociais',icon:Users},
-        {id:'imprensa',label:'Imprensa',icon:Newspaper,badge:hm.alerts},
-      ].map(({id,label,icon:Icon,badge})=>{
+        {id:'tendencia',label:'Tendência 2022',icon:TrendingUp,sub:'Bolsonaro × Lula'},
+        {id:'adversarios',label:'Inteligência',icon:Target,sub:'17 adversários'},
+        {id:'kpis',label:'Metas',icon:BarChart3,sub:'Fase 1 · KPIs'},
+        {id:'geo',label:'Eleitoral',icon:MapPin,sub:'139 municípios'},
+        {id:'social',label:'Redes Sociais',icon:Users,sub:'18 perfis IG'},
+        {id:'imprensa',label:'Imprensa',icon:Newspaper,badge:hm.alerts,sub:'32 fontes'},
+      ].map(({id,label,icon:Icon,badge,sub})=>{
         const isAct=activePanel===id;
         const showLabel=!isTablet||isMobile;
+        const showSub=!isMobile&&!isTablet;
         return(
           <button key={id}
             onClick={()=>{setActivePanel(id);if(isMobile)setSidebarOpen(false);}}
             onMouseEnter={e=>{if(!isAct)e.currentTarget.style.background='#F5F3EE';}}
             onMouseLeave={e=>{if(!isAct)e.currentTarget.style.background='transparent';}}
-            style={{display:'flex',alignItems:'center',gap:12,padding:'14px 18px',
-              background:isAct?'#EFEDE8':'transparent',
-              borderLeft:`3px solid ${isAct?'#D4A017':'transparent'}`,
+            style={{display:'flex',alignItems:'center',gap:12,padding:'16px 18px',
+              background:isAct?'rgba(212,160,23,0.08)':'transparent',
+              borderLeft:`4px solid ${isAct?'#D4A017':'transparent'}`,
               borderTop:'none',borderRight:'none',borderBottom:'none',
               outline:'none',cursor:'pointer',
               color:isAct?'#1A2744':'#5A6478',
-              fontSize:13,fontWeight:isAct?700:500,
+              fontSize:14,fontWeight:isAct?700:500,
               fontFamily:'inherit',
               width:'100%',boxSizing:'border-box',
               transition:'background 0.15s ease',
               whiteSpace:'nowrap',overflow:'hidden',textAlign:'left',
             }}>
-            <Icon size={18} style={{flexShrink:0,color:isAct?'#D4A017':'inherit'}}/>
-            {showLabel&&<span>{label}</span>}
+            <Icon size={20} style={{flexShrink:0,color:isAct?'#D4A017':'inherit'}}/>
+            {showLabel&&(
+              <span style={{display:'flex',flexDirection:'column',minWidth:0}}>
+                <span>{label}</span>
+                {showSub&&sub&&<span style={{fontSize:10,color:'#8C93A8',marginTop:2,fontWeight:400}}>{sub}</span>}
+              </span>
+            )}
             {showLabel&&badge>0&&<span style={{marginLeft:'auto',background:'#ef4444',color:'#fff',borderRadius:8,fontSize:9,fontWeight:700,padding:'1px 5px',flexShrink:0,animation:'pulse 2s infinite'}}>{badge}</span>}
           </button>
         );
       })}
-      <div style={{marginTop:'auto',padding:'10px 18px',borderTop:'1px solid rgba(26,39,68,0.08)'}}>
-        <p style={{fontSize:10,color:'rgba(26,39,68,0.3)',margin:0,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{lastUpdate||'Aguardando'}</p>
+      <div style={{marginTop:'auto'}}>
+        <div style={{height:1,background:'rgba(26,39,68,0.06)',margin:'0 18px'}}/>
+        {!isTablet&&!isMobile&&<p style={{fontSize:10,color:'#8C93A8',margin:'6px 18px 2px',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis',fontWeight:500}}>Campanha 2026 · Tocantins</p>}
+        <div style={{padding:'8px 18px',borderTop:'1px solid rgba(26,39,68,0.08)'}}>
+          <p style={{fontSize:10,color:'rgba(26,39,68,0.3)',margin:0,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{lastUpdate||'Aguardando'}</p>
+        </div>
       </div>
     </aside>
 
     {/* ── CONTENT AREA ── */}
-    <main style={{marginLeft:isMobile?0:isTablet?60:240,padding:isMobile?'16px 12px':'24px',flex:1,minWidth:0,transition:'margin-left 0.2s ease',minHeight:'calc(100vh - 96px)'}}>
+    <main style={{marginLeft:isMobile?0:isTablet?60:260,padding:isMobile?'16px 12px':'24px',flex:1,minWidth:0,transition:'margin-left 0.2s ease',minHeight:'calc(100vh - 96px)'}}>
 
       <div key={activePanel} className="panel-fade">
       {activePanel==='tendencia'&&<TendenciaVotoPanel tendenciaData={tendenciaData}/>}
