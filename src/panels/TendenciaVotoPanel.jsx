@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { TrendingUp, ChevronUp, ChevronDown } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-import { Card, Bt } from '../components/ui.jsx';
+import { Card, Bt, useWW } from '../components/ui.jsx';
 
 const TV_CORES = {Conservador:'#1A3A7A',Dividido:'#D4A017',Progressista:'#B91C1C',gap:'#15803D'};
 
@@ -11,6 +11,7 @@ export default function TendenciaVotoPanel({tendenciaData}) {
   const[sortKey,setSortKey]=useState('margem');
   const[sortDir,setSortDir]=useState(-1);
   const[chartView,setChartView]=useState('conservadores');
+  const isMobile=useWW()<768;
   if(!tendenciaData?.municipios?.length)return null;
 
   const{agregado,municipios,top10_conservadores,top10_progressistas,top10_gap_conversao=[]}=tendenciaData;
@@ -40,8 +41,8 @@ export default function TendenciaVotoPanel({tendenciaData}) {
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><TrendingUp size={22} style={{color:'#1A3A7A'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Tendência de Voto 2022</h2>
-          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>2º turno presidencial · {agregado?.total_municipios??139} municípios · Fonte: TSE</p>
+          <h2 style={{fontSize:isMobile?18:22,fontWeight:800,color:'#1A2744',margin:0}}>Tendência de Voto 2022</h2>
+          <p style={{fontSize:isMobile?11:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>2º turno presidencial · {agregado?.total_municipios??139} municípios · Fonte: TSE</p>
         </div>
       </div>
       <div style={{display:'flex',alignItems:'center',gap:16}}>
@@ -66,23 +67,23 @@ export default function TendenciaVotoPanel({tendenciaData}) {
         </div>
       </div>
 
-      <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:12,marginBottom:16}}>
+      <div style={{display:'grid',gridTemplateColumns:isMobile?'1fr':'repeat(3,1fr)',gap:isMobile?8:12,marginBottom:16}}>
         {[
           {label:'Municípios Conservadores',val:agregado.municipios_conservadores,cor:TV_CORES.Conservador,sub:'>60% Bolsonaro'},
           {label:'Municípios Divididos',val:agregado.municipios_divididos,cor:TV_CORES.Dividido,sub:'40–60% cada'},
           {label:'Municípios Progressistas',val:agregado.municipios_progressistas,cor:TV_CORES.Progressista,sub:'>60% Lula'},
         ].map(({label,val,cor,sub})=>(
-          <Card key={label} style={{padding:'14px 16px',borderLeft:`4px solid ${cor}`}}>
+          <Card key={label} style={{padding:isMobile?'10px 12px':'14px 16px',borderLeft:`4px solid ${cor}`}}>
             <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',margin:'0 0 6px',letterSpacing:'0.08em'}}>{label}</p>
-            <p style={{fontSize:32,fontWeight:900,color:cor,margin:0,lineHeight:1}}>{val}</p>
+            <p style={{fontSize:isMobile?24:32,fontWeight:900,color:cor,margin:0,lineHeight:1}}>{val}</p>
             <p style={{fontSize:11,color:'#8c93a8',margin:'4px 0 0'}}>{sub}</p>
           </Card>
         ))}
       </div>
 
       {agregado.municipios_com_gap>0&&(
-        <div style={{background:'#0f2a1a',border:'1px solid #15803D',borderRadius:12,padding:'16px 20px',marginBottom:16}}>
-          <p style={{margin:0,color:'#D4A017',fontWeight:800,fontSize:15}}>
+        <div style={{background:'#0f2a1a',border:'1px solid #15803D',borderRadius:12,padding:isMobile?'12px':'16px 20px',marginBottom:16}}>
+          <p style={{margin:0,color:'#D4A017',fontWeight:800,fontSize:isMobile?13:15}}>
             {agregado.municipios_com_gap} municípios onde o eleitor votou conservador para presidente
             mas <em>não</em> votou Republicanos para deputado federal
           </p>
@@ -113,19 +114,20 @@ export default function TendenciaVotoPanel({tendenciaData}) {
             ))}
           </div>
         </div>
-        <ResponsiveContainer width="100%" height={400}>
-          <BarChart data={chartData} layout="vertical" margin={{left:0,right:56}} barCategoryGap="30%" barGap={3}>
+        <ResponsiveContainer width="100%" height={isMobile?260:400}>
+          <BarChart data={chartData} layout="vertical" margin={{left:0,right:isMobile?30:56}} barCategoryGap="30%" barGap={3}>
             <XAxis type="number" tick={{fontSize:11,fill:'#8c93a8'}} axisLine={false} tickLine={false} domain={[0,100]} tickFormatter={v=>`${v}%`}/>
-            <YAxis type="category" dataKey="nome" width={160} axisLine={false} tickLine={false}
+            <YAxis type="category" dataKey="nome" width={isMobile?90:160} axisLine={false} tickLine={false}
               tick={(props)=>{
                 const{x,y,payload}=props;
                 const name=payload.value;
-                const display=name.length>20?name.substring(0,18)+'\u2026':name;
-                return<text x={x} y={y} dy={4} textAnchor="end" fill="#5a6178" fontSize={11} fontWeight={500}>{display}</text>;
+                const maxLen=isMobile?12:20;
+                const display=name.length>maxLen?name.substring(0,maxLen-2)+'\u2026':name;
+                return<text x={x} y={y} dy={4} textAnchor="end" fill="#5a6178" fontSize={isMobile?9:11} fontWeight={500}>{display}</text>;
               }}/>
             <Tooltip formatter={(v,n)=>[`${v}%`,n==='bols'?'Bolsonaro':'Lula']} contentStyle={{background:'#fff',border:'1px solid #dfe3ed',borderRadius:8,fontSize:13}}/>
-            <Bar dataKey="bols" name="bols" fill={TV_CORES.Conservador} radius={[0,4,4,0]} barSize={13} animationDuration={800} animationEasing="ease-out" label={{position:'right',fill:TV_CORES.Conservador,fontSize:11,fontWeight:700,formatter:v=>`${v}%`}}/>
-            <Bar dataKey="lula" name="lula" fill={TV_CORES.Progressista} radius={[0,4,4,0]} barSize={13} animationDuration={800} animationEasing="ease-out" label={{position:'right',fill:TV_CORES.Progressista,fontSize:11,fontWeight:700,formatter:v=>`${v}%`}}/>
+            <Bar dataKey="bols" name="bols" fill={TV_CORES.Conservador} radius={[0,4,4,0]} barSize={isMobile?10:13} animationDuration={800} animationEasing="ease-out" label={{position:'right',fill:TV_CORES.Conservador,fontSize:isMobile?9:11,fontWeight:700,formatter:v=>`${v}%`}}/>
+            <Bar dataKey="lula" name="lula" fill={TV_CORES.Progressista} radius={[0,4,4,0]} barSize={isMobile?10:13} animationDuration={800} animationEasing="ease-out" label={{position:'right',fill:TV_CORES.Progressista,fontSize:isMobile?9:11,fontWeight:700,formatter:v=>`${v}%`}}/>
           </BarChart>
         </ResponsiveContainer>
       </Card>
@@ -152,7 +154,7 @@ export default function TendenciaVotoPanel({tendenciaData}) {
                   ['#','',28],['Município','',null],
                   ['Bolsonaro','pct_bolsonaro',80],['Lula','pct_lula',60],
                   ['Margem','margem',70],['Classificação','classificacao',110],
-                  ...(hasShareRep?[['Share REP','share_republicanos_dep_federal',75],['Gap?','gap_conversao',50]]:[]),
+                  ...(hasShareRep&&!isMobile?[['Share REP','share_republicanos_dep_federal',75],['Gap?','gap_conversao',50]]:[]),
                 ].map(([label,key,w],i)=>(
                   <th key={i} onClick={key?()=>toggleSort(key):undefined}
                     style={{padding:'6px 8px',textAlign:i<=1?'left':'right',color:'#8c93a8',fontWeight:700,fontSize:10,textTransform:'uppercase',cursor:key?'pointer':'default',userSelect:'none',whiteSpace:'nowrap',...(w?{width:w}:{})}}>
@@ -170,7 +172,7 @@ export default function TendenciaVotoPanel({tendenciaData}) {
                   <td style={{padding:'5px 8px',textAlign:'right',fontWeight:700,color:TV_CORES.Progressista,fontVariantNumeric:'tabular-nums'}}>{m.pct_lula}%</td>
                   <td style={{padding:'5px 8px',textAlign:'right',fontWeight:700,color:m.margem>0?TV_CORES.Conservador:TV_CORES.Progressista,fontVariantNumeric:'tabular-nums'}}>{m.margem>0?'+':''}{m.margem}pp</td>
                   <td style={{padding:'5px 8px',textAlign:'right'}}><BadgeCl c={m.classificacao}/></td>
-                  {hasShareRep&&<>
+                  {hasShareRep&&!isMobile&&<>
                     <td style={{padding:'5px 8px',textAlign:'right',color:'#8C93A8',fontVariantNumeric:'tabular-nums'}}>{m.share_republicanos_dep_federal>0?`${m.share_republicanos_dep_federal}%`:'—'}</td>
                     <td style={{padding:'5px 8px',textAlign:'center'}}>{m.gap_conversao?<span style={{padding:'2px 6px',borderRadius:4,background:'#15803D18',color:TV_CORES.gap,fontSize:9,fontWeight:700}}>SIM</span>:null}</td>
                   </>}

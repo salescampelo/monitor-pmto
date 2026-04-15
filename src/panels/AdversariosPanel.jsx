@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Target, ChevronUp, ChevronDown } from 'lucide-react';
-import { Card } from '../components/ui.jsx';
+import { Card, useWW } from '../components/ui.jsx';
 import { fmtDt, fmtK } from '../lib/analytics.js';
 
 const THREAT_C = {
@@ -15,6 +15,7 @@ const DEST_C = {Senado:'#1a3a7a',Governo:'#22c55e',Desistiu:'#64748b'};
 
 export default function AdversariosPanel({adversariosData}) {
   const[open,setOpen]=useState(true);
+  const isMobile=useWW()<768;
   const d=adversariosData;
 
   const ranking=useMemo(()=>{
@@ -73,7 +74,7 @@ export default function AdversariosPanel({adversariosData}) {
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#1A3A7A'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Inteligência Competitiva — Câmara Federal TO 2026</h2>
+          <h2 style={{fontSize:isMobile?18:22,fontWeight:800,color:'#1A2744',margin:0}}>Inteligência Competitiva — Câmara Federal TO 2026</h2>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>8 vagas · 13+ candidatos · Levantamento {d?.data_atualizacao?fmtDt(d.data_atualizacao):'—'}</p>
         </div>
       </div>
@@ -88,7 +89,7 @@ export default function AdversariosPanel({adversariosData}) {
     </div>
     {open&&(
     <div>
-      <div style={{display:'grid',gridTemplateColumns:'minmax(0,2fr) minmax(0,1fr)',gap:16,marginBottom:14}}>
+      <div style={{display:'grid',gridTemplateColumns:isMobile?'1fr':'minmax(0,2fr) minmax(0,1fr)',gap:isMobile?10:16,marginBottom:14}}>
         <Card>
           <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',letterSpacing:'0.1em',marginBottom:10}}>
             Ranking Instagram — Candidatos à Câmara
@@ -107,7 +108,7 @@ export default function AdversariosPanel({adversariosData}) {
             return(
             <div key={i} style={{display:'flex',alignItems:'center',gap:8,marginBottom:r.isMe?0:7,background:r.isMe?'rgba(26,58,122,0.05)':'transparent',borderRadius:r.isMe?6:0,padding:r.isMe?'3px 4px':'0 4px',border:r.isMe?'1px solid rgba(26,58,122,0.15)':'none'}}>
               <span style={{width:20,fontSize:11,fontWeight:700,color:r.isMe?'#d4a017':'#8c93a8',textAlign:'right',flexShrink:0}}>{r.ranking}</span>
-              <div style={{width:145,flexShrink:0}}>
+              <div style={{width:isMobile?undefined:145,flexShrink:0,minWidth:0,flex:isMobile?'1 1 0':undefined}}>
                 <strong style={{fontSize:12,color:r.isMe?'#1a3a7a':'#1a1d2e',display:'block',lineHeight:1.2}}>{r.nome}</strong>
                 <span style={{fontSize:10,color:'#8c93a8'}}>{r.partido}{r.nivel_ameaca==='interno'?'*':''}</span>
               </div>
@@ -163,7 +164,7 @@ export default function AdversariosPanel({adversariosData}) {
       </div>
       </>}
 
-      <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,1fr)',gap:14,marginBottom:14}}>
+      <div style={{display:'grid',gridTemplateColumns:isMobile?'1fr':'minmax(0,1fr) minmax(0,1fr)',gap:isMobile?10:14,marginBottom:14}}>
         <Card style={{borderLeft:'3px solid #8b5cf6'}}>
           <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10,letterSpacing:'0.1em'}}>Concorrência interna — Republicanos</p>
           {internals.map((n,i)=>(

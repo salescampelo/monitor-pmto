@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Users, ChevronUp, ChevronDown } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
-import { Card, Bt } from '../components/ui.jsx';
+import { Card, Bt, useWW } from '../components/ui.jsx';
 import { fmtK } from '../lib/analytics.js';
 
 const DCOL = {positivo:'#22c55e',negativo:'#ef4444',neutro:'#64748b'};
@@ -36,6 +36,7 @@ function calcDelta(entries, username) {
 
 export default function SocialPanel({socialData,sentimentData}) {
   const[open,setOpen]=useState(true);
+  const isMobile=useWW()<768;
 
   const profiles=useMemo(()=>{
     if(!socialData||!Array.isArray(socialData))return[];
@@ -75,7 +76,7 @@ export default function SocialPanel({socialData,sentimentData}) {
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Users size={22} style={{color:'#1A3A7A'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Monitor de redes sociais</h2>
+          <h2 style={{fontSize:isMobile?18:22,fontWeight:800,color:'#1A2744',margin:0}}>Monitor de redes sociais</h2>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>{profiles.length} perfis · Instagram · {sentimentData?.data_coleta||profiles[0]?.data_coleta||''}</p>
         </div>
       </div>
@@ -97,7 +98,7 @@ export default function SocialPanel({socialData,sentimentData}) {
       </div>
     </Card>}
 
-    <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,2.5fr)',gap:12,marginBottom:14}}>
+    <div style={{display:'grid',gridTemplateColumns:isMobile?'1fr':'minmax(0,1fr) minmax(0,2.5fr)',gap:12,marginBottom:14}}>
       <Card>
         <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Sentimento dos comentários</p>
         {donut.length>0?(
@@ -125,12 +126,12 @@ export default function SocialPanel({socialData,sentimentData}) {
       <Card>
         <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Ranking completo — seguidores e engajamento</p>
         <div style={{maxHeight:360,overflowY:'auto'}}>
-          <div style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 72px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid var(--surface-border)'}}>
+          <div style={{display:'grid',gridTemplateColumns:isMobile?'28px 1fr 90px':'28px 1fr 90px 90px 72px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid var(--surface-border)'}}>
             <span className="table-header">#</span>
             <span className="table-header">PERFIL</span>
-            <span className="table-header" style={{textAlign:'right'}}>SEGUIDORES</span>
-            <span className="table-header" style={{textAlign:'right'}}>ENGAJAMENTO</span>
-            <span className="table-header" style={{textAlign:'center'}}>TEND. (7d)</span>
+            {!isMobile&&<span className="table-header" style={{textAlign:'right'}}>SEGUIDORES</span>}
+            <span className="table-header" style={{textAlign:'right'}}>ENGAJ.</span>
+            {!isMobile&&<span className="table-header" style={{textAlign:'center'}}>TEND. (7d)</span>}
           </div>
           {rank.map(p=>{
             const isCand=p.username==='marciobarbosa_cel';
@@ -138,12 +139,12 @@ export default function SocialPanel({socialData,sentimentData}) {
             const trendColor=direction==='up'?'#15803D':direction==='down'?'#B91C1C':'#8C93A8';
             const trendIcon=direction==='up'?'↑':direction==='down'?'↓':'→';
             return(
-            <div key={p.username} className="table-row" style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 72px',gap:4,padding:'6px 4px',borderBottom:'1px solid var(--surface-border)',background:isCand?'rgba(212,160,23,0.08)':'transparent',borderRadius:isCand?6:0}}>
+            <div key={p.username} className="table-row" style={{display:'grid',gridTemplateColumns:isMobile?'28px 1fr 90px':'28px 1fr 90px 90px 72px',gap:4,padding:'6px 4px',borderBottom:'1px solid var(--surface-border)',background:isCand?'rgba(212,160,23,0.08)':'transparent',borderRadius:isCand?6:0}}>
               <span className="table-cell" style={{fontWeight:700,color:'#8C93A8',fontFamily:'var(--font-mono)'}}>#{p.rank}</span>
               <span className="table-cell" style={{color:isCand?'#D4A017':'#1A2744',fontWeight:isCand?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
-              <span className="table-cell" style={{fontWeight:600,color:'#5A6478',textAlign:'right',fontFamily:'var(--font-mono)'}}>{p.seguidores.toLocaleString('pt-BR')}</span>
+              {!isMobile&&<span className="table-cell" style={{fontWeight:600,color:'#5A6478',textAlign:'right',fontFamily:'var(--font-mono)'}}>{p.seguidores.toLocaleString('pt-BR')}</span>}
               <span className="table-cell" style={{fontWeight:700,color:p.taxa_engajamento_pct>=3?'#22c55e':p.taxa_engajamento_pct>=1.5?'#f59e0b':'#ef4444',textAlign:'right',fontFamily:'var(--font-mono)'}}>{p.taxa_engajamento_pct}%</span>
-              <span className="table-cell" style={{fontWeight:700,color:trendColor,textAlign:'center',fontFamily:'var(--font-mono)'}}>{trendIcon} {label}</span>
+              {!isMobile&&<span className="table-cell" style={{fontWeight:700,color:trendColor,textAlign:'center',fontFamily:'var(--font-mono)'}}>{trendIcon} {label}</span>}
             </div>);
           })}
         </div>
@@ -170,10 +171,10 @@ export default function SocialPanel({socialData,sentimentData}) {
           <span style={{fontSize:9,color:'#1A3A7A'}}>■ candidato</span>
         </div>
       </div>
-      <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={engChart} layout="vertical" margin={{left:0,right:50}}>
+      <ResponsiveContainer width="100%" height={isMobile?220:300}>
+        <BarChart data={engChart} layout="vertical" margin={{left:0,right:isMobile?36:50}}>
           <XAxis type="number" tick={{fontSize:12,fill:'#8c93a8'}} axisLine={false} tickLine={false} domain={[0,'auto']}/>
-          <YAxis type="category" dataKey="name" tick={{fontSize:13,fill:'#5a6178',fontWeight:500}} width={150} axisLine={false} tickLine={false}/>
+          <YAxis type="category" dataKey="name" tick={{fontSize:isMobile?10:13,fill:'#5a6178',fontWeight:500}} width={isMobile?110:150} axisLine={false} tickLine={false}/>
           <Tooltip contentStyle={{background:'#FFFFFF',border:'1px solid rgba(26,39,68,0.12)',borderRadius:8,fontSize:14,color:'#1A2744'}} formatter={v=>[`${v}%`,'Engajamento']} cursor={{fill:'rgba(139,92,246,0.05)'}}/>
           <Bar dataKey="eng" radius={[0,6,6,0]} barSize={20} animationDuration={800} animationEasing="ease-out" label={{position:'right',fill:'#8C93A8',fontSize:11,fontWeight:600,formatter:v=>`${v}%`}}>
             {engChart.map((d,i)=><Cell key={i} fill={d.fill} fillOpacity={0.85}/>)}
@@ -203,7 +204,7 @@ export default function SocialPanel({socialData,sentimentData}) {
                 const isCand=p.username==='marciobarbosa_cel';
                 return(
                 <div key={p.username} style={{display:'flex',alignItems:'center',gap:8,marginBottom:6}}>
-                  <span style={{width:130,fontSize:11,color:isCand?'#1a3a7a':'#5a6178',fontWeight:isCand?700:400,flexShrink:0,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
+                  <span style={{width:isMobile?90:130,fontSize:11,color:isCand?'#1a3a7a':'#5a6178',fontWeight:isCand?700:400,flexShrink:0,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
                   <div style={{flex:1,background:'#eef0f6',borderRadius:3,height:14,overflow:'hidden'}}>
                     <div style={{width:`${w}%`,height:'100%',background:SNAP_COLORS[i%5],borderRadius:3,display:'flex',alignItems:'center',paddingLeft:6,fontSize:10,fontWeight:700,color:'#fff',whiteSpace:'nowrap'}}>{fmtK(p.seguidores)}</div>
                   </div>
