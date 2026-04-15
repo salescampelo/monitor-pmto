@@ -441,7 +441,7 @@ const TendenciaVotoPanel=({tendenciaData})=>{
         <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><TrendingUp size={22} style={{color:'#1a3a7a'}}/></div>
         <div>
           <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Tendência de Voto 2022</h2>
-          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>2º turno presidencial · {agregado.total_municipios} municípios · Fonte: TSE</p>
+          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>2º turno presidencial · {agregado?.total_municipios ?? 139} municípios · Fonte: TSE</p>
         </div>
       </div>
       <div style={{display:'flex',alignItems:'center',gap:16}}>
