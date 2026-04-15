@@ -412,7 +412,7 @@ const TendenciaVotoPanel=({tendenciaData})=>{
   const[chartView,setChartView]=useState('conservadores');
   if(!tendenciaData?.municipios?.length)return null;
 
-  const{agregado,municipios,top10_conservadores,top10_progressistas}=tendenciaData;
+  const{agregado,municipios,top10_conservadores,top10_progressistas,top10_gap_conversao=[]}=tendenciaData;
   const hasShareRep=municipios.some(m=>m.share_republicanos_dep_federal>0);
   const pctB=agregado.pct_bolsonaro_estado,pctL=agregado.pct_lula_estado;
 
@@ -492,6 +492,11 @@ const TendenciaVotoPanel=({tendenciaData})=>{
           <p style={{margin:'6px 0 0',color:'rgba(255,255,255,0.65)',fontSize:12}}>
             Potencial estimado de <strong style={{color:'#4ade80'}}>{agregado.potencial_votos_gap.toLocaleString('pt-BR')} votos</strong> a conquistar convertendo 5% do eleitorado conservador nessas regiões.
           </p>
+          {top10_gap_conversao.length>0&&(
+            <p style={{margin:'8px 0 0',color:'#8C93A8',fontSize:11}}>
+              Municípios: {top10_gap_conversao.map(m=>m.nome.replace(/\w\S*/g,t=>t.charAt(0)+t.slice(1).toLowerCase())).join(', ')}
+            </p>
+          )}
         </div>
       )}
 
