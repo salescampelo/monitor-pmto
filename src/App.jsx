@@ -1051,6 +1051,13 @@ const App=({onLogout, userEmail})=>{
   const[refreshing,setRefreshing]=useState(false);
   const[activePanel,setActivePanel]=useState('tendencia');
   const[sidebarOpen,setSidebarOpen]=useState(false);
+  const[avatarOpen,setAvatarOpen]=useState(false);
+  const[showPwModal,setShowPwModal]=useState(false);
+  const[pwNew,setPwNew]=useState('');
+  const[pwConfirm,setPwConfirm]=useState('');
+  const[pwError,setPwError]=useState('');
+  const[pwSuccess,setPwSuccess]=useState(false);
+  const[pwLoading,setPwLoading]=useState(false);
 
   const screenW=useWW();
   const isMobile=screenW<768;
@@ -1071,6 +1078,14 @@ const handleRefresh=useCallback(async()=>{
     setLastUpdate(new Date().toLocaleString('pt-BR')+' (manual)');
     setRefreshing(false);
   },[]);
+
+  const handlePwChange=useCallback(async()=>{
+    if(pwNew.length<6||pwNew!==pwConfirm)return;
+    setPwLoading(true);setPwError('');
+    const{error}=await supabase.auth.updateUser({password:pwNew});
+    if(error){setPwError(error.message);setPwLoading(false);}
+    else{setPwSuccess(true);setPwLoading(false);setTimeout(()=>{setShowPwModal(false);setPwNew('');setPwConfirm('');setPwSuccess(false);},2000);}
+  },[pwNew,pwConfirm]);
 
 
   useEffect(()=>{
@@ -1128,7 +1143,16 @@ const handleRefresh=useCallback(async()=>{
         <button onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:5,padding:'5px 10px',borderRadius:16,background:'transparent',border:'1px solid rgba(255,255,255,0.1)',color:'#8C93A8',fontSize:11,fontWeight:700,cursor:refreshing?'wait':'pointer',opacity:refreshing?0.6:1,transition:'all 0.18s',whiteSpace:'nowrap'}}>
           <RefreshCw size={11} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{!isMobile&&(refreshing?'...':'Atualizar')}
         </button>
-        {onLogout&&<button onClick={onLogout} title={userEmail} style={{width:32,height:32,borderRadius:'50%',background:'#0D1B2A',border:'1px solid rgba(255,255,255,0.12)',display:'flex',alignItems:'center',justifyContent:'center',cursor:'pointer',color:'#D4A017',fontSize:11,fontWeight:800,flexShrink:0,outline:'none'}}>CB</button>}
+        {onLogout&&<div style={{position:'relative',flexShrink:0}}>
+          <button onClick={()=>setAvatarOpen(o=>!o)} title={userEmail} style={{width:32,height:32,borderRadius:'50%',background:'#0D1B2A',border:'1px solid rgba(255,255,255,0.12)',display:'flex',alignItems:'center',justifyContent:'center',cursor:'pointer',color:'#D4A017',fontSize:11,fontWeight:800,outline:'none'}}>CB</button>
+          {avatarOpen&&<>
+            <div style={{position:'fixed',inset:0,zIndex:299}} onClick={()=>setAvatarOpen(false)}/>
+            <div style={{position:'absolute',top:'calc(100% + 6px)',right:0,zIndex:300,background:'#FFFFFF',border:'1px solid rgba(26,39,68,0.08)',borderRadius:8,boxShadow:'0 4px 12px rgba(0,0,0,0.1)',minWidth:160,overflow:'hidden'}}>
+              <button onClick={()=>{setAvatarOpen(false);setShowPwModal(true);}} onMouseEnter={e=>e.currentTarget.style.background='#F5F3EE'} onMouseLeave={e=>e.currentTarget.style.background='none'} style={{display:'block',width:'100%',padding:'10px 16px',fontSize:13,color:'#1A2744',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>Alterar senha</button>
+              <button onClick={()=>{setAvatarOpen(false);onLogout();}} onMouseEnter={e=>e.currentTarget.style.background='#F5F3EE'} onMouseLeave={e=>e.currentTarget.style.background='none'} style={{display:'block',width:'100%',padding:'10px 16px',fontSize:13,color:'#B91C1C',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>Sair</button>
+            </div>
+          </>}
+        </div>}
       </div>
     </div>
     {/* Linha 2: 4 cards de métricas (desktop only) */}
@@ -1296,6 +1320,44 @@ const handleRefresh=useCallback(async()=>{
 
     </main>
   </div>
+
+  {/* ── MODAL ALTERAR SENHA ── */}
+  {showPwModal&&<div style={{position:'fixed',inset:0,zIndex:500,background:'rgba(0,0,0,0.5)',display:'flex',alignItems:'center',justifyContent:'center',padding:20}}>
+    <div style={{background:'#FFFFFF',borderRadius:16,padding:32,maxWidth:400,width:'100%',boxShadow:'0 8px 32px rgba(0,0,0,0.2)'}}>
+      <h2 style={{fontSize:18,fontWeight:700,color:'#1A2744',margin:'0 0 20px'}}>Alterar senha</h2>
+      <div style={{display:'flex',flexDirection:'column',gap:12}}>
+        <input
+          type="password" placeholder="Nova senha" minLength={6}
+          value={pwNew} onChange={e=>{setPwNew(e.target.value);setPwError('');}}
+          style={{border:`1px solid ${pwNew&&pwConfirm&&pwNew!==pwConfirm?'#B91C1C':'rgba(26,39,68,0.15)'}`,borderRadius:8,padding:12,fontSize:14,outline:'none',fontFamily:'inherit',transition:'border-color 0.15s',width:'100%',boxSizing:'border-box'}}
+          onFocus={e=>e.target.style.borderColor='#D4A017'}
+          onBlur={e=>e.target.style.borderColor=pwNew&&pwConfirm&&pwNew!==pwConfirm?'#B91C1C':'rgba(26,39,68,0.15)'}
+        />
+        <input
+          type="password" placeholder="Confirmar senha"
+          value={pwConfirm} onChange={e=>{setPwConfirm(e.target.value);setPwError('');}}
+          style={{border:`1px solid ${pwNew&&pwConfirm&&pwNew!==pwConfirm?'#B91C1C':'rgba(26,39,68,0.15)'}`,borderRadius:8,padding:12,fontSize:14,outline:'none',fontFamily:'inherit',transition:'border-color 0.15s',width:'100%',boxSizing:'border-box'}}
+          onFocus={e=>e.target.style.borderColor='#D4A017'}
+          onBlur={e=>e.target.style.borderColor=pwNew&&pwConfirm&&pwNew!==pwConfirm?'#B91C1C':'rgba(26,39,68,0.15)'}
+        />
+        {pwNew&&pwConfirm&&pwNew!==pwConfirm&&<p style={{fontSize:12,color:'#B91C1C',margin:0}}>As senhas não coincidem.</p>}
+        {pwError&&<p style={{fontSize:12,color:'#B91C1C',margin:0}}>{pwError}</p>}
+        {pwSuccess&&<p style={{fontSize:12,color:'#15803D',margin:0,fontWeight:600}}>Senha alterada com sucesso!</p>}
+        <div style={{display:'flex',gap:8,marginTop:4}}>
+          <button
+            onClick={handlePwChange}
+            disabled={pwLoading||pwNew.length<6||pwNew!==pwConfirm}
+            style={{flex:1,background:'#1A2744',color:'#FFFFFF',border:'none',borderRadius:8,padding:'12px 24px',fontSize:14,fontWeight:700,cursor:pwLoading||pwNew.length<6||pwNew!==pwConfirm?'not-allowed':'pointer',opacity:pwLoading||pwNew.length<6||pwNew!==pwConfirm?0.5:1,fontFamily:'inherit'}}
+          >{pwLoading?'Salvando...':'Salvar'}</button>
+          <button
+            onClick={()=>{setShowPwModal(false);setPwNew('');setPwConfirm('');setPwError('');setPwSuccess(false);}}
+            style={{padding:'12px 16px',background:'transparent',border:'none',color:'#5A6478',fontSize:14,cursor:'pointer',fontFamily:'inherit'}}
+          >Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>}
+
   </div>);
 };
 
