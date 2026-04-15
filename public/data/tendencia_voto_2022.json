@@ -3,10 +3,11 @@
     "eleicao": "Presidencial 2022 — 2º Turno",
     "estado": "Tocantins",
     "total_municipios": 139,
-    "gerado_em": "2026-04-14T16:36:39",
+    "gerado_em": "2026-04-15T08:47:41",
     "fonte": "TSE — Repositório de Dados Eleitorais"
   },
   "agregado": {
+    "total_municipios": 139,
     "total_votos_bolsonaro": 411654,
     "total_votos_lula": 434593,
     "pct_bolsonaro_estado": 48.6,
