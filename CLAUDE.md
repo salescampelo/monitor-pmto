@@ -22,13 +22,15 @@ Todos os dados são lidos de arquivos JSON em `/public/data/`, que são sincroni
 | `geo_electoral.json` | Mapeamento dos 139 municípios do TO |
 | `campaign_kpis.json` | KPIs por fase eleitoral |
 | `adversarios.json` | Ranking de adversários com score de ameaça |
+| `tendencia_voto_2022.json` | 139 municípios TO, 2º turno presidencial 2022 (Bolsonaro vs Lula) |
 
 ## Painéis implementados
-1. **Monitor de Imprensa** — menções classificadas por tipo, sentimento e impacto
-2. **Radar de Redes Sociais** (SocialPanel) — ranking de seguidores e engajamento
-3. **Inteligência Competitiva** (AdversariosPanel) — ranking de ameaça dos adversários
-4. **Mapa Eleitoral** — municípios TO por prioridade e oportunidade
-5. **KPIs da Campanha** — progresso por fase (Fase 1: Jan–Jun 2026)
+1. **Tendência de Voto 2022** (TendenciaVotoPanel) — dados presidenciais TSE 2022 cruzados com share Republicanos
+2. **Inteligência Competitiva** (AdversariosPanel) — ranking de ameaça de 17 adversários
+3. **Metas da Campanha** (KPIsPanel) — KPIs auto-atualizados via atualizar_kpis.py
+4. **Inteligência Eleitoral** (GeoPanel) — 139 municípios com índice de oportunidade
+5. **Redes Sociais** (SocialPanel) — ranking Instagram + série temporal
+6. **Monitor de Imprensa** (NewsPanel) — menções classificadas por tipo/sentimento/relevância
 
 ## Convenções
 - Componentes grandes ficam em `App.jsx` (inline); componentes reutilizáveis em `src/components/`
@@ -38,3 +40,12 @@ Todos os dados são lidos de arquivos JSON em `/public/data/`, que são sincroni
 
 ## Repositório scraper
 O backend/scraper está em `salescampelo/scraper-pmto`. Não editar dados JSON diretamente neste repo — eles são sobrescritos pelo sync automático.
+
+### Scripts principais (scraper-pmto)
+- `atualizar_kpis.py` — auto-atualiza seguidores_ig, engajamento_ig, mencoes_imprensa em campaign_kpis.json
+- `contra_narrativa.py` — gera sugestões de resposta a menções negativas via Claude API (standalone + integração leve)
+- `tse_presidencial.py` — processa dados TSE presidenciais 2022 por município; gera tendencia_voto_2022.json
+- `sync_github.py` — copia JSONs do scraper-pmto para public/data/ neste repo e faz push
+- `pmto_monitor.py` — coleta menções na imprensa (NÃO alterar sem sessão dedicada)
+- `instagram_monitor.py` — coleta métricas Instagram (NÃO alterar sem sessão dedicada)
+- `briefing_diario.py` — gera briefing HTML/PDF diário (NÃO alterar sem sessão dedicada)
