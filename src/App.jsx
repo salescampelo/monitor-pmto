@@ -1114,56 +1114,60 @@ const handleRefresh=useCallback(async()=>{
   <div style={{minHeight:'100vh',background:'#F8F7F4',color:'#1A2744',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif"}}>
   <style>{CSS}</style>
 
-  {/* ── FIXED HEADER 56px ── */}
-  <header style={{position:'fixed',top:0,left:0,right:0,height:56,zIndex:200,background:'#1A2744',borderBottom:'1px solid rgba(255,255,255,0.08)',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 16px',gap:12,boxSizing:'border-box'}}>
-    <div style={{display:'flex',alignItems:'center',gap:10,flexShrink:0}}>
-      {isMobile&&<button onClick={()=>setSidebarOpen(o=>!o)} style={{background:'none',border:'none',cursor:'pointer',padding:6,display:'flex',alignItems:'center',color:'#8C93A8'}}><Menu size={20}/></button>}
-      <div style={{background:'#1a3a7a',borderRadius:8,padding:'5px 6px',display:'flex'}}><ShieldAlert size={16} style={{color:'#D4A017'}}/></div>
-      <span style={{fontSize:isMobile?12:14,fontWeight:900,color:'#ffffff',letterSpacing:'-0.02em',whiteSpace:'nowrap'}}>MONITOR ELEITORAL</span>
-      {!isMobile&&<span style={{padding:'2px 8px',borderRadius:4,fontSize:10,fontWeight:700,background:'rgba(212,160,23,0.15)',color:'#D4A017',border:'1px solid rgba(212,160,23,0.3)',whiteSpace:'nowrap'}}>Campanha 2026</span>}
+  {/* ── FIXED HEADER 96px ── */}
+  <header style={{position:'fixed',top:0,left:0,right:0,height:96,zIndex:200,background:'#1A2744',borderBottom:'1px solid rgba(255,255,255,0.08)',display:'flex',flexDirection:'column',justifyContent:'center',padding:'8px 16px',boxSizing:'border-box',gap:0}}>
+    {/* Linha 1: logo + badge | refresh + avatar */}
+    <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:12}}>
+      <div style={{display:'flex',alignItems:'center',gap:10,flexShrink:0}}>
+        {isMobile&&<button onClick={()=>setSidebarOpen(o=>!o)} style={{background:'none',border:'none',cursor:'pointer',padding:6,display:'flex',alignItems:'center',color:'#8C93A8'}}><Menu size={20}/></button>}
+        <div style={{background:'#1a3a7a',borderRadius:8,padding:'5px 6px',display:'flex'}}><ShieldAlert size={16} style={{color:'#D4A017'}}/></div>
+        <span style={{fontSize:isMobile?12:14,fontWeight:900,color:'#ffffff',letterSpacing:'-0.02em',whiteSpace:'nowrap'}}>MONITOR ELEITORAL</span>
+        {!isMobile&&<span style={{padding:'2px 8px',borderRadius:4,fontSize:10,fontWeight:700,background:'rgba(212,160,23,0.15)',color:'#D4A017',border:'1px solid rgba(212,160,23,0.3)',whiteSpace:'nowrap'}}>Campanha 2026</span>}
+      </div>
+      <div style={{display:'flex',alignItems:'center',gap:8,flexShrink:0}}>
+        <button onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:5,padding:'5px 10px',borderRadius:16,background:'transparent',border:'1px solid rgba(255,255,255,0.1)',color:'#8C93A8',fontSize:11,fontWeight:700,cursor:refreshing?'wait':'pointer',opacity:refreshing?0.6:1,transition:'all 0.18s',whiteSpace:'nowrap'}}>
+          <RefreshCw size={11} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{!isMobile&&(refreshing?'...':'Atualizar')}
+        </button>
+        {onLogout&&<button onClick={onLogout} title={userEmail} style={{width:32,height:32,borderRadius:'50%',background:'#0D1B2A',border:'1px solid rgba(255,255,255,0.12)',display:'flex',alignItems:'center',justifyContent:'center',cursor:'pointer',color:'#D4A017',fontSize:11,fontWeight:800,flexShrink:0,outline:'none'}}>CB</button>}
+      </div>
     </div>
+    {/* Linha 2: 4 cards de métricas (desktop only) */}
     {!isMobile&&(
-    <div style={{display:'flex',alignItems:'center',gap:20,flexShrink:0}}>
-      <div style={{textAlign:'center',minWidth:110}}>
-        <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.08em',color:'rgba(255,255,255,0.45)',margin:'0 0 2px'}}>Engajamento IG</p>
+    <div style={{display:'flex',justifyContent:'center',alignItems:'center',gap:32,marginTop:8}}>
+      <div style={{textAlign:'center',minWidth:140}}>
+        <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.5)',margin:'0 0 2px'}}>Engajamento IG</p>
         <div style={{display:'flex',alignItems:'baseline',gap:4,justifyContent:'center'}}>
-          <span style={{fontSize:22,fontWeight:700,color:'#fff',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.engCand!=null?`${hm.engCand}%`:'—'}</span>
-          {hm.engDelta!==null&&<span style={{fontSize:13,fontWeight:700,color:hm.engDelta>0?'#22c55e':hm.engDelta<0?'#ef4444':'rgba(255,255,255,0.35)'}}>{hm.engDelta>0?'▲':hm.engDelta<0?'▼':'—'}</span>}
+          <span style={{fontSize:28,fontWeight:800,color:'#fff',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.engCand!=null?`${hm.engCand}%`:'—'}</span>
+          {hm.engDelta!==null&&<span style={{fontSize:16,fontWeight:700,color:hm.engDelta>0?'#22c55e':hm.engDelta<0?'#ef4444':'rgba(255,255,255,0.35)'}}>{hm.engDelta>0?'▲':hm.engDelta<0?'▼':'—'}</span>}
         </div>
       </div>
-      <div style={{width:1,height:32,background:'rgba(255,255,255,0.1)'}}/>
-      <div style={{textAlign:'center',minWidth:110}}>
-        <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.08em',color:'rgba(255,255,255,0.45)',margin:'0 0 2px'}}>Sentimento IG</p>
-        <span style={{fontSize:22,fontWeight:700,color:hm.igSentPct==null?'rgba(255,255,255,0.35)':hm.igSentPct>=50?'#22c55e':hm.igSentPct>=30?'#D4A017':'#ef4444',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.igSentPct!=null?`${hm.igSentPct}%`:'—'}</span>
+      <div style={{width:1,height:40,background:'rgba(255,255,255,0.12)'}}/>
+      <div style={{textAlign:'center',minWidth:140}}>
+        <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.5)',margin:'0 0 2px'}}>Sentimento IG</p>
+        <span style={{fontSize:28,fontWeight:800,color:hm.igSentPct==null?'rgba(255,255,255,0.35)':hm.igSentPct>=50?'#22c55e':hm.igSentPct>=30?'#D4A017':'#ef4444',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.igSentPct!=null?`${hm.igSentPct}%`:'—'}</span>
       </div>
-      <div style={{width:1,height:32,background:'rgba(255,255,255,0.1)'}}/>
-      <div style={{textAlign:'center',minWidth:80}}>
-        <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.08em',color:'rgba(255,255,255,0.45)',margin:'0 0 2px'}}>Alertas</p>
-        <span style={{fontSize:22,fontWeight:700,color:hm.alerts>0?'#ef4444':'#22c55e',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.alerts}</span>
+      <div style={{width:1,height:40,background:'rgba(255,255,255,0.12)'}}/>
+      <div style={{textAlign:'center',minWidth:140}}>
+        <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.5)',margin:'0 0 2px'}}>Alertas</p>
+        <span style={{fontSize:28,fontWeight:800,color:hm.alerts>0?'#ef4444':'#22c55e',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.alerts}</span>
       </div>
-      <div style={{width:1,height:32,background:'rgba(255,255,255,0.1)'}}/>
-      <div style={{textAlign:'center',minWidth:90}}>
-        <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.08em',color:'rgba(255,255,255,0.45)',margin:'0 0 2px'}}>Adversários</p>
-        <span style={{fontSize:22,fontWeight:700,color:'rgba(255,255,255,0.65)',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.totalAdv||'—'}</span>
+      <div style={{width:1,height:40,background:'rgba(255,255,255,0.12)'}}/>
+      <div style={{textAlign:'center',minWidth:140}}>
+        <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.5)',margin:'0 0 2px'}}>Adversários</p>
+        <span style={{fontSize:28,fontWeight:800,color:'rgba(255,255,255,0.65)',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.totalAdv||'—'}</span>
       </div>
     </div>
     )}
-    <div style={{display:'flex',alignItems:'center',gap:8,flexShrink:0}}>
-      <button onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:5,padding:'5px 10px',borderRadius:16,background:'transparent',border:'1px solid rgba(255,255,255,0.1)',color:'#8C93A8',fontSize:11,fontWeight:700,cursor:refreshing?'wait':'pointer',opacity:refreshing?0.6:1,transition:'all 0.18s',whiteSpace:'nowrap'}}>
-        <RefreshCw size={11} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{!isMobile&&(refreshing?'...':'Atualizar')}
-      </button>
-      {onLogout&&<button onClick={onLogout} title={userEmail} style={{width:32,height:32,borderRadius:'50%',background:'#0D1B2A',border:'1px solid rgba(255,255,255,0.12)',display:'flex',alignItems:'center',justifyContent:'center',cursor:'pointer',color:'#D4A017',fontSize:11,fontWeight:800,flexShrink:0,outline:'none'}}>CB</button>}
-    </div>
   </header>
 
   {/* ── LAYOUT BODY ── */}
-  <div style={{display:'flex',paddingTop:56}}>
+  <div style={{display:'flex',paddingTop:96}}>
 
     {/* Mobile sidebar overlay */}
     {isMobile&&sidebarOpen&&<div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.6)',zIndex:149}} onClick={()=>setSidebarOpen(false)}/>}
 
     {/* ── SIDEBAR ── */}
-    <aside style={{position:'fixed',top:56,left:0,bottom:0,width:isMobile?(sidebarOpen?240:0):isTablet?60:240,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
+    <aside style={{position:'fixed',top:96,left:0,bottom:0,width:isMobile?(sidebarOpen?240:0):isTablet?60:240,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
       {[
         {id:'tendencia',label:'Tendência 2022',icon:TrendingUp},
         {id:'adversarios',label:'Inteligência',icon:Target},
@@ -1203,7 +1207,7 @@ const handleRefresh=useCallback(async()=>{
     </aside>
 
     {/* ── CONTENT AREA ── */}
-    <main style={{marginLeft:isMobile?0:isTablet?60:240,padding:isMobile?'16px 12px':'24px',flex:1,minWidth:0,transition:'margin-left 0.2s ease',minHeight:'calc(100vh - 56px)'}}>
+    <main style={{marginLeft:isMobile?0:isTablet?60:240,padding:isMobile?'16px 12px':'24px',flex:1,minWidth:0,transition:'margin-left 0.2s ease',minHeight:'calc(100vh - 96px)'}}>
 
       <div key={activePanel} className="panel-fade">
       {activePanel==='tendencia'&&<TendenciaVotoPanel tendenciaData={tendenciaData}/>}
