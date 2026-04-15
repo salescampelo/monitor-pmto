@@ -1134,7 +1134,7 @@ const handleRefresh=useCallback(async()=>{
       <div style={{width:1,height:28,background:'rgba(255,255,255,0.08)'}}/>
       <div style={{textAlign:'center'}}>
         <p style={{fontSize:9,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.12em',color:'rgba(255,255,255,0.3)',margin:'0 0 1px'}}>Sentimento IG</p>
-        <span style={{fontSize:17,fontWeight:900,color:hm.igSentPct==null?'rgba(255,255,255,0.4)':hm.igSentPct>=50?'#22c55e':hm.igSentPct>=30?'#f59e0b':'#ef4444',lineHeight:1}}>{hm.igSentPct!=null?`${hm.igSentPct}%`:'—'}</span>
+        <span style={{fontSize:17,fontWeight:900,color:hm.igSentPct==null?'rgba(255,255,255,0.4)':hm.igSentPct>=50?'#22c55e':hm.igSentPct>=30?'#D4A017':'#ef4444',lineHeight:1}}>{hm.igSentPct!=null?`${hm.igSentPct}%`:'—'}</span>
       </div>
       <div style={{width:1,height:28,background:'rgba(255,255,255,0.08)'}}/>
       <div style={{textAlign:'center'}}>
