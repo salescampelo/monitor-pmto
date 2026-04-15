@@ -1,7 +1,16 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import { useWW } from '../components/ui.jsx';
+
+// Fix para ícones padrão do Leaflet com bundlers (Vite/Webpack)
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+  iconUrl:       'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  shadowUrl:     'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+});
 
 /* ── Constantes ── */
 const CENTER_TO = [-10.25, -48.25];
@@ -167,8 +176,8 @@ export default function MapaCampoPanel({ liderancasData }) {
     );
   }
 
-  const alturaMapaDesktop = 'calc(100vh - 160px - 100px)';
-  const alturaMapaMobile  = 'calc(100vh - 48px - 100px)';
+  const alturaMapaDesktop = '600px';
+  const alturaMapaMobile  = '420px';
 
   const FiltrosSidebar = () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16, padding: isMobile ? '12px 0' : '0 16px 0 0' }}>
@@ -219,7 +228,7 @@ export default function MapaCampoPanel({ liderancasData }) {
   );
 
   return (
-    <div style={{ background: '#FFFFFF', border: '1px solid rgba(26,39,68,0.08)', borderRadius: 16, overflow: 'hidden', boxShadow: '0 1px 3px rgba(0,0,0,0.07)' }}>
+    <div style={{ background: '#FFFFFF', border: '1px solid rgba(26,39,68,0.08)', borderRadius: 16, boxShadow: '0 1px 3px rgba(0,0,0,0.07)' }}>
       {/* Header */}
       <div style={{ padding: '18px 24px', borderBottom: '1px solid rgba(26,39,68,0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
