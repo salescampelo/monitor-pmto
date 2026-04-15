@@ -11,7 +11,7 @@ import { supabase } from './lib/supabase.js';
 import LoginScreen from './components/LoginScreen.jsx';
 
 const useWW=()=>{const[w,setW]=useState(typeof window!=='undefined'?window.innerWidth:1024);useEffect(()=>{const h=()=>setW(window.innerWidth);window.addEventListener('resize',h);return()=>window.removeEventListener('resize',h);},[]);return w;};
-const CSS=`html{scroll-padding-top:72px;scroll-behavior:smooth}body{margin:0}*{box-sizing:border-box}@keyframes spin{to{transform:rotate(360deg)}}@keyframes blob-float{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(22px,-16px) scale(1.04)}70%{transform:translate(-14px,10px) scale(0.97)}}.hov-card{transition:transform 0.22s ease,box-shadow 0.22s ease}.hov-card:hover{transform:translateY(-4px)!important;box-shadow:0 20px 56px rgba(26,58,122,0.13)!important}.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}.reveal.visible{opacity:1;transform:none}@media(max-width:720px){.nav-items{display:none!important}}`;
+const CSS=`:root{--surface:#1E3150;--surface-hover:#243B5C;--surface-border:rgba(255,255,255,0.06);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--shadow-sm:0 1px 3px rgba(0,0,0,0.3);--shadow-md:0 4px 12px rgba(0,0,0,0.4);--shadow-lg:0 8px 24px rgba(0,0,0,0.5);--spacing-xs:8px;--spacing-sm:12px;--spacing-md:16px;--spacing-lg:24px;--spacing-xl:32px}html{scroll-padding-top:72px;scroll-behavior:smooth}body{margin:0}*{box-sizing:border-box}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}.hov-card{transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease}.hov-card:hover{transform:translateY(-2px)!important;box-shadow:var(--shadow-lg)!important;border-color:rgba(212,160,23,0.25)!important}`;
 const BASE = '/data';
 const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json`, geo: `${BASE}/geo_electoral.json`, kpis: `${BASE}/campaign_kpis.json`, adversarios: `${BASE}/adversarios.json`, tendencia: `${BASE}/tendencia_voto_2022.json` };
 const fetchJ = async u => { try { const r = await fetch(u+'?t='+Date.now()); return r.ok ? r.json() : null; } catch { return null; } };
@@ -40,7 +40,7 @@ const classify = a => {
 };
 
 /* ── HELPERS ── */
-const CLUSTERS=[{id:'all',label:'Todas',icon:Layers,color:'#8c93a8'},{id:'Eleitoral',label:'Eleitoral',icon:Bookmark,color:'#1a3a7a'},{id:'Comando',label:'Comando',icon:User,color:'#1a3a7a'},{id:'Letalidade',label:'Letalidade',icon:AlertTriangle,color:'#b91c1c'},{id:'Operações',label:'Operações',icon:Target,color:'#1d4ed8'},{id:'Gestão',label:'Gestão',icon:Building,color:'#d4a017'},{id:'Imprensa',label:'Imprensa',icon:Radio,color:'#be185d'},{id:'Geral',label:'Geral',icon:Newspaper,color:'#8c93a8'}];
+const CLUSTERS=[{id:'all',label:'Todas',icon:Layers,color:'#8c93a8'},{id:'Eleitoral',label:'Eleitoral',icon:Bookmark,color:'#6fa3ef'},{id:'Comando',label:'Comando',icon:User,color:'#6fa3ef'},{id:'Letalidade',label:'Letalidade',icon:AlertTriangle,color:'#b91c1c'},{id:'Operações',label:'Operações',icon:Target,color:'#1d4ed8'},{id:'Gestão',label:'Gestão',icon:Building,color:'#d4a017'},{id:'Imprensa',label:'Imprensa',icon:Radio,color:'#be185d'},{id:'Geral',label:'Geral',icon:Newspaper,color:'#8c93a8'}];
 const sC=s=>{if(s<=0.2)return{t:'#7F1D1D',b:'rgba(127,29,29,0.1)'};if(s<=0.4)return{t:'#B91C1C',b:'rgba(185,28,28,0.1)'};if(s<=0.6)return{t:'#8C93A8',b:'rgba(140,147,168,0.1)'};return{t:'#15803D',b:'rgba(21,128,61,0.1)'};};
 const iC=i=>({Alto:'#ef4444',Médio:'#f59e0b',Baixo:'#22c55e'}[i]||'#f59e0b');
 const fmt=d=>{if(!d)return'—';const x=new Date(d+'T12:00:00');return x.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});};
@@ -70,31 +70,31 @@ const calcHeaderMetrics=(articles,adversariosRaw,socialData,sentimentData)=>{
 };
 
 /* ── COMPONENTS ── */
-const Card=({children,style,noHover})=><div className={noHover?'':'hov-card'} style={{background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:14,padding:'18px 22px',...style}}>{children}</div>;
-const Met=({icon:I,label,value,sub,accent})=><Card style={{flex:1,minWidth:140}}><div style={{display:'flex',alignItems:'center',gap:5,marginBottom:10}}><I size={13} style={{color:accent}}/><span style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.09em',color:'#8c93a8'}}>{label}</span></div><p style={{fontSize:30,fontWeight:900,color:accent,margin:0,lineHeight:1,letterSpacing:'-0.02em'}}>{value}</p>{sub&&<p style={{fontSize:12,color:'#8c93a8',marginTop:6,fontWeight:500}}>{sub}</p>}</Card>;
-const Bd=({children,color,bg})=><span style={{padding:'3px 8px',borderRadius:6,fontSize:10,fontWeight:700,background:bg||`${color}12`,color}}>{children}</span>;
-const Bt=({active,color,onClick,children})=><button onClick={onClick} style={{display:'flex',alignItems:'center',gap:4,padding:'6px 14px',borderRadius:20,fontSize:12,fontWeight:700,border:active?`1.5px solid ${color}`:'1.5px solid #dfe3ed',background:active?`${color}10`:'#ffffff',color:active?color:'#8c93a8',cursor:'pointer',transition:'all 0.15s ease'}}>{children}</button>;
+const Card=({children,style,noHover})=><div className={noHover?'':'hov-card'} style={{background:'var(--surface)',border:'1px solid var(--surface-border)',borderRadius:'var(--radius-md)',padding:'var(--spacing-lg)',boxShadow:'var(--shadow-sm)',...style}}>{children}</div>;
+const Met=({icon:I,label,value,sub,accent})=><Card style={{flex:1,minWidth:140}}><div style={{display:'flex',alignItems:'center',gap:5,marginBottom:10}}><I size={13} style={{color:accent}}/><span style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.09em',color:'#8C93A8'}}>{label}</span></div><p style={{fontSize:30,fontWeight:900,color:accent,margin:0,lineHeight:1,letterSpacing:'-0.02em'}}>{value}</p>{sub&&<p style={{fontSize:12,color:'#8C93A8',marginTop:6,fontWeight:500}}>{sub}</p>}</Card>;
+const Bd=({children,color,bg})=><span style={{padding:'3px 8px',borderRadius:6,fontSize:10,fontWeight:700,background:bg||`${color}22`,color}}>{children}</span>;
+const Bt=({active,color,onClick,children})=><button onClick={onClick} style={{display:'flex',alignItems:'center',gap:4,padding:'6px 14px',borderRadius:20,fontSize:12,fontWeight:700,border:active?`1.5px solid ${color}`:'1.5px solid rgba(255,255,255,0.12)',background:active?`${color}1a`:'rgba(255,255,255,0.04)',color:active?color:'#8C93A8',cursor:'pointer',transition:'all 0.15s ease',fontFamily:'inherit'}}>{children}</button>;
 
 /* ── NEWS CARD ── */
 const NC=({item,expanded,onToggle})=>{const sc=sC(item.score);const cl=CLUSTERS.find(c=>c.id===item.cluster);return(
-<div className="hov-card" style={{background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:14,borderLeft:`3px solid ${cl?.color||'#64748b'}`,padding:'18px 22px'}}>
+<div className="hov-card" style={{background:'var(--surface)',border:'1px solid var(--surface-border)',borderRadius:'var(--radius-md)',borderLeft:`3px solid ${cl?.color||'#64748b'}`,padding:'18px 22px',boxShadow:'var(--shadow-sm)'}}>
 <div style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:6,marginBottom:8}}>
 <div style={{display:'flex',alignItems:'center',gap:6,flexWrap:'wrap'}}>
 <Bd color={item.mentionType==='direta'?'#ef4444':'#94a3b8'}>{item.mentionType==='direta'?'● DIRETA':item.mentionType==='eleitoral'?'◆ ELEITORAL':'○ INSTITUCIONAL'}</Bd>
 <Bd color={item.scope==='BR'?'#818cf8':'#4ade80'}>{item.scope==='BR'?'NACIONAL':'TOCANTINS'}</Bd>
-{item.relevance>=0.8&&<Bd color="#b91c1c">REL {item.relevance}</Bd>}
-{item.relevance>=0.5&&item.relevance<0.8&&<Bd color="#1a3a7a">REL {item.relevance}</Bd>}
-<span style={{fontSize:13,color:'#8c93a8'}}>{item.source} · {fmt(item.date)}</span>
+{item.relevance>=0.8&&<Bd color="#ef4444">REL {item.relevance}</Bd>}
+{item.relevance>=0.5&&item.relevance<0.8&&<Bd color="#D4A017">REL {item.relevance}</Bd>}
+<span style={{fontSize:13,color:'#8C93A8'}}>{item.source} · {fmt(item.date)}</span>
 </div>
 <div style={{display:'flex',gap:4}}><Bd color={sc.t}>{item.sentiment}</Bd><Bd color={iC(item.impact)}>{item.impact}</Bd></div>
 </div>
-<h4 style={{fontSize:17,fontWeight:700,color:'#1a1d2e',margin:'0 0 8px',lineHeight:1.45,letterSpacing:'-0.01em'}}>{item.title}</h4>
-{item.keywords.length>0&&<div style={{display:'flex',gap:4,flexWrap:'wrap',marginBottom:10}}>{item.keywords.slice(0,6).map(k=><span key={k} style={{fontSize:10,fontFamily:'monospace',color:'#8c93a8'}}>#{k}</span>)}</div>}
-<div style={{borderTop:'1px solid #eef0f6',paddingTop:8,display:'flex',justifyContent:'space-between'}}>
-<button onClick={onToggle} style={{background:'none',border:'none',color:'#1a3a7a',fontSize:11,fontWeight:700,cursor:'pointer',display:'flex',alignItems:'center',gap:4}}><BrainCircuit size={12}/>{expanded?'Ocultar':'Análise'}{expanded?<ChevronUp size={12}/>:<ChevronDown size={12}/>}</button>
-<a href={item.url} target="_blank" rel="noopener noreferrer" style={{color:'#8c93a8',fontSize:11,textDecoration:'none',fontWeight:600,display:'flex',alignItems:'center',gap:3}}>Fonte <ArrowUpRight size={11}/></a>
+<h4 style={{fontSize:17,fontWeight:700,color:'rgba(255,255,255,0.95)',margin:'0 0 8px',lineHeight:1.45,letterSpacing:'-0.01em'}}>{item.title}</h4>
+{item.keywords.length>0&&<div style={{display:'flex',gap:4,flexWrap:'wrap',marginBottom:10}}>{item.keywords.slice(0,6).map(k=><span key={k} style={{fontSize:10,fontFamily:'monospace',color:'#8C93A8'}}>#{k}</span>)}</div>}
+<div style={{borderTop:'1px solid var(--surface-border)',paddingTop:8,display:'flex',justifyContent:'space-between'}}>
+<button onClick={onToggle} style={{background:'none',border:'none',color:'#D4A017',fontSize:11,fontWeight:700,cursor:'pointer',display:'flex',alignItems:'center',gap:4,fontFamily:'inherit'}}><BrainCircuit size={12}/>{expanded?'Ocultar':'Análise'}{expanded?<ChevronUp size={12}/>:<ChevronDown size={12}/>}</button>
+<a href={item.url} target="_blank" rel="noopener noreferrer" style={{color:'#8C93A8',fontSize:11,textDecoration:'none',fontWeight:600,display:'flex',alignItems:'center',gap:3}}>Fonte <ArrowUpRight size={11}/></a>
 </div>
-{expanded&&<div style={{marginTop:10,padding:12,background:'rgba(26,58,122,0.04)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:10}}><p style={{fontSize:14,color:'#4a6cb8',lineHeight:1.6,margin:0}}>{item.analysisNote}</p></div>}
+{expanded&&<div style={{marginTop:10,padding:12,background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.08)',borderRadius:'var(--radius-sm)'}}><p style={{fontSize:14,color:'rgba(255,255,255,0.7)',lineHeight:1.6,margin:0}}>{item.analysisNote}</p></div>}
 </div>);};
 
 /* ═══════════════════════════════════════════════
@@ -165,14 +165,14 @@ const SocialPanel=({socialData,sentimentData})=>{
   <Card style={{marginTop:32}}>
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
-        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Users size={22} style={{color:'#1a3a7a'}}/></div>
+        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Users size={22} style={{color:'#6fa3ef'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Monitor de redes sociais</h2>
+          <h2 style={{fontSize:22,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>Monitor de redes sociais</h2>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>{profiles.length} perfis · Instagram · {sentimentData?.data_coleta||profiles[0]?.data_coleta||''}</p>
         </div>
       </div>
       <div style={{display:'flex',alignItems:'center',gap:16}}>
-        {cand&&<div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#1a3a7a',margin:0}}>#{candRank}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>no ranking</p></div>}
+        {cand&&<div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#6fa3ef',margin:0}}>#{candRank}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>no ranking</p></div>}
         {cand&&<div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#d4a017',margin:0}}>{cand.taxa_engajamento_pct}%</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>engajamento</p></div>}
         {open?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
       </div>
@@ -181,10 +181,10 @@ const SocialPanel=({socialData,sentimentData})=>{
     <div>
 
     {cand&&<Card style={{marginBottom:14,borderLeft:'3px solid #8b5cf6'}}>
-      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10,letterSpacing:'0.1em'}}>Cel. Barbosa · @{cand.username}</p>
+      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10,letterSpacing:'0.1em'}}>Cel. Barbosa · @{cand.username}</p>
       <div style={{display:'flex',gap:28,flexWrap:'wrap'}}>
-        <div><p style={{fontSize:26,fontWeight:800,color:'#1a1d2e',margin:0}}>{cand.seguidores.toLocaleString('pt-BR')}</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>seguidores</p></div>
-        <div><p style={{fontSize:26,fontWeight:800,color:'#1a3a7a',margin:0}}>{cand.taxa_engajamento_pct}%</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>engajamento</p></div>
+        <div><p style={{fontSize:26,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>{cand.seguidores.toLocaleString('pt-BR')}</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>seguidores</p></div>
+        <div><p style={{fontSize:26,fontWeight:800,color:'#6fa3ef',margin:0}}>{cand.taxa_engajamento_pct}%</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>engajamento</p></div>
         <div><p style={{fontSize:26,fontWeight:800,color:'#d4a017',margin:0}}>{cand.media_likes_recentes}</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>likes/post</p></div>
         <div><p style={{fontSize:26,fontWeight:800,color:'#22c55e',margin:0}}>#{candRank}</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>no ranking</p></div>
       </div>
@@ -193,14 +193,14 @@ const SocialPanel=({socialData,sentimentData})=>{
     <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,2.5fr)',gap:12,marginBottom:14}}>
       {/* Donut sentimento */}
       <Card>
-        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Sentimento dos comentários</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Sentimento dos comentários</p>
         {donut.length>0?(
           <>
           <ResponsiveContainer width="100%" height={260}>
             <PieChart><Pie data={donut} cx="50%" cy="50%" innerRadius={70} outerRadius={110} dataKey="value" stroke="none" label={({cx,cy,midAngle,innerRadius,outerRadius,pct})=>{const R=Math.PI/180,r=innerRadius+(outerRadius-innerRadius)*0.5,x=cx+r*Math.cos(-midAngle*R),y=cy+r*Math.sin(-midAngle*R);return pct>5?<text x={x} y={y} fill="#fff" textAnchor="middle" dominantBaseline="central" style={{fontSize:11,fontWeight:700}}>{pct}%</text>:null;}} labelLine={false}>{donut.map((d,i)=><Cell key={i} fill={d.color}/>)}</Pie></PieChart>
           </ResponsiveContainer>
           <div style={{display:'flex',justifyContent:'center',gap:12,marginTop:4}}>
-            {donut.map(d=><div key={d.name} style={{display:'flex',alignItems:'center',gap:4}}><div style={{width:8,height:8,borderRadius:2,background:d.color}}/><span style={{fontSize:12,color:'#5a6178'}}>{d.name} {d.value} ({d.pct}%)</span></div>)}
+            {donut.map(d=><div key={d.name} style={{display:'flex',alignItems:'center',gap:4}}><div style={{width:8,height:8,borderRadius:2,background:d.color}}/><span style={{fontSize:12,color:'#8C93A8'}}>{d.name} {d.value} ({d.pct}%)</span></div>)}
           </div>
           </>
         ):(
@@ -212,10 +212,10 @@ const SocialPanel=({socialData,sentimentData})=>{
 
       {/* Ranking unificado: seguidores + engajamento + tendência */}
       <Card>
-        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Ranking completo — seguidores e engajamento</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Ranking completo — seguidores e engajamento</p>
         <div style={{maxHeight:360,overflowY:'auto'}}>
           {/* Header */}
-          <div style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 72px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid #dfe3ed'}}>
+          <div style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 72px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid var(--surface-border)'}}>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>#</span>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>PERFIL</span>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>SEGUIDORES</span>
@@ -229,10 +229,10 @@ const SocialPanel=({socialData,sentimentData})=>{
             const trendColor = direction==='up'?'#15803D':direction==='down'?'#B91C1C':'#8C93A8';
             const trendIcon = direction==='up'?'↑':direction==='down'?'↓':'→';
             return(
-            <div key={p.username} style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 72px',gap:4,padding:'5px 4px',borderBottom:'1px solid #eef0f6',background:isCand?'rgba(139,92,246,0.08)':'transparent',borderRadius:isCand?6:0}}>
+            <div key={p.username} style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 72px',gap:4,padding:'5px 4px',borderBottom:'1px solid var(--surface-border)',background:isCand?'rgba(139,92,246,0.08)':'transparent',borderRadius:isCand?6:0}}>
               <span style={{fontSize:13,fontWeight:700,color:'#8c93a8'}}>#{p.rank}</span>
               <span style={{fontSize:13,color:isCand?'#a78bfa':'#5a6178',fontWeight:isCand?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
-              <span style={{fontSize:13,fontWeight:600,color:'#5a6178',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{p.seguidores.toLocaleString('pt-BR')}</span>
+              <span style={{fontSize:13,fontWeight:600,color:'#8C93A8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{p.seguidores.toLocaleString('pt-BR')}</span>
               <span style={{fontSize:13,fontWeight:700,color:p.taxa_engajamento_pct>=3?'#22c55e':p.taxa_engajamento_pct>=1.5?'#f59e0b':'#ef4444',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{p.taxa_engajamento_pct}%</span>
               <span style={{fontSize:11,fontWeight:700,color:trendColor,textAlign:'center',fontVariantNumeric:'tabular-nums'}}>{trendIcon} {label}</span>
             </div>);
@@ -254,19 +254,19 @@ const SocialPanel=({socialData,sentimentData})=>{
     {/* Top 10 engajamento (bar chart) */}
     <Card style={{marginBottom:14}}>
       <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:10}}>
-        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',margin:0}}>Top 10 — taxa de engajamento (%)</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',margin:0}}>Top 10 — taxa de engajamento (%)</p>
         <div style={{display:'flex',gap:10}}>
           <span style={{fontSize:10,color:'#15803d'}}>■ alto (3%+)</span>
           <span style={{fontSize:10,color:'#d4a017'}}>■ médio</span>
           <span style={{fontSize:10,color:'#b91c1c'}}>■ baixo</span>
-          <span style={{fontSize:9,color:'#1a3a7a'}}>■ candidato</span>
+          <span style={{fontSize:9,color:'#6fa3ef'}}>■ candidato</span>
         </div>
       </div>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={engChart} layout="vertical" margin={{left:0,right:50}}>
           <XAxis type="number" tick={{fontSize:12,fill:'#8c93a8'}} axisLine={false} tickLine={false} domain={[0,'auto']}/>
           <YAxis type="category" dataKey="name" tick={{fontSize:13,fill:'#5a6178',fontWeight:500}} width={150} axisLine={false} tickLine={false}/>
-          <Tooltip contentStyle={{background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:8,fontSize:14,color:'#1a1d2e'}} formatter={v=>[`${v}%`,'Engajamento']} cursor={{fill:'rgba(139,92,246,0.05)'}}/>
+          <Tooltip contentStyle={{background:'#1E3150',border:'1px solid rgba(255,255,255,0.12)',borderRadius:8,fontSize:14,color:'rgba(255,255,255,0.95)'}} formatter={v=>[`${v}%`,'Engajamento']} cursor={{fill:'rgba(139,92,246,0.05)'}}/>
           <Bar dataKey="eng" radius={[0,6,6,0]} barSize={20} label={{position:'right',fill:'#5a6178',fontSize:11,fontWeight:600,formatter:v=>`${v}%`}}>
             {engChart.map((d,i)=><Cell key={i} fill={d.fill} fillOpacity={0.85}/>)}
           </Bar>
@@ -289,7 +289,7 @@ const SocialPanel=({socialData,sentimentData})=>{
         return(
         <Card style={{marginBottom:14}}>
           <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12}}>
-            <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',margin:0}}>Evolução de seguidores (série temporal)</p>
+            <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',margin:0}}>Evolução de seguidores (série temporal)</p>
             <span style={{fontSize:11,fontWeight:700,color:'#d4a017',background:'rgba(212,160,23,0.1)',border:'1px solid rgba(212,160,23,0.25)',borderRadius:6,padding:'2px 8px',textTransform:'uppercase',letterSpacing:'0.05em'}}>Histórico sendo acumulado</span>
           </div>
           {snap.length>0?(
@@ -327,12 +327,12 @@ const SocialPanel=({socialData,sentimentData})=>{
       });
       return(
       <Card style={{marginBottom:14}}>
-        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Evolução de seguidores (série temporal)</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Evolução de seguidores (série temporal)</p>
         <ResponsiveContainer width="100%" height={250}>
           <LineChart data={chartData} margin={{left:0,right:8,top:5}}>
             <XAxis dataKey="date" tick={{fontSize:12,fill:'#8c93a8'}} axisLine={false} tickLine={false}/>
             <YAxis tick={{fontSize:12,fill:'#8c93a8'}} axisLine={false} tickLine={false} tickFormatter={v=>v>=1000?`${(v/1000).toFixed(0)}K`:v}/>
-            <Tooltip contentStyle={{background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:8,fontSize:13,color:'#1a1d2e'}} formatter={(v,name)=>[v?.toLocaleString('pt-BR'),`@${name}`]}/>
+            <Tooltip contentStyle={{background:'#1E3150',border:'1px solid rgba(255,255,255,0.12)',borderRadius:8,fontSize:13,color:'rgba(255,255,255,0.95)'}} formatter={(v,name)=>[v?.toLocaleString('pt-BR'),`@${name}`]}/>
             <Legend wrapperStyle={{fontSize:10,color:'#8c93a8'}} formatter={v=>`@${v}`}/>
             {topUsernames.map((u,i)=>(
               <Line key={u} type="monotone" dataKey={u} stroke={COLORS_LINE[i%6]} strokeWidth={u==='marciobarbosa_cel'?3:1.5} dot={{r:u==='marciobarbosa_cel'?4:2}} connectNulls/>
@@ -361,7 +361,7 @@ const SocialPanel=({socialData,sentimentData})=>{
       const negWords = new Set(['corrupto','vergonha','mentiroso','lixo','nojo','pior','fora','nunca','fake','mentira']);
       return(
       <Card style={{marginBottom:14}}>
-        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Nuvem de palavras — comentários do candidato</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Nuvem de palavras — comentários do candidato</p>
         <div style={{display:'flex',flexWrap:'wrap',gap:'6px 10px',justifyContent:'center',padding:'8px 0',minHeight:80}}>
           {sorted.map(([word,count])=>{
             const ratio = count/maxCount;
@@ -377,7 +377,7 @@ const SocialPanel=({socialData,sentimentData})=>{
         </div>
         <div style={{display:'flex',justifyContent:'center',gap:12,marginTop:8}}>
           <span style={{fontSize:10,color:'#15803d'}}>■ positivo</span>
-          <span style={{fontSize:9,color:'#5a6178'}}>■ neutro</span>
+          <span style={{fontSize:9,color:'#8C93A8'}}>■ neutro</span>
           <span style={{fontSize:10,color:'#b91c1c'}}>■ negativo</span>
           <span style={{fontSize:10,color:'#8c93a8'}}>(tamanho = frequência)</span>
         </div>
@@ -386,8 +386,8 @@ const SocialPanel=({socialData,sentimentData})=>{
 
     {/* Insights */}
     <Card style={{borderLeft:'3px solid #22c55e'}}>
-      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Insights para a campanha</p>
-      <div style={{fontSize:14,color:'#5a6178',lineHeight:1.7}}>
+      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Insights para a campanha</p>
+      <div style={{fontSize:14,color:'#8C93A8',lineHeight:1.7}}>
         {cand&&<p style={{margin:'0 0 4px'}}>Cel. Barbosa: #{candRank} em seguidores ({cand.seguidores.toLocaleString('pt-BR')}) com engajamento de {cand.taxa_engajamento_pct}% — {cand.taxa_engajamento_pct>1.5?'acima da média de políticos brasileiros (~1%)':'dentro da média'}.</p>}
         {cand&&<p style={{margin:'0 0 4px'}}>Média de {cand.media_likes_recentes} likes/post. Investir em Reels e vídeos curtos tende a amplificar o alcance orgânico em 3-5x no Instagram.</p>}
         {sentimentData?.sentiment?.total>0&&<p style={{margin:0}}>Análise de {sentimentData.sentiment.total} comentários: {sentimentData.sentiment.pct_positivo}% positivos, {sentimentData.sentiment.pct_negativo}% negativos. {sentimentData.sentiment.pct_positivo>50?'Percepção pública favorável — explorar UGC e depoimentos.':'Monitorar narrativas negativas e preparar contra-narrativas.'}</p>}
@@ -439,9 +439,9 @@ const TendenciaVotoPanel=({tendenciaData})=>{
     {/* Header clicável */}
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
-        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><TrendingUp size={22} style={{color:'#1a3a7a'}}/></div>
+        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><TrendingUp size={22} style={{color:'#6fa3ef'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Tendência de Voto 2022</h2>
+          <h2 style={{fontSize:22,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>Tendência de Voto 2022</h2>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>2º turno presidencial · {agregado?.total_municipios ?? 139} municípios · Fonte: TSE</p>
         </div>
       </div>
@@ -504,7 +504,7 @@ const TendenciaVotoPanel=({tendenciaData})=>{
       {/* Gráfico de barras — Toggle Conservadores / Progressistas */}
       <Card style={{marginBottom:16}}>
         <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12}}>
-          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',margin:0}}>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',margin:0}}>
             Top 10 — {chartView==='conservadores'?'Mais Conservadores':'Mais Progressistas'}
           </p>
           <div style={{display:'flex',gap:6}}>
@@ -538,7 +538,7 @@ const TendenciaVotoPanel=({tendenciaData})=>{
       {/* Tabela completa */}
       <Card>
         <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:8,marginBottom:10}}>
-          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',margin:0}}>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',margin:0}}>
             Todos os municípios ({tabelaDados.length})
           </p>
           <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
@@ -571,15 +571,15 @@ const TendenciaVotoPanel=({tendenciaData})=>{
             </thead>
             <tbody>
               {tabelaDados.map((m,i)=>(
-                <tr key={m.nome} style={{borderBottom:'1px solid #eef0f6',background:i%2===0?'transparent':'#fafbfc'}}>
+                <tr key={m.nome} style={{borderBottom:'1px solid var(--surface-border)',background:i%2===0?'transparent':'#fafbfc'}}>
                   <td style={{padding:'5px 8px',color:'#8c93a8',fontWeight:700,fontSize:11}}>{i+1}</td>
-                  <td style={{padding:'5px 8px',fontWeight:600,color:'#1a1d2e',whiteSpace:'nowrap'}}>{m.nome}</td>
+                  <td style={{padding:'5px 8px',fontWeight:600,color:'rgba(255,255,255,0.95)',whiteSpace:'nowrap'}}>{m.nome}</td>
                   <td style={{padding:'5px 8px',textAlign:'right',fontWeight:700,color:TV_CORES.Conservador,fontVariantNumeric:'tabular-nums'}}>{m.pct_bolsonaro}%</td>
                   <td style={{padding:'5px 8px',textAlign:'right',fontWeight:700,color:TV_CORES.Progressista,fontVariantNumeric:'tabular-nums'}}>{m.pct_lula}%</td>
                   <td style={{padding:'5px 8px',textAlign:'right',fontWeight:700,color:m.margem>0?TV_CORES.Conservador:TV_CORES.Progressista,fontVariantNumeric:'tabular-nums'}}>{m.margem>0?'+':''}{m.margem}pp</td>
                   <td style={{padding:'5px 8px',textAlign:'right'}}><BadgeCl c={m.classificacao}/></td>
                   {hasShareRep&&<>
-                    <td style={{padding:'5px 8px',textAlign:'right',color:'#5a6178',fontVariantNumeric:'tabular-nums'}}>{m.share_republicanos_dep_federal>0?`${m.share_republicanos_dep_federal}%`:'—'}</td>
+                    <td style={{padding:'5px 8px',textAlign:'right',color:'#8C93A8',fontVariantNumeric:'tabular-nums'}}>{m.share_republicanos_dep_federal>0?`${m.share_republicanos_dep_federal}%`:'—'}</td>
                     <td style={{padding:'5px 8px',textAlign:'center'}}>{m.gap_conversao?<span style={{padding:'2px 6px',borderRadius:4,background:'#15803D18',color:TV_CORES.gap,fontSize:9,fontWeight:700}}>SIM</span>:null}</td>
                   </>}
                 </tr>
@@ -611,7 +611,7 @@ const KpiPanel=({kpiData})=>{
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(212,160,23,0.1)',border:'1px solid rgba(212,160,23,0.2)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#d4a017'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Metas da campanha</h2>
+          <h2 style={{fontSize:22,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>Metas da campanha</h2>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
             Fase {phase}: {phaseInfo.name||''} · {phaseInfo.period||''}
           </p>
@@ -641,11 +641,11 @@ const KpiPanel=({kpiData})=>{
         return(
         <Card key={kpi.id} style={{padding:'14px 18px'}}>
           <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:10}}>
-            <span style={{fontSize:12,fontWeight:700,color:'#5a6178'}}>{kpi.label}</span>
+            <span style={{fontSize:12,fontWeight:700,color:'#8C93A8'}}>{kpi.label}</span>
             <span style={{fontSize:9,fontWeight:700,color:statusColor,background:`${statusColor}12`,padding:'2px 8px',borderRadius:4,textTransform:'uppercase'}}>{statusLabel}</span>
           </div>
           <div style={{display:'flex',alignItems:'baseline',gap:6,marginBottom:8}}>
-            <span style={{fontSize:26,fontWeight:800,color:'#1a1d2e'}}>{displayCurrent}</span>
+            <span style={{fontSize:26,fontWeight:800,color:'rgba(255,255,255,0.95)'}}>{displayCurrent}</span>
             <span style={{fontSize:13,color:'#8c93a8'}}>/ {displayTarget}</span>
           </div>
           {/* Progress bar */}
@@ -712,7 +712,7 @@ const GeoPanel=({geoData})=>{
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(21,128,61,0.08)',border:'1px solid rgba(21,128,61,0.15)',borderRadius:12,padding:10}}><MapPin size={22} style={{color:'#15803d'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Inteligência eleitoral — Tocantins</h2>
+          <h2 style={{fontSize:22,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>Inteligência eleitoral — Tocantins</h2>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
             {summary.total_municipios||0} municípios · TSE 2022 + IBGE · Dep. Federal
           </p>
@@ -720,7 +720,7 @@ const GeoPanel=({geoData})=>{
       </div>
       <div style={{display:'flex',alignItems:'center',gap:16}}>
         <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#22c55e',margin:0}}>{summary.alta_prioridade||0}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>alta prior.</p></div>
-        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#1a3a7a',margin:0}}>{summary.total_municipios||0}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>municípios</p></div>
+        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#6fa3ef',margin:0}}>{summary.total_municipios||0}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>municípios</p></div>
         {open?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
       </div>
     </div>
@@ -747,11 +747,11 @@ const GeoPanel=({geoData})=>{
     <div style={{display:'grid',gridTemplateColumns:isMobile?'1fr':'minmax(0,1.8fr) minmax(0,1.2fr)',gap:12,marginBottom:14}}>
       {/* Ranking table */}
       <Card>
-        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>
           Ranking por potencial — {municipios.length} municípios
         </p>
         <div style={{maxHeight:400,overflowY:'auto'}}>
-          <div style={{display:'grid',gridTemplateColumns:isMobile?'32px 1fr 56px':'32px 1fr 70px 70px 60px 90px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid #dfe3ed'}}>
+          <div style={{display:'grid',gridTemplateColumns:isMobile?'32px 1fr 56px':'32px 1fr 70px 70px 60px 90px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid var(--surface-border)'}}>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>#</span>
             <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>MUNICÍPIO</span>
             {!isMobile&&<span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>ELEITORADO</span>}
@@ -761,12 +761,12 @@ const GeoPanel=({geoData})=>{
           </div>
           {municipios.map(m=>(
             <div key={m.municipio_upper} onClick={()=>setSelectedMun(selectedMun===m.municipio_upper?null:m.municipio_upper)}
-              style={{display:'grid',gridTemplateColumns:isMobile?'32px 1fr 56px':'32px 1fr 70px 70px 60px 90px',gap:4,padding:'5px 4px',borderBottom:'1px solid #eef0f6',cursor:'pointer',
+              style={{display:'grid',gridTemplateColumns:isMobile?'32px 1fr 56px':'32px 1fr 70px 70px 60px 90px',gap:4,padding:'5px 4px',borderBottom:'1px solid var(--surface-border)',cursor:'pointer',
                 background:selectedMun===m.municipio_upper?'rgba(34,197,94,0.1)':'transparent',
                 borderRadius:selectedMun===m.municipio_upper?6:0}}>
               <span style={{fontSize:12,fontWeight:700,color:'#8c93a8'}}>#{m.ranking}</span>
-              <span style={{fontSize:13,color:'#1a1d2e',fontWeight:500,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{m.municipio}</span>
-              {!isMobile&&<span style={{fontSize:13,color:'#5a6178',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.eleitorado||0).toLocaleString('pt-BR')}</span>}
+              <span style={{fontSize:13,color:'rgba(255,255,255,0.95)',fontWeight:500,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{m.municipio}</span>
+              {!isMobile&&<span style={{fontSize:13,color:'#8C93A8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.eleitorado||0).toLocaleString('pt-BR')}</span>}
               {!isMobile&&<span style={{fontSize:13,color:'#1d4ed8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.votos_republicanos||0).toLocaleString('pt-BR')}</span>}
               <span style={{fontSize:13,fontWeight:700,color:CAT_COLORS[m.categoria]||'#64748b',textAlign:'right'}}>{m.score_potencial}</span>
               {!isMobile&&<span style={{fontSize:8,fontWeight:700,color:CAT_COLORS[m.categoria],textAlign:'center',textTransform:'uppercase'}}>{m.categoria.split(' ')[0]}</span>}
@@ -779,12 +779,12 @@ const GeoPanel=({geoData})=>{
       <div style={{display:'flex',flexDirection:'column',gap:12}}>
         {/* Party distribution */}
         <Card>
-          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Votos por partido — dep. federal 2022</p>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Votos por partido — dep. federal 2022</p>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={partyChart} layout="vertical" margin={{left:0,right:40}}>
               <XAxis type="number" tick={{fontSize:9,fill:'#8c93a8'}} axisLine={false} tickLine={false} tickFormatter={v=>v>=1000?`${(v/1000).toFixed(0)}K`:v}/>
               <YAxis type="category" dataKey="name" tick={{fontSize:12,fill:'#5a6178',fontWeight:500}} width={90} axisLine={false} tickLine={false}/>
-              <Tooltip contentStyle={{background:'#ffffff',border:'1px solid #dfe3ed',borderRadius:8,fontSize:13,color:'#1a1d2e'}} formatter={v=>[v.toLocaleString('pt-BR')+' votos']}/>
+              <Tooltip contentStyle={{background:'#1E3150',border:'1px solid rgba(255,255,255,0.12)',borderRadius:8,fontSize:13,color:'rgba(255,255,255,0.95)'}} formatter={v=>[v.toLocaleString('pt-BR')+' votos']}/>
               <Bar dataKey="votos" radius={[0,4,4,0]} barSize={16}>
                 {partyChart.map((d,i)=><Cell key={i} fill={d.fill} fillOpacity={0.85}/>)}
               </Bar>
@@ -795,18 +795,18 @@ const GeoPanel=({geoData})=>{
         {/* Municipality detail (on click) */}
         {detail&&(
           <Card style={{borderLeft:`3px solid ${CAT_COLORS[detail.categoria]}`}}>
-            <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>{detail.municipio} — #{detail.ranking}</p>
+            <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>{detail.municipio} — #{detail.ranking}</p>
             <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:10}}>
-              <div><span style={{fontSize:10,color:'#8c93a8'}}>Eleitorado</span><p style={{fontSize:18,fontWeight:700,color:'#1a1d2e',margin:0}}>{(detail.eleitorado||0).toLocaleString('pt-BR')}</p></div>
-              <div><span style={{fontSize:10,color:'#8c93a8'}}>População</span><p style={{fontSize:18,fontWeight:700,color:'#5a6178',margin:0}}>{(detail.populacao||0).toLocaleString('pt-BR')}</p></div>
+              <div><span style={{fontSize:10,color:'#8c93a8'}}>Eleitorado</span><p style={{fontSize:18,fontWeight:700,color:'rgba(255,255,255,0.95)',margin:0}}>{(detail.eleitorado||0).toLocaleString('pt-BR')}</p></div>
+              <div><span style={{fontSize:10,color:'#8c93a8'}}>População</span><p style={{fontSize:18,fontWeight:700,color:'#8C93A8',margin:0}}>{(detail.populacao||0).toLocaleString('pt-BR')}</p></div>
               <div><span style={{fontSize:10,color:'#8c93a8'}}>Votos Republicanos</span><p style={{fontSize:18,fontWeight:700,color:'#1d4ed8',margin:0}}>{(detail.votos_republicanos||0).toLocaleString('pt-BR')}</p></div>
-              <div><span style={{fontSize:10,color:'#8c93a8'}}>Share REP</span><p style={{fontSize:18,fontWeight:700,color:'#1a3a7a',margin:0}}>{detail.share_republicanos}%</p></div>
+              <div><span style={{fontSize:10,color:'#8c93a8'}}>Share REP</span><p style={{fontSize:18,fontWeight:700,color:'#6fa3ef',margin:0}}>{detail.share_republicanos}%</p></div>
               <div><span style={{fontSize:10,color:'#8c93a8'}}>Comparecimento</span><p style={{fontSize:18,fontWeight:700,color:'#d4a017',margin:0}}>{detail.taxa_comparecimento}%</p></div>
               <div><span style={{fontSize:10,color:'#8c93a8'}}>Partido vencedor</span><p style={{fontSize:16,fontWeight:700,color:PARTY_COLORS[detail.partido_vencedor]||'#94a3b8',margin:0}}>{detail.partido_vencedor}</p></div>
             </div>
-            <p style={{fontSize:12,color:'#5a6178',fontWeight:700,textTransform:'uppercase',marginBottom:10}}>TOP CANDIDATOS 2022:</p>
+            <p style={{fontSize:12,color:'#8C93A8',fontWeight:700,textTransform:'uppercase',marginBottom:10}}>TOP CANDIDATOS 2022:</p>
             {(detail.top_candidatos||[]).slice(0,3).map((c,i)=>(
-              <p key={i} style={{fontSize:13,color:'#5a6178',margin:'2px 0'}}>{i+1}. {c.nome} ({c.partido}) — {(c.votos||0).toLocaleString('pt-BR')} votos</p>
+              <p key={i} style={{fontSize:13,color:'#8C93A8',margin:'2px 0'}}>{i+1}. {c.nome} ({c.partido}) — {(c.votos||0).toLocaleString('pt-BR')} votos</p>
             ))}
           </Card>
         )}
@@ -820,8 +820,8 @@ const GeoPanel=({geoData})=>{
 
     {/* Strategic insights */}
     <Card style={{borderLeft:'3px solid #22c55e',marginBottom:14}}>
-      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10}}>Insights geoeleitorais</p>
-      <div style={{fontSize:14,color:'#5a6178',lineHeight:1.7}}>
+      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Insights geoeleitorais</p>
+      <div style={{fontSize:14,color:'#8C93A8',lineHeight:1.7}}>
         <p style={{margin:'0 0 4px'}}>Base eleitoral do Republicanos no TO: {(summary.total_votos_republicanos_2022||0).toLocaleString('pt-BR')} votos em 2022 ({summary.share_republicanos_estado}% share). {summary.alta_prioridade} municipios classificados como alta prioridade.</p>
         <p style={{margin:'0 0 4px'}}>Top municipios aliados: {(summary.municipios_aliados||[]).slice(0,5).join(', ')}. Foco de campanha: consolidar base existente e expandir nos municipios de oportunidade.</p>
         {(summary.municipios_adversarios||[]).length>0&&<p style={{margin:0}}>Territorios dominados por adversarios: {summary.municipios_adversarios.slice(0,5).join(', ')}. Avaliar custo-beneficio de investir nestas regioes vs. maximizar municipios de oportunidade.</p>}
@@ -899,9 +899,9 @@ const AdversariosPanel=({adversariosData})=>{
   <Card style={{marginTop:32}}>
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
-        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#1a3a7a'}}/></div>
+        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#6fa3ef'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Inteligência Competitiva — Câmara Federal TO 2026</h2>
+          <h2 style={{fontSize:22,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>Inteligência Competitiva — Câmara Federal TO 2026</h2>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>8 vagas · 13+ candidatos · Levantamento {d?.data_atualizacao?fmtDt(d.data_atualizacao):'—'}</p>
         </div>
       </div>
@@ -919,7 +919,7 @@ const AdversariosPanel=({adversariosData})=>{
       {/* Ranking + Stats */}
       <div style={{display:'grid',gridTemplateColumns:'minmax(0,2fr) minmax(0,1fr)',gap:16,marginBottom:14}}>
         <Card>
-          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',letterSpacing:'0.1em',marginBottom:10}}>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',letterSpacing:'0.1em',marginBottom:10}}>
             Ranking Instagram — Candidatos à Câmara
             {d?.data_atualizacao&&<span style={{fontWeight:400,color:'#8c93a8',marginLeft:8}}>· {fmtDt(d.data_atualizacao)}</span>}
           </p>
@@ -958,8 +958,8 @@ const AdversariosPanel=({adversariosData})=>{
         </Card>
         <div style={{display:'flex',flexDirection:'column',gap:12}}>
           <Card style={{textAlign:'center',background:'linear-gradient(135deg,rgba(26,58,122,0.05),rgba(26,58,122,0.1))'}}>
-            <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10,letterSpacing:'0.1em'}}>Posição do Cel. Barbosa</p>
-            <p style={{fontSize:52,fontWeight:900,color:'#1a3a7a',margin:0,lineHeight:1}}>{rankingWithMe.findIndex(r=>r.isMe)+1}º</p>
+            <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10,letterSpacing:'0.1em'}}>Posição do Cel. Barbosa</p>
+            <p style={{fontSize:52,fontWeight:900,color:'#6fa3ef',margin:0,lineHeight:1}}>{rankingWithMe.findIndex(r=>r.isMe)+1}º</p>
             <p style={{fontSize:12,color:'#8c93a8',marginTop:4}}>no ranking de Instagram<br/>{fmtK(candidato.seguidores)} seguidores</p>
             <div style={{display:'flex',justifyContent:'center',gap:16,marginTop:12}}>
               <div style={{textAlign:'center'}}><p style={{fontSize:18,fontWeight:800,color:'#22c55e',margin:0}}>{ranking.filter(r=>r.seguidores<(candidato.seguidores||0)).length}</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>à frente</p></div>
@@ -968,27 +968,27 @@ const AdversariosPanel=({adversariosData})=>{
             </div>
           </Card>
           <Card>
-            <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10,letterSpacing:'0.1em'}}>Vagas x Campo</p>
+            <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10,letterSpacing:'0.1em'}}>Vagas x Campo</p>
             {[{l:'Vagas disponíveis',v:d?.vagas||8,c:'#1a1d2e'},{l:'Candidatos relevantes',v:`${ranking.length}+`,c:'#1a1d2e'},{l:'Ameaças externas altas',v:stats.ameacas_altas,c:'#ef4444'},{l:'Concorrência interna Rep.',v:stats.internos,c:'#8b5cf6'},{l:'Saíram para majoritários',v:stats.saidos,c:'#22c55e'}].map((s,i)=>(
-              <div key={i} style={{display:'flex',justifyContent:'space-between',marginBottom:6}}><span style={{fontSize:12,color:'#5a6178'}}>{s.l}</span><strong style={{color:s.c}}>{s.v}</strong></div>
+              <div key={i} style={{display:'flex',justifyContent:'space-between',marginBottom:6}}><span style={{fontSize:12,color:'#8C93A8'}}>{s.l}</span><strong style={{color:s.c}}>{s.v}</strong></div>
             ))}
             <div style={{background:'rgba(26,58,122,0.05)',borderRadius:8,padding:'8px 10px',marginTop:8}}>
-              <p style={{fontSize:11,color:'#5a6178',lineHeight:1.6,margin:0}}>Meta Republicanos: eleger <strong style={{color:'#1a3a7a'}}>2–3 nomes</strong>. Cel. Barbosa precisa ser o mais votado internamente para garantir a vaga.</p>
+              <p style={{fontSize:11,color:'#8C93A8',lineHeight:1.6,margin:0}}>Meta Republicanos: eleger <strong style={{color:'#6fa3ef'}}>2–3 nomes</strong>. Cel. Barbosa precisa ser o mais votado internamente para garantir a vaga.</p>
             </div>
           </Card>
         </div>
       </div>
       {/* Threats */}
       {threats.length>0&&<>
-      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',letterSpacing:'0.1em',marginBottom:10}}>Ameaças externas — nível alto</p>
+      <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',letterSpacing:'0.1em',marginBottom:10}}>Ameaças externas — nível alto</p>
       <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))',gap:10,marginBottom:14}}>
         {threats.map((t,i)=>(
-          <div key={i} style={{background:'#ffffff',border:'1px solid #dfe3ed',borderTop:'2px solid #ef4444',borderRadius:10,padding:14}}>
+          <div key={i} style={{background:'var(--surface)',border:'1px solid var(--surface-border)',borderTop:'2px solid #ef4444',borderRadius:10,padding:14}}>
             <span style={{fontSize:9,fontWeight:700,padding:'2px 8px',borderRadius:12,background:'rgba(239,68,68,0.1)',color:'#ef4444',border:'1px solid rgba(239,68,68,0.2)',display:'inline-block',marginBottom:8}}>Ameaça Alta</span>
-            <p style={{fontSize:13,fontWeight:700,color:'#1a1d2e',margin:'0 0 2px'}}>{t.nome}</p>
+            <p style={{fontSize:13,fontWeight:700,color:'rgba(255,255,255,0.95)',margin:'0 0 2px'}}>{t.nome}</p>
             <p style={{fontSize:10,color:'#8c93a8',margin:'0 0 6px'}}>{t.partido}{t.cargo_label?` · ${t.cargo_label}`:''}</p>
-            <p style={{fontSize:11,color:'#1a3a7a',margin:'0 0 6px',fontWeight:600}}>Instagram: {fmtK(t.seguidores)}</p>
-            <p style={{fontSize:11,color:'#5a6178',lineHeight:1.5,margin:0}}>{t.descricao}</p>
+            <p style={{fontSize:11,color:'#6fa3ef',margin:'0 0 6px',fontWeight:600}}>Instagram: {fmtK(t.seguidores)}</p>
+            <p style={{fontSize:11,color:'#8C93A8',lineHeight:1.5,margin:0}}>{t.descricao}</p>
           </div>
         ))}
       </div>
@@ -996,31 +996,31 @@ const AdversariosPanel=({adversariosData})=>{
       {/* Internal + Migrations */}
       <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,1fr)',gap:14,marginBottom:14}}>
         <Card style={{borderLeft:'3px solid #8b5cf6'}}>
-          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10,letterSpacing:'0.1em'}}>Concorrência interna — Republicanos</p>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10,letterSpacing:'0.1em'}}>Concorrência interna — Republicanos</p>
           {internals.map((n,i)=>(
             <div key={i} style={{display:'flex',gap:10,paddingBottom:10,marginBottom:10,borderBottom:i<internals.length-1?'1px solid #eef0f6':'none'}}>
               <div style={{width:8,height:8,borderRadius:4,background:'#8b5cf6',marginTop:5,flexShrink:0}}/>
-              <div><strong style={{fontSize:12,color:'#1a1d2e',display:'block',marginBottom:2}}>{n.nome} — {fmtK(n.seguidores)} IG</strong><p style={{fontSize:11,color:'#5a6178',lineHeight:1.5,margin:0}}>{n.descricao}</p></div>
+              <div><strong style={{fontSize:12,color:'rgba(255,255,255,0.95)',display:'block',marginBottom:2}}>{n.nome} — {fmtK(n.seguidores)} IG</strong><p style={{fontSize:11,color:'#8C93A8',lineHeight:1.5,margin:0}}>{n.descricao}</p></div>
             </div>
           ))}
         </Card>
         <Card style={{borderLeft:'3px solid #22c55e'}}>
-          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10,letterSpacing:'0.1em'}}>Saíram da disputa pela Câmara</p>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10,letterSpacing:'0.1em'}}>Saíram da disputa pela Câmara</p>
           {migrations.map((m,i)=>{const dc=DEST_C[m.destino]||'#64748b';return(
             <div key={i} style={{display:'flex',alignItems:'center',gap:10,paddingBottom:10,marginBottom:10,borderBottom:i<migrations.length-1?'1px solid #eef0f6':'none'}}>
               <div style={{width:34,height:34,borderRadius:'50%',background:`${dc}15`,color:dc,display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,fontSize:12,flexShrink:0}}>{m.abreviacao||m.ab}</div>
-              <div style={{flex:1}}><strong style={{fontSize:12,color:'#1a1d2e',display:'block'}}>{m.nome}</strong><span style={{fontSize:10,color:'#8c93a8'}}>{m.partido} · {m.detalhe||m.detail}</span></div>
+              <div style={{flex:1}}><strong style={{fontSize:12,color:'rgba(255,255,255,0.95)',display:'block'}}>{m.nome}</strong><span style={{fontSize:10,color:'#8c93a8'}}>{m.partido} · {m.detalhe||m.detail}</span></div>
               <span style={{fontSize:9,fontWeight:700,padding:'2px 8px',borderRadius:8,background:`${dc}15`,color:dc,flexShrink:0}}>{m.destino||m.dest}</span>
             </div>);})}
         </Card>
       </div>
       {/* Recommendations */}
       <Card style={{borderLeft:'3px solid #d4a017'}}>
-        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#5a6178',marginBottom:10,letterSpacing:'0.1em'}}>Recomendações estratégicas</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10,letterSpacing:'0.1em'}}>Recomendações estratégicas</p>
         {recs.map((r,i)=>(
           <div key={i} style={{display:'flex',gap:12,marginBottom:i<recs.length-1?12:0}}>
             <div style={{width:26,height:26,borderRadius:'50%',background:'#1a3a7a',color:'#d4a017',fontSize:12,fontWeight:800,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginTop:1}}>{i+1}</div>
-            <p style={{fontSize:14,color:'#5a6178',lineHeight:1.7,margin:0}}><strong>{r.titulo||r.t}</strong> {r.descricao||r.d}</p>
+            <p style={{fontSize:14,color:'#8C93A8',lineHeight:1.7,margin:0}}><strong>{r.titulo||r.t}</strong> {r.descricao||r.d}</p>
           </div>
         ))}
       </Card>
@@ -1217,7 +1217,7 @@ const handleRefresh=useCallback(async()=>{
         <div style={{display:'flex',alignItems:'center',gap:12}}>
           <div style={{background:'rgba(185,28,28,0.06)',border:'1px solid rgba(185,28,28,0.12)',borderRadius:12,padding:10}}><Newspaper size={22} style={{color:'#b91c1c'}}/></div>
           <div>
-            <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Monitor de imprensa</h2>
+            <h2 style={{fontSize:22,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>Monitor de imprensa</h2>
             <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
               32 fontes · Tocantins + Brasil · Atualização 2x ao dia
             </p>
@@ -1225,7 +1225,7 @@ const handleRefresh=useCallback(async()=>{
         </div>
         <div style={{display:'flex',alignItems:'center',gap:16}}>
           <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#ef4444',margin:0}}>{totalM.dir}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>diretas</p></div>
-          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#1a3a7a',margin:0}}>{totalM.tot}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>menções</p></div>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#6fa3ef',margin:0}}>{totalM.tot}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>menções</p></div>
         </div>
       </div>
 
@@ -1241,8 +1241,8 @@ const handleRefresh=useCallback(async()=>{
 
       {/* RELEVANCE FILTER */}
       <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap',alignItems:'center'}}>
-        <span style={{fontSize:11,fontWeight:700,color:'#5a6178',textTransform:'uppercase',marginRight:4}}>Relevância:</span>
-        {[{id:'direct',l:'Diretas ao candidato',color:'#b91c1c'},{id:'relevant',l:'Relevantes (≥0.5)',color:'#1a3a7a'},{id:'all',l:'Todas (incl. PMTO genéricas)',color:'#8c93a8'}].map(r=>
+        <span style={{fontSize:11,fontWeight:700,color:'#8C93A8',textTransform:'uppercase',marginRight:4}}>Relevância:</span>
+        {[{id:'direct',l:'Diretas ao candidato',color:'#b91c1c'},{id:'relevant',l:'Relevantes (≥0.5)',color:'#6fa3ef'},{id:'all',l:'Todas (incl. PMTO genéricas)',color:'#8c93a8'}].map(r=>
           <Bt key={r.id} active={filterRelevance===r.id} color={r.color} onClick={()=>setFilterRelevance(r.id)}>{r.l}</Bt>
         )}
       </div>
@@ -1250,7 +1250,7 @@ const handleRefresh=useCallback(async()=>{
       {/* TYPE/SCOPE FILTERS */}
       <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap'}}>
         {[{id:'all',l:'Todas'},{id:'direta',l:'● Diretas'},{id:'eleitoral',l:'◆ Eleitorais'},{id:'institucional',l:'○ PMTO'}].map(t=><Bt key={t.id} active={filterType===t.id} color="#1a3a7a" onClick={()=>setFilterType(t.id)}>{t.l}</Bt>)}
-        <div style={{width:1,height:28,background:'#dfe3ed',margin:'0 4px'}}/>
+        <div style={{width:1,height:28,background:'rgba(255,255,255,0.1)',margin:'0 4px'}}/>
         {[{id:'all',l:'TO+BR',i:Layers},{id:'TO',l:'Tocantins',i:MapPin},{id:'BR',l:'Nacional',i:Globe}].map(s=><Bt key={s.id} active={filterScope===s.id} color="#22c55e" onClick={()=>setFilterScope(s.id)}><s.i size={11}/> {s.l}</Bt>)}
       </div>
       <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:16,flexWrap:'wrap',gap:8}}>
