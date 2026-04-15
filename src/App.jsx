@@ -1175,8 +1175,8 @@ const App=({onLogout, userEmail})=>{
           {/* Card 2 — Sentimento IG */}
           <div style={{textAlign:'center',...(isMobile?{flexBasis:'calc(50% - 6px)'}:{})}}>
             <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 6px'}}>Sentimento IG</p>
-            <p style={{fontSize:isMobile?32:48,fontWeight:900,color:hm.igSentPct==null?'rgba(255,255,255,0.4)':hm.igSentPct>=60?'#22c55e':hm.igSentPct>=40?'#f59e0b':'#ef4444',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{hm.igSentPct!=null?`${hm.igSentPct}%`:'—'}</p>
-            <p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',fontWeight:500}}>{hm.igSentPct!=null?`positivo nos comentários${hm.igSentDate?' · '+hm.igSentDate:''}` :'sem dados de comentários'}</p>
+            <p style={{fontSize:isMobile?32:48,fontWeight:900,color:hm.igSentPct==null?'rgba(255,255,255,0.4)':hm.igSentPct>=50?'#22c55e':hm.igSentPct>=30?'#f59e0b':'#ef4444',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{hm.igSentPct!=null?`${hm.igSentPct}%`:'—'}</p>
+            <p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',fontWeight:500}}>{hm.igSentPct!=null?`positivo (comentários IG)${hm.igSentDate?' · '+hm.igSentDate:''}` :'sem dados de comentários'}</p>
           </div>
           {!isMobile&&<div style={{width:1,height:72,background:'rgba(255,255,255,0.12)',margin:'0 28px'}}/>}
           {/* Card 3 — Alertas */}
