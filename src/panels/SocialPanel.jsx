@@ -140,8 +140,8 @@ export default function SocialPanel({socialData,sentimentData}) {
             return(
             <div key={p.username} className="table-row" style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 72px',gap:4,padding:'6px 4px',borderBottom:'1px solid var(--surface-border)',background:isCand?'rgba(212,160,23,0.08)':'transparent',borderRadius:isCand?6:0}}>
               <span className="table-cell" style={{fontWeight:700,color:'#8C93A8',fontFamily:'var(--font-mono)'}}>#{p.rank}</span>
-              <span className="table-cell" style={{color:isCand?'#D4A017':'rgba(255,255,255,0.8)',fontWeight:isCand?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
-              <span className="table-cell" style={{fontWeight:600,color:'rgba(255,255,255,0.8)',textAlign:'right',fontFamily:'var(--font-mono)'}}>{p.seguidores.toLocaleString('pt-BR')}</span>
+              <span className="table-cell" style={{color:isCand?'#D4A017':'#1A2744',fontWeight:isCand?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
+              <span className="table-cell" style={{fontWeight:600,color:'#5A6478',textAlign:'right',fontFamily:'var(--font-mono)'}}>{p.seguidores.toLocaleString('pt-BR')}</span>
               <span className="table-cell" style={{fontWeight:700,color:p.taxa_engajamento_pct>=3?'#22c55e':p.taxa_engajamento_pct>=1.5?'#f59e0b':'#ef4444',textAlign:'right',fontFamily:'var(--font-mono)'}}>{p.taxa_engajamento_pct}%</span>
               <span className="table-cell" style={{fontWeight:700,color:trendColor,textAlign:'center',fontFamily:'var(--font-mono)'}}>{trendIcon} {label}</span>
             </div>);
