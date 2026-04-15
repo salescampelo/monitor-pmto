@@ -1,28 +1,3 @@
-/* ── APP ROOT ── */
-.app-root {
-  min-height: 100dvh;
-  padding: 12px 14px;
-}
-@media (min-width: 640px) {
-  .app-root { padding: 20px 24px; }
-}
-@media (min-width: 1024px) {
-  .app-root { padding: 24px 32px; }
-}
-
-/* ── HEADER ── */
-.app-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 14px 16px;
-}
-@media (min-width: 768px) {
-  .app-header { padding: 24px 32px; gap: 14px; }
-}
-
 /* ── SOCIAL PANEL: 2-COL GRID ── */
 .grid-social {
   display: grid;
@@ -82,13 +57,19 @@
   .geo-col-cat { display: none !important; }
 }
 
+/* ── RESPONSIVE TABLE OVERFLOW ── */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* ── FILTER LEGEND ── */
 .filter-legend {
   display: flex;
   gap: 10px 14px;
   margin-top: 8px;
   padding-top: 6px;
-  border-top: 1px solid rgba(51, 65, 85, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   flex-wrap: wrap;
 }
 
@@ -101,4 +82,11 @@ p { text-wrap: pretty; }
 .spin { animation: spin 1s linear infinite; }
 @media (prefers-reduced-motion: reduce) {
   .spin { animation: none; }
+  .panel-fade { transition: none !important; }
+  .hov-card { transition: none !important; }
+}
+
+/* ── MOBILE: content padding ── */
+@media (max-width: 767px) {
+  main { padding: 12px 10px !important; }
 }
