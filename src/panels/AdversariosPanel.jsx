@@ -69,7 +69,7 @@ export default function AdversariosPanel({adversariosData}) {
   },[ranking,candidato]);
 
   return(
-  <Card style={{marginTop:32}}>
+  <Card style={{marginTop:isMobile?0:32}}>
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#1A3A7A'}}/></div>
@@ -106,22 +106,41 @@ export default function AdversariosPanel({adversariosData}) {
             const trendC=trend==='↑'?'#ef4444':'#22c55e';
             const scoreC=r.score_ameaca>=70?'#ef4444':r.score_ameaca>=40?'#f59e0b':'#64748b';
             return(
-            <div key={i} style={{display:'flex',alignItems:'center',gap:8,marginBottom:r.isMe?0:7,background:r.isMe?'rgba(26,58,122,0.05)':'transparent',borderRadius:r.isMe?6:0,padding:r.isMe?'3px 4px':'0 4px',border:r.isMe?'1px solid rgba(26,58,122,0.15)':'none'}}>
-              <span style={{width:20,fontSize:11,fontWeight:700,color:r.isMe?'#d4a017':'#8c93a8',textAlign:'right',flexShrink:0}}>{r.ranking}</span>
-              <div style={{width:isMobile?undefined:145,flexShrink:0,minWidth:0,flex:isMobile?'1 1 0':undefined}}>
-                <strong style={{fontSize:12,color:r.isMe?'#1a3a7a':'#1a1d2e',display:'block',lineHeight:1.2}}>{r.nome}</strong>
-                <span style={{fontSize:10,color:'#8c93a8'}}>{r.partido}{r.nivel_ameaca==='interno'?'*':''}</span>
-              </div>
-              <div style={{flex:1,background:'#eef0f6',borderRadius:3,height:16,overflow:'hidden'}}>
-                <div style={{width:`${w}%`,height:'100%',background:barColor,borderRadius:3,display:'flex',alignItems:'center',paddingLeft:6,fontSize:10,fontWeight:700,color:'#fff',whiteSpace:'nowrap'}}>{fmtK(r.seguidores)}</div>
-              </div>
-              <div style={{width:76,textAlign:'right',flexShrink:0}}>
-                <div style={{display:'flex',alignItems:'center',justifyContent:'flex-end',gap:3,marginBottom:r.isMe||r.score_ameaca==null?0:2}}>
+            <div key={i} style={{display:'flex',flexDirection:isMobile?'column':'row',alignItems:isMobile?'stretch':'center',gap:isMobile?4:8,marginBottom:isMobile?4:(r.isMe?0:7),background:r.isMe?'rgba(26,58,122,0.05)':'transparent',borderRadius:r.isMe?6:0,padding:isMobile?'8px 4px':(r.isMe?'3px 4px':'0 4px'),border:r.isMe?'1px solid rgba(26,58,122,0.15)':'none'}}>
+              {/* Linha 1: rank + nome + badge */}
+              <div style={{display:'flex',alignItems:'center',gap:8}}>
+                <span style={{width:20,fontSize:11,fontWeight:700,color:r.isMe?'#d4a017':'#8c93a8',textAlign:'right',flexShrink:0}}>{r.ranking}</span>
+                <div style={{flex:1,minWidth:0}}>
+                  <strong style={{fontSize:12,color:r.isMe?'#1a3a7a':'#1a1d2e',display:'block',lineHeight:1.2,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{r.nome}</strong>
+                  <span style={{fontSize:10,color:'#8c93a8'}}>{r.partido}{r.nivel_ameaca==='interno'?'*':''}</span>
+                </div>
+                <div style={{display:'flex',alignItems:'center',gap:3,flexShrink:0}}>
                   <span style={{fontSize:9,fontWeight:700,padding:'2px 6px',borderRadius:8,background:tc.bg,color:tc.c}}>{nivelDin}</span>
                   {trend&&<span style={{fontSize:10,fontWeight:800,color:trendC,lineHeight:1}}>{trend}</span>}
                 </div>
-                {!r.isMe&&r.score_ameaca!=null&&<span style={{fontSize:9,fontWeight:700,color:scoreC}}>{r.score_ameaca}</span>}
               </div>
+              {/* Linha 2: barra + score */}
+              {isMobile?(
+                <div style={{display:'flex',alignItems:'center',gap:8,paddingLeft:28}}>
+                  <div style={{flex:1,background:'#eef0f6',borderRadius:3,height:14,overflow:'hidden'}}>
+                    <div style={{width:`${w}%`,height:'100%',background:barColor,borderRadius:3,display:'flex',alignItems:'center',paddingLeft:6,fontSize:10,fontWeight:700,color:'#fff',whiteSpace:'nowrap'}}>{fmtK(r.seguidores)}</div>
+                  </div>
+                  {!r.isMe&&r.score_ameaca!=null&&<span style={{fontSize:9,fontWeight:700,color:scoreC,flexShrink:0}}>{r.score_ameaca}</span>}
+                </div>
+              ):(
+                <>
+                  <div style={{flex:1,background:'#eef0f6',borderRadius:3,height:16,overflow:'hidden'}}>
+                    <div style={{width:`${w}%`,height:'100%',background:barColor,borderRadius:3,display:'flex',alignItems:'center',paddingLeft:6,fontSize:10,fontWeight:700,color:'#fff',whiteSpace:'nowrap'}}>{fmtK(r.seguidores)}</div>
+                  </div>
+                  <div style={{width:76,textAlign:'right',flexShrink:0}}>
+                    <div style={{display:'flex',alignItems:'center',justifyContent:'flex-end',gap:3,marginBottom:r.isMe||r.score_ameaca==null?0:2}}>
+                      <span style={{fontSize:9,fontWeight:700,padding:'2px 6px',borderRadius:8,background:tc.bg,color:tc.c}}>{nivelDin}</span>
+                      {trend&&<span style={{fontSize:10,fontWeight:800,color:trendC,lineHeight:1}}>{trend}</span>}
+                    </div>
+                    {!r.isMe&&r.score_ameaca!=null&&<span style={{fontSize:9,fontWeight:700,color:scoreC}}>{r.score_ameaca}</span>}
+                  </div>
+                </>
+              )}
             </div>);
           })}
           <p style={{fontSize:10,color:'#8c93a8',marginTop:8}}>* Concorrência interna Republicanos</p>

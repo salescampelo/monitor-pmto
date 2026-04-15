@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Target, ChevronUp, ChevronDown } from 'lucide-react';
-import { Card } from '../components/ui.jsx';
+import { Card, useWW } from '../components/ui.jsx';
 
 export default function KpiPanel({kpiData}) {
   const[open,setOpen]=useState(true);
+  const isMobile=useWW()<768;
   if(!kpiData?.kpis?.length)return null;
   const phase=kpiData.current_phase||1;
   const phaseInfo=kpiData.phases?.[String(phase)]||{};
@@ -12,7 +13,7 @@ export default function KpiPanel({kpiData}) {
   const daysLeft=electionDate?Math.max(0,Math.ceil((electionDate-today)/(1000*60*60*24))):null;
 
   return(
-  <Card style={{marginTop:32}}>
+  <Card style={{marginTop:isMobile?0:32}}>
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(212,160,23,0.1)',border:'1px solid rgba(212,160,23,0.2)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#d4a017'}}/></div>

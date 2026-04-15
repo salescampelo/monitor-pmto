@@ -36,7 +36,7 @@ export default function TendenciaVotoPanel({tendenciaData}) {
   };
 
   return(
-  <Card style={{marginTop:32}}>
+  <Card style={{marginTop:isMobile?0:32}}>
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><TrendingUp size={22} style={{color:'#1A3A7A'}}/></div>
@@ -73,7 +73,7 @@ export default function TendenciaVotoPanel({tendenciaData}) {
           {label:'Municípios Divididos',val:agregado.municipios_divididos,cor:TV_CORES.Dividido,sub:'40–60% cada'},
           {label:'Municípios Progressistas',val:agregado.municipios_progressistas,cor:TV_CORES.Progressista,sub:'>60% Lula'},
         ].map(({label,val,cor,sub})=>(
-          <Card key={label} style={{padding:isMobile?'10px 12px':'14px 16px',borderLeft:`4px solid ${cor}`}}>
+          <Card key={label} style={{padding:isMobile?'10px 12px':'14px 16px',borderLeft:isMobile?'none':`4px solid ${cor}`,borderTop:isMobile?`4px solid ${cor}`:'none'}}>
             <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',margin:'0 0 6px',letterSpacing:'0.08em'}}>{label}</p>
             <p style={{fontSize:isMobile?24:32,fontWeight:900,color:cor,margin:0,lineHeight:1}}>{val}</p>
             <p style={{fontSize:11,color:'#8c93a8',margin:'4px 0 0'}}>{sub}</p>

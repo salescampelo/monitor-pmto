@@ -224,7 +224,7 @@ const App = ({onLogout, userEmail}) => {
             onClick={()=>{setActivePanel(id);if(isMobile)setSidebarOpen(false);}}
             onMouseEnter={e=>{if(!isAct)e.currentTarget.style.background='#F5F3EE';}}
             onMouseLeave={e=>{if(!isAct)e.currentTarget.style.background='transparent';}}
-            style={{display:'flex',alignItems:'center',gap:12,padding:'18px 20px',
+            style={{display:'flex',alignItems:'center',gap:12,padding:isMobile?'16px 20px':'14px 18px',minHeight:48,
               background:isAct?'rgba(212,160,23,0.08)':'transparent',
               borderLeft:`4px solid ${isAct?'#D4A017':'transparent'}`,
               borderTop:'none',borderRight:'none',borderBottom:'none',
@@ -265,7 +265,7 @@ const App = ({onLogout, userEmail}) => {
     </aside>
 
     {/* ── CONTENT AREA ── */}
-    <main style={{marginLeft:isMobile?0:isTablet?60:260,padding:isMobile?'16px 12px':'24px',flex:1,minWidth:0,transition:'margin-left 0.2s ease',minHeight:isMobile?'calc(100vh - 48px)':'calc(100vh - 160px)'}}>
+    <main style={{marginLeft:isMobile?0:isTablet?60:260,padding:isMobile?'8px 10px':'24px',flex:1,minWidth:0,transition:'margin-left 0.2s ease',minHeight:isMobile?'calc(100vh - 48px)':'calc(100vh - 160px)'}}>
       <div key={activePanel} className="panel-fade">
         {activePanel==='tendencia'&&<TendenciaVotoPanel tendenciaData={tendenciaData}/>}
         {activePanel==='adversarios'&&<AdversariosPanel adversariosData={adversariosData}/>}
@@ -290,24 +290,31 @@ const App = ({onLogout, userEmail}) => {
           </div>
         </div>
 
-        <div style={{display:'flex',gap:8,marginBottom:16,flexWrap:'wrap'}}>
-          <Met icon={User} label="Diretas" value={filtM.dir} sub="Cel. Barbosa" accent="#ef4444"/>
-          <Met icon={Bookmark} label="Eleitorais" value={filtM.ele} sub="2026" accent="#6366f1"/>
-          <Met icon={Building} label="PMTO" value={filtM.ins} accent="#f59e0b"/>
-          <Met icon={Globe} label="Nacional" value={filtM.nac} sub="BR" accent="#3b82f6"/>
-          <Met icon={MapPin} label="Local" value={filtM.loc} sub="TO" accent="#22c55e"/>
-          <Met icon={Newspaper} label="Fontes" value={filtM.src} accent="#64748b"/>
+        <div style={{display:'flex',gap:isMobile?6:8,marginBottom:16,flexWrap:'wrap'}}>
+          <Met icon={User} label="Diretas" value={filtM.dir} sub="Cel. Barbosa" accent="#ef4444" compact={isMobile}/>
+          <Met icon={Bookmark} label="Eleitorais" value={filtM.ele} sub="2026" accent="#6366f1" compact={isMobile}/>
+          <Met icon={Building} label="PMTO" value={filtM.ins} accent="#f59e0b" compact={isMobile}/>
+          <Met icon={Globe} label="Nacional" value={filtM.nac} sub="BR" accent="#3b82f6" compact={isMobile}/>
+          <Met icon={MapPin} label="Local" value={filtM.loc} sub="TO" accent="#22c55e" compact={isMobile}/>
+          <Met icon={Newspaper} label="Fontes" value={filtM.src} accent="#64748b" compact={isMobile}/>
         </div>
 
         <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap',alignItems:'center'}}>
           <span style={{fontSize:11,fontWeight:700,color:'#8C93A8',textTransform:'uppercase',marginRight:4}}>Relevância:</span>
-          {[{id:'direct',l:'Diretas ao candidato',color:'#b91c1c'},{id:'relevant',l:'Relevantes (≥0.5)',color:'#1A3A7A'},{id:'all',l:'Todas (incl. PMTO genéricas)',color:'#8c93a8'}].map(r=>
-            <Bt key={r.id} active={filterRelevance===r.id} color={r.color} onClick={()=>setFilterRelevance(r.id)}>{r.l}</Bt>
-          )}
+          {[
+            {id:'direct',l:isMobile?'Diretas':'Diretas ao candidato',color:'#b91c1c'},
+            {id:'relevant',l:isMobile?'≥0.5':'Relevantes (≥0.5)',color:'#1A3A7A'},
+            {id:'all',l:isMobile?'Todas':'Todas (incl. PMTO genéricas)',color:'#8c93a8'},
+          ].map(r=><Bt key={r.id} active={filterRelevance===r.id} color={r.color} onClick={()=>setFilterRelevance(r.id)}>{r.l}</Bt>)}
         </div>
 
         <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap'}}>
-          {[{id:'all',l:'Todas'},{id:'direta',l:'● Diretas'},{id:'eleitoral',l:'◆ Eleitorais'},{id:'institucional',l:'○ PMTO'}].map(t=><Bt key={t.id} active={filterType===t.id} color="#1a3a7a" onClick={()=>setFilterType(t.id)}>{t.l}</Bt>)}
+          {[
+            {id:'all',l:'Todas'},
+            {id:'direta',l:isMobile?'● Dir.':'● Diretas'},
+            {id:'eleitoral',l:isMobile?'◆ Eleit.':'◆ Eleitorais'},
+            {id:'institucional',l:'○ PMTO'},
+          ].map(t=><Bt key={t.id} active={filterType===t.id} color="#1a3a7a" onClick={()=>setFilterType(t.id)}>{t.l}</Bt>)}
           <div style={{width:1,height:28,background:'rgba(255,255,255,0.1)',margin:'0 4px'}}/>
           {[{id:'all',l:'TO+BR',i:Layers},{id:'TO',l:'Tocantins',i:MapPin},{id:'BR',l:'Nacional',i:Globe}].map(s=><Bt key={s.id} active={filterScope===s.id} color="#22c55e" onClick={()=>setFilterScope(s.id)}><s.i size={11}/> {s.l}</Bt>)}
         </div>

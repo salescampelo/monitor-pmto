@@ -287,7 +287,7 @@ export default function MapaCampoPanel({ liderancasData }) {
               subdomains="abcd"
               maxZoom={19}
             />
-            <Legenda />
+            {!isMobile && <Legenda />}
             {filtrados.map(m => {
               const cfg = STATUS_CONFIG[m.status_visita] || STATUS_CONFIG.pendente;
               return (
@@ -310,6 +310,17 @@ export default function MapaCampoPanel({ liderancasData }) {
               );
             })}
           </MapContainer>
+          {/* Legenda inline abaixo do mapa em mobile */}
+          {isMobile && (
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 16px', padding: '10px 12px', borderTop: '1px solid rgba(26,39,68,0.08)', justifyContent: 'center' }}>
+              {Object.entries(STATUS_CONFIG).map(([, cfg]) => (
+                <span key={cfg.label} style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 11, color: '#5A6478' }}>
+                  <span style={{ width: 10, height: 10, borderRadius: '50%', background: cfg.cor, display: 'inline-block', opacity: cfg.opacidade, flexShrink: 0 }} />
+                  {cfg.label}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 

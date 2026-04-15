@@ -71,7 +71,7 @@ export default function SocialPanel({socialData,sentimentData}) {
 
   if(!profiles.length)return null;
   return(
-  <Card style={{marginTop:32}}>
+  <Card style={{marginTop:isMobile?0:32}}>
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Users size={22} style={{color:'#1A3A7A'}}/></div>

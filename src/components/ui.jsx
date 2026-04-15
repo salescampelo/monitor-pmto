@@ -20,14 +20,14 @@ export const Card = ({children,style,noHover}) => (
   </div>
 );
 
-export const Met = ({icon:I,label,value,sub,accent}) => (
-  <Card style={{flex:1,minWidth:140}}>
-    <div style={{display:'flex',alignItems:'center',gap:5,marginBottom:10}}>
-      <I size={13} style={{color:accent}}/>
-      <span style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.05em',color:'#8C93A8'}}>{label}</span>
+export const Met = ({icon:I,label,value,sub,accent,compact}) => (
+  <Card style={{flex:compact?'1 1 calc(50% - 4px)':1,minWidth:compact?0:140}}>
+    <div style={{display:'flex',alignItems:'center',gap:5,marginBottom:compact?6:10}}>
+      <I size={compact?11:13} style={{color:accent}}/>
+      <span style={{fontSize:compact?9:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.05em',color:'#8C93A8'}}>{label}</span>
     </div>
-    <p style={{fontSize:30,fontWeight:700,color:accent,margin:0,lineHeight:1,letterSpacing:'-0.02em',fontFamily:'var(--font-mono)'}}>{value}</p>
-    {sub&&<p style={{fontSize:12,color:'#8C93A8',marginTop:6,fontWeight:500}}>{sub}</p>}
+    <p style={{fontSize:compact?22:30,fontWeight:700,color:accent,margin:0,lineHeight:1,letterSpacing:'-0.02em',fontFamily:'var(--font-mono)'}}>{value}</p>
+    {sub&&<p style={{fontSize:compact?10:12,color:'#8C93A8',marginTop:compact?4:6,fontWeight:500}}>{sub}</p>}
   </Card>
 );
 
@@ -36,7 +36,7 @@ export const Bd = ({children,color,bg}) => (
 );
 
 export const Bt = ({active,color,onClick,children}) => (
-  <button onClick={onClick} style={{display:'flex',alignItems:'center',gap:4,padding:'6px 14px',borderRadius:20,fontSize:12,fontWeight:700,border:active?`1.5px solid ${color}`:'1.5px solid rgba(26,39,68,0.15)',background:active?`${color}1a`:'rgba(26,39,68,0.04)',color:active?color:'#5A6478',cursor:'pointer',transition:'all 0.15s ease',fontFamily:'inherit'}}>
+  <button onClick={onClick} style={{display:'flex',alignItems:'center',gap:4,padding:'8px 14px',minHeight:36,borderRadius:20,fontSize:12,fontWeight:700,border:active?`1.5px solid ${color}`:'1.5px solid rgba(26,39,68,0.15)',background:active?`${color}1a`:'rgba(26,39,68,0.04)',color:active?color:'#5A6478',cursor:'pointer',transition:'all 0.15s ease',fontFamily:'inherit'}}>
     {children}
   </button>
 );

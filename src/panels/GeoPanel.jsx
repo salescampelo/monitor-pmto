@@ -44,7 +44,7 @@ export default function GeoPanel({geoData}) {
   const detail=selectedMun?geoData.municipios.find(m=>m.municipio_upper===selectedMun):null;
 
   return(
-  <Card style={{marginTop:32}}>
+  <Card style={{marginTop:isMobile?0:32}}>
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(21,128,61,0.08)',border:'1px solid rgba(21,128,61,0.15)',borderRadius:12,padding:10}}><MapPin size={22} style={{color:'#15803d'}}/></div>
@@ -61,12 +61,12 @@ export default function GeoPanel({geoData}) {
     </div>
     {open&&(
     <div>
-    <div style={{display:'flex',gap:8,marginBottom:14,flexWrap:'wrap'}}>
-      <Met icon={MapPin} label="Municípios" value={summary.total_municipios||0} accent="#22c55e"/>
-      <Met icon={Target} label="Alta prior." value={summary.alta_prioridade||0} sub="score 60+" accent="#22c55e"/>
-      <Met icon={Eye} label="Oportunidade" value={summary.oportunidade||0} sub="score 40-60" accent="#f59e0b"/>
-      <Met icon={TrendingUp} label="Votos REP 2022" value={(summary.total_votos_republicanos_2022||0).toLocaleString('pt-BR')} accent="#1e40af"/>
-      <Met icon={BarChart3} label="Share estado" value={`${summary.share_republicanos_estado||0}%`} accent="#8b5cf6"/>
+    <div style={{display:'flex',gap:isMobile?6:8,marginBottom:14,flexWrap:'wrap'}}>
+      <Met icon={MapPin} label="Municípios" value={summary.total_municipios||0} accent="#22c55e" compact={isMobile}/>
+      <Met icon={Target} label="Alta prior." value={summary.alta_prioridade||0} sub="score 60+" accent="#22c55e" compact={isMobile}/>
+      <Met icon={Eye} label="Oportunidade" value={summary.oportunidade||0} sub="score 40-60" accent="#f59e0b" compact={isMobile}/>
+      <Met icon={TrendingUp} label="Votos REP 2022" value={(summary.total_votos_republicanos_2022||0).toLocaleString('pt-BR')} accent="#1e40af" compact={isMobile}/>
+      <Met icon={BarChart3} label="Share estado" value={`${summary.share_republicanos_estado||0}%`} accent="#8b5cf6" compact={isMobile}/>
     </div>
 
     <div style={{display:'flex',gap:6,marginBottom:14,flexWrap:'wrap'}}>
