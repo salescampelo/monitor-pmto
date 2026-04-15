@@ -11,7 +11,7 @@ import { supabase } from './lib/supabase.js';
 import LoginScreen from './components/LoginScreen.jsx';
 
 const useWW=()=>{const[w,setW]=useState(typeof window!=='undefined'?window.innerWidth:1024);useEffect(()=>{const h=()=>setW(window.innerWidth);window.addEventListener('resize',h);return()=>window.removeEventListener('resize',h);},[]);return w;};
-const CSS=`:root{--surface:#1E3150;--surface-hover:#243B5C;--surface-border:rgba(255,255,255,0.06);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--shadow-sm:0 1px 3px rgba(0,0,0,0.3);--shadow-md:0 4px 12px rgba(0,0,0,0.4);--shadow-lg:0 8px 24px rgba(0,0,0,0.5);--spacing-xs:8px;--spacing-sm:12px;--spacing-md:16px;--spacing-lg:24px;--spacing-xl:32px}html{scroll-padding-top:72px;scroll-behavior:smooth}body{margin:0}*{box-sizing:border-box}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}.hov-card{transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease}.hov-card:hover{transform:translateY(-2px)!important;box-shadow:var(--shadow-lg)!important;border-color:rgba(212,160,23,0.25)!important}`;
+const CSS=`:root{--surface:#1E3150;--surface-hover:#243B5C;--surface-border:rgba(255,255,255,0.06);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--shadow-sm:0 1px 3px rgba(0,0,0,0.3);--shadow-md:0 4px 12px rgba(0,0,0,0.4);--shadow-lg:0 8px 24px rgba(0,0,0,0.5);--spacing-xs:8px;--spacing-sm:12px;--spacing-md:16px;--spacing-lg:24px;--spacing-xl:32px;--font-display:'DM Sans','Inter',system-ui,sans-serif;--font-mono:'Roboto Mono','Fira Code',monospace}html{scroll-padding-top:72px;scroll-behavior:smooth}body{margin:0}*{box-sizing:border-box}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}.hov-card{transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease}.hov-card:hover{transform:translateY(-2px)!important;box-shadow:var(--shadow-lg)!important;border-color:rgba(212,160,23,0.25)!important}.panel-title{font-size:20px;font-weight:700;color:#fff;letter-spacing:-0.02em;margin:0}.panel-subtitle{font-size:13px;font-weight:400;color:#8C93A8;margin:4px 0 0}.metric-value{font-size:32px;font-weight:700;font-family:var(--font-mono);line-height:1}.metric-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8C93A8;margin:4px 0 0}.body-text{font-size:14px;line-height:1.6;color:rgba(255,255,255,0.85)}.table-header{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8C93A8}.table-cell{font-size:13px;color:rgba(255,255,255,0.9)}.table-row:hover{background:rgba(255,255,255,0.04)!important}`;
 const BASE = '/data';
 const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json`, geo: `${BASE}/geo_electoral.json`, kpis: `${BASE}/campaign_kpis.json`, adversarios: `${BASE}/adversarios.json`, tendencia: `${BASE}/tendencia_voto_2022.json` };
 const fetchJ = async u => { try { const r = await fetch(u+'?t='+Date.now()); return r.ok ? r.json() : null; } catch { return null; } };
@@ -71,7 +71,7 @@ const calcHeaderMetrics=(articles,adversariosRaw,socialData,sentimentData)=>{
 
 /* ── COMPONENTS ── */
 const Card=({children,style,noHover})=><div className={noHover?'':'hov-card'} style={{background:'var(--surface)',border:'1px solid var(--surface-border)',borderRadius:'var(--radius-md)',padding:'var(--spacing-lg)',boxShadow:'var(--shadow-sm)',...style}}>{children}</div>;
-const Met=({icon:I,label,value,sub,accent})=><Card style={{flex:1,minWidth:140}}><div style={{display:'flex',alignItems:'center',gap:5,marginBottom:10}}><I size={13} style={{color:accent}}/><span style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.09em',color:'#8C93A8'}}>{label}</span></div><p style={{fontSize:30,fontWeight:900,color:accent,margin:0,lineHeight:1,letterSpacing:'-0.02em'}}>{value}</p>{sub&&<p style={{fontSize:12,color:'#8C93A8',marginTop:6,fontWeight:500}}>{sub}</p>}</Card>;
+const Met=({icon:I,label,value,sub,accent})=><Card style={{flex:1,minWidth:140}}><div style={{display:'flex',alignItems:'center',gap:5,marginBottom:10}}><I size={13} style={{color:accent}}/><span style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.05em',color:'#8C93A8'}}>{label}</span></div><p style={{fontSize:30,fontWeight:700,color:accent,margin:0,lineHeight:1,letterSpacing:'-0.02em',fontFamily:'var(--font-mono)'}}>{value}</p>{sub&&<p style={{fontSize:12,color:'#8C93A8',marginTop:6,fontWeight:500}}>{sub}</p>}</Card>;
 const Bd=({children,color,bg})=><span style={{padding:'3px 8px',borderRadius:6,fontSize:10,fontWeight:700,background:bg||`${color}22`,color}}>{children}</span>;
 const Bt=({active,color,onClick,children})=><button onClick={onClick} style={{display:'flex',alignItems:'center',gap:4,padding:'6px 14px',borderRadius:20,fontSize:12,fontWeight:700,border:active?`1.5px solid ${color}`:'1.5px solid rgba(255,255,255,0.12)',background:active?`${color}1a`:'rgba(255,255,255,0.04)',color:active?color:'#8C93A8',cursor:'pointer',transition:'all 0.15s ease',fontFamily:'inherit'}}>{children}</button>;
 
@@ -183,10 +183,10 @@ const SocialPanel=({socialData,sentimentData})=>{
     {cand&&<Card style={{marginBottom:14,borderLeft:'3px solid #8b5cf6'}}>
       <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10,letterSpacing:'0.1em'}}>Cel. Barbosa · @{cand.username}</p>
       <div style={{display:'flex',gap:28,flexWrap:'wrap'}}>
-        <div><p style={{fontSize:26,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>{cand.seguidores.toLocaleString('pt-BR')}</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>seguidores</p></div>
-        <div><p style={{fontSize:26,fontWeight:800,color:'#6fa3ef',margin:0}}>{cand.taxa_engajamento_pct}%</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>engajamento</p></div>
-        <div><p style={{fontSize:26,fontWeight:800,color:'#d4a017',margin:0}}>{cand.media_likes_recentes}</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>likes/post</p></div>
-        <div><p style={{fontSize:26,fontWeight:800,color:'#22c55e',margin:0}}>#{candRank}</p><p style={{fontSize:10,color:'#8c93a8',margin:'4px 0 0',textTransform:'uppercase',fontWeight:700,letterSpacing:'0.1em'}}>no ranking</p></div>
+        <div><p style={{fontSize:26,fontWeight:700,color:'rgba(255,255,255,0.95)',margin:0,fontFamily:'var(--font-mono)'}}>{cand.seguidores.toLocaleString('pt-BR')}</p><p className="metric-label">seguidores</p></div>
+        <div><p style={{fontSize:26,fontWeight:700,color:'#6fa3ef',margin:0,fontFamily:'var(--font-mono)'}}>{cand.taxa_engajamento_pct}%</p><p className="metric-label">engajamento</p></div>
+        <div><p style={{fontSize:26,fontWeight:700,color:'#D4A017',margin:0,fontFamily:'var(--font-mono)'}}>{cand.media_likes_recentes}</p><p className="metric-label">likes/post</p></div>
+        <div><p style={{fontSize:26,fontWeight:700,color:'#22c55e',margin:0,fontFamily:'var(--font-mono)'}}>#{candRank}</p><p className="metric-label">no ranking</p></div>
       </div>
     </Card>}
 
@@ -216,11 +216,11 @@ const SocialPanel=({socialData,sentimentData})=>{
         <div style={{maxHeight:360,overflowY:'auto'}}>
           {/* Header */}
           <div style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 72px',gap:4,padding:'4px 4px 6px',borderBottom:'1px solid var(--surface-border)'}}>
-            <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>#</span>
-            <span style={{fontSize:10,color:'#8c93a8',fontWeight:700}}>PERFIL</span>
-            <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>SEGUIDORES</span>
-            <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'right'}}>ENGAJAMENTO</span>
-            <span style={{fontSize:10,color:'#8c93a8',fontWeight:700,textAlign:'center'}}>TEND. (7d)</span>
+            <span className="table-header">#</span>
+            <span className="table-header">PERFIL</span>
+            <span className="table-header" style={{textAlign:'right'}}>SEGUIDORES</span>
+            <span className="table-header" style={{textAlign:'right'}}>ENGAJAMENTO</span>
+            <span className="table-header" style={{textAlign:'center'}}>TEND. (7d)</span>
           </div>
           {/* Rows */}
           {rank.map(p=>{
@@ -229,12 +229,12 @@ const SocialPanel=({socialData,sentimentData})=>{
             const trendColor = direction==='up'?'#15803D':direction==='down'?'#B91C1C':'#8C93A8';
             const trendIcon = direction==='up'?'↑':direction==='down'?'↓':'→';
             return(
-            <div key={p.username} style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 72px',gap:4,padding:'5px 4px',borderBottom:'1px solid var(--surface-border)',background:isCand?'rgba(139,92,246,0.08)':'transparent',borderRadius:isCand?6:0}}>
-              <span style={{fontSize:13,fontWeight:700,color:'#8c93a8'}}>#{p.rank}</span>
-              <span style={{fontSize:13,color:isCand?'#a78bfa':'#5a6178',fontWeight:isCand?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
-              <span style={{fontSize:13,fontWeight:600,color:'#8C93A8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{p.seguidores.toLocaleString('pt-BR')}</span>
-              <span style={{fontSize:13,fontWeight:700,color:p.taxa_engajamento_pct>=3?'#22c55e':p.taxa_engajamento_pct>=1.5?'#f59e0b':'#ef4444',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{p.taxa_engajamento_pct}%</span>
-              <span style={{fontSize:11,fontWeight:700,color:trendColor,textAlign:'center',fontVariantNumeric:'tabular-nums'}}>{trendIcon} {label}</span>
+            <div key={p.username} className="table-row" style={{display:'grid',gridTemplateColumns:'28px 1fr 90px 90px 72px',gap:4,padding:'6px 4px',borderBottom:'1px solid var(--surface-border)',background:isCand?'rgba(212,160,23,0.08)':'transparent',borderRadius:isCand?6:0}}>
+              <span className="table-cell" style={{fontWeight:700,color:'#8C93A8',fontFamily:'var(--font-mono)'}}>#{p.rank}</span>
+              <span className="table-cell" style={{color:isCand?'#D4A017':'rgba(255,255,255,0.8)',fontWeight:isCand?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
+              <span className="table-cell" style={{fontWeight:600,color:'rgba(255,255,255,0.8)',textAlign:'right',fontFamily:'var(--font-mono)'}}>{p.seguidores.toLocaleString('pt-BR')}</span>
+              <span className="table-cell" style={{fontWeight:700,color:p.taxa_engajamento_pct>=3?'#22c55e':p.taxa_engajamento_pct>=1.5?'#f59e0b':'#ef4444',textAlign:'right',fontFamily:'var(--font-mono)'}}>{p.taxa_engajamento_pct}%</span>
+              <span className="table-cell" style={{fontWeight:700,color:trendColor,textAlign:'center',fontFamily:'var(--font-mono)'}}>{trendIcon} {label}</span>
             </div>);
           })}
         </div>
@@ -907,7 +907,7 @@ const AdversariosPanel=({adversariosData})=>{
       </div>
       <div style={{display:'flex',alignItems:'center',gap:16}}>
         <div style={{display:'flex',gap:16}}>
-          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#ef4444',margin:0}}>{stats.ameacas_altas}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>ameaças altas</p></div>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:700,color:'#ef4444',margin:0,fontFamily:'var(--font-mono)'}}>{stats.ameacas_altas}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>ameaças altas</p></div>
           <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#8b5cf6',margin:0}}>{stats.internos}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>internos</p></div>
           <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#22c55e',margin:0}}>{stats.saidos}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>saíram</p></div>
         </div>
@@ -1224,7 +1224,7 @@ const handleRefresh=useCallback(async()=>{
           </div>
         </div>
         <div style={{display:'flex',alignItems:'center',gap:16}}>
-          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#ef4444',margin:0}}>{totalM.dir}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>diretas</p></div>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:700,color:'#ef4444',margin:0,fontFamily:'var(--font-mono)'}}>{totalM.dir}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>diretas</p></div>
           <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#6fa3ef',margin:0}}>{totalM.tot}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>menções</p></div>
         </div>
       </div>
