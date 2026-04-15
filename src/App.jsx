@@ -14,7 +14,16 @@ const useWW=()=>{const[w,setW]=useState(typeof window!=='undefined'?window.inner
 const CSS=`:root{--surface:#FFFFFF;--surface-hover:#F5F3EE;--surface-border:rgba(26,39,68,0.08);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--shadow-sm:0 1px 3px rgba(0,0,0,0.07);--shadow-md:0 4px 12px rgba(0,0,0,0.1);--shadow-lg:0 8px 24px rgba(0,0,0,0.14);--spacing-xs:8px;--spacing-sm:12px;--spacing-md:16px;--spacing-lg:24px;--spacing-xl:32px;--font-display:'DM Sans','Inter',system-ui,sans-serif;--font-mono:'Roboto Mono','Fira Code',monospace}html{scroll-padding-top:72px;scroll-behavior:smooth}body{margin:0}*{box-sizing:border-box}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}.hov-card{transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease}.hov-card:hover{transform:translateY(-2px)!important;box-shadow:var(--shadow-lg)!important;border-color:rgba(212,160,23,0.25)!important}.panel-title{font-size:20px;font-weight:700;color:#1A2744;letter-spacing:-0.02em;margin:0}.panel-subtitle{font-size:13px;font-weight:400;color:#5A6478;margin:4px 0 0}.metric-value{font-size:32px;font-weight:700;font-family:var(--font-mono);line-height:1}.metric-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#5A6478;margin:4px 0 0}.body-text{font-size:14px;line-height:1.6;color:rgba(26,39,68,0.8)}.table-header{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#5A6478}.table-cell{font-size:13px;color:#1A2744}.table-row:hover{background:rgba(26,39,68,0.03)!important}.panel-fade-enter{opacity:0;transform:translateY(8px)}.panel-fade{opacity:1;transform:translateY(0);transition:opacity 0.25s ease,transform 0.25s ease}@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}.skeleton{background:linear-gradient(90deg,var(--surface) 25%,rgba(26,39,68,0.04) 50%,var(--surface) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#C4C0B6;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:#A8A49A}::selection{background:rgba(212,160,23,0.3);color:#1A2744}:focus-visible{outline:2px solid #D4A017;outline-offset:2px}@media(max-width:767px){.metric-col-3,.metric-col-4{display:none!important}}`;
 const BASE = '/data';
 const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json`, geo: `${BASE}/geo_electoral.json`, kpis: `${BASE}/campaign_kpis.json`, adversarios: `${BASE}/adversarios.json`, tendencia: `${BASE}/tendencia_voto_2022.json` };
-const fetchJ = async u => { try { const r = await fetch(u+'?t='+Date.now()); return r.ok ? r.json() : null; } catch { return null; } };
+const FETCH_TIMEOUT = 10000;
+const fetchJ = async u => {
+  const ctrl = new AbortController();
+  const tid = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT);
+  try {
+    const r = await fetch(u + '?t=' + Date.now(), { signal: ctrl.signal });
+    clearTimeout(tid);
+    return r.ok ? r.json() : null;
+  } catch { clearTimeout(tid); return null; }
+};
 
 /* ── NEWS CLASSIFICATION ── */
 const CL_RULES = [
@@ -1064,21 +1073,40 @@ const App=({onLogout, userEmail})=>{
   const isMobile=screenW<768;
   const isTablet=screenW>=768&&screenW<1024;
 
+  // Boot: carrega apenas os 4 arquivos pequenos necessários para o header (~40 KB)
+  // Arquivos pesados (mentions ~850KB, geo ~233KB, tendencia ~200KB) são lazy-loaded por painel
   useEffect(()=>{(async()=>{
     setLoading(true);
-    const[m,s,st,g,k,adv,tv]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.geo),fetchJ(URLS.kpis),fetchJ(URLS.adversarios),fetchJ(URLS.tendencia)]);
-    if(m)setNewsRaw(m);if(s)setSocialData(s);if(st)setSentimentData(st);if(g)setGeoData(g);if(k)setKpiData(k);if(adv)setAdversariosData(adv);if(tv)setTendenciaData(tv);else console.log('Tendência de voto 2022: dados não disponíveis');
+    const[s,st,k,adv]=await Promise.all([
+      fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)
+    ]);
+    if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
     setLastUpdate(new Date().toLocaleString('pt-BR')+' (auto)');
     setLoading(false);
   })();},[]);
 
+  // Lazy-load por painel — carrega apenas quando o painel é ativado pela primeira vez
+  useEffect(()=>{
+    if(activePanel==='imprensa'&&!newsRaw)fetchJ(URLS.mentions).then(d=>{if(d)setNewsRaw(d);});
+    if(activePanel==='geo'&&!geoData)fetchJ(URLS.geo).then(d=>{if(d)setGeoData(d);});
+    if(activePanel==='tendencia'&&!tendenciaData)fetchJ(URLS.tendencia).then(d=>{if(d)setTendenciaData(d);});
+  },[activePanel,newsRaw,geoData,tendenciaData]);
+
 const handleRefresh=useCallback(async()=>{
     setRefreshing(true);
-    const[m,s,st,g,k,adv,tv]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.geo),fetchJ(URLS.kpis),fetchJ(URLS.adversarios),fetchJ(URLS.tendencia)]);
-    if(m)setNewsRaw(m);if(s)setSocialData(s);if(st)setSentimentData(st);if(g)setGeoData(g);if(k)setKpiData(k);if(adv)setAdversariosData(adv);if(tv)setTendenciaData(tv);
+    // Recarrega sempre os arquivos de boot + o painel ativo atual
+    const bootFetches=[fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)];
+    const panelFetches=activePanel==='imprensa'?[fetchJ(URLS.mentions)]:
+      activePanel==='geo'?[fetchJ(URLS.geo)]:
+      activePanel==='tendencia'?[fetchJ(URLS.tendencia)]:[];
+    const[s,st,k,adv,...panelResults]=await Promise.all([...bootFetches,...panelFetches]);
+    if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
+    if(activePanel==='imprensa'&&panelResults[0])setNewsRaw(panelResults[0]);
+    if(activePanel==='geo'&&panelResults[0])setGeoData(panelResults[0]);
+    if(activePanel==='tendencia'&&panelResults[0])setTendenciaData(panelResults[0]);
     setLastUpdate(new Date().toLocaleString('pt-BR')+' (manual)');
     setRefreshing(false);
-  },[]);
+  },[activePanel]);
 
   const handlePwChange=useCallback(async()=>{
     if(pwNew.length<6||pwNew!==pwConfirm)return;
