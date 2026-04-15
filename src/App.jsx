@@ -1123,28 +1123,28 @@ const handleRefresh=useCallback(async()=>{
       {!isMobile&&<span style={{padding:'2px 8px',borderRadius:4,fontSize:10,fontWeight:700,background:'rgba(212,160,23,0.15)',color:'#D4A017',border:'1px solid rgba(212,160,23,0.3)',whiteSpace:'nowrap'}}>Campanha 2026</span>}
     </div>
     {!isMobile&&(
-    <div style={{display:'flex',alignItems:'center',gap:16,flexShrink:0}}>
-      <div style={{textAlign:'center'}}>
-        <p style={{fontSize:9,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.12em',color:'rgba(255,255,255,0.3)',margin:'0 0 1px'}}>Engajamento IG</p>
-        <div style={{display:'flex',alignItems:'baseline',gap:3,justifyContent:'center'}}>
-          <span style={{fontSize:17,fontWeight:900,color:'#fff',lineHeight:1}}>{hm.engCand!=null?`${hm.engCand}%`:'—'}</span>
-          {hm.engDelta!==null&&<span style={{fontSize:10,fontWeight:700,color:hm.engDelta>0?'#22c55e':hm.engDelta<0?'#ef4444':'rgba(255,255,255,0.3)'}}>{hm.engDelta>0?'▲':hm.engDelta<0?'▼':'—'}</span>}
+    <div style={{display:'flex',alignItems:'center',gap:20,flexShrink:0}}>
+      <div style={{textAlign:'center',minWidth:110}}>
+        <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.08em',color:'rgba(255,255,255,0.45)',margin:'0 0 2px'}}>Engajamento IG</p>
+        <div style={{display:'flex',alignItems:'baseline',gap:4,justifyContent:'center'}}>
+          <span style={{fontSize:22,fontWeight:700,color:'#fff',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.engCand!=null?`${hm.engCand}%`:'—'}</span>
+          {hm.engDelta!==null&&<span style={{fontSize:13,fontWeight:700,color:hm.engDelta>0?'#22c55e':hm.engDelta<0?'#ef4444':'rgba(255,255,255,0.35)'}}>{hm.engDelta>0?'▲':hm.engDelta<0?'▼':'—'}</span>}
         </div>
       </div>
-      <div style={{width:1,height:28,background:'rgba(255,255,255,0.08)'}}/>
-      <div style={{textAlign:'center'}}>
-        <p style={{fontSize:9,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.12em',color:'rgba(255,255,255,0.3)',margin:'0 0 1px'}}>Sentimento IG</p>
-        <span style={{fontSize:17,fontWeight:900,color:hm.igSentPct==null?'rgba(255,255,255,0.4)':hm.igSentPct>=50?'#22c55e':hm.igSentPct>=30?'#D4A017':'#ef4444',lineHeight:1}}>{hm.igSentPct!=null?`${hm.igSentPct}%`:'—'}</span>
+      <div style={{width:1,height:32,background:'rgba(255,255,255,0.1)'}}/>
+      <div style={{textAlign:'center',minWidth:110}}>
+        <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.08em',color:'rgba(255,255,255,0.45)',margin:'0 0 2px'}}>Sentimento IG</p>
+        <span style={{fontSize:22,fontWeight:700,color:hm.igSentPct==null?'rgba(255,255,255,0.35)':hm.igSentPct>=50?'#22c55e':hm.igSentPct>=30?'#D4A017':'#ef4444',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.igSentPct!=null?`${hm.igSentPct}%`:'—'}</span>
       </div>
-      <div style={{width:1,height:28,background:'rgba(255,255,255,0.08)'}}/>
-      <div style={{textAlign:'center'}}>
-        <p style={{fontSize:9,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.12em',color:'rgba(255,255,255,0.3)',margin:'0 0 1px'}}>Alertas</p>
-        <span style={{fontSize:17,fontWeight:900,color:hm.alerts>0?'#ef4444':'#22c55e',lineHeight:1}}>{hm.alerts}</span>
+      <div style={{width:1,height:32,background:'rgba(255,255,255,0.1)'}}/>
+      <div style={{textAlign:'center',minWidth:80}}>
+        <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.08em',color:'rgba(255,255,255,0.45)',margin:'0 0 2px'}}>Alertas</p>
+        <span style={{fontSize:22,fontWeight:700,color:hm.alerts>0?'#ef4444':'#22c55e',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.alerts}</span>
       </div>
-      <div style={{width:1,height:28,background:'rgba(255,255,255,0.08)'}}/>
-      <div style={{textAlign:'center'}}>
-        <p style={{fontSize:9,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.12em',color:'rgba(255,255,255,0.3)',margin:'0 0 1px'}}>Adversários</p>
-        <span style={{fontSize:17,fontWeight:900,color:'rgba(255,255,255,0.55)',lineHeight:1}}>{hm.totalAdv||'—'}</span>
+      <div style={{width:1,height:32,background:'rgba(255,255,255,0.1)'}}/>
+      <div style={{textAlign:'center',minWidth:90}}>
+        <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.08em',color:'rgba(255,255,255,0.45)',margin:'0 0 2px'}}>Adversários</p>
+        <span style={{fontSize:22,fontWeight:700,color:'rgba(255,255,255,0.65)',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.totalAdv||'—'}</span>
       </div>
     </div>
     )}
