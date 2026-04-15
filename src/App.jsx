@@ -11,7 +11,7 @@ import { supabase } from './lib/supabase.js';
 import LoginScreen from './components/LoginScreen.jsx';
 
 const useWW=()=>{const[w,setW]=useState(typeof window!=='undefined'?window.innerWidth:1024);useEffect(()=>{const h=()=>setW(window.innerWidth);window.addEventListener('resize',h);return()=>window.removeEventListener('resize',h);},[]);return w;};
-const CSS=`:root{--surface:#1E3150;--surface-hover:#243B5C;--surface-border:rgba(255,255,255,0.06);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--shadow-sm:0 1px 3px rgba(0,0,0,0.3);--shadow-md:0 4px 12px rgba(0,0,0,0.4);--shadow-lg:0 8px 24px rgba(0,0,0,0.5);--spacing-xs:8px;--spacing-sm:12px;--spacing-md:16px;--spacing-lg:24px;--spacing-xl:32px;--font-display:'DM Sans','Inter',system-ui,sans-serif;--font-mono:'Roboto Mono','Fira Code',monospace}html{scroll-padding-top:72px;scroll-behavior:smooth}body{margin:0}*{box-sizing:border-box}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}.hov-card{transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease}.hov-card:hover{transform:translateY(-2px)!important;box-shadow:var(--shadow-lg)!important;border-color:rgba(212,160,23,0.25)!important}.panel-title{font-size:20px;font-weight:700;color:#fff;letter-spacing:-0.02em;margin:0}.panel-subtitle{font-size:13px;font-weight:400;color:#8C93A8;margin:4px 0 0}.metric-value{font-size:32px;font-weight:700;font-family:var(--font-mono);line-height:1}.metric-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8C93A8;margin:4px 0 0}.body-text{font-size:14px;line-height:1.6;color:rgba(255,255,255,0.85)}.table-header{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8C93A8}.table-cell{font-size:13px;color:rgba(255,255,255,0.9)}.table-row:hover{background:rgba(255,255,255,0.04)!important}`;
+const CSS=`:root{--surface:#1E3150;--surface-hover:#243B5C;--surface-border:rgba(255,255,255,0.06);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--shadow-sm:0 1px 3px rgba(0,0,0,0.3);--shadow-md:0 4px 12px rgba(0,0,0,0.4);--shadow-lg:0 8px 24px rgba(0,0,0,0.5);--spacing-xs:8px;--spacing-sm:12px;--spacing-md:16px;--spacing-lg:24px;--spacing-xl:32px;--font-display:'DM Sans','Inter',system-ui,sans-serif;--font-mono:'Roboto Mono','Fira Code',monospace}html{scroll-padding-top:72px;scroll-behavior:smooth}body{margin:0}*{box-sizing:border-box}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}.hov-card{transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease}.hov-card:hover{transform:translateY(-2px)!important;box-shadow:var(--shadow-lg)!important;border-color:rgba(212,160,23,0.25)!important}.panel-title{font-size:20px;font-weight:700;color:#fff;letter-spacing:-0.02em;margin:0}.panel-subtitle{font-size:13px;font-weight:400;color:#8C93A8;margin:4px 0 0}.metric-value{font-size:32px;font-weight:700;font-family:var(--font-mono);line-height:1}.metric-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8C93A8;margin:4px 0 0}.body-text{font-size:14px;line-height:1.6;color:rgba(255,255,255,0.85)}.table-header{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8C93A8}.table-cell{font-size:13px;color:rgba(255,255,255,0.9)}.table-row:hover{background:rgba(255,255,255,0.04)!important}.panel-fade-enter{opacity:0;transform:translateY(8px)}.panel-fade{opacity:1;transform:translateY(0);transition:opacity 0.25s ease,transform 0.25s ease}@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}.skeleton{background:linear-gradient(90deg,var(--surface) 25%,rgba(255,255,255,0.06) 50%,var(--surface) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}`;
 const BASE = '/data';
 const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json`, geo: `${BASE}/geo_electoral.json`, kpis: `${BASE}/campaign_kpis.json`, adversarios: `${BASE}/adversarios.json`, tendencia: `${BASE}/tendencia_voto_2022.json` };
 const fetchJ = async u => { try { const r = await fetch(u+'?t='+Date.now()); return r.ok ? r.json() : null; } catch { return null; } };
@@ -267,7 +267,7 @@ const SocialPanel=({socialData,sentimentData})=>{
           <XAxis type="number" tick={{fontSize:12,fill:'#8c93a8'}} axisLine={false} tickLine={false} domain={[0,'auto']}/>
           <YAxis type="category" dataKey="name" tick={{fontSize:13,fill:'#5a6178',fontWeight:500}} width={150} axisLine={false} tickLine={false}/>
           <Tooltip contentStyle={{background:'#1E3150',border:'1px solid rgba(255,255,255,0.12)',borderRadius:8,fontSize:14,color:'rgba(255,255,255,0.95)'}} formatter={v=>[`${v}%`,'Engajamento']} cursor={{fill:'rgba(139,92,246,0.05)'}}/>
-          <Bar dataKey="eng" radius={[0,6,6,0]} barSize={20} label={{position:'right',fill:'#5a6178',fontSize:11,fontWeight:600,formatter:v=>`${v}%`}}>
+          <Bar dataKey="eng" radius={[0,6,6,0]} barSize={20} animationDuration={800} animationEasing="ease-out" label={{position:'right',fill:'#8C93A8',fontSize:11,fontWeight:600,formatter:v=>`${v}%`}}>
             {engChart.map((d,i)=><Cell key={i} fill={d.fill} fillOpacity={0.85}/>)}
           </Bar>
         </BarChart>
@@ -335,7 +335,7 @@ const SocialPanel=({socialData,sentimentData})=>{
             <Tooltip contentStyle={{background:'#1E3150',border:'1px solid rgba(255,255,255,0.12)',borderRadius:8,fontSize:13,color:'rgba(255,255,255,0.95)'}} formatter={(v,name)=>[v?.toLocaleString('pt-BR'),`@${name}`]}/>
             <Legend wrapperStyle={{fontSize:10,color:'#8c93a8'}} formatter={v=>`@${v}`}/>
             {topUsernames.map((u,i)=>(
-              <Line key={u} type="monotone" dataKey={u} stroke={COLORS_LINE[i%6]} strokeWidth={u==='marciobarbosa_cel'?3:1.5} dot={{r:u==='marciobarbosa_cel'?4:2}} connectNulls/>
+              <Line key={u} type="monotone" dataKey={u} stroke={COLORS_LINE[i%6]} strokeWidth={u==='marciobarbosa_cel'?3:1.5} dot={{r:u==='marciobarbosa_cel'?4:2}} connectNulls animationDuration={800} animationEasing="ease-out"/>
             ))}
           </LineChart>
         </ResponsiveContainer>
@@ -529,8 +529,8 @@ const TendenciaVotoPanel=({tendenciaData})=>{
                 return <text x={x} y={y} dy={4} textAnchor="end" fill="#5a6178" fontSize={11} fontWeight={500}>{display}</text>;
               }}/>
             <Tooltip formatter={(v,n)=>[`${v}%`,n==='bols'?'Bolsonaro':'Lula']} contentStyle={{background:'#fff',border:'1px solid #dfe3ed',borderRadius:8,fontSize:13}}/>
-            <Bar dataKey="bols" name="bols" fill={TV_CORES.Conservador} radius={[0,4,4,0]} barSize={13} label={{position:'right',fill:TV_CORES.Conservador,fontSize:11,fontWeight:700,formatter:v=>`${v}%`}}/>
-            <Bar dataKey="lula" name="lula" fill={TV_CORES.Progressista} radius={[0,4,4,0]} barSize={13} label={{position:'right',fill:TV_CORES.Progressista,fontSize:11,fontWeight:700,formatter:v=>`${v}%`}}/>
+            <Bar dataKey="bols" name="bols" fill={TV_CORES.Conservador} radius={[0,4,4,0]} barSize={13} animationDuration={800} animationEasing="ease-out" label={{position:'right',fill:TV_CORES.Conservador,fontSize:11,fontWeight:700,formatter:v=>`${v}%`}}/>
+            <Bar dataKey="lula" name="lula" fill={TV_CORES.Progressista} radius={[0,4,4,0]} barSize={13} animationDuration={800} animationEasing="ease-out" label={{position:'right',fill:TV_CORES.Progressista,fontSize:11,fontWeight:700,formatter:v=>`${v}%`}}/>
           </BarChart>
         </ResponsiveContainer>
       </Card>
@@ -785,7 +785,7 @@ const GeoPanel=({geoData})=>{
               <XAxis type="number" tick={{fontSize:9,fill:'#8c93a8'}} axisLine={false} tickLine={false} tickFormatter={v=>v>=1000?`${(v/1000).toFixed(0)}K`:v}/>
               <YAxis type="category" dataKey="name" tick={{fontSize:12,fill:'#5a6178',fontWeight:500}} width={90} axisLine={false} tickLine={false}/>
               <Tooltip contentStyle={{background:'#1E3150',border:'1px solid rgba(255,255,255,0.12)',borderRadius:8,fontSize:13,color:'rgba(255,255,255,0.95)'}} formatter={v=>[v.toLocaleString('pt-BR')+' votos']}/>
-              <Bar dataKey="votos" radius={[0,4,4,0]} barSize={16}>
+              <Bar dataKey="votos" radius={[0,4,4,0]} barSize={16} animationDuration={800} animationEasing="ease-out">
                 {partyChart.map((d,i)=><Cell key={i} fill={d.fill} fillOpacity={0.85}/>)}
               </Bar>
             </BarChart>
@@ -1193,7 +1193,7 @@ const handleRefresh=useCallback(async()=>{
             }}>
             <Icon size={18} style={{flexShrink:0,color:isAct?'#D4A017':'inherit'}}/>
             {showLabel&&<span>{label}</span>}
-            {showLabel&&badge>0&&<span style={{marginLeft:'auto',background:'#ef4444',color:'#fff',borderRadius:8,fontSize:9,fontWeight:700,padding:'1px 5px',flexShrink:0}}>{badge}</span>}
+            {showLabel&&badge>0&&<span style={{marginLeft:'auto',background:'#ef4444',color:'#fff',borderRadius:8,fontSize:9,fontWeight:700,padding:'1px 5px',flexShrink:0,animation:'pulse 2s infinite'}}>{badge}</span>}
           </button>
         );
       })}
@@ -1205,6 +1205,7 @@ const handleRefresh=useCallback(async()=>{
     {/* ── CONTENT AREA ── */}
     <main style={{marginLeft:isMobile?0:isTablet?60:240,padding:isMobile?'16px 12px':'24px',flex:1,minWidth:0,transition:'margin-left 0.2s ease',minHeight:'calc(100vh - 56px)'}}>
 
+      <div key={activePanel} className="panel-fade">
       {activePanel==='tendencia'&&<TendenciaVotoPanel tendenciaData={tendenciaData}/>}
       {activePanel==='adversarios'&&<AdversariosPanel adversariosData={adversariosData}/>}
       {activePanel==='kpis'&&<KpiPanel kpiData={kpiData}/>}
@@ -1277,6 +1278,7 @@ const handleRefresh=useCallback(async()=>{
       </div>
       </Card>
       )}
+      </div>
 
     </main>
   </div>
