@@ -4,7 +4,7 @@ import {
   ChevronDown, ChevronUp, Newspaper, Target, Radio, Clock,
   Hash, ArrowUpRight, BrainCircuit, Layers, Upload, RefreshCw,
   Database, User, Building, Globe, MapPin, Bookmark, Trash2,
-  BarChart3, TrendingUp, Heart, MessageCircle, Users, LogOut
+  BarChart3, TrendingUp, Heart, MessageCircle, Users, LogOut, Menu
 } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
 import { supabase } from './lib/supabase.js';
@@ -1049,9 +1049,12 @@ const App=({onLogout, userEmail})=>{
   const[lastUpdate,setLastUpdate]=useState(null);
   const[loading,setLoading]=useState(true);
   const[refreshing,setRefreshing]=useState(false);
+  const[activePanel,setActivePanel]=useState('tendencia');
+  const[sidebarOpen,setSidebarOpen]=useState(false);
 
-  const[openImprensa,setOpenImprensa]=useState(true);
-  const isMobile=useWW()<768;
+  const screenW=useWW();
+  const isMobile=screenW<768;
+  const isTablet=screenW>=768&&screenW<1024;
 
   useEffect(()=>{(async()=>{
     setLoading(true);
@@ -1061,16 +1064,7 @@ const App=({onLogout, userEmail})=>{
     setLoading(false);
   })();},[]);
 
-  useEffect(()=>{
-    if(loading)return;
-    const obs=new IntersectionObserver(entries=>{
-      entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-    },{threshold:0.04,rootMargin:'0px 0px -20px 0px'});
-    const timer=setTimeout(()=>{document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));},80);
-    return()=>{clearTimeout(timer);obs.disconnect();};
-  },[loading]);
-
-  const handleRefresh=useCallback(async()=>{
+const handleRefresh=useCallback(async()=>{
     setRefreshing(true);
     const[m,s,st,g,k,adv,tv]=await Promise.all([fetchJ(URLS.mentions),fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.geo),fetchJ(URLS.kpis),fetchJ(URLS.adversarios),fetchJ(URLS.tendencia)]);
     if(m)setNewsRaw(m);if(s)setSocialData(s);if(st)setSentimentData(st);if(g)setGeoData(g);if(k)setKpiData(k);if(adv)setAdversariosData(adv);if(tv)setTendenciaData(tv);
@@ -1114,177 +1108,179 @@ const App=({onLogout, userEmail})=>{
     const c={};base.forEach(n=>{c[n.cluster]=(c[n.cluster]||0)+1;});return c;
   },[articles,filterType,filterScope]);
 
-  if(loading)return(<div style={{minHeight:'100vh',background:'#1a3a7a',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,sans-serif"}}><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style><div style={{position:'relative',width:76,height:76,marginBottom:28}}><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid rgba(212,160,23,0.18)'}}/><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid transparent',borderTopColor:'#d4a017',animation:'spin 1s linear infinite'}}/><ShieldAlert size={26} style={{color:'#d4a017',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}/></div><p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',margin:0}}>Carregando dados</p></div>);
+  if(loading)return(<div style={{minHeight:'100vh',background:'#0D1B2A',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,sans-serif"}}><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style><div style={{position:'relative',width:76,height:76,marginBottom:28}}><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid rgba(212,160,23,0.18)'}}/><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid transparent',borderTopColor:'#D4A017',animation:'spin 1s linear infinite'}}/><ShieldAlert size={26} style={{color:'#D4A017',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}/></div><p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',margin:0}}>Carregando dados</p></div>);
 
   return(
-  <div style={{minHeight:'100vh',background:'#f3f5f9',color:'#3a3f52',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif"}}>
+  <div style={{minHeight:'100vh',background:'#0D1B2A',color:'#ffffff',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif"}}>
   <style>{CSS}</style>
 
-  {/* ── STICKY NAV ── */}
-  <nav style={{position:'sticky',top:0,zIndex:100,background:'rgba(255,255,255,0.97)',backdropFilter:'blur(16px)',WebkitBackdropFilter:'blur(16px)',borderBottom:'1px solid rgba(223,227,237,0.9)',display:'flex',alignItems:'center',justifyContent:'space-between',padding:isMobile?'0 16px':'0 32px',height:64,gap:16}}>
-    <div style={{display:'flex',alignItems:'center',gap:10}}>
-      <div style={{background:'#1a3a7a',borderRadius:10,padding:'7px 8px',display:'flex',alignItems:'center'}}><ShieldAlert size={18} style={{color:'#d4a017'}}/></div>
-      <span style={{fontSize:16,fontWeight:900,color:'#1a1d2e',letterSpacing:'-0.02em'}}>Monitor Coronel Barbosa<span style={{color:'#d4a017'}}>.</span></span>
+  {/* ── FIXED HEADER 56px ── */}
+  <header style={{position:'fixed',top:0,left:0,right:0,height:56,zIndex:200,background:'#0D1B2A',borderBottom:'1px solid rgba(255,255,255,0.08)',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 16px',gap:12,boxSizing:'border-box'}}>
+    <div style={{display:'flex',alignItems:'center',gap:10,flexShrink:0}}>
+      {isMobile&&<button onClick={()=>setSidebarOpen(o=>!o)} style={{background:'none',border:'none',cursor:'pointer',padding:6,display:'flex',alignItems:'center',color:'#8C93A8'}}><Menu size={20}/></button>}
+      <div style={{background:'#1a3a7a',borderRadius:8,padding:'5px 6px',display:'flex'}}><ShieldAlert size={16} style={{color:'#D4A017'}}/></div>
+      <span style={{fontSize:isMobile?12:14,fontWeight:900,color:'#ffffff',letterSpacing:'-0.02em',whiteSpace:'nowrap'}}>MONITOR ELEITORAL</span>
+      {!isMobile&&<span style={{padding:'2px 8px',borderRadius:4,fontSize:10,fontWeight:700,background:'rgba(212,160,23,0.15)',color:'#D4A017',border:'1px solid rgba(212,160,23,0.3)',whiteSpace:'nowrap'}}>Campanha 2026</span>}
     </div>
-    <div className="nav-items" style={{display:'flex',alignItems:'center',gap:2}}>
-      {[['Voto 2022','#sec-tendencia'],['Inteligência','#sec-adversarios'],['Metas','#sec-kpis'],['Eleitoral','#sec-geo'],['Social','#sec-social'],['Imprensa','#sec-imprensa']].map(([l,h])=>(
-        <a key={l} href={h} style={{fontSize:13,fontWeight:600,color:'#5a6178',padding:'6px 14px',borderRadius:8,textDecoration:'none',transition:'color 0.15s'}}
-          onMouseEnter={e=>e.currentTarget.style.color='#1a3a7a'} onMouseLeave={e=>e.currentTarget.style.color='#5a6178'}>{l}</a>
-      ))}
-      <button onClick={handleRefresh} disabled={refreshing} title="Recarregar dados do cache" style={{display:'flex',alignItems:'center',gap:6,padding:'8px 16px',borderRadius:24,background:'transparent',border:'1px solid #dfe3ed',color:'#5a6178',fontSize:12,fontWeight:700,cursor:refreshing?'wait':'pointer',marginLeft:8,opacity:refreshing?0.7:1,transition:'all 0.2s'}}>
-        <RefreshCw size={12} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{refreshing?'Recarregando...':'Recarregar'}
-      </button>
-      {onLogout&&(
-        <button onClick={onLogout} title={userEmail} style={{display:'flex',alignItems:'center',gap:6,padding:'8px 14px',borderRadius:24,background:'transparent',border:'1px solid #dfe3ed',color:'#5a6178',fontSize:12,fontWeight:700,cursor:'pointer',transition:'all 0.15s'}}
-          onMouseEnter={e=>{e.currentTarget.style.borderColor='#ef4444';e.currentTarget.style.color='#ef4444';}}
-          onMouseLeave={e=>{e.currentTarget.style.borderColor='#dfe3ed';e.currentTarget.style.color='#5a6178';}}>
-          <LogOut size={12}/>{!isMobile&&'Sair'}
-        </button>
-      )}
-    </div>
-  </nav>
-
-  <div style={{maxWidth:1600,margin:'0 auto',padding:isMobile?'0 16px 48px':'0 32px 72px'}}>
-
-    {/* ── HERO ── */}
-    <div style={{position:'relative',background:'#1a3a7a',borderRadius:20,marginTop:24,overflow:'hidden',padding:isMobile?'32px 20px 36px':'56px 48px 60px'}}>
-      <div style={{position:'absolute',width:640,height:640,borderRadius:'50%',background:'radial-gradient(circle,rgba(212,160,23,0.22),transparent 68%)',top:-220,right:-80,pointerEvents:'none',animation:'blob-float 11s ease-in-out infinite'}}/>
-      <div style={{position:'absolute',width:380,height:380,borderRadius:'50%',background:'radial-gradient(circle,rgba(255,255,255,0.06),transparent 70%)',bottom:-100,left:'38%',pointerEvents:'none',animation:'blob-float 16s ease-in-out infinite reverse'}}/>
-      <div style={{position:'absolute',width:220,height:220,borderRadius:'50%',background:'radial-gradient(circle,rgba(26,58,122,0.6),transparent 70%)',top:20,left:'55%',pointerEvents:'none',animation:'blob-float 9s ease-in-out infinite'}}/>
-      <div style={{position:'relative',zIndex:1,display:'flex',flexDirection:isMobile?'column':'row',justifyContent:'space-between',alignItems:isMobile?'flex-start':'center',gap:isMobile?24:36}}>
-        <div>
-          <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.28em',color:'rgba(255,255,255,0.38)',margin:'0 0 16px'}}>Central de inteligência · Campanha 2026</p>
-          <h1 style={{fontSize:isMobile?'clamp(28px,8vw,38px)':'clamp(32px,4.2vw,58px)',fontWeight:900,color:'#ffffff',margin:0,lineHeight:1.0,letterSpacing:'-0.02em',textTransform:'uppercase'}}>
-            INTELIGÊNCIA<br/>ELEITORAL<br/><span style={{color:'#d4a017'}}>TOCANTINS.</span>
-          </h1>
-          <p style={{fontSize:13,color:'rgba(255,255,255,0.42)',margin:'16px 0 0',fontWeight:500,letterSpacing:'0.01em'}}>
-            32 fontes · TO + Brasil · {lastUpdate||'Aguardando dados'}
-          </p>
-        </div>
-        <div style={{display:'flex',flexDirection:'row',flexWrap:isMobile?'wrap':'nowrap',gap:isMobile?12:0,alignItems:isMobile?'flex-start':'center',width:isMobile?'100%':'auto'}}>
-          {/* Card 1 — Engajamento IG */}
-          <div style={{textAlign:'center',...(isMobile?{flexBasis:'calc(50% - 6px)'}:{})}}>
-            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 6px'}}>Engajamento IG</p>
-            <div style={{display:'flex',alignItems:'baseline',justifyContent:'center',gap:4}}>
-              <p style={{fontSize:isMobile?32:48,fontWeight:900,color:'#ffffff',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{hm.engCand!=null?`${hm.engCand}%`:'—'}</p>
-              {hm.engDelta!==null&&<span style={{fontSize:isMobile?14:18,fontWeight:800,color:hm.engDelta>0?'#22c55e':hm.engDelta<0?'#ef4444':'rgba(255,255,255,0.4)'}}>{hm.engDelta>0?'▲':hm.engDelta<0?'▼':'—'}</span>}
-            </div>
-            <p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',fontWeight:500}}>{hm.engDelta!=null?`vs adversários ${hm.engDelta>=0?'+':''}${hm.engDelta}pp (${hm.engAvg}% média)`:'taxa de engajamento'}</p>
-          </div>
-          {!isMobile&&<div style={{width:1,height:72,background:'rgba(255,255,255,0.12)',margin:'0 28px'}}/>}
-          {/* Card 2 — Sentimento IG */}
-          <div style={{textAlign:'center',...(isMobile?{flexBasis:'calc(50% - 6px)'}:{})}}>
-            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 6px'}}>Sentimento IG</p>
-            <p style={{fontSize:isMobile?32:48,fontWeight:900,color:hm.igSentPct==null?'rgba(255,255,255,0.4)':hm.igSentPct>=50?'#22c55e':hm.igSentPct>=30?'#f59e0b':'#ef4444',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{hm.igSentPct!=null?`${hm.igSentPct}%`:'—'}</p>
-            <p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',fontWeight:500}}>{hm.igSentPct!=null?`positivo (comentários IG)${hm.igSentDate?' · '+hm.igSentDate:''}` :'sem dados de comentários'}</p>
-          </div>
-          {!isMobile&&<div style={{width:1,height:72,background:'rgba(255,255,255,0.12)',margin:'0 28px'}}/>}
-          {/* Card 3 — Alertas */}
-          <div style={{textAlign:'center',...(isMobile?{flexBasis:'calc(50% - 6px)'}:{})}}>
-            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 6px'}}>Alertas</p>
-            <p style={{fontSize:isMobile?32:48,fontWeight:900,color:hm.alerts>0?'#ef4444':'#22c55e',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{hm.alerts}</p>
-            <p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',fontWeight:500}}>{hm.alerts>0?'relevantes (48h)':'nenhum alerta'}</p>
-          </div>
-          {!isMobile&&<div style={{width:1,height:72,background:'rgba(255,255,255,0.12)',margin:'0 28px'}}/>}
-          {/* Card 4 — Adversários */}
-          <div style={{textAlign:'center',...(isMobile?{flexBasis:'calc(50% - 6px)'}:{})}}>
-            <p style={{fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.18em',color:'rgba(255,255,255,0.35)',margin:'0 0 6px'}}>Adversários</p>
-            <p style={{fontSize:isMobile?32:48,fontWeight:900,color:'rgba(255,255,255,0.55)',margin:0,lineHeight:1,letterSpacing:'-0.03em'}}>{hm.totalAdv||'—'}</p>
-            <p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',fontWeight:500}}>monitorados</p>
-          </div>
+    {!isMobile&&(
+    <div style={{display:'flex',alignItems:'center',gap:16,flexShrink:0}}>
+      <div style={{textAlign:'center'}}>
+        <p style={{fontSize:9,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.12em',color:'rgba(255,255,255,0.3)',margin:'0 0 1px'}}>Engajamento IG</p>
+        <div style={{display:'flex',alignItems:'baseline',gap:3,justifyContent:'center'}}>
+          <span style={{fontSize:17,fontWeight:900,color:'#fff',lineHeight:1}}>{hm.engCand!=null?`${hm.engCand}%`:'—'}</span>
+          {hm.engDelta!==null&&<span style={{fontSize:10,fontWeight:700,color:hm.engDelta>0?'#22c55e':hm.engDelta<0?'#ef4444':'rgba(255,255,255,0.3)'}}>{hm.engDelta>0?'▲':hm.engDelta<0?'▼':'—'}</span>}
         </div>
       </div>
-    </div>
-
-    {/* ═══ TENDÊNCIA DE VOTO 2022 ═══ */}
-    <div id="sec-tendencia" className="reveal"><TendenciaVotoPanel tendenciaData={tendenciaData}/></div>
-
-    {/* ═══ INTELIGÊNCIA COMPETITIVA ═══ */}
-    <div id="sec-adversarios" className="reveal"><AdversariosPanel adversariosData={adversariosData}/></div>
-
-    {/* ═══ METAS DA CAMPANHA ═══ */}
-    <div id="sec-kpis" className="reveal"><KpiPanel kpiData={kpiData}/></div>
-
-    {/* ═══ M3: INTELIGÊNCIA ELEITORAL ═══ */}
-    <div id="sec-geo" className="reveal"><GeoPanel geoData={geoData}/></div>
-
-    {/* ═══ M2: REDES SOCIAIS ═══ */}
-    <div id="sec-social" className="reveal"><SocialPanel socialData={socialData} sentimentData={sentimentData}/></div>
-
-    {/* ═══ M1: MONITOR DE IMPRENSA ═══ */}
-    <section id="sec-imprensa" className="reveal">
-    <Card style={{marginTop:32}}>
-    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:openImprensa?18:0}} onClick={()=>setOpenImprensa(o=>!o)}>
-      <div style={{display:'flex',alignItems:'center',gap:12}}>
-        <div style={{background:'rgba(185,28,28,0.06)',border:'1px solid rgba(185,28,28,0.12)',borderRadius:12,padding:10}}><Newspaper size={22} style={{color:'#b91c1c'}}/></div>
-        <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Monitor de imprensa</h2>
-          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
-            32 fontes · Tocantins + Brasil · Atualização 2x ao dia
-          </p>
-        </div>
+      <div style={{width:1,height:28,background:'rgba(255,255,255,0.08)'}}/>
+      <div style={{textAlign:'center'}}>
+        <p style={{fontSize:9,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.12em',color:'rgba(255,255,255,0.3)',margin:'0 0 1px'}}>Sentimento IG</p>
+        <span style={{fontSize:17,fontWeight:900,color:hm.igSentPct==null?'rgba(255,255,255,0.4)':hm.igSentPct>=50?'#22c55e':hm.igSentPct>=30?'#f59e0b':'#ef4444',lineHeight:1}}>{hm.igSentPct!=null?`${hm.igSentPct}%`:'—'}</span>
       </div>
-      <div style={{display:'flex',alignItems:'center',gap:16}}>
-        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#ef4444',margin:0}}>{totalM.dir}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>diretas</p></div>
-        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#1a3a7a',margin:0}}>{totalM.tot}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>menções</p></div>
-        {openImprensa?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
+      <div style={{width:1,height:28,background:'rgba(255,255,255,0.08)'}}/>
+      <div style={{textAlign:'center'}}>
+        <p style={{fontSize:9,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.12em',color:'rgba(255,255,255,0.3)',margin:'0 0 1px'}}>Alertas</p>
+        <span style={{fontSize:17,fontWeight:900,color:hm.alerts>0?'#ef4444':'#22c55e',lineHeight:1}}>{hm.alerts}</span>
       </div>
-    </div>
-    {openImprensa&&(
-    <div>
-
-    {/* METRICS */}
-    <div style={{display:'flex',gap:8,marginBottom:16,flexWrap:'wrap'}}>
-      <Met icon={User} label="Diretas" value={filtM.dir} sub="Cel. Barbosa" accent="#ef4444"/>
-      <Met icon={Bookmark} label="Eleitorais" value={filtM.ele} sub="2026" accent="#6366f1"/>
-      <Met icon={Building} label="PMTO" value={filtM.ins} accent="#f59e0b"/>
-      <Met icon={Globe} label="Nacional" value={filtM.nac} sub="BR" accent="#3b82f6"/>
-      <Met icon={MapPin} label="Local" value={filtM.loc} sub="TO" accent="#22c55e"/>
-      <Met icon={Newspaper} label="Fontes" value={filtM.src} accent="#64748b"/>
-    </div>
-
-    {/* RELEVANCE FILTER */}
-    <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap',alignItems:'center'}}>
-      <span style={{fontSize:11,fontWeight:700,color:'#5a6178',textTransform:'uppercase',marginRight:4}}>Relevância:</span>
-      {[{id:'direct',l:'Diretas ao candidato',color:'#b91c1c'},{id:'relevant',l:'Relevantes (≥0.5)',color:'#1a3a7a'},{id:'all',l:'Todas (incl. PMTO genéricas)',color:'#8c93a8'}].map(r=>
-        <Bt key={r.id} active={filterRelevance===r.id} color={r.color} onClick={()=>setFilterRelevance(r.id)}>{r.l}</Bt>
-      )}
-    </div>
-
-    {/* TYPE/SCOPE FILTERS */}
-    <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap'}}>
-      {[{id:'all',l:'Todas'},{id:'direta',l:'● Diretas'},{id:'eleitoral',l:'◆ Eleitorais'},{id:'institucional',l:'○ PMTO'}].map(t=><Bt key={t.id} active={filterType===t.id} color="#1a3a7a" onClick={()=>setFilterType(t.id)}>{t.l}</Bt>)}
-      <div style={{width:1,height:28,background:'#dfe3ed',margin:'0 4px'}}/>
-      {[{id:'all',l:'TO+BR',i:Layers},{id:'TO',l:'Tocantins',i:MapPin},{id:'BR',l:'Nacional',i:Globe}].map(s=><Bt key={s.id} active={filterScope===s.id} color="#22c55e" onClick={()=>setFilterScope(s.id)}><s.i size={11}/> {s.l}</Bt>)}
-    </div>
-    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:16,flexWrap:'wrap',gap:8}}>
-      <div style={{display:'flex',gap:5,flexWrap:'wrap'}}>
-        {CLUSTERS.map(c=>{const cnt=c.id==='all'?null:clCounts[c.id]||0;if(c.id!=='all'&&!cnt)return null;return<Bt key={c.id} active={selectedCluster===c.id} color={c.color} onClick={()=>setSelectedCluster(c.id)}><c.icon size={11}/> {c.label}{cnt!==null&&<span style={{opacity:0.5}}> ({cnt})</span>}</Bt>;})}
+      <div style={{width:1,height:28,background:'rgba(255,255,255,0.08)'}}/>
+      <div style={{textAlign:'center'}}>
+        <p style={{fontSize:9,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.12em',color:'rgba(255,255,255,0.3)',margin:'0 0 1px'}}>Adversários</p>
+        <span style={{fontSize:17,fontWeight:900,color:'rgba(255,255,255,0.55)',lineHeight:1}}>{hm.totalAdv||'—'}</span>
       </div>
-      <div style={{display:'flex',gap:5}}>
-        <Bt active={sortOrder==='date'} color="#3b82f6" onClick={()=>setSortOrder('date')}><Calendar size={10}/> Data</Bt>
-        <Bt active={sortOrder==='score'} color="#ef4444" onClick={()=>setSortOrder('score')}><TrendingDown size={10}/> Toxicidade</Bt>
-      </div>
-    </div>
-
-    {/* COUNT */}
-    <div style={{fontSize:13,color:'#8c93a8',marginBottom:12,display:'flex',gap:16}}>
-      <span>{filteredNews.length} menção(ões) {filterType!=='all'||filterScope!=='all'||selectedCluster!=='all'?'filtradas':'no total'}</span>
-      {(filterType!=='all'||filterScope!=='all'||selectedCluster!=='all')&&<span style={{color:'#b91c1c'}}>Toxicidade: {filtM.tox}%</span>}
-    </div>
-
-    {/* FEED */}
-    <div style={{display:'flex',flexDirection:'column',gap:10,marginBottom:8}}>
-      {filteredNews.slice(0,50).map(item=><NC key={item.id} item={item} expanded={!!expandedCards[item.id]} onToggle={()=>setExpandedCards(prev=>({...prev,[item.id]:!prev[item.id]}))}/>)}
-      {filteredNews.length>50&&<p style={{fontSize:13,color:'#8c93a8',textAlign:'center'}}>Mostrando 50 de {filteredNews.length}. Use filtros para refinar.</p>}
-      {filteredNews.length===0&&<Card noHover><p style={{color:'#8c93a8',fontSize:13,textAlign:'center'}}>Nenhuma menção para os filtros selecionados.</p></Card>}
-    </div>
     </div>
     )}
-    </Card>
-    </section>
+    <div style={{display:'flex',alignItems:'center',gap:8,flexShrink:0}}>
+      <button onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:5,padding:'5px 10px',borderRadius:16,background:'transparent',border:'1px solid rgba(255,255,255,0.1)',color:'#8C93A8',fontSize:11,fontWeight:700,cursor:refreshing?'wait':'pointer',opacity:refreshing?0.6:1,transition:'all 0.18s',whiteSpace:'nowrap'}}>
+        <RefreshCw size={11} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{!isMobile&&(refreshing?'...':'Atualizar')}
+      </button>
+      {onLogout&&<button onClick={onLogout} title={userEmail} style={{width:32,height:32,borderRadius:'50%',background:'#1E3150',border:'1px solid rgba(255,255,255,0.12)',display:'flex',alignItems:'center',justifyContent:'center',cursor:'pointer',color:'#D4A017',fontSize:11,fontWeight:800,flexShrink:0,outline:'none'}}>CB</button>}
+    </div>
+  </header>
 
-  </div></div>);
+  {/* ── LAYOUT BODY ── */}
+  <div style={{display:'flex',paddingTop:56}}>
+
+    {/* Mobile sidebar overlay */}
+    {isMobile&&sidebarOpen&&<div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.6)',zIndex:149}} onClick={()=>setSidebarOpen(false)}/>}
+
+    {/* ── SIDEBAR ── */}
+    <aside style={{position:'fixed',top:56,left:0,bottom:0,width:isMobile?(sidebarOpen?240:0):isTablet?60:240,background:'#0D1B2A',borderRight:'1px solid rgba(255,255,255,0.06)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
+      {[
+        {id:'tendencia',label:'Tendência 2022',icon:TrendingUp},
+        {id:'adversarios',label:'Inteligência',icon:Target},
+        {id:'kpis',label:'Metas',icon:BarChart3},
+        {id:'geo',label:'Eleitoral',icon:MapPin},
+        {id:'social',label:'Redes Sociais',icon:Users},
+        {id:'imprensa',label:'Imprensa',icon:Newspaper,badge:hm.alerts},
+      ].map(({id,label,icon:Icon,badge})=>{
+        const isAct=activePanel===id;
+        const showLabel=!isTablet||isMobile;
+        return(
+          <button key={id}
+            onClick={()=>{setActivePanel(id);if(isMobile)setSidebarOpen(false);}}
+            onMouseEnter={e=>{if(!isAct)e.currentTarget.style.background='#1E3150';}}
+            onMouseLeave={e=>{if(!isAct)e.currentTarget.style.background='transparent';}}
+            style={{display:'flex',alignItems:'center',gap:12,padding:'14px 18px',
+              background:isAct?'#243B5C':'transparent',
+              borderLeft:`3px solid ${isAct?'#D4A017':'transparent'}`,
+              borderTop:'none',borderRight:'none',borderBottom:'none',
+              outline:'none',cursor:'pointer',
+              color:isAct?'#ffffff':'#8C93A8',
+              fontSize:13,fontWeight:isAct?700:500,
+              fontFamily:'inherit',
+              width:'100%',boxSizing:'border-box',
+              transition:'background 0.15s ease',
+              whiteSpace:'nowrap',overflow:'hidden',textAlign:'left',
+            }}>
+            <Icon size={18} style={{flexShrink:0,color:isAct?'#D4A017':'inherit'}}/>
+            {showLabel&&<span>{label}</span>}
+            {showLabel&&badge>0&&<span style={{marginLeft:'auto',background:'#ef4444',color:'#fff',borderRadius:8,fontSize:9,fontWeight:700,padding:'1px 5px',flexShrink:0}}>{badge}</span>}
+          </button>
+        );
+      })}
+      <div style={{marginTop:'auto',padding:'10px 18px',borderTop:'1px solid rgba(255,255,255,0.06)'}}>
+        <p style={{fontSize:10,color:'rgba(255,255,255,0.2)',margin:0,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{lastUpdate||'Aguardando'}</p>
+      </div>
+    </aside>
+
+    {/* ── CONTENT AREA ── */}
+    <main style={{marginLeft:isMobile?0:isTablet?60:240,padding:isMobile?'16px 12px':'24px',flex:1,minWidth:0,transition:'margin-left 0.2s ease',minHeight:'calc(100vh - 56px)'}}>
+
+      {activePanel==='tendencia'&&<TendenciaVotoPanel tendenciaData={tendenciaData}/>}
+      {activePanel==='adversarios'&&<AdversariosPanel adversariosData={adversariosData}/>}
+      {activePanel==='kpis'&&<KpiPanel kpiData={kpiData}/>}
+      {activePanel==='geo'&&<GeoPanel geoData={geoData}/>}
+      {activePanel==='social'&&<SocialPanel socialData={socialData} sentimentData={sentimentData}/>}
+
+      {activePanel==='imprensa'&&(
+      <Card>
+      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,marginBottom:18}}>
+        <div style={{display:'flex',alignItems:'center',gap:12}}>
+          <div style={{background:'rgba(185,28,28,0.06)',border:'1px solid rgba(185,28,28,0.12)',borderRadius:12,padding:10}}><Newspaper size={22} style={{color:'#b91c1c'}}/></div>
+          <div>
+            <h2 style={{fontSize:22,fontWeight:800,color:'#1a1d2e',margin:0}}>Monitor de imprensa</h2>
+            <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
+              32 fontes · Tocantins + Brasil · Atualização 2x ao dia
+            </p>
+          </div>
+        </div>
+        <div style={{display:'flex',alignItems:'center',gap:16}}>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#ef4444',margin:0}}>{totalM.dir}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>diretas</p></div>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#1a3a7a',margin:0}}>{totalM.tot}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>menções</p></div>
+        </div>
+      </div>
+
+      {/* METRICS */}
+      <div style={{display:'flex',gap:8,marginBottom:16,flexWrap:'wrap'}}>
+        <Met icon={User} label="Diretas" value={filtM.dir} sub="Cel. Barbosa" accent="#ef4444"/>
+        <Met icon={Bookmark} label="Eleitorais" value={filtM.ele} sub="2026" accent="#6366f1"/>
+        <Met icon={Building} label="PMTO" value={filtM.ins} accent="#f59e0b"/>
+        <Met icon={Globe} label="Nacional" value={filtM.nac} sub="BR" accent="#3b82f6"/>
+        <Met icon={MapPin} label="Local" value={filtM.loc} sub="TO" accent="#22c55e"/>
+        <Met icon={Newspaper} label="Fontes" value={filtM.src} accent="#64748b"/>
+      </div>
+
+      {/* RELEVANCE FILTER */}
+      <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap',alignItems:'center'}}>
+        <span style={{fontSize:11,fontWeight:700,color:'#5a6178',textTransform:'uppercase',marginRight:4}}>Relevância:</span>
+        {[{id:'direct',l:'Diretas ao candidato',color:'#b91c1c'},{id:'relevant',l:'Relevantes (≥0.5)',color:'#1a3a7a'},{id:'all',l:'Todas (incl. PMTO genéricas)',color:'#8c93a8'}].map(r=>
+          <Bt key={r.id} active={filterRelevance===r.id} color={r.color} onClick={()=>setFilterRelevance(r.id)}>{r.l}</Bt>
+        )}
+      </div>
+
+      {/* TYPE/SCOPE FILTERS */}
+      <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap'}}>
+        {[{id:'all',l:'Todas'},{id:'direta',l:'● Diretas'},{id:'eleitoral',l:'◆ Eleitorais'},{id:'institucional',l:'○ PMTO'}].map(t=><Bt key={t.id} active={filterType===t.id} color="#1a3a7a" onClick={()=>setFilterType(t.id)}>{t.l}</Bt>)}
+        <div style={{width:1,height:28,background:'#dfe3ed',margin:'0 4px'}}/>
+        {[{id:'all',l:'TO+BR',i:Layers},{id:'TO',l:'Tocantins',i:MapPin},{id:'BR',l:'Nacional',i:Globe}].map(s=><Bt key={s.id} active={filterScope===s.id} color="#22c55e" onClick={()=>setFilterScope(s.id)}><s.i size={11}/> {s.l}</Bt>)}
+      </div>
+      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:16,flexWrap:'wrap',gap:8}}>
+        <div style={{display:'flex',gap:5,flexWrap:'wrap'}}>
+          {CLUSTERS.map(c=>{const cnt=c.id==='all'?null:clCounts[c.id]||0;if(c.id!=='all'&&!cnt)return null;return<Bt key={c.id} active={selectedCluster===c.id} color={c.color} onClick={()=>setSelectedCluster(c.id)}><c.icon size={11}/> {c.label}{cnt!==null&&<span style={{opacity:0.5}}> ({cnt})</span>}</Bt>;})}
+        </div>
+        <div style={{display:'flex',gap:5}}>
+          <Bt active={sortOrder==='date'} color="#3b82f6" onClick={()=>setSortOrder('date')}><Calendar size={10}/> Data</Bt>
+          <Bt active={sortOrder==='score'} color="#ef4444" onClick={()=>setSortOrder('score')}><TrendingDown size={10}/> Toxicidade</Bt>
+        </div>
+      </div>
+
+      {/* COUNT */}
+      <div style={{fontSize:13,color:'#8c93a8',marginBottom:12,display:'flex',gap:16}}>
+        <span>{filteredNews.length} menção(ões) {filterType!=='all'||filterScope!=='all'||selectedCluster!=='all'?'filtradas':'no total'}</span>
+        {(filterType!=='all'||filterScope!=='all'||selectedCluster!=='all')&&<span style={{color:'#b91c1c'}}>Toxicidade: {filtM.tox}%</span>}
+      </div>
+
+      {/* FEED */}
+      <div style={{display:'flex',flexDirection:'column',gap:10,marginBottom:8}}>
+        {filteredNews.slice(0,50).map(item=><NC key={item.id} item={item} expanded={!!expandedCards[item.id]} onToggle={()=>setExpandedCards(prev=>({...prev,[item.id]:!prev[item.id]}))}/>)}
+        {filteredNews.length>50&&<p style={{fontSize:13,color:'#8c93a8',textAlign:'center'}}>Mostrando 50 de {filteredNews.length}. Use filtros para refinar.</p>}
+        {filteredNews.length===0&&<Card noHover><p style={{color:'#8c93a8',fontSize:13,textAlign:'center'}}>Nenhuma menção para os filtros selecionados.</p></Card>}
+      </div>
+      </Card>
+      )}
+
+    </main>
+  </div>
+  </div>);
 };
 
 /* ═══════════════════════════════════════════════
