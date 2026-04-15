@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
+import L from 'leaflet';
 import { useWW } from '../components/ui.jsx';
 
 /* ── Constantes ── */
@@ -27,8 +28,6 @@ const PRIORIDADE_COR   = { alta: '#ef4444', media: '#f59e0b', baixa: '#22c55e' }
 function Legenda() {
   const map = useMap();
   useEffect(() => {
-    const L = window.L;
-    if (!L) return;
     const ctrl = L.control({ position: 'bottomright' });
     ctrl.onAdd = () => {
       const div = L.DomUtil.create('div');
