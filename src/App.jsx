@@ -11,7 +11,7 @@ import { supabase } from './lib/supabase.js';
 import LoginScreen from './components/LoginScreen.jsx';
 
 const useWW=()=>{const[w,setW]=useState(typeof window!=='undefined'?window.innerWidth:1024);useEffect(()=>{const h=()=>setW(window.innerWidth);window.addEventListener('resize',h);return()=>window.removeEventListener('resize',h);},[]);return w;};
-const CSS=`:root{--surface:#1E3150;--surface-hover:#243B5C;--surface-border:rgba(255,255,255,0.06);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--shadow-sm:0 1px 3px rgba(0,0,0,0.3);--shadow-md:0 4px 12px rgba(0,0,0,0.4);--shadow-lg:0 8px 24px rgba(0,0,0,0.5);--spacing-xs:8px;--spacing-sm:12px;--spacing-md:16px;--spacing-lg:24px;--spacing-xl:32px;--font-display:'DM Sans','Inter',system-ui,sans-serif;--font-mono:'Roboto Mono','Fira Code',monospace}html{scroll-padding-top:72px;scroll-behavior:smooth}body{margin:0}*{box-sizing:border-box}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}.hov-card{transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease}.hov-card:hover{transform:translateY(-2px)!important;box-shadow:var(--shadow-lg)!important;border-color:rgba(212,160,23,0.25)!important}.panel-title{font-size:20px;font-weight:700;color:#fff;letter-spacing:-0.02em;margin:0}.panel-subtitle{font-size:13px;font-weight:400;color:#8C93A8;margin:4px 0 0}.metric-value{font-size:32px;font-weight:700;font-family:var(--font-mono);line-height:1}.metric-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8C93A8;margin:4px 0 0}.body-text{font-size:14px;line-height:1.6;color:rgba(255,255,255,0.85)}.table-header{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#8C93A8}.table-cell{font-size:13px;color:rgba(255,255,255,0.9)}.table-row:hover{background:rgba(255,255,255,0.04)!important}.panel-fade-enter{opacity:0;transform:translateY(8px)}.panel-fade{opacity:1;transform:translateY(0);transition:opacity 0.25s ease,transform 0.25s ease}@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}.skeleton{background:linear-gradient(90deg,var(--surface) 25%,rgba(255,255,255,0.06) 50%,var(--surface) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#243B5C;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:#2d4870}::selection{background:rgba(212,160,23,0.3);color:#fff}:focus-visible{outline:2px solid #D4A017;outline-offset:2px}@media(max-width:767px){.metric-col-3,.metric-col-4{display:none!important}}`;
+const CSS=`:root{--surface:#FFFFFF;--surface-hover:#F5F3EE;--surface-border:rgba(26,39,68,0.08);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--shadow-sm:0 1px 3px rgba(0,0,0,0.07);--shadow-md:0 4px 12px rgba(0,0,0,0.1);--shadow-lg:0 8px 24px rgba(0,0,0,0.14);--spacing-xs:8px;--spacing-sm:12px;--spacing-md:16px;--spacing-lg:24px;--spacing-xl:32px;--font-display:'DM Sans','Inter',system-ui,sans-serif;--font-mono:'Roboto Mono','Fira Code',monospace}html{scroll-padding-top:72px;scroll-behavior:smooth}body{margin:0}*{box-sizing:border-box}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}.hov-card{transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease}.hov-card:hover{transform:translateY(-2px)!important;box-shadow:var(--shadow-lg)!important;border-color:rgba(212,160,23,0.25)!important}.panel-title{font-size:20px;font-weight:700;color:#1A2744;letter-spacing:-0.02em;margin:0}.panel-subtitle{font-size:13px;font-weight:400;color:#5A6478;margin:4px 0 0}.metric-value{font-size:32px;font-weight:700;font-family:var(--font-mono);line-height:1}.metric-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#5A6478;margin:4px 0 0}.body-text{font-size:14px;line-height:1.6;color:rgba(26,39,68,0.8)}.table-header{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#5A6478}.table-cell{font-size:13px;color:#1A2744}.table-row:hover{background:rgba(26,39,68,0.03)!important}.panel-fade-enter{opacity:0;transform:translateY(8px)}.panel-fade{opacity:1;transform:translateY(0);transition:opacity 0.25s ease,transform 0.25s ease}@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}.skeleton{background:linear-gradient(90deg,var(--surface) 25%,rgba(26,39,68,0.04) 50%,var(--surface) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#C4C0B6;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:#A8A49A}::selection{background:rgba(212,160,23,0.3);color:#1A2744}:focus-visible{outline:2px solid #D4A017;outline-offset:2px}@media(max-width:767px){.metric-col-3,.metric-col-4{display:none!important}}`;
 const BASE = '/data';
 const URLS = { mentions: `${BASE}/mention_history.json`, social: `${BASE}/social_metrics.json`, sentiment: `${BASE}/social_sentiment.json`, geo: `${BASE}/geo_electoral.json`, kpis: `${BASE}/campaign_kpis.json`, adversarios: `${BASE}/adversarios.json`, tendencia: `${BASE}/tendencia_voto_2022.json` };
 const fetchJ = async u => { try { const r = await fetch(u+'?t='+Date.now()); return r.ok ? r.json() : null; } catch { return null; } };
@@ -40,7 +40,7 @@ const classify = a => {
 };
 
 /* ── HELPERS ── */
-const CLUSTERS=[{id:'all',label:'Todas',icon:Layers,color:'#8c93a8'},{id:'Eleitoral',label:'Eleitoral',icon:Bookmark,color:'#6fa3ef'},{id:'Comando',label:'Comando',icon:User,color:'#6fa3ef'},{id:'Letalidade',label:'Letalidade',icon:AlertTriangle,color:'#b91c1c'},{id:'Operações',label:'Operações',icon:Target,color:'#1d4ed8'},{id:'Gestão',label:'Gestão',icon:Building,color:'#d4a017'},{id:'Imprensa',label:'Imprensa',icon:Radio,color:'#be185d'},{id:'Geral',label:'Geral',icon:Newspaper,color:'#8c93a8'}];
+const CLUSTERS=[{id:'all',label:'Todas',icon:Layers,color:'#8c93a8'},{id:'Eleitoral',label:'Eleitoral',icon:Bookmark,color:'#1A3A7A'},{id:'Comando',label:'Comando',icon:User,color:'#1A3A7A'},{id:'Letalidade',label:'Letalidade',icon:AlertTriangle,color:'#b91c1c'},{id:'Operações',label:'Operações',icon:Target,color:'#1d4ed8'},{id:'Gestão',label:'Gestão',icon:Building,color:'#d4a017'},{id:'Imprensa',label:'Imprensa',icon:Radio,color:'#be185d'},{id:'Geral',label:'Geral',icon:Newspaper,color:'#8c93a8'}];
 const sC=s=>{if(s<=0.2)return{t:'#7F1D1D',b:'rgba(127,29,29,0.1)'};if(s<=0.4)return{t:'#B91C1C',b:'rgba(185,28,28,0.1)'};if(s<=0.6)return{t:'#8C93A8',b:'rgba(140,147,168,0.1)'};return{t:'#15803D',b:'rgba(21,128,61,0.1)'};};
 const iC=i=>({Alto:'#ef4444',Médio:'#f59e0b',Baixo:'#22c55e'}[i]||'#f59e0b');
 const fmt=d=>{if(!d)return'—';const x=new Date(d+'T12:00:00');return x.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});};
@@ -73,7 +73,7 @@ const calcHeaderMetrics=(articles,adversariosRaw,socialData,sentimentData)=>{
 const Card=({children,style,noHover})=><div className={noHover?'':'hov-card'} style={{background:'var(--surface)',border:'1px solid var(--surface-border)',borderRadius:'var(--radius-md)',padding:'var(--spacing-lg)',boxShadow:'var(--shadow-sm)',...style}}>{children}</div>;
 const Met=({icon:I,label,value,sub,accent})=><Card style={{flex:1,minWidth:140}}><div style={{display:'flex',alignItems:'center',gap:5,marginBottom:10}}><I size={13} style={{color:accent}}/><span style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.05em',color:'#8C93A8'}}>{label}</span></div><p style={{fontSize:30,fontWeight:700,color:accent,margin:0,lineHeight:1,letterSpacing:'-0.02em',fontFamily:'var(--font-mono)'}}>{value}</p>{sub&&<p style={{fontSize:12,color:'#8C93A8',marginTop:6,fontWeight:500}}>{sub}</p>}</Card>;
 const Bd=({children,color,bg})=><span style={{padding:'3px 8px',borderRadius:6,fontSize:10,fontWeight:700,background:bg||`${color}22`,color}}>{children}</span>;
-const Bt=({active,color,onClick,children})=><button onClick={onClick} style={{display:'flex',alignItems:'center',gap:4,padding:'6px 14px',borderRadius:20,fontSize:12,fontWeight:700,border:active?`1.5px solid ${color}`:'1.5px solid rgba(255,255,255,0.12)',background:active?`${color}1a`:'rgba(255,255,255,0.04)',color:active?color:'#8C93A8',cursor:'pointer',transition:'all 0.15s ease',fontFamily:'inherit'}}>{children}</button>;
+const Bt=({active,color,onClick,children})=><button onClick={onClick} style={{display:'flex',alignItems:'center',gap:4,padding:'6px 14px',borderRadius:20,fontSize:12,fontWeight:700,border:active?`1.5px solid ${color}`:'1.5px solid rgba(26,39,68,0.15)',background:active?`${color}1a`:'rgba(26,39,68,0.04)',color:active?color:'#5A6478',cursor:'pointer',transition:'all 0.15s ease',fontFamily:'inherit'}}>{children}</button>;
 
 /* ── NEWS CARD ── */
 const NC=({item,expanded,onToggle})=>{const sc=sC(item.score);const cl=CLUSTERS.find(c=>c.id===item.cluster);return(
@@ -88,13 +88,13 @@ const NC=({item,expanded,onToggle})=>{const sc=sC(item.score);const cl=CLUSTERS.
 </div>
 <div style={{display:'flex',gap:4}}><Bd color={sc.t}>{item.sentiment}</Bd><Bd color={iC(item.impact)}>{item.impact}</Bd></div>
 </div>
-<h4 style={{fontSize:17,fontWeight:700,color:'rgba(255,255,255,0.95)',margin:'0 0 8px',lineHeight:1.45,letterSpacing:'-0.01em'}}>{item.title}</h4>
+<h4 style={{fontSize:17,fontWeight:700,color:'#1A2744',margin:'0 0 8px',lineHeight:1.45,letterSpacing:'-0.01em'}}>{item.title}</h4>
 {item.keywords.length>0&&<div style={{display:'flex',gap:4,flexWrap:'wrap',marginBottom:10}}>{item.keywords.slice(0,6).map(k=><span key={k} style={{fontSize:10,fontFamily:'monospace',color:'#8C93A8'}}>#{k}</span>)}</div>}
 <div style={{borderTop:'1px solid var(--surface-border)',paddingTop:8,display:'flex',justifyContent:'space-between'}}>
 <button onClick={onToggle} style={{background:'none',border:'none',color:'#D4A017',fontSize:11,fontWeight:700,cursor:'pointer',display:'flex',alignItems:'center',gap:4,fontFamily:'inherit'}}><BrainCircuit size={12}/>{expanded?'Ocultar':'Análise'}{expanded?<ChevronUp size={12}/>:<ChevronDown size={12}/>}</button>
 <a href={item.url} target="_blank" rel="noopener noreferrer" style={{color:'#8C93A8',fontSize:11,textDecoration:'none',fontWeight:600,display:'flex',alignItems:'center',gap:3}}>Fonte <ArrowUpRight size={11}/></a>
 </div>
-{expanded&&<div style={{marginTop:10,padding:12,background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.08)',borderRadius:'var(--radius-sm)'}}><p style={{fontSize:14,color:'rgba(255,255,255,0.7)',lineHeight:1.6,margin:0}}>{item.analysisNote}</p></div>}
+{expanded&&<div style={{marginTop:10,padding:12,background:'rgba(26,39,68,0.04)',border:'1px solid rgba(26,39,68,0.08)',borderRadius:'var(--radius-sm)'}}><p style={{fontSize:14,color:'rgba(26,39,68,0.7)',lineHeight:1.6,margin:0}}>{item.analysisNote}</p></div>}
 </div>);};
 
 /* ═══════════════════════════════════════════════
@@ -165,14 +165,14 @@ const SocialPanel=({socialData,sentimentData})=>{
   <Card style={{marginTop:32}}>
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
-        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Users size={22} style={{color:'#6fa3ef'}}/></div>
+        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Users size={22} style={{color:'#1A3A7A'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>Monitor de redes sociais</h2>
+          <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Monitor de redes sociais</h2>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>{profiles.length} perfis · Instagram · {sentimentData?.data_coleta||profiles[0]?.data_coleta||''}</p>
         </div>
       </div>
       <div style={{display:'flex',alignItems:'center',gap:16}}>
-        {cand&&<div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#6fa3ef',margin:0}}>#{candRank}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>no ranking</p></div>}
+        {cand&&<div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#1A3A7A',margin:0}}>#{candRank}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>no ranking</p></div>}
         {cand&&<div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#d4a017',margin:0}}>{cand.taxa_engajamento_pct}%</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>engajamento</p></div>}
         {open?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
       </div>
@@ -183,8 +183,8 @@ const SocialPanel=({socialData,sentimentData})=>{
     {cand&&<Card style={{marginBottom:14,borderLeft:'3px solid #8b5cf6'}}>
       <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10,letterSpacing:'0.1em'}}>Cel. Barbosa · @{cand.username}</p>
       <div style={{display:'flex',gap:28,flexWrap:'wrap'}}>
-        <div><p style={{fontSize:26,fontWeight:700,color:'rgba(255,255,255,0.95)',margin:0,fontFamily:'var(--font-mono)'}}>{cand.seguidores.toLocaleString('pt-BR')}</p><p className="metric-label">seguidores</p></div>
-        <div><p style={{fontSize:26,fontWeight:700,color:'#6fa3ef',margin:0,fontFamily:'var(--font-mono)'}}>{cand.taxa_engajamento_pct}%</p><p className="metric-label">engajamento</p></div>
+        <div><p style={{fontSize:26,fontWeight:700,color:'#1A2744',margin:0,fontFamily:'var(--font-mono)'}}>{cand.seguidores.toLocaleString('pt-BR')}</p><p className="metric-label">seguidores</p></div>
+        <div><p style={{fontSize:26,fontWeight:700,color:'#1A3A7A',margin:0,fontFamily:'var(--font-mono)'}}>{cand.taxa_engajamento_pct}%</p><p className="metric-label">engajamento</p></div>
         <div><p style={{fontSize:26,fontWeight:700,color:'#D4A017',margin:0,fontFamily:'var(--font-mono)'}}>{cand.media_likes_recentes}</p><p className="metric-label">likes/post</p></div>
         <div><p style={{fontSize:26,fontWeight:700,color:'#22c55e',margin:0,fontFamily:'var(--font-mono)'}}>#{candRank}</p><p className="metric-label">no ranking</p></div>
       </div>
@@ -259,14 +259,14 @@ const SocialPanel=({socialData,sentimentData})=>{
           <span style={{fontSize:10,color:'#15803d'}}>■ alto (3%+)</span>
           <span style={{fontSize:10,color:'#d4a017'}}>■ médio</span>
           <span style={{fontSize:10,color:'#b91c1c'}}>■ baixo</span>
-          <span style={{fontSize:9,color:'#6fa3ef'}}>■ candidato</span>
+          <span style={{fontSize:9,color:'#1A3A7A'}}>■ candidato</span>
         </div>
       </div>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={engChart} layout="vertical" margin={{left:0,right:50}}>
           <XAxis type="number" tick={{fontSize:12,fill:'#8c93a8'}} axisLine={false} tickLine={false} domain={[0,'auto']}/>
           <YAxis type="category" dataKey="name" tick={{fontSize:13,fill:'#5a6178',fontWeight:500}} width={150} axisLine={false} tickLine={false}/>
-          <Tooltip contentStyle={{background:'#1E3150',border:'1px solid rgba(255,255,255,0.12)',borderRadius:8,fontSize:14,color:'rgba(255,255,255,0.95)'}} formatter={v=>[`${v}%`,'Engajamento']} cursor={{fill:'rgba(139,92,246,0.05)'}}/>
+          <Tooltip contentStyle={{background:'#FFFFFF',border:'1px solid rgba(26,39,68,0.12)',borderRadius:8,fontSize:14,color:'#1A2744'}} formatter={v=>[`${v}%`,'Engajamento']} cursor={{fill:'rgba(139,92,246,0.05)'}}/>
           <Bar dataKey="eng" radius={[0,6,6,0]} barSize={20} animationDuration={800} animationEasing="ease-out" label={{position:'right',fill:'#8C93A8',fontSize:11,fontWeight:600,formatter:v=>`${v}%`}}>
             {engChart.map((d,i)=><Cell key={i} fill={d.fill} fillOpacity={0.85}/>)}
           </Bar>
@@ -332,7 +332,7 @@ const SocialPanel=({socialData,sentimentData})=>{
           <LineChart data={chartData} margin={{left:0,right:8,top:5}}>
             <XAxis dataKey="date" tick={{fontSize:12,fill:'#8c93a8'}} axisLine={false} tickLine={false}/>
             <YAxis tick={{fontSize:12,fill:'#8c93a8'}} axisLine={false} tickLine={false} tickFormatter={v=>v>=1000?`${(v/1000).toFixed(0)}K`:v}/>
-            <Tooltip contentStyle={{background:'#1E3150',border:'1px solid rgba(255,255,255,0.12)',borderRadius:8,fontSize:13,color:'rgba(255,255,255,0.95)'}} formatter={(v,name)=>[v?.toLocaleString('pt-BR'),`@${name}`]}/>
+            <Tooltip contentStyle={{background:'#FFFFFF',border:'1px solid rgba(26,39,68,0.12)',borderRadius:8,fontSize:13,color:'#1A2744'}} formatter={(v,name)=>[v?.toLocaleString('pt-BR'),`@${name}`]}/>
             <Legend wrapperStyle={{fontSize:10,color:'#8c93a8'}} formatter={v=>`@${v}`}/>
             {topUsernames.map((u,i)=>(
               <Line key={u} type="monotone" dataKey={u} stroke={COLORS_LINE[i%6]} strokeWidth={u==='marciobarbosa_cel'?3:1.5} dot={{r:u==='marciobarbosa_cel'?4:2}} connectNulls animationDuration={800} animationEasing="ease-out"/>
@@ -439,9 +439,9 @@ const TendenciaVotoPanel=({tendenciaData})=>{
     {/* Header clicável */}
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
-        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><TrendingUp size={22} style={{color:'#6fa3ef'}}/></div>
+        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><TrendingUp size={22} style={{color:'#1A3A7A'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>Tendência de Voto 2022</h2>
+          <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Tendência de Voto 2022</h2>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>2º turno presidencial · {agregado?.total_municipios ?? 139} municípios · Fonte: TSE</p>
         </div>
       </div>
@@ -573,7 +573,7 @@ const TendenciaVotoPanel=({tendenciaData})=>{
               {tabelaDados.map((m,i)=>(
                 <tr key={m.nome} style={{borderBottom:'1px solid var(--surface-border)',background:i%2===0?'transparent':'#fafbfc'}}>
                   <td style={{padding:'5px 8px',color:'#8c93a8',fontWeight:700,fontSize:11}}>{i+1}</td>
-                  <td style={{padding:'5px 8px',fontWeight:600,color:'rgba(255,255,255,0.95)',whiteSpace:'nowrap'}}>{m.nome}</td>
+                  <td style={{padding:'5px 8px',fontWeight:600,color:'#1A2744',whiteSpace:'nowrap'}}>{m.nome}</td>
                   <td style={{padding:'5px 8px',textAlign:'right',fontWeight:700,color:TV_CORES.Conservador,fontVariantNumeric:'tabular-nums'}}>{m.pct_bolsonaro}%</td>
                   <td style={{padding:'5px 8px',textAlign:'right',fontWeight:700,color:TV_CORES.Progressista,fontVariantNumeric:'tabular-nums'}}>{m.pct_lula}%</td>
                   <td style={{padding:'5px 8px',textAlign:'right',fontWeight:700,color:m.margem>0?TV_CORES.Conservador:TV_CORES.Progressista,fontVariantNumeric:'tabular-nums'}}>{m.margem>0?'+':''}{m.margem}pp</td>
@@ -611,7 +611,7 @@ const KpiPanel=({kpiData})=>{
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(212,160,23,0.1)',border:'1px solid rgba(212,160,23,0.2)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#d4a017'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>Metas da campanha</h2>
+          <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Metas da campanha</h2>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
             Fase {phase}: {phaseInfo.name||''} · {phaseInfo.period||''}
           </p>
@@ -645,7 +645,7 @@ const KpiPanel=({kpiData})=>{
             <span style={{fontSize:9,fontWeight:700,color:statusColor,background:`${statusColor}12`,padding:'2px 8px',borderRadius:4,textTransform:'uppercase'}}>{statusLabel}</span>
           </div>
           <div style={{display:'flex',alignItems:'baseline',gap:6,marginBottom:8}}>
-            <span style={{fontSize:26,fontWeight:800,color:'rgba(255,255,255,0.95)'}}>{displayCurrent}</span>
+            <span style={{fontSize:26,fontWeight:800,color:'#1A2744'}}>{displayCurrent}</span>
             <span style={{fontSize:13,color:'#8c93a8'}}>/ {displayTarget}</span>
           </div>
           {/* Progress bar */}
@@ -712,7 +712,7 @@ const GeoPanel=({geoData})=>{
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(21,128,61,0.08)',border:'1px solid rgba(21,128,61,0.15)',borderRadius:12,padding:10}}><MapPin size={22} style={{color:'#15803d'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>Inteligência eleitoral — Tocantins</h2>
+          <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Inteligência eleitoral — Tocantins</h2>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
             {summary.total_municipios||0} municípios · TSE 2022 + IBGE · Dep. Federal
           </p>
@@ -720,7 +720,7 @@ const GeoPanel=({geoData})=>{
       </div>
       <div style={{display:'flex',alignItems:'center',gap:16}}>
         <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#22c55e',margin:0}}>{summary.alta_prioridade||0}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>alta prior.</p></div>
-        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#6fa3ef',margin:0}}>{summary.total_municipios||0}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>municípios</p></div>
+        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#1A3A7A',margin:0}}>{summary.total_municipios||0}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>municípios</p></div>
         {open?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
       </div>
     </div>
@@ -765,7 +765,7 @@ const GeoPanel=({geoData})=>{
                 background:selectedMun===m.municipio_upper?'rgba(34,197,94,0.1)':'transparent',
                 borderRadius:selectedMun===m.municipio_upper?6:0}}>
               <span style={{fontSize:12,fontWeight:700,color:'#8c93a8'}}>#{m.ranking}</span>
-              <span style={{fontSize:13,color:'rgba(255,255,255,0.95)',fontWeight:500,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{m.municipio}</span>
+              <span style={{fontSize:13,color:'#1A2744',fontWeight:500,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{m.municipio}</span>
               {!isMobile&&<span style={{fontSize:13,color:'#8C93A8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.eleitorado||0).toLocaleString('pt-BR')}</span>}
               {!isMobile&&<span style={{fontSize:13,color:'#1d4ed8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.votos_republicanos||0).toLocaleString('pt-BR')}</span>}
               <span style={{fontSize:13,fontWeight:700,color:CAT_COLORS[m.categoria]||'#64748b',textAlign:'right'}}>{m.score_potencial}</span>
@@ -784,7 +784,7 @@ const GeoPanel=({geoData})=>{
             <BarChart data={partyChart} layout="vertical" margin={{left:0,right:40}}>
               <XAxis type="number" tick={{fontSize:9,fill:'#8c93a8'}} axisLine={false} tickLine={false} tickFormatter={v=>v>=1000?`${(v/1000).toFixed(0)}K`:v}/>
               <YAxis type="category" dataKey="name" tick={{fontSize:12,fill:'#5a6178',fontWeight:500}} width={90} axisLine={false} tickLine={false}/>
-              <Tooltip contentStyle={{background:'#1E3150',border:'1px solid rgba(255,255,255,0.12)',borderRadius:8,fontSize:13,color:'rgba(255,255,255,0.95)'}} formatter={v=>[v.toLocaleString('pt-BR')+' votos']}/>
+              <Tooltip contentStyle={{background:'#FFFFFF',border:'1px solid rgba(26,39,68,0.12)',borderRadius:8,fontSize:13,color:'#1A2744'}} formatter={v=>[v.toLocaleString('pt-BR')+' votos']}/>
               <Bar dataKey="votos" radius={[0,4,4,0]} barSize={16} animationDuration={800} animationEasing="ease-out">
                 {partyChart.map((d,i)=><Cell key={i} fill={d.fill} fillOpacity={0.85}/>)}
               </Bar>
@@ -797,10 +797,10 @@ const GeoPanel=({geoData})=>{
           <Card style={{borderLeft:`3px solid ${CAT_COLORS[detail.categoria]}`}}>
             <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>{detail.municipio} — #{detail.ranking}</p>
             <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:10}}>
-              <div><span style={{fontSize:10,color:'#8c93a8'}}>Eleitorado</span><p style={{fontSize:18,fontWeight:700,color:'rgba(255,255,255,0.95)',margin:0}}>{(detail.eleitorado||0).toLocaleString('pt-BR')}</p></div>
+              <div><span style={{fontSize:10,color:'#8c93a8'}}>Eleitorado</span><p style={{fontSize:18,fontWeight:700,color:'#1A2744',margin:0}}>{(detail.eleitorado||0).toLocaleString('pt-BR')}</p></div>
               <div><span style={{fontSize:10,color:'#8c93a8'}}>População</span><p style={{fontSize:18,fontWeight:700,color:'#8C93A8',margin:0}}>{(detail.populacao||0).toLocaleString('pt-BR')}</p></div>
               <div><span style={{fontSize:10,color:'#8c93a8'}}>Votos Republicanos</span><p style={{fontSize:18,fontWeight:700,color:'#1d4ed8',margin:0}}>{(detail.votos_republicanos||0).toLocaleString('pt-BR')}</p></div>
-              <div><span style={{fontSize:10,color:'#8c93a8'}}>Share REP</span><p style={{fontSize:18,fontWeight:700,color:'#6fa3ef',margin:0}}>{detail.share_republicanos}%</p></div>
+              <div><span style={{fontSize:10,color:'#8c93a8'}}>Share REP</span><p style={{fontSize:18,fontWeight:700,color:'#1A3A7A',margin:0}}>{detail.share_republicanos}%</p></div>
               <div><span style={{fontSize:10,color:'#8c93a8'}}>Comparecimento</span><p style={{fontSize:18,fontWeight:700,color:'#d4a017',margin:0}}>{detail.taxa_comparecimento}%</p></div>
               <div><span style={{fontSize:10,color:'#8c93a8'}}>Partido vencedor</span><p style={{fontSize:16,fontWeight:700,color:PARTY_COLORS[detail.partido_vencedor]||'#94a3b8',margin:0}}>{detail.partido_vencedor}</p></div>
             </div>
@@ -899,9 +899,9 @@ const AdversariosPanel=({adversariosData})=>{
   <Card style={{marginTop:32}}>
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>
       <div style={{display:'flex',alignItems:'center',gap:12}}>
-        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#6fa3ef'}}/></div>
+        <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#1A3A7A'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>Inteligência Competitiva — Câmara Federal TO 2026</h2>
+          <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Inteligência Competitiva — Câmara Federal TO 2026</h2>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>8 vagas · 13+ candidatos · Levantamento {d?.data_atualizacao?fmtDt(d.data_atualizacao):'—'}</p>
         </div>
       </div>
@@ -959,7 +959,7 @@ const AdversariosPanel=({adversariosData})=>{
         <div style={{display:'flex',flexDirection:'column',gap:12}}>
           <Card style={{textAlign:'center',background:'linear-gradient(135deg,rgba(26,58,122,0.05),rgba(26,58,122,0.1))'}}>
             <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10,letterSpacing:'0.1em'}}>Posição do Cel. Barbosa</p>
-            <p style={{fontSize:52,fontWeight:900,color:'#6fa3ef',margin:0,lineHeight:1}}>{rankingWithMe.findIndex(r=>r.isMe)+1}º</p>
+            <p style={{fontSize:52,fontWeight:900,color:'#1A3A7A',margin:0,lineHeight:1}}>{rankingWithMe.findIndex(r=>r.isMe)+1}º</p>
             <p style={{fontSize:12,color:'#8c93a8',marginTop:4}}>no ranking de Instagram<br/>{fmtK(candidato.seguidores)} seguidores</p>
             <div style={{display:'flex',justifyContent:'center',gap:16,marginTop:12}}>
               <div style={{textAlign:'center'}}><p style={{fontSize:18,fontWeight:800,color:'#22c55e',margin:0}}>{ranking.filter(r=>r.seguidores<(candidato.seguidores||0)).length}</p><p style={{fontSize:10,color:'#8c93a8',margin:0}}>à frente</p></div>
@@ -973,7 +973,7 @@ const AdversariosPanel=({adversariosData})=>{
               <div key={i} style={{display:'flex',justifyContent:'space-between',marginBottom:6}}><span style={{fontSize:12,color:'#8C93A8'}}>{s.l}</span><strong style={{color:s.c}}>{s.v}</strong></div>
             ))}
             <div style={{background:'rgba(26,58,122,0.05)',borderRadius:8,padding:'8px 10px',marginTop:8}}>
-              <p style={{fontSize:11,color:'#8C93A8',lineHeight:1.6,margin:0}}>Meta Republicanos: eleger <strong style={{color:'#6fa3ef'}}>2–3 nomes</strong>. Cel. Barbosa precisa ser o mais votado internamente para garantir a vaga.</p>
+              <p style={{fontSize:11,color:'#8C93A8',lineHeight:1.6,margin:0}}>Meta Republicanos: eleger <strong style={{color:'#1A3A7A'}}>2–3 nomes</strong>. Cel. Barbosa precisa ser o mais votado internamente para garantir a vaga.</p>
             </div>
           </Card>
         </div>
@@ -985,9 +985,9 @@ const AdversariosPanel=({adversariosData})=>{
         {threats.map((t,i)=>(
           <div key={i} style={{background:'var(--surface)',border:'1px solid var(--surface-border)',borderTop:'2px solid #ef4444',borderRadius:10,padding:14}}>
             <span style={{fontSize:9,fontWeight:700,padding:'2px 8px',borderRadius:12,background:'rgba(239,68,68,0.1)',color:'#ef4444',border:'1px solid rgba(239,68,68,0.2)',display:'inline-block',marginBottom:8}}>Ameaça Alta</span>
-            <p style={{fontSize:13,fontWeight:700,color:'rgba(255,255,255,0.95)',margin:'0 0 2px'}}>{t.nome}</p>
+            <p style={{fontSize:13,fontWeight:700,color:'#1A2744',margin:'0 0 2px'}}>{t.nome}</p>
             <p style={{fontSize:10,color:'#8c93a8',margin:'0 0 6px'}}>{t.partido}{t.cargo_label?` · ${t.cargo_label}`:''}</p>
-            <p style={{fontSize:11,color:'#6fa3ef',margin:'0 0 6px',fontWeight:600}}>Instagram: {fmtK(t.seguidores)}</p>
+            <p style={{fontSize:11,color:'#1A3A7A',margin:'0 0 6px',fontWeight:600}}>Instagram: {fmtK(t.seguidores)}</p>
             <p style={{fontSize:11,color:'#8C93A8',lineHeight:1.5,margin:0}}>{t.descricao}</p>
           </div>
         ))}
@@ -1000,7 +1000,7 @@ const AdversariosPanel=({adversariosData})=>{
           {internals.map((n,i)=>(
             <div key={i} style={{display:'flex',gap:10,paddingBottom:10,marginBottom:10,borderBottom:i<internals.length-1?'1px solid #eef0f6':'none'}}>
               <div style={{width:8,height:8,borderRadius:4,background:'#8b5cf6',marginTop:5,flexShrink:0}}/>
-              <div><strong style={{fontSize:12,color:'rgba(255,255,255,0.95)',display:'block',marginBottom:2}}>{n.nome} — {fmtK(n.seguidores)} IG</strong><p style={{fontSize:11,color:'#8C93A8',lineHeight:1.5,margin:0}}>{n.descricao}</p></div>
+              <div><strong style={{fontSize:12,color:'#1A2744',display:'block',marginBottom:2}}>{n.nome} — {fmtK(n.seguidores)} IG</strong><p style={{fontSize:11,color:'#8C93A8',lineHeight:1.5,margin:0}}>{n.descricao}</p></div>
             </div>
           ))}
         </Card>
@@ -1009,7 +1009,7 @@ const AdversariosPanel=({adversariosData})=>{
           {migrations.map((m,i)=>{const dc=DEST_C[m.destino]||'#64748b';return(
             <div key={i} style={{display:'flex',alignItems:'center',gap:10,paddingBottom:10,marginBottom:10,borderBottom:i<migrations.length-1?'1px solid #eef0f6':'none'}}>
               <div style={{width:34,height:34,borderRadius:'50%',background:`${dc}15`,color:dc,display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,fontSize:12,flexShrink:0}}>{m.abreviacao||m.ab}</div>
-              <div style={{flex:1}}><strong style={{fontSize:12,color:'rgba(255,255,255,0.95)',display:'block'}}>{m.nome}</strong><span style={{fontSize:10,color:'#8c93a8'}}>{m.partido} · {m.detalhe||m.detail}</span></div>
+              <div style={{flex:1}}><strong style={{fontSize:12,color:'#1A2744',display:'block'}}>{m.nome}</strong><span style={{fontSize:10,color:'#8c93a8'}}>{m.partido} · {m.detalhe||m.detail}</span></div>
               <span style={{fontSize:9,fontWeight:700,padding:'2px 8px',borderRadius:8,background:`${dc}15`,color:dc,flexShrink:0}}>{m.destino||m.dest}</span>
             </div>);})}
         </Card>
@@ -1108,14 +1108,14 @@ const handleRefresh=useCallback(async()=>{
     const c={};base.forEach(n=>{c[n.cluster]=(c[n.cluster]||0)+1;});return c;
   },[articles,filterType,filterScope]);
 
-  if(loading)return(<div style={{minHeight:'100vh',background:'#0D1B2A',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,sans-serif"}}><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style><div style={{position:'relative',width:76,height:76,marginBottom:28}}><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid rgba(212,160,23,0.18)'}}/><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid transparent',borderTopColor:'#D4A017',animation:'spin 1s linear infinite'}}/><ShieldAlert size={26} style={{color:'#D4A017',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}/></div><p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',margin:0}}>Carregando dados</p></div>);
+  if(loading)return(<div style={{minHeight:'100vh',background:'#1A2744',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,sans-serif"}}><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style><div style={{position:'relative',width:76,height:76,marginBottom:28}}><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid rgba(212,160,23,0.18)'}}/><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid transparent',borderTopColor:'#D4A017',animation:'spin 1s linear infinite'}}/><ShieldAlert size={26} style={{color:'#D4A017',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}/></div><p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',margin:0}}>Carregando dados</p></div>);
 
   return(
-  <div style={{minHeight:'100vh',background:'#0D1B2A',color:'#ffffff',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif"}}>
+  <div style={{minHeight:'100vh',background:'#F8F7F4',color:'#1A2744',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif"}}>
   <style>{CSS}</style>
 
   {/* ── FIXED HEADER 56px ── */}
-  <header style={{position:'fixed',top:0,left:0,right:0,height:56,zIndex:200,background:'#0D1B2A',borderBottom:'1px solid rgba(255,255,255,0.08)',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 16px',gap:12,boxSizing:'border-box'}}>
+  <header style={{position:'fixed',top:0,left:0,right:0,height:56,zIndex:200,background:'#1A2744',borderBottom:'1px solid rgba(255,255,255,0.08)',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 16px',gap:12,boxSizing:'border-box'}}>
     <div style={{display:'flex',alignItems:'center',gap:10,flexShrink:0}}>
       {isMobile&&<button onClick={()=>setSidebarOpen(o=>!o)} style={{background:'none',border:'none',cursor:'pointer',padding:6,display:'flex',alignItems:'center',color:'#8C93A8'}}><Menu size={20}/></button>}
       <div style={{background:'#1a3a7a',borderRadius:8,padding:'5px 6px',display:'flex'}}><ShieldAlert size={16} style={{color:'#D4A017'}}/></div>
@@ -1152,7 +1152,7 @@ const handleRefresh=useCallback(async()=>{
       <button onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:5,padding:'5px 10px',borderRadius:16,background:'transparent',border:'1px solid rgba(255,255,255,0.1)',color:'#8C93A8',fontSize:11,fontWeight:700,cursor:refreshing?'wait':'pointer',opacity:refreshing?0.6:1,transition:'all 0.18s',whiteSpace:'nowrap'}}>
         <RefreshCw size={11} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{!isMobile&&(refreshing?'...':'Atualizar')}
       </button>
-      {onLogout&&<button onClick={onLogout} title={userEmail} style={{width:32,height:32,borderRadius:'50%',background:'#1E3150',border:'1px solid rgba(255,255,255,0.12)',display:'flex',alignItems:'center',justifyContent:'center',cursor:'pointer',color:'#D4A017',fontSize:11,fontWeight:800,flexShrink:0,outline:'none'}}>CB</button>}
+      {onLogout&&<button onClick={onLogout} title={userEmail} style={{width:32,height:32,borderRadius:'50%',background:'#0D1B2A',border:'1px solid rgba(255,255,255,0.12)',display:'flex',alignItems:'center',justifyContent:'center',cursor:'pointer',color:'#D4A017',fontSize:11,fontWeight:800,flexShrink:0,outline:'none'}}>CB</button>}
     </div>
   </header>
 
@@ -1163,7 +1163,7 @@ const handleRefresh=useCallback(async()=>{
     {isMobile&&sidebarOpen&&<div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.6)',zIndex:149}} onClick={()=>setSidebarOpen(false)}/>}
 
     {/* ── SIDEBAR ── */}
-    <aside style={{position:'fixed',top:56,left:0,bottom:0,width:isMobile?(sidebarOpen?240:0):isTablet?60:240,background:'#0D1B2A',borderRight:'1px solid rgba(255,255,255,0.06)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
+    <aside style={{position:'fixed',top:56,left:0,bottom:0,width:isMobile?(sidebarOpen?240:0):isTablet?60:240,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
       {[
         {id:'tendencia',label:'Tendência 2022',icon:TrendingUp},
         {id:'adversarios',label:'Inteligência',icon:Target},
@@ -1177,14 +1177,14 @@ const handleRefresh=useCallback(async()=>{
         return(
           <button key={id}
             onClick={()=>{setActivePanel(id);if(isMobile)setSidebarOpen(false);}}
-            onMouseEnter={e=>{if(!isAct)e.currentTarget.style.background='#1E3150';}}
+            onMouseEnter={e=>{if(!isAct)e.currentTarget.style.background='#F5F3EE';}}
             onMouseLeave={e=>{if(!isAct)e.currentTarget.style.background='transparent';}}
             style={{display:'flex',alignItems:'center',gap:12,padding:'14px 18px',
-              background:isAct?'#243B5C':'transparent',
+              background:isAct?'#EFEDE8':'transparent',
               borderLeft:`3px solid ${isAct?'#D4A017':'transparent'}`,
               borderTop:'none',borderRight:'none',borderBottom:'none',
               outline:'none',cursor:'pointer',
-              color:isAct?'#ffffff':'#8C93A8',
+              color:isAct?'#1A2744':'#5A6478',
               fontSize:13,fontWeight:isAct?700:500,
               fontFamily:'inherit',
               width:'100%',boxSizing:'border-box',
@@ -1197,8 +1197,8 @@ const handleRefresh=useCallback(async()=>{
           </button>
         );
       })}
-      <div style={{marginTop:'auto',padding:'10px 18px',borderTop:'1px solid rgba(255,255,255,0.06)'}}>
-        <p style={{fontSize:10,color:'rgba(255,255,255,0.2)',margin:0,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{lastUpdate||'Aguardando'}</p>
+      <div style={{marginTop:'auto',padding:'10px 18px',borderTop:'1px solid rgba(26,39,68,0.08)'}}>
+        <p style={{fontSize:10,color:'rgba(26,39,68,0.3)',margin:0,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{lastUpdate||'Aguardando'}</p>
       </div>
     </aside>
 
@@ -1218,7 +1218,7 @@ const handleRefresh=useCallback(async()=>{
         <div style={{display:'flex',alignItems:'center',gap:12}}>
           <div style={{background:'rgba(185,28,28,0.06)',border:'1px solid rgba(185,28,28,0.12)',borderRadius:12,padding:10}}><Newspaper size={22} style={{color:'#b91c1c'}}/></div>
           <div>
-            <h2 style={{fontSize:22,fontWeight:800,color:'rgba(255,255,255,0.95)',margin:0}}>Monitor de imprensa</h2>
+            <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Monitor de imprensa</h2>
             <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
               32 fontes · Tocantins + Brasil · Atualização 2x ao dia
             </p>
@@ -1226,7 +1226,7 @@ const handleRefresh=useCallback(async()=>{
         </div>
         <div style={{display:'flex',alignItems:'center',gap:16}}>
           <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:700,color:'#ef4444',margin:0,fontFamily:'var(--font-mono)'}}>{totalM.dir}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>diretas</p></div>
-          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#6fa3ef',margin:0}}>{totalM.tot}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>menções</p></div>
+          <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#1A3A7A',margin:0}}>{totalM.tot}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>menções</p></div>
         </div>
       </div>
 
@@ -1243,7 +1243,7 @@ const handleRefresh=useCallback(async()=>{
       {/* RELEVANCE FILTER */}
       <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap',alignItems:'center'}}>
         <span style={{fontSize:11,fontWeight:700,color:'#8C93A8',textTransform:'uppercase',marginRight:4}}>Relevância:</span>
-        {[{id:'direct',l:'Diretas ao candidato',color:'#b91c1c'},{id:'relevant',l:'Relevantes (≥0.5)',color:'#6fa3ef'},{id:'all',l:'Todas (incl. PMTO genéricas)',color:'#8c93a8'}].map(r=>
+        {[{id:'direct',l:'Diretas ao candidato',color:'#b91c1c'},{id:'relevant',l:'Relevantes (≥0.5)',color:'#1A3A7A'},{id:'all',l:'Todas (incl. PMTO genéricas)',color:'#8c93a8'}].map(r=>
           <Bt key={r.id} active={filterRelevance===r.id} color={r.color} onClick={()=>setFilterRelevance(r.id)}>{r.l}</Bt>
         )}
       </div>
