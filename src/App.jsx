@@ -232,11 +232,11 @@ const App = ({onLogout, userEmail}) => {
     return raw-prev;
   },[candidateProfile]);
 
-  const engagementRate=useMemo(()=>candidateProfile?.engagement_rate||0,[candidateProfile]);
+  const engagementRate=useMemo(()=>candidateProfile?.taxa_engajamento_pct||0,[candidateProfile]);
 
   const engagementTrend=useMemo(()=>{
-    const cur=candidateProfile?.engagement_rate||0;
-    const prev=candidateProfile?.engagement_rate_prev_week||cur;
+    const cur=candidateProfile?.taxa_engajamento_pct||0;
+    const prev=candidateProfile?.taxa_engajamento_pct_semana_anterior||cur;
     return cur-prev;
   },[candidateProfile]);
 
@@ -247,11 +247,9 @@ const App = ({onLogout, userEmail}) => {
     return articles.filter(n=>parseD(n)>h48ago).length;
   },[articles]);
 
-  const positiveCommentsPct=useMemo(()=>{
-    const pos=sentimentData?.positive||0;
-    const total=(sentimentData?.positive||0)+(sentimentData?.neutral||0)+(sentimentData?.negative||0);
-    return total>0?Math.round((pos/total)*100):0;
-  },[sentimentData]);
+  const positiveCommentsPct=useMemo(()=>
+    Math.round(sentimentData?.sentiment?.pct_positivo||0)
+  ,[sentimentData]);
   // ─────────────────────────────────────────────────────────────────────────
 
   const isAdmin=userEmail==='marcelsalescampelo@gmail.com';

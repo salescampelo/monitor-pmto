@@ -123,7 +123,7 @@ export default function AppHeader({
             {daysToElection??'—'}
           </div>
           <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
-            DIAS
+            DIAS P/ ELEIÇÃO
           </div>
         </div>
 
@@ -140,7 +140,7 @@ export default function AppHeader({
             )}
           </div>
           <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
-            SEGUIDORES
+            SEGUIDORES IG
           </div>
         </div>
 
@@ -157,7 +157,7 @@ export default function AppHeader({
             )}
           </div>
           <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
-            ENGAJAMENTO
+            ENGAJAMENTO IG
           </div>
         </div>
 

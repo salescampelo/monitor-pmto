@@ -69,7 +69,7 @@ export default function HelpTooltip({ panelId }) {
         <>
           <div
             onClick={() => setIsOpen(false)}
-            style={{ position: 'fixed', inset: 0, zIndex: 40 }}
+            style={{ position: 'fixed', inset: 0, zIndex: 9998 }}
             aria-hidden="true"
           />
           <div
@@ -85,7 +85,7 @@ export default function HelpTooltip({ panelId }) {
               boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
               border: '1px solid #E2E8F0',
               padding: '16px',
-              zIndex: 50,
+              zIndex: 9999,
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
