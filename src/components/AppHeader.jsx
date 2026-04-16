@@ -29,7 +29,7 @@ const getKpiColor = (type, value) => {
 };
 
 const getTrendIcon = (current, previous) => {
-  if (!previous || previous === 0) return null;
+  if (!previous || previous === 0) return { icon: '→', color: 'rgba(255,255,255,0.35)', label: 'sem dados anteriores' };
   const pctChange = ((current - previous) / previous) * 100;
   if (Math.abs(pctChange) < 1) return { icon: '→', color: 'rgba(255,255,255,0.5)', label: 'estável' };
   if (pctChange > 0) return { icon: '↑', color: '#22c55e', label: 'subindo' };
@@ -137,7 +137,7 @@ export default function AppHeader({
             <span style={{fontSize:isMobile?18:24,fontWeight:700,color:'#FFFFFF',lineHeight:1.1}}>
               {followers??'—'}
             </span>
-            {(()=>{const t=getTrendIcon(followersRaw,followersPrevWeek);if(!t)return null;return(
+            {(()=>{const t=getTrendIcon(followersRaw,followersPrevWeek);return(
               <span style={{fontSize:16,fontWeight:700,color:t.color,lineHeight:1}} title={`Tendência: ${t.label}`} aria-label={`Tendência ${t.label}`}>{t.icon}</span>
             );})()}
           </div>
@@ -152,7 +152,7 @@ export default function AppHeader({
             <span style={{fontSize:isMobile?18:24,fontWeight:700,color:getKpiColor('engajamento',engagementRate??0),lineHeight:1.1}}>
               {(engagementRate??0).toFixed(1)}%
             </span>
-            {(()=>{const t=getTrendIcon(engagementRate,engagementPrevWeek);if(!t)return null;return(
+            {(()=>{const t=getTrendIcon(engagementRate,engagementPrevWeek);return(
               <span style={{fontSize:16,fontWeight:700,color:t.color,lineHeight:1}} title={`Tendência: ${t.label}`} aria-label={`Tendência ${t.label}`}>{t.icon}</span>
             );})()}
           </div>
