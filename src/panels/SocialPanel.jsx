@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import { Users, ChevronUp, ChevronDown } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
 import { Card, Bt, useWW, PanelSkeleton } from '../components/ui.jsx';
@@ -296,3 +297,21 @@ export default function SocialPanel({socialData,sentimentData}) {
     )}
   </Card>);
 }
+
+SocialPanel.propTypes = {
+  socialData:    PropTypes.arrayOf(PropTypes.shape({
+    username:              PropTypes.string.isRequired,
+    seguidores:            PropTypes.number,
+    seguindo:              PropTypes.number,
+    publicacoes:           PropTypes.number,
+    taxa_engajamento_pct:  PropTypes.number,
+    coletado_em:           PropTypes.string,
+  })),
+  sentimentData: PropTypes.shape({
+    sentiment:       PropTypes.string,
+    score:           PropTypes.number,
+    positivo_pct:    PropTypes.number,
+    negativo_pct:    PropTypes.number,
+    neutro_pct:      PropTypes.number,
+  }),
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function PwModal({pw,setPw,handlePwChange,PW_INITIAL}) {
   if(!pw.show)return null;
@@ -48,3 +49,17 @@ export default function PwModal({pw,setPw,handlePwChange,PW_INITIAL}) {
   </div>
   );
 }
+
+PwModal.propTypes = {
+  pw: PropTypes.shape({
+    show:    PropTypes.bool,
+    new:     PropTypes.string,
+    confirm: PropTypes.string,
+    error:   PropTypes.string,
+    success: PropTypes.bool,
+    loading: PropTypes.bool,
+  }).isRequired,
+  setPw:        PropTypes.func.isRequired,
+  handlePwChange: PropTypes.func.isRequired,
+  PW_INITIAL:   PropTypes.object.isRequired,
+};

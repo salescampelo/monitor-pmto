@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -13,6 +14,10 @@ export class ErrorBoundary extends React.Component {
   componentDidCatch(error, errorInfo) {
     console.error('ErrorBoundary caught:', error, errorInfo);
   }
+
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+  };
 
   render() {
     if (this.state.hasError) {

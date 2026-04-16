@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Target, ChevronUp, ChevronDown } from 'lucide-react';
 import { Card, useWW, PanelSkeleton } from '../components/ui.jsx';
 
@@ -62,3 +63,20 @@ export default function KpiPanel({kpiData}) {
     )}
   </Card>);
 }
+
+KpiPanel.propTypes = {
+  kpiData: PropTypes.shape({
+    current_phase: PropTypes.number,
+    phases:        PropTypes.objectOf(PropTypes.shape({
+      nome:        PropTypes.string,
+      periodo:     PropTypes.string,
+    })),
+    kpis:          PropTypes.arrayOf(PropTypes.shape({
+      nome:        PropTypes.string.isRequired,
+      atual:       PropTypes.number,
+      meta:        PropTypes.number,
+      unidade:     PropTypes.string,
+      fase:        PropTypes.number,
+    })),
+  }),
+};

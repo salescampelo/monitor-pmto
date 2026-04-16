@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import { Target, ChevronUp, ChevronDown } from 'lucide-react';
 import { Card, useWW } from '../components/ui.jsx';
 import { fmtDt, fmtK } from '../lib/analytics.js';
@@ -217,3 +218,19 @@ export default function AdversariosPanel({adversariosData}) {
     )}
   </Card>);
 }
+
+AdversariosPanel.propTypes = {
+  adversariosData: PropTypes.shape({
+    ranking:       PropTypes.arrayOf(PropTypes.shape({
+      nome:         PropTypes.string.isRequired,
+      username:     PropTypes.string,
+      partido:      PropTypes.string,
+      seguidores:   PropTypes.number,
+      score_ameaca: PropTypes.number,
+      nivel_ameaca: PropTypes.oneOf(['alta', 'média', 'baixa']),
+      destino:      PropTypes.string,
+      is_interno:   PropTypes.bool,
+    })),
+    atualizado_em: PropTypes.string,
+  }),
+};

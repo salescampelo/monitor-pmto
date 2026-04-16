@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { ShieldAlert, Mail, Lock, LogIn, AlertCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase.js';
 import { checkRateLimit, recordAttempt, clearAttempts } from '../lib/rateLimit.js';
@@ -189,3 +190,6 @@ export default function LoginScreen() {
     </div>
   );
 }
+
+// LoginScreen não recebe props externas — gerencia auth via Supabase internamente.
+LoginScreen.propTypes = {};

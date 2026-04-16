@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { RefreshCw, Menu, LogOut } from 'lucide-react';
 
 const getKpiColor = (type, value) => {
@@ -129,3 +130,39 @@ export default function AppHeader({
   </header>
   );
 }
+
+AppHeader.propTypes = {
+  isMobile:           PropTypes.bool.isRequired,
+  refreshing:         PropTypes.bool,
+  handleRefresh:      PropTypes.func.isRequired,
+  nav:                PropTypes.shape({
+    sidebarOpen: PropTypes.bool,
+    avatarOpen:  PropTypes.bool,
+  }).isRequired,
+  setNav:             PropTypes.func.isRequired,
+  userEmail:          PropTypes.string,
+  onLogout:           PropTypes.func,
+  setPw:              PropTypes.func.isRequired,
+  lastUpdate:         PropTypes.string,
+  daysToElection:     PropTypes.number,
+  followers:          PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  mentions24h:        PropTypes.number,
+  alertCount:         PropTypes.number,
+  ranking:            PropTypes.string,
+  autoRefreshEnabled: PropTypes.bool,
+  setAutoRefresh:     PropTypes.func,
+};
+
+AppHeader.defaultProps = {
+  refreshing:         false,
+  userEmail:          null,
+  onLogout:           null,
+  lastUpdate:         null,
+  daysToElection:     null,
+  followers:          '—',
+  mentions24h:        0,
+  alertCount:         0,
+  ranking:            '—',
+  autoRefreshEnabled: false,
+  setAutoRefresh:     () => {},
+};

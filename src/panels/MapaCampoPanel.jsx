@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -340,3 +341,21 @@ export default function MapaCampoPanel({ liderancasData }) {
     </div>
   );
 }
+
+MapaCampoPanel.propTypes = {
+  liderancasData: PropTypes.shape({
+    municipios: PropTypes.arrayOf(PropTypes.shape({
+      nome:       PropTypes.string.isRequired,
+      lat:        PropTypes.number,
+      lng:        PropTypes.number,
+      liderancas: PropTypes.number,
+      visitas:    PropTypes.number,
+      prioridade: PropTypes.string,
+    })),
+    meta: PropTypes.shape({
+      municipios_cobertos:       PropTypes.number,
+      total_liderancas:          PropTypes.number,
+      municipios_sem_coordenadas: PropTypes.number,
+    }),
+  }),
+};

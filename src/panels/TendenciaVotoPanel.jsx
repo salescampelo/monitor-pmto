@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import { TrendingUp, ChevronUp, ChevronDown } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { Card, Bt, useWW, PanelSkeleton } from '../components/ui.jsx';
@@ -186,3 +187,19 @@ export default function TendenciaVotoPanel({tendenciaData}) {
     )}
   </Card>);
 }
+
+TendenciaVotoPanel.propTypes = {
+  tendenciaData: PropTypes.shape({
+    agregado:            PropTypes.object,
+    municipios:          PropTypes.arrayOf(PropTypes.shape({
+      nome:                         PropTypes.string.isRequired,
+      pct_bolsonaro:                PropTypes.number,
+      pct_lula:                     PropTypes.number,
+      classificacao:                PropTypes.string,
+      share_republicanos_dep_federal: PropTypes.number,
+    })),
+    top10_conservadores:  PropTypes.array,
+    top10_progressistas:  PropTypes.array,
+    top10_gap_conversao:  PropTypes.array,
+  }),
+};

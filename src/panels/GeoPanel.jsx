@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import { MapPin, Target, Eye, TrendingUp, BarChart3, ChevronUp, ChevronDown } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Cell, ResponsiveContainer } from 'recharts';
 import { Card, Met, Bt, useWW, PanelSkeleton } from '../components/ui.jsx';
@@ -157,3 +158,16 @@ export default function GeoPanel({geoData}) {
     )}
   </Card>);
 }
+
+GeoPanel.propTypes = {
+  geoData: PropTypes.shape({
+    municipios: PropTypes.arrayOf(PropTypes.shape({
+      nome:             PropTypes.string.isRequired,
+      populacao:        PropTypes.number,
+      eleitorado:       PropTypes.number,
+      categoria:        PropTypes.string,
+      oportunidade_idx: PropTypes.number,
+      vereadores:       PropTypes.array,
+    })),
+  }),
+};
