@@ -1,0 +1,310 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for analytics.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="index.html">All files</a> analytics.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">51.51% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>34/66</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">42.3% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>22/52</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">57.14% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>12/21</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">55.31% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>26/47</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line medium'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Layers, Bookmark, User, AlertTriangle, Target, Building, Radio, Newspaper } from 'lucide-react';
+import { parseISO, format, isValid } from 'date-fns';
+import { CONFIG } from './config.js';
+&nbsp;
+export const CLUSTERS = [
+  {id:'all',      label:'Todas',      icon:Layers,        color:'#8c93a8'},
+  {id:'Eleitoral',label:'Eleitoral',  icon:Bookmark,      color:'#1A3A7A'},
+  {id:'Comando',  label:'Comando',    icon:User,          color:'#1A3A7A'},
+  {id:'Letalidade',label:'Letalidade',icon:AlertTriangle, color:'#b91c1c'},
+  {id:'Operações',label:'Operações',  icon:Target,        color:'#1d4ed8'},
+  {id:'Gestão',   label:'Gestão',     icon:Building,      color:'#d4a017'},
+  {id:'Imprensa', label:'Imprensa',   icon:Radio,         color:'#be185d'},
+  {id:'Geral',    label:'Geral',      icon:Newspaper,     color:'#8c93a8'},
+];
+&nbsp;
+export const sC = s =&gt; {
+  if(s&lt;=0.2)return{t:'#7F1D1D',b:'rgba(127,29,29,0.1)'};
+  if(s&lt;=0.4)return{t:'#B91C1C',b:'rgba(185,28,28,0.1)'};
+  if(s&lt;=0.6)return{t:'#8C93A8',b:'rgba(140,147,168,0.1)'};
+  return{t:'#15803D',b:'rgba(21,128,61,0.1)'};
+};
+&nbsp;
+export const iC = i =&gt; ({Alto:'#ef4444',Médio:'#f59e0b',Baixo:'#22c55e'}[i]||'#f59e0b');
+&nbsp;
+export const fmt = <span class="fstat-no" title="function not covered" >d </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >  if(!d)<span class="cstat-no" title="statement not covered" >return'—';</span></span>
+  const x=<span class="cstat-no" title="statement not covered" >new Date(d+'T12:00:00');</span>
+<span class="cstat-no" title="statement not covered" >  return x.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});</span>
+};
+&nbsp;
+export const fmtDt = d =&gt; {
+  if(!d)return'—';
+  try{
+    const iso=d.includes('T')?d:d.replace(' ','T');
+    const date=parseISO(iso);
+    return isValid(date)?format(date,'dd/MM/yyyy HH:mm'):'—';
+  }catch{<span class="cstat-no" title="statement not covered" >return'—';}</span>
+};
+&nbsp;
+export const fmtK = n =&gt; n&gt;=1000?`${(n/1000).toFixed(n&gt;=10000?0:1)}K`:String(n||0);
+&nbsp;
+export const metrics = data =&gt; {
+  if(!data.length)return{tox:'0.0',tot:0,dir:0,ins:0,ele:0,nac:0,loc:0,src:0};
+  const a=data.reduce((s,n)=&gt;s+n.score,0)/data.length;
+  return{
+    tox:((1-a)*100).toFixed(1),
+    tot:data.length,
+    dir:data.filter(n=&gt;n.mentionType==='direta').length,
+    ins:data.filter(n=&gt;n.mentionType==='institucional').length,
+    ele:data.filter(n=&gt;n.mentionType==='eleitoral').length,
+    nac:data.filter(n=&gt;n.scope==='BR').length,
+    loc:data.filter(n=&gt;n.scope==='TO').length,
+    src:[...new Set(data.map(n=&gt;n.source))].length,
+  };
+};
+&nbsp;
+export const calcHeaderMetrics = <span class="fstat-no" title="function not covered" >(a</span>rticles, adversariosRaw, socialData, sentimentData) =&gt; {
+  const CANDIDATO = <span class="cstat-no" title="statement not covered" >CONFIG.CANDIDATE_USERNAME;</span>
+  const allSocial = <span class="cstat-no" title="statement not covered" >Array.isArray(socialData) ? socialData : [];</span>
+  const latestDate = <span class="cstat-no" title="statement not covered" >allSocial.reduce(<span class="fstat-no" title="function not covered" >(m</span>x,x)=&gt;<span class="cstat-no" title="statement not covered" >x.data_coleta&gt;mx?x.data_coleta:mx,</span>'');</span>
+  const snap = <span class="cstat-no" title="statement not covered" >latestDate ? allSocial.filter(<span class="fstat-no" title="function not covered" >x=</span>&gt;<span class="cstat-no" title="statement not covered" >x.data_coleta===latestDate)</span> : allSocial;</span>
+  const candEntry = <span class="cstat-no" title="statement not covered" >snap.find(<span class="fstat-no" title="function not covered" >x=</span>&gt;<span class="cstat-no" title="statement not covered" >x.username===CANDIDATO)</span>;</span>
+  const engCand = <span class="cstat-no" title="statement not covered" >candEntry?.taxa_engajamento_pct??null;</span>
+  const others = <span class="cstat-no" title="statement not covered" >snap.filter(<span class="fstat-no" title="function not covered" >x=</span>&gt;<span class="cstat-no" title="statement not covered" >x.username!==CANDIDATO&amp;&amp;x.taxa_engajamento_pct!=null)</span>;</span>
+  const engAvg = <span class="cstat-no" title="statement not covered" >others.length ? Math.round((others.reduce(<span class="fstat-no" title="function not covered" >(s</span>,x)=&gt;<span class="cstat-no" title="statement not covered" >s+x.taxa_engajamento_pct,</span>0)/others.length)*10)/10 : null;</span>
+  const engDelta = <span class="cstat-no" title="statement not covered" >engCand!=null&amp;&amp;engAvg!=null ? Math.round((engCand-engAvg)*10)/10 : null;</span>
+  const igSentPct = <span class="cstat-no" title="statement not covered" >sentimentData?.sentiment?.pct_positivo??null;</span>
+  const igSentNeg = <span class="cstat-no" title="statement not covered" >sentimentData?.sentiment?.pct_negativo??null;</span>
+  const igSentDate = <span class="cstat-no" title="statement not covered" >sentimentData?.data_coleta??null;</span>
+  const now=<span class="cstat-no" title="statement not covered" >Date.now(),</span> ms48=<span class="cstat-no" title="statement not covered" >48*60*60*1000;</span>
+  const dt = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a </span>=&gt; { <span class="cstat-no" title="statement not covered" >try{<span class="cstat-no" title="statement not covered" >return new Date(a.date+'T12:00:00').getTime();}</span>catch{<span class="cstat-no" title="statement not covered" >return 0;}</span> </span>};</span>
+  const alerts = <span class="cstat-no" title="statement not covered" >(articles||[]).filter(<span class="fstat-no" title="function not covered" >a=</span>&gt;<span class="cstat-no" title="statement not covered" >dt(a)&gt;=now-ms48&amp;&amp;a.relevance&gt;=0.8)</span>.length;</span>
+  const totalAdv = <span class="cstat-no" title="statement not covered" >adversariosRaw?.ranking?.length??0;</span>
+<span class="cstat-no" title="statement not covered" >  return{engCand,engDelta,engAvg,igSentPct,igSentNeg,igSentDate,alerts,totalAdv};</span>
+};
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-04-16T16:09:06.504Z
+            </div>
+        <script src="prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="sorter.js"></script>
+        <script src="block-navigation.js"></script>
+    </body>
+</html>
+    
