@@ -12,6 +12,7 @@ import { CSS, Card, Met, Bd, Bt, NC, useWW } from './components/ui.jsx';
 import { fetchJ, URLS } from './lib/fetch.js';
 import { classify } from './lib/news.js';
 import { CLUSTERS, metrics, calcHeaderMetrics } from './lib/analytics.js';
+import { CONFIG } from './lib/config.js';
 import SocialPanel from './panels/SocialPanel.jsx';
 import TendenciaVotoPanel from './panels/TendenciaVotoPanel.jsx';
 import KpiPanel from './panels/KpiPanel.jsx';
@@ -146,6 +147,35 @@ const App = ({onLogout, userEmail}) => {
     const c={};base.forEach(n=>{c[n.cluster]=(c[n.cluster]||0)+1;});return c;
   },[articles,filters.type,filters.scope]);
 
+  // ── Header KPIs ──────────────────────────────────────────────────────────
+  const daysToElection=useMemo(()=>Math.ceil((new Date('2026-10-04')-new Date())/(1000*60*60*24)),[]);
+
+  const followers=useMemo(()=>{
+    const cand=Array.isArray(socialData)?socialData.find(p=>p.username?.toLowerCase()===CONFIG.CANDIDATE_USERNAME?.toLowerCase()):null;
+    const raw=cand?.seguidores||cand?.followers||0;
+    if(!raw)return'—';
+    return raw>=1000?(raw/1000).toFixed(1).replace(/\.0$/,'')+'K':String(raw);
+  },[socialData]);
+
+  const {mentions24h,alertCount}=useMemo(()=>{
+    if(!articles.length)return{mentions24h:0,alertCount:0};
+    const h24ago=new Date(Date.now()-24*60*60*1000);
+    const h48ago=new Date(Date.now()-48*60*60*1000);
+    const parseD=n=>{try{return new Date((n.date||'').replace(' ','T'));}catch{return new Date(0);}};
+    return{
+      mentions24h:articles.filter(n=>parseD(n)>h24ago).length,
+      alertCount:articles.filter(n=>(n.relevance||0)>=0.9&&parseD(n)>h48ago).length,
+    };
+  },[articles]);
+
+  const ranking=useMemo(()=>{
+    const candFol=Array.isArray(socialData)?( socialData.find(p=>p.username?.toLowerCase()===CONFIG.CANDIDATE_USERNAME?.toLowerCase())?.seguidores||0 ):0;
+    const rivals=(adversariosData?.ranking||[]).map(p=>p.seguidores||p.followers||0);
+    const above=rivals.filter(f=>f>candFol).length;
+    return above>=0?`${above+1}º`:'—';
+  },[socialData,adversariosData]);
+  // ─────────────────────────────────────────────────────────────────────────
+
   if(loading)return(<div style={{minHeight:'100vh',background:'#1A2744',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,sans-serif"}}><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style><div style={{position:'relative',width:76,height:76,marginBottom:28}}><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid rgba(212,160,23,0.18)'}}/><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid transparent',borderTopColor:'#D4A017',animation:'spin 1s linear infinite'}}/><ShieldAlert size={26} style={{color:'#D4A017',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}/></div><p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',margin:0}}>Carregando dados</p></div>);
 
   return(
@@ -157,7 +187,7 @@ const App = ({onLogout, userEmail}) => {
     </div>
   )}
 
-  <AppHeader isMobile={isMobile} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} userEmail={userEmail} onLogout={onLogout} setPw={setPw} lastUpdate={lastUpdate}/>
+  <AppHeader isMobile={isMobile} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} userEmail={userEmail} onLogout={onLogout} setPw={setPw} lastUpdate={lastUpdate} daysToElection={daysToElection} followers={followers} mentions24h={mentions24h} alertCount={alertCount} ranking={ranking}/>
 
   {/* ── LAYOUT BODY ── */}
   <div style={{display:'flex'}}>

@@ -1,9 +1,22 @@
 import React from 'react';
 import { RefreshCw, Menu, LogOut } from 'lucide-react';
 
-export default function AppHeader({isMobile,refreshing,handleRefresh,nav,setNav,userEmail,onLogout,setPw,lastUpdate}) {
+export default function AppHeader({
+  isMobile,refreshing,handleRefresh,nav,setNav,userEmail,onLogout,setPw,lastUpdate,
+  daysToElection,followers,mentions24h,alertCount,ranking,
+}) {
   const pad = isMobile ? '24px' : '40px 48px';
   const titleSize = isMobile ? 32 : 48;
+  const kpiValueSize = isMobile ? 18 : 20;
+  const kpiPad = isMobile ? '8px 12px' : '10px 14px';
+
+  const kpis = [
+    { value: daysToElection ?? '—', label: 'DIAS' },
+    { value: followers       ?? '—', label: 'SEGUIDORES' },
+    { value: mentions24h     ?? '—', label: '24H' },
+    { value: alertCount      ?? '—', label: 'ALERTAS', highlight: (alertCount ?? 0) > 0 },
+    { value: ranking         ?? '—', label: 'RANK' },
+  ];
 
   return(
   <header style={{background:'linear-gradient(135deg, #1A3A7A 0%, #0D1F42 100%)',padding:pad,position:'relative'}}>
@@ -56,8 +69,22 @@ export default function AppHeader({isMobile,refreshing,handleRefresh,nav,setNav,
       <span style={{color:'#D4A017',display:'block'}}>TOCANTINS.</span>
     </h1>
 
+    {/* ── KPI strip ── */}
+    <div style={{display:'flex',gap:isMobile?8:10,flexWrap:'wrap',marginTop:24,marginBottom:8}}>
+      {kpis.map((kpi,i)=>(
+        <div key={i} style={{background:'rgba(255,255,255,0.08)',borderRadius:6,padding:kpiPad,textAlign:'center',minWidth:65,border:'1px solid rgba(255,255,255,0.1)'}}>
+          <div style={{fontSize:kpiValueSize,fontWeight:700,color:kpi.highlight?'#D4A017':'#FFFFFF',lineHeight:1.2}}>
+            {kpi.value}
+          </div>
+          <div style={{fontSize:9,fontWeight:600,color:'rgba(255,255,255,0.5)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
+            {kpi.label}
+          </div>
+        </div>
+      ))}
+    </div>
+
     {/* ── Metadata ── */}
-    <p style={{color:'rgba(255,255,255,0.5)',fontSize:13,fontWeight:400,marginTop:24,marginBottom:0}}>
+    <p style={{color:'rgba(255,255,255,0.5)',fontSize:13,fontWeight:400,marginTop:8,marginBottom:0}}>
       32 fontes monitoradas · TO + Brasil · {lastUpdate||new Date().toLocaleDateString('pt-BR')+' (auto)'}
     </p>
 
