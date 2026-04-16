@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { MapPin, Target, Eye, TrendingUp, BarChart3, ChevronUp, ChevronDown } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Cell, ResponsiveContainer } from 'recharts';
-import { Card, Met, Bt, useWW } from '../components/ui.jsx';
+import { Card, Met, Bt, useWW, PanelSkeleton } from '../components/ui.jsx';
 
 const CAT_COLORS = {
   'ALTA PRIORIDADE':'#22c55e','OPORTUNIDADE':'#f59e0b',
@@ -40,7 +40,7 @@ export default function GeoPanel({geoData}) {
     }));
   },[geoData]);
 
-  if(!geoData?.municipios?.length)return null;
+  if(!geoData?.municipios?.length)return <PanelSkeleton/>;
   const detail=selectedMun?geoData.municipios.find(m=>m.municipio_upper===selectedMun):null;
 
   return(

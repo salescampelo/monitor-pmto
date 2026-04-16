@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Users, ChevronUp, ChevronDown } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
-import { Card, Bt, useWW } from '../components/ui.jsx';
+import { Card, Bt, useWW, PanelSkeleton } from '../components/ui.jsx';
 import { fmtK } from '../lib/analytics.js';
 
 const DCOL = {positivo:'#22c55e',negativo:'#ef4444',neutro:'#64748b'};
@@ -69,7 +69,7 @@ export default function SocialPanel({socialData,sentimentData}) {
     return{name:'@'+p.username.substring(0,18),eng:p.taxa_engajamento_pct,fill:color};
   }),[profiles]);
 
-  if(!profiles.length)return null;
+  if(!profiles.length)return <PanelSkeleton/>;
   return(
   <Card style={{marginTop:isMobile?0:32}}>
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:10,cursor:'pointer',marginBottom:open?18:0}} onClick={()=>setOpen(o=>!o)}>

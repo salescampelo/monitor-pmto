@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useWW } from '../components/ui.jsx';
+import { useWW, PanelSkeleton } from '../components/ui.jsx';
 
 // Fix para ícones padrão do Leaflet com bundlers (Vite/Webpack)
 delete L.Icon.Default.prototype._getIconUrl;
@@ -224,14 +224,7 @@ export default function MapaCampoPanel({ liderancasData }) {
 
   const meta = liderancasData?.meta || {};
 
-  if (!liderancasData) {
-    return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 400, flexDirection: 'column', gap: 12 }}>
-        <div style={{ fontSize: 14, color: '#8C93A8' }}>Dados de lideranças não disponíveis.</div>
-        <div style={{ fontSize: 12, color: '#8C93A8' }}>Verifique se <code>public/data/liderancas.json</code> existe.</div>
-      </div>
-    );
-  }
+  if (!liderancasData) return <PanelSkeleton/>;
 
   const alturaMapaDesktop = '600px';
   const alturaMapaMobile  = '420px';

@@ -41,6 +41,18 @@ export const Bt = ({active,color,onClick,children}) => (
   </button>
 );
 
+export const PanelSkeleton = ({rows=5,title=true}) => (
+  <Card>
+    {title&&<div className="skeleton" style={{height:24,width:'40%',borderRadius:6,marginBottom:20}}/>}
+    <div style={{display:'flex',gap:12,marginBottom:20}}>
+      {[1,2,3].map(i=><div key={i} className="skeleton" style={{height:72,flex:1,borderRadius:8}}/>)}
+    </div>
+    {Array.from({length:rows}).map((_,i)=>(
+      <div key={i} className="skeleton" style={{height:16,width:`${90-i*10}%`,borderRadius:4,marginBottom:10}}/>
+    ))}
+  </Card>
+);
+
 export const NC = ({item,expanded,onToggle}) => {
   const sc=sC(item.score);
   const cl=CLUSTERS.find(c=>c.id===item.cluster);

@@ -20,6 +20,8 @@ import AdversariosPanel from './panels/AdversariosPanel.jsx';
 import MapaCampoPanel from './panels/MapaCampoPanel.jsx';
 import { logAccess } from './lib/accessLog.js';
 import { useOffline } from './lib/useOffline.js';
+import AppHeader from './components/AppHeader.jsx';
+import PwModal from './components/PwModal.jsx';
 
 /* ═══════════════════════════════════════════════
    MAIN APP
@@ -155,65 +157,7 @@ const App = ({onLogout, userEmail}) => {
     </div>
   )}
 
-  {/* ── HERO HEADER ── */}
-  <header style={{position:'fixed',top:0,left:0,right:0,height:isMobile?48:160,zIndex:200,background:'radial-gradient(circle at 85% 30%, rgba(212,160,23,0.08) 0%, transparent 50%), linear-gradient(to right, #1A2744, #0D1B2A)',borderBottom:'1px solid rgba(255,255,255,0.06)',display:'flex',flexDirection:'column',boxSizing:'border-box',overflow:'hidden'}}>
-    {/* Zona Superior 48px */}
-    <div style={{height:48,flexShrink:0,display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 20px',borderBottom:isMobile?'none':'1px solid rgba(255,255,255,0.06)'}}>
-      <div style={{display:'flex',alignItems:'center',gap:10}}>
-        {isMobile&&<button onClick={()=>setNav(n=>({...n,sidebarOpen:!n.sidebarOpen}))} style={{background:'none',border:'none',cursor:'pointer',padding:6,display:'flex',alignItems:'center',color:'#8C93A8'}}><Menu size={20}/></button>}
-        <ShieldAlert size={16} style={{color:'#D4A017'}}/>
-      </div>
-      <span style={{flex:1,textAlign:'center',fontSize:isMobile?15:16,fontWeight:800,color:'#FFFFFF',letterSpacing:'0.08em',textTransform:'uppercase',whiteSpace:'nowrap'}}>Hub63 Data Solutions</span>
-      <div style={{display:'flex',alignItems:'center',gap:8}}>
-        <button onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:5,padding:'5px 10px',borderRadius:16,background:'transparent',border:'1px solid rgba(255,255,255,0.1)',color:'#8C93A8',fontSize:11,fontWeight:700,cursor:refreshing?'wait':'pointer',opacity:refreshing?0.6:1,transition:'all 0.18s',whiteSpace:'nowrap'}}>
-          <RefreshCw size={11} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{!isMobile&&(refreshing?'...':'Atualizar')}
-        </button>
-        {onLogout&&<div style={{position:'relative',flexShrink:0}}>
-          <button onClick={()=>setNav(n=>({...n,avatarOpen:!n.avatarOpen}))} title={userEmail} style={{width:32,height:32,borderRadius:'50%',background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.12)',display:'flex',alignItems:'center',justifyContent:'center',cursor:'pointer',color:'#D4A017',fontSize:11,fontWeight:800,outline:'none'}}>CB</button>
-          {nav.avatarOpen&&<>
-            <div style={{position:'fixed',inset:0,zIndex:299}} onClick={()=>setNav(n=>({...n,avatarOpen:false}))}/>
-            <div style={{position:'absolute',top:'calc(100% + 6px)',right:0,zIndex:300,background:'#FFFFFF',border:'1px solid rgba(26,39,68,0.08)',borderRadius:8,boxShadow:'0 4px 12px rgba(0,0,0,0.1)',minWidth:160,overflow:'hidden'}}>
-              <button onClick={()=>{setNav(n=>({...n,avatarOpen:false}));setPw(p=>({...p,show:true}));}} onMouseEnter={e=>e.currentTarget.style.background='#F5F3EE'} onMouseLeave={e=>e.currentTarget.style.background='none'} style={{display:'block',width:'100%',padding:'10px 16px',fontSize:13,color:'#1A2744',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>Alterar senha</button>
-              <button onClick={()=>{setNav(n=>({...n,avatarOpen:false}));onLogout();}} onMouseEnter={e=>e.currentTarget.style.background='#F5F3EE'} onMouseLeave={e=>e.currentTarget.style.background='none'} style={{display:'block',width:'100%',padding:'10px 16px',fontSize:13,color:'#B91C1C',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>Sair</button>
-            </div>
-          </>}
-        </div>}
-      </div>
-    </div>
-    {/* Zona Inferior 112px: 4 cards de métricas (desktop only) */}
-    {!isMobile&&(
-    <div style={{flex:1,display:'flex',alignItems:'center',justifyContent:'center'}}>
-      <div style={{display:'flex',alignItems:'center',gap:40,maxWidth:800}}>
-        <div style={{textAlign:'center'}}>
-          <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.12em',color:'rgba(255,255,255,0.45)',margin:'0 0 4px'}}>Engajamento IG</p>
-          <div style={{display:'flex',alignItems:'baseline',gap:6,justifyContent:'center'}}>
-            <span style={{fontSize:36,fontWeight:800,color:'#FFFFFF',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.engCand!=null?`${hm.engCand}%`:'—'}</span>
-            {hm.engDelta!==null&&<span style={{fontSize:16,fontWeight:700,color:hm.engDelta>0?'#22c55e':hm.engDelta<0?'#ef4444':'rgba(255,255,255,0.35)'}}>{hm.engDelta>0?'▲':hm.engDelta<0?'▼':'—'}</span>}
-          </div>
-          <p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',whiteSpace:'nowrap'}}>vs adversários {hm.engDelta!=null?(hm.engDelta>0?'+':'')+hm.engDelta+'pp':'—'}</p>
-        </div>
-        <div style={{width:1,height:56,background:'rgba(255,255,255,0.08)'}}/>
-        <div style={{textAlign:'center'}}>
-          <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.12em',color:'rgba(255,255,255,0.45)',margin:'0 0 4px'}}>Sentimento IG</p>
-          <span style={{fontSize:36,fontWeight:800,lineHeight:1,fontFamily:'var(--font-mono)',color:(hm.igSentNeg==null)?'rgba(255,255,255,0.4)':(hm.igSentNeg>=20?'#ef4444':hm.igSentNeg>=10?'#D4A017':'#22c55e')}}>{hm.igSentPct!=null?`${hm.igSentPct}%`:'—'}</span>
-          <p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',whiteSpace:'nowrap'}}>{hm.igSentNeg!=null?`${hm.igSentNeg}% negativo`:'—'}</p>
-        </div>
-        <div style={{width:1,height:56,background:'rgba(255,255,255,0.08)'}}/>
-        <div style={{textAlign:'center'}}>
-          <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.12em',color:'rgba(255,255,255,0.45)',margin:'0 0 4px'}}>Alertas</p>
-          <span style={{fontSize:36,fontWeight:800,color:hm.alerts>0?'#ef4444':'#22c55e',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.alerts}</span>
-          <p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',whiteSpace:'nowrap'}}>{hm.alerts>0?'relevantes (48h)':'nenhum alerta'}</p>
-        </div>
-        <div style={{width:1,height:56,background:'rgba(255,255,255,0.08)'}}/>
-        <div style={{textAlign:'center'}}>
-          <p style={{fontSize:11,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.12em',color:'rgba(255,255,255,0.45)',margin:'0 0 4px'}}>Adversários</p>
-          <span style={{fontSize:36,fontWeight:800,color:'rgba(255,255,255,0.75)',lineHeight:1,fontFamily:'var(--font-mono)'}}>{hm.totalAdv||'—'}</span>
-          <p style={{fontSize:10,color:'rgba(255,255,255,0.35)',margin:'4px 0 0',whiteSpace:'nowrap'}}>monitorados</p>
-        </div>
-      </div>
-    </div>
-    )}
-  </header>
+  <AppHeader isMobile={isMobile} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} hm={hm} userEmail={userEmail} onLogout={onLogout} setPw={setPw}/>
 
   {/* ── LAYOUT BODY ── */}
   <div style={{display:'flex',paddingTop:isMobile?48:160}}>
@@ -367,54 +311,7 @@ const App = ({onLogout, userEmail}) => {
     </main>
   </div>
 
-  {/* ── MODAL ALTERAR SENHA ── */}
-  {pw.show&&(()=>{
-    const mismatch=pw.new&&pw.confirm&&pw.new!==pw.confirm;
-    const borderErr='#B91C1C', borderNorm='rgba(26,39,68,0.15)';
-    const score=[/[a-z]/.test(pw.new),/[A-Z]/.test(pw.new),/\d/.test(pw.new),/[^a-zA-Z0-9]/.test(pw.new),pw.new.length>=8].filter(Boolean).length;
-    const strength=[null,'fraca','fraca','média','forte','forte'][score];
-    const strengthColor=['','#ef4444','#ef4444','#f59e0b','#22c55e','#22c55e'][score];
-    return(
-    <div style={{position:'fixed',inset:0,zIndex:500,background:'rgba(0,0,0,0.5)',display:'flex',alignItems:'center',justifyContent:'center',padding:20}}>
-    <div style={{background:'#FFFFFF',borderRadius:16,padding:32,maxWidth:400,width:'100%',boxShadow:'0 8px 32px rgba(0,0,0,0.2)'}}>
-      <h2 style={{fontSize:18,fontWeight:700,color:'#1A2744',margin:'0 0 20px'}}>Alterar senha</h2>
-      <div style={{display:'flex',flexDirection:'column',gap:12}}>
-        <div>
-          <input type="password" placeholder="Nova senha (mín. 8 caracteres)" value={pw.new}
-            onChange={e=>setPw(p=>({...p,new:e.target.value,error:''}))}
-            style={{border:`1px solid ${mismatch?borderErr:borderNorm}`,borderRadius:8,padding:12,fontSize:14,outline:'none',fontFamily:'inherit',transition:'border-color 0.15s',width:'100%',boxSizing:'border-box'}}
-            onFocus={e=>e.target.style.borderColor='#D4A017'} onBlur={e=>e.target.style.borderColor=mismatch?borderErr:borderNorm}/>
-          {pw.new&&(
-            <div style={{marginTop:6,display:'flex',alignItems:'center',gap:8}}>
-              <div style={{flex:1,height:4,borderRadius:4,background:'rgba(26,39,68,0.08)',overflow:'hidden'}}>
-                <div style={{width:`${(score/5)*100}%`,height:'100%',background:strengthColor,borderRadius:4,transition:'width 0.3s,background 0.3s'}}/>
-              </div>
-              <span style={{fontSize:11,fontWeight:700,color:strengthColor,minWidth:36}}>{strength}</span>
-            </div>
-          )}
-        </div>
-        <input type="password" placeholder="Confirmar senha" value={pw.confirm}
-          onChange={e=>setPw(p=>({...p,confirm:e.target.value,error:''}))}
-          style={{border:`1px solid ${mismatch?borderErr:borderNorm}`,borderRadius:8,padding:12,fontSize:14,outline:'none',fontFamily:'inherit',transition:'border-color 0.15s',width:'100%',boxSizing:'border-box'}}
-          onFocus={e=>e.target.style.borderColor='#D4A017'} onBlur={e=>e.target.style.borderColor=mismatch?borderErr:borderNorm}/>
-        {mismatch&&<p style={{fontSize:12,color:'#B91C1C',margin:0}}>As senhas não coincidem.</p>}
-        {pw.error&&<p style={{fontSize:12,color:'#B91C1C',margin:0}}>{pw.error}</p>}
-        {pw.success&&<p style={{fontSize:12,color:'#15803D',margin:0,fontWeight:600}}>Senha alterada com sucesso!</p>}
-        <div style={{display:'flex',gap:8,marginTop:4}}>
-          <button onClick={handlePwChange} disabled={pw.loading||pw.new.length<6||pw.new!==pw.confirm||score<2}
-            style={{flex:1,background:'#1A2744',color:'#FFFFFF',border:'none',borderRadius:8,padding:'12px 24px',fontSize:14,fontWeight:700,cursor:'pointer',opacity:pw.loading||pw.new.length<6||pw.new!==pw.confirm||score<2?0.5:1,fontFamily:'inherit'}}>
-            {pw.loading?'Salvando...':'Salvar'}
-          </button>
-          <button onClick={()=>setPw(PW_INITIAL)}
-            style={{padding:'12px 16px',background:'transparent',border:'none',color:'#5A6478',fontSize:14,cursor:'pointer',fontFamily:'inherit'}}>
-            Cancelar
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-    );
-  })()}
+  <PwModal pw={pw} setPw={setPw} handlePwChange={handlePwChange} PW_INITIAL={PW_INITIAL}/>
 
   </div>);
 };

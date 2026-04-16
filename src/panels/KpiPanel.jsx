@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Target, ChevronUp, ChevronDown } from 'lucide-react';
-import { Card, useWW } from '../components/ui.jsx';
+import { Card, useWW, PanelSkeleton } from '../components/ui.jsx';
 
 export default function KpiPanel({kpiData}) {
   const[open,setOpen]=useState(true);
   const isMobile=useWW()<768;
-  if(!kpiData?.kpis?.length)return null;
+  if(!kpiData?.kpis?.length)return <PanelSkeleton/>;
   const phase=kpiData.current_phase||1;
   const phaseInfo=kpiData.phases?.[String(phase)]||{};
   const electionDate=kpiData.election_date?new Date(kpiData.election_date+'T00:00:00'):null;

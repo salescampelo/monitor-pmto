@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { TrendingUp, ChevronUp, ChevronDown } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-import { Card, Bt, useWW } from '../components/ui.jsx';
+import { Card, Bt, useWW, PanelSkeleton } from '../components/ui.jsx';
 
 const TV_CORES = {Conservador:'#1A3A7A',Dividido:'#D4A017',Progressista:'#B91C1C',gap:'#15803D'};
 
@@ -12,7 +12,7 @@ export default function TendenciaVotoPanel({tendenciaData}) {
   const[sortDir,setSortDir]=useState(-1);
   const[chartView,setChartView]=useState('conservadores');
   const isMobile=useWW()<768;
-  if(!tendenciaData?.municipios?.length)return null;
+  if(!tendenciaData?.municipios?.length)return <PanelSkeleton/>;
 
   const{agregado,municipios,top10_conservadores,top10_progressistas,top10_gap_conversao=[]}=tendenciaData;
   const hasShareRep=municipios.some(m=>m.share_republicanos_dep_federal>0);
