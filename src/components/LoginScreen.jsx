@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ShieldAlert, Mail, Lock, LogIn, AlertCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase.js';
+import { checkRateLimit, recordAttempt, clearAttempts } from '../lib/rateLimit.js';
 
 const CSS_LOGIN = `
   @keyframes blob-float {
@@ -53,12 +54,30 @@ export default function LoginScreen() {
   const handleLogin = async e => {
     e.preventDefault();
     setError('');
+
+    const { allowed, retryAfterSec } = checkRateLimit(email);
+    if (!allowed) {
+      const min = Math.ceil(retryAfterSec / 60);
+      setError(`Muitas tentativas incorretas. Aguarde ${min} min antes de tentar novamente.`);
+      return;
+    }
+
     setLoading(true);
-    const { error: err } = await supabase.auth.signInWithPassword({ email, password });
-    if (err) setError(err.message === 'Invalid login credentials'
-      ? 'E-mail ou senha incorretos.'
-      : err.message);
-    setLoading(false);
+    try {
+      const { error: err } = await supabase.auth.signInWithPassword({ email, password });
+      if (err) {
+        recordAttempt(email);
+        setError(err.message === 'Invalid login credentials'
+          ? 'E-mail ou senha incorretos.'
+          : 'Erro ao entrar. Tente novamente.');
+      } else {
+        clearAttempts(email);
+      }
+    } catch {
+      setError('Erro de conexão. Verifique sua internet e tente novamente.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
