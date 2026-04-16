@@ -1,4 +1,5 @@
 import { Layers, Bookmark, User, AlertTriangle, Target, Building, Radio, Newspaper } from 'lucide-react';
+import { parseISO, format, isValid } from 'date-fns';
 import { CONFIG } from './config.js';
 
 export const CLUSTERS = [
@@ -29,10 +30,11 @@ export const fmt = d => {
 
 export const fmtDt = d => {
   if(!d)return'—';
-  const[dt,hr]=d.split(' ');
-  if(!dt)return'—';
-  const[y,m,day]=dt.split('-');
-  return`${day}/${m}/${y}${hr?' '+hr:''}`;
+  try{
+    const iso=d.includes('T')?d:d.replace(' ','T');
+    const date=parseISO(iso);
+    return isValid(date)?format(date,'dd/MM/yyyy HH:mm'):'—';
+  }catch{return'—';}
 };
 
 export const fmtK = n => n>=1000?`${(n/1000).toFixed(n>=10000?0:1)}K`:String(n||0);

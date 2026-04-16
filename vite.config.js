@@ -17,4 +17,8 @@ const apiDataDevProxy = {
 
 export default defineConfig({
   plugins: [react(), apiDataDevProxy],
+  test: {
+    environment: 'node',
+    globals: true,
+  },
 });

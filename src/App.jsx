@@ -19,6 +19,7 @@ import GeoPanel from './panels/GeoPanel.jsx';
 import AdversariosPanel from './panels/AdversariosPanel.jsx';
 import MapaCampoPanel from './panels/MapaCampoPanel.jsx';
 import { logAccess } from './lib/accessLog.js';
+import { useOffline } from './lib/useOffline.js';
 
 /* ═══════════════════════════════════════════════
    MAIN APP
@@ -34,6 +35,7 @@ const App = ({onLogout, userEmail}) => {
   const[liderancasData,setLiderancasData]=useState(null);
   const[selectedCluster,setSelectedCluster]=useState('all');
   const[expandedCards,setExpandedCards]=useState({});
+  const[visibleCount,setVisibleCount]=useState(50);
   const[sortOrder,setSortOrder]=useState('date');
   const[filterType,setFilterType]=useState('all');
   const[filterScope,setFilterScope]=useState('all');
@@ -54,6 +56,7 @@ const App = ({onLogout, userEmail}) => {
   const screenW=useWW();
   const isMobile=screenW<768;
   const isTablet=screenW>=768&&screenW<1024;
+  const isOffline=useOffline();
 
   // Boot: carrega apenas os 4 arquivos pequenos (~40 KB)
   useEffect(()=>{(async()=>{
@@ -127,6 +130,9 @@ const App = ({onLogout, userEmail}) => {
     return sortOrder==='score'?[...f].sort((a,b)=>a.score-b.score):[...f].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
   },[articles,selectedCluster,sortOrder,filterType,filterScope,filterRelevance]);
 
+  // Reseta paginação sempre que o conjunto filtrado muda
+  useEffect(()=>{setVisibleCount(50);},[filteredNews]);
+
   const todayM=useMemo(()=>{
     const cutoff=new Date(Date.now()-24*60*60*1000);
     const recent=articles.filter(n=>{
@@ -149,6 +155,11 @@ const App = ({onLogout, userEmail}) => {
   return(
   <div style={{minHeight:'100vh',background:'#F8F7F4',color:'#1A2744',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif"}}>
   <style>{CSS}</style>
+  {isOffline&&(
+    <div style={{position:'fixed',top:0,left:0,right:0,zIndex:9999,background:'#b91c1c',color:'#fff',fontSize:12,fontWeight:700,textAlign:'center',padding:'6px 16px',letterSpacing:'0.05em'}}>
+      SEM CONEXÃO — os dados exibidos podem estar desatualizados
+    </div>
+  )}
 
   {/* ── HERO HEADER ── */}
   <header style={{position:'fixed',top:0,left:0,right:0,height:isMobile?48:160,zIndex:200,background:'radial-gradient(circle at 85% 30%, rgba(212,160,23,0.08) 0%, transparent 50%), linear-gradient(to right, #1A2744, #0D1B2A)',borderBottom:'1px solid rgba(255,255,255,0.06)',display:'flex',flexDirection:'column',boxSizing:'border-box',overflow:'hidden'}}>
@@ -345,9 +356,16 @@ const App = ({onLogout, userEmail}) => {
         </div>
 
         <div style={{display:'flex',flexDirection:'column',gap:10,marginBottom:8}}>
-          {filteredNews.slice(0,50).map(item=><NC key={item.id} item={item} expanded={!!expandedCards[item.id]} onToggle={()=>setExpandedCards(prev=>({...prev,[item.id]:!prev[item.id]}))}/>)}
-          {filteredNews.length>50&&<p style={{fontSize:13,color:'#8c93a8',textAlign:'center'}}>Mostrando 50 de {filteredNews.length}. Use filtros para refinar.</p>}
+          {filteredNews.slice(0,visibleCount).map(item=><NC key={item.id} item={item} expanded={!!expandedCards[item.id]} onToggle={()=>setExpandedCards(prev=>({...prev,[item.id]:!prev[item.id]}))}/>)}
           {filteredNews.length===0&&<Card noHover><p style={{color:'#8c93a8',fontSize:13,textAlign:'center'}}>Nenhuma menção para os filtros selecionados.</p></Card>}
+          {visibleCount<filteredNews.length&&(
+            <div style={{textAlign:'center',paddingTop:8}}>
+              <p style={{fontSize:12,color:'#8c93a8',margin:'0 0 8px'}}>Mostrando {visibleCount} de {filteredNews.length}</p>
+              <button onClick={()=>setVisibleCount(c=>c+50)} style={{padding:'7px 20px',borderRadius:16,background:'transparent',border:'1px solid rgba(26,39,68,0.15)',color:'#1A2744',fontSize:12,fontWeight:700,cursor:'pointer'}}>
+                Carregar mais 50
+              </button>
+            </div>
+          )}
         </div>
         </Card>
         )}
