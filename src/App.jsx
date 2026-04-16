@@ -157,14 +157,14 @@ const App = ({onLogout, userEmail}) => {
     </div>
   )}
 
-  <AppHeader isMobile={isMobile} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} hm={hm} userEmail={userEmail} onLogout={onLogout} setPw={setPw}/>
+  <AppHeader isMobile={isMobile} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} userEmail={userEmail} onLogout={onLogout} setPw={setPw} lastUpdate={lastUpdate}/>
 
   {/* ── LAYOUT BODY ── */}
-  <div style={{display:'flex',paddingTop:isMobile?48:160}}>
+  <div style={{display:'flex'}}>
     {isMobile&&nav.sidebarOpen&&<div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.6)',zIndex:149}} onClick={()=>setNav(n=>({...n,sidebarOpen:false}))}/>}
 
     {/* ── SIDEBAR ── */}
-    <aside style={{position:'fixed',top:isMobile?48:160,left:0,bottom:0,width:isMobile?(nav.sidebarOpen?260:0):isTablet?60:260,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
+    <aside style={{position:isMobile?'fixed':'sticky',top:0,left:0,bottom:isMobile?0:'auto',alignSelf:'flex-start',height:isMobile?undefined:'100vh',width:isMobile?(nav.sidebarOpen?260:0):isTablet?60:260,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
       <div style={{display:'flex',flexDirection:'column',gap:4}}>
       {[
         {id:'tendencia', label:'Tendência 2022', icon:TrendingUp,  sub:'Bolsonaro × Lula'},
@@ -224,7 +224,7 @@ const App = ({onLogout, userEmail}) => {
     </aside>
 
     {/* ── CONTENT AREA ── */}
-    <main style={{marginLeft:isMobile?0:isTablet?60:260,padding:isMobile?'8px 10px':'24px',flex:1,minWidth:0,transition:'margin-left 0.2s ease',minHeight:isMobile?'calc(100vh - 48px)':'calc(100vh - 160px)'}}>
+    <main style={{marginLeft:isMobile?0:isTablet?60:260,padding:isMobile?'8px 10px':'24px',flex:1,minWidth:0,transition:'margin-left 0.2s ease',minHeight:'100vh'}}>
       <div key={activePanel} className="panel-fade">
         {activePanel==='tendencia'&&<TendenciaVotoPanel tendenciaData={tendenciaData}/>}
         {activePanel==='adversarios'&&<AdversariosPanel adversariosData={adversariosData}/>}
