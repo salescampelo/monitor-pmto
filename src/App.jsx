@@ -93,9 +93,19 @@ const App = ({onLogout, userEmail}) => {
   const handlePwChange=useCallback(async()=>{
     if(pwNew.length<6||pwNew!==pwConfirm)return;
     setPwLoading(true);setPwError('');
-    const{error}=await supabase.auth.updateUser({password:pwNew});
-    if(error){setPwError(error.message);setPwLoading(false);}
-    else{setPwSuccess(true);setPwLoading(false);setTimeout(()=>{setShowPwModal(false);setPwNew('');setPwConfirm('');setPwSuccess(false);},2000);}
+    try{
+      const{error}=await supabase.auth.updateUser({password:pwNew});
+      if(error){
+        setPwError(error.status===422?'Senha não atende aos requisitos mínimos.':'Erro ao atualizar senha. Tente novamente.');
+      }else{
+        setPwSuccess(true);
+        setTimeout(()=>{setShowPwModal(false);setPwNew('');setPwConfirm('');setPwSuccess(false);},2000);
+      }
+    }catch{
+      setPwError('Erro de conexão. Verifique sua internet e tente novamente.');
+    }finally{
+      setPwLoading(false);
+    }
   },[pwNew,pwConfirm]);
 
   useEffect(()=>{
