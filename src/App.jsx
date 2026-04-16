@@ -4,7 +4,7 @@ import {
   ChevronDown, ChevronUp, Newspaper, Target, Radio, Clock,
   Hash, ArrowUpRight, BrainCircuit, Layers, Upload, RefreshCw,
   Database, User, Building, Globe, MapPin, Bookmark, Trash2,
-  BarChart3, TrendingUp, Heart, MessageCircle, Users, LogOut, Menu, Map,
+  BarChart3, TrendingUp, Heart, MessageCircle, Users, LogOut, Menu, Map, Shield,
 } from 'lucide-react';
 import { supabase } from './lib/supabase.js';
 import LoginScreen from './components/LoginScreen.jsx';
@@ -19,6 +19,7 @@ import KpiPanel from './panels/KpiPanel.jsx';
 import GeoPanel from './panels/GeoPanel.jsx';
 import AdversariosPanel from './panels/AdversariosPanel.jsx';
 import MapaCampoPanel from './panels/MapaCampoPanel.jsx';
+import AuditoriaPanel from './panels/AuditoriaPanel.jsx';
 import { logAccess } from './lib/accessLog.js';
 import { useOffline } from './lib/useOffline.js';
 import AppHeader from './components/AppHeader.jsx';
@@ -192,6 +193,8 @@ const App = ({onLogout, userEmail}) => {
   },[socialData,adversariosData]);
   // ─────────────────────────────────────────────────────────────────────────
 
+  const isAdmin=userEmail==='marcelsalescampelo@gmail.com';
+
   if(loading)return(<div style={{minHeight:'100vh',background:'#1A2744',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,sans-serif"}}><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style><div style={{position:'relative',width:76,height:76,marginBottom:28}}><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid rgba(212,160,23,0.18)'}}/><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid transparent',borderTopColor:'#D4A017',animation:'spin 1s linear infinite'}}/><ShieldAlert size={26} style={{color:'#D4A017',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}/></div><p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',margin:0}}>Carregando dados</p></div>);
 
   return(
@@ -220,6 +223,7 @@ const App = ({onLogout, userEmail}) => {
         {id:'campo',     label:'Mapa de Campo',   icon:Map,         sub:'Lideranças · Visitas'},
         {id:'social',    label:'Redes Sociais',   icon:Users,       sub:'18 perfis IG'},
         {id:'imprensa',  label:'Imprensa',        icon:Newspaper,   badge:hm.alerts, sub:'32 fontes'},
+        ...(isAdmin?[{id:'auditoria',label:'Auditoria',icon:Shield,sub:'Logs de acesso'}]:[]),
       ].map(({id,label,icon:Icon,badge,sub})=>{
         const isAct=activePanel===id;
         const showLabel=!isTablet||isMobile;
@@ -278,6 +282,7 @@ const App = ({onLogout, userEmail}) => {
         {activePanel==='geo'&&<GeoPanel geoData={geoData}/>}
         {activePanel==='campo'&&<MapaCampoPanel liderancasData={liderancasData}/>}
         {activePanel==='social'&&<SocialPanel socialData={socialData} sentimentData={sentimentData}/>}
+        {activePanel==='auditoria'&&isAdmin&&<AuditoriaPanel/>}
 
         {activePanel==='imprensa'&&(
         <Card>
