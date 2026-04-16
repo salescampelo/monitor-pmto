@@ -14,27 +14,51 @@ export const URLS = {
 };
 
 const FETCH_TIMEOUT = 10000;
+const SESSION_EXPIRED = 'Sessão expirada. Faça login novamente.';
 
-export const fetchJ = async u => {
+export const fetchJ = async (u) => {
   const ctrl = new AbortController();
   const tid = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT);
-  try {
-    const { data: { session } } = await supabase.auth.getSession();
-    const headers = session?.access_token
-      ? { Authorization: `Bearer ${session.access_token}` }
-      : {};
-    const r = await fetch(u + '?t=' + Date.now(), { signal: ctrl.signal, headers });
-    if (!r.ok) {
-      console.warn(`[fetchJ] HTTP ${r.status} em ${u}`);
-      return null;
+
+  const attempt = async (isRetry = false) => {
+    const { data: { session }, error: sessionErr } = await supabase.auth.getSession();
+
+    // No valid session — try one silent refresh before giving up
+    if (sessionErr || !session?.access_token) {
+      if (!isRetry) {
+        const { data: refreshed, error: refreshErr } = await supabase.auth.refreshSession();
+        if (!refreshErr && refreshed.session) return attempt(true);
+      }
+      throw new Error(SESSION_EXPIRED);
     }
-    return await r.json();
+
+    const r = await fetch(u + '?t=' + Date.now(), {
+      signal: ctrl.signal,
+      headers: { Authorization: `Bearer ${session.access_token}` },
+    });
+
+    // Token expired mid-request — refresh once and retry
+    if (r.status === 401 && !isRetry) {
+      const { data: refreshed, error: refreshErr } = await supabase.auth.refreshSession();
+      if (!refreshErr && refreshed.session) return attempt(true);
+      throw new Error(SESSION_EXPIRED);
+    }
+
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return r.json();
+  };
+
+  try {
+    return await attempt();
   } catch (err) {
     if (err.name === 'AbortError') {
       console.warn(`[fetchJ] Timeout (${FETCH_TIMEOUT}ms) em ${u}`);
-    } else {
-      console.error(`[fetchJ] Erro em ${u}:`, err.message);
+      return null;
     }
+    if (err.message === SESSION_EXPIRED) {
+      throw err; // propagate so callers can trigger sign-out
+    }
+    console.error(`[fetchJ] Erro em ${u}:`, err.message);
     return null;
   } finally {
     clearTimeout(tid);

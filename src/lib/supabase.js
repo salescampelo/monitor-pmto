@@ -7,4 +7,17 @@ if (!SUPABASE_URL || !SUPABASE_ANON) {
   throw new Error('VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY devem estar configurados no .env.local');
 }
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON);
+export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON, {
+  auth: {
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: true,
+  },
+});
+
+supabase.auth.onAuthStateChange((event) => {
+  if (event === 'TOKEN_REFRESHED') {
+    console.log('[Auth] Token refreshed automatically');
+  }
+  // SIGNED_OUT é tratado pelo listener da Root component — sem redirect aqui
+});

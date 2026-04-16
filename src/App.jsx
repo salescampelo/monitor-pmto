@@ -58,37 +58,53 @@ const App = ({onLogout, userEmail}) => {
   // Boot: carrega apenas os 4 arquivos pequenos (~40 KB)
   useEffect(()=>{(async()=>{
     setLoading(true);
-    const[s,st,k,adv]=await Promise.all([
-      fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)
-    ]);
-    if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
-    setLastUpdate(new Date().toLocaleString('pt-BR')+' (auto)');
-    setLoading(false);
+    try{
+      const[s,st,k,adv]=await Promise.all([
+        fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)
+      ]);
+      if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
+      setLastUpdate(new Date().toLocaleString('pt-BR')+' (auto)');
+    }catch(err){
+      if(err.message?.includes('Sessão expirada')){await supabase.auth.signOut();return;}
+      console.error('[boot] Erro ao carregar dados:',err.message);
+    }finally{
+      setLoading(false);
+    }
   })();},[]);
 
   // Lazy-load por painel
   useEffect(()=>{
-    if(activePanel==='imprensa'&&!newsRaw)fetchJ(URLS.mentions).then(d=>{if(d)setNewsRaw(d);});
-    if(activePanel==='geo'&&!geoData)fetchJ(URLS.geo).then(d=>{if(d)setGeoData(d);});
-    if(activePanel==='tendencia'&&!tendenciaData)fetchJ(URLS.tendencia).then(d=>{if(d)setTendenciaData(d);});
-    if(activePanel==='campo'&&!liderancasData)fetchJ(URLS.liderancas).then(d=>{if(d)setLiderancasData(d);});
+    const onExpiry=async err=>{
+      if(err.message?.includes('Sessão expirada'))await supabase.auth.signOut();
+      else console.error('[lazy]',err.message);
+    };
+    if(activePanel==='imprensa'&&!newsRaw)fetchJ(URLS.mentions).then(d=>{if(d)setNewsRaw(d);}).catch(onExpiry);
+    if(activePanel==='geo'&&!geoData)fetchJ(URLS.geo).then(d=>{if(d)setGeoData(d);}).catch(onExpiry);
+    if(activePanel==='tendencia'&&!tendenciaData)fetchJ(URLS.tendencia).then(d=>{if(d)setTendenciaData(d);}).catch(onExpiry);
+    if(activePanel==='campo'&&!liderancasData)fetchJ(URLS.liderancas).then(d=>{if(d)setLiderancasData(d);}).catch(onExpiry);
   },[activePanel,newsRaw,geoData,tendenciaData,liderancasData]);
 
   const handleRefresh=useCallback(async()=>{
     setRefreshing(true);
-    const bootFetches=[fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)];
-    const panelFetches=activePanel==='imprensa'?[fetchJ(URLS.mentions)]:
-      activePanel==='geo'?[fetchJ(URLS.geo)]:
-      activePanel==='tendencia'?[fetchJ(URLS.tendencia)]:
-      activePanel==='campo'?[fetchJ(URLS.liderancas)]:[];
-    const[s,st,k,adv,...panelResults]=await Promise.all([...bootFetches,...panelFetches]);
-    if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
-    if(activePanel==='imprensa'&&panelResults[0])setNewsRaw(panelResults[0]);
-    if(activePanel==='geo'&&panelResults[0])setGeoData(panelResults[0]);
-    if(activePanel==='tendencia'&&panelResults[0])setTendenciaData(panelResults[0]);
-    if(activePanel==='campo'&&panelResults[0])setLiderancasData(panelResults[0]);
-    setLastUpdate(new Date().toLocaleString('pt-BR')+' (manual)');
-    setRefreshing(false);
+    try{
+      const bootFetches=[fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)];
+      const panelFetches=activePanel==='imprensa'?[fetchJ(URLS.mentions)]:
+        activePanel==='geo'?[fetchJ(URLS.geo)]:
+        activePanel==='tendencia'?[fetchJ(URLS.tendencia)]:
+        activePanel==='campo'?[fetchJ(URLS.liderancas)]:[];
+      const[s,st,k,adv,...panelResults]=await Promise.all([...bootFetches,...panelFetches]);
+      if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
+      if(activePanel==='imprensa'&&panelResults[0])setNewsRaw(panelResults[0]);
+      if(activePanel==='geo'&&panelResults[0])setGeoData(panelResults[0]);
+      if(activePanel==='tendencia'&&panelResults[0])setTendenciaData(panelResults[0]);
+      if(activePanel==='campo'&&panelResults[0])setLiderancasData(panelResults[0]);
+      setLastUpdate(new Date().toLocaleString('pt-BR')+' (manual)');
+    }catch(err){
+      if(err.message?.includes('Sessão expirada')){await supabase.auth.signOut();return;}
+      console.error('[refresh] Erro ao atualizar dados:',err.message);
+    }finally{
+      setRefreshing(false);
+    }
   },[activePanel]);
 
   const handlePwChange=useCallback(async()=>{
