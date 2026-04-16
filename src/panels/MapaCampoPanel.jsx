@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef, memo } from 'react';
 import PropTypes from 'prop-types';
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
@@ -193,7 +193,7 @@ function FiltrosSidebar({ busca, setBusca, statusFiltro, setStatusFiltro, ideolo
 }
 
 /* ── Painel principal ── */
-export default function MapaCampoPanel({ liderancasData }) {
+function MapaCampoPanel({ liderancasData }) {
   const isMobile = useWW() < 768;
   const [filtrosOpen, setFiltrosOpen] = useState(false);
   const [busca, setBusca] = useState('');
@@ -341,6 +341,8 @@ export default function MapaCampoPanel({ liderancasData }) {
     </div>
   );
 }
+
+export default memo(MapaCampoPanel);
 
 MapaCampoPanel.propTypes = {
   liderancasData: PropTypes.shape({

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import PropTypes from 'prop-types';
 import { Target, ChevronUp, ChevronDown } from 'lucide-react';
 import { Card, useWW, PanelSkeleton } from '../components/ui.jsx';
 
-export default function KpiPanel({kpiData}) {
+function KpiPanel({kpiData}) {
   const[open,setOpen]=useState(true);
   const isMobile=useWW()<768;
   if(!kpiData?.kpis?.length)return <PanelSkeleton/>;
@@ -63,6 +63,8 @@ export default function KpiPanel({kpiData}) {
     )}
   </Card>);
 }
+
+export default memo(KpiPanel);
 
 KpiPanel.propTypes = {
   kpiData: PropTypes.shape({

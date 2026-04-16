@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, memo } from 'react';
 import PropTypes from 'prop-types';
 import { TrendingUp, ChevronUp, ChevronDown } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
@@ -6,7 +6,7 @@ import { Card, Bt, useWW, PanelSkeleton } from '../components/ui.jsx';
 
 const TV_CORES = {Conservador:'#1A3A7A',Dividido:'#D4A017',Progressista:'#B91C1C',gap:'#15803D'};
 
-export default function TendenciaVotoPanel({tendenciaData}) {
+function TendenciaVotoPanel({tendenciaData}) {
   const[open,setOpen]=useState(true);
   const[filtroClass,setFiltroClass]=useState('all');
   const[sortKey,setSortKey]=useState('margem');
@@ -187,6 +187,8 @@ export default function TendenciaVotoPanel({tendenciaData}) {
     )}
   </Card>);
 }
+
+export default memo(TendenciaVotoPanel);
 
 TendenciaVotoPanel.propTypes = {
   tendenciaData: PropTypes.shape({

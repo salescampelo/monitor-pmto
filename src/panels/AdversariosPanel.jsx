@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, memo } from 'react';
 import PropTypes from 'prop-types';
 import { Target, ChevronUp, ChevronDown } from 'lucide-react';
 import { Card, useWW } from '../components/ui.jsx';
@@ -14,7 +14,7 @@ const THREAT_C = {
 const NIVEL_ORDER = {baixa:1,média:2,alta:3};
 const DEST_C = {Senado:'#1a3a7a',Governo:'#22c55e',Desistiu:'#64748b'};
 
-export default function AdversariosPanel({adversariosData}) {
+function AdversariosPanel({adversariosData}) {
   const[open,setOpen]=useState(true);
   const isMobile=useWW()<768;
   const d=adversariosData;
@@ -218,6 +218,8 @@ export default function AdversariosPanel({adversariosData}) {
     )}
   </Card>);
 }
+
+export default memo(AdversariosPanel);
 
 AdversariosPanel.propTypes = {
   adversariosData: PropTypes.shape({

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, memo } from 'react';
 import PropTypes from 'prop-types';
 import { MapPin, Target, Eye, TrendingUp, BarChart3, ChevronUp, ChevronDown } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Cell, ResponsiveContainer } from 'recharts';
@@ -15,7 +15,7 @@ const PARTY_COLORS = {
   'AVANTE':'#65a30d','PATRIOTA':'#059669','PSC':'#4f46e5',
 };
 
-export default function GeoPanel({geoData}) {
+function GeoPanel({geoData}) {
   const[open,setOpen]=useState(true);
   const[selectedMun,setSelectedMun]=useState(null);
   const[catFilter,setCatFilter]=useState('all');
@@ -158,6 +158,8 @@ export default function GeoPanel({geoData}) {
     )}
   </Card>);
 }
+
+export default memo(GeoPanel);
 
 GeoPanel.propTypes = {
   geoData: PropTypes.shape({

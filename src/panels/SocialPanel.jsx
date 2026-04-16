@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, memo } from 'react';
 import PropTypes from 'prop-types';
 import { Users, ChevronUp, ChevronDown } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
@@ -36,7 +36,7 @@ function calcDelta(entries, username) {
   return{delta,direction,label};
 }
 
-export default function SocialPanel({socialData,sentimentData}) {
+function SocialPanel({socialData,sentimentData}) {
   const[open,setOpen]=useState(true);
   const isMobile=useWW()<768;
 
@@ -297,6 +297,8 @@ export default function SocialPanel({socialData,sentimentData}) {
     )}
   </Card>);
 }
+
+export default memo(SocialPanel);
 
 SocialPanel.propTypes = {
   socialData:    PropTypes.arrayOf(PropTypes.shape({
