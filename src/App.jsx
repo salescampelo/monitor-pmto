@@ -220,25 +220,18 @@ const App = ({onLogout, userEmail}) => {
     Array.isArray(socialData)?socialData.find(p=>p.username?.toLowerCase()===CONFIG.CANDIDATE_USERNAME?.toLowerCase()):null
   ,[socialData]);
 
-  const followers=useMemo(()=>{
-    const raw=candidateProfile?.seguidores||candidateProfile?.followers||0;
-    if(!raw)return'—';
-    return raw>=1000?(raw/1000).toFixed(1).replace(/\.0$/,'')+'K':String(raw);
-  },[candidateProfile]);
+  const followersRaw=useMemo(()=>candidateProfile?.seguidores||candidateProfile?.followers||0,[candidateProfile]);
 
-  const followersTrend=useMemo(()=>{
-    const raw=candidateProfile?.seguidores||candidateProfile?.followers||0;
-    const prev=candidateProfile?.followers_prev_week||raw;
-    return raw-prev;
-  },[candidateProfile]);
+  const followers=useMemo(()=>{
+    if(!followersRaw)return'—';
+    return followersRaw>=1000?(followersRaw/1000).toFixed(1).replace(/\.0$/,'')+'K':String(followersRaw);
+  },[followersRaw]);
+
+  const followersPrevWeek=useMemo(()=>candidateProfile?.followers_prev_week||null,[candidateProfile]);
 
   const engagementRate=useMemo(()=>candidateProfile?.taxa_engajamento_pct||0,[candidateProfile]);
 
-  const engagementTrend=useMemo(()=>{
-    const cur=candidateProfile?.taxa_engajamento_pct||0;
-    const prev=candidateProfile?.taxa_engajamento_pct_semana_anterior||cur;
-    return cur-prev;
-  },[candidateProfile]);
+  const engagementPrevWeek=useMemo(()=>candidateProfile?.taxa_engajamento_pct_semana_anterior||null,[candidateProfile]);
 
   const mentions48h=useMemo(()=>{
     if(!articles.length)return 0;
@@ -266,7 +259,7 @@ const App = ({onLogout, userEmail}) => {
     </div>
   )}
 
-  <AppHeader isMobile={isMobile} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} userEmail={userEmail} onLogout={onLogout} setPw={setPw} lastUpdate={lastUpdate} daysToElection={daysToElection} followers={followers} followersTrend={followersTrend} engagementRate={engagementRate} engagementTrend={engagementTrend} mentions48h={mentions48h} positiveCommentsPct={positiveCommentsPct} autoRefreshEnabled={autoRefreshEnabled} setAutoRefresh={setAutoRefresh}/>
+  <AppHeader isMobile={isMobile} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} userEmail={userEmail} onLogout={onLogout} setPw={setPw} lastUpdate={lastUpdate} daysToElection={daysToElection} followers={followers} followersRaw={followersRaw} followersPrevWeek={followersPrevWeek} engagementRate={engagementRate} engagementPrevWeek={engagementPrevWeek} mentions48h={mentions48h} positiveCommentsPct={positiveCommentsPct} autoRefreshEnabled={autoRefreshEnabled} setAutoRefresh={setAutoRefresh}/>
 
   {/* ── LAYOUT BODY ── */}
   <div style={{display:'flex'}}>

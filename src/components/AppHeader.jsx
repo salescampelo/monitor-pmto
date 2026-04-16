@@ -19,23 +19,27 @@ const getKpiColor = (type, value) => {
       if (value >= 1) return '#eab308';
       return 'rgba(255,255,255,0.5)';
     case 'sentimento':
-      if (value >= 60) return '#22c55e';
-      if (value >= 40) return '#eab308';
-      return '#ef4444';
+      if (value >= 50) return '#22c55e';
+      if (value >= 30) return '#4ade80';
+      if (value > 0)   return '#86efac';
+      return 'rgba(255,255,255,0.5)';
     default:
       return '#FFFFFF';
   }
 };
 
-const getTrendIcon = (trend) => {
-  if (trend > 0) return { icon: '↑', color: '#22c55e' };
-  if (trend < 0) return { icon: '↓', color: '#ef4444' };
-  return { icon: '→', color: 'rgba(255,255,255,0.5)' };
+const getTrendIcon = (current, previous) => {
+  if (!previous || previous === 0) return null;
+  const pctChange = ((current - previous) / previous) * 100;
+  if (Math.abs(pctChange) < 1) return { icon: '→', color: 'rgba(255,255,255,0.5)', label: 'estável' };
+  if (pctChange > 0) return { icon: '↑', color: '#22c55e', label: 'subindo' };
+  return { icon: '↓', color: '#ef4444', label: 'caindo' };
 };
 
 export default function AppHeader({
   isMobile,refreshing,handleRefresh,nav,setNav,userEmail,onLogout,setPw,lastUpdate,
-  daysToElection,followers,followersTrend,engagementRate,engagementTrend,
+  daysToElection,followers,followersRaw,followersPrevWeek,
+  engagementRate,engagementPrevWeek,
   mentions48h,positiveCommentsPct,
   autoRefreshEnabled,setAutoRefresh,
 }) {
@@ -127,34 +131,30 @@ export default function AppHeader({
           </div>
         </div>
 
-        {/* KPI 2: Seguidores + Tendência */}
+        {/* KPI 2: Seguidores IG + Tendência */}
         <div style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'14px 18px',textAlign:'center',minWidth:100,flex:'1 1 100px',maxWidth:130,border:'1px solid rgba(255,255,255,0.1)'}}>
           <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:6}}>
-            <span style={{fontSize:isMobile?18:24,fontWeight:700,color:getKpiColor('seguidores',0),lineHeight:1.1}}>
+            <span style={{fontSize:isMobile?18:24,fontWeight:700,color:'#FFFFFF',lineHeight:1.1}}>
               {followers??'—'}
             </span>
-            {followersTrend!==0&&(
-              <span style={{fontSize:14,fontWeight:600,color:getTrendIcon(followersTrend).color}}>
-                {getTrendIcon(followersTrend).icon}
-              </span>
-            )}
+            {(()=>{const t=getTrendIcon(followersRaw,followersPrevWeek);if(!t)return null;return(
+              <span style={{fontSize:16,fontWeight:700,color:t.color,lineHeight:1}} title={`Tendência: ${t.label}`} aria-label={`Tendência ${t.label}`}>{t.icon}</span>
+            );})()}
           </div>
           <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
             SEGUIDORES IG
           </div>
         </div>
 
-        {/* KPI 3: Engajamento + Tendência */}
+        {/* KPI 3: Engajamento IG + Tendência */}
         <div style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'14px 18px',textAlign:'center',minWidth:100,flex:'1 1 100px',maxWidth:130,border:'1px solid rgba(255,255,255,0.1)'}}>
           <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:6}}>
             <span style={{fontSize:isMobile?18:24,fontWeight:700,color:getKpiColor('engajamento',engagementRate??0),lineHeight:1.1}}>
               {(engagementRate??0).toFixed(1)}%
             </span>
-            {engagementTrend!==0&&(
-              <span style={{fontSize:14,fontWeight:600,color:getTrendIcon(engagementTrend).color}}>
-                {getTrendIcon(engagementTrend).icon}
-              </span>
-            )}
+            {(()=>{const t=getTrendIcon(engagementRate,engagementPrevWeek);if(!t)return null;return(
+              <span style={{fontSize:16,fontWeight:700,color:t.color,lineHeight:1}} title={`Tendência: ${t.label}`} aria-label={`Tendência ${t.label}`}>{t.icon}</span>
+            );})()}
           </div>
           <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
             ENGAJAMENTO IG
@@ -202,9 +202,10 @@ AppHeader.propTypes = {
   lastUpdate:          PropTypes.string,
   daysToElection:      PropTypes.number,
   followers:           PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  followersTrend:      PropTypes.number,
+  followersRaw:        PropTypes.number,
+  followersPrevWeek:   PropTypes.number,
   engagementRate:      PropTypes.number,
-  engagementTrend:     PropTypes.number,
+  engagementPrevWeek:  PropTypes.number,
   mentions48h:         PropTypes.number,
   positiveCommentsPct: PropTypes.number,
   autoRefreshEnabled:  PropTypes.bool,
@@ -218,9 +219,10 @@ AppHeader.defaultProps = {
   lastUpdate:          null,
   daysToElection:      null,
   followers:           '—',
-  followersTrend:      0,
+  followersRaw:        0,
+  followersPrevWeek:   null,
   engagementRate:      0,
-  engagementTrend:     0,
+  engagementPrevWeek:  null,
   mentions48h:         0,
   positiveCommentsPct: 0,
   autoRefreshEnabled:  false,
