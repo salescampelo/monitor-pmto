@@ -41,12 +41,18 @@ function Legenda() {
     ctrl.onAdd = () => {
       const div = L.DomUtil.create('div');
       div.style.cssText = 'background:rgba(255,255,255,0.95);padding:10px 12px;border-radius:8px;border:1px solid rgba(26,39,68,0.12);font-size:11px;line-height:1.8;box-shadow:0 2px 8px rgba(0,0,0,0.12);font-family:DM Sans,sans-serif';
-      div.innerHTML = Object.entries(STATUS_CONFIG).map(([, cfg]) =>
-        `<div style="display:flex;align-items:center;gap:6px">
-          <span style="width:10px;height:10px;border-radius:50%;background:${cfg.cor};display:inline-block;opacity:${cfg.opacidade}"></span>
-          <span style="color:#1A2744;font-weight:600">${cfg.label}</span>
-        </div>`
-      ).join('');
+      Object.entries(STATUS_CONFIG).forEach(([, cfg]) => {
+        const row = document.createElement('div');
+        row.style.cssText = 'display:flex;align-items:center;gap:6px';
+        const dot = document.createElement('span');
+        dot.style.cssText = `width:10px;height:10px;border-radius:50%;background:${cfg.cor};display:inline-block;opacity:${cfg.opacidade}`;
+        const label = document.createElement('span');
+        label.style.cssText = 'color:#1A2744;font-weight:600';
+        label.textContent = cfg.label;
+        row.appendChild(dot);
+        row.appendChild(label);
+        div.appendChild(row);
+      });
       return div;
     };
     ctrl.addTo(map);
