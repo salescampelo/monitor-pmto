@@ -28,19 +28,16 @@ export default function AppHeader({
   daysToElection,followers,mentions24h,alertCount,ranking,
   autoRefreshEnabled,setAutoRefresh,
 }) {
-  const pad = isMobile ? '24px' : '40px 48px';
-  const titleSize = isMobile ? 32 : 48;
-
   const kpis = [
-    { value: daysToElection ?? '—', label: 'DIAS',      type: 'dias'      },
-    { value: followers       ?? '—', label: 'SEGUIDORES',type: 'seguidores'},
-    { value: mentions24h     ?? '—', label: '24H',       type: 'mencoes'   },
-    { value: alertCount      ?? '—', label: 'ALERTAS',   type: 'alertas'   },
-    { value: ranking         ?? '—', label: 'RANK',      type: 'ranking'   },
+    { value: daysToElection ?? '—', label: 'DIAS',       type: 'dias'      },
+    { value: followers       ?? '—', label: 'SEGUIDORES', type: 'seguidores'},
+    { value: mentions24h     ?? '—', label: '24H',        type: 'mencoes'   },
+    { value: alertCount      ?? '—', label: 'ALERTAS',    type: 'alertas'   },
+    { value: ranking         ?? '—', label: 'RANK',       type: 'ranking'   },
   ];
 
   return(
-  <header style={{background:'linear-gradient(135deg, #1A3A7A 0%, #0D1F42 100%)',padding:pad,position:'relative'}}>
+  <header style={{background:'linear-gradient(135deg, #1A3A7A 0%, #0D1F42 100%)',padding:isMobile?'56px 20px 24px':'32px 40px 28px',position:'relative'}}>
 
     {/* ── Utility controls (top-right absolute) ── */}
     <div style={{position:'absolute',top:16,right:isMobile?16:24,display:'flex',alignItems:'center',gap:8}}>
@@ -84,37 +81,39 @@ export default function AppHeader({
       </div>}
     </div>
 
-    {/* ── Eyebrow ── */}
-    <p style={{color:'rgba(255,255,255,0.7)',fontSize:12,fontWeight:500,letterSpacing:'2px',textTransform:'uppercase',marginBottom:16,marginTop:0}}>
-      CENTRAL DE INTELIGÊNCIA · CAMPANHA 2026
-    </p>
+    {/* ── Two-column layout ── */}
+    <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-end',gap:isMobile?24:40,flexDirection:isMobile?'column':'row',flexWrap:'wrap'}}>
 
-    {/* ── Main title ── */}
-    <h1 style={{fontSize:titleSize,fontWeight:800,lineHeight:1.1,margin:0,fontFamily:"'DM Sans',sans-serif"}}>
-      <span style={{color:'#FFFFFF',display:'block'}}>INTELIGÊNCIA</span>
-      <span style={{color:'#FFFFFF',display:'block'}}>ELEITORAL</span>
-      <span style={{color:'#D4A017',display:'block'}}>TOCANTINS.</span>
-    </h1>
+      {/* LEFT: Eyebrow + Title + Metadata */}
+      <div style={{flex:'1 1 280px',minWidth:0}}>
+        <p style={{color:'rgba(255,255,255,0.7)',fontSize:11,fontWeight:500,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 12px'}}>
+          CENTRAL DE INTELIGÊNCIA · CAMPANHA 2026
+        </p>
+        <h1 style={{fontSize:'clamp(26px, 3.5vw, 42px)',fontWeight:800,lineHeight:1.05,margin:0,fontFamily:"'DM Sans',sans-serif"}}>
+          <span style={{color:'#FFFFFF',display:'block'}}>INTELIGÊNCIA</span>
+          <span style={{color:'#FFFFFF',display:'block'}}>ELEITORAL</span>
+          <span style={{color:'#D4A017',display:'block'}}>TOCANTINS.</span>
+        </h1>
+        <p style={{color:'rgba(255,255,255,0.5)',fontSize:12,fontWeight:400,margin:'14px 0 0'}}>
+          32 fontes monitoradas · TO + Brasil · {lastUpdate||new Date().toLocaleDateString('pt-BR')+' (auto)'}
+        </p>
+      </div>
 
-    {/* ── KPI strip ── */}
-    <div style={{display:'flex',gap:8,marginTop:24,marginBottom:8,width:'100%',maxWidth:520}}>
-      {kpis.map((kpi,i)=>(
-        <div key={i} style={{flex:'1 1 0',background:'rgba(255,255,255,0.08)',borderRadius:8,padding:isMobile?'8px 6px':'12px 8px',textAlign:'center',border:'1px solid rgba(255,255,255,0.1)',minWidth:0}}>
-          <div style={{fontSize:isMobile?17:22,fontWeight:700,color:getKpiColor(kpi.type,kpi.value),lineHeight:1.2,transition:'color 0.3s ease'}}>
-            {kpi.value}
+      {/* RIGHT: KPI cards */}
+      <div style={{display:'flex',gap:10,flexWrap:'wrap',justifyContent:isMobile?'flex-start':'flex-end',flex:'1 1 360px',maxWidth:isMobile?'100%':580}}>
+        {kpis.map((kpi,i)=>(
+          <div key={i} style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'16px 18px',textAlign:'center',minWidth:80,flex:'1 1 80px',maxWidth:110,border:'1px solid rgba(255,255,255,0.1)'}}>
+            <div style={{fontSize:isMobile?20:26,fontWeight:700,color:getKpiColor(kpi.type,kpi.value),lineHeight:1.2,transition:'color 0.3s ease'}}>
+              {kpi.value}
+            </div>
+            <div style={{fontSize:9,fontWeight:600,color:'rgba(255,255,255,0.5)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:6}}>
+              {kpi.label}
+            </div>
           </div>
-          <div style={{fontSize:9,fontWeight:600,color:'rgba(255,255,255,0.5)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
-            {kpi.label}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
     </div>
-
-    {/* ── Metadata ── */}
-    <p style={{color:'rgba(255,255,255,0.5)',fontSize:13,fontWeight:400,marginTop:8,marginBottom:0}}>
-      32 fontes monitoradas · TO + Brasil · {lastUpdate||new Date().toLocaleDateString('pt-BR')+' (auto)'}
-    </p>
-
   </header>
   );
 }
