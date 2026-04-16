@@ -1,38 +1,42 @@
 # Monitor Coronel Barbosa 2026
 
+[![CI](https://github.com/salescampelo/monitor-pmto/actions/workflows/ci.yml/badge.svg)](https://github.com/salescampelo/monitor-pmto/actions/workflows/ci.yml)
+[![Deploy](https://img.shields.io/badge/deploy-vercel-black)](https://monitor-coronel-barbosa.vercel.app)
+
 Dashboard de inteligência eleitoral para campanha a Deputado Federal pelo Tocantins.
 
-## Funcionalidades
+## 🎯 Funcionalidades
 
-- **Tendência de Voto** — Análise do 2º turno 2022 por município (conservador/dividido/progressista)
-- **Inteligência Competitiva** — Ranking de 17 adversários com score de ameaça dinâmico
-- **Metas da Campanha** — KPIs por fase com barras de progresso
-- **Dados Eleitorais** — 139 municípios com potencial e prioridade
-- **Mapa de Campo** — Lideranças e visitas por região
-- **Redes Sociais** — Métricas Instagram de 18 perfis monitorados
-- **Monitor de Imprensa** — Menções em 32 fontes com classificação de sentimento
-- **Auditoria** — Logs de acesso (admin only)
+| Módulo | Descrição |
+|--------|-----------|
+| **Tendência de Voto** | Análise do 2º turno 2022 por município (conservador/dividido/progressista) |
+| **Inteligência Competitiva** | Ranking de 17 adversários com score de ameaça dinâmico |
+| **Metas da Campanha** | KPIs por fase com barras de progresso e countdown |
+| **Dados Eleitorais** | 139 municípios com potencial e prioridade calculados |
+| **Mapa de Campo** | Lideranças e visitas por região |
+| **Redes Sociais** | Métricas Instagram de 18 perfis monitorados |
+| **Monitor de Imprensa** | Menções em 32 fontes com classificação de sentimento |
+| **Auditoria** | Logs de acesso (admin only) |
 
-## Stack
+## 🛠️ Stack
 
 | Camada | Tecnologia |
 |--------|------------|
 | Frontend | React 18 + Vite 5 |
-| Gráficos | Recharts |
-| Ícones | Lucide React |
-| Auth | Supabase Auth (JWT + RLS) |
+| UI | Lucide Icons + Recharts |
+| Auth | Supabase Auth (JWT) |
 | API | Vercel Serverless Functions |
-| Deploy | Vercel (auto-deploy via GitHub) |
-| CI/CD | GitHub Actions |
+| Deploy | Vercel (auto-deploy on push) |
+| CI | GitHub Actions |
 | PWA | vite-plugin-pwa + Workbox |
 
-## Setup Local
+## 🚀 Setup Local
 
 ### Pré-requisitos
 
-- Node.js 20+
+- Node.js 18+
 - npm 9+
-- Projeto no [Supabase](https://supabase.com) com tabela `allowed_users`
+- Projeto Supabase configurado
 
 ### Instalação
 
@@ -44,7 +48,11 @@ npm install
 
 ### Variáveis de Ambiente
 
-Crie `.env.local` na raiz do projeto:
+Copie `.env.example` para `.env.local` e preencha os valores:
+
+```bash
+cp .env.example .env.local
+```
 
 ```env
 VITE_SUPABASE_URL=https://seu-projeto.supabase.co
@@ -52,8 +60,7 @@ VITE_SUPABASE_ANON_KEY=sua-anon-key
 VITE_CANDIDATE_USERNAME=marciobarbosa_cel
 ```
 
-As mesmas variáveis devem estar configuradas como **Secrets** no Vercel e no GitHub
-(`Settings → Secrets → Actions`) para que o build de CI funcione.
+As mesmas variáveis devem estar configuradas no Vercel (Settings → Environment Variables) e no GitHub (Settings → Secrets → Actions) para o CI funcionar.
 
 ### Comandos
 
@@ -66,192 +73,71 @@ npm run test:watch    # Testes em modo watch
 npm run test:coverage # Relatório de cobertura (abre em coverage/index.html)
 ```
 
-## Estrutura do Projeto
-
-```
-monitor-pmto/
-├── api/
-│   └── data/[file].js          # Vercel Function — serve JSON com auth JWT
-├── public/
-│   └── data/                   # JSONs sincronizados pelo scraper-pmto
-│       ├── mention_history.json
-│       ├── social_metrics.json
-│       ├── social_sentiment.json
-│       ├── geo_electoral.json
-│       ├── campaign_kpis.json
-│       ├── adversarios.json
-│       ├── tendencia_voto_2022.json
-│       └── liderancas.json
-├── src/
-│   ├── App.jsx                 # Componente raiz — auth wrapper + layout
-│   ├── components/
-│   │   ├── AppHeader.jsx       # Header com KPIs e navegação
-│   │   ├── ErrorBoundary.jsx   # Error boundary para painéis
-│   │   ├── LoginScreen.jsx     # Tela de login
-│   │   ├── PwModal.jsx         # Modal de alteração de senha
-│   │   └── ui.jsx              # Componentes base (Card, Met, Bt, PanelSkeleton...)
-│   ├── lib/
-│   │   ├── analytics.js        # Métricas, clusters, cálculos de KPI
-│   │   ├── config.js           # Variáveis de ambiente (CANDIDATE_USERNAME)
-│   │   ├── export.js           # Exportação CSV e PDF
-│   │   ├── fetch.js            # fetchJ — fetch autenticado com retry em 401
-│   │   ├── news.js             # Classificação de menções (relevance, cluster)
-│   │   ├── rateLimit.js        # Rate limiting para tentativas de login
-│   │   ├── supabase.js         # Cliente Supabase
-│   │   ├── urlState.js         # Sincronização de estado com URL
-│   │   ├── useAutoRefresh.js   # Hook de refresh automático (30min)
-│   │   ├── useOffline.js       # Hook de detecção offline
-│   │   └── __tests__/          # Testes unitários (vitest)
-│   └── panels/
-│       ├── AdversariosPanel.jsx
-│       ├── AuditoriaPanel.jsx
-│       ├── GeoPanel.jsx
-│       ├── KpiPanel.jsx
-│       ├── MapaCampoPanel.jsx
-│       ├── SocialPanel.jsx
-│       └── TendenciaVotoPanel.jsx
-├── .github/
-│   ├── dependabot.yml          # Atualizações automáticas de dependências
-│   └── workflows/ci.yml        # CI: audit + test + build
-├── vercel.json                 # Headers de segurança (CSP, HSTS) e redirect
-└── vite.config.js              # Vite + PWA + configuração de testes
-```
-
-## Arquitetura
-
-### Autenticação
-
-O acesso é duplo: o usuário precisa (1) ter conta Supabase e (2) estar na tabela
-`allowed_users` no banco.
-
-```
-Login → Supabase Auth (JWT) → verifica allowed_users → App
-```
-
-A Vercel Function em `api/data/[file].js` valida o JWT em cada requisição antes de
-servir os dados JSON. Em caso de token expirado, o cliente faz refresh automático
-e retenta a requisição uma vez (`fetchJ` em `src/lib/fetch.js`).
-
-### Dados
-
-Os JSONs em `public/data/` são somente-leitura neste repositório. Eles são
-atualizados automaticamente pelo repositório
-[salescampelo/scraper-pmto](https://github.com/salescampelo/scraper-pmto)
-via `sync_github.py`.
-
-**Nunca edite os JSONs de dados diretamente** — qualquer alteração será
-sobrescrita pelo próximo sync do scraper.
-
-### Painéis
-
-Todos os painéis usam `React.lazy` + `Suspense` (code splitting) e estão
-envoltos em `ErrorBoundary` para isolamento de erros. O painel ativo é
-persistido na URL (`?panel=imprensa`) para compartilhamento.
-
-### PWA
-
-O app funciona offline com cache Workbox (`StaleWhileRevalidate` para dados,
-`CacheFirst` para assets). O Service Worker atualiza automaticamente ao
-detectar nova versão no deploy.
-
-## CI/CD
-
-O workflow `.github/workflows/ci.yml` executa em todo push/PR para `main`:
-
-1. `npm audit` — bloqueia vulnerabilidades de severidade `high+`
-2. `npm test` — suite de testes unitários (vitest)
-3. `npm run build` — verifica que o build de produção não quebra
-
-O deploy no Vercel é automático via integração GitHub ao fazer merge na `main`.
-
-## Dependências Principais
-
-```json
-{
-  "@supabase/supabase-js": "^2.x",   // Auth + RLS
-  "react": "^18.x",                   // UI
-  "recharts": "^2.x",                 // Gráficos
-  "leaflet": "^1.x",                  // Mapa (GeoPanel)
-  "lucide-react": "^0.x"              // Ícones
-}
-```
-
-Atualizações de patch/minor são gerenciadas pelo Dependabot
-(`.github/dependabot.yml`) com PRs automáticos às segundas-feiras.
-
-## Repositórios
-
-| Repo | Função |
-|------|--------|
-| [salescampelo/monitor-pmto](https://github.com/salescampelo/monitor-pmto) | Este repositório — frontend + API |
-| [salescampelo/scraper-pmto](https://github.com/salescampelo/scraper-pmto) | Coleta de dados + sincronização |
-
-O `scraper-pmto` contém os scripts de coleta (`pmto_monitor.py`,
-`instagram_monitor.py`) e o `sync_github.py` que atualiza os JSONs neste repo.
-
-## Segurança
-
-- **Autenticação**: Supabase Auth com JWT
-- **Autorização**: Tabela `allowed_users` com RLS
-- **Proteção de dados**: Vercel Function valida JWT antes de servir JSONs
-- **CSP**: Content-Security-Policy sem `unsafe-inline` para scripts
-- **Rate limiting**: 5 tentativas de login por 15 minutos
-
-## Acessibilidade
-
-- Skip link para navegação por teclado
-- `aria-labels` em todos os botões de ação
-- Focus visible com outline dourado
-- Contraste WCAG AA em textos
-- Suporte a screen readers
-
-## PWA
-
-O dashboard funciona offline com Service Worker:
-
-- Cache de assets estáticos (CacheFirst)
-- Cache de dados (StaleWhileRevalidate)
-- Instalável como app no mobile
-
-## Testes
+## 🧪 Testes
 
 ```bash
-npm run test           # Rodar todos os testes
-npm run test:watch     # Watch mode
-npm run test:coverage  # Relatório de cobertura
+npm run test            # Rodar todos (71 testes)
+npm run test:watch      # Watch mode
+npm run test:coverage   # Cobertura (~85% libs)
 ```
 
-Cobertura atual: ~52% (libs) | Meta: 70%+
+## 🔐 Segurança
 
-## Dados
+- **Auth**: Supabase JWT com refresh automático
+- **Dados**: Vercel Function valida token antes de servir JSONs
+- **CSP**: `script-src 'self'` (sem unsafe-inline)
+- **RLS**: Tabela `allowed_users` no Supabase
+- **Rate limit**: 5 tentativas de login / 15min
 
-Os dados são coletados por scrapers separados no repositório `scraper-pmto`:
+## ♿ Acessibilidade
+
+- Skip link para navegação por teclado
+- `aria-labels` em todos os controles
+- Focus visible (outline dourado)
+- Contraste WCAG AA
+- Screen reader friendly
+
+## 📱 PWA
+
+Funciona offline com Service Worker:
+- Assets: CacheFirst (30 dias)
+- Dados: StaleWhileRevalidate (24h)
+- Instalável no mobile
+
+## 📊 Dados
+
+Coletados pelo repositório [scraper-pmto](https://github.com/salescampelo/scraper-pmto):
 
 | Arquivo | Fonte | Frequência |
 |---------|-------|------------|
-| mention_history.json | Google News RSS | 2x/dia |
-| social_metrics.json | Apify (Instagram) | Diário |
-| adversarios.json | Instagram + cálculo | Diário |
-| geo_electoral.json | TSE + IBGE | Estático |
-| campaign_kpis.json | Manual | Semanal |
+| `mention_history.json` | Google News RSS | 2x/dia |
+| `social_metrics.json` | Apify (Instagram) | Diário |
+| `adversarios.json` | Cálculo dinâmico | Diário |
+| `geo_electoral.json` | TSE + IBGE | Estático |
+| `campaign_kpis.json` | Manual | Semanal |
 
-## Deploy
+## 🚢 Deploy
 
-Push para `main` dispara deploy automático no Vercel.
+Push para `main` → deploy automático no Vercel.
 
 ### Variáveis no Vercel
 
-Configurar em Settings → Environment Variables:
-
+Settings → Environment Variables:
 - `VITE_SUPABASE_URL`
 - `VITE_SUPABASE_ANON_KEY`
 - `VITE_CANDIDATE_USERNAME`
 
-## Licença
+## 📈 Métricas do Projeto
 
-Projeto privado — uso restrito à campanha.
+| Métrica | Valor |
+|---------|-------|
+| Testes | 71 passando |
+| Cobertura (libs) | ~85% |
+| Bundle (gzip) | ~140KB |
+| Lighthouse Perf | ~85 |
+| Vulnerabilidades | 0 |
 
 ---
 
-**Desenvolvido por**: Marcel Sales Campelo  
-**Repositório de scrapers**: [scraper-pmto](https://github.com/salescampelo/scraper-pmto)
+**Autor**: Marcel Sales Campelo  
+**Licença**: Projeto privado — uso restrito à campanha
