@@ -188,3 +188,70 @@ Atualizações de patch/minor são gerenciadas pelo Dependabot
 
 O `scraper-pmto` contém os scripts de coleta (`pmto_monitor.py`,
 `instagram_monitor.py`) e o `sync_github.py` que atualiza os JSONs neste repo.
+
+## Segurança
+
+- **Autenticação**: Supabase Auth com JWT
+- **Autorização**: Tabela `allowed_users` com RLS
+- **Proteção de dados**: Vercel Function valida JWT antes de servir JSONs
+- **CSP**: Content-Security-Policy sem `unsafe-inline` para scripts
+- **Rate limiting**: 5 tentativas de login por 15 minutos
+
+## Acessibilidade
+
+- Skip link para navegação por teclado
+- `aria-labels` em todos os botões de ação
+- Focus visible com outline dourado
+- Contraste WCAG AA em textos
+- Suporte a screen readers
+
+## PWA
+
+O dashboard funciona offline com Service Worker:
+
+- Cache de assets estáticos (CacheFirst)
+- Cache de dados (StaleWhileRevalidate)
+- Instalável como app no mobile
+
+## Testes
+
+```bash
+npm run test           # Rodar todos os testes
+npm run test:watch     # Watch mode
+npm run test:coverage  # Relatório de cobertura
+```
+
+Cobertura atual: ~52% (libs) | Meta: 70%+
+
+## Dados
+
+Os dados são coletados por scrapers separados no repositório `scraper-pmto`:
+
+| Arquivo | Fonte | Frequência |
+|---------|-------|------------|
+| mention_history.json | Google News RSS | 2x/dia |
+| social_metrics.json | Apify (Instagram) | Diário |
+| adversarios.json | Instagram + cálculo | Diário |
+| geo_electoral.json | TSE + IBGE | Estático |
+| campaign_kpis.json | Manual | Semanal |
+
+## Deploy
+
+Push para `main` dispara deploy automático no Vercel.
+
+### Variáveis no Vercel
+
+Configurar em Settings → Environment Variables:
+
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY`
+- `VITE_CANDIDATE_USERNAME`
+
+## Licença
+
+Projeto privado — uso restrito à campanha.
+
+---
+
+**Desenvolvido por**: Marcel Sales Campelo  
+**Repositório de scrapers**: [scraper-pmto](https://github.com/salescampelo/scraper-pmto)
