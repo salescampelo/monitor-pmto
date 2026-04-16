@@ -18,6 +18,7 @@ import KpiPanel from './panels/KpiPanel.jsx';
 import GeoPanel from './panels/GeoPanel.jsx';
 import AdversariosPanel from './panels/AdversariosPanel.jsx';
 import MapaCampoPanel from './panels/MapaCampoPanel.jsx';
+import { logAccess } from './lib/accessLog.js';
 
 /* ═══════════════════════════════════════════════
    MAIN APP
@@ -407,8 +408,20 @@ export default function Root() {
   useEffect(()=>{
     if(!session?.user?.email)return;
     setAuthChecked(false);
-    supabase.from(ALLOWED_CHECK_TABLE).select('email').eq('email',session.user.email).maybeSingle()
-      .then(({data})=>{setAuthorized(!!data);setAuthChecked(true);});
+    supabase.from(ALLOWED_CHECK_TABLE).select('email').eq('email',session.user.email)
+      .then(({data,error})=>{
+        if(!error&&Array.isArray(data)&&data.length>1){
+          // RLS quebrado: usuário vê linhas de outros — bloquear por segurança
+          console.error('[RLS] ALERTA: política allowed_users retornou múltiplas linhas. Verifique o Supabase dashboard.');
+          setAuthorized(false);
+          setAuthChecked(true);
+          return;
+        }
+        const ok=Array.isArray(data)&&data.length===1;
+        setAuthorized(ok);
+        setAuthChecked(true);
+        if(ok)logAccess('login',`panel=dashboard email=${session.user.email}`);
+      });
   },[session]);
 
   const handleLogout=()=>supabase.auth.signOut();
