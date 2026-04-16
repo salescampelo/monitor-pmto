@@ -1,4 +1,5 @@
 import { Layers, Bookmark, User, AlertTriangle, Target, Building, Radio, Newspaper } from 'lucide-react';
+import { CONFIG } from './config.js';
 
 export const CLUSTERS = [
   {id:'all',      label:'Todas',      icon:Layers,        color:'#8c93a8'},
@@ -52,7 +53,7 @@ export const metrics = data => {
 };
 
 export const calcHeaderMetrics = (articles, adversariosRaw, socialData, sentimentData) => {
-  const CANDIDATO = 'marciobarbosa_cel';
+  const CANDIDATO = CONFIG.CANDIDATE_USERNAME;
   const allSocial = Array.isArray(socialData) ? socialData : [];
   const latestDate = allSocial.reduce((mx,x)=>x.data_coleta>mx?x.data_coleta:mx,'');
   const snap = latestDate ? allSocial.filter(x=>x.data_coleta===latestDate) : allSocial;
