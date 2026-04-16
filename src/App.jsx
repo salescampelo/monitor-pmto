@@ -146,9 +146,8 @@ const App = ({onLogout, userEmail}) => {
       <div style={{display:'flex',alignItems:'center',gap:10}}>
         {isMobile&&<button onClick={()=>setSidebarOpen(o=>!o)} style={{background:'none',border:'none',cursor:'pointer',padding:6,display:'flex',alignItems:'center',color:'#8C93A8'}}><Menu size={20}/></button>}
         <ShieldAlert size={16} style={{color:'#D4A017'}}/>
-        <span style={{fontSize:13,fontWeight:700,color:'#FFFFFF',letterSpacing:'0.15em',textTransform:'uppercase',whiteSpace:'nowrap'}}>Monitor Eleitoral</span>
-        {!isMobile&&<span style={{padding:'2px 8px',borderRadius:4,fontSize:10,fontWeight:700,background:'rgba(212,160,23,0.15)',color:'#D4A017',border:'1px solid rgba(212,160,23,0.3)',whiteSpace:'nowrap'}}>Campanha 2026</span>}
       </div>
+      <span style={{flex:1,textAlign:'center',fontSize:isMobile?15:16,fontWeight:800,color:'#FFFFFF',letterSpacing:'0.08em',textTransform:'uppercase',whiteSpace:'nowrap'}}>Hub63 Data Solutions</span>
       <div style={{display:'flex',alignItems:'center',gap:8}}>
         <button onClick={handleRefresh} disabled={refreshing} style={{display:'flex',alignItems:'center',gap:5,padding:'5px 10px',borderRadius:16,background:'transparent',border:'1px solid rgba(255,255,255,0.1)',color:'#8C93A8',fontSize:11,fontWeight:700,cursor:refreshing?'wait':'pointer',opacity:refreshing?0.6:1,transition:'all 0.18s',whiteSpace:'nowrap'}}>
           <RefreshCw size={11} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{!isMobile&&(refreshing?'...':'Atualizar')}
