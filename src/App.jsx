@@ -1,38 +1,46 @@
-import React, { useState, useReducer, useMemo, useEffect, useCallback } from 'react';
+import React, { useState, useReducer, useMemo, useEffect, useCallback, lazy, Suspense } from 'react';
 import {
   ShieldAlert, TrendingDown, AlertTriangle, Eye, Calendar,
   ChevronDown, ChevronUp, Newspaper, Target, Radio, Clock,
   Hash, ArrowUpRight, BrainCircuit, Layers, Upload, RefreshCw,
   Database, User, Building, Globe, MapPin, Bookmark, Trash2,
   BarChart3, TrendingUp, Heart, MessageCircle, Users, LogOut, Menu, Map, Shield,
+  Download, FileText,
 } from 'lucide-react';
 import { supabase } from './lib/supabase.js';
 import LoginScreen from './components/LoginScreen.jsx';
-import { CSS, Card, Met, Bd, Bt, NC, useWW } from './components/ui.jsx';
+import { CSS, Card, Met, Bd, Bt, NC, useWW, PanelSkeleton } from './components/ui.jsx';
 import { fetchJ, URLS } from './lib/fetch.js';
 import { classify } from './lib/news.js';
 import { CLUSTERS, metrics, calcHeaderMetrics } from './lib/analytics.js';
 import { CONFIG } from './lib/config.js';
-import SocialPanel from './panels/SocialPanel.jsx';
-import TendenciaVotoPanel from './panels/TendenciaVotoPanel.jsx';
-import KpiPanel from './panels/KpiPanel.jsx';
-import GeoPanel from './panels/GeoPanel.jsx';
-import AdversariosPanel from './panels/AdversariosPanel.jsx';
-import MapaCampoPanel from './panels/MapaCampoPanel.jsx';
-import AuditoriaPanel from './panels/AuditoriaPanel.jsx';
+import { getStateFromUrl, setStateToUrl } from './lib/urlState.js';
+import { exportToCsv, exportToPdf } from './lib/export.js';
+import { useAutoRefresh } from './lib/useAutoRefresh.js';
+const SocialPanel      = lazy(() => import('./panels/SocialPanel.jsx'));
+const TendenciaVotoPanel = lazy(() => import('./panels/TendenciaVotoPanel.jsx'));
+const KpiPanel         = lazy(() => import('./panels/KpiPanel.jsx'));
+const GeoPanel         = lazy(() => import('./panels/GeoPanel.jsx'));
+const AdversariosPanel = lazy(() => import('./panels/AdversariosPanel.jsx'));
+const MapaCampoPanel   = lazy(() => import('./panels/MapaCampoPanel.jsx'));
+const AuditoriaPanel   = lazy(() => import('./panels/AuditoriaPanel.jsx'));
 import { logAccess } from './lib/accessLog.js';
 import { useOffline } from './lib/useOffline.js';
 import AppHeader from './components/AppHeader.jsx';
 import PwModal from './components/PwModal.jsx';
+import { ErrorBoundary } from './components/ErrorBoundary.jsx';
 
 /* ═══════════════════════════════════════════════
    MAIN APP
    ═══════════════════════════════════════════════ */
+const SafePanel=({children})=>(<ErrorBoundary><Suspense fallback={<PanelSkeleton/>}>{children}</Suspense></ErrorBoundary>);
+
 const FILTER_INITIAL = {cluster:'all',sortOrder:'date',type:'all',scope:'all',relevance:'relevant'};
 const filterReducer  = (state, {key, value}) => ({...state, [key]: value});
 const PW_INITIAL     = {show:false,new:'',confirm:'',error:'',success:false,loading:false};
 
 const App = ({onLogout, userEmail}) => {
+  const urlState = getStateFromUrl();
   const[newsRaw,setNewsRaw]=useState(null);
   const[socialData,setSocialData]=useState(null);
   const[sentimentData,setSentimentData]=useState(null);
@@ -41,7 +49,13 @@ const App = ({onLogout, userEmail}) => {
   const[adversariosData,setAdversariosData]=useState(null);
   const[tendenciaData,setTendenciaData]=useState(null);
   const[liderancasData,setLiderancasData]=useState(null);
-  const[filters,   dispatchFilter]=useReducer(filterReducer, FILTER_INITIAL);
+  const[filters,   dispatchFilter]=useReducer(filterReducer, {
+    cluster:   urlState.cluster,
+    type:      urlState.type,
+    scope:     urlState.scope,
+    relevance: urlState.relevance,
+    sortOrder: urlState.sortOrder,
+  });
   const[pw,        setPw]         =useState(PW_INITIAL);
   const[nav,       setNav]        =useState({sidebarOpen:false,avatarOpen:false});
   const[expandedCards,setExpandedCards]=useState({});
@@ -49,7 +63,18 @@ const App = ({onLogout, userEmail}) => {
   const[lastUpdate,setLastUpdate]=useState(null);
   const[loading,setLoading]=useState(true);
   const[refreshing,setRefreshing]=useState(false);
-  const[activePanel,setActivePanel]=useState('tendencia');
+  const[activePanel,setActivePanel]=useState(urlState.panel);
+
+  // Sync state → URL whenever panel or filters change
+  useEffect(()=>{
+    setStateToUrl({panel:activePanel,...filters});
+  },[activePanel,filters]);
+
+  // Dynamic document title
+  useEffect(()=>{
+    const titles={tendencia:'Tendência de Voto',adversarios:'Inteligência Competitiva',kpis:'Metas e KPIs',geo:'Dados Eleitorais',campo:'Mapa de Capilaridade',social:'Redes Sociais',imprensa:'Monitor de Imprensa',auditoria:'Auditoria'};
+    document.title=`${titles[activePanel]||'Dashboard'} — Monitor Coronel Barbosa`;
+  },[activePanel]);
 
   const screenW=useWW();
   const isMobile=screenW<768;
@@ -107,6 +132,29 @@ const App = ({onLogout, userEmail}) => {
       setRefreshing(false);
     }
   },[activePanel]);
+
+  // Silent version for auto-refresh — no spinner, label says "(auto)"
+  const refreshSilent=useCallback(async()=>{
+    try{
+      const bootFetches=[fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)];
+      const panelFetches=activePanel==='imprensa'?[fetchJ(URLS.mentions)]:
+        activePanel==='geo'?[fetchJ(URLS.geo)]:
+        activePanel==='tendencia'?[fetchJ(URLS.tendencia)]:
+        activePanel==='campo'?[fetchJ(URLS.liderancas)]:[];
+      const[s,st,k,adv,...panelResults]=await Promise.all([...bootFetches,...panelFetches]);
+      if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
+      if(activePanel==='imprensa'&&panelResults[0])setNewsRaw(panelResults[0]);
+      if(activePanel==='geo'&&panelResults[0])setGeoData(panelResults[0]);
+      if(activePanel==='tendencia'&&panelResults[0])setTendenciaData(panelResults[0]);
+      if(activePanel==='campo'&&panelResults[0])setLiderancasData(panelResults[0]);
+      setLastUpdate(new Date().toLocaleString('pt-BR')+' (auto)');
+    }catch(err){
+      if(err.message?.includes('Sessão expirada')){await supabase.auth.signOut();return;}
+      console.error('[auto-refresh] Erro:',err.message);
+    }
+  },[activePanel]);
+
+  const{enabled:autoRefreshEnabled,setEnabled:setAutoRefresh}=useAutoRefresh(refreshSilent,30);
 
   const handlePwChange=useCallback(async()=>{
     if(pw.new.length<6||pw.new!==pw.confirm)return;
@@ -195,7 +243,7 @@ const App = ({onLogout, userEmail}) => {
 
   const isAdmin=userEmail==='marcelsalescampelo@gmail.com';
 
-  if(loading)return(<div style={{minHeight:'100vh',background:'#1A2744',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,sans-serif"}}><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style><div style={{position:'relative',width:76,height:76,marginBottom:28}}><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid rgba(212,160,23,0.18)'}}/><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid transparent',borderTopColor:'#D4A017',animation:'spin 1s linear infinite'}}/><ShieldAlert size={26} style={{color:'#D4A017',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}/></div><p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',margin:0}}>Carregando dados</p></div>);
+  if(loading)return(<div style={{minHeight:'100vh',background:'linear-gradient(135deg,#1A3A7A 0%,#0D1F42 100%)',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,sans-serif"}}><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style><div style={{position:'relative',width:76,height:76,marginBottom:28}}><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid rgba(212,160,23,0.18)'}}/><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid transparent',borderTopColor:'#D4A017',animation:'spin 1s linear infinite'}}/><ShieldAlert size={26} style={{color:'#D4A017',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}/></div><p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',margin:0}}>Carregando dados</p></div>);
 
   return(
   <div style={{minHeight:'100vh',background:'#F8F7F4',color:'#1A2744',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif"}}>
@@ -206,14 +254,14 @@ const App = ({onLogout, userEmail}) => {
     </div>
   )}
 
-  <AppHeader isMobile={isMobile} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} userEmail={userEmail} onLogout={onLogout} setPw={setPw} lastUpdate={lastUpdate} daysToElection={daysToElection} followers={followers} mentions24h={mentions24h} alertCount={alertCount} ranking={ranking}/>
+  <AppHeader isMobile={isMobile} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} userEmail={userEmail} onLogout={onLogout} setPw={setPw} lastUpdate={lastUpdate} daysToElection={daysToElection} followers={followers} mentions24h={mentions24h} alertCount={alertCount} ranking={ranking} autoRefreshEnabled={autoRefreshEnabled} setAutoRefresh={setAutoRefresh}/>
 
   {/* ── LAYOUT BODY ── */}
   <div style={{display:'flex'}}>
     {isMobile&&nav.sidebarOpen&&<div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.6)',zIndex:149}} onClick={()=>setNav(n=>({...n,sidebarOpen:false}))}/>}
 
     {/* ── SIDEBAR ── */}
-    <aside style={{position:isMobile?'fixed':'sticky',top:0,left:0,bottom:isMobile?0:'auto',alignSelf:'flex-start',height:isMobile?undefined:'100vh',width:isMobile?(nav.sidebarOpen?260:0):isTablet?60:260,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
+    <aside style={{position:isMobile?'fixed':'sticky',top:0,left:0,bottom:isMobile?0:'auto',alignSelf:'flex-start',height:isMobile?undefined:'100vh',width:isMobile?(nav.sidebarOpen?260:0):isTablet?60:260,flexShrink:0,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
       <div style={{display:'flex',flexDirection:'column',gap:4}}>
       {[
         {id:'tendencia', label:'Tendência 2022', icon:TrendingUp,  sub:'Bolsonaro × Lula'},
@@ -274,15 +322,15 @@ const App = ({onLogout, userEmail}) => {
     </aside>
 
     {/* ── CONTENT AREA ── */}
-    <main style={{marginLeft:isMobile?0:isTablet?60:260,padding:isMobile?'8px 10px':'24px',flex:1,minWidth:0,transition:'margin-left 0.2s ease',minHeight:'100vh'}}>
+    <main style={{padding:isMobile?'8px 10px':'24px',flex:1,minWidth:0,minHeight:'100vh'}}>
       <div key={activePanel} className="panel-fade">
-        {activePanel==='tendencia'&&<TendenciaVotoPanel tendenciaData={tendenciaData}/>}
-        {activePanel==='adversarios'&&<AdversariosPanel adversariosData={adversariosData}/>}
-        {activePanel==='kpis'&&<KpiPanel kpiData={kpiData}/>}
-        {activePanel==='geo'&&<GeoPanel geoData={geoData}/>}
-        {activePanel==='campo'&&<MapaCampoPanel liderancasData={liderancasData}/>}
-        {activePanel==='social'&&<SocialPanel socialData={socialData} sentimentData={sentimentData}/>}
-        {activePanel==='auditoria'&&isAdmin&&<AuditoriaPanel/>}
+        {activePanel==='tendencia'&&<SafePanel><TendenciaVotoPanel tendenciaData={tendenciaData}/></SafePanel>}
+        {activePanel==='adversarios'&&<SafePanel><AdversariosPanel adversariosData={adversariosData}/></SafePanel>}
+        {activePanel==='kpis'&&<SafePanel><KpiPanel kpiData={kpiData}/></SafePanel>}
+        {activePanel==='geo'&&<SafePanel><GeoPanel geoData={geoData}/></SafePanel>}
+        {activePanel==='campo'&&<SafePanel><MapaCampoPanel liderancasData={liderancasData}/></SafePanel>}
+        {activePanel==='social'&&<SafePanel><SocialPanel socialData={socialData} sentimentData={sentimentData}/></SafePanel>}
+        {activePanel==='auditoria'&&isAdmin&&<SafePanel><AuditoriaPanel/></SafePanel>}
 
         {activePanel==='imprensa'&&(
         <Card>
@@ -297,6 +345,16 @@ const App = ({onLogout, userEmail}) => {
           <div style={{display:'flex',alignItems:'center',gap:16}}>
             <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:700,color:'#ef4444',margin:0,fontFamily:'var(--font-mono)'}}>{totalM.dir}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>diretas</p></div>
             <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#1A3A7A',margin:0}}>{totalM.tot}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>menções</p></div>
+            <div className="no-print" style={{display:'flex',gap:6}}>
+              <button onClick={()=>exportToCsv(filteredNews.map(n=>({data:n.date||n.timestamp,titulo:n.title,fonte:n.source,tipo:n.cluster,relevancia:n.relevance_score??n.relevance,sentimento:n.sentiment,url:n.url})),'mencoes_imprensa')}
+                style={{display:'flex',alignItems:'center',gap:4,padding:'6px 10px',fontSize:12,background:'#f1f5f9',border:'1px solid #e2e8f0',borderRadius:4,cursor:'pointer',color:'#475569',fontFamily:'inherit',whiteSpace:'nowrap'}}>
+                <Download size={13}/>{!isMobile&&'CSV'}
+              </button>
+              <button onClick={exportToPdf}
+                style={{display:'flex',alignItems:'center',gap:4,padding:'6px 10px',fontSize:12,background:'#f1f5f9',border:'1px solid #e2e8f0',borderRadius:4,cursor:'pointer',color:'#475569',fontFamily:'inherit',whiteSpace:'nowrap'}}>
+                <FileText size={13}/>{!isMobile&&'PDF'}
+              </button>
+            </div>
           </div>
         </div>
 

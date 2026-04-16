@@ -1,21 +1,42 @@
 import React from 'react';
 import { RefreshCw, Menu, LogOut } from 'lucide-react';
 
+const getKpiColor = (type, value) => {
+  const n = typeof value === 'string' ? parseInt(value) : (value ?? 0);
+  switch (type) {
+    case 'dias':
+      if (n > 120) return '#22c55e';
+      if (n > 60)  return '#eab308';
+      return '#ef4444';
+    case 'mencoes':
+      if (n > 5) return '#22c55e';
+      if (n > 0) return '#eab308';
+      return 'rgba(255,255,255,0.5)';
+    case 'alertas':
+      return n > 0 ? '#ef4444' : 'rgba(255,255,255,0.5)';
+    case 'ranking':
+      if (n <= 3) return '#22c55e';
+      if (n <= 6) return '#eab308';
+      return '#FFFFFF';
+    default:
+      return '#FFFFFF';
+  }
+};
+
 export default function AppHeader({
   isMobile,refreshing,handleRefresh,nav,setNav,userEmail,onLogout,setPw,lastUpdate,
   daysToElection,followers,mentions24h,alertCount,ranking,
+  autoRefreshEnabled,setAutoRefresh,
 }) {
   const pad = isMobile ? '24px' : '40px 48px';
   const titleSize = isMobile ? 32 : 48;
-  const kpiValueSize = isMobile ? 18 : 20;
-  const kpiPad = isMobile ? '8px 12px' : '10px 14px';
 
   const kpis = [
-    { value: daysToElection ?? '—', label: 'DIAS' },
-    { value: followers       ?? '—', label: 'SEGUIDORES' },
-    { value: mentions24h     ?? '—', label: '24H' },
-    { value: alertCount      ?? '—', label: 'ALERTAS', highlight: (alertCount ?? 0) > 0 },
-    { value: ranking         ?? '—', label: 'RANK' },
+    { value: daysToElection ?? '—', label: 'DIAS',      type: 'dias'      },
+    { value: followers       ?? '—', label: 'SEGUIDORES',type: 'seguidores'},
+    { value: mentions24h     ?? '—', label: '24H',       type: 'mencoes'   },
+    { value: alertCount      ?? '—', label: 'ALERTAS',   type: 'alertas'   },
+    { value: ranking         ?? '—', label: 'RANK',      type: 'ranking'   },
   ];
 
   return(
@@ -47,6 +68,12 @@ export default function AppHeader({
               style={{display:'block',width:'100%',padding:'10px 16px',fontSize:13,color:'#1A2744',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>
               Alterar senha
             </button>
+            <label
+              onMouseEnter={e=>e.currentTarget.style.background='#F5F3EE'} onMouseLeave={e=>e.currentTarget.style.background='none'}
+              style={{display:'flex',alignItems:'center',gap:8,width:'100%',padding:'10px 16px',fontSize:13,color:'#1A2744',cursor:'pointer',boxSizing:'border-box'}}>
+              <input type="checkbox" checked={!!autoRefreshEnabled} onChange={e=>setAutoRefresh(e.target.checked)} style={{cursor:'pointer',accentColor:'#1A3A7A'}}/>
+              Auto-refresh (30min)
+            </label>
             <button onClick={()=>{setNav(n=>({...n,avatarOpen:false}));onLogout();}}
               onMouseEnter={e=>e.currentTarget.style.background='#F5F3EE'} onMouseLeave={e=>e.currentTarget.style.background='none'}
               style={{display:'flex',alignItems:'center',gap:8,width:'100%',padding:'10px 16px',fontSize:13,color:'#B91C1C',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>
@@ -70,10 +97,10 @@ export default function AppHeader({
     </h1>
 
     {/* ── KPI strip ── */}
-    <div style={{display:'flex',gap:isMobile?8:10,flexWrap:'wrap',marginTop:24,marginBottom:8}}>
+    <div style={{display:'flex',gap:8,marginTop:24,marginBottom:8,width:'100%',maxWidth:520}}>
       {kpis.map((kpi,i)=>(
-        <div key={i} style={{background:'rgba(255,255,255,0.08)',borderRadius:6,padding:kpiPad,textAlign:'center',minWidth:65,border:'1px solid rgba(255,255,255,0.1)'}}>
-          <div style={{fontSize:kpiValueSize,fontWeight:700,color:kpi.highlight?'#D4A017':'#FFFFFF',lineHeight:1.2}}>
+        <div key={i} style={{flex:'1 1 0',background:'rgba(255,255,255,0.08)',borderRadius:8,padding:isMobile?'8px 6px':'12px 8px',textAlign:'center',border:'1px solid rgba(255,255,255,0.1)',minWidth:0}}>
+          <div style={{fontSize:isMobile?17:22,fontWeight:700,color:getKpiColor(kpi.type,kpi.value),lineHeight:1.2,transition:'color 0.3s ease'}}>
             {kpi.value}
           </div>
           <div style={{fontSize:9,fontWeight:600,color:'rgba(255,255,255,0.5)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>

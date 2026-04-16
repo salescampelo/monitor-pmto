@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CONFIG } from '../lib/config.js';
 
 const SocialMonitor = () => {
   const [socialData, setSocialData] = useState([]);
@@ -27,7 +28,7 @@ const SocialMonitor = () => {
           </thead>
           <tbody>
             {socialData.map((p, i) => (
-              <tr key={i} style={{ borderBottom: '1px solid rgba(51,65,85,0.1)', background: p.username === 'marciobarbosa_cel' ? 'rgba(59,130,246,0.1)' : 'transparent' }}>
+              <tr key={i} style={{ borderBottom: '1px solid rgba(51,65,85,0.1)', background: p.username === CONFIG.CANDIDATE_USERNAME ? 'rgba(59,130,246,0.1)' : 'transparent' }}>
                 <td style={{ padding: 12 }}>{i+1}º @{p.username}</td>
                 <td style={{ padding: 12, textAlign: 'right' }}>{p.seguidores.toLocaleString('pt-BR')}</td>
                 <td style={{ padding: 12, textAlign: 'right', color: '#4ade80' }}>{p.taxa_engajamento_pct}%</td>

@@ -3,11 +3,12 @@ import { Users, ChevronUp, ChevronDown } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
 import { Card, Bt, useWW, PanelSkeleton } from '../components/ui.jsx';
 import { fmtK } from '../lib/analytics.js';
+import { CONFIG } from '../lib/config.js';
 
 const DCOL = {positivo:'#22c55e',negativo:'#ef4444',neutro:'#64748b'};
 
 const PANEL_PROFILES = new Set([
-  'marciobarbosa_cel','janad_valcari','tiagodimas','ricardoayres_to','fabiopereiravaz',
+  CONFIG.CANDIDATE_USERNAME,'janad_valcari','tiagodimas','ricardoayres_to','fabiopereiravaz',
   'depjairfariasoficial','lucascampelotocantins','filipemartinsto','cesarhalum','atosgomess',
   'nilmarruiz','sandovallobocardoso','larissarosenda','celiomourato','alfredojrto',
   'dep.lazaro','osiresdamaso','sgtjorge_carneiro_',
@@ -48,9 +49,9 @@ export default function SocialPanel({socialData,sentimentData}) {
     return Object.values(byUser).filter(p=>p.seguidores>0).sort((a,b)=>b.seguidores-a.seguidores);
   },[socialData]);
 
-  const cand=profiles.find(p=>p.username==='marciobarbosa_cel');
+  const cand=profiles.find(p=>p.username===CONFIG.CANDIDATE_USERNAME);
   const rank=useMemo(()=>profiles.map((p,i)=>({...p,rank:i+1})),[profiles]);
-  const candRank=rank.findIndex(p=>p.username==='marciobarbosa_cel')+1;
+  const candRank=rank.findIndex(p=>p.username===CONFIG.CANDIDATE_USERNAME)+1;
 
   const donut=useMemo(()=>{
     if(!sentimentData?.sentiment)return[];
@@ -63,7 +64,7 @@ export default function SocialPanel({socialData,sentimentData}) {
   },[sentimentData]);
 
   const engChart=useMemo(()=>[...profiles].sort((a,b)=>b.taxa_engajamento_pct-a.taxa_engajamento_pct).slice(0,10).map(p=>{
-    const isCand=p.username==='marciobarbosa_cel';
+    const isCand=p.username===CONFIG.CANDIDATE_USERNAME;
     let color=p.taxa_engajamento_pct>=3?'#22c55e':p.taxa_engajamento_pct>=1.5?'#f59e0b':'#ef4444';
     if(isCand)color='#1a3a7a';
     return{name:'@'+p.username.substring(0,18),eng:p.taxa_engajamento_pct,fill:color};
@@ -134,7 +135,7 @@ export default function SocialPanel({socialData,sentimentData}) {
             {!isMobile&&<span className="table-header" style={{textAlign:'center'}}>TEND. (7d)</span>}
           </div>
           {rank.map(p=>{
-            const isCand=p.username==='marciobarbosa_cel';
+            const isCand=p.username===CONFIG.CANDIDATE_USERNAME;
             const{direction,label}=calcDelta(socialData,p.username);
             const trendColor=direction==='up'?'#15803D':direction==='down'?'#B91C1C':'#8C93A8';
             const trendIcon=direction==='up'?'↑':direction==='down'?'↓':'→';
@@ -201,7 +202,7 @@ export default function SocialPanel({socialData,sentimentData}) {
               <p style={{fontSize:11,color:'#8c93a8',marginBottom:8}}>Snapshot {snapDate} — top 5 por seguidores. Série temporal disponível a partir da 2ª coleta.</p>
               {snap.map((p,i)=>{
                 const w=Math.max(6,Math.round((p.seguidores/snapMax)*100));
-                const isCand=p.username==='marciobarbosa_cel';
+                const isCand=p.username===CONFIG.CANDIDATE_USERNAME;
                 return(
                 <div key={p.username} style={{display:'flex',alignItems:'center',gap:8,marginBottom:6}}>
                   <span style={{width:isMobile?90:130,fontSize:11,color:isCand?'#1a3a7a':'#5a6178',fontWeight:isCand?700:400,flexShrink:0,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
@@ -218,7 +219,7 @@ export default function SocialPanel({socialData,sentimentData}) {
       }
       const latestDate=allDates[allDates.length-1];
       const latestProfiles=(socialData||[]).filter(x=>PANEL_PROFILES.has(x.username)&&x.data_coleta===latestDate&&x.seguidores>0).sort((a,b)=>b.seguidores-a.seguidores);
-      const topUsernames=[...(new Set(['marciobarbosa_cel',...latestProfiles.slice(0,5).map(x=>x.username)]))].slice(0,6);
+      const topUsernames=[...(new Set([CONFIG.CANDIDATE_USERNAME,...latestProfiles.slice(0,5).map(x=>x.username)]))].slice(0,6);
       const COLORS_LINE=['#1a3a7a','#22c55e','#3b82f6','#f59e0b','#ef4444','#ec4899'];
       const chartData=allDates.map(date=>{
         const row={date:date.substring(5)};
@@ -238,7 +239,7 @@ export default function SocialPanel({socialData,sentimentData}) {
             <Tooltip contentStyle={{background:'#FFFFFF',border:'1px solid rgba(26,39,68,0.12)',borderRadius:8,fontSize:13,color:'#1A2744'}} formatter={(v,name)=>[v?.toLocaleString('pt-BR'),`@${name}`]}/>
             <Legend wrapperStyle={{fontSize:10,color:'#8c93a8'}} formatter={v=>`@${v}`}/>
             {topUsernames.map((u,i)=>(
-              <Line key={u} type="monotone" dataKey={u} stroke={COLORS_LINE[i%6]} strokeWidth={u==='marciobarbosa_cel'?3:1.5} dot={{r:u==='marciobarbosa_cel'?4:2}} connectNulls animationDuration={800} animationEasing="ease-out"/>
+              <Line key={u} type="monotone" dataKey={u} stroke={COLORS_LINE[i%6]} strokeWidth={u===CONFIG.CANDIDATE_USERNAME?3:1.5} dot={{r:u===CONFIG.CANDIDATE_USERNAME?4:2}} connectNulls animationDuration={800} animationEasing="ease-out"/>
             ))}
           </LineChart>
         </ResponsiveContainer>
