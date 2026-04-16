@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { TrendingUp, ChevronUp, ChevronDown } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { Card, Bt, useWW, PanelSkeleton } from '../components/ui.jsx';
+import HelpTooltip from '../components/HelpTooltip.jsx';
 
 const TV_CORES = {Conservador:'#1A3A7A',Dividido:'#D4A017',Progressista:'#B91C1C',gap:'#15803D'};
 
@@ -42,7 +43,10 @@ function TendenciaVotoPanel({tendenciaData}) {
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><TrendingUp size={22} style={{color:'#1A3A7A'}}/></div>
         <div>
-          <h2 style={{fontSize:isMobile?18:22,fontWeight:800,color:'#1A2744',margin:0}}>Tendência de Voto 2022</h2>
+          <div style={{display:'flex',alignItems:'center',gap:8}}>
+            <h2 style={{fontSize:isMobile?18:22,fontWeight:800,color:'#1A2744',margin:0}}>Tendência de Voto 2022</h2>
+            <HelpTooltip panelId="tendencia"/>
+          </div>
           <p style={{fontSize:isMobile?11:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>2º turno presidencial · {agregado?.total_municipios??139} municípios · Fonte: TSE</p>
         </div>
       </div>

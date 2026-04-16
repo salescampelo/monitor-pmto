@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaf
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useWW, PanelSkeleton } from '../components/ui.jsx';
+import HelpTooltip from '../components/HelpTooltip.jsx';
 
 // Fix para ícones padrão do Leaflet com bundlers (Vite/Webpack)
 delete L.Icon.Default.prototype._getIconUrl;
@@ -243,7 +244,10 @@ function MapaCampoPanel({ liderancasData }) {
             </svg>
           </div>
           <div>
-            <h2 style={{ fontSize: 22, fontWeight: 800, color: '#1A2744', margin: 0 }}>Mapa de Campo — Lideranças e Visitas</h2>
+            <div style={{display:'flex',alignItems:'center',gap:8}}>
+              <h2 style={{ fontSize: 22, fontWeight: 800, color: '#1A2744', margin: 0 }}>Mapa de Campo — Lideranças e Visitas</h2>
+              <HelpTooltip panelId="campo"/>
+            </div>
             <p style={{ fontSize: 12, color: '#8c93a8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '2px 0 0' }}>
               Tocantins · {meta.total_municipios_com_lideranca || 0} lideranças cadastradas · {contadores.visitado} municípios visitados
             </p>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase.js';
+import HelpTooltip from '../components/HelpTooltip.jsx';
 
 const ACTION_STYLE = {
   login:          { bg: '#dcfce7', color: '#166534' },
@@ -52,7 +53,10 @@ export default function AuditoriaPanel() {
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
         <div>
-          <h2 style={{ fontSize: 20, fontWeight: 800, color: '#1A2744', margin: 0 }}>Auditoria de Acessos</h2>
+          <div style={{display:'flex',alignItems:'center',gap:8}}>
+            <h2 style={{ fontSize: 20, fontWeight: 800, color: '#1A2744', margin: 0 }}>Auditoria de Acessos</h2>
+            <HelpTooltip panelId="auditoria"/>
+          </div>
           <p style={{ fontSize: 12, color: '#8C93A8', margin: '4px 0 0', textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.08em' }}>
             Visível apenas para administradores
           </p>

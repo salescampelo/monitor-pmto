@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Users, ChevronUp, ChevronDown } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
 import { Card, Bt, useWW, PanelSkeleton } from '../components/ui.jsx';
+import HelpTooltip from '../components/HelpTooltip.jsx';
 import { fmtK } from '../lib/analytics.js';
 import { CONFIG } from '../lib/config.js';
 
@@ -78,7 +79,10 @@ function SocialPanel({socialData,sentimentData}) {
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Users size={22} style={{color:'#1A3A7A'}}/></div>
         <div>
-          <h2 style={{fontSize:isMobile?18:22,fontWeight:800,color:'#1A2744',margin:0}}>Monitor de redes sociais</h2>
+          <div style={{display:'flex',alignItems:'center',gap:8}}>
+            <h2 style={{fontSize:isMobile?18:22,fontWeight:800,color:'#1A2744',margin:0}}>Monitor de redes sociais</h2>
+            <HelpTooltip panelId="social"/>
+          </div>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>{profiles.length} perfis · Instagram · {sentimentData?.data_coleta||profiles[0]?.data_coleta||''}</p>
         </div>
       </div>

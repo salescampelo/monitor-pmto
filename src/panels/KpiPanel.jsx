@@ -2,6 +2,7 @@ import React, { useState, memo } from 'react';
 import PropTypes from 'prop-types';
 import { Target, ChevronUp, ChevronDown } from 'lucide-react';
 import { Card, useWW, PanelSkeleton } from '../components/ui.jsx';
+import HelpTooltip from '../components/HelpTooltip.jsx';
 
 function KpiPanel({kpiData}) {
   const[open,setOpen]=useState(true);
@@ -19,7 +20,10 @@ function KpiPanel({kpiData}) {
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(212,160,23,0.1)',border:'1px solid rgba(212,160,23,0.2)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#d4a017'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Metas da campanha</h2>
+          <div style={{display:'flex',alignItems:'center',gap:8}}>
+            <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Metas da campanha</h2>
+            <HelpTooltip panelId="metas"/>
+          </div>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>Fase {phase}: {phaseInfo.name||''} · {phaseInfo.period||''}</p>
         </div>
       </div>

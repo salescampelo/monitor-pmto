@@ -28,6 +28,7 @@ import { logAccess } from './lib/accessLog.js';
 import { useOffline } from './lib/useOffline.js';
 import AppHeader from './components/AppHeader.jsx';
 import PwModal from './components/PwModal.jsx';
+import HelpTooltip from './components/HelpTooltip.jsx';
 import { ErrorBoundary } from './components/ErrorBoundary.jsx';
 
 /* ═══════════════════════════════════════════════
@@ -215,30 +216,42 @@ const App = ({onLogout, userEmail}) => {
   // ── Header KPIs ──────────────────────────────────────────────────────────
   const daysToElection=useMemo(()=>Math.ceil((new Date('2026-10-04')-new Date())/(1000*60*60*24)),[]);
 
+  const candidateProfile=useMemo(()=>
+    Array.isArray(socialData)?socialData.find(p=>p.username?.toLowerCase()===CONFIG.CANDIDATE_USERNAME?.toLowerCase()):null
+  ,[socialData]);
+
   const followers=useMemo(()=>{
-    const cand=Array.isArray(socialData)?socialData.find(p=>p.username?.toLowerCase()===CONFIG.CANDIDATE_USERNAME?.toLowerCase()):null;
-    const raw=cand?.seguidores||cand?.followers||0;
+    const raw=candidateProfile?.seguidores||candidateProfile?.followers||0;
     if(!raw)return'—';
     return raw>=1000?(raw/1000).toFixed(1).replace(/\.0$/,'')+'K':String(raw);
-  },[socialData]);
+  },[candidateProfile]);
 
-  const {mentions24h,alertCount}=useMemo(()=>{
-    if(!articles.length)return{mentions24h:0,alertCount:0};
-    const h24ago=new Date(Date.now()-24*60*60*1000);
+  const followersTrend=useMemo(()=>{
+    const raw=candidateProfile?.seguidores||candidateProfile?.followers||0;
+    const prev=candidateProfile?.followers_prev_week||raw;
+    return raw-prev;
+  },[candidateProfile]);
+
+  const engagementRate=useMemo(()=>candidateProfile?.engagement_rate||0,[candidateProfile]);
+
+  const engagementTrend=useMemo(()=>{
+    const cur=candidateProfile?.engagement_rate||0;
+    const prev=candidateProfile?.engagement_rate_prev_week||cur;
+    return cur-prev;
+  },[candidateProfile]);
+
+  const mentions48h=useMemo(()=>{
+    if(!articles.length)return 0;
     const h48ago=new Date(Date.now()-48*60*60*1000);
     const parseD=n=>{try{return new Date((n.date||'').replace(' ','T'));}catch{return new Date(0);}};
-    return{
-      mentions24h:articles.filter(n=>parseD(n)>h24ago).length,
-      alertCount:articles.filter(n=>(n.relevance||0)>=0.9&&parseD(n)>h48ago).length,
-    };
+    return articles.filter(n=>parseD(n)>h48ago).length;
   },[articles]);
 
-  const ranking=useMemo(()=>{
-    const candFol=Array.isArray(socialData)?( socialData.find(p=>p.username?.toLowerCase()===CONFIG.CANDIDATE_USERNAME?.toLowerCase())?.seguidores||0 ):0;
-    const rivals=(adversariosData?.ranking||[]).map(p=>p.seguidores||p.followers||0);
-    const above=rivals.filter(f=>f>candFol).length;
-    return above>=0?`${above+1}º`:'—';
-  },[socialData,adversariosData]);
+  const positiveCommentsPct=useMemo(()=>{
+    const pos=sentimentData?.positive||0;
+    const total=(sentimentData?.positive||0)+(sentimentData?.neutral||0)+(sentimentData?.negative||0);
+    return total>0?Math.round((pos/total)*100):0;
+  },[sentimentData]);
   // ─────────────────────────────────────────────────────────────────────────
 
   const isAdmin=userEmail==='marcelsalescampelo@gmail.com';
@@ -255,7 +268,7 @@ const App = ({onLogout, userEmail}) => {
     </div>
   )}
 
-  <AppHeader isMobile={isMobile} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} userEmail={userEmail} onLogout={onLogout} setPw={setPw} lastUpdate={lastUpdate} daysToElection={daysToElection} followers={followers} mentions24h={mentions24h} alertCount={alertCount} ranking={ranking} autoRefreshEnabled={autoRefreshEnabled} setAutoRefresh={setAutoRefresh}/>
+  <AppHeader isMobile={isMobile} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} userEmail={userEmail} onLogout={onLogout} setPw={setPw} lastUpdate={lastUpdate} daysToElection={daysToElection} followers={followers} followersTrend={followersTrend} engagementRate={engagementRate} engagementTrend={engagementTrend} mentions48h={mentions48h} positiveCommentsPct={positiveCommentsPct} autoRefreshEnabled={autoRefreshEnabled} setAutoRefresh={setAutoRefresh}/>
 
   {/* ── LAYOUT BODY ── */}
   <div style={{display:'flex'}}>
@@ -340,7 +353,10 @@ const App = ({onLogout, userEmail}) => {
           <div style={{display:'flex',alignItems:'center',gap:12}}>
             <div style={{background:'rgba(185,28,28,0.06)',border:'1px solid rgba(185,28,28,0.12)',borderRadius:12,padding:10}}><Newspaper size={22} style={{color:'#b91c1c'}}/></div>
             <div>
-              <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Monitor de imprensa</h2>
+              <div style={{display:'flex',alignItems:'center',gap:8}}>
+                <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Monitor de imprensa</h2>
+                <HelpTooltip panelId="imprensa"/>
+              </div>
               <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>32 fontes · Tocantins + Brasil · Atualização 2x ao dia</p>
             </div>
           </div>

@@ -3,40 +3,42 @@ import PropTypes from 'prop-types';
 import { RefreshCw, Menu, LogOut } from 'lucide-react';
 
 const getKpiColor = (type, value) => {
-  const n = typeof value === 'string' ? parseInt(value) : (value ?? 0);
   switch (type) {
     case 'dias':
-      if (n > 120) return '#22c55e';
-      if (n > 60)  return '#eab308';
+      if (value > 120) return '#22c55e';
+      if (value > 60)  return '#eab308';
+      return '#ef4444';
+    case 'seguidores':
+      return '#FFFFFF';
+    case 'engajamento':
+      if (value >= 3)   return '#22c55e';
+      if (value >= 1.5) return '#eab308';
       return '#ef4444';
     case 'mencoes':
-      if (n > 5) return '#22c55e';
-      if (n > 0) return '#eab308';
+      if (value >= 5) return '#22c55e';
+      if (value >= 1) return '#eab308';
       return 'rgba(255,255,255,0.5)';
-    case 'alertas':
-      return n > 0 ? '#ef4444' : 'rgba(255,255,255,0.5)';
-    case 'ranking':
-      if (n <= 3) return '#22c55e';
-      if (n <= 6) return '#eab308';
-      return '#FFFFFF';
+    case 'sentimento':
+      if (value >= 60) return '#22c55e';
+      if (value >= 40) return '#eab308';
+      return '#ef4444';
     default:
       return '#FFFFFF';
   }
 };
 
+const getTrendIcon = (trend) => {
+  if (trend > 0) return { icon: '↑', color: '#22c55e' };
+  if (trend < 0) return { icon: '↓', color: '#ef4444' };
+  return { icon: '→', color: 'rgba(255,255,255,0.5)' };
+};
+
 export default function AppHeader({
   isMobile,refreshing,handleRefresh,nav,setNav,userEmail,onLogout,setPw,lastUpdate,
-  daysToElection,followers,mentions24h,alertCount,ranking,
+  daysToElection,followers,followersTrend,engagementRate,engagementTrend,
+  mentions48h,positiveCommentsPct,
   autoRefreshEnabled,setAutoRefresh,
 }) {
-  const kpis = [
-    { value: daysToElection ?? '—', label: 'DIAS',       type: 'dias'      },
-    { value: followers       ?? '—', label: 'SEGUIDORES', type: 'seguidores'},
-    { value: mentions24h     ?? '—', label: '24H',        type: 'mencoes'   },
-    { value: alertCount      ?? '—', label: 'ALERTAS',    type: 'alertas'   },
-    { value: ranking         ?? '—', label: 'RANK',       type: 'ranking'   },
-  ];
-
   return(
   <header style={{background:'linear-gradient(135deg, #1A3A7A 0%, #0D1F42 100%)',padding:isMobile?'56px 20px 24px':'32px 40px 28px',position:'relative'}}>
 
@@ -113,56 +115,114 @@ export default function AppHeader({
       </div>
 
       {/* RIGHT: KPI cards */}
-      <div style={{display:'flex',gap:10,flexWrap:'wrap',justifyContent:isMobile?'flex-start':'flex-end',flex:'1 1 360px',maxWidth:isMobile?'100%':580}}>
-        {kpis.map((kpi,i)=>(
-          <div key={i} style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'16px 18px',textAlign:'center',minWidth:80,flex:'1 1 80px',maxWidth:110,border:'1px solid rgba(255,255,255,0.1)'}}>
-            <div style={{fontSize:isMobile?20:26,fontWeight:700,color:getKpiColor(kpi.type,kpi.value),lineHeight:1.2,transition:'color 0.3s ease'}}>
-              {kpi.value}
-            </div>
-            <div style={{fontSize:9,fontWeight:600,color:'rgba(255,255,255,0.7)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:6}}>
-              {kpi.label}
-            </div>
-          </div>
-        ))}
-      </div>
+      <div style={{display:'flex',gap:12,flexWrap:'wrap',justifyContent:isMobile?'flex-start':'flex-end',flex:'1 1 500px',maxWidth:700}}>
 
+        {/* KPI 1: Dias para Eleição */}
+        <div style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'14px 18px',textAlign:'center',minWidth:80,flex:'1 1 80px',maxWidth:110,border:'1px solid rgba(255,255,255,0.1)'}}>
+          <div style={{fontSize:isMobile?20:28,fontWeight:700,color:getKpiColor('dias',daysToElection??0),lineHeight:1.1,transition:'color 0.3s ease'}}>
+            {daysToElection??'—'}
+          </div>
+          <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
+            DIAS
+          </div>
+        </div>
+
+        {/* KPI 2: Seguidores + Tendência */}
+        <div style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'14px 18px',textAlign:'center',minWidth:100,flex:'1 1 100px',maxWidth:130,border:'1px solid rgba(255,255,255,0.1)'}}>
+          <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:6}}>
+            <span style={{fontSize:isMobile?18:24,fontWeight:700,color:getKpiColor('seguidores',0),lineHeight:1.1}}>
+              {followers??'—'}
+            </span>
+            {followersTrend!==0&&(
+              <span style={{fontSize:14,fontWeight:600,color:getTrendIcon(followersTrend).color}}>
+                {getTrendIcon(followersTrend).icon}
+              </span>
+            )}
+          </div>
+          <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
+            SEGUIDORES
+          </div>
+        </div>
+
+        {/* KPI 3: Engajamento + Tendência */}
+        <div style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'14px 18px',textAlign:'center',minWidth:100,flex:'1 1 100px',maxWidth:130,border:'1px solid rgba(255,255,255,0.1)'}}>
+          <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:6}}>
+            <span style={{fontSize:isMobile?18:24,fontWeight:700,color:getKpiColor('engajamento',engagementRate??0),lineHeight:1.1}}>
+              {(engagementRate??0).toFixed(1)}%
+            </span>
+            {engagementTrend!==0&&(
+              <span style={{fontSize:14,fontWeight:600,color:getTrendIcon(engagementTrend).color}}>
+                {getTrendIcon(engagementTrend).icon}
+              </span>
+            )}
+          </div>
+          <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
+            ENGAJAMENTO
+          </div>
+        </div>
+
+        {/* KPI 4: Menções 48h */}
+        <div style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'14px 18px',textAlign:'center',minWidth:80,flex:'1 1 80px',maxWidth:110,border:'1px solid rgba(255,255,255,0.1)'}}>
+          <div style={{fontSize:isMobile?20:28,fontWeight:700,color:getKpiColor('mencoes',mentions48h??0),lineHeight:1.1,transition:'color 0.3s ease'}}>
+            {mentions48h??0}
+          </div>
+          <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
+            IMPRENSA 48H
+          </div>
+        </div>
+
+        {/* KPI 5: Sentimento Positivo */}
+        <div style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'14px 18px',textAlign:'center',minWidth:80,flex:'1 1 80px',maxWidth:110,border:'1px solid rgba(255,255,255,0.1)'}}>
+          <div style={{fontSize:isMobile?20:28,fontWeight:700,color:getKpiColor('sentimento',positiveCommentsPct??0),lineHeight:1.1,transition:'color 0.3s ease'}}>
+            {positiveCommentsPct??0}%
+          </div>
+          <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
+            POSITIVO IG
+          </div>
+        </div>
+
+      </div>
     </div>
   </header>
   );
 }
 
 AppHeader.propTypes = {
-  isMobile:           PropTypes.bool.isRequired,
-  refreshing:         PropTypes.bool,
-  handleRefresh:      PropTypes.func.isRequired,
-  nav:                PropTypes.shape({
+  isMobile:            PropTypes.bool.isRequired,
+  refreshing:          PropTypes.bool,
+  handleRefresh:       PropTypes.func.isRequired,
+  nav:                 PropTypes.shape({
     sidebarOpen: PropTypes.bool,
     avatarOpen:  PropTypes.bool,
   }).isRequired,
-  setNav:             PropTypes.func.isRequired,
-  userEmail:          PropTypes.string,
-  onLogout:           PropTypes.func,
-  setPw:              PropTypes.func.isRequired,
-  lastUpdate:         PropTypes.string,
-  daysToElection:     PropTypes.number,
-  followers:          PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  mentions24h:        PropTypes.number,
-  alertCount:         PropTypes.number,
-  ranking:            PropTypes.string,
-  autoRefreshEnabled: PropTypes.bool,
-  setAutoRefresh:     PropTypes.func,
+  setNav:              PropTypes.func.isRequired,
+  userEmail:           PropTypes.string,
+  onLogout:            PropTypes.func,
+  setPw:               PropTypes.func.isRequired,
+  lastUpdate:          PropTypes.string,
+  daysToElection:      PropTypes.number,
+  followers:           PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  followersTrend:      PropTypes.number,
+  engagementRate:      PropTypes.number,
+  engagementTrend:     PropTypes.number,
+  mentions48h:         PropTypes.number,
+  positiveCommentsPct: PropTypes.number,
+  autoRefreshEnabled:  PropTypes.bool,
+  setAutoRefresh:      PropTypes.func,
 };
 
 AppHeader.defaultProps = {
-  refreshing:         false,
-  userEmail:          null,
-  onLogout:           null,
-  lastUpdate:         null,
-  daysToElection:     null,
-  followers:          '—',
-  mentions24h:        0,
-  alertCount:         0,
-  ranking:            '—',
-  autoRefreshEnabled: false,
-  setAutoRefresh:     () => {},
+  refreshing:          false,
+  userEmail:           null,
+  onLogout:            null,
+  lastUpdate:          null,
+  daysToElection:      null,
+  followers:           '—',
+  followersTrend:      0,
+  engagementRate:      0,
+  engagementTrend:     0,
+  mentions48h:         0,
+  positiveCommentsPct: 0,
+  autoRefreshEnabled:  false,
+  setAutoRefresh:      () => {},
 };

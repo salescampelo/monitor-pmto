@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { MapPin, Target, Eye, TrendingUp, BarChart3, ChevronUp, ChevronDown } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Cell, ResponsiveContainer } from 'recharts';
 import { Card, Met, Bt, useWW, PanelSkeleton } from '../components/ui.jsx';
+import HelpTooltip from '../components/HelpTooltip.jsx';
 
 const CAT_COLORS = {
   'ALTA PRIORIDADE':'#22c55e','OPORTUNIDADE':'#f59e0b',
@@ -50,7 +51,10 @@ function GeoPanel({geoData}) {
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(21,128,61,0.08)',border:'1px solid rgba(21,128,61,0.15)',borderRadius:12,padding:10}}><MapPin size={22} style={{color:'#15803d'}}/></div>
         <div>
-          <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Inteligência eleitoral — Tocantins</h2>
+          <div style={{display:'flex',alignItems:'center',gap:8}}>
+            <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Inteligência eleitoral — Tocantins</h2>
+            <HelpTooltip panelId="eleitoral"/>
+          </div>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>{summary.total_municipios||0} municípios · TSE 2022 + IBGE · Dep. Federal</p>
         </div>
       </div>

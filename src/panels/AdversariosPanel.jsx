@@ -2,6 +2,7 @@ import React, { useState, useMemo, memo } from 'react';
 import PropTypes from 'prop-types';
 import { Target, ChevronUp, ChevronDown } from 'lucide-react';
 import { Card, useWW } from '../components/ui.jsx';
+import HelpTooltip from '../components/HelpTooltip.jsx';
 import { fmtDt, fmtK } from '../lib/analytics.js';
 
 const THREAT_C = {
@@ -75,7 +76,10 @@ function AdversariosPanel({adversariosData}) {
       <div style={{display:'flex',alignItems:'center',gap:12}}>
         <div style={{background:'rgba(26,58,122,0.06)',border:'1px solid rgba(26,58,122,0.12)',borderRadius:12,padding:10}}><Target size={22} style={{color:'#1A3A7A'}}/></div>
         <div>
-          <h2 style={{fontSize:isMobile?18:22,fontWeight:800,color:'#1A2744',margin:0}}>Inteligência Competitiva — Câmara Federal TO 2026</h2>
+          <div style={{display:'flex',alignItems:'center',gap:8}}>
+            <h2 style={{fontSize:isMobile?18:22,fontWeight:800,color:'#1A2744',margin:0}}>Inteligência Competitiva — Câmara Federal TO 2026</h2>
+            <HelpTooltip panelId="inteligencia"/>
+          </div>
           <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>8 vagas · 13+ candidatos · Levantamento {d?.data_atualizacao?fmtDt(d.data_atualizacao):'—'}</p>
         </div>
       </div>
