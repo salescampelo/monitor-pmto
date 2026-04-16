@@ -216,22 +216,41 @@ const App = ({onLogout, userEmail}) => {
   // ── Header KPIs ──────────────────────────────────────────────────────────
   const daysToElection=useMemo(()=>Math.ceil((new Date('2026-10-04')-new Date())/(1000*60*60*24)),[]);
 
-  const candidateProfile=useMemo(()=>
-    Array.isArray(socialData)?socialData.find(p=>p.username?.toLowerCase()===CONFIG.CANDIDATE_USERNAME?.toLowerCase()):null
-  ,[socialData]);
+  // Snapshots do candidato ordenados por data (mais recente primeiro)
+  const candidateSnapshots=useMemo(()=>{
+    if(!Array.isArray(socialData))return[];
+    const un=CONFIG.CANDIDATE_USERNAME?.toLowerCase();
+    return socialData
+      .filter(p=>p.username?.toLowerCase()===un)
+      .sort((a,b)=>(b.data_coleta||'').localeCompare(a.data_coleta||''));
+  },[socialData]);
 
-  const followersRaw=useMemo(()=>candidateProfile?.seguidores||candidateProfile?.followers||0,[candidateProfile]);
+  const candidateProfile=useMemo(()=>candidateSnapshots[0]||null,[candidateSnapshots]);
+
+  // Snapshot mais próximo de 7 dias atrás
+  const candidatePrevWeek=useMemo(()=>{
+    if(candidateSnapshots.length<2)return null;
+    const latestDate=new Date(candidateSnapshots[0]?.data_coleta||Date.now());
+    const target=new Date(latestDate.getTime()-7*24*60*60*1000);
+    return candidateSnapshots.slice(1).reduce((best,s)=>{
+      const diff=Math.abs(new Date(s.data_coleta)-target);
+      const bestDiff=best?Math.abs(new Date(best.data_coleta)-target):Infinity;
+      return diff<bestDiff?s:best;
+    },null);
+  },[candidateSnapshots]);
+
+  const followersRaw=useMemo(()=>candidateProfile?.seguidores||0,[candidateProfile]);
 
   const followers=useMemo(()=>{
     if(!followersRaw)return'—';
     return followersRaw>=1000?(followersRaw/1000).toFixed(1).replace(/\.0$/,'')+'K':String(followersRaw);
   },[followersRaw]);
 
-  const followersPrevWeek=useMemo(()=>candidateProfile?.followers_prev_week||null,[candidateProfile]);
+  const followersPrevWeek=useMemo(()=>candidatePrevWeek?.seguidores||null,[candidatePrevWeek]);
 
   const engagementRate=useMemo(()=>candidateProfile?.taxa_engajamento_pct||0,[candidateProfile]);
 
-  const engagementPrevWeek=useMemo(()=>candidateProfile?.taxa_engajamento_pct_semana_anterior||null,[candidateProfile]);
+  const engagementPrevWeek=useMemo(()=>candidatePrevWeek?.taxa_engajamento_pct||null,[candidatePrevWeek]);
 
   const mentions48h=useMemo(()=>{
     if(!articles.length)return 0;
