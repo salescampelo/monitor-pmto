@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import React, { useState, useReducer, useMemo, useEffect, useCallback } from 'react';
 import {
   ShieldAlert, TrendingDown, AlertTriangle, Eye, Calendar,
   ChevronDown, ChevronUp, Newspaper, Target, Radio, Clock,
@@ -24,6 +24,10 @@ import { useOffline } from './lib/useOffline.js';
 /* ═══════════════════════════════════════════════
    MAIN APP
    ═══════════════════════════════════════════════ */
+const FILTER_INITIAL = {cluster:'all',sortOrder:'date',type:'all',scope:'all',relevance:'relevant'};
+const filterReducer  = (state, {key, value}) => ({...state, [key]: value});
+const PW_INITIAL     = {show:false,new:'',confirm:'',error:'',success:false,loading:false};
+
 const App = ({onLogout, userEmail}) => {
   const[newsRaw,setNewsRaw]=useState(null);
   const[socialData,setSocialData]=useState(null);
@@ -33,25 +37,15 @@ const App = ({onLogout, userEmail}) => {
   const[adversariosData,setAdversariosData]=useState(null);
   const[tendenciaData,setTendenciaData]=useState(null);
   const[liderancasData,setLiderancasData]=useState(null);
-  const[selectedCluster,setSelectedCluster]=useState('all');
+  const[filters,   dispatchFilter]=useReducer(filterReducer, FILTER_INITIAL);
+  const[pw,        setPw]         =useState(PW_INITIAL);
+  const[nav,       setNav]        =useState({sidebarOpen:false,avatarOpen:false});
   const[expandedCards,setExpandedCards]=useState({});
   const[visibleCount,setVisibleCount]=useState(50);
-  const[sortOrder,setSortOrder]=useState('date');
-  const[filterType,setFilterType]=useState('all');
-  const[filterScope,setFilterScope]=useState('all');
-  const[filterRelevance,setFilterRelevance]=useState('relevant');
   const[lastUpdate,setLastUpdate]=useState(null);
   const[loading,setLoading]=useState(true);
   const[refreshing,setRefreshing]=useState(false);
   const[activePanel,setActivePanel]=useState('tendencia');
-  const[sidebarOpen,setSidebarOpen]=useState(false);
-  const[avatarOpen,setAvatarOpen]=useState(false);
-  const[showPwModal,setShowPwModal]=useState(false);
-  const[pwNew,setPwNew]=useState('');
-  const[pwConfirm,setPwConfirm]=useState('');
-  const[pwError,setPwError]=useState('');
-  const[pwSuccess,setPwSuccess]=useState(false);
-  const[pwLoading,setPwLoading]=useState(false);
 
   const screenW=useWW();
   const isMobile=screenW<768;
@@ -95,22 +89,22 @@ const App = ({onLogout, userEmail}) => {
   },[activePanel]);
 
   const handlePwChange=useCallback(async()=>{
-    if(pwNew.length<6||pwNew!==pwConfirm)return;
-    setPwLoading(true);setPwError('');
+    if(pw.new.length<6||pw.new!==pw.confirm)return;
+    setPw(p=>({...p,loading:true,error:''}));
     try{
-      const{error}=await supabase.auth.updateUser({password:pwNew});
+      const{error}=await supabase.auth.updateUser({password:pw.new});
       if(error){
-        setPwError(error.status===422?'Senha não atende aos requisitos mínimos.':'Erro ao atualizar senha. Tente novamente.');
+        setPw(p=>({...p,error:error.status===422?'Senha não atende aos requisitos mínimos.':'Erro ao atualizar senha. Tente novamente.'}));
       }else{
-        setPwSuccess(true);
-        setTimeout(()=>{setShowPwModal(false);setPwNew('');setPwConfirm('');setPwSuccess(false);},2000);
+        setPw(p=>({...p,success:true}));
+        setTimeout(()=>setPw(PW_INITIAL),2000);
       }
     }catch{
-      setPwError('Erro de conexão. Verifique sua internet e tente novamente.');
+      setPw(p=>({...p,error:'Erro de conexão. Verifique sua internet e tente novamente.'}));
     }finally{
-      setPwLoading(false);
+      setPw(p=>({...p,loading:false}));
     }
-  },[pwNew,pwConfirm]);
+  },[pw.new,pw.confirm]);
 
   useEffect(()=>{
     const drop=e=>{e.preventDefault();const f=e.dataTransfer?.files[0];if(!f?.name.endsWith('.json'))return;const r=new FileReader();r.onload=ev=>{try{const d=JSON.parse(ev.target.result);if(Array.isArray(d)&&d[0]?.username)setSocialData(d);else if(Array.isArray(d)&&d[0]?.title)setNewsRaw(d);else if(d?.sentiment)setSentimentData(d);}catch{}};r.readAsText(f);};
@@ -122,13 +116,13 @@ const App = ({onLogout, userEmail}) => {
   const articles=useMemo(()=>newsRaw?.map(classify)||[],[newsRaw]);
   const filteredNews=useMemo(()=>{
     let f=articles;
-    if(filterRelevance==='relevant')f=f.filter(n=>n.relevance>=0.5);
-    else if(filterRelevance==='direct')f=f.filter(n=>n.relevance>=0.8);
-    if(filterType!=='all')f=f.filter(n=>n.mentionType===filterType);
-    if(filterScope!=='all')f=f.filter(n=>n.scope===filterScope);
-    if(selectedCluster!=='all')f=f.filter(n=>n.cluster===selectedCluster);
-    return sortOrder==='score'?[...f].sort((a,b)=>a.score-b.score):[...f].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
-  },[articles,selectedCluster,sortOrder,filterType,filterScope,filterRelevance]);
+    if(filters.relevance==='relevant')f=f.filter(n=>n.relevance>=0.5);
+    else if(filters.relevance==='direct')f=f.filter(n=>n.relevance>=0.8);
+    if(filters.type!=='all')f=f.filter(n=>n.mentionType===filters.type);
+    if(filters.scope!=='all')f=f.filter(n=>n.scope===filters.scope);
+    if(filters.cluster!=='all')f=f.filter(n=>n.cluster===filters.cluster);
+    return filters.sortOrder==='score'?[...f].sort((a,b)=>a.score-b.score):[...f].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  },[articles,filters]);
 
   // Reseta paginação sempre que o conjunto filtrado muda
   useEffect(()=>{setVisibleCount(50);},[filteredNews]);
@@ -146,9 +140,9 @@ const App = ({onLogout, userEmail}) => {
   const filtM=useMemo(()=>metrics(filteredNews),[filteredNews]);
   const hm=useMemo(()=>calcHeaderMetrics(articles,adversariosData,socialData,sentimentData),[articles,adversariosData,socialData,sentimentData]);
   const clCounts=useMemo(()=>{
-    const base=articles.filter(n=>{if(filterType!=='all'&&n.mentionType!==filterType)return false;if(filterScope!=='all'&&n.scope!==filterScope)return false;return true;});
+    const base=articles.filter(n=>{if(filters.type!=='all'&&n.mentionType!==filters.type)return false;if(filters.scope!=='all'&&n.scope!==filters.scope)return false;return true;});
     const c={};base.forEach(n=>{c[n.cluster]=(c[n.cluster]||0)+1;});return c;
-  },[articles,filterType,filterScope]);
+  },[articles,filters.type,filters.scope]);
 
   if(loading)return(<div style={{minHeight:'100vh',background:'#1A2744',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,sans-serif"}}><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style><div style={{position:'relative',width:76,height:76,marginBottom:28}}><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid rgba(212,160,23,0.18)'}}/><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid transparent',borderTopColor:'#D4A017',animation:'spin 1s linear infinite'}}/><ShieldAlert size={26} style={{color:'#D4A017',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}/></div><p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',margin:0}}>Carregando dados</p></div>);
 
@@ -166,7 +160,7 @@ const App = ({onLogout, userEmail}) => {
     {/* Zona Superior 48px */}
     <div style={{height:48,flexShrink:0,display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 20px',borderBottom:isMobile?'none':'1px solid rgba(255,255,255,0.06)'}}>
       <div style={{display:'flex',alignItems:'center',gap:10}}>
-        {isMobile&&<button onClick={()=>setSidebarOpen(o=>!o)} style={{background:'none',border:'none',cursor:'pointer',padding:6,display:'flex',alignItems:'center',color:'#8C93A8'}}><Menu size={20}/></button>}
+        {isMobile&&<button onClick={()=>setNav(n=>({...n,sidebarOpen:!n.sidebarOpen}))} style={{background:'none',border:'none',cursor:'pointer',padding:6,display:'flex',alignItems:'center',color:'#8C93A8'}}><Menu size={20}/></button>}
         <ShieldAlert size={16} style={{color:'#D4A017'}}/>
       </div>
       <span style={{flex:1,textAlign:'center',fontSize:isMobile?15:16,fontWeight:800,color:'#FFFFFF',letterSpacing:'0.08em',textTransform:'uppercase',whiteSpace:'nowrap'}}>Hub63 Data Solutions</span>
@@ -175,12 +169,12 @@ const App = ({onLogout, userEmail}) => {
           <RefreshCw size={11} style={{animation:refreshing?'spin 1s linear infinite':'none'}}/>{!isMobile&&(refreshing?'...':'Atualizar')}
         </button>
         {onLogout&&<div style={{position:'relative',flexShrink:0}}>
-          <button onClick={()=>setAvatarOpen(o=>!o)} title={userEmail} style={{width:32,height:32,borderRadius:'50%',background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.12)',display:'flex',alignItems:'center',justifyContent:'center',cursor:'pointer',color:'#D4A017',fontSize:11,fontWeight:800,outline:'none'}}>CB</button>
-          {avatarOpen&&<>
-            <div style={{position:'fixed',inset:0,zIndex:299}} onClick={()=>setAvatarOpen(false)}/>
+          <button onClick={()=>setNav(n=>({...n,avatarOpen:!n.avatarOpen}))} title={userEmail} style={{width:32,height:32,borderRadius:'50%',background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.12)',display:'flex',alignItems:'center',justifyContent:'center',cursor:'pointer',color:'#D4A017',fontSize:11,fontWeight:800,outline:'none'}}>CB</button>
+          {nav.avatarOpen&&<>
+            <div style={{position:'fixed',inset:0,zIndex:299}} onClick={()=>setNav(n=>({...n,avatarOpen:false}))}/>
             <div style={{position:'absolute',top:'calc(100% + 6px)',right:0,zIndex:300,background:'#FFFFFF',border:'1px solid rgba(26,39,68,0.08)',borderRadius:8,boxShadow:'0 4px 12px rgba(0,0,0,0.1)',minWidth:160,overflow:'hidden'}}>
-              <button onClick={()=>{setAvatarOpen(false);setShowPwModal(true);}} onMouseEnter={e=>e.currentTarget.style.background='#F5F3EE'} onMouseLeave={e=>e.currentTarget.style.background='none'} style={{display:'block',width:'100%',padding:'10px 16px',fontSize:13,color:'#1A2744',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>Alterar senha</button>
-              <button onClick={()=>{setAvatarOpen(false);onLogout();}} onMouseEnter={e=>e.currentTarget.style.background='#F5F3EE'} onMouseLeave={e=>e.currentTarget.style.background='none'} style={{display:'block',width:'100%',padding:'10px 16px',fontSize:13,color:'#B91C1C',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>Sair</button>
+              <button onClick={()=>{setNav(n=>({...n,avatarOpen:false}));setPw(p=>({...p,show:true}));}} onMouseEnter={e=>e.currentTarget.style.background='#F5F3EE'} onMouseLeave={e=>e.currentTarget.style.background='none'} style={{display:'block',width:'100%',padding:'10px 16px',fontSize:13,color:'#1A2744',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>Alterar senha</button>
+              <button onClick={()=>{setNav(n=>({...n,avatarOpen:false}));onLogout();}} onMouseEnter={e=>e.currentTarget.style.background='#F5F3EE'} onMouseLeave={e=>e.currentTarget.style.background='none'} style={{display:'block',width:'100%',padding:'10px 16px',fontSize:13,color:'#B91C1C',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>Sair</button>
             </div>
           </>}
         </div>}
@@ -223,10 +217,10 @@ const App = ({onLogout, userEmail}) => {
 
   {/* ── LAYOUT BODY ── */}
   <div style={{display:'flex',paddingTop:isMobile?48:160}}>
-    {isMobile&&sidebarOpen&&<div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.6)',zIndex:149}} onClick={()=>setSidebarOpen(false)}/>}
+    {isMobile&&nav.sidebarOpen&&<div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.6)',zIndex:149}} onClick={()=>setNav(n=>({...n,sidebarOpen:false}))}/>}
 
     {/* ── SIDEBAR ── */}
-    <aside style={{position:'fixed',top:isMobile?48:160,left:0,bottom:0,width:isMobile?(sidebarOpen?260:0):isTablet?60:260,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
+    <aside style={{position:'fixed',top:isMobile?48:160,left:0,bottom:0,width:isMobile?(nav.sidebarOpen?260:0):isTablet?60:260,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
       <div style={{display:'flex',flexDirection:'column',gap:4}}>
       {[
         {id:'tendencia', label:'Tendência 2022', icon:TrendingUp,  sub:'Bolsonaro × Lula'},
@@ -242,7 +236,7 @@ const App = ({onLogout, userEmail}) => {
         const showSub=!isMobile&&!isTablet;
         return(
           <button key={id}
-            onClick={()=>{setActivePanel(id);if(isMobile)setSidebarOpen(false);}}
+            onClick={()=>{setActivePanel(id);if(isMobile)setNav(n=>({...n,sidebarOpen:false}));}}
             onMouseEnter={e=>{if(!isAct)e.currentTarget.style.background='#F5F3EE';}}
             onMouseLeave={e=>{if(!isAct)e.currentTarget.style.background='transparent';}}
             style={{display:'flex',alignItems:'center',gap:12,padding:isMobile?'16px 20px':'14px 18px',minHeight:48,
@@ -326,7 +320,7 @@ const App = ({onLogout, userEmail}) => {
             {id:'direct',l:isMobile?'Diretas':'Diretas ao candidato',color:'#b91c1c'},
             {id:'relevant',l:isMobile?'≥0.5':'Relevantes (≥0.5)',color:'#1A3A7A'},
             {id:'all',l:isMobile?'Todas':'Todas (incl. PMTO genéricas)',color:'#8c93a8'},
-          ].map(r=><Bt key={r.id} active={filterRelevance===r.id} color={r.color} onClick={()=>setFilterRelevance(r.id)}>{r.l}</Bt>)}
+          ].map(r=><Bt key={r.id} active={filters.relevance===r.id} color={r.color} onClick={()=>dispatchFilter({key:'relevance',value:r.id})}>{r.l}</Bt>)}
         </div>
 
         <div style={{display:'flex',gap:6,marginBottom:10,flexWrap:'wrap'}}>
@@ -335,24 +329,24 @@ const App = ({onLogout, userEmail}) => {
             {id:'direta',l:isMobile?'● Dir.':'● Diretas'},
             {id:'eleitoral',l:isMobile?'◆ Eleit.':'◆ Eleitorais'},
             {id:'institucional',l:'○ PMTO'},
-          ].map(t=><Bt key={t.id} active={filterType===t.id} color="#1a3a7a" onClick={()=>setFilterType(t.id)}>{t.l}</Bt>)}
+          ].map(t=><Bt key={t.id} active={filters.type===t.id} color="#1a3a7a" onClick={()=>dispatchFilter({key:'type',value:t.id})}>{t.l}</Bt>)}
           <div style={{width:1,height:28,background:'rgba(255,255,255,0.1)',margin:'0 4px'}}/>
-          {[{id:'all',l:'TO+BR',i:Layers},{id:'TO',l:'Tocantins',i:MapPin},{id:'BR',l:'Nacional',i:Globe}].map(s=><Bt key={s.id} active={filterScope===s.id} color="#22c55e" onClick={()=>setFilterScope(s.id)}><s.i size={11}/> {s.l}</Bt>)}
+          {[{id:'all',l:'TO+BR',i:Layers},{id:'TO',l:'Tocantins',i:MapPin},{id:'BR',l:'Nacional',i:Globe}].map(s=><Bt key={s.id} active={filters.scope===s.id} color="#22c55e" onClick={()=>dispatchFilter({key:'scope',value:s.id})}><s.i size={11}/> {s.l}</Bt>)}
         </div>
 
         <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:16,flexWrap:'wrap',gap:8}}>
           <div style={{display:'flex',gap:5,flexWrap:'wrap'}}>
-            {CLUSTERS.map(c=>{const cnt=c.id==='all'?null:clCounts[c.id]||0;if(c.id!=='all'&&!cnt)return null;return<Bt key={c.id} active={selectedCluster===c.id} color={c.color} onClick={()=>setSelectedCluster(c.id)}><c.icon size={11}/> {c.label}{cnt!==null&&<span style={{opacity:0.5}}> ({cnt})</span>}</Bt>;})}
+            {CLUSTERS.map(c=>{const cnt=c.id==='all'?null:clCounts[c.id]||0;if(c.id!=='all'&&!cnt)return null;return<Bt key={c.id} active={filters.cluster===c.id} color={c.color} onClick={()=>dispatchFilter({key:'cluster',value:c.id})}><c.icon size={11}/> {c.label}{cnt!==null&&<span style={{opacity:0.5}}> ({cnt})</span>}</Bt>;})}
           </div>
           <div style={{display:'flex',gap:5}}>
-            <Bt active={sortOrder==='date'} color="#3b82f6" onClick={()=>setSortOrder('date')}><Calendar size={10}/> Data</Bt>
-            <Bt active={sortOrder==='score'} color="#ef4444" onClick={()=>setSortOrder('score')}><TrendingDown size={10}/> Toxicidade</Bt>
+            <Bt active={filters.sortOrder==='date'} color="#3b82f6" onClick={()=>dispatchFilter({key:'sortOrder',value:'date'})}><Calendar size={10}/> Data</Bt>
+            <Bt active={filters.sortOrder==='score'} color="#ef4444" onClick={()=>dispatchFilter({key:'sortOrder',value:'score'})}><TrendingDown size={10}/> Toxicidade</Bt>
           </div>
         </div>
 
         <div style={{fontSize:13,color:'#8c93a8',marginBottom:12,display:'flex',gap:16}}>
-          <span>{filteredNews.length} menção(ões) {filterType!=='all'||filterScope!=='all'||selectedCluster!=='all'?'filtradas':'no total'}</span>
-          {(filterType!=='all'||filterScope!=='all'||selectedCluster!=='all')&&<span style={{color:'#b91c1c'}}>Toxicidade: {filtM.tox}%</span>}
+          <span>{filteredNews.length} menção(ões) {filters.type!=='all'||filters.scope!=='all'||filters.cluster!=='all'?'filtradas':'no total'}</span>
+          {(filters.type!=='all'||filters.scope!=='all'||filters.cluster!=='all')&&<span style={{color:'#b91c1c'}}>Toxicidade: {filtM.tox}%</span>}
         </div>
 
         <div style={{display:'flex',flexDirection:'column',gap:10,marginBottom:8}}>
@@ -374,32 +368,53 @@ const App = ({onLogout, userEmail}) => {
   </div>
 
   {/* ── MODAL ALTERAR SENHA ── */}
-  {showPwModal&&<div style={{position:'fixed',inset:0,zIndex:500,background:'rgba(0,0,0,0.5)',display:'flex',alignItems:'center',justifyContent:'center',padding:20}}>
+  {pw.show&&(()=>{
+    const mismatch=pw.new&&pw.confirm&&pw.new!==pw.confirm;
+    const borderErr='#B91C1C', borderNorm='rgba(26,39,68,0.15)';
+    const score=[/[a-z]/.test(pw.new),/[A-Z]/.test(pw.new),/\d/.test(pw.new),/[^a-zA-Z0-9]/.test(pw.new),pw.new.length>=8].filter(Boolean).length;
+    const strength=[null,'fraca','fraca','média','forte','forte'][score];
+    const strengthColor=['','#ef4444','#ef4444','#f59e0b','#22c55e','#22c55e'][score];
+    return(
+    <div style={{position:'fixed',inset:0,zIndex:500,background:'rgba(0,0,0,0.5)',display:'flex',alignItems:'center',justifyContent:'center',padding:20}}>
     <div style={{background:'#FFFFFF',borderRadius:16,padding:32,maxWidth:400,width:'100%',boxShadow:'0 8px 32px rgba(0,0,0,0.2)'}}>
       <h2 style={{fontSize:18,fontWeight:700,color:'#1A2744',margin:'0 0 20px'}}>Alterar senha</h2>
       <div style={{display:'flex',flexDirection:'column',gap:12}}>
-        <input type="password" placeholder="Nova senha" minLength={6} value={pwNew} onChange={e=>{setPwNew(e.target.value);setPwError('');}}
-          style={{border:`1px solid ${pwNew&&pwConfirm&&pwNew!==pwConfirm?'#B91C1C':'rgba(26,39,68,0.15)'}`,borderRadius:8,padding:12,fontSize:14,outline:'none',fontFamily:'inherit',transition:'border-color 0.15s',width:'100%',boxSizing:'border-box'}}
-          onFocus={e=>e.target.style.borderColor='#D4A017'} onBlur={e=>e.target.style.borderColor=pwNew&&pwConfirm&&pwNew!==pwConfirm?'#B91C1C':'rgba(26,39,68,0.15)'}/>
-        <input type="password" placeholder="Confirmar senha" value={pwConfirm} onChange={e=>{setPwConfirm(e.target.value);setPwError('');}}
-          style={{border:`1px solid ${pwNew&&pwConfirm&&pwNew!==pwConfirm?'#B91C1C':'rgba(26,39,68,0.15)'}`,borderRadius:8,padding:12,fontSize:14,outline:'none',fontFamily:'inherit',transition:'border-color 0.15s',width:'100%',boxSizing:'border-box'}}
-          onFocus={e=>e.target.style.borderColor='#D4A017'} onBlur={e=>e.target.style.borderColor=pwNew&&pwConfirm&&pwNew!==pwConfirm?'#B91C1C':'rgba(26,39,68,0.15)'}/>
-        {pwNew&&pwConfirm&&pwNew!==pwConfirm&&<p style={{fontSize:12,color:'#B91C1C',margin:0}}>As senhas não coincidem.</p>}
-        {pwError&&<p style={{fontSize:12,color:'#B91C1C',margin:0}}>{pwError}</p>}
-        {pwSuccess&&<p style={{fontSize:12,color:'#15803D',margin:0,fontWeight:600}}>Senha alterada com sucesso!</p>}
+        <div>
+          <input type="password" placeholder="Nova senha (mín. 8 caracteres)" value={pw.new}
+            onChange={e=>setPw(p=>({...p,new:e.target.value,error:''}))}
+            style={{border:`1px solid ${mismatch?borderErr:borderNorm}`,borderRadius:8,padding:12,fontSize:14,outline:'none',fontFamily:'inherit',transition:'border-color 0.15s',width:'100%',boxSizing:'border-box'}}
+            onFocus={e=>e.target.style.borderColor='#D4A017'} onBlur={e=>e.target.style.borderColor=mismatch?borderErr:borderNorm}/>
+          {pw.new&&(
+            <div style={{marginTop:6,display:'flex',alignItems:'center',gap:8}}>
+              <div style={{flex:1,height:4,borderRadius:4,background:'rgba(26,39,68,0.08)',overflow:'hidden'}}>
+                <div style={{width:`${(score/5)*100}%`,height:'100%',background:strengthColor,borderRadius:4,transition:'width 0.3s,background 0.3s'}}/>
+              </div>
+              <span style={{fontSize:11,fontWeight:700,color:strengthColor,minWidth:36}}>{strength}</span>
+            </div>
+          )}
+        </div>
+        <input type="password" placeholder="Confirmar senha" value={pw.confirm}
+          onChange={e=>setPw(p=>({...p,confirm:e.target.value,error:''}))}
+          style={{border:`1px solid ${mismatch?borderErr:borderNorm}`,borderRadius:8,padding:12,fontSize:14,outline:'none',fontFamily:'inherit',transition:'border-color 0.15s',width:'100%',boxSizing:'border-box'}}
+          onFocus={e=>e.target.style.borderColor='#D4A017'} onBlur={e=>e.target.style.borderColor=mismatch?borderErr:borderNorm}/>
+        {mismatch&&<p style={{fontSize:12,color:'#B91C1C',margin:0}}>As senhas não coincidem.</p>}
+        {pw.error&&<p style={{fontSize:12,color:'#B91C1C',margin:0}}>{pw.error}</p>}
+        {pw.success&&<p style={{fontSize:12,color:'#15803D',margin:0,fontWeight:600}}>Senha alterada com sucesso!</p>}
         <div style={{display:'flex',gap:8,marginTop:4}}>
-          <button onClick={handlePwChange} disabled={pwLoading||pwNew.length<6||pwNew!==pwConfirm}
-            style={{flex:1,background:'#1A2744',color:'#FFFFFF',border:'none',borderRadius:8,padding:'12px 24px',fontSize:14,fontWeight:700,cursor:pwLoading||pwNew.length<6||pwNew!==pwConfirm?'not-allowed':'pointer',opacity:pwLoading||pwNew.length<6||pwNew!==pwConfirm?0.5:1,fontFamily:'inherit'}}>
-            {pwLoading?'Salvando...':'Salvar'}
+          <button onClick={handlePwChange} disabled={pw.loading||pw.new.length<6||pw.new!==pw.confirm||score<2}
+            style={{flex:1,background:'#1A2744',color:'#FFFFFF',border:'none',borderRadius:8,padding:'12px 24px',fontSize:14,fontWeight:700,cursor:'pointer',opacity:pw.loading||pw.new.length<6||pw.new!==pw.confirm||score<2?0.5:1,fontFamily:'inherit'}}>
+            {pw.loading?'Salvando...':'Salvar'}
           </button>
-          <button onClick={()=>{setShowPwModal(false);setPwNew('');setPwConfirm('');setPwError('');setPwSuccess(false);}}
+          <button onClick={()=>setPw(PW_INITIAL)}
             style={{padding:'12px 16px',background:'transparent',border:'none',color:'#5A6478',fontSize:14,cursor:'pointer',fontFamily:'inherit'}}>
             Cancelar
           </button>
         </div>
       </div>
     </div>
-  </div>}
+  </div>
+    );
+  })()}
 
   </div>);
 };
