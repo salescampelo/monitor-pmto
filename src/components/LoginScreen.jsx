@@ -129,12 +129,13 @@ export default function LoginScreen() {
             Acesso restrito
           </p>
 
-          <form onSubmit={handleLogin} style={{display:'flex',flexDirection:'column',gap:14}}>
+          <form onSubmit={handleLogin} aria-label="Formulário de login" style={{display:'flex',flexDirection:'column',gap:14}}>
 
             {/* e-mail */}
             <div style={{position:'relative'}}>
-              <Mail size={15} style={{position:'absolute',left:14,top:'50%',transform:'translateY(-50%)',color:'rgba(255,255,255,0.3)',pointerEvents:'none'}}/>
+              <Mail size={15} aria-hidden="true" style={{position:'absolute',left:14,top:'50%',transform:'translateY(-50%)',color:'rgba(255,255,255,0.3)',pointerEvents:'none'}}/>
               <input
+                id="email"
                 className="login-input"
                 type="email"
                 placeholder="seu@email.com"
@@ -142,13 +143,17 @@ export default function LoginScreen() {
                 onChange={e => setEmail(e.target.value)}
                 required
                 autoComplete="email"
+                aria-required="true"
+                aria-invalid={error ? 'true' : undefined}
+                aria-describedby={error ? 'login-error' : undefined}
               />
             </div>
 
             {/* senha */}
             <div style={{position:'relative'}}>
-              <Lock size={15} style={{position:'absolute',left:14,top:'50%',transform:'translateY(-50%)',color:'rgba(255,255,255,0.3)',pointerEvents:'none'}}/>
+              <Lock size={15} aria-hidden="true" style={{position:'absolute',left:14,top:'50%',transform:'translateY(-50%)',color:'rgba(255,255,255,0.3)',pointerEvents:'none'}}/>
               <input
+                id="password"
                 className="login-input"
                 type="password"
                 placeholder="••••••••"
@@ -156,21 +161,22 @@ export default function LoginScreen() {
                 onChange={e => setPassword(e.target.value)}
                 required
                 autoComplete="current-password"
+                aria-required="true"
               />
             </div>
 
             {/* erro */}
             {error && (
-              <div style={{display:'flex',alignItems:'center',gap:8,background:'rgba(239,68,68,0.15)',border:'1px solid rgba(239,68,68,0.3)',borderRadius:8,padding:'10px 12px'}}>
-                <AlertCircle size={14} style={{color:'#ef4444',flexShrink:0}}/>
+              <div id="login-error" role="alert" aria-live="polite" style={{display:'flex',alignItems:'center',gap:8,background:'rgba(239,68,68,0.15)',border:'1px solid rgba(239,68,68,0.3)',borderRadius:8,padding:'10px 12px'}}>
+                <AlertCircle size={14} aria-hidden="true" style={{color:'#ef4444',flexShrink:0}}/>
                 <span style={{fontSize:13,color:'#fca5a5'}}>{error}</span>
               </div>
             )}
 
-            <button className="login-btn" type="submit" disabled={loading}>
+            <button className="login-btn" type="submit" disabled={loading} aria-busy={loading}>
               {loading
-                ? <><div style={{width:14,height:14,border:'2px solid rgba(26,29,46,0.4)',borderTop:'2px solid #1a1d2e',borderRadius:'50%',animation:'spin 0.7s linear infinite'}}/> Entrando...</>
-                : <><LogIn size={15}/> Entrar</>
+                ? <><div aria-hidden="true" style={{width:14,height:14,border:'2px solid rgba(26,29,46,0.4)',borderTop:'2px solid #1a1d2e',borderRadius:'50%',animation:'spin 0.7s linear infinite'}}/> Entrando...</>
+                : <><LogIn size={15} aria-hidden="true"/> Entrar</>
               }
             </button>
           </form>

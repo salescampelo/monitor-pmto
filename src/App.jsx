@@ -248,6 +248,7 @@ const App = ({onLogout, userEmail}) => {
   return(
   <div style={{minHeight:'100vh',background:'#F8F7F4',color:'#1A2744',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif"}}>
   <style>{CSS}</style>
+  <a href="#main-content" className="skip-link">Pular para conteúdo principal</a>
   {isOffline&&(
     <div style={{position:'fixed',top:0,left:0,right:0,zIndex:9999,background:'#b91c1c',color:'#fff',fontSize:12,fontWeight:700,textAlign:'center',padding:'6px 16px',letterSpacing:'0.05em'}}>
       SEM CONEXÃO — os dados exibidos podem estar desatualizados
@@ -258,10 +259,10 @@ const App = ({onLogout, userEmail}) => {
 
   {/* ── LAYOUT BODY ── */}
   <div style={{display:'flex'}}>
-    {isMobile&&nav.sidebarOpen&&<div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.6)',zIndex:149}} onClick={()=>setNav(n=>({...n,sidebarOpen:false}))}/>}
+    {isMobile&&nav.sidebarOpen&&<div aria-hidden="true" style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.6)',zIndex:149}} onClick={()=>setNav(n=>({...n,sidebarOpen:false}))}/>}
 
     {/* ── SIDEBAR ── */}
-    <aside style={{position:isMobile?'fixed':'sticky',top:0,left:0,bottom:isMobile?0:'auto',alignSelf:'flex-start',height:isMobile?undefined:'100vh',width:isMobile?(nav.sidebarOpen?260:0):isTablet?60:260,flexShrink:0,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
+    <aside id="sidebar-nav" role="navigation" aria-label="Menu principal" style={{position:isMobile?'fixed':'sticky',top:0,left:0,bottom:isMobile?0:'auto',alignSelf:'flex-start',height:isMobile?undefined:'100vh',width:isMobile?(nav.sidebarOpen?260:0):isTablet?60:260,flexShrink:0,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
       <div style={{display:'flex',flexDirection:'column',gap:4}}>
       {[
         {id:'tendencia', label:'Tendência 2022', icon:TrendingUp,  sub:'Bolsonaro × Lula'},
@@ -279,6 +280,7 @@ const App = ({onLogout, userEmail}) => {
         return(
           <button key={id}
             onClick={()=>{setActivePanel(id);if(isMobile)setNav(n=>({...n,sidebarOpen:false}));}}
+            aria-current={isAct?'page':undefined}
             onMouseEnter={e=>{if(!isAct)e.currentTarget.style.background='#F5F3EE';}}
             onMouseLeave={e=>{if(!isAct)e.currentTarget.style.background='transparent';}}
             style={{display:'flex',alignItems:'center',gap:12,padding:isMobile?'16px 20px':'14px 18px',minHeight:48,
@@ -291,7 +293,7 @@ const App = ({onLogout, userEmail}) => {
               fontFamily:'inherit',width:'100%',boxSizing:'border-box',
               transition:'background 0.15s ease',whiteSpace:'nowrap',overflow:'hidden',textAlign:'left',
             }}>
-            <Icon size={20} style={{flexShrink:0,color:isAct?'#D4A017':'inherit'}}/>
+            <Icon size={20} aria-hidden="true" style={{flexShrink:0,color:isAct?'#D4A017':'inherit'}}/>
             {showLabel&&(
               <span style={{display:'flex',flexDirection:'column',minWidth:0}}>
                 <span>{label}</span>
@@ -322,7 +324,7 @@ const App = ({onLogout, userEmail}) => {
     </aside>
 
     {/* ── CONTENT AREA ── */}
-    <main style={{padding:isMobile?'8px 10px':'24px',flex:1,minWidth:0,minHeight:'100vh'}}>
+    <main id="main-content" aria-label="Conteúdo principal" style={{padding:isMobile?'8px 10px':'24px',flex:1,minWidth:0,minHeight:'100vh'}}>
       <div key={activePanel} className="panel-fade">
         {activePanel==='tendencia'&&<SafePanel><TendenciaVotoPanel tendenciaData={tendenciaData}/></SafePanel>}
         {activePanel==='adversarios'&&<SafePanel><AdversariosPanel adversariosData={adversariosData}/></SafePanel>}
