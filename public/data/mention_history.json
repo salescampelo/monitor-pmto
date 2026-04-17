@@ -18528,5 +18528,23 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro"
+  },
+  {
+    "hash_id": "92c0941fd61a",
+    "title": "Da hamburgueria ao UFC: Conheça a história do amapaense Márcio Barbosa, o Ticotô",
+    "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNdkZyUWNzRUUzRjkteGFvZFl0WXYwRjduNldXQ2hLTnRHYUdJQVhBX2JwWlQ1QXNiYndVMXEtVVhITE8tb0pjU0NZMF90SjZmZ0tVRXdPWERsVHltLUpCNkdwTjhkdl9ZUk03Nl81Wllmc2w5UGZjOHNSdXFtbE0yVlh4anc0dW5jbm1vNGlFc1A4LVM3THlBS1U0aDUtTnpUOXhNNm9aUHhJLWZNN01GQUhFa1pVZ25YWGVBRnQxZTdmMWpoUExtUjd2LTRqZF81ZzRNZTQ5clRPRm9aU3hSZk5tQ2g?oc=5",
+    "source_name": "UOL",
+    "source_type": "google_news",
+    "priority": "alta",
+    "scope": "BR",
+    "matched_terms": [
+      "\"Márcio Barbosa\" candidato when:1d"
+    ],
+    "mention_type": "direta",
+    "detected_at": "2026-04-17 10:37",
+    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi5AFBVV95cUxNdkZyUWNzRUUzRjkteGFvZFl0WXYwRjduNldXQ2hLTnRHYUdJQVhBX2JwWlQ1QXNiYndVMXEtVVhITE8tb0pjU0NZMF90SjZmZ0tVRXdPWERsVHltLUpCNkdwTjhkdl9ZUk03Nl81Wl",
+    "relevance_score": 0.85,
+    "relevance_label": "ELEITORAL",
+    "sentiment": "Neutro"
   }
 ]
