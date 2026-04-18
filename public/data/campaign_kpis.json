@@ -41,7 +41,7 @@
     {
       "id": "mencoes_imprensa",
       "label": "Menções imprensa (30 dias)",
-      "current": 30,
+      "current": 36,
       "targets": {
         "1": 60,
         "2": 120,
@@ -72,5 +72,5 @@
       "format": "number"
     }
   ],
-  "updated_at": "2026-04-18 14:41"
+  "updated_at": "2026-04-18 23:54"
 }
