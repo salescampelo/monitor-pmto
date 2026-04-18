@@ -292,7 +292,7 @@ const App = ({onLogout, userEmail}) => {
         {id:'adversarios',label:'Inteligência',  icon:Target,      sub:'17 adversários'},
         {id:'kpis',      label:'Metas',          icon:BarChart3,   sub:'Fase 1 · KPIs'},
         {id:'geo',       label:'Eleitoral',       icon:MapPin,      sub:'139 municípios'},
-        {id:'campo',     label:'Mapa de Campo',   icon:Map,         sub:'Lideranças · Visitas'},
+        {id:'campo',     label:'Mapa de Capilaridade',   icon:Map,         sub:'Lideranças · Visitas'},
         {id:'social',    label:'Redes Sociais',   icon:Users,       sub:'18 perfis IG'},
         {id:'imprensa',  label:'Imprensa',        icon:Newspaper,   badge:hm.alerts, sub:'32 fontes'},
         ...(isAdmin?[{id:'auditoria',label:'Auditoria',icon:Shield,sub:'Logs de acesso'}]:[]),

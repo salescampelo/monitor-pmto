@@ -19,7 +19,7 @@ const PANEL_DESCRIPTIONS = {
     description: 'Base de 139 municípios com população, eleitorado e potencial de votos. Priorização automática para alocação de recursos e agenda de visitas.',
   },
   campo: {
-    title: 'Mapa de Campo',
+    title: 'Mapa de Capilaridade',
     description: 'Visualização da capilaridade territorial. Coordenadores regionais, lideranças mapeadas e histórico de visitas por município.',
   },
   social: {

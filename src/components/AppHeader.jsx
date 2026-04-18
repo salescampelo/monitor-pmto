@@ -19,8 +19,8 @@ const getKpiColor = (type, value) => {
       if (value >= 1) return '#eab308';
       return 'rgba(255,255,255,0.5)';
     case 'sentimento':
-      if (value >= 50) return '#22c55e';
-      if (value >= 30) return '#4ade80';
+      if (value >= 30) return '#22c55e';
+      if (value >= 15) return '#4ade80';
       if (value > 0)   return '#86efac';
       return 'rgba(255,255,255,0.5)';
     default:
