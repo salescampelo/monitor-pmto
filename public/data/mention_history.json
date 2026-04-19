@@ -663,5 +663,30 @@
     "collected_at": "2026-04-18T23:54:19",
     "year": 2026,
     "month": 4
+  },
+  {
+    "hash_id": "deb70b1080d9",
+    "title": "O pré-candidato a deputado federal, Cel Marcio Barbosa*, esteve em Presidente Kennedy fortalecendo alianças importantes para o futuro da cidade.",
+    "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxOMTVZTGNDWkppQTMtRXNISWg4WU1uenRxWk5XVzlrbXdQNlR2c0k0NkFPb1dMUS1JMVN5WnFRZ3Q0YzVKT3U0bWdROFFPd3l3NDRNMThlY1FJQkx4LTcxLTgzUGNxbF9NdnRKQ1VwMWNFS1hqWVMxNmMwVTRDX1loV0tIZHZvUldVSmVOWlBBRUZhTnBQTDE3VGlhUS02WFM4Mlowdmg1NmhibERLb01qWUttbWJqeVl1NVVGQUJ3WThwRTRSNUEyWDZTamFnTXJBc0E0OHRDUXM2d2JSeXBtMzhnWjBuRDZIZGsyZTZnbElsU3NHUmVyc3ZTTlN1QQ?oc=5",
+    "source_name": "RR10 NOTÍCIAS |",
+    "source_type": "google_news",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "\"Márcio Barbosa\" PMTO when:1d"
+    ],
+    "mention_type": "direta",
+    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi_gFBVV95cUxOMTVZTGNDWkppQTMtRXNISWg4WU1uenRxWk5XVzlrbXdQNlR2c0k0NkFPb1dMUS1JMVN5WnFRZ3Q0YzVKT3U0bWdROFFPd3l3NDRNMThlY1FJQkx4LTcxLTgzUGNxbF9NdnRKQ1VwMW",
+    "relevance_score": 1.0,
+    "relevance_label": "DIRETA_ELEITORAL",
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.8,
+    "cluster": "Eleitoral",
+    "date": "2026-04-18",
+    "date_display": "18/04/2026",
+    "detected_at": "2026-04-19 09:10",
+    "collected_at": "2026-04-19T09:10:05",
+    "year": 2026,
+    "month": 4
   }
 ]
