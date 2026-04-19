@@ -19,7 +19,7 @@
     {
       "id": "seguidores_ig",
       "label": "Seguidores Instagram",
-      "current": 32033,
+      "current": 32055,
       "targets": {
         "1": 45000,
         "2": 60000,
@@ -30,7 +30,7 @@
     {
       "id": "engajamento_ig",
       "label": "Engajamento médio IG",
-      "current": 2.13,
+      "current": 2.38,
       "targets": {
         "1": 4.5,
         "2": 5.5,
@@ -72,5 +72,5 @@
       "format": "number"
     }
   ],
-  "updated_at": "2026-04-18 23:54"
+  "updated_at": "2026-04-19 09:08"
 }
