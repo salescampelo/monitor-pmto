@@ -688,5 +688,30 @@
     "collected_at": "2026-04-19T09:10:05",
     "year": 2026,
     "month": 4
+  },
+  {
+    "hash_id": "792a00e31bb7",
+    "title": "Coronel Márcio Barbosa fortalece alianças em Presidente Kennedy e confirma apoio de lideranças à sua pré-candidatura a deputado federal",
+    "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNVnBJbjV1VWlGVVI0QzZLeWRzRVhiam1wLXVGZkRBSmdwMWZoUjNoZG5lbVA0ZjJOenlkX0dkdlNDNzlHMDd4Rkd2ODFCNGJfTU1HUUFNSFhRMTVhNnhYS2dNemVTU1U0eDVRQ0ZFU01zM0Q5UVhEaEhRTDNxWlFwclBJamx3RjdheFdoQzBLMTA4dVVkeUw5c3AwbmtwODhocWh3NUlmbGFSNlQtSDI5QURSLWhKRm5XYTREa0I3RzBrc08tUlpIekROUHQyUjNNeFpmRjB3RzNGR1hsVTBOc2dMMFR6VjB6NndOY1JoZ1VvZHVJZEZz?oc=5",
+    "source_name": "RR10 NOTÍCIAS |",
+    "source_type": "google_news",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "\"Márcio Barbosa\" PMTO when:1d"
+    ],
+    "mention_type": "direta",
+    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi9wFBVV95cUxNVnBJbjV1VWlGVVI0QzZLeWRzRVhiam1wLXVGZkRBSmdwMWZoUjNoZG5lbVA0ZjJOenlkX0dkdlNDNzlHMDd4Rkd2ODFCNGJfTU1HUUFNSFhRMTVhNnhYS2dNemVTU1U0eDVRQ0ZFU0",
+    "relevance_score": 1.0,
+    "relevance_label": "DIRETA_ELEITORAL",
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.9,
+    "cluster": "Eleitoral",
+    "date": "2026-04-20",
+    "date_display": "20/04/2026",
+    "detected_at": "2026-04-20 11:08",
+    "collected_at": "2026-04-20T11:08:41",
+    "year": 2026,
+    "month": 4
   }
 ]
