@@ -1,0 +1,47 @@
+{
+  "updated_at": "2026-04-20 11:06",
+  "run_stats": {
+    "queries_rss": 20,
+    "entries_rss_raw": 0,
+    "duplicates": 0,
+    "blocked_date": 0,
+    "blocked_id": 0,
+    "blocked_id_reasons": {},
+    "approved_rss": 1,
+    "approved_scrape": 0,
+    "approved_indirect": 0,
+    "total_new": 1,
+    "sources_approved": {}
+  },
+  "history_summary": {
+    "total": 32,
+    "last_7d": 4,
+    "last_30d": 32,
+    "sources_7d": {
+      "RR10 NOTÍCIAS |": 3,
+      "Cleber Toledo": 1
+    },
+    "sources_30d": {
+      "Sou de Palmas": 7,
+      "RR10 NOTÍCIAS |": 6,
+      "Cleber Toledo": 5,
+      "Agência Tocantins": 4,
+      "Atitude Tocantins": 3,
+      "Gazeta do Cerrado": 2,
+      "Jornal Opção | Tocantins": 1,
+      "Folha do Jalapão -": 1,
+      "Norte do Tocantins": 1,
+      "tribunadopovoto.com.br": 1,
+      "Jornal Folha Capital": 1
+    },
+    "methods_30d": {
+      "RSS": 32
+    },
+    "sentiment_30d": {
+      "Neutro": 17,
+      "Positivo": 13,
+      "Negativo": 2
+    }
+  },
+  "sites_health": {}
+}

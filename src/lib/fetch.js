@@ -11,6 +11,7 @@ export const URLS = {
   adversarios: `${DATA_BASE}/adversarios.json`,
   tendencia:   `${DATA_BASE}/tendencia_voto_2022.json`,
   liderancas:  `${DATA_BASE}/liderancas.json`,
+  collector:   `${DATA_BASE}/collector_stats.json`,
 };
 
 const FETCH_TIMEOUT = 10000;

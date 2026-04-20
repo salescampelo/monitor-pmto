@@ -1,8 +1,18 @@
 import React, { useState, memo } from 'react';
 import PropTypes from 'prop-types';
-import { Target, ChevronUp, ChevronDown } from 'lucide-react';
+import { Target, ChevronUp, ChevronDown, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { Card, useWW, PanelSkeleton } from '../components/ui.jsx';
 import HelpTooltip from '../components/HelpTooltip.jsx';
+
+const getTrend = (current, previous, format) => {
+  if (previous == null || previous === 0) return null;
+  const diff = current - previous;
+  const pct = ((diff / previous) * 100);
+  if (Math.abs(pct) < 1) return { dir: 'stable', icon: Minus, color: '#8C93A8', label: 'Estável', delta: '' };
+  const abs = format === 'percent' ? `${Math.abs(diff).toFixed(1)}pp` : Math.abs(diff).toLocaleString('pt-BR');
+  if (diff > 0) return { dir: 'up', icon: TrendingUp, color: '#15803d', label: `+${abs}`, delta: `+${abs}` };
+  return { dir: 'down', icon: TrendingDown, color: '#b91c1c', label: `-${abs}`, delta: `-${abs}` };
+};
 
 function KpiPanel({kpiData}) {
   const[open,setOpen]=useState(true);
@@ -46,11 +56,15 @@ function KpiPanel({kpiData}) {
         const statusColor=isAchieved?'#15803d':(isOnTrack?'#1a3a7a':'#b91c1c');
         const displayCurrent=kpi.format==='percent'?`${current}%`:current.toLocaleString('pt-BR');
         const displayTarget=kpi.format==='percent'?`${target}%`:target.toLocaleString('pt-BR');
+        const trend=getTrend(current,kpi.previous,kpi.format);
         return(
         <Card key={kpi.id} style={{padding:'14px 18px'}}>
           <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:10}}>
             <span style={{fontSize:12,fontWeight:700,color:'#8C93A8'}}>{kpi.label}</span>
-            <span style={{fontSize:9,fontWeight:700,color:statusColor,background:`${statusColor}12`,padding:'2px 8px',borderRadius:4,textTransform:'uppercase'}}>{statusLabel}</span>
+            <div style={{display:'flex',alignItems:'center',gap:6}}>
+              {trend&&<span style={{display:'inline-flex',alignItems:'center',gap:3,fontSize:10,fontWeight:700,color:trend.color}} title={trend.label}><trend.icon size={12}/>{trend.delta}</span>}
+              <span style={{fontSize:9,fontWeight:700,color:statusColor,background:`${statusColor}12`,padding:'2px 8px',borderRadius:4,textTransform:'uppercase'}}>{statusLabel}</span>
+            </div>
           </div>
           <div style={{display:'flex',alignItems:'baseline',gap:6,marginBottom:8}}>
             <span style={{fontSize:26,fontWeight:800,color:'#1A2744'}}>{displayCurrent}</span>

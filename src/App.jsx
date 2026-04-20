@@ -24,6 +24,7 @@ const GeoPanel         = lazy(() => import('./panels/GeoPanel.jsx'));
 const AdversariosPanel = lazy(() => import('./panels/AdversariosPanel.jsx'));
 const MapaCampoPanel   = lazy(() => import('./panels/MapaCampoPanel.jsx'));
 const AuditoriaPanel   = lazy(() => import('./panels/AuditoriaPanel.jsx'));
+const QualidadePanel   = lazy(() => import('./panels/QualidadePanel.jsx'));
 import { logAccess } from './lib/accessLog.js';
 import { useOffline } from './lib/useOffline.js';
 import AppHeader from './components/AppHeader.jsx';
@@ -50,6 +51,7 @@ const App = ({onLogout, userEmail}) => {
   const[adversariosData,setAdversariosData]=useState(null);
   const[tendenciaData,setTendenciaData]=useState(null);
   const[liderancasData,setLiderancasData]=useState(null);
+  const[collectorData,setCollectorData]=useState(null);
   const[filters,   dispatchFilter]=useReducer(filterReducer, {
     cluster:   urlState.cluster,
     type:      urlState.type,
@@ -73,7 +75,7 @@ const App = ({onLogout, userEmail}) => {
 
   // Dynamic document title
   useEffect(()=>{
-    const titles={tendencia:'Tendência de Voto',adversarios:'Inteligência Competitiva',kpis:'Metas e KPIs',geo:'Dados Eleitorais',campo:'Mapa de Capilaridade',social:'Redes Sociais',imprensa:'Monitor de Imprensa',auditoria:'Auditoria'};
+    const titles={tendencia:'Tendência de Voto',adversarios:'Inteligência Competitiva',kpis:'Metas e KPIs',geo:'Dados Eleitorais',campo:'Mapa de Capilaridade',social:'Redes Sociais',imprensa:'Monitor de Imprensa',qualidade:'Qualidade do Coletor',auditoria:'Auditoria'};
     document.title=`${titles[activePanel]||'Dashboard'} — Monitor Coronel Barbosa`;
   },[activePanel]);
 
@@ -109,7 +111,8 @@ const App = ({onLogout, userEmail}) => {
     if(activePanel==='geo'&&!geoData)fetchJ(URLS.geo).then(d=>{if(d)setGeoData(d);}).catch(onExpiry);
     if(activePanel==='tendencia'&&!tendenciaData)fetchJ(URLS.tendencia).then(d=>{if(d)setTendenciaData(d);}).catch(onExpiry);
     if(activePanel==='campo'&&!liderancasData)fetchJ(URLS.liderancas).then(d=>{if(d)setLiderancasData(d);}).catch(onExpiry);
-  },[activePanel,newsRaw,geoData,tendenciaData,liderancasData]);
+    if(activePanel==='qualidade'&&!collectorData)fetchJ(URLS.collector).then(d=>{if(d)setCollectorData(d);}).catch(onExpiry);
+  },[activePanel,newsRaw,geoData,tendenciaData,liderancasData,collectorData]);
 
   const handleRefresh=useCallback(async()=>{
     setRefreshing(true);
@@ -118,13 +121,15 @@ const App = ({onLogout, userEmail}) => {
       const panelFetches=activePanel==='imprensa'?[fetchJ(URLS.mentions)]:
         activePanel==='geo'?[fetchJ(URLS.geo)]:
         activePanel==='tendencia'?[fetchJ(URLS.tendencia)]:
-        activePanel==='campo'?[fetchJ(URLS.liderancas)]:[];
+        activePanel==='campo'?[fetchJ(URLS.liderancas)]:
+        activePanel==='qualidade'?[fetchJ(URLS.collector)]:[];
       const[s,st,k,adv,...panelResults]=await Promise.all([...bootFetches,...panelFetches]);
       if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
       if(activePanel==='imprensa'&&panelResults[0])setNewsRaw(panelResults[0]);
       if(activePanel==='geo'&&panelResults[0])setGeoData(panelResults[0]);
       if(activePanel==='tendencia'&&panelResults[0])setTendenciaData(panelResults[0]);
       if(activePanel==='campo'&&panelResults[0])setLiderancasData(panelResults[0]);
+      if(activePanel==='qualidade'&&panelResults[0])setCollectorData(panelResults[0]);
       setLastUpdate(new Date().toLocaleString('pt-BR')+' (manual)');
     }catch(err){
       if(err.message?.includes('Sessão expirada')){await supabase.auth.signOut();return;}
@@ -141,13 +146,15 @@ const App = ({onLogout, userEmail}) => {
       const panelFetches=activePanel==='imprensa'?[fetchJ(URLS.mentions)]:
         activePanel==='geo'?[fetchJ(URLS.geo)]:
         activePanel==='tendencia'?[fetchJ(URLS.tendencia)]:
-        activePanel==='campo'?[fetchJ(URLS.liderancas)]:[];
+        activePanel==='campo'?[fetchJ(URLS.liderancas)]:
+        activePanel==='qualidade'?[fetchJ(URLS.collector)]:[];
       const[s,st,k,adv,...panelResults]=await Promise.all([...bootFetches,...panelFetches]);
       if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
       if(activePanel==='imprensa'&&panelResults[0])setNewsRaw(panelResults[0]);
       if(activePanel==='geo'&&panelResults[0])setGeoData(panelResults[0]);
       if(activePanel==='tendencia'&&panelResults[0])setTendenciaData(panelResults[0]);
       if(activePanel==='campo'&&panelResults[0])setLiderancasData(panelResults[0]);
+      if(activePanel==='qualidade'&&panelResults[0])setCollectorData(panelResults[0]);
       setLastUpdate(new Date().toLocaleString('pt-BR')+' (auto)');
     }catch(err){
       if(err.message?.includes('Sessão expirada')){await supabase.auth.signOut();return;}
@@ -295,7 +302,7 @@ const App = ({onLogout, userEmail}) => {
         {id:'campo',     label:'Mapa de Capilaridade',   icon:Map,         sub:'Lideranças · Visitas'},
         {id:'social',    label:'Redes Sociais',   icon:Users,       sub:'18 perfis IG'},
         {id:'imprensa',  label:'Imprensa',        icon:Newspaper,   badge:hm.alerts, sub:'32 fontes'},
-        ...(isAdmin?[{id:'auditoria',label:'Auditoria',icon:Shield,sub:'Logs de acesso'}]:[]),
+        ...(isAdmin?[{id:'qualidade',label:'Qualidade',icon:Database,sub:'Saúde do coletor'},{id:'auditoria',label:'Auditoria',icon:Shield,sub:'Logs de acesso'}]:[]),
       ].map(({id,label,icon:Icon,badge,sub})=>{
         const isAct=activePanel===id;
         const showLabel=!isTablet||isMobile;
@@ -355,6 +362,7 @@ const App = ({onLogout, userEmail}) => {
         {activePanel==='geo'&&<SafePanel><GeoPanel geoData={geoData}/></SafePanel>}
         {activePanel==='campo'&&<SafePanel><MapaCampoPanel liderancasData={liderancasData}/></SafePanel>}
         {activePanel==='social'&&<SafePanel><SocialPanel socialData={socialData} sentimentData={sentimentData}/></SafePanel>}
+        {activePanel==='qualidade'&&isAdmin&&<SafePanel><QualidadePanel data={collectorData}/></SafePanel>}
         {activePanel==='auditoria'&&isAdmin&&<SafePanel><AuditoriaPanel/></SafePanel>}
 
         {activePanel==='imprensa'&&(
