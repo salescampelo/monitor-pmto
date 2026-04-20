@@ -119,67 +119,32 @@ export default function AppHeader({
       </div>
 
       {/* RIGHT: KPI cards */}
-      <div style={{display:'flex',gap:12,flexWrap:'wrap',justifyContent:isMobile?'flex-start':'flex-end',flex:'1 1 500px',maxWidth:700}}>
+      <div style={isMobile
+        ? {display:'grid',gridTemplateColumns:'repeat(3, 1fr)',gap:8,width:'100%'}
+        : {display:'flex',gap:12,flexWrap:'wrap',justifyContent:'flex-end',flex:'1 1 500px',maxWidth:700}
+      }>
 
-        {/* KPI 1: Dias para Eleição */}
-        <div style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'14px 18px',textAlign:'center',minWidth:80,flex:'1 1 80px',maxWidth:110,border:'1px solid rgba(255,255,255,0.1)'}}>
-          <div style={{fontSize:isMobile?20:28,fontWeight:700,color:getKpiColor('dias',daysToElection??0),lineHeight:1.1,transition:'color 0.3s ease'}}>
-            {daysToElection??'—'}
+        {[
+          {value: daysToElection??'—', label:'DIAS P/ ELEIÇÃO', color: getKpiColor('dias',daysToElection??0), trend: null},
+          {value: followers??'—', label:'SEGUIDORES IG', color:'#FFFFFF', trend: getTrendIcon(followersRaw,followersPrevWeek)},
+          {value: `${(engagementRate??0).toFixed(1)}%`, label:'ENGAJAMENTO IG', color: getKpiColor('engajamento',engagementRate??0), trend: getTrendIcon(engagementRate,engagementPrevWeek)},
+          {value: mentions48h??0, label:'IMPRENSA 48H', color: getKpiColor('mencoes',mentions48h??0), trend: null},
+          {value: `${positiveCommentsPct??0}%`, label:'POSITIVO IG', color: getKpiColor('sentimento',positiveCommentsPct??0), trend: null},
+        ].map((kpi,i) => (
+          <div key={i} style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'10px 8px':'14px 18px',textAlign:'center',border:'1px solid rgba(255,255,255,0.1)',...(!isMobile&&{minWidth:80,flex:'1 1 80px',maxWidth:130})}}>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:4}}>
+              <span style={{fontSize:isMobile?18:28,fontWeight:700,color:kpi.color,lineHeight:1.1,fontVariantNumeric:'tabular-nums',fontFamily:"'DM Sans',monospace"}}>
+                {kpi.value}
+              </span>
+              {kpi.trend && (
+                <span style={{fontSize:14,fontWeight:700,color:kpi.trend.color,lineHeight:1}} title={`Tendência: ${kpi.trend.label}`} aria-label={`Tendência ${kpi.trend.label}`}>{kpi.trend.icon}</span>
+              )}
+            </div>
+            <div style={{fontSize:isMobile?8:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:3,lineHeight:1.2}}>
+              {kpi.label}
+            </div>
           </div>
-          <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
-            DIAS P/ ELEIÇÃO
-          </div>
-        </div>
-
-        {/* KPI 2: Seguidores IG + Tendência */}
-        <div style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'14px 18px',textAlign:'center',minWidth:100,flex:'1 1 100px',maxWidth:130,border:'1px solid rgba(255,255,255,0.1)'}}>
-          <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:6}}>
-            <span style={{fontSize:isMobile?18:24,fontWeight:700,color:'#FFFFFF',lineHeight:1.1}}>
-              {followers??'—'}
-            </span>
-            {(()=>{const t=getTrendIcon(followersRaw,followersPrevWeek);return(
-              <span style={{fontSize:16,fontWeight:700,color:t.color,lineHeight:1}} title={`Tendência: ${t.label}`} aria-label={`Tendência ${t.label}`}>{t.icon}</span>
-            );})()}
-          </div>
-          <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
-            SEGUIDORES IG
-          </div>
-        </div>
-
-        {/* KPI 3: Engajamento IG + Tendência */}
-        <div style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'14px 18px',textAlign:'center',minWidth:100,flex:'1 1 100px',maxWidth:130,border:'1px solid rgba(255,255,255,0.1)'}}>
-          <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:6}}>
-            <span style={{fontSize:isMobile?18:24,fontWeight:700,color:getKpiColor('engajamento',engagementRate??0),lineHeight:1.1}}>
-              {(engagementRate??0).toFixed(1)}%
-            </span>
-            {(()=>{const t=getTrendIcon(engagementRate,engagementPrevWeek);return(
-              <span style={{fontSize:16,fontWeight:700,color:t.color,lineHeight:1}} title={`Tendência: ${t.label}`} aria-label={`Tendência ${t.label}`}>{t.icon}</span>
-            );})()}
-          </div>
-          <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
-            ENGAJAMENTO IG
-          </div>
-        </div>
-
-        {/* KPI 4: Menções 48h */}
-        <div style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'14px 18px',textAlign:'center',minWidth:80,flex:'1 1 80px',maxWidth:110,border:'1px solid rgba(255,255,255,0.1)'}}>
-          <div style={{fontSize:isMobile?20:28,fontWeight:700,color:getKpiColor('mencoes',mentions48h??0),lineHeight:1.1,transition:'color 0.3s ease'}}>
-            {mentions48h??0}
-          </div>
-          <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
-            IMPRENSA 48H
-          </div>
-        </div>
-
-        {/* KPI 5: Sentimento Positivo */}
-        <div style={{background:'rgba(255,255,255,0.08)',borderRadius:10,padding:isMobile?'12px 14px':'14px 18px',textAlign:'center',minWidth:80,flex:'1 1 80px',maxWidth:110,border:'1px solid rgba(255,255,255,0.1)'}}>
-          <div style={{fontSize:isMobile?20:28,fontWeight:700,color:getKpiColor('sentimento',positiveCommentsPct??0),lineHeight:1.1,transition:'color 0.3s ease'}}>
-            {positiveCommentsPct??0}%
-          </div>
-          <div style={{fontSize:10,fontWeight:600,color:'rgba(255,255,255,0.6)',textTransform:'uppercase',letterSpacing:'0.5px',marginTop:4}}>
-            POSITIVO IG
-          </div>
-        </div>
+        ))}
 
       </div>
     </div>
