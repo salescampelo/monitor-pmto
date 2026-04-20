@@ -60,10 +60,12 @@ export const NC = ({item,expanded,onToggle}) => {
   <div className="hov-card" style={{background:'var(--surface)',border:'1px solid var(--surface-border)',borderRadius:'var(--radius-md)',borderLeft:`3px solid ${cl?.color||'#64748b'}`,padding:'18px 22px',boxShadow:'var(--shadow-sm)'}}>
     <div style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:6,marginBottom:8}}>
       <div style={{display:'flex',alignItems:'center',gap:6,flexWrap:'wrap'}}>
-        <Bd color={item.mentionType==='direta'?'#ef4444':'#94a3b8'}>{item.mentionType==='direta'?'● DIRETA':item.mentionType==='eleitoral'?'◆ ELEITORAL':'○ INSTITUCIONAL'}</Bd>
+        <Bd color={item.mentionType==='direta'?'#ef4444':item.mentionType==='indireta'?'#7C3AED':'#94a3b8'}>{item.mentionType==='direta'?'● DIRETA':item.mentionType==='eleitoral'?'◆ ELEITORAL':item.mentionType==='indireta'?'◇ INDIRETA':'○ INSTITUCIONAL'}</Bd>
         <Bd color={item.scope==='BR'?'#818cf8':'#4ade80'}>{item.scope==='BR'?'NACIONAL':'TOCANTINS'}</Bd>
         {item.relevance>=0.8&&<Bd color="#ef4444">REL {item.relevance}</Bd>}
         {item.relevance>=0.5&&item.relevance<0.8&&<Bd color="#D4A017">REL {item.relevance}</Bd>}
+        {item.collectionMethod==='DIRECT_SCRAPE_INDIRECT'&&item.indirectTerm&&<Bd color="#7C3AED">REF: {item.indirectTerm}</Bd>}
+        {item.hostileSource&&<Bd color="#DC2626">FONTE HOSTIL</Bd>}
         <span style={{fontSize:13,color:'#8C93A8'}}>{item.source} · {fmt(item.date)}</span>
       </div>
       <div style={{display:'flex',gap:4}}><Bd color={sc.t}>{item.sentiment}</Bd><Bd color={iC(item.impact)}>{item.impact}</Bd></div>

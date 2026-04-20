@@ -410,6 +410,7 @@ const App = ({onLogout, userEmail}) => {
             {id:'direta',l:isMobile?'● Dir.':'● Diretas'},
             {id:'eleitoral',l:isMobile?'◆ Eleit.':'◆ Eleitorais'},
             {id:'institucional',l:'○ PMTO'},
+            {id:'indireta',l:isMobile?'◇ Ind.':'◇ Indiretas'},
           ].map(t=><Bt key={t.id} active={filters.type===t.id} color="#1a3a7a" onClick={()=>dispatchFilter({key:'type',value:t.id})}>{t.l}</Bt>)}
           <div style={{width:1,height:28,background:'rgba(255,255,255,0.1)',margin:'0 4px'}}/>
           {[{id:'all',l:'TO+BR',i:Layers},{id:'TO',l:'Tocantins',i:MapPin},{id:'BR',l:'Nacional',i:Globe}].map(s=><Bt key={s.id} active={filters.scope===s.id} color="#22c55e" onClick={()=>dispatchFilter({key:'scope',value:s.id})}><s.i size={11}/> {s.l}</Bt>)}
