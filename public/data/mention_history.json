@@ -19,7 +19,9 @@
     "date": "2026-04-03",
     "date_display": "03/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "title": "Márcio Barbosa é o novo comandante-geral da PMTO",
@@ -42,7 +44,9 @@
     "date": "2026-04-01",
     "date_display": "01/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "title": "Coronel Barbosa deixa comando da PMTO para pré-candidatura a deputado federal enquanto Cláudio Thomaz assume liderança da corporação",
@@ -65,7 +69,9 @@
     "date": "2026-04-01",
     "date_display": "01/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.8
   },
   {
     "title": "Ao ex-deputado Elenil da Penha, Coronel Barbosa confirma parecer favorável da PGE para o chamamento mais 500 candidatos excedentes do concurso da PMTO",
@@ -89,7 +95,9 @@
     "date": "2026-04-01",
     "date_display": "01/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "title": "“Estamos em tratativas para o chamamento dos excedentes”, diz Coronel Barbosa, ao comentar sobre efetivo da PMTO durante entrevista",
@@ -111,7 +119,9 @@
     "date": "2026-04-01",
     "date_display": "01/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.7
   },
   {
     "title": "‘Operação Presença’: Coronel Barbosa lança ação na região sul de Palmas e reforça convocação de excedentes do último concurso da PMTO",
@@ -135,7 +145,9 @@
     "date": "2026-04-01",
     "date_display": "01/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.7
   },
   {
     "title": "Coletiva: Comandante-Geral da PMTO, Coronel Barbosa, diz que, se preciso for, “tomará medidas mais enérgicas para desbloquear rodovias”",
@@ -158,7 +170,9 @@
     "date": "2026-04-01",
     "date_display": "01/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "title": "Mudança no comando da Gloriosa: Coronel Márcio Barbosa é o novo Comandante Geral da Polícia Militar do Tocantins",
@@ -181,7 +195,9 @@
     "date": "2026-04-01",
     "date_display": "01/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "title": "TocantinsTroca de Comando: Coronel Barbosa agradece Wanderlei em discurso de despedida e garante: “valeu a pena, fizemos história”Nesta terça-feira, 16, aconteceu a solenidade de Passagem de Comando da Polícia Militar do Tocantins (PMTO).  A cerimônia oficializou a nomeação do coronel QOPM Cláudio Thomaz Coelho de Souza que assume o comando-geral da Polícia Militar no lugar do coronel Márcio Antônio Barbosa de Mendonça. “Saio do comando com a certeza que valeu a pena, […]16 set. 2025 às 20h03",
@@ -205,7 +221,9 @@
     "date": "2026-04-01",
     "date_display": "01/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "title": "EleiçõesEm posse do novo comando, Wanderlei fala em recuperar prejuízo das carreiras dos PMs e valorizar corporaçãoO coronel Márcio Barbosa disse que assumiu para garantir a continuidade do trabalho desempenhado na Segurança Pública01 set. 2022 às 07h28",
@@ -226,7 +244,9 @@
     "date": "2026-04-01",
     "date_display": "01/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "title": "Pré-candidato a deputado, ex-comandante da PM coronel Márcio Barbosa é homenageado pelas 13 associações militares do Tocantins",
@@ -249,7 +269,9 @@
     "date": "2026-04-01",
     "date_display": "01/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.7
   },
   {
     "title": "EM OFF / Ex-comandantes vão em peso à posse do coronel Márcio Barbosa na PM; padre Aderso indignado com Cinthia e Vanderlan não será candidato",
@@ -270,7 +292,9 @@
     "date": "2026-04-01",
     "date_display": "01/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "title": "Pré-candidato a deputado federal, Márcio Barbosa deixa comando da Polícia Militar; Cláudio Thomaz assume tropa",
@@ -293,7 +317,9 @@
     "date": "2026-04-03",
     "date_display": "03/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.7
   },
   {
     "hash_id": "ace7b911955e",
@@ -314,7 +340,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.8
   },
   {
     "hash_id": "3f6523e2a915",
@@ -335,7 +363,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Negativo",
+    "sentiment_confidence": 0.7
   },
   {
     "hash_id": "e17f8f6cad67",
@@ -356,7 +386,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.7
   },
   {
     "hash_id": "aa3e5deb8735",
@@ -377,7 +409,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.8
   },
   {
     "hash_id": "0b7e260ec55f",
@@ -398,7 +432,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "hash_id": "743be972c3f1",
@@ -419,7 +455,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "hash_id": "bf77480c161e",
@@ -440,7 +478,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "hash_id": "0d2a11654d01",
@@ -461,7 +501,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "hash_id": "689aecb2d587",
@@ -482,7 +524,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "hash_id": "4837d4d4a021",
@@ -503,7 +547,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "hash_id": "e7c59461b489",
@@ -524,7 +570,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.7
   },
   {
     "hash_id": "e000169db1b4",
@@ -545,7 +593,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.7
   },
   {
     "hash_id": "002019b46889",
@@ -566,7 +616,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.6
   },
   {
     "hash_id": "744738b1b418",
@@ -587,7 +639,9 @@
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment": "Negativo",
+    "sentiment_confidence": 0.7
   },
   {
     "hash_id": "c61c9f68d540",
@@ -645,119 +699,6 @@
       "\"Coronel Barbosa\" Tocantins when:1d"
     ],
     "mention_type": "direta",
-    "detected_at": "2026-04-17 23:59",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMiywFBVV95cUxNUV92ZTFHa1lEMG5SRXhhNE01U2tPUjh5bTcwazA5TGU0SXVDcm1xWlloQjlQSlRzYjAzcndvUHMwWnZLcWk1aDU3OHFjbXhDRTlRVGxXSlYwUTRXZl9XLXFJRjllZHVob0Z3LXJRZT",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Neutro",
-    "date": "2026-04-17",
-    "date_display": "17/04/2026",
-    "year": 2026,
-    "month": 4
-  },
-  {
-    "hash_id": "0602b2289603",
-    "title": "Governador de São Paulo, Tarcísio de Freitas recebe Coronel Barbosa e manifesta apoio à pré-candidatura",
-    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNUV92ZTFHa1lEMG5SRXhhNE01U2tPUjh5bTcwazA5TGU0SXVDcm1xWlloQjlQSlRzYjAzcndvUHMwWnZLcWk1aDU3OHFjbXhDRTlRVGxXSlYwUTRXZl9XLXFJRjllZHVob0Z3LXJRZTl6R0FqckNQSC1idXRDRmVDT0RwU1hsUmZldnlnZ3Z0Z0ppanRsV0FVRGt2dTlaU2xBaVFEU0xnSlZHaGlFVnpBS0FidDU1Rk9rNTJ1ZXdkWVllelhkbHBHbVdzZw?oc=5",
-    "source_name": "RR10 NOTÍCIAS |",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Coronel Barbosa\" Tocantins when:1d"
-    ],
-    "mention_type": "direta",
-    "detected_at": "2026-04-18 00:10",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMiywFBVV95cUxNUV92ZTFHa1lEMG5SRXhhNE01U2tPUjh5bTcwazA5TGU0SXVDcm1xWlloQjlQSlRzYjAzcndvUHMwWnZLcWk1aDU3OHFjbXhDRTlRVGxXSlYwUTRXZl9XLXFJRjllZHVob0Z3LXJRZT",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Neutro",
-    "date": "2026-04-18",
-    "date_display": "18/04/2026",
-    "year": 2026,
-    "month": 4
-  },
-  {
-    "hash_id": "0602b2289603",
-    "title": "Governador de São Paulo, Tarcísio de Freitas recebe Coronel Barbosa e manifesta apoio à pré-candidatura",
-    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNUV92ZTFHa1lEMG5SRXhhNE01U2tPUjh5bTcwazA5TGU0SXVDcm1xWlloQjlQSlRzYjAzcndvUHMwWnZLcWk1aDU3OHFjbXhDRTlRVGxXSlYwUTRXZl9XLXFJRjllZHVob0Z3LXJRZTl6R0FqckNQSC1idXRDRmVDT0RwU1hsUmZldnlnZ3Z0Z0ppanRsV0FVRGt2dTlaU2xBaVFEU0xnSlZHaGlFVnpBS0FidDU1Rk9rNTJ1ZXdkWVllelhkbHBHbVdzZw?oc=5",
-    "source_name": "RR10 NOTÍCIAS |",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Coronel Barbosa\" Tocantins when:1d"
-    ],
-    "mention_type": "direta",
-    "detected_at": "2026-04-18 00:11",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMiywFBVV95cUxNUV92ZTFHa1lEMG5SRXhhNE01U2tPUjh5bTcwazA5TGU0SXVDcm1xWlloQjlQSlRzYjAzcndvUHMwWnZLcWk1aDU3OHFjbXhDRTlRVGxXSlYwUTRXZl9XLXFJRjllZHVob0Z3LXJRZT",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Neutro",
-    "date": "2026-04-18",
-    "date_display": "18/04/2026",
-    "year": 2026,
-    "month": 4
-  },
-  {
-    "hash_id": "0602b2289603",
-    "title": "Governador de São Paulo, Tarcísio de Freitas recebe Coronel Barbosa e manifesta apoio à pré-candidatura",
-    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNUV92ZTFHa1lEMG5SRXhhNE01U2tPUjh5bTcwazA5TGU0SXVDcm1xWlloQjlQSlRzYjAzcndvUHMwWnZLcWk1aDU3OHFjbXhDRTlRVGxXSlYwUTRXZl9XLXFJRjllZHVob0Z3LXJRZTl6R0FqckNQSC1idXRDRmVDT0RwU1hsUmZldnlnZ3Z0Z0ppanRsV0FVRGt2dTlaU2xBaVFEU0xnSlZHaGlFVnpBS0FidDU1Rk9rNTJ1ZXdkWVllelhkbHBHbVdzZw?oc=5",
-    "source_name": "RR10 NOTÍCIAS |",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Coronel Barbosa\" Tocantins when:1d"
-    ],
-    "mention_type": "direta",
-    "detected_at": "2026-04-18 08:09",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMiywFBVV95cUxNUV92ZTFHa1lEMG5SRXhhNE01U2tPUjh5bTcwazA5TGU0SXVDcm1xWlloQjlQSlRzYjAzcndvUHMwWnZLcWk1aDU3OHFjbXhDRTlRVGxXSlYwUTRXZl9XLXFJRjllZHVob0Z3LXJRZT",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Neutro",
-    "date": "2026-04-18",
-    "date_display": "18/04/2026",
-    "year": 2026,
-    "month": 4
-  },
-  {
-    "hash_id": "0602b2289603",
-    "title": "Governador de São Paulo, Tarcísio de Freitas recebe Coronel Barbosa e manifesta apoio à pré-candidatura",
-    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNUV92ZTFHa1lEMG5SRXhhNE01U2tPUjh5bTcwazA5TGU0SXVDcm1xWlloQjlQSlRzYjAzcndvUHMwWnZLcWk1aDU3OHFjbXhDRTlRVGxXSlYwUTRXZl9XLXFJRjllZHVob0Z3LXJRZTl6R0FqckNQSC1idXRDRmVDT0RwU1hsUmZldnlnZ3Z0Z0ppanRsV0FVRGt2dTlaU2xBaVFEU0xnSlZHaGlFVnpBS0FidDU1Rk9rNTJ1ZXdkWVllelhkbHBHbVdzZw?oc=5",
-    "source_name": "RR10 NOTÍCIAS |",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Coronel Barbosa\" Tocantins when:1d"
-    ],
-    "mention_type": "direta",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMiywFBVV95cUxNUV92ZTFHa1lEMG5SRXhhNE01U2tPUjh5bTcwazA5TGU0SXVDcm1xWlloQjlQSlRzYjAzcndvUHMwWnZLcWk1aDU3OHFjbXhDRTlRVGxXSlYwUTRXZl9XLXFJRjllZHVob0Z3LXJRZT",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.95,
-    "cluster": "Eleitoral",
-    "date": "2026-04-17",
-    "date_display": "17/04/2026",
-    "detected_at": "2026-04-18 14:40",
-    "collected_at": "2026-04-18T14:40:27",
-    "year": 2026,
-    "month": 4
-  },
-  {
-    "hash_id": "0602b2289603",
-    "title": "Governador de São Paulo, Tarcísio de Freitas recebe Coronel Barbosa e manifesta apoio à pré-candidatura",
-    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNUV92ZTFHa1lEMG5SRXhhNE01U2tPUjh5bTcwazA5TGU0SXVDcm1xWlloQjlQSlRzYjAzcndvUHMwWnZLcWk1aDU3OHFjbXhDRTlRVGxXSlYwUTRXZl9XLXFJRjllZHVob0Z3LXJRZTl6R0FqckNQSC1idXRDRmVDT0RwU1hsUmZldnlnZ3Z0Z0ppanRsV0FVRGt2dTlaU2xBaVFEU0xnSlZHaGlFVnpBS0FidDU1Rk9rNTJ1ZXdkWVllelhkbHBHbVdzZw?oc=5",
-    "source_name": "RR10 NOTÍCIAS |",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Coronel Barbosa\" Tocantins when:1d"
-    ],
-    "mention_type": "direta",
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMiywFBVV95cUxNUV92ZTFHa1lEMG5SRXhhNE01U2tPUjh5bTcwazA5TGU0SXVDcm1xWlloQjlQSlRzYjAzcndvUHMwWnZLcWk1aDU3OHFjbXhDRTlRVGxXSlYwUTRXZl9XLXFJRjllZHVob0Z3LXJRZT",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
@@ -768,31 +709,6 @@
     "date_display": "17/04/2026",
     "detected_at": "2026-04-18 14:41",
     "collected_at": "2026-04-18T14:41:16",
-    "year": 2026,
-    "month": 4
-  },
-  {
-    "hash_id": "deb70b1080d9",
-    "title": "O pré-candidato a deputado federal, Cel Marcio Barbosa*, esteve em Presidente Kennedy fortalecendo alianças importantes para o futuro da cidade.",
-    "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxOMTVZTGNDWkppQTMtRXNISWg4WU1uenRxWk5XVzlrbXdQNlR2c0k0NkFPb1dMUS1JMVN5WnFRZ3Q0YzVKT3U0bWdROFFPd3l3NDRNMThlY1FJQkx4LTcxLTgzUGNxbF9NdnRKQ1VwMWNFS1hqWVMxNmMwVTRDX1loV0tIZHZvUldVSmVOWlBBRUZhTnBQTDE3VGlhUS02WFM4Mlowdmg1NmhibERLb01qWUttbWJqeVl1NVVGQUJ3WThwRTRSNUEyWDZTamFnTXJBc0E0OHRDUXM2d2JSeXBtMzhnWjBuRDZIZGsyZTZnbElsU3NHUmVyc3ZTTlN1QQ?oc=5",
-    "source_name": "RR10 NOTÍCIAS |",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Márcio Barbosa\" Tocantins when:1d"
-    ],
-    "mention_type": "direta",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi_gFBVV95cUxOMTVZTGNDWkppQTMtRXNISWg4WU1uenRxWk5XVzlrbXdQNlR2c0k0NkFPb1dMUS1JMVN5WnFRZ3Q0YzVKT3U0bWdROFFPd3l3NDRNMThlY1FJQkx4LTcxLTgzUGNxbF9NdnRKQ1VwMW",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
-    "cluster": "Eleitoral",
-    "date": "2026-04-18",
-    "date_display": "18/04/2026",
-    "detected_at": "2026-04-18 23:54",
-    "collected_at": "2026-04-18T23:54:19",
     "year": 2026,
     "month": 4
   },
@@ -843,31 +759,6 @@
     "date_display": "20/04/2026",
     "detected_at": "2026-04-20 11:08",
     "collected_at": "2026-04-20T11:08:41",
-    "year": 2026,
-    "month": 4
-  },
-  {
-    "hash_id": "792a00e31bb7",
-    "title": "Coronel Márcio Barbosa fortalece alianças em Presidente Kennedy e confirma apoio de lideranças à sua pré-candidatura a deputado federal",
-    "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNVnBJbjV1VWlGVVI0QzZLeWRzRVhiam1wLXVGZkRBSmdwMWZoUjNoZG5lbVA0ZjJOenlkX0dkdlNDNzlHMDd4Rkd2ODFCNGJfTU1HUUFNSFhRMTVhNnhYS2dNemVTU1U0eDVRQ0ZFU01zM0Q5UVhEaEhRTDNxWlFwclBJamx3RjdheFdoQzBLMTA4dVVkeUw5c3AwbmtwODhocWh3NUlmbGFSNlQtSDI5QURSLWhKRm5XYTREa0I3RzBrc08tUlpIekROUHQyUjNNeFpmRjB3RzNGR1hsVTBOc2dMMFR6VjB6NndOY1JoZ1VvZHVJZEZz?oc=5",
-    "source_name": "RR10 NOTÍCIAS |",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Márcio Barbosa\" PMTO when:1d"
-    ],
-    "mention_type": "direta",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi9wFBVV95cUxNVnBJbjV1VWlGVVI0QzZLeWRzRVhiam1wLXVGZkRBSmdwMWZoUjNoZG5lbVA0ZjJOenlkX0dkdlNDNzlHMDd4Rkd2ODFCNGJfTU1HUUFNSFhRMTVhNnhYS2dNemVTU1U0eDVRQ0ZFU0",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
-    "cluster": "Eleitoral",
-    "date": "2026-04-20",
-    "date_display": "20/04/2026",
-    "detected_at": "2026-04-20 09:56",
-    "collected_at": "2026-04-20T09:56:33",
     "year": 2026,
     "month": 4
   }
