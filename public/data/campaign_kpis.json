@@ -25,7 +25,8 @@
         "2": 60000,
         "3": 75000
       },
-      "format": "number"
+      "format": "number",
+      "previous": 32083
     },
     {
       "id": "engajamento_ig",
@@ -36,18 +37,20 @@
         "2": 5.5,
         "3": 6.0
       },
-      "format": "percent"
+      "format": "percent",
+      "previous": 2.66
     },
     {
       "id": "mencoes_imprensa",
       "label": "Menções imprensa (30 dias)",
-      "current": 32,
+      "current": 33,
       "targets": {
         "1": 60,
         "2": 120,
         "3": 200
       },
-      "format": "number"
+      "format": "number",
+      "previous": 33
     },
     {
       "id": "municipios_visitados",
@@ -72,5 +75,5 @@
       "format": "number"
     }
   ],
-  "updated_at": "2026-04-20 09:58"
+  "updated_at": "2026-04-21 00:07"
 }

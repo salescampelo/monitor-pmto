@@ -1,17 +1,22 @@
 {
-  "updated_at": "2026-04-20 11:06",
+  "updated_at": "2026-04-21 00:05",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 0,
-    "duplicates": 0,
+    "entries_rss_raw": 12,
+    "duplicates": 7,
     "blocked_date": 0,
-    "blocked_id": 0,
-    "blocked_id_reasons": {},
+    "blocked_id": 4,
+    "blocked_id_reasons": {
+      "exclusão": 3,
+      "nome do candidato ausente": 1
+    },
     "approved_rss": 1,
     "approved_scrape": 0,
     "approved_indirect": 0,
     "total_new": 1,
-    "sources_approved": {}
+    "sources_approved": {
+      "RR10 NOTÍCIAS |": 1
+    }
   },
   "history_summary": {
     "total": 32,
@@ -43,5 +48,118 @@
       "Negativo": 2
     }
   },
-  "sites_health": {}
+  "sites_health": {
+    "luizarmandocosta": {
+      "name": "Blog Luiz Armando Costa",
+      "layer": "A",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "clebertoledo": {
+      "name": "Portal CT (Cleber Toledo)",
+      "layer": "A",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "t1noticias": {
+      "name": "T1 Notícias",
+      "layer": "A",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "gazetadocerrado": {
+      "name": "Gazeta do Cerrado",
+      "layer": "A",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "afnoticias": {
+      "name": "AF Notícias",
+      "layer": "A",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "jornaldotocantins": {
+      "name": "Jornal do Tocantins",
+      "layer": "A",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "conexaoto": {
+      "name": "Conexão Tocantins",
+      "layer": "A",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "atitudeto": {
+      "name": "Atitude Tocantins",
+      "layer": "A",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "soudepalmas": {
+      "name": "Sou de Palmas",
+      "layer": "A",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "portalonorte": {
+      "name": "Portal O Norte",
+      "layer": "B",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "portalnorte": {
+      "name": "Portal Norte TO",
+      "layer": "B",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "araguainanoticias": {
+      "name": "Araguaína Notícias",
+      "layer": "B",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "portaldoamaral": {
+      "name": "Portal do Amaral",
+      "layer": "B",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "agenciatocantins": {
+      "name": "Agência Tocantins",
+      "layer": "B",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "ogirassol": {
+      "name": "O Girassol",
+      "layer": "B",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    },
+    "lealjunior": {
+      "name": "Portal LJ (Leal Junior)",
+      "layer": "B",
+      "mentions_30d": 0,
+      "last_run_status": "ok",
+      "last_run_mentions": 0
+    }
+  }
 }
