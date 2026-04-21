@@ -1,34 +1,31 @@
 {
-  "updated_at": "2026-04-21 00:05",
+  "updated_at": "2026-04-21 10:52",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 12,
-    "duplicates": 7,
+    "entries_rss_raw": 5,
+    "duplicates": 1,
     "blocked_date": 0,
     "blocked_id": 4,
     "blocked_id_reasons": {
-      "exclusão": 3,
-      "nome do candidato ausente": 1
+      "exclusão": 4
     },
-    "approved_rss": 1,
+    "approved_rss": 0,
     "approved_scrape": 0,
     "approved_indirect": 0,
-    "total_new": 1,
-    "sources_approved": {
-      "RR10 NOTÍCIAS |": 1
-    }
+    "total_new": 0,
+    "sources_approved": {}
   },
   "history_summary": {
-    "total": 32,
-    "last_7d": 4,
-    "last_30d": 32,
+    "total": 33,
+    "last_7d": 5,
+    "last_30d": 33,
     "sources_7d": {
-      "RR10 NOTÍCIAS |": 3,
+      "RR10 NOTÍCIAS |": 4,
       "Cleber Toledo": 1
     },
     "sources_30d": {
       "Sou de Palmas": 7,
-      "RR10 NOTÍCIAS |": 6,
+      "RR10 NOTÍCIAS |": 7,
       "Cleber Toledo": 5,
       "Agência Tocantins": 4,
       "Atitude Tocantins": 3,
@@ -40,11 +37,11 @@
       "Jornal Folha Capital": 1
     },
     "methods_30d": {
-      "RSS": 32
+      "RSS": 33
     },
     "sentiment_30d": {
       "Neutro": 17,
-      "Positivo": 13,
+      "Positivo": 14,
       "Negativo": 2
     }
   },
