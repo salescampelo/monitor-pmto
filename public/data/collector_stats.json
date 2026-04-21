@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-04-21 10:52",
+  "updated_at": "2026-04-21 23:54",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 5,
-    "duplicates": 1,
+    "entries_rss_raw": 1,
+    "duplicates": 0,
     "blocked_date": 0,
-    "blocked_id": 4,
+    "blocked_id": 1,
     "blocked_id_reasons": {
-      "exclusão": 4
+      "exclusão": 1
     },
     "approved_rss": 0,
     "approved_scrape": 0,
