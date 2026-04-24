@@ -7,6 +7,7 @@ import HelpTooltip from '../components/HelpTooltip.jsx';
 import { fmtK } from '../lib/analytics.js';
 import { CONFIG } from '../lib/config.js';
 
+const brDate=d=>d&&d.length>=10?d.slice(8,10)+'/'+d.slice(5,7)+'/'+d.slice(0,4):d||'';
 const DCOL = {positivo:'#22c55e',negativo:'#ef4444',neutro:'#64748b',engajado:'#3b82f6'};
 
 const PANEL_PROFILES = new Set([
@@ -228,7 +229,7 @@ function SocialPanel({socialData,sentimentData}) {
       const topUsernames=[...(new Set([CONFIG.CANDIDATE_USERNAME,...latestProfiles.slice(0,5).map(x=>x.username)]))].slice(0,6);
       const COLORS_LINE=['#1a3a7a','#22c55e','#3b82f6','#f59e0b','#ef4444','#ec4899'];
       const chartData=allDates.map(date=>{
-        const row={date:date.substring(5)};
+        const row={date:date.substring(8,10)+'/'+date.substring(5,7)};
         topUsernames.forEach(u=>{
           const entry=(socialData||[]).find(x=>x.username===u&&x.data_coleta===date);
           row[u]=entry?entry.seguidores:null;
@@ -262,7 +263,7 @@ function SocialPanel({socialData,sentimentData}) {
       });
       return(
       <Card style={{marginBottom:14}}>
-        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Tendência de sentimento mensal — {sentimentData?.periodo?.de||''} a {sentimentData?.periodo?.ate||''}</p>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Tendência de sentimento mensal — {brDate(sentimentData?.periodo?.de)} a {brDate(sentimentData?.periodo?.ate)}</p>
         <ResponsiveContainer width="100%" height={220}>
           <BarChart data={chartData} margin={{top:5,right:10,left:0,bottom:5}}>
             <XAxis dataKey="mes" tick={{fontSize:11,fill:'#8c93a8'}}/>
@@ -392,7 +393,7 @@ function SocialPanel({socialData,sentimentData}) {
       <div style={{fontSize:14,color:'#8C93A8',lineHeight:1.7}}>
         {cand&&<p style={{margin:'0 0 4px'}}>Cel. Barbosa: #{candRank} em seguidores ({cand.seguidores.toLocaleString('pt-BR')}) com engajamento de {cand.taxa_engajamento_pct}% — {cand.taxa_engajamento_pct>1.5?'acima da média de políticos brasileiros (~1%)':'dentro da média'}.</p>}
         {cand&&<p style={{margin:'0 0 4px'}}>Média de {cand.media_likes_recentes} likes/post. Investir em Reels e vídeos curtos tende a amplificar o alcance orgânico em 3-5x no Instagram.</p>}
-        {sentimentData?.sentiment?.total>0&&<p style={{margin:0}}>Análise calibrada de {sentimentData.sentiment.total} comentários{sentimentData?.periodo?` (${sentimentData.periodo.de} a ${sentimentData.periodo.ate})`:''}: {sentimentData.sentiment.pct_positivo}% positivos, {sentimentData.sentiment.pct_engajado||0}% engajados, {sentimentData.sentiment.pct_negativo}% negativos. {sentimentData.sentiment.pct_positivo>50?'Percepção pública favorável — explorar UGC e depoimentos.':'Monitorar narrativas negativas e preparar contra-narrativas.'}</p>}
+        {sentimentData?.sentiment?.total>0&&<p style={{margin:0}}>Análise calibrada de {sentimentData.sentiment.total} comentários{sentimentData?.periodo?` (${brDate(sentimentData.periodo.de)} a ${brDate(sentimentData.periodo.ate)})`:''}: {sentimentData.sentiment.pct_positivo}% positivos, {sentimentData.sentiment.pct_engajado||0}% engajados, {sentimentData.sentiment.pct_negativo}% negativos. {sentimentData.sentiment.pct_positivo>50?'Percepção pública favorável — explorar UGC e depoimentos.':'Monitorar narrativas negativas e preparar contra-narrativas.'}</p>}
         {!sentimentData?.sentiment?.total&&<p style={{margin:0}}>Execute o scraper de comentários para gerar a análise de sentimento do público nas redes.</p>}
       </div>
     </Card>

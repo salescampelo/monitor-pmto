@@ -90,7 +90,7 @@ export default function AuditoriaPanel() {
                       onMouseLeave={e => e.currentTarget.style.background = ''}>
                       <td style={{ padding: '10px 16px', color: '#64748b', whiteSpace: 'nowrap', fontFamily: 'var(--font-mono)', fontSize: 12 }}>
                         {new Date(log.created_at).toLocaleString('pt-BR', {
-                          day: '2-digit', month: '2-digit', year: '2-digit',
+                          day: '2-digit', month: '2-digit', year: 'numeric',
                           hour: '2-digit', minute: '2-digit',
                         })}
                       </td>
