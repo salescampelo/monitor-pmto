@@ -375,7 +375,7 @@ function SocialPanel({socialData,sentimentData}) {
                     <span style={{fontSize:11,fontWeight:600,color:'#1a3a7a',minWidth:28}}>{a.score}</span>
                   </div>
                 </td>
-                <td style={{padding:'8px',textAlign:'center',fontSize:11,color:'#8c93a8',whiteSpace:'nowrap'}}>{a.primeiro_comentario?.slice(5)||'—'} a {a.ultimo_comentario?.slice(5)||'—'}</td>
+                <td style={{padding:'8px',textAlign:'center',fontSize:11,color:'#8c93a8',whiteSpace:'nowrap'}}>{a.primeiro_comentario?a.primeiro_comentario.slice(8,10)+'/'+a.primeiro_comentario.slice(5,7):'—'} a {a.ultimo_comentario?a.ultimo_comentario.slice(8,10)+'/'+a.ultimo_comentario.slice(5,7):'—'}</td>
               </tr>);
             })}
           </tbody>
