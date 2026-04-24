@@ -12,8 +12,8 @@
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi-wFBVV95cUxNVk1SQmJsMEM0N21NcWVDTEhmY19ZMjJvOFFRNjN4eUx1VzcyM1o4Tm1hR1dXWHdfNzhHcHJURmRlZkM1M1JDd2QtZVJkRkt5Rm5GM0U1VS0wTjFXTG1WeEJ3ci1VU3pQMHRaMWtoMk",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Negativo",
-    "sentiment_confidence": 0.7,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.5,
     "cluster": "Eleitoral",
     "collection_method": "BACKFILL",
     "date": "2026-01-30",
@@ -224,55 +224,6 @@
     "sentiment_confidence": 0.6
   },
   {
-    "title": "TocantinsTroca de Comando: Coronel Barbosa agradece Wanderlei em discurso de despedida e garante: “valeu a pena, fizemos história”Nesta terça-feira, 16, aconteceu a solenidade de Passagem de Comando da Polícia Militar do Tocantins (PMTO).  A cerimônia oficializou a nomeação do coronel QOPM Cláudio Thomaz Coelho de Souza que assume o comando-geral da Polícia Militar no lugar do coronel Márcio Antônio Barbosa de Mendonça. “Saio do comando com a certeza que valeu a pena, […]16 set. 2025 às 20h03",
-    "url": "https://gazetadocerrado.com.br/tocantins/troca-de-comando-coronel-barbosa-agradece-wanderlei-em-discurso-de-despedida-e-garante-valeu-a-pena-fizemos-historia/",
-    "source_name": "Gazeta do Cerrado",
-    "source_type": "Portal",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "coronel barbosa",
-      "barbosa de mendonça",
-      "pmto",
-      "polícia militar"
-    ],
-    "mention_type": "direta",
-    "detected_at": "2026-04-01 13:50",
-    "snippet": "",
-    "hash_id": "4a676fe83c86",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA",
-    "date": "2026-04-01",
-    "date_display": "01/04/2026",
-    "year": 2026,
-    "month": 4,
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
-  },
-  {
-    "title": "EleiçõesEm posse do novo comando, Wanderlei fala em recuperar prejuízo das carreiras dos PMs e valorizar corporaçãoO coronel Márcio Barbosa disse que assumiu para garantir a continuidade do trabalho desempenhado na Segurança Pública01 set. 2022 às 07h28",
-    "url": "https://gazetadocerrado.com.br/politica/em-posse-do-novo-comando-wanderlei-fala-em-recuperar-prejuizo-das-carreiras-dos-pms-e-valorizar-corporacao/",
-    "source_name": "Gazeta do Cerrado",
-    "source_type": "Portal",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "márcio barbosa"
-    ],
-    "mention_type": "direta",
-    "detected_at": "2026-04-01 13:50",
-    "snippet": "",
-    "hash_id": "5a479bb7fb16",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA",
-    "date": "2026-04-01",
-    "date_display": "01/04/2026",
-    "year": 2026,
-    "month": 4,
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
-  },
-  {
     "title": "Pré-candidato a deputado, ex-comandante da PM coronel Márcio Barbosa é homenageado pelas 13 associações militares do Tocantins",
     "url": "https://clebertoledo.com.br/em-off/pre-candidato-a-deputado-ex-comandante-da-pm-coronel-marcio-barbosa-e-homenageado-pelas-13-associacoes-militares-do-tocantins/",
     "source_name": "Cleber Toledo",
@@ -341,8 +292,8 @@
     "date_display": "03/04/2026",
     "year": 2026,
     "month": 4,
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.7
   },
   {
     "title": "Pré-candidato a deputado federal, Márcio Barbosa deixa comando da Polícia Militar; Cláudio Thomaz assume tropa",
@@ -389,100 +340,8 @@
     "date_display": "07/04/2026",
     "year": 2026,
     "month": 4,
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.8
-  },
-  {
-    "hash_id": "3f6523e2a915",
-    "title": "Comandante-geral da PMTO e sogro de Henrique, da dupla com Juliano, coronel Barbosa deve disputar eleição neste ano",
-    "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNVk1SQmJsMEM0N21NcWVDTEhmY19ZMjJvOFFRNjN4eUx1VzcyM1o4Tm1hR1dXWHdfNzhHcHJURmRlZkM1M1JDd2QtZVJkRkt5Rm5GM0U1VS0wTjFXTG1WeEJ3ci1VU3pQMHRaMWtoMkd5eWtOd0tSdmoybV9fVUs1NmlYeW1SR3I0VUtjWGp3c0RZVUJPSk1MeEluU182NUFsa2NVWGlrVHA1YXdoV0VUR09qczJCb0dKaDRUSmI1TzU3ajNFLVBheDlfVjhPVjFXZTBOT0hLRUJ2ZlBhMkxCTXVlWTdfZm8zUnNxdlExYkhmTVM4NFJvT0ppUQ?oc=5",
-    "source_name": "Jornal Opção | Tocantins",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Coronel Barbosa\" Tocantins"
-    ],
-    "mention_type": "direta",
-    "detected_at": "2026-04-07 09:22",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi-wFBVV95cUxNVk1SQmJsMEM0N21NcWVDTEhmY19ZMjJvOFFRNjN4eUx1VzcyM1o4Tm1hR1dXWHdfNzhHcHJURmRlZkM1M1JDd2QtZVJkRkt5Rm5GM0U1VS0wTjFXTG1WeEJ3ci1VU3pQMHRaMWtoMk",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
-    "date": "2026-04-07",
-    "date_display": "07/04/2026",
-    "year": 2026,
-    "month": 4,
-    "sentiment": "Negativo",
-    "sentiment_confidence": 0.7
-  },
-  {
-    "hash_id": "e17f8f6cad67",
-    "title": "Pré-candidato a deputado, ex-comandante da PM coronel Márcio Barbosa é homenageado pelas 13 associações militares do Tocantins",
-    "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNSEdvMXhKQW5CRWRXd2l5MlQyNjg2dk5BQk94NDZEdlB0MzRXUFF0Z2tfQzV2TFptcXZGTWlpUjFKWUFqOTYyd3pNMUFkLV9TTXE4b09Nc0Y5MTJHT0h5aVZRaFFNbjduTmNST3A2OXZPZ1hFelNiZVpWbW5SMlB4SzZLd1FOWm45S2k0Z0pRckxfQ1VvVlZENmZVZ1NQbUJrbUJzSmE0aWlyNTlrQnE5aVRSQzFwSlhCTjFiVmV0WFpyd2NtbFg1YmJjblJuakJ4SjNBMnA0eHVtNGxlS0JhcUhRRFpOYXBBNXc1N09fSXc1TE0?oc=5",
-    "source_name": "Cleber Toledo",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Coronel Barbosa\" Tocantins"
-    ],
-    "mention_type": "direta",
-    "detected_at": "2026-04-07 09:22",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi8wFBVV95cUxNSEdvMXhKQW5CRWRXd2l5MlQyNjg2dk5BQk94NDZEdlB0MzRXUFF0Z2tfQzV2TFptcXZGTWlpUjFKWUFqOTYyd3pNMUFkLV9TTXE4b09Nc0Y5MTJHT0h5aVZRaFFNbjduTmNST3A2OX",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
-    "date": "2026-04-07",
-    "date_display": "07/04/2026",
-    "year": 2026,
-    "month": 4,
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.7
-  },
-  {
-    "hash_id": "aa3e5deb8735",
-    "title": "Coronel Barbosa deixa comando da PMTO para pré-candidatura a deputado federal enquanto Cláudio Thomaz assume liderança da corporação",
-    "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPNFhaTjdCcDlTRWhWaUl1ZGxWbzJvcGx2Q004d2RGd3RiQzVlY2FfY2tVVHlhNnBCcjMxYktDUnZqTVdQS1dqUG9xZXlQY25EdUNzSG5jU19rcEF5MTVDNlhtNVlkbnRQUWEyNVlMR3B1MWc5bkd1UkROQ05OdDVUVVVJay0wSkRBRUFDdU1LR1I5UVFBZXFPdVBHakNKVlRZX0MxUWdYY2ZPYk5MLTN2MC1QS0h3LXFPTktnTHNHRG44RHJ6N0kxaGxlUGF6X0Z5d01JZ0luUnpPSXBLbXdCRkc2Vm1CejVPTWtJT2VMM3c1eWdqOTZJNjhmSlN0Zw?oc=5",
-    "source_name": "Sou de Palmas",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Coronel Barbosa\" Tocantins"
-    ],
-    "mention_type": "direta",
-    "detected_at": "2026-04-07 09:22",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi_gFBVV95cUxPNFhaTjdCcDlTRWhWaUl1ZGxWbzJvcGx2Q004d2RGd3RiQzVlY2FfY2tVVHlhNnBCcjMxYktDUnZqTVdQS1dqUG9xZXlQY25EdUNzSG5jU19rcEF5MTVDNlhtNVlkbnRQUWEyNVlMR3",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
-    "date": "2026-04-07",
-    "date_display": "07/04/2026",
-    "year": 2026,
-    "month": 4,
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.8
-  },
-  {
-    "hash_id": "0b7e260ec55f",
-    "title": "Coronel Barbosa desponta entre os mais citados para deputado federal em pesquisa no Tocantins",
-    "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQNzN0bnBtY0U1MkVJVUxMMzMtcDhVMzZTRUY4UGFxeUdUQ2Z6MW5QNzZhWXBkcDAzVF9lejBJRW5TanJlZFVuMmxxV1VOVDlBbmhrWllYeFVTaTFUQlR5RlRjNlJmYzQxd0xQTkpLREJjMXNjTGhmUGg3UTJDd0RPX0RYbGVuWjVpMEM1M3pQVk1fQ1hqal9yblA5bVNBRW43anU5MVpscC1hTVZ1N1RhYmRsM0hzZlNldzZkVHRhMW1WeFV4N08wcks1UTd4Y1FUdEdwbjRnMU1UX0lp?oc=5",
-    "source_name": "Agência Tocantins",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Coronel Barbosa\" Tocantins"
-    ],
-    "mention_type": "direta",
-    "detected_at": "2026-04-07 09:22",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi3AFBVV95cUxQNzN0bnBtY0U1MkVJVUxMMzMtcDhVMzZTRUY4UGFxeUdUQ2Z6MW5QNzZhWXBkcDAzVF9lejBJRW5TanJlZFVuMmxxV1VOVDlBbmhrWllYeFVTaTFUQlR5RlRjNlJmYzQxd0xQTkpLRE",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
-    "date": "2026-04-07",
-    "date_display": "07/04/2026",
-    "year": 2026,
-    "month": 4,
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
+    "sentiment_confidence": 0.5
   },
   {
     "hash_id": "743be972c3f1",
@@ -546,52 +405,6 @@
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi7gFBVV95cUxQWmlxR2FlQ1pMLUltS2NOYkY2SGJEdWNuSUpnQVBfb3AzWTF4NHBSZ0E2d3kwQTljRTF5NzRLYkp1eWQ3dTJkc2J4WHlzSUlhTGhCVUJUUTY1b19OZ3hkUHJBVWVHckh5YktLZXQ3X3",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "date": "2026-04-07",
-    "date_display": "07/04/2026",
-    "year": 2026,
-    "month": 4,
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
-  },
-  {
-    "hash_id": "689aecb2d587",
-    "title": "Coronel Márcio Barbosa é o novo Comandante Geral da Polícia Militar do Tocantins",
-    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdUhjYWZrV2t5M1RzN2htWkNkMG9MVGN4Z0tpRW9lQlBjREZqcEdSSWVHSlphN2tGWHJzN2pvRzFsTm01TFJMV0pRa2hIcUQyc21CcmU0TDI2a25CVWx5QXFjRmxjLTNUbXRaakZOSEpMcXFaQlRWbW1IS1RKYmhQMS03WlNkN2dFVTk0djlUb1o5LWFUbkpaWW9Yd0g2Rm5ZcGtRaTZDT01Jb3pqUXR5RERYckZDb2R4YWlFeUJ1Z3JpRkk?oc=5",
-    "source_name": "Norte do Tocantins",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Coronel Barbosa\" Tocantins"
-    ],
-    "mention_type": "direta",
-    "detected_at": "2026-04-07 09:22",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdUhjYWZrV2t5M1RzN2htWkNkMG9MVGN4Z0tpRW9lQlBjREZqcEdSSWVHSlphN2tGWHJzN2pvRzFsTm01TFJMV0pRa2hIcUQyc21CcmU0TDI2a25CVWx5QXFjRmxjLTNUbXRaakZOSE",
-    "relevance_score": 0.9,
-    "relevance_label": "DIRETA",
-    "date": "2026-04-07",
-    "date_display": "07/04/2026",
-    "year": 2026,
-    "month": 4,
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
-  },
-  {
-    "hash_id": "4837d4d4a021",
-    "title": "Márcio Barbosa deixa Comando da PMTO como nome forte na disputa a deputado federal e referência na segurança",
-    "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPRXlxOWJDMkN3NjltMkZBaWIwZFh5c0F0blRUR2NwclFJTDFRUnV4STlzTE55OFpNV3VZYkZCM2JMcWpEUTZmVlJzemZiaWJkdkg2VGw1RlBjZWZ6VWFlem1fTXhfWW9Jd2lXU2VSWW5TRVY5VGVXWlNncEFJc3FuUVdtMHJ4WUZMY1lmSlA4LWN4WnVYd3hXRnFlT293NWpRQXg5YUxYRnMwTmx5Z0xvbm4wbzM3eDd6QnZOaWdCc3BIQlFWT2lRUXJGWjVmOUVzMmhCOG5UY0RBazQ?oc=5",
-    "source_name": "Atitude Tocantins",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Márcio Barbosa\" PMTO"
-    ],
-    "mention_type": "direta",
-    "detected_at": "2026-04-07 09:22",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi2wFBVV95cUxPRXlxOWJDMkN3NjltMkZBaWIwZFh5c0F0blRUR2NwclFJTDFRUnV4STlzTE55OFpNV3VZYkZCM2JMcWpEUTZmVlJzemZiaWJkdkg2VGw1RlBjZWZ6VWFlem1fTXhfWW9Jd2lXU2VSWW",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
     "date": "2026-04-07",
     "date_display": "07/04/2026",
     "year": 2026,
@@ -667,29 +480,6 @@
     "month": 4,
     "sentiment": "Neutro",
     "sentiment_confidence": 0.6
-  },
-  {
-    "hash_id": "744738b1b418",
-    "title": "Comandante-geral da PMTO e sogro de Henrique, da dupla com Juliano, coronel Barbosa deve disputar eleição neste ano",
-    "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNaVV0c1dBRGctN1JjVERXOVlrTmdlVVVuV25kMWR2UXJEZ1BnWmRUc3hZcjdjNnFqYWtrWGZnaDZuS3JFb0ozenFaSDNsMlZ3Q2VBQUhudGRnMnJfb1lpZlJIcmFQZjBpS2tQUTV2S0ltaHE1RjlKRVJQSkpuR21BS05ESWhjVUNHUm1rX1l5U01CMHBLMkE4eEZkT0t5cV9XbUd1R1FaemRCWDRsOGJkUDl1UV9WbTJZVzFVZzRCR3lyU01DRWt3R3U1Y2QzVWUybjFLcndZY25HSVZSQ05Mb3JwWmF6Ri16UWZNdlU2b1d5ZVo4?oc=5",
-    "source_name": "tribunadopovoto.com.br",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Coronel Barbosa\" Republicanos"
-    ],
-    "mention_type": "direta",
-    "detected_at": "2026-04-07 09:22",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi9AFBVV95cUxNaVV0c1dBRGctN1JjVERXOVlrTmdlVVVuV25kMWR2UXJEZ1BnWmRUc3hZcjdjNnFqYWtrWGZnaDZuS3JFb0ozenFaSDNsMlZ3Q2VBQUhudGRnMnJfb1lpZlJIcmFQZjBpS2tQUTV2S0",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
-    "date": "2026-04-07",
-    "date_display": "07/04/2026",
-    "year": 2026,
-    "month": 4,
-    "sentiment": "Negativo",
-    "sentiment_confidence": 0.7
   },
   {
     "hash_id": "c61c9f68d540",
@@ -807,31 +597,6 @@
     "date_display": "20/04/2026",
     "detected_at": "2026-04-20 11:08",
     "collected_at": "2026-04-20T11:08:41",
-    "year": 2026,
-    "month": 4
-  },
-  {
-    "hash_id": "792a00e31bb7",
-    "title": "Coronel Márcio Barbosa fortalece alianças em Presidente Kennedy e confirma apoio de lideranças à sua pré-candidatura a deputado federal",
-    "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNVnBJbjV1VWlGVVI0QzZLeWRzRVhiam1wLXVGZkRBSmdwMWZoUjNoZG5lbVA0ZjJOenlkX0dkdlNDNzlHMDd4Rkd2ODFCNGJfTU1HUUFNSFhRMTVhNnhYS2dNemVTU1U0eDVRQ0ZFU01zM0Q5UVhEaEhRTDNxWlFwclBJamx3RjdheFdoQzBLMTA4dVVkeUw5c3AwbmtwODhocWh3NUlmbGFSNlQtSDI5QURSLWhKRm5XYTREa0I3RzBrc08tUlpIekROUHQyUjNNeFpmRjB3RzNGR1hsVTBOc2dMMFR6VjB6NndOY1JoZ1VvZHVJZEZz?oc=5",
-    "source_name": "RR10 NOTÍCIAS |",
-    "source_type": "google_news",
-    "priority": "alta",
-    "scope": "TO",
-    "matched_terms": [
-      "\"Márcio Barbosa\" PMTO when:1d"
-    ],
-    "mention_type": "direta",
-    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi9wFBVV95cUxNVnBJbjV1VWlGVVI0QzZLeWRzRVhiam1wLXVGZkRBSmdwMWZoUjNoZG5lbVA0ZjJOenlkX0dkdlNDNzlHMDd4Rkd2ODFCNGJfTU1HUUFNSFhRMTVhNnhYS2dNemVTU1U0eDVRQ0ZFU0",
-    "relevance_score": 1.0,
-    "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
-    "cluster": "Eleitoral",
-    "date": "2026-04-20",
-    "date_display": "20/04/2026",
-    "detected_at": "2026-04-21 00:04",
-    "collected_at": "2026-04-21T00:04:39",
     "year": 2026,
     "month": 4
   }
