@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-24 15:23",
+  "updated_at": "2026-04-24 19:59",
   "run_stats": {
     "queries_rss": 20,
     "entries_rss_raw": 0,
@@ -14,32 +14,27 @@
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 33,
-    "last_7d": 4,
-    "last_30d": 33,
+    "total": 25,
+    "last_7d": 3,
+    "last_30d": 23,
     "sources_7d": {
-      "RR10 NOTÍCIAS |": 4
+      "RR10 NOTÍCIAS |": 3
     },
     "sources_30d": {
-      "Sou de Palmas": 7,
-      "RR10 NOTÍCIAS |": 7,
-      "Cleber Toledo": 5,
-      "Agência Tocantins": 4,
-      "Atitude Tocantins": 3,
-      "Gazeta do Cerrado": 2,
-      "Jornal Opção | Tocantins": 1,
+      "Atitude Tocantins": 2,
+      "Sou de Palmas": 6,
+      "Cleber Toledo": 4,
+      "Agência Tocantins": 3,
       "Folha do Jalapão -": 1,
-      "Norte do Tocantins": 1,
-      "tribunadopovoto.com.br": 1,
+      "RR10 NOTÍCIAS |": 6,
       "Jornal Folha Capital": 1
     },
     "methods_30d": {
-      "RSS": 33
+      "RSS": 23
     },
     "sentiment_30d": {
-      "Neutro": 17,
-      "Positivo": 14,
-      "Negativo": 2
+      "Neutro": 12,
+      "Positivo": 11
     }
   },
   "sites_health": {
