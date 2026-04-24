@@ -7,7 +7,7 @@ import HelpTooltip from '../components/HelpTooltip.jsx';
 import { fmtK } from '../lib/analytics.js';
 import { CONFIG } from '../lib/config.js';
 
-const DCOL = {positivo:'#22c55e',negativo:'#ef4444',neutro:'#64748b'};
+const DCOL = {positivo:'#22c55e',negativo:'#ef4444',neutro:'#64748b',engajado:'#3b82f6'};
 
 const PANEL_PROFILES = new Set([
   CONFIG.CANDIDATE_USERNAME,'janad_valcari','tiagodimas','ricardoayres_to','fabiopereiravaz',
@@ -60,8 +60,9 @@ function SocialPanel({socialData,sentimentData}) {
     const s=sentimentData.sentiment;
     return[
       {name:'Positivo',value:s.positivo||0,pct:s.pct_positivo||0,color:DCOL.positivo},
-      {name:'Negativo',value:s.negativo||0,pct:s.pct_negativo||0,color:DCOL.negativo},
+      {name:'Engajado',value:s.engajado||0,pct:s.pct_engajado||0,color:DCOL.engajado},
       {name:'Neutro',value:s.neutro||0,pct:s.pct_neutro||0,color:DCOL.neutro},
+      {name:'Negativo',value:s.negativo||0,pct:s.pct_negativo||0,color:DCOL.negativo},
     ].filter(d=>d.value>0);
   },[sentimentData]);
 
@@ -252,6 +253,32 @@ function SocialPanel({socialData,sentimentData}) {
     })()}
 
     {(()=>{
+      const mensal=sentimentData?.sentiment_mensal;
+      if(!mensal||!Object.keys(mensal).length)return null;
+      const MESES={'-01':'Jan','-02':'Fev','-03':'Mar','-04':'Abr','-05':'Mai','-06':'Jun','-07':'Jul','-08':'Ago','-09':'Set','-10':'Out','-11':'Nov','-12':'Dez'};
+      const chartData=Object.entries(mensal).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>{
+        const suffix=k.slice(4);
+        return{mes:MESES[suffix]||k,positivo:v.pct_positivo||0,negativo:v.pct_negativo||0,engajado:v.pct_engajado||0,neutro:v.pct_neutro||0,total:v.total||0};
+      });
+      return(
+      <Card style={{marginBottom:14}}>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Tendência de sentimento mensal — {sentimentData?.periodo?.de||''} a {sentimentData?.periodo?.ate||''}</p>
+        <ResponsiveContainer width="100%" height={220}>
+          <BarChart data={chartData} margin={{top:5,right:10,left:0,bottom:5}}>
+            <XAxis dataKey="mes" tick={{fontSize:11,fill:'#8c93a8'}}/>
+            <YAxis tick={{fontSize:10,fill:'#8c93a8'}} unit="%" domain={[0,100]}/>
+            <Tooltip formatter={(v,n)=>[`${v}%`,n]} labelFormatter={l=>{const d=chartData.find(c=>c.mes===l);return d?`${l} (${d.total} comentários)`:l;}}/>
+            <Bar dataKey="positivo" stackId="a" fill={DCOL.positivo} name="Positivo" radius={[0,0,0,0]}/>
+            <Bar dataKey="engajado" stackId="a" fill={DCOL.engajado} name="Engajado"/>
+            <Bar dataKey="neutro" stackId="a" fill={DCOL.neutro} name="Neutro"/>
+            <Bar dataKey="negativo" stackId="a" fill={DCOL.negativo} name="Negativo" radius={[3,3,0,0]}/>
+            <Legend wrapperStyle={{fontSize:10}}/>
+          </BarChart>
+        </ResponsiveContainer>
+      </Card>);
+    })()}
+
+    {(()=>{
       const comments=sentimentData?.comments_sample||[];
       if(!comments.length)return null;
       const stopwords=new Set(['de','da','do','das','dos','e','a','o','que','em','um','uma','para','com','não','nao','no','na','se','por','mais','ao','os','as','é','esse','essa','este','esta','já','ja','foi','ser','tem','seu','sua','ou','muito','como','eu','me','meu','minha','ele','ela','nos','lhe','te','ti','são','sao','mas','isso','isto','aqui','ali','voce','você','vc','pra','pro','tb','tbm']);
@@ -288,12 +315,84 @@ function SocialPanel({socialData,sentimentData}) {
       </Card>);
     })()}
 
+    {(()=>{
+      const advocates=sentimentData?.advogados_marca;
+      if(!advocates?.length)return null;
+      const maxScore=advocates[0]?.score||1;
+      const SCOL={positivo:'#22c55e',engajado:'#3b82f6',neutro:'#94a3b8',negativo:'#ef4444'};
+      return(
+      <Card style={{marginBottom:14}}>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12}}>
+          <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',margin:0}}>Top 10 seguidores por engajamento</p>
+          {sentimentData?.total_comentaristas&&<span style={{fontSize:11,color:'#8c93a8'}}>de {sentimentData.total_comentaristas.toLocaleString('pt-BR')} perfis únicos</span>}
+        </div>
+        <div style={{overflowX:'auto'}}>
+        <table style={{width:'100%',borderCollapse:'collapse',fontSize:13}}>
+          <thead>
+            <tr style={{borderBottom:'2px solid #e2e8f0',textAlign:'left'}}>
+              <th style={{padding:'6px 8px',color:'#8c93a8',fontWeight:600,fontSize:11,textTransform:'uppercase'}}>#</th>
+              <th style={{padding:'6px 8px',color:'#8c93a8',fontWeight:600,fontSize:11,textTransform:'uppercase'}}>Perfil</th>
+              <th style={{padding:'6px 8px',color:'#8c93a8',fontWeight:600,fontSize:11,textTransform:'uppercase',textAlign:'center'}}>Comentários</th>
+              <th style={{padding:'6px 8px',color:'#8c93a8',fontWeight:600,fontSize:11,textTransform:'uppercase',textAlign:'center'}}>Posts</th>
+              <th style={{padding:'6px 8px',color:'#8c93a8',fontWeight:600,fontSize:11,textTransform:'uppercase',textAlign:'center'}}>Lealdade</th>
+              <th style={{padding:'6px 8px',color:'#8c93a8',fontWeight:600,fontSize:11,textTransform:'uppercase',minWidth:80}}>Score</th>
+              <th style={{padding:'6px 8px',color:'#8c93a8',fontWeight:600,fontSize:11,textTransform:'uppercase',textAlign:'center'}}>Período</th>
+            </tr>
+          </thead>
+          <tbody>
+            {advocates.map((a,i)=>{
+              const barW=Math.max(8,Math.round(a.score/maxScore*100));
+              const sColor=SCOL[a.sentimento_dominante]||'#94a3b8';
+              return(
+              <tr key={a.username} style={{borderBottom:'1px solid #f1f5f9',background:i%2===0?'#fafbfc':'transparent'}}>
+                <td style={{padding:'8px',fontWeight:700,color:'#1a3a7a',fontSize:14}}>{i+1}</td>
+                <td style={{padding:'8px'}}>
+                  <a href={`https://instagram.com/${a.username}`} target="_blank" rel="noopener noreferrer" style={{display:'flex',alignItems:'center',gap:8,textDecoration:'none',color:'inherit'}}>
+                    {(a.profilePicLocal||a.profilePicUrl)
+                      ?<img src={a.profilePicLocal||a.profilePicUrl} alt={a.username} style={{width:32,height:32,borderRadius:'50%',objectFit:'cover',flexShrink:0,border:'2px solid #e2e8f0'}} onError={e=>{e.target.style.display='none';e.target.nextSibling.style.display='flex';}}/>
+                      :null}
+                    <div style={{width:32,height:32,borderRadius:'50%',background:'linear-gradient(135deg,#1a3a7a,#2a4fa0)',alignItems:'center',justifyContent:'center',color:'#fff',fontSize:11,fontWeight:700,flexShrink:0,display:(a.profilePicLocal||a.profilePicUrl)?'none':'flex'}}>{a.username.charAt(0).toUpperCase()}</div>
+                    <div>
+                      <div style={{display:'flex',alignItems:'center',gap:4}}>
+                        <span style={{fontWeight:600,color:'#1a3a7a',fontSize:13}}>@{a.username.length>20?a.username.slice(0,18)+'…':a.username}</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8c93a8" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                      </div>
+                      {a.fullName&&<div style={{fontSize:10,color:'#8c93a8'}}>{a.fullName}{a.followersCount>0?` · ${a.followersCount.toLocaleString('pt-BR')} seg`:''}</div>}
+                      <div style={{fontSize:10,color:sColor,fontWeight:600}}>{a.sentimento_dominante} {a.sentimento_dominante_pct}%</div>
+                    </div>
+                  </a>
+                </td>
+                <td style={{padding:'8px',textAlign:'center',fontWeight:600}}>{a.comentarios}</td>
+                <td style={{padding:'8px',textAlign:'center',color:'#5a6178'}}>{a.posts_unicos}</td>
+                <td style={{padding:'8px',textAlign:'center'}}>
+                  <span style={{background:a.lealdade_pct>=80?'#dcfce7':a.lealdade_pct>=50?'#fef9c3':'#fee2e2',color:a.lealdade_pct>=80?'#15803d':a.lealdade_pct>=50?'#a16207':'#b91c1c',padding:'2px 8px',borderRadius:10,fontSize:11,fontWeight:700}}>{a.lealdade_pct}%</span>
+                </td>
+                <td style={{padding:'8px'}}>
+                  <div style={{display:'flex',alignItems:'center',gap:6}}>
+                    <div style={{flex:1,height:6,background:'#f1f5f9',borderRadius:3,overflow:'hidden'}}>
+                      <div style={{width:`${barW}%`,height:'100%',background:'linear-gradient(90deg,#1a3a7a,#d4a017)',borderRadius:3}}/>
+                    </div>
+                    <span style={{fontSize:11,fontWeight:600,color:'#1a3a7a',minWidth:28}}>{a.score}</span>
+                  </div>
+                </td>
+                <td style={{padding:'8px',textAlign:'center',fontSize:11,color:'#8c93a8',whiteSpace:'nowrap'}}>{a.primeiro_comentario?.slice(5)||'—'} a {a.ultimo_comentario?.slice(5)||'—'}</td>
+              </tr>);
+            })}
+          </tbody>
+        </table>
+        </div>
+        <div style={{marginTop:10,padding:'8px 10px',background:'#f8fafc',borderRadius:6,fontSize:11,color:'#5a6178',lineHeight:1.6}}>
+          <strong>Score</strong> = comentários×2 + likes recebidos + posts únicos×3 · <strong>Lealdade</strong> = % de interações positivas ou engajadas · <strong>Período</strong> = primeiro ao último comentário
+        </div>
+      </Card>);
+    })()}
+
     <Card style={{borderLeft:'3px solid #22c55e'}}>
       <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Insights para a campanha</p>
       <div style={{fontSize:14,color:'#8C93A8',lineHeight:1.7}}>
         {cand&&<p style={{margin:'0 0 4px'}}>Cel. Barbosa: #{candRank} em seguidores ({cand.seguidores.toLocaleString('pt-BR')}) com engajamento de {cand.taxa_engajamento_pct}% — {cand.taxa_engajamento_pct>1.5?'acima da média de políticos brasileiros (~1%)':'dentro da média'}.</p>}
         {cand&&<p style={{margin:'0 0 4px'}}>Média de {cand.media_likes_recentes} likes/post. Investir em Reels e vídeos curtos tende a amplificar o alcance orgânico em 3-5x no Instagram.</p>}
-        {sentimentData?.sentiment?.total>0&&<p style={{margin:0}}>Análise de {sentimentData.sentiment.total} comentários: {sentimentData.sentiment.pct_positivo}% positivos, {sentimentData.sentiment.pct_negativo}% negativos. {sentimentData.sentiment.pct_positivo>50?'Percepção pública favorável — explorar UGC e depoimentos.':'Monitorar narrativas negativas e preparar contra-narrativas.'}</p>}
+        {sentimentData?.sentiment?.total>0&&<p style={{margin:0}}>Análise calibrada de {sentimentData.sentiment.total} comentários{sentimentData?.periodo?` (${sentimentData.periodo.de} a ${sentimentData.periodo.ate})`:''}: {sentimentData.sentiment.pct_positivo}% positivos, {sentimentData.sentiment.pct_engajado||0}% engajados, {sentimentData.sentiment.pct_negativo}% negativos. {sentimentData.sentiment.pct_positivo>50?'Percepção pública favorável — explorar UGC e depoimentos.':'Monitorar narrativas negativas e preparar contra-narrativas.'}</p>}
         {!sentimentData?.sentiment?.total&&<p style={{margin:0}}>Execute o scraper de comentários para gerar a análise de sentimento do público nas redes.</p>}
       </div>
     </Card>
@@ -314,7 +413,7 @@ SocialPanel.propTypes = {
     coletado_em:           PropTypes.string,
   })),
   sentimentData: PropTypes.shape({
-    sentiment:       PropTypes.string,
+    sentiment:       PropTypes.object,
     score:           PropTypes.number,
     positivo_pct:    PropTypes.number,
     negativo_pct:    PropTypes.number,

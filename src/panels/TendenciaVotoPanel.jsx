@@ -14,16 +14,24 @@ function TendenciaVotoPanel({tendenciaData}) {
   const[sortDir,setSortDir]=useState(-1);
   const[chartView,setChartView]=useState('conservadores');
   const isMobile=useWW()<768;
-  if(!tendenciaData?.municipios?.length)return <PanelSkeleton/>;
 
-  const{agregado,municipios,top10_conservadores,top10_progressistas,top10_gap_conversao=[]}=tendenciaData;
-  const hasShareRep=municipios.some(m=>m.share_republicanos_dep_federal>0);
-  const pctB=agregado.pct_bolsonaro_estado,pctL=agregado.pct_lula_estado;
+  const municipios=tendenciaData?.municipios;
+  const agregado=tendenciaData?.agregado;
+  const top10_conservadores=tendenciaData?.top10_conservadores;
+  const top10_progressistas=tendenciaData?.top10_progressistas;
+  const top10_gap_conversao=tendenciaData?.top10_gap_conversao||[];
+
+  const hasShareRep=useMemo(()=>municipios?.some(m=>m.share_republicanos_dep_federal>0)??false,[municipios]);
+  const pctB=agregado?.pct_bolsonaro_estado;
+  const pctL=agregado?.pct_lula_estado;
 
   const tabelaDados=useMemo(()=>{
+    if(!municipios)return[];
     const list=filtroClass==='all'?municipios:municipios.filter(m=>m.classificacao===filtroClass);
     return[...list].sort((a,b)=>sortDir*((b[sortKey]||0)-(a[sortKey]||0)));
   },[municipios,filtroClass,sortKey,sortDir]);
+
+  if(!tendenciaData?.municipios?.length)return <PanelSkeleton/>;
 
   const titleCase=s=>s.split(' ').map(w=>w.charAt(0)+w.slice(1).toLowerCase()).join(' ');
   const chartData=(chartView==='conservadores'?top10_conservadores:top10_progressistas).map(m=>({

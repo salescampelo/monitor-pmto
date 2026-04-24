@@ -7,6 +7,11 @@ export function useAutoRefresh(callback, intervalMinutes = 30) {
   });
   const [lastRefresh, setLastRefresh] = useState(null);
   const intervalRef = useRef(null);
+  const callbackRef = useRef(callback);
+
+  useEffect(() => {
+    callbackRef.current = callback;
+  }, [callback]);
 
   useEffect(() => {
     localStorage.setItem('autoRefresh', JSON.stringify(enabled));
@@ -20,7 +25,7 @@ export function useAutoRefresh(callback, intervalMinutes = 30) {
 
     const doRefresh = async () => {
       console.log('[AutoRefresh] Atualizando dados...');
-      await callback();
+      await callbackRef.current();
       setLastRefresh(new Date());
     };
 
@@ -35,7 +40,7 @@ export function useAutoRefresh(callback, intervalMinutes = 30) {
       clearTimeout(initialTimeout);
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [enabled, callback, intervalMinutes]);
+  }, [enabled, intervalMinutes]);
 
   return { enabled, setEnabled, lastRefresh };
 }

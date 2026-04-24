@@ -31,6 +31,7 @@ import AppHeader from './components/AppHeader.jsx';
 import PwModal from './components/PwModal.jsx';
 import HelpTooltip from './components/HelpTooltip.jsx';
 import { ErrorBoundary } from './components/ErrorBoundary.jsx';
+import BottomNav from './components/BottomNav.jsx';
 
 /* ═══════════════════════════════════════════════
    MAIN APP
@@ -65,8 +66,10 @@ const App = ({onLogout, userEmail}) => {
   const[visibleCount,setVisibleCount]=useState(50);
   const[lastUpdate,setLastUpdate]=useState(null);
   const[loading,setLoading]=useState(true);
+  const[bootError,setBootError]=useState(false);
   const[refreshing,setRefreshing]=useState(false);
   const[activePanel,setActivePanel]=useState(urlState.panel);
+  const[localDataBanner,setLocalDataBanner]=useState(null);
 
   // Sync state → URL whenever panel or filters change
   useEffect(()=>{
@@ -92,10 +95,12 @@ const App = ({onLogout, userEmail}) => {
         fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)
       ]);
       if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
+      if(!s&&!st&&!k&&!adv)setBootError(true);
       setLastUpdate(new Date().toLocaleString('pt-BR')+' (auto)');
     }catch(err){
       if(err.message?.includes('Sessão expirada')){await supabase.auth.signOut();return;}
       console.error('[boot] Erro ao carregar dados:',err.message);
+      setBootError(true);
     }finally{
       setLoading(false);
     }
@@ -183,13 +188,31 @@ const App = ({onLogout, userEmail}) => {
   },[pw.new,pw.confirm]);
 
   useEffect(()=>{
-    const drop=e=>{e.preventDefault();const f=e.dataTransfer?.files[0];if(!f?.name.endsWith('.json'))return;const r=new FileReader();r.onload=ev=>{try{const d=JSON.parse(ev.target.result);if(Array.isArray(d)&&d[0]?.username)setSocialData(d);else if(Array.isArray(d)&&d[0]?.title)setNewsRaw(d);else if(d?.sentiment)setSentimentData(d);}catch{}};r.readAsText(f);};
+    const MAX_FILE_SIZE=5*1024*1024; // 5 MB
+    const drop=e=>{
+      e.preventDefault();
+      const f=e.dataTransfer?.files[0];
+      if(!f?.name.endsWith('.json'))return;
+      if(f.size>MAX_FILE_SIZE){console.warn('[drop] Arquivo rejeitado: excede 5 MB');return;}
+      const r=new FileReader();
+      r.onload=ev=>{
+        try{
+          const d=JSON.parse(ev.target.result);
+          let accepted=false;
+          if(Array.isArray(d)&&d.length>0&&d[0]?.username){setSocialData(d);accepted=true;}
+          else if(Array.isArray(d)&&d.length>0&&d[0]?.title){setNewsRaw(d);accepted=true;}
+          else if(d&&typeof d==='object'&&!Array.isArray(d)&&d.sentiment){setSentimentData(d);accepted=true;}
+          if(accepted){setLocalDataBanner('Dados locais carregados');setTimeout(()=>setLocalDataBanner(null),5000);}
+        }catch{console.warn('[drop] JSON inválido');}
+      };
+      r.readAsText(f);
+    };
     const over=e=>e.preventDefault();
     window.addEventListener('drop',drop);window.addEventListener('dragover',over);
     return()=>{window.removeEventListener('drop',drop);window.removeEventListener('dragover',over);};
   },[]);
 
-  const articles=useMemo(()=>newsRaw?.map(classify)||[],[newsRaw]);
+  const articles=useMemo(()=>Array.isArray(newsRaw)?newsRaw.map(classify):[],[newsRaw]);
   const filteredNews=useMemo(()=>{
     let f=articles;
     if(filters.relevance==='relevant')f=f.filter(n=>n.relevance>=0.5);
@@ -271,9 +294,11 @@ const App = ({onLogout, userEmail}) => {
   ,[sentimentData]);
   // ─────────────────────────────────────────────────────────────────────────
 
-  const isAdmin=userEmail==='marcelsalescampelo@gmail.com';
+  const isAdmin=userEmail===import.meta.env.VITE_ADMIN_EMAIL;
 
   if(loading)return(<div style={{minHeight:'100vh',background:'linear-gradient(135deg,#1A3A7A 0%,#0D1F42 100%)',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,sans-serif"}}><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style><div style={{position:'relative',width:76,height:76,marginBottom:28}}><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid rgba(212,160,23,0.18)'}}/><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid transparent',borderTopColor:'#D4A017',animation:'spin 1s linear infinite'}}/><ShieldAlert size={26} style={{color:'#D4A017',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}/></div><p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',margin:0}}>Carregando dados</p></div>);
+
+  if(bootError)return(<div style={{minHeight:'100vh',background:'linear-gradient(135deg,#1A3A7A 0%,#0D1F42 100%)',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,sans-serif",gap:16}}><AlertTriangle size={40} style={{color:'#ef4444'}}/><p style={{fontSize:16,fontWeight:700,color:'#fff',margin:0}}>Erro ao carregar dados. Tente atualizar.</p><button onClick={()=>{setBootError(false);setLoading(true);(async()=>{try{const[s,st,k,adv]=await Promise.all([fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)]);if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);if(!s&&!st&&!k&&!adv)setBootError(true);else setLastUpdate(new Date().toLocaleString('pt-BR')+' (auto)');}catch(err){console.error('[retry]',err.message);setBootError(true);}finally{setLoading(false);}})();}} style={{padding:'10px 24px',borderRadius:10,background:'rgba(255,255,255,0.1)',border:'1px solid rgba(255,255,255,0.2)',color:'#fff',fontSize:13,fontWeight:700,cursor:'pointer',fontFamily:'inherit',display:'flex',alignItems:'center',gap:8}}><RefreshCw size={14}/> Tentar novamente</button></div>);
 
   return(
   <div style={{minHeight:'100vh',background:'#F8F7F4',color:'#1A2744',fontFamily:"'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif"}}>
@@ -284,15 +309,23 @@ const App = ({onLogout, userEmail}) => {
       SEM CONEXÃO — os dados exibidos podem estar desatualizados
     </div>
   )}
+  {localDataBanner&&(
+    <div style={{position:'fixed',top:isOffline?32:0,left:0,right:0,zIndex:9998,background:'#d4a017',color:'#1A2744',fontSize:12,fontWeight:700,textAlign:'center',padding:'6px 16px',letterSpacing:'0.05em'}}>
+      {localDataBanner}
+    </div>
+  )}
 
   <AppHeader isMobile={isMobile} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} userEmail={userEmail} onLogout={onLogout} setPw={setPw} lastUpdate={lastUpdate} daysToElection={daysToElection} followers={followers} followersRaw={followersRaw} followersPrevWeek={followersPrevWeek} engagementRate={engagementRate} engagementPrevWeek={engagementPrevWeek} mentions48h={mentions48h} positiveCommentsPct={positiveCommentsPct} autoRefreshEnabled={autoRefreshEnabled} setAutoRefresh={setAutoRefresh}/>
 
+  {/* ── BOTTOM NAV (mobile only) ── */}
+  {isMobile&&<BottomNav activePanel={activePanel} setActivePanel={setActivePanel} isAdmin={isAdmin}/>}
+
   {/* ── LAYOUT BODY ── */}
   <div style={{display:'flex'}}>
-    {isMobile&&nav.sidebarOpen&&<div aria-hidden="true" style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.6)',zIndex:149}} onClick={()=>setNav(n=>({...n,sidebarOpen:false}))}/>}
+    {!isMobile&&nav.sidebarOpen&&<div aria-hidden="true" style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.6)',zIndex:149}} onClick={()=>setNav(n=>({...n,sidebarOpen:false}))}/>}
 
-    {/* ── SIDEBAR ── */}
-    <aside id="sidebar-nav" role="navigation" aria-label="Menu principal" style={{position:isMobile?'fixed':'sticky',top:0,left:0,bottom:isMobile?0:'auto',alignSelf:'flex-start',height:isMobile?undefined:'100vh',width:isMobile?(nav.sidebarOpen?260:0):isTablet?60:260,flexShrink:0,background:'#FFFFFF',borderRight:'1px solid rgba(26,39,68,0.08)',display:'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
+    {/* ── SIDEBAR (hidden on mobile — BottomNav replaces it) ── */}
+    <aside id="sidebar-nav" role="navigation" aria-label="Menu principal" style={{position:'sticky',top:0,left:0,alignSelf:'flex-start',height:'100vh',width:isMobile?0:isTablet?60:260,flexShrink:0,background:'#FFFFFF',borderRight:isMobile?'none':'1px solid rgba(26,39,68,0.08)',display:isMobile?'none':'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
       <div style={{display:'flex',flexDirection:'column',gap:4}}>
       {[
         {id:'tendencia', label:'Tendência 2022', icon:TrendingUp,  sub:'Bolsonaro × Lula'},
@@ -354,7 +387,7 @@ const App = ({onLogout, userEmail}) => {
     </aside>
 
     {/* ── CONTENT AREA ── */}
-    <main id="main-content" aria-label="Conteúdo principal" style={{padding:isMobile?'8px 10px':'24px',flex:1,minWidth:0,minHeight:'100vh'}}>
+    <main id="main-content" aria-label="Conteúdo principal" style={{padding:isMobile?'8px 10px':'24px',paddingBottom:isMobile?80:24,flex:1,minWidth:0,minHeight:'100vh'}}>
       <div key={activePanel} className="panel-fade">
         {activePanel==='tendencia'&&<SafePanel><TendenciaVotoPanel tendenciaData={tendenciaData}/></SafePanel>}
         {activePanel==='adversarios'&&<SafePanel><AdversariosPanel adversariosData={adversariosData}/></SafePanel>}
@@ -471,11 +504,12 @@ export default function Root() {
   const[session,    setSession]    = useState(undefined);
   const[authorized, setAuthorized] = useState(null);
   const[authChecked,setAuthChecked]= useState(false);
+  const[authError,  setAuthError]  = useState(null);
 
   useEffect(()=>{
-    supabase.auth.getSession().then(({data:{session}})=>{setSession(session);});
+    // onAuthStateChange fires INITIAL_SESSION on mount — no need for getSession()
     const{data:{subscription}}=supabase.auth.onAuthStateChange((_event,session)=>{
-      setSession(session);
+      setSession(session??null);
       if(!session){setAuthorized(null);setAuthChecked(false);}
     });
     return()=>subscription.unsubscribe();
@@ -484,9 +518,16 @@ export default function Root() {
   useEffect(()=>{
     if(!session?.user?.email)return;
     setAuthChecked(false);
+    setAuthError(null);
     supabase.from(ALLOWED_CHECK_TABLE).select('email').eq('email',session.user.email)
       .then(({data,error})=>{
-        if(!error&&Array.isArray(data)&&data.length>1){
+        if(error){
+          console.error('[auth] Supabase query error:',error.message);
+          setAuthError('Erro de conexão. Tente novamente.');
+          setAuthChecked(true);
+          return;
+        }
+        if(Array.isArray(data)&&data.length>1){
           // RLS quebrado: usuário vê linhas de outros — bloquear por segurança
           console.error('[RLS] ALERTA: política allowed_users retornou múltiplas linhas. Verifique o Supabase dashboard.');
           setAuthorized(false);
@@ -500,7 +541,12 @@ export default function Root() {
       });
   },[session]);
 
-  const handleLogout=()=>supabase.auth.signOut();
+  const handleLogout=async()=>{
+    if ('caches' in window) {
+      caches.delete('data-cache');
+    }
+    await supabase.auth.signOut();
+  };
 
   if(session===undefined)return(
     <div style={{minHeight:'100vh',background:'#1a3a7a',display:'flex',alignItems:'center',justifyContent:'center'}}>
@@ -521,11 +567,26 @@ export default function Root() {
 
   if(!authorized)return(
     <div style={{minHeight:'100vh',background:'#1a3a7a',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:16,fontFamily:"'DM Sans',sans-serif",padding:20}}>
-      <ShieldAlert size={40} style={{color:'#ef4444'}}/>
-      <div style={{textAlign:'center'}}>
-        <p style={{color:'#fff',fontSize:16,fontWeight:800,margin:'0 0 6px'}}>Acesso não autorizado</p>
-        <p style={{color:'rgba(255,255,255,0.4)',fontSize:13,margin:'0 0 20px'}}>{session.user.email} não tem permissão de acesso.</p>
-      </div>
+      {authError?(
+        <>
+          <AlertTriangle size={40} style={{color:'#f59e0b'}}/>
+          <div style={{textAlign:'center'}}>
+            <p style={{color:'#fff',fontSize:16,fontWeight:800,margin:'0 0 6px'}}>{authError}</p>
+            <p style={{color:'rgba(255,255,255,0.4)',fontSize:13,margin:'0 0 20px'}}>Não foi possível verificar seu acesso.</p>
+          </div>
+          <button onClick={()=>{setAuthChecked(false);setAuthError(null);setAuthorized(null);supabase.from(ALLOWED_CHECK_TABLE).select('email').eq('email',session.user.email).then(({data,error})=>{if(error){setAuthError('Erro de conexão. Tente novamente.');setAuthChecked(true);return;}if(Array.isArray(data)&&data.length>1){setAuthorized(false);setAuthChecked(true);return;}const ok=Array.isArray(data)&&data.length===1;setAuthorized(ok);setAuthChecked(true);if(ok)logAccess('login',`panel=dashboard email=${session.user.email}`);});}} style={{display:'flex',alignItems:'center',gap:8,padding:'10px 24px',background:'rgba(255,255,255,0.1)',border:'1px solid rgba(255,255,255,0.2)',borderRadius:10,color:'#fff',fontSize:13,fontWeight:700,cursor:'pointer',fontFamily:'inherit'}}>
+            <RefreshCw size={14}/> Tentar novamente
+          </button>
+        </>
+      ):(
+        <>
+          <ShieldAlert size={40} style={{color:'#ef4444'}}/>
+          <div style={{textAlign:'center'}}>
+            <p style={{color:'#fff',fontSize:16,fontWeight:800,margin:'0 0 6px'}}>Acesso não autorizado</p>
+            <p style={{color:'rgba(255,255,255,0.4)',fontSize:13,margin:'0 0 20px'}}>{session.user.email} não tem permissão de acesso.</p>
+          </div>
+        </>
+      )}
       <button onClick={handleLogout} style={{display:'flex',alignItems:'center',gap:8,padding:'10px 24px',background:'rgba(255,255,255,0.1)',border:'1px solid rgba(255,255,255,0.2)',borderRadius:10,color:'#fff',fontSize:13,fontWeight:700,cursor:'pointer',fontFamily:'inherit'}}>
         <LogOut size={14}/> Sair
       </button>

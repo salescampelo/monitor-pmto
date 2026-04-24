@@ -36,7 +36,7 @@ export const Bd = ({children,color,bg}) => (
 );
 
 export const Bt = ({active,color,onClick,children}) => (
-  <button onClick={onClick} style={{display:'flex',alignItems:'center',gap:4,padding:'8px 14px',minHeight:36,borderRadius:20,fontSize:12,fontWeight:700,border:active?`1.5px solid ${color}`:'1.5px solid rgba(26,39,68,0.15)',background:active?`${color}1a`:'rgba(26,39,68,0.04)',color:active?color:'#5A6478',cursor:'pointer',transition:'all 0.15s ease',fontFamily:'inherit'}}>
+  <button onClick={onClick} style={{display:'flex',alignItems:'center',gap:4,padding:'8px 14px',minHeight:44,borderRadius:20,fontSize:12,fontWeight:700,border:active?`1.5px solid ${color}`:'1.5px solid rgba(26,39,68,0.15)',background:active?`${color}1a`:'rgba(26,39,68,0.04)',color:active?color:'#5A6478',cursor:'pointer',transition:'all 0.15s ease',fontFamily:'inherit'}}>
     {children}
   </button>
 );
@@ -73,8 +73,8 @@ export const NC = ({item,expanded,onToggle}) => {
     <h4 style={{fontSize:17,fontWeight:700,color:'#1A2744',margin:'0 0 8px',lineHeight:1.45,letterSpacing:'-0.01em'}}>{item.title}</h4>
     {item.keywords.length>0&&<div style={{display:'flex',gap:4,flexWrap:'wrap',marginBottom:10}}>{item.keywords.slice(0,6).map(k=><span key={k} style={{fontSize:10,fontFamily:'monospace',color:'#8C93A8'}}>#{k}</span>)}</div>}
     <div style={{borderTop:'1px solid var(--surface-border)',paddingTop:8,display:'flex',justifyContent:'space-between'}}>
-      <button onClick={onToggle} style={{background:'none',border:'none',color:'#D4A017',fontSize:11,fontWeight:700,cursor:'pointer',display:'flex',alignItems:'center',gap:4,fontFamily:'inherit'}}><BrainCircuit size={12}/>{expanded?'Ocultar':'Análise'}{expanded?<ChevronUp size={12}/>:<ChevronDown size={12}/>}</button>
-      <a href={item.url} target="_blank" rel="noopener noreferrer" style={{color:'#8C93A8',fontSize:11,textDecoration:'none',fontWeight:600,display:'flex',alignItems:'center',gap:3}}>Fonte <ArrowUpRight size={11}/></a>
+      <button onClick={onToggle} style={{background:'none',border:'none',color:'#D4A017',fontSize:11,fontWeight:700,cursor:'pointer',display:'flex',alignItems:'center',gap:4,fontFamily:'inherit',minHeight:44,padding:'8px 4px'}}><BrainCircuit size={12}/>{expanded?'Ocultar':'Análise'}{expanded?<ChevronUp size={12}/>:<ChevronDown size={12}/>}</button>
+      <a href={item.url} target="_blank" rel="noopener noreferrer" style={{color:'#8C93A8',fontSize:11,textDecoration:'none',fontWeight:600,display:'flex',alignItems:'center',gap:3,minHeight:44,padding:'8px 4px'}}>Fonte <ArrowUpRight size={11}/></a>
     </div>
     {expanded&&<div style={{marginTop:10,padding:12,background:'rgba(26,39,68,0.04)',border:'1px solid rgba(26,39,68,0.08)',borderRadius:'var(--radius-sm)'}}><p style={{fontSize:14,color:'rgba(26,39,68,0.7)',lineHeight:1.6,margin:0}}>{item.analysisNote}</p></div>}
   </div>);

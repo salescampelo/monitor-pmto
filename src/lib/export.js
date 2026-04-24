@@ -10,8 +10,14 @@ export function exportToCsv(data, filename) {
     ...data.map(row =>
       headers.map(h => {
         let val = row[h] ?? '';
-        if (typeof val === 'string' && (val.includes(';') || val.includes('"') || val.includes('\n'))) {
-          val = `"${val.replace(/"/g, '""')}"`;
+        if (typeof val === 'string') {
+          // Prevent CSV formula injection — prefix dangerous leading chars with a single quote
+          if (/^[=+\-@]/.test(val)) {
+            val = "'" + val;
+          }
+          if (val.includes(';') || val.includes('"') || val.includes('\n')) {
+            val = `"${val.replace(/"/g, '""')}"`;
+          }
         }
         return val;
       }).join(';')

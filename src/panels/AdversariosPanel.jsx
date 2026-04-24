@@ -233,7 +233,7 @@ AdversariosPanel.propTypes = {
       partido:      PropTypes.string,
       seguidores:   PropTypes.number,
       score_ameaca: PropTypes.number,
-      nivel_ameaca: PropTypes.oneOf(['alta', 'média', 'baixa']),
+      nivel_ameaca: PropTypes.oneOf(['alta', 'média', 'baixa', 'interno']),
       destino:      PropTypes.string,
       is_interno:   PropTypes.bool,
     })),

@@ -33,7 +33,10 @@ export const fetchJ = async (u) => {
       throw new Error(SESSION_EXPIRED);
     }
 
-    const r = await fetch(u + '?t=' + Date.now(), {
+    const base = typeof location !== 'undefined' ? location.origin : 'http://localhost';
+    const url = new URL(u, base);
+    url.searchParams.set('t', Date.now());
+    const r = await fetch(url.toString(), {
       signal: ctrl.signal,
       headers: { Authorization: `Bearer ${session.access_token}` },
     });
