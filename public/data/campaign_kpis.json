@@ -26,7 +26,7 @@
         "3": 75000
       },
       "format": "number",
-      "previous": 32141
+      "previous": 32139
     },
     {
       "id": "engajamento_ig",
@@ -43,7 +43,7 @@
     {
       "id": "mencoes_imprensa",
       "label": "Menções imprensa (30 dias)",
-      "current": 25,
+      "current": 17,
       "targets": {
         "1": 60,
         "2": 120,
@@ -75,5 +75,9 @@
       "format": "number"
     }
   ],
+<<<<<<< HEAD
   "updated_at": "2026-04-25 08:39"
+=======
+  "updated_at": "2026-04-25 09:05"
+>>>>>>> 1814dbd (Auto: dados atualizados)
 }
