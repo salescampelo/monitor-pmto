@@ -19,7 +19,7 @@
     {
       "id": "seguidores_ig",
       "label": "Seguidores Instagram",
-      "current": 32141,
+      "current": 32139,
       "targets": {
         "1": 45000,
         "2": 60000,
@@ -75,9 +75,5 @@
       "format": "number"
     }
   ],
-<<<<<<< HEAD
-  "updated_at": "2026-04-25 08:39"
-=======
   "updated_at": "2026-04-25 09:05"
->>>>>>> 1814dbd (Auto: dados atualizados)
 }
