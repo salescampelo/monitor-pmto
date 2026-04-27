@@ -1,0 +1,43 @@
+name: Notify on Vercel build failure
+
+# Listens to deployment_status events that Vercel emits to this GitHub repo.
+# Sends a Gmail SMTP alert whenever a deployment moves to failure/error state.
+# Uses the same GMAIL_USER / GMAIL_APP_PASSWORD secrets already configured on
+# scraper-pmto so no extra setup is required if those exist on this repo too.
+
+on:
+  deployment_status:
+
+jobs:
+  alert:
+    if: github.event.deployment_status.state == 'failure' || github.event.deployment_status.state == 'error'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Gmail alert
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.GMAIL_USER }}
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          subject: "[monitor-pmto] Vercel build FAILED — ${{ github.event.deployment.ref }}"
+          to: marcelsalescampelo@gmail.com
+          from: "monitor-pmto CI <${{ secrets.GMAIL_USER }}>"
+          body: |
+            Falha de build no monitor-pmto.
+
+            State:        ${{ github.event.deployment_status.state }}
+            Ref:          ${{ github.event.deployment.ref }}
+            SHA:          ${{ github.event.deployment.sha }}
+            Environment:  ${{ github.event.deployment.environment }}
+            Creator:      ${{ github.event.deployment.creator.login }}
+            Description:  ${{ github.event.deployment_status.description }}
+
+            Logs:         ${{ github.event.deployment_status.target_url }}
+            Inspector:    ${{ github.event.deployment_status.log_url }}
+
+            ATENÇÃO: enquanto este deploy permanecer em estado de falha, qualquer
+            push de dados via GitHub Actions também será rejeitado e o dashboard
+            continuará exibindo o último deploy bem-sucedido (dados desatualizados).
+            Investigar imediatamente.
