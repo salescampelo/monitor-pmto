@@ -12,8 +12,8 @@
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi-wFBVV95cUxNVk1SQmJsMEM0N21NcWVDTEhmY19ZMjJvOFFRNjN4eUx1VzcyM1o4Tm1hR1dXWHdfNzhHcHJURmRlZkM1M1JDd2QtZVJkRkt5Rm5GM0U1VS0wTjFXTG1WeEJ3ci1VU3pQMHRaMWtoMk",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.75,
     "cluster": "Eleitoral",
     "collection_method": "BACKFILL",
     "date": "2026-01-30",
@@ -21,7 +21,8 @@
     "detected_at": "2026-04-24 16:49",
     "collected_at": "2026-04-24T16:49:29",
     "year": 2026,
-    "month": 1
+    "month": 1,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "f8ec6626a952",
@@ -36,8 +37,8 @@
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi3AFBVV95cUxQNzN0bnBtY0U1MkVJVUxMMzMtcDhVMzZTRUY4UGFxeUdUQ2Z6MW5QNzZhWXBkcDAzVF9lejBJRW5TanJlZFVuMmxxV1VOVDlBbmhrWllYeFVTaTFUQlR5RlRjNlJmYzQxd0xQTkpLRE",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "collection_method": "BACKFILL",
     "date": "2026-02-01",
@@ -45,7 +46,8 @@
     "detected_at": "2026-04-24 16:49",
     "collected_at": "2026-04-24T16:49:29",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "title": "Márcio Barbosa é o novo comandante-geral da PMTO",
@@ -70,7 +72,8 @@
     "year": 2026,
     "month": 4,
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
+    "sentiment_confidence": 0.9,
+    "sentiment_original": "Neutro"
   },
   {
     "title": "Coronel Barbosa deixa comando da PMTO para pré-candidatura a deputado federal enquanto Cláudio Thomaz assume liderança da corporação",
@@ -94,8 +97,9 @@
     "date_display": "01/04/2026",
     "year": 2026,
     "month": 4,
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.8
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.85,
+    "sentiment_original": "Positivo"
   },
   {
     "title": "Ao ex-deputado Elenil da Penha, Coronel Barbosa confirma parecer favorável da PGE para o chamamento mais 500 candidatos excedentes do concurso da PMTO",
@@ -120,8 +124,9 @@
     "date_display": "01/04/2026",
     "year": 2026,
     "month": 4,
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.7,
+    "sentiment_original": "Neutro"
   },
   {
     "title": "“Estamos em tratativas para o chamamento dos excedentes”, diz Coronel Barbosa, ao comentar sobre efetivo da PMTO durante entrevista",
@@ -144,8 +149,9 @@
     "date_display": "01/04/2026",
     "year": 2026,
     "month": 4,
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.7
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.8,
+    "sentiment_original": "Positivo"
   },
   {
     "title": "‘Operação Presença’: Coronel Barbosa lança ação na região sul de Palmas e reforça convocação de excedentes do último concurso da PMTO",
@@ -171,7 +177,8 @@
     "year": 2026,
     "month": 4,
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.7
+    "sentiment_confidence": 0.75,
+    "sentiment_original": "Positivo"
   },
   {
     "title": "Coletiva: Comandante-Geral da PMTO, Coronel Barbosa, diz que, se preciso for, “tomará medidas mais enérgicas para desbloquear rodovias”",
@@ -196,7 +203,8 @@
     "year": 2026,
     "month": 4,
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
+    "sentiment_confidence": 0.75,
+    "sentiment_original": "Neutro"
   },
   {
     "title": "Mudança no comando da Gloriosa: Coronel Márcio Barbosa é o novo Comandante Geral da Polícia Militar do Tocantins",
@@ -221,7 +229,8 @@
     "year": 2026,
     "month": 4,
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
+    "sentiment_confidence": 0.9,
+    "sentiment_original": "Neutro"
   },
   {
     "title": "Pré-candidato a deputado, ex-comandante da PM coronel Márcio Barbosa é homenageado pelas 13 associações militares do Tocantins",
@@ -246,7 +255,8 @@
     "year": 2026,
     "month": 4,
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.7
+    "sentiment_confidence": 0.85,
+    "sentiment_original": "Positivo"
   },
   {
     "title": "EM OFF / Ex-comandantes vão em peso à posse do coronel Márcio Barbosa na PM; padre Aderso indignado com Cinthia e Vanderlan não será candidato",
@@ -268,8 +278,9 @@
     "date_display": "01/04/2026",
     "year": 2026,
     "month": 4,
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.8,
+    "sentiment_original": "Neutro"
   },
   {
     "title": "Márcio Barbosa deixa Comando da PMTO como nome forte na disputa a deputado federal  e referência na segurança",
@@ -293,7 +304,8 @@
     "year": 2026,
     "month": 4,
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.7
+    "sentiment_confidence": 0.88,
+    "sentiment_original": "Positivo"
   },
   {
     "title": "Pré-candidato a deputado federal, Márcio Barbosa deixa comando da Polícia Militar; Cláudio Thomaz assume tropa",
@@ -317,8 +329,9 @@
     "date_display": "03/04/2026",
     "year": 2026,
     "month": 4,
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.7
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.85,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "ace7b911955e",
@@ -340,8 +353,9 @@
     "date_display": "07/04/2026",
     "year": 2026,
     "month": 4,
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.82,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "743be972c3f1",
@@ -364,7 +378,8 @@
     "year": 2026,
     "month": 4,
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
+    "sentiment_confidence": 0.9,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "bf77480c161e",
@@ -386,8 +401,9 @@
     "date_display": "07/04/2026",
     "year": 2026,
     "month": 4,
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.78,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "0d2a11654d01",
@@ -409,8 +425,9 @@
     "date_display": "07/04/2026",
     "year": 2026,
     "month": 4,
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.82,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "e7c59461b489",
@@ -433,7 +450,8 @@
     "year": 2026,
     "month": 4,
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.7
+    "sentiment_confidence": 0.75,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "e000169db1b4",
@@ -456,7 +474,8 @@
     "year": 2026,
     "month": 4,
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.7
+    "sentiment_confidence": 0.8,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "002019b46889",
@@ -478,8 +497,9 @@
     "date_display": "07/04/2026",
     "year": 2026,
     "month": 4,
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.6
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.8,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "c61c9f68d540",
@@ -497,11 +517,13 @@
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxPak5IaVdnbnl1SXBLZ2FfTWhDTkRVVFQ5a3l3YXdJM1NrMUpnckw1RTZ6YkluTEI2aGZsX1lGd1M2ZUVDSE56V2ZSRk5oQzh0ajFSbUZzVGRaWUQ4d0hGcndKQmlUVWhjU1ZlSHc0dG",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
+    "sentiment": "Positivo",
     "date": "2026-04-11",
     "date_display": "11/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Neutro",
+    "sentiment_confidence": 0.82
   },
   {
     "hash_id": "d6a99c378a9f",
@@ -519,11 +541,13 @@
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxNRXpnQUdVaGEwdTRvVVV0T1ZuYllGV3ZzS3hVVUw1bEFQOXlfcERPZHpCdUZSb2FOS3dWenpoZXc3UEY1V3R1bzFoSmJEY3VPY0dQRUFWbFEyZUgtenZaNlVPT3NIcEl3ZG5aTlh6Q1",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
+    "sentiment": "Positivo",
     "date": "2026-04-14",
     "date_display": "14/04/2026",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Neutro",
+    "sentiment_confidence": 0.85
   },
   {
     "hash_id": "0602b2289603",
@@ -541,14 +565,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.95,
+    "sentiment_confidence": 0.88,
     "cluster": "Eleitoral",
     "date": "2026-04-17",
     "date_display": "17/04/2026",
     "detected_at": "2026-04-18 14:41",
     "collected_at": "2026-04-18T14:41:16",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "deb70b1080d9",
@@ -573,7 +598,8 @@
     "detected_at": "2026-04-19 09:10",
     "collected_at": "2026-04-19T09:10:05",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "792a00e31bb7",
@@ -591,13 +617,14 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "date": "2026-04-20",
     "date_display": "20/04/2026",
     "detected_at": "2026-04-20 11:08",
     "collected_at": "2026-04-20T11:08:41",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Positivo"
   }
 ]
