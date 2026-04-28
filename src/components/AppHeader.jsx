@@ -70,7 +70,7 @@ const KpiChip = ({ value, label, color, trend, compact }) => (
 );
 
 export default function AppHeader({
-  isMobile, refreshing = false, handleRefresh, nav, setNav, userEmail = null, onLogout = null, setPw, lastUpdate = null,
+  isMobile, isExecutiveView = false, refreshing = false, handleRefresh, nav, setNav, userEmail = null, onLogout = null, setPw, lastUpdate = null,
   daysToElection = null, followers = '—', followersRaw = 0, followersPrevWeek = null,
   engagementRate = 0, engagementPrevWeek = null,
   mentions48h = 0, positiveCommentsPct = 0,
@@ -160,7 +160,7 @@ export default function AppHeader({
         </header>
 
         {/* KPI strip — horizontal scroll */}
-        <div style={{
+        {!isExecutiveView && <div style={{
           background: 'linear-gradient(135deg, #0D1F42 0%, #0A1832 100%)',
           padding: '10px 16px',
           overflowX: 'auto', overflowY: 'hidden',
@@ -170,7 +170,7 @@ export default function AppHeader({
         }}>
           <style>{`.kpi-strip::-webkit-scrollbar{display:none}`}</style>
           {kpis.map((kpi, i) => <KpiChip key={i} {...kpi} compact />)}
-        </div>
+        </div>}
       </>
     );
   }
@@ -244,6 +244,7 @@ export default function AppHeader({
 
 AppHeader.propTypes = {
   isMobile:            PropTypes.bool.isRequired,
+  isExecutiveView:     PropTypes.bool,
   refreshing:          PropTypes.bool,
   handleRefresh:       PropTypes.func.isRequired,
   nav:                 PropTypes.shape({

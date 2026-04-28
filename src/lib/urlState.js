@@ -17,7 +17,7 @@ export function getStateFromUrl() {
   const relevance = p.get('relevance');
   const sortOrder = p.get('sort');
   return {
-    panel:     p.get('panel')   || DEFAULTS.panel,
+    panel:     p.get('panel')   || null,
     cluster:   p.get('cluster') || DEFAULTS.cluster,
     type:      p.get('type')    || DEFAULTS.type,
     scope:     p.get('scope')   || DEFAULTS.scope,

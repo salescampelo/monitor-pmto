@@ -31,7 +31,7 @@ describe('urlState', () => {
   describe('getStateFromUrl', () => {
     it('retorna todos os defaults quando URL está vazia', () => {
       const state = getStateFromUrl();
-      expect(state.panel).toBe('tendencia');
+      expect(state.panel).toBeNull();
       expect(state.cluster).toBe('all');
       expect(state.type).toBe('all');
       expect(state.scope).toBe('all');
@@ -198,19 +198,19 @@ describe('urlState', () => {
     });
 
     it('preserva cluster não-default', () => {
-      const restored = roundTrip({ panel: 'tendencia', cluster: 'direct', type: 'all',
+      const restored = roundTrip({ panel: 'kpis', cluster: 'direct', type: 'all',
         scope: 'all', relevance: 'relevant', sortOrder: 'date' });
       expect(restored.cluster).toBe('direct');
     });
 
     it('preserva relevance=direct', () => {
-      const restored = roundTrip({ panel: 'tendencia', cluster: 'all', type: 'all',
+      const restored = roundTrip({ panel: 'kpis', cluster: 'all', type: 'all',
         scope: 'all', relevance: 'direct', sortOrder: 'date' });
       expect(restored.relevance).toBe('direct');
     });
 
     it('preserva sortOrder=score', () => {
-      const restored = roundTrip({ panel: 'tendencia', cluster: 'all', type: 'all',
+      const restored = roundTrip({ panel: 'kpis', cluster: 'all', type: 'all',
         scope: 'all', relevance: 'relevant', sortOrder: 'score' });
       expect(restored.sortOrder).toBe('score');
     });

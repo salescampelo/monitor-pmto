@@ -5,7 +5,7 @@ import {
   Hash, ArrowUpRight, BrainCircuit, Layers, Upload, RefreshCw,
   Database, User, Building, Globe, MapPin, Bookmark, Trash2,
   BarChart3, TrendingUp, Heart, MessageCircle, Users, LogOut, Menu, Map, Shield,
-  Download, FileText,
+  Download, FileText, LayoutDashboard,
 } from 'lucide-react';
 import { supabase } from './lib/supabase.js';
 import LoginScreen from './components/LoginScreen.jsx';
@@ -25,6 +25,7 @@ const AdversariosPanel = lazy(() => import('./panels/AdversariosPanel.jsx'));
 const MapaCampoPanel   = lazy(() => import('./panels/MapaCampoPanel.jsx'));
 const AuditoriaPanel   = lazy(() => import('./panels/AuditoriaPanel.jsx'));
 const QualidadePanel   = lazy(() => import('./panels/QualidadePanel.jsx'));
+const ExecutivePanel   = lazy(() => import('./panels/ExecutivePanel.jsx'));
 import { logAccess } from './lib/accessLog.js';
 import { useOffline } from './lib/useOffline.js';
 import AppHeader from './components/AppHeader.jsx';
@@ -42,7 +43,7 @@ const FILTER_INITIAL = {cluster:'all',sortOrder:'date',type:'all',scope:'all',re
 const filterReducer  = (state, {key, value}) => ({...state, [key]: value});
 const PW_INITIAL     = {show:false,new:'',confirm:'',error:'',success:false,loading:false};
 
-const App = ({onLogout, userEmail}) => {
+const App = ({onLogout, userEmail, role = 'coordenacao'}) => {
   const urlState = getStateFromUrl();
   const[newsRaw,setNewsRaw]=useState(null);
   const[socialData,setSocialData]=useState(null);
@@ -68,7 +69,9 @@ const App = ({onLogout, userEmail}) => {
   const[loading,setLoading]=useState(true);
   const[bootError,setBootError]=useState(false);
   const[refreshing,setRefreshing]=useState(false);
-  const[activePanel,setActivePanel]=useState(urlState.panel);
+  const isAdmin = role === 'admin';
+  const isCandidato = role === 'candidato';
+  const[activePanel,setActivePanel]=useState(urlState.panel || (isCandidato ? 'executive' : 'kpis'));
   const[localDataBanner,setLocalDataBanner]=useState(null);
 
   // Sync state → URL whenever panel or filters change
@@ -78,7 +81,7 @@ const App = ({onLogout, userEmail}) => {
 
   // Dynamic document title
   useEffect(()=>{
-    const titles={tendencia:'Tendência de Voto',adversarios:'Inteligência Competitiva',kpis:'Metas e KPIs',geo:'Dados Eleitorais',campo:'Mapa de Capilaridade',social:'Redes Sociais',imprensa:'Monitor de Imprensa',qualidade:'Qualidade do Coletor',auditoria:'Auditoria'};
+    const titles={executive:'Resumo Executivo',tendencia:'Tendência de Voto',adversarios:'Inteligência Competitiva',kpis:'Metas e KPIs',geo:'Dados Eleitorais',campo:'Mapa de Capilaridade',social:'Redes Sociais',imprensa:'Monitor de Imprensa',qualidade:'Qualidade do Coletor',auditoria:'Auditoria'};
     document.title=`${titles[activePanel]||'Dashboard'} — Monitor Coronel Barbosa`;
   },[activePanel]);
 
@@ -112,7 +115,7 @@ const App = ({onLogout, userEmail}) => {
       if(err.message?.includes('Sessão expirada'))await supabase.auth.signOut();
       else console.error('[lazy]',err.message);
     };
-    if(activePanel==='imprensa'&&!newsRaw)fetchJ(URLS.mentions).then(d=>{if(d)setNewsRaw(d);}).catch(onExpiry);
+    if((activePanel==='imprensa'||activePanel==='executive')&&!newsRaw)fetchJ(URLS.mentions).then(d=>{if(d)setNewsRaw(d);}).catch(onExpiry);
     if(activePanel==='geo'&&!geoData)fetchJ(URLS.geo).then(d=>{if(d)setGeoData(d);}).catch(onExpiry);
     if(activePanel==='tendencia'&&!tendenciaData)fetchJ(URLS.tendencia).then(d=>{if(d)setTendenciaData(d);}).catch(onExpiry);
     if(activePanel==='campo'&&!liderancasData)fetchJ(URLS.liderancas).then(d=>{if(d)setLiderancasData(d);}).catch(onExpiry);
@@ -123,7 +126,7 @@ const App = ({onLogout, userEmail}) => {
     setRefreshing(true);
     try{
       const bootFetches=[fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)];
-      const panelFetches=activePanel==='imprensa'?[fetchJ(URLS.mentions)]:
+      const panelFetches=activePanel==='imprensa'||activePanel==='executive'?[fetchJ(URLS.mentions)]:
         activePanel==='geo'?[fetchJ(URLS.geo)]:
         activePanel==='tendencia'?[fetchJ(URLS.tendencia)]:
         activePanel==='campo'?[fetchJ(URLS.liderancas)]:
@@ -131,6 +134,7 @@ const App = ({onLogout, userEmail}) => {
       const[s,st,k,adv,...panelResults]=await Promise.all([...bootFetches,...panelFetches]);
       if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
       if(activePanel==='imprensa'&&panelResults[0])setNewsRaw(panelResults[0]);
+      if(activePanel==='executive'&&panelResults[0])setNewsRaw(panelResults[0]);
       if(activePanel==='geo'&&panelResults[0])setGeoData(panelResults[0]);
       if(activePanel==='tendencia'&&panelResults[0])setTendenciaData(panelResults[0]);
       if(activePanel==='campo'&&panelResults[0])setLiderancasData(panelResults[0]);
@@ -148,7 +152,7 @@ const App = ({onLogout, userEmail}) => {
   const refreshSilent=useCallback(async()=>{
     try{
       const bootFetches=[fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)];
-      const panelFetches=activePanel==='imprensa'?[fetchJ(URLS.mentions)]:
+      const panelFetches=activePanel==='imprensa'||activePanel==='executive'?[fetchJ(URLS.mentions)]:
         activePanel==='geo'?[fetchJ(URLS.geo)]:
         activePanel==='tendencia'?[fetchJ(URLS.tendencia)]:
         activePanel==='campo'?[fetchJ(URLS.liderancas)]:
@@ -156,6 +160,7 @@ const App = ({onLogout, userEmail}) => {
       const[s,st,k,adv,...panelResults]=await Promise.all([...bootFetches,...panelFetches]);
       if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
       if(activePanel==='imprensa'&&panelResults[0])setNewsRaw(panelResults[0]);
+      if(activePanel==='executive'&&panelResults[0])setNewsRaw(panelResults[0]);
       if(activePanel==='geo'&&panelResults[0])setGeoData(panelResults[0]);
       if(activePanel==='tendencia'&&panelResults[0])setTendenciaData(panelResults[0]);
       if(activePanel==='campo'&&panelResults[0])setLiderancasData(panelResults[0]);
@@ -294,7 +299,7 @@ const App = ({onLogout, userEmail}) => {
   ,[sentimentData]);
   // ─────────────────────────────────────────────────────────────────────────
 
-  const isAdmin=userEmail===import.meta.env.VITE_ADMIN_EMAIL;
+  const isExecutiveView = isCandidato && activePanel === 'executive';
 
   if(loading)return(<div style={{minHeight:'100vh',background:'linear-gradient(135deg,#1A3A7A 0%,#0D1F42 100%)',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',fontFamily:"'DM Sans',-apple-system,sans-serif"}}><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style><div style={{position:'relative',width:76,height:76,marginBottom:28}}><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid rgba(212,160,23,0.18)'}}/><div style={{position:'absolute',inset:0,borderRadius:'50%',border:'3px solid transparent',borderTopColor:'#D4A017',animation:'spin 1s linear infinite'}}/><ShieldAlert size={26} style={{color:'#D4A017',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}/></div><p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',margin:0}}>Carregando dados</p></div>);
 
@@ -315,19 +320,20 @@ const App = ({onLogout, userEmail}) => {
     </div>
   )}
 
-  <AppHeader isMobile={isMobile} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} userEmail={userEmail} onLogout={onLogout} setPw={setPw} lastUpdate={lastUpdate} daysToElection={daysToElection} followers={followers} followersRaw={followersRaw} followersPrevWeek={followersPrevWeek} engagementRate={engagementRate} engagementPrevWeek={engagementPrevWeek} mentions48h={mentions48h} positiveCommentsPct={positiveCommentsPct} autoRefreshEnabled={autoRefreshEnabled} setAutoRefresh={setAutoRefresh}/>
+  <AppHeader isMobile={isMobile} isExecutiveView={isExecutiveView} refreshing={refreshing} handleRefresh={handleRefresh} nav={nav} setNav={setNav} userEmail={userEmail} onLogout={onLogout} setPw={setPw} lastUpdate={lastUpdate} daysToElection={daysToElection} followers={followers} followersRaw={followersRaw} followersPrevWeek={followersPrevWeek} engagementRate={engagementRate} engagementPrevWeek={engagementPrevWeek} mentions48h={mentions48h} positiveCommentsPct={positiveCommentsPct} autoRefreshEnabled={autoRefreshEnabled} setAutoRefresh={setAutoRefresh}/>
 
   {/* ── BOTTOM NAV (mobile only) ── */}
-  {isMobile&&<BottomNav activePanel={activePanel} setActivePanel={setActivePanel} isAdmin={isAdmin}/>}
+  {isMobile&&!isExecutiveView&&<BottomNav activePanel={activePanel} setActivePanel={setActivePanel} isAdmin={isAdmin}/>}
 
   {/* ── LAYOUT BODY ── */}
   <div style={{display:'flex'}}>
     {!isMobile&&nav.sidebarOpen&&<div aria-hidden="true" style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.6)',zIndex:149}} onClick={()=>setNav(n=>({...n,sidebarOpen:false}))}/>}
 
     {/* ── SIDEBAR (hidden on mobile — BottomNav replaces it) ── */}
-    <aside id="sidebar-nav" role="navigation" aria-label="Menu principal" style={{position:'sticky',top:0,left:0,alignSelf:'flex-start',height:'100vh',width:isMobile?0:isTablet?60:260,flexShrink:0,background:'#FFFFFF',borderRight:isMobile?'none':'1px solid rgba(26,39,68,0.08)',display:isMobile?'none':'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
+    <aside id="sidebar-nav" role="navigation" aria-label="Menu principal" style={{position:'sticky',top:0,left:0,alignSelf:'flex-start',height:'100vh',width:isMobile?0:isTablet?60:260,flexShrink:0,background:'#FFFFFF',borderRight:isMobile?'none':'1px solid rgba(26,39,68,0.08)',display:(isMobile||isExecutiveView)?'none':'flex',flexDirection:'column',overflow:'hidden',transition:'width 0.2s ease',zIndex:150}}>
       <div style={{display:'flex',flexDirection:'column',gap:4}}>
       {[
+        {id:'executive', label:'Resumo Executivo', icon:LayoutDashboard, sub:'Visão do candidato'},
         {id:'tendencia', label:'Tendência 2022', icon:TrendingUp,  sub:'Bolsonaro × Lula'},
         {id:'adversarios',label:'Inteligência',  icon:Target,      sub:'17 adversários'},
         {id:'kpis',      label:'Metas',          icon:BarChart3,   sub:'Fase 1 · KPIs'},
@@ -389,6 +395,7 @@ const App = ({onLogout, userEmail}) => {
     {/* ── CONTENT AREA ── */}
     <main id="main-content" aria-label="Conteúdo principal" style={{padding:isMobile?'8px 10px':'24px',paddingBottom:isMobile?80:24,flex:1,minWidth:0,minHeight:'100vh'}}>
       <div key={activePanel} className="panel-fade">
+        {activePanel==='executive'&&<SafePanel><ExecutivePanel kpiData={kpiData} socialData={socialData} sentimentData={sentimentData} articles={articles} candidateUsername={CONFIG.CANDIDATE_USERNAME} onFullView={()=>setActivePanel('kpis')}/></SafePanel>}
         {activePanel==='tendencia'&&<SafePanel><TendenciaVotoPanel tendenciaData={tendenciaData}/></SafePanel>}
         {activePanel==='adversarios'&&<SafePanel><AdversariosPanel adversariosData={adversariosData}/></SafePanel>}
         {activePanel==='kpis'&&<SafePanel><KpiPanel kpiData={kpiData}/></SafePanel>}
@@ -505,6 +512,7 @@ export default function Root() {
   const[authorized, setAuthorized] = useState(null);
   const[authChecked,setAuthChecked]= useState(false);
   const[authError,  setAuthError]  = useState(null);
+  const[userRole,   setUserRole]   = useState(null);
 
   useEffect(()=>{
     // onAuthStateChange fires INITIAL_SESSION on mount — no need for getSession()
@@ -519,7 +527,7 @@ export default function Root() {
     if(!session?.user?.email)return;
     setAuthChecked(false);
     setAuthError(null);
-    supabase.from(ALLOWED_CHECK_TABLE).select('email').eq('email',session.user.email)
+    supabase.from(ALLOWED_CHECK_TABLE).select('email, role').eq('email',session.user.email)
       .then(({data,error})=>{
         if(error){
           console.error('[auth] Supabase query error:',error.message);
@@ -528,13 +536,13 @@ export default function Root() {
           return;
         }
         if(Array.isArray(data)&&data.length>1){
-          // RLS quebrado: usuário vê linhas de outros — bloquear por segurança
           console.error('[RLS] ALERTA: política allowed_users retornou múltiplas linhas. Verifique o Supabase dashboard.');
           setAuthorized(false);
           setAuthChecked(true);
           return;
         }
         const ok=Array.isArray(data)&&data.length===1;
+        if(ok)setUserRole(data[0].role||'coordenacao');
         setAuthorized(ok);
         setAuthChecked(true);
         if(ok)logAccess('login',`panel=dashboard email=${session.user.email}`);
@@ -574,7 +582,7 @@ export default function Root() {
             <p style={{color:'#fff',fontSize:16,fontWeight:800,margin:'0 0 6px'}}>{authError}</p>
             <p style={{color:'rgba(255,255,255,0.4)',fontSize:13,margin:'0 0 20px'}}>Não foi possível verificar seu acesso.</p>
           </div>
-          <button onClick={()=>{setAuthChecked(false);setAuthError(null);setAuthorized(null);supabase.from(ALLOWED_CHECK_TABLE).select('email').eq('email',session.user.email).then(({data,error})=>{if(error){setAuthError('Erro de conexão. Tente novamente.');setAuthChecked(true);return;}if(Array.isArray(data)&&data.length>1){setAuthorized(false);setAuthChecked(true);return;}const ok=Array.isArray(data)&&data.length===1;setAuthorized(ok);setAuthChecked(true);if(ok)logAccess('login',`panel=dashboard email=${session.user.email}`);});}} style={{display:'flex',alignItems:'center',gap:8,padding:'10px 24px',background:'rgba(255,255,255,0.1)',border:'1px solid rgba(255,255,255,0.2)',borderRadius:10,color:'#fff',fontSize:13,fontWeight:700,cursor:'pointer',fontFamily:'inherit'}}>
+          <button onClick={()=>{setAuthChecked(false);setAuthError(null);setAuthorized(null);supabase.from(ALLOWED_CHECK_TABLE).select('email, role').eq('email',session.user.email).then(({data,error})=>{if(error){setAuthError('Erro de conexão. Tente novamente.');setAuthChecked(true);return;}if(Array.isArray(data)&&data.length>1){setAuthorized(false);setAuthChecked(true);return;}const ok=Array.isArray(data)&&data.length===1;if(ok)setUserRole(data[0].role||'coordenacao');setAuthorized(ok);setAuthChecked(true);if(ok)logAccess('login',`panel=dashboard email=${session.user.email}`);});}} style={{display:'flex',alignItems:'center',gap:8,padding:'10px 24px',background:'rgba(255,255,255,0.1)',border:'1px solid rgba(255,255,255,0.2)',borderRadius:10,color:'#fff',fontSize:13,fontWeight:700,cursor:'pointer',fontFamily:'inherit'}}>
             <RefreshCw size={14}/> Tentar novamente
           </button>
         </>
@@ -593,5 +601,5 @@ export default function Root() {
     </div>
   );
 
-  return<App onLogout={handleLogout} userEmail={session.user.email}/>;
+  return<App onLogout={handleLogout} userEmail={session.user.email} role={userRole}/>;
 }

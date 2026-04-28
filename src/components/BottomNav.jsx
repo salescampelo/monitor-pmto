@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   BarChart3, Target, Users, Newspaper, MoreHorizontal,
-  TrendingUp, MapPin, Map, Database, Shield, X,
+  TrendingUp, MapPin, Map, Database, Shield, X, LayoutDashboard,
 } from 'lucide-react';
 
 const PRIMARY_TABS = [
@@ -13,9 +13,10 @@ const PRIMARY_TABS = [
 ];
 
 const MORE_TABS = [
-  { id: 'tendencia', label: 'Tendência 2022', icon: TrendingUp },
-  { id: 'geo',       label: 'Eleitoral',      icon: MapPin },
-  { id: 'campo',     label: 'Mapa de Campo',  icon: Map },
+  { id: 'executive', label: 'Resumo Executivo', icon: LayoutDashboard },
+  { id: 'tendencia', label: 'Tendência 2022',   icon: TrendingUp },
+  { id: 'geo',       label: 'Eleitoral',        icon: MapPin },
+  { id: 'campo',     label: 'Mapa de Campo',    icon: Map },
 ];
 
 const ADMIN_TABS = [
