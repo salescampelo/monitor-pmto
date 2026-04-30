@@ -90,14 +90,21 @@ const App = ({onLogout, userEmail, role = 'coordenacao'}) => {
   const isTablet=screenW>=768&&screenW<1024;
   const isOffline=useOffline();
 
-  // Boot: carrega apenas os 4 arquivos pequenos (~40 KB)
+  const dataAgeHours=useMemo(()=>{
+    if(!collectorData?.updated_at)return 0;
+    const parts=collectorData.updated_at.split(/[- :]/);
+    const d=new Date(parts[0],parts[1]-1,parts[2],parts[3]||0,parts[4]||0);
+    return isNaN(d)?0:Math.max(0,(Date.now()-d.getTime())/3600000);
+  },[collectorData]);
+
+  // Boot: carrega os 5 arquivos pequenos (~45 KB)
   useEffect(()=>{(async()=>{
     setLoading(true);
     try{
-      const[s,st,k,adv]=await Promise.all([
-        fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios)
+      const[s,st,k,adv,col]=await Promise.all([
+        fetchJ(URLS.social),fetchJ(URLS.sentiment),fetchJ(URLS.kpis),fetchJ(URLS.adversarios),fetchJ(URLS.collector)
       ]);
-      if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);
+      if(s)setSocialData(s);if(st)setSentimentData(st);if(k)setKpiData(k);if(adv)setAdversariosData(adv);if(col)setCollectorData(col);
       if(!s&&!st&&!k&&!adv)setBootError(true);
       setLastUpdate(new Date().toLocaleString('pt-BR')+' (auto)');
     }catch(err){
@@ -381,9 +388,10 @@ const App = ({onLogout, userEmail, role = 'coordenacao'}) => {
             <p style={{fontSize:9,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',margin:'0 0 4px',letterSpacing:'0.08em'}}>Próximo briefing</p>
             <p style={{fontSize:13,fontWeight:700,color:'#1A2744',margin:0}}>Amanhã · 07:30</p>
           </div>
-          <div style={{margin:'8px 12px 0',background:'rgba(26,39,68,0.03)',borderRadius:8,padding:12}}>
-            <p style={{fontSize:9,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',margin:'0 0 4px',letterSpacing:'0.08em'}}>Última coleta</p>
-            <p style={{fontSize:11,color:'#5A6478',margin:0,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{lastUpdate||'Aguardando'}</p>
+          <div style={{margin:'8px 12px 0',background:dataAgeHours>24?'rgba(220,38,38,0.08)':dataAgeHours>12?'rgba(234,179,8,0.08)':'rgba(26,39,68,0.03)',borderRadius:8,padding:12}}>
+            <p style={{fontSize:9,fontWeight:700,textTransform:'uppercase',color:dataAgeHours>24?'#DC2626':dataAgeHours>12?'#B45309':'#8C93A8',margin:'0 0 4px',letterSpacing:'0.08em'}}>Última coleta do scraper</p>
+            <p style={{fontSize:11,color:dataAgeHours>24?'#DC2626':'#5A6478',margin:0,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{collectorData?.updated_at||lastUpdate||'Aguardando'}</p>
+            {dataAgeHours>24&&<p style={{fontSize:10,color:'#DC2626',margin:'4px 0 0',fontWeight:600}}>⚠ Dados desatualizados ({Math.round(dataAgeHours)}h)</p>}
           </div>
         </div>
       )}
@@ -433,6 +441,15 @@ const App = ({onLogout, userEmail, role = 'coordenacao'}) => {
             </div>
           </div>
         </div>
+
+        {collectorData?.history_summary?.last_7d===0&&<div style={{background:'rgba(234,179,8,0.1)',border:'1px solid rgba(234,179,8,0.3)',borderRadius:8,padding:'10px 14px',marginBottom:14,display:'flex',alignItems:'center',gap:8}}>
+          <AlertTriangle size={16} style={{color:'#B45309',flexShrink:0}}/>
+          <p style={{fontSize:12,color:'#92400E',margin:0,fontWeight:600}}>Nenhuma menção detectada nos últimos 7 dias — verificar pipeline de coleta.</p>
+        </div>}
+        {dataAgeHours>24&&<div style={{background:'rgba(220,38,38,0.08)',border:'1px solid rgba(220,38,38,0.2)',borderRadius:8,padding:'10px 14px',marginBottom:14,display:'flex',alignItems:'center',gap:8}}>
+          <AlertTriangle size={16} style={{color:'#DC2626',flexShrink:0}}/>
+          <p style={{fontSize:12,color:'#991B1B',margin:0,fontWeight:600}}>Dados desatualizados — última coleta há {Math.round(dataAgeHours)} horas ({collectorData?.updated_at}).</p>
+        </div>}
 
         <div style={{display:'flex',gap:isMobile?6:8,marginBottom:16,flexWrap:'wrap'}}>
           <Met icon={User} label="Diretas" value={filtM.dir} sub="Cel. Barbosa" accent="#ef4444" compact={isMobile}/>
