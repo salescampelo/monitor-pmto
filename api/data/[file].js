@@ -38,6 +38,16 @@ export default async function handler(req, res) {
     return;
   }
 
+  const { data: allowedRow } = await supabase
+    .from('allowed_users')
+    .select('role')
+    .eq('email', user.email)
+    .single();
+  if (!allowedRow) {
+    res.status(403).json({ error: 'Forbidden' });
+    return;
+  }
+
   // 2. Validate filename — prevent path traversal
   const { file } = req.query;
   if (!file || !ALLOWED_FILES.has(file)) {

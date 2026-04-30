@@ -26,7 +26,7 @@ function GeoPanel({geoData}) {
   const municipios=useMemo(()=>{
     const list=geoData?.municipios||[];
     if(catFilter==='all')return list;
-    return list.filter(m=>m.categoria===catFilter);
+    return list.filter(m=>(m.categoria||'')=== catFilter);
   },[geoData,catFilter]);
 
   const partyChart=useMemo(()=>{
@@ -77,7 +77,7 @@ function GeoPanel({geoData}) {
     <div style={{display:'flex',gap:6,marginBottom:14,flexWrap:'wrap'}}>
       <Bt active={catFilter==='all'} color="#64748b" onClick={()=>setCatFilter('all')}>Todos ({geoData.municipios.length})</Bt>
       {Object.entries(CAT_COLORS).map(([cat,color])=>{
-        const count=geoData.municipios.filter(m=>m.categoria===cat).length;
+        const count=geoData.municipios.filter(m=>(m.categoria||'')===cat).length;
         return<Bt key={cat} active={catFilter===cat} color={color} onClick={()=>setCatFilter(cat)}>{cat.toLowerCase()} ({count})</Bt>;
       })}
     </div>
@@ -104,7 +104,7 @@ function GeoPanel({geoData}) {
               {!isMobile&&<span style={{fontSize:13,color:'#8C93A8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.eleitorado||0).toLocaleString('pt-BR')}</span>}
               {!isMobile&&<span style={{fontSize:13,color:'#1d4ed8',textAlign:'right',fontVariantNumeric:'tabular-nums'}}>{(m.votos_republicanos||0).toLocaleString('pt-BR')}</span>}
               <span style={{fontSize:13,fontWeight:700,color:CAT_COLORS[m.categoria]||'#64748b',textAlign:'right'}}>{m.score_potencial}</span>
-              {!isMobile&&<span style={{fontSize:8,fontWeight:700,color:CAT_COLORS[m.categoria],textAlign:'center',textTransform:'uppercase'}}>{m.categoria.split(' ')[0]}</span>}
+              {!isMobile&&<span style={{fontSize:8,fontWeight:700,color:CAT_COLORS[m.categoria],textAlign:'center',textTransform:'uppercase'}}>{(m.categoria||'').split(' ')[0]}</span>}
             </div>
           ))}
         </div>

@@ -59,9 +59,9 @@ function TendenciaVotoPanel({tendenciaData}) {
         </div>
       </div>
       <div style={{display:'flex',alignItems:'center',gap:16}}>
-        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:TV_CORES.Conservador,margin:0}}>{agregado.municipios_conservadores}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>conservadores</p></div>
-        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:TV_CORES.Dividido,margin:0}}>{agregado.municipios_divididos}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>divididos</p></div>
-        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:TV_CORES.Progressista,margin:0}}>{agregado.municipios_progressistas}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>progressistas</p></div>
+        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:TV_CORES.Conservador,margin:0}}>{agregado?.municipios_conservadores??'—'}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>conservadores</p></div>
+        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:TV_CORES.Dividido,margin:0}}>{agregado?.municipios_divididos??'—'}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>divididos</p></div>
+        <div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:TV_CORES.Progressista,margin:0}}>{agregado?.municipios_progressistas??'—'}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>progressistas</p></div>
         {open?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
       </div>
     </div>
@@ -82,9 +82,9 @@ function TendenciaVotoPanel({tendenciaData}) {
 
       <div style={{display:'grid',gridTemplateColumns:isMobile?'1fr':'repeat(3,1fr)',gap:isMobile?8:12,marginBottom:16}}>
         {[
-          {label:'Municípios Conservadores',val:agregado.municipios_conservadores,cor:TV_CORES.Conservador,sub:'>60% Bolsonaro'},
-          {label:'Municípios Divididos',val:agregado.municipios_divididos,cor:TV_CORES.Dividido,sub:'40–60% cada'},
-          {label:'Municípios Progressistas',val:agregado.municipios_progressistas,cor:TV_CORES.Progressista,sub:'>60% Lula'},
+          {label:'Municípios Conservadores',val:agregado?.municipios_conservadores??0,cor:TV_CORES.Conservador,sub:'>60% Bolsonaro'},
+          {label:'Municípios Divididos',val:agregado?.municipios_divididos??0,cor:TV_CORES.Dividido,sub:'40–60% cada'},
+          {label:'Municípios Progressistas',val:agregado?.municipios_progressistas??0,cor:TV_CORES.Progressista,sub:'>60% Lula'},
         ].map(({label,val,cor,sub})=>(
           <Card key={label} style={{padding:isMobile?'10px 12px':'14px 16px',borderLeft:isMobile?'none':`4px solid ${cor}`,borderTop:isMobile?`4px solid ${cor}`:'none'}}>
             <p style={{fontSize:11,fontWeight:700,textTransform:'uppercase',color:'#8c93a8',margin:'0 0 6px',letterSpacing:'0.08em'}}>{label}</p>
@@ -94,14 +94,14 @@ function TendenciaVotoPanel({tendenciaData}) {
         ))}
       </div>
 
-      {agregado.municipios_com_gap>0&&(
+      {agregado?.municipios_com_gap>0&&(
         <div style={{background:'#0f2a1a',border:'1px solid #15803D',borderRadius:12,padding:isMobile?'12px':'16px 20px',marginBottom:16}}>
           <p style={{margin:0,color:'#D4A017',fontWeight:800,fontSize:isMobile?13:15}}>
-            {agregado.municipios_com_gap} municípios onde o eleitor votou conservador para presidente
+            {agregado?.municipios_com_gap} municípios onde o eleitor votou conservador para presidente
             mas <em>não</em> votou Republicanos para deputado federal
           </p>
           <p style={{margin:'6px 0 0',color:'rgba(255,255,255,0.65)',fontSize:12}}>
-            Potencial estimado de <strong style={{color:'#4ade80'}}>{agregado.potencial_votos_gap.toLocaleString('pt-BR')} votos</strong> a conquistar convertendo 5% do eleitorado conservador nessas regiões.
+            Potencial estimado de <strong style={{color:'#4ade80'}}>{(agregado?.potencial_votos_gap||0).toLocaleString('pt-BR')} votos</strong> a conquistar convertendo 5% do eleitorado conservador nessas regiões.
           </p>
           {top10_gap_conversao.length>0&&(
             <p style={{margin:'8px 0 0',color:'#8C93A8',fontSize:11}}>

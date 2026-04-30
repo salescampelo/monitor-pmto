@@ -39,7 +39,7 @@ function ExecutivePanel({ kpiData, socialData, sentimentData, articles, candidat
 
   const highlightKpis = useMemo(() => {
     if (!kpiData?.kpis) return [];
-    const ids = ['seguidores_ig', 'engajamento_ig', 'mencoes_imprensa', 'sentimento_positivo'];
+    const ids = ['seguidores_ig', 'engajamento_ig', 'mencoes_imprensa', 'municipios_visitados'];
     return ids.map(id => kpiData.kpis.find(k => k.id === id)).filter(Boolean);
   }, [kpiData]);
 
