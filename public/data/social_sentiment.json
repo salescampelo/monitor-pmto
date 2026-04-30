@@ -1,618 +1,453 @@
 {
-  "data_coleta": "2026-04-27",
-  "candidato": "marciobarbosa_cel",
-  "sentiment": {
-    "positivo": 1304,
-    "negativo": 22,
-    "neutro": 90,
-    "engajado": 97,
-    "total": 1513,
-    "pct_positivo": 86.2,
-    "pct_negativo": 1.5,
-    "pct_neutro": 5.9,
-    "pct_engajado": 6.4
-  },
-  "comments_sample": [
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T15:00:19.000Z",
-      "owner": "aprovadoscfo2026",
-      "likes": 0
-    },
-    {
-      "text": "👏👏👏⚡️⚡️🦅🦅",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-11T06:17:22.000Z",
-      "owner": "teixeiraalewagner",
-      "likes": 0
-    },
-    {
-      "text": "⚡️⚡️⚡️⚡️",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-11T02:56:55.000Z",
-      "owner": "brennerbsb",
-      "likes": 0
-    },
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-11T03:26:23.000Z",
-      "owner": "aprovadoscfo2026",
-      "likes": 0
-    },
-    {
-      "text": "⚡️ ⚡️ ⚡️",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-11T02:51:04.000Z",
-      "owner": "edisleyaraujo",
-      "likes": 0
-    },
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-12T14:11:18.000Z",
-      "owner": "modus.seg63",
-      "likes": 0
-    },
-    {
-      "text": "Boa comando, a policial militar do Tocantins sempre foi bem representada 🙌",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-11T02:54:01.000Z",
-      "owner": "leivison_m",
-      "likes": 1
-    },
-    {
-      "text": "Esse tem história. Tem q respeitar 👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-11T03:06:53.000Z",
-      "owner": "motalincoln",
-      "likes": 0
-    },
-    {
-      "text": "Que Deus abençoe todos.🙌🙌🙌",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-11T11:17:25.000Z",
-      "owner": "julesminelli193",
-      "likes": 0
-    },
-    {
-      "text": "Coronel Barbosa, esse me representa.",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-27T01:11:17.000Z",
-      "owner": "hefersonsuartelopes",
-      "likes": 0
-    },
-    {
-      "text": "Coronel Barbosa tem meu respeito 👏",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-26T21:08:47.000Z",
-      "owner": "junior_pop94",
-      "likes": 0
-    },
-    {
-      "text": "👏👏👏👏👏👏👏👏👏👏👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T10:17:49.000Z",
-      "owner": "pedraalcantara",
-      "likes": 1
-    },
-    {
-      "text": "🙌👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T11:18:43.000Z",
-      "owner": "profronildopereira",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T10:16:08.000Z",
-      "owner": "elisangelapraseres",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T12:00:38.000Z",
-      "owner": "marcelomarinhodemello",
-      "likes": 1
-    },
-    {
-      "text": "🙌👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T09:55:18.000Z",
-      "owner": "sebastiao_donascimento",
-      "likes": 2
-    },
-    {
-      "text": "👏👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-20T13:37:39.000Z",
-      "owner": "cleitonsantos6039",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏👏🙌",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T11:29:10.000Z",
-      "owner": "rumoaraguas",
-      "likes": 1
-    },
-    {
-      "text": "Essa seria a essência da política, que bom que a vossa pessoa defende esse ponto.👏👏👏",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-14T10:39:05.000Z",
-      "owner": "gilvan17_",
-      "likes": 3
-    },
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T10:48:17.000Z",
-      "owner": "selene_rocha_133",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T11:01:12.000Z",
-      "owner": "bar_do_magrao_oficial",
-      "likes": 0
-    },
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T13:08:09.000Z",
-      "owner": "cbribeiro_ft30",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-16T16:37:06.000Z",
-      "owner": "zeqcosta",
-      "likes": 1
-    },
-    {
-      "text": "Parabéns sr. Coronel! A comissão de aprovados no CFO agradece por ter nos recebido em seu gabinete, sempre ouvindo nossas demandas. 🫡👏👏👏",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-02T21:09:29.000Z",
-      "owner": "aprovadoscfo2026",
-      "likes": 7
-    },
-    {
-      "text": "👏👏👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-02T21:12:27.000Z",
-      "owner": "josesousa731",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏👏👏👏👏Q A Luz do CRISTO Ressuscotado ilumine, guie , fortaleça cada Passo Dado e Seus Projetos de VIDA , Coronel! TAMUJUNT@S por Um TO mais próspero, justo e SEGURO!!🍀🍀🍀💯🕺🙌🕊💫",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-06T00:39:16.000Z",
-      "owner": "lucosta311",
-      "likes": 0
-    },
-    {
-      "text": "👏👏👏👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-02T21:53:37.000Z",
-      "owner": "lorenavasconcelosperna",
-      "likes": 0
-    },
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-02T21:05:47.000Z",
-      "owner": "carllossilva24",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-02T21:06:32.000Z",
-      "owner": "cleide.dosanjos.9",
-      "likes": 1
-    },
-    {
-      "text": "👏🏼👏🏼👏🏼 reconhecimento merecido, parabéns cmt 🫡",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-02T21:42:42.000Z",
-      "owner": "thiago_mont_",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-02T21:08:47.000Z",
-      "owner": "goreteffarias13",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-02T21:29:26.000Z",
-      "owner": "larapime",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏👏 Parabéns Cel!!!",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-02T21:03:28.000Z",
-      "owner": "goiacybrito",
-      "likes": 1
-    },
-    {
-      "text": "Parabéns ao Cel Barbosa pelos anos q comandou a PM de Tocantins c brilhantismo e competência q Deus o abençoe na nova caminhada e dizer q estamos juntos pro q der e vier, e sucesso ao Cel Claudio q De",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-02T23:41:59.000Z",
-      "owner": "sargentocastrooficial",
-      "likes": 2
-    },
-    {
-      "text": "Parabéns, Coronel Márcio Barbosa, o Sr. é referência, um exemplo a ser seguido.👏🏻👏🏻",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-02T21:19:50.000Z",
-      "owner": "rocha.rodrigoo",
-      "likes": 1
-    },
-    {
-      "text": "Parabéns, @marciobarbosa_cel! Sua trajetória deixa um legado histórico na PMTO. Liderança firme, visão estratégica e compromisso com a tropa. Que venham novos desafios e conquistas!",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-02T23:25:50.000Z",
-      "owner": "jansley.nutri",
-      "likes": 1
-    },
-    {
-      "text": "Estamos com o senhor, cmd 🫡",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-02T21:39:37.000Z",
-      "owner": "cbribeiro_ft30",
-      "likes": 1
-    },
-    {
-      "text": "Pra cima 🫡⚡️",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T20:20:09.000Z",
-      "owner": "coroneledsonraiado",
-      "likes": 10
-    },
-    {
-      "text": "👊🏼👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T21:07:33.000Z",
-      "owner": "valdeonne7",
-      "likes": 1
-    },
-    {
-      "text": "👏🏾👏🏾👏🏾",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T21:35:53.000Z",
-      "owner": "bruno_rpi",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T20:41:54.000Z",
-      "owner": "ronniscoutinho",
-      "likes": 1
-    },
-    {
-      "text": "✅👏🏼",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T21:10:31.000Z",
-      "owner": "vanderlei_vargas_30_44",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T23:03:42.000Z",
-      "owner": "salo.milhomem",
-      "likes": 1
-    },
-    {
-      "text": "👏👍✅️🇧🇷",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T21:56:52.000Z",
-      "owner": "adsonblz10",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T21:53:53.000Z",
-      "owner": "shisleysantanabarbosa",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T23:26:09.000Z",
-      "owner": "rumoaraguas",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T23:15:31.000Z",
-      "owner": "valdemir.arcanjo.9",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T20:34:19.000Z",
-      "owner": "jaderjcr",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-14T22:07:23.000Z",
-      "owner": "lorenavasconcelosperna",
-      "likes": 1
-    },
-    {
-      "text": "👏👏👏",
-      "sentiment": "neutro",
-      "timestamp": "2026-04-15T01:03:33.000Z",
-      "owner": "aprovadoscfo2026",
-      "likes": 2
-    }
-  ],
-  "top_positive": [
-    {
-      "text": "Lindos, amo muito. Por um Tocantins melhor. Estamos com o senhor nessa caminhada ❤️🙏🏻",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-18T23:37:41.000Z",
-      "owner": "amandavasconcelosbm",
-      "likes": 59
-    },
-    {
-      "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-06T00:03:22.000Z",
-      "owner": "ry4n_carloss",
-      "likes": 14
-    },
-    {
-      "text": "Se é de direita tem meu voto Cel!",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-15T22:48:00.000Z",
-      "owner": "igorcariolanoo",
-      "likes": 13
-    },
-    {
-      "text": "Uma vaga ja é dele.  @marciobarbosa_cel vai fazer um excelente mandato assim como foi a frente da PM.👏",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-05T23:47:22.000Z",
-      "owner": "willianmateusof",
-      "likes": 12
-    },
-    {
-      "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-05T23:57:41.000Z",
-      "owner": "thiagoalencarf",
-      "likes": 10
-    },
-    {
-      "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-05T23:59:43.000Z",
-      "owner": "jota_negrao",
-      "likes": 9
-    },
-    {
-      "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-05T23:59:33.000Z",
-      "owner": "jota_negrao",
-      "likes": 9
-    },
-    {
-      "text": "Uma dessas já é de quem realmente mostrou trabalho e dedicação na Gloriosa PMTO elevando os índices da Sec Segurança Pública @marciobarbosa_cel  e ainda vai fazer Mt mais na Camara Federal 🇧🇷",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-10T11:01:47.000Z",
-      "owner": "arlam_pinheiro",
-      "likes": 8
-    },
-    {
-      "text": "@wanderlei__barbosa @marciobarbosa_cel  parabéns! Pode ter certeza que vamos estar juntos nessa luta. Comandante, ajuda a gente para chamar todos os 1000 aprovados agora. Isso é uma oportunidade para ",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-05T23:54:07.000Z",
-      "owner": "diov.anyjunior",
-      "likes": 8
-    },
-    {
-      "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
-      "sentiment": "positivo",
-      "timestamp": "2026-04-05T23:59:50.000Z",
-      "owner": "jota_negrao",
-      "likes": 8
-    }
-  ],
-  "top_negative": [
-    {
-      "text": "@luana_nunesg é a junção de tradição e competência. Política não é pra amadores e muito menos forasteiros. Bora pra cima minha deputada @luana_nunesg",
-      "sentiment": "negativo",
-      "timestamp": "2026-04-10T02:07:02.000Z",
-      "owner": "enfricardomoraes",
-      "likes": 2
-    }
-  ],
-  "advogados_marca": [
-    {
-      "username": "ry4n_carloss",
-      "comentarios": 11,
-      "posts_unicos": 5,
-      "likes_total": 163,
-      "lealdade_pct": 100,
-      "sentimento_dominante": "engajado",
-      "sentimento_dominante_pct": 55,
-      "score": 200,
-      "primeiro_comentario": "2026-03-26",
-      "ultimo_comentario": "2026-04-06"
-    },
-    {
-      "username": "jota_negrao",
-      "comentarios": 14,
-      "posts_unicos": 3,
-      "likes_total": 95,
-      "lealdade_pct": 100,
-      "sentimento_dominante": "engajado",
-      "sentimento_dominante_pct": 57,
-      "score": 132,
-      "primeiro_comentario": "2026-04-01",
-      "ultimo_comentario": "2026-04-05"
-    },
-    {
-      "username": "teixeiraalewagner",
-      "comentarios": 23,
-      "posts_unicos": 21,
-      "likes_total": 19,
-      "lealdade_pct": 100,
-      "sentimento_dominante": "positivo",
-      "sentimento_dominante_pct": 100,
-      "score": 128,
-      "primeiro_comentario": "2026-01-01",
-      "ultimo_comentario": "2026-04-18"
-    },
-    {
-      "username": "heitor_pereirabr",
-      "comentarios": 19,
-      "posts_unicos": 4,
-      "likes_total": 75,
-      "lealdade_pct": 100,
-      "sentimento_dominante": "engajado",
-      "sentimento_dominante_pct": 74,
-      "score": 125,
-      "primeiro_comentario": "2026-04-01",
-      "ultimo_comentario": "2026-04-06"
-    },
-    {
-      "username": "sampa.marcos",
-      "comentarios": 21,
-      "posts_unicos": 18,
-      "likes_total": 15,
-      "lealdade_pct": 100,
-      "sentimento_dominante": "positivo",
-      "sentimento_dominante_pct": 100,
-      "score": 111,
-      "primeiro_comentario": "2026-01-04",
-      "ultimo_comentario": "2026-04-19"
-    },
-    {
-      "username": "thiagoalencarf",
-      "comentarios": 12,
-      "posts_unicos": 1,
-      "likes_total": 77,
-      "lealdade_pct": 100,
-      "sentimento_dominante": "positivo",
-      "sentimento_dominante_pct": 100,
-      "score": 104,
-      "primeiro_comentario": "2026-04-05",
-      "ultimo_comentario": "2026-04-05"
-    },
-    {
-      "username": "arlam_pinheiro",
-      "comentarios": 11,
-      "posts_unicos": 11,
-      "likes_total": 31,
-      "lealdade_pct": 100,
-      "sentimento_dominante": "positivo",
-      "sentimento_dominante_pct": 100,
-      "score": 86,
-      "primeiro_comentario": "2026-01-30",
-      "ultimo_comentario": "2026-04-27"
-    },
-    {
-      "username": "arasam.ms",
-      "comentarios": 7,
-      "posts_unicos": 5,
-      "likes_total": 56,
-      "lealdade_pct": 86,
-      "sentimento_dominante": "engajado",
-      "sentimento_dominante_pct": 71,
-      "score": 85,
-      "primeiro_comentario": "2026-01-11",
-      "ultimo_comentario": "2026-04-06"
-    },
-    {
-      "username": "mhenriquereis_",
-      "comentarios": 9,
-      "posts_unicos": 3,
-      "likes_total": 58,
-      "lealdade_pct": 100,
-      "sentimento_dominante": "positivo",
-      "sentimento_dominante_pct": 56,
-      "score": 85,
-      "primeiro_comentario": "2026-03-26",
-      "ultimo_comentario": "2026-03-28"
-    },
-    {
-      "username": "reginaldomagalhaesss",
-      "comentarios": 15,
-      "posts_unicos": 15,
-      "likes_total": 8,
-      "lealdade_pct": 100,
-      "sentimento_dominante": "positivo",
-      "sentimento_dominante_pct": 100,
-      "score": 83,
-      "primeiro_comentario": "2026-02-13",
-      "ultimo_comentario": "2026-04-07"
-    }
-  ],
-  "total_comentaristas": 880,
-  "advogados_atualizado_em": "2026-04-27 13:37",
-  "sentiment_mensal": {
-    "2026-01": {
-      "positivo": 265,
-      "negativo": 2,
-      "neutro": 29,
-      "engajado": 5,
-      "total": 301,
-      "pct_positivo": 88.0,
-      "pct_negativo": 0.7,
-      "pct_neutro": 9.6,
-      "pct_engajado": 1.7
-    },
-    "2026-02": {
-      "positivo": 279,
-      "negativo": 3,
-      "neutro": 19,
-      "engajado": 7,
-      "total": 308,
-      "pct_positivo": 90.6,
-      "pct_negativo": 1.0,
-      "pct_neutro": 6.2,
-      "pct_engajado": 2.3
-    },
-    "2026-03": {
-      "positivo": 165,
-      "negativo": 6,
-      "neutro": 16,
-      "engajado": 41,
-      "total": 228,
-      "pct_positivo": 72.4,
-      "pct_negativo": 2.6,
-      "pct_neutro": 7.0,
-      "pct_engajado": 18.0
-    },
-    "2026-04": {
-      "positivo": 595,
-      "negativo": 11,
-      "neutro": 26,
-      "engajado": 44,
-      "total": 676,
-      "pct_positivo": 88.0,
-      "pct_negativo": 1.6,
-      "pct_neutro": 3.8,
-      "pct_engajado": 6.5
-    }
-  }
+    "data_coleta": "2026-04-30",
+    "candidato": "marciobarbosa_cel",
+    "sentiment": {
+        "positivo": 160,
+        "negativo": 2,
+        "neutro": 321,
+        "total": 483,
+        "pct_positivo": 33.1,
+        "pct_negativo": 0.4,
+        "pct_neutro": 66.5
+    },
+    "comments_sample": [
+        {
+            "text": "VDDS!,Qta consideraçao , amor , respeito e gratidao às suas Origens e Projetos de VIDA , Coronel! DEUS te honrando e abençoando a cda decisão e passos dados!!🙌🙌🍀💫🕺🕊💯",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-20T14:08:40.000Z",
+            "owner": "lucosta311",
+            "likes": 3
+        },
+        {
+            "text": "Fez muito e ainda faz por Presidente Kennedy. As pessoas só precisam reconhecer. Pena q dinheiro compra muitos….",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-20T15:02:52.000Z",
+            "owner": "anacbarbosamm",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏👏👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-20T14:07:23.000Z",
+            "owner": "vilson_tupira2",
+            "likes": 3
+        },
+        {
+            "text": "Tmj coronel",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-22T14:26:42.000Z",
+            "owner": "abeldasilvajunior_junior_mamao",
+            "likes": 0
+        },
+        {
+            "text": "Minha Cidade Natal Presidente Kennedy",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-20T14:20:04.000Z",
+            "owner": "morenadeva",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-20T14:28:30.000Z",
+            "owner": "carla_hej",
+            "likes": 1
+        },
+        {
+            "text": "Coronel @marciobarbosa_cel, respeitosamente, dê uma atenção especial p/ os + de 1.000 Praças aprovados na PMTO25. Nos apoie nessa luta, junto ao Governador @wanderlei__barbosa, pra que todos estes, ho",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-01T21:25:51.000Z",
+            "owner": "diov.anyjunior",
+            "likes": 6
+        },
+        {
+            "text": "✅👏🏼",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-01T19:58:03.000Z",
+            "owner": "vanderlei_vargas_30_44",
+            "likes": 3
+        },
+        {
+            "text": "Coronel @marciobarbosa_cel, respeitosamente, pedimos uma atenção especial aos mais de 1.000 Praças aprovados no PMTO 2025. Contamos com o seu apoio junto ao Governador @wanderlei__barbosa para que tod",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-01T21:18:35.000Z",
+            "owner": "luiz_roberto_18",
+            "likes": 14
+        },
+        {
+            "text": "Sr @marciobarbosa_cel, futuro Deputado Federal pelo Estado do Tocantins, faça com que todos os +mil aprovados no concurso da pmto sejam convocados em turma única. Contamos com sua ajuda e o povo tocan",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-01T22:53:12.000Z",
+            "owner": "jota_negrao",
+            "likes": 6
+        },
+        {
+            "text": "👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-01T20:05:20.000Z",
+            "owner": "jinha_paiva",
+            "likes": 1
+        },
+        {
+            "text": "Sr @marciobarbosa_cel, futuro Deputado Federal pelo Estado do Tocantins, faça com que todos os +mil aprovados no concurso da pmto sejam convocados em turma única. Contamos com sua ajuda e o povo tocan",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-01T22:53:10.000Z",
+            "owner": "jota_negrao",
+            "likes": 5
+        },
+        {
+            "text": "O bico do papagaio sem polícia....... Grande reflexo",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-02T04:28:32.000Z",
+            "owner": "igorpereirajacob",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏👏 Sem dúvidas com o Coronel Barbosa na Câmara Federal quem ganha em segurança é o Brasil inteiro. Nosso representante do Estado do Tocantins. Uma honra Cmt!! 🇧🇷@marciobarbosa_cel",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-01T20:12:12.000Z",
+            "owner": "marcelomarinhodemello",
+            "likes": 3
+        },
+        {
+            "text": "Sr @marciobarbosa_cel, futuro Deputado Federal pelo Estado do Tocantins, faça com que todos os +mil aprovados no concurso da pmto sejam convocados em turma única. Contamos com a sua ajuda e o povo toc",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-01T22:52:38.000Z",
+            "owner": "jota_negrao",
+            "likes": 4
+        },
+        {
+            "text": "Sr @marciobarbosa_cel, futuro Deputado Federal pelo Estado do Tocantins, faça com que todos os +mil aprovados no concurso da pmto sejam convocados em turma única. Contamos com sua ajuda e o povo tocan",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-01T22:53:03.000Z",
+            "owner": "jota_negrao",
+            "likes": 4
+        },
+        {
+            "text": "Sr @marciobarbosa_cel, futuro Deputado Federal pelo Estado do Tocantins, faça com que todos os +mil aprovados no concurso da pmto sejam convocados em turma única. Contamos com sua ajuda e o povo tocan",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-01T22:53:07.000Z",
+            "owner": "jota_negrao",
+            "likes": 4
+        },
+        {
+            "text": "Esse Comandante é fera....",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-01T23:03:52.000Z",
+            "owner": "amigoquarteiraoofc",
+            "likes": 4
+        },
+        {
+            "text": "Um voto seguro Coronel Marcio Barbosa.",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-20T00:00:40.000Z",
+            "owner": "andersonadv1985",
+            "likes": 0
+        },
+        {
+            "text": "NELE EU VOTO SIM SERÁ ELEITO VENCEDOR  DEPUTADO FEDERAL  CORONEL  MÁRCIO BARBOSA TEM MEU APOIO E VOTO 👏👏👏👏👏👏👏",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-07T09:51:32.000Z",
+            "owner": "reginaldomagalhaesss",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-09T20:03:19.000Z",
+            "owner": "rochalussivando",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏👏👏👏padrão  gratidão sempre",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-07T00:23:11.000Z",
+            "owner": "rumoaraguas",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-14T18:47:09.000Z",
+            "owner": "roxodeminas",
+            "likes": 0
+        },
+        {
+            "text": "Conte sempre comigo, com minha família, a quem farei todos os meus apelos para apoiá_lo!",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-09T21:44:59.000Z",
+            "owner": "cecelinoo_",
+            "likes": 0
+        },
+        {
+            "text": "Parabéns e vamos à vitória!!!",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-08T18:08:31.000Z",
+            "owner": "ruthilene_c.s",
+            "likes": 0
+        },
+        {
+            "text": "@marciobarbosa_cel meu deputado federal fez e vai fazer muito mais pelo Tocantins 👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-13T18:09:07.000Z",
+            "owner": "bar_do_magrao_oficial",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-13T14:48:40.000Z",
+            "owner": "livialopesvet_",
+            "likes": 0
+        },
+        {
+            "text": "Gestor de alto nível 🫡 @marciobarbosa_cel",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-13T12:52:22.000Z",
+            "owner": "math_narciso17",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-13T17:13:00.000Z",
+            "owner": "mauro_ribeiro62",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-13T14:25:34.000Z",
+            "owner": "aprovadoscfo2026",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-13T13:59:44.000Z",
+            "owner": "karise_paula",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-13T14:15:02.000Z",
+            "owner": "vilson_tupira2",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏👏C",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-13T21:55:17.000Z",
+            "owner": "limalucianodospassos",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-13T18:44:14.000Z",
+            "owner": "enf._suyany10",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏❤️",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-25T22:41:18.000Z",
+            "owner": "jotajuniodacostag",
+            "likes": 0
+        },
+        {
+            "text": "🫡👍🫡👍🫡👍",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-13T21:42:36.000Z",
+            "owner": "capadroaldo",
+            "likes": 0
+        },
+        {
+            "text": "Boa comando, a policial militar do Tocantins sempre foi bem representada 🙌",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-11T02:54:01.000Z",
+            "owner": "leivison_m",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-11T03:26:23.000Z",
+            "owner": "aprovadoscfo2026",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-12T14:11:18.000Z",
+            "owner": "modus.seg63",
+            "likes": 0
+        },
+        {
+            "text": "⚡️ ⚡️ ⚡️",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-11T02:51:04.000Z",
+            "owner": "edisleyaraujo",
+            "likes": 0
+        },
+        {
+            "text": "⚡️⚡️⚡️⚡️",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-11T02:56:55.000Z",
+            "owner": "brennerbsb",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏⚡️⚡️🦅🦅",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-11T06:17:22.000Z",
+            "owner": "teixeiraalewagner",
+            "likes": 0
+        },
+        {
+            "text": "Esse tem história. Tem q respeitar 👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-11T03:06:53.000Z",
+            "owner": "motalincoln",
+            "likes": 0
+        },
+        {
+            "text": "Que Deus abençoe todos.🙌🙌🙌",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-11T11:17:25.000Z",
+            "owner": "julesminelli193",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-14T11:01:12.000Z",
+            "owner": "bar_do_magrao_oficial",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏👏👏👏👏👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-14T10:17:49.000Z",
+            "owner": "pedraalcantara",
+            "likes": 1
+        },
+        {
+            "text": "🙌👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-14T11:18:43.000Z",
+            "owner": "profronildopereira",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-14T11:10:58.000Z",
+            "owner": "nelminhacecilia",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-16T16:37:06.000Z",
+            "owner": "zeqcosta",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-04-14T10:48:17.000Z",
+            "owner": "selene_rocha_133",
+            "likes": 1
+        }
+    ],
+    "top_positive": [
+        {
+            "text": "Lindos, amo muito. Por um Tocantins melhor. Estamos com o senhor nessa caminhada ❤️🙏🏻",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-18T23:37:41.000Z",
+            "owner": "amandavasconcelosbm",
+            "likes": 61
+        },
+        {
+            "text": "Coronel @marciobarbosa_cel, respeitosamente, pedimos uma atenção especial aos mais de 1.000 Praças aprovados no PMTO 2025. Contamos com o seu apoio junto ao Governador @wanderlei__barbosa para que tod",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-01T21:18:35.000Z",
+            "owner": "luiz_roberto_18",
+            "likes": 14
+        },
+        {
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-06T00:03:22.000Z",
+            "owner": "ry4n_carloss",
+            "likes": 14
+        },
+        {
+            "text": "Se é de direita tem meu voto Cel!",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-15T22:48:00.000Z",
+            "owner": "igorcariolanoo",
+            "likes": 13
+        },
+        {
+            "text": "Uma vaga ja é dele.  @marciobarbosa_cel vai fazer um excelente mandato assim como foi a frente da PM.👏",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:47:22.000Z",
+            "owner": "willianmateusof",
+            "likes": 12
+        },
+        {
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:57:41.000Z",
+            "owner": "thiagoalencarf",
+            "likes": 10
+        },
+        {
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:59:33.000Z",
+            "owner": "jota_negrao",
+            "likes": 9
+        },
+        {
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:59:43.000Z",
+            "owner": "jota_negrao",
+            "likes": 9
+        },
+        {
+            "text": "@wanderlei__barbosa @marciobarbosa_cel  parabéns! Pode ter certeza que vamos estar juntos nessa luta. Comandante, ajuda a gente para chamar todos os 1000 aprovados agora. Isso é uma oportunidade para ",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:54:07.000Z",
+            "owner": "diov.anyjunior",
+            "likes": 8
+        },
+        {
+            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "sentiment": "positivo",
+            "timestamp": "2026-04-05T23:59:50.000Z",
+            "owner": "jota_negrao",
+            "likes": 8
+        }
+    ],
+    "top_negative": [
+        {
+            "text": "@luana_nunesg é a junção de tradição e competência. Política não é pra amadores e muito menos forasteiros. Bora pra cima minha deputada @luana_nunesg",
+            "sentiment": "negativo",
+            "timestamp": "2026-04-10T02:07:02.000Z",
+            "owner": "enfricardomoraes",
+            "likes": 2
+        },
+        {
+            "text": "O ciclo tá fechando para criminoso no Tocantins dois policiais foram presos no Guaraí graças a Deus menos dois melícianos nas ruas do Tocantins",
+            "sentiment": "negativo",
+            "timestamp": "2026-04-24T22:00:34.000Z",
+            "owner": "paradadafrutta",
+            "likes": 0
+        }
+    ]
 }
