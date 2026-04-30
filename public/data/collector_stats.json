@@ -1,40 +1,40 @@
 {
-  "updated_at": "2026-04-24 19:59",
+  "updated_at": "2026-04-30 07:37",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 0,
-    "duplicates": 0,
+    "entries_rss_raw": 8,
+    "duplicates": 6,
     "blocked_date": 0,
-    "blocked_id": 0,
-    "blocked_id_reasons": {},
+    "blocked_id": 2,
+    "blocked_id_reasons": {
+      "nome do candidato ausente": 2
+    },
     "approved_rss": 0,
-    "approved_scrape": 0,
+    "approved_scrape": 1,
     "approved_indirect": 0,
-    "total_new": 0,
+    "total_new": 1,
     "sources_approved": {}
   },
   "history_summary": {
     "total": 25,
-    "last_7d": 3,
+    "last_7d": 0,
     "last_30d": 23,
-    "sources_7d": {
-      "RR10 NOTÍCIAS |": 3
-    },
+    "sources_7d": {},
     "sources_30d": {
-      "Atitude Tocantins": 2,
       "Sou de Palmas": 6,
+      "RR10 NOTÍCIAS |": 6,
       "Cleber Toledo": 4,
       "Agência Tocantins": 3,
+      "Atitude Tocantins": 2,
       "Folha do Jalapão -": 1,
-      "RR10 NOTÍCIAS |": 6,
       "Jornal Folha Capital": 1
     },
     "methods_30d": {
       "RSS": 23
     },
     "sentiment_30d": {
-      "Neutro": 12,
-      "Positivo": 11
+      "Neutro": 7,
+      "Positivo": 16
     }
   },
   "sites_health": {
@@ -43,7 +43,7 @@
       "layer": "A",
       "mentions_30d": 0,
       "last_run_status": "ok",
-      "last_run_mentions": 0
+      "last_run_mentions": 1
     },
     "clebertoledo": {
       "name": "Portal CT (Cleber Toledo)",

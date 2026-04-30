@@ -626,5 +626,32 @@
     "year": 2026,
     "month": 4,
     "sentiment_original": "Positivo"
+  },
+  {
+    "hash_id": "ec5bf857e706",
+    "title": "Apostas abertas na caserna",
+    "url": "https://www.luizarmandocosta.com.br/noticia/apostas-abertas-na-caserna/53980",
+    "source_name": "Blog Luiz Armando Costa",
+    "source_type": "direct_scrape",
+    "collection_method": "DIRECT_SCRAPE",
+    "site_key": "luizarmandocosta",
+    "indirect_term": "",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [],
+    "mention_type": "institucional",
+    "snippet": "No Comando da Polícia Militar a aposta do dia é descobrir a lotação do ex-comandante geral da PM, coronel Márcio Barbosa, após ter se desincompatiilizado do cargo de Comandante Geral para disputar uma vaga de deputado federal há 28 dias. Márcio, pela lei, deveria estar afastado das atividades militares ou ser agregado. Na tropa, o destino é desconhecido. Uma dúvida até sem sentido porque ele poderia, muito bem, estar de férias. Mas ainda assim ter-se-ia o registro e as apostas não seriam abertas na banca.",
+    "relevance_score": 1.0,
+    "relevance_label": "DIRETA_ELEITORAL",
+    "sentiment": "Negativo",
+    "sentiment_confidence": 0.7,
+    "cluster": "Eleitoral",
+    "hostile_source": true,
+    "date": "2026-04-30",
+    "date_display": "30/04/2026",
+    "detected_at": "2026-04-30 07:35",
+    "collected_at": "2026-04-30T07:35:16",
+    "year": 2026,
+    "month": 4
   }
 ]

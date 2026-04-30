@@ -43,14 +43,14 @@
     {
       "id": "mencoes_imprensa",
       "label": "Menções imprensa (30 dias)",
-      "current": 25,
+      "current": 26,
       "targets": {
         "1": 60,
         "2": 120,
         "3": 200
       },
       "format": "number",
-      "previous": 25
+      "previous": 26
     },
     {
       "id": "municipios_visitados",
@@ -75,5 +75,5 @@
       "format": "number"
     }
   ],
-  "updated_at": "2026-04-28 12:15"
+  "updated_at": "2026-04-30 07:37"
 }
