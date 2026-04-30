@@ -5,7 +5,7 @@ const DATA_BASE = '/api/data';
 export const URLS = {
   mentions:    `${DATA_BASE}/mention_history.json`,
   social:      `${DATA_BASE}/social_metrics.json`,
-  sentiment:   `${DATA_BASE}/social_sentiment.json`,
+  sentiment:   `${DATA_BASE}/social_sentiment_calibrado.json`,
   geo:         `${DATA_BASE}/geo_electoral.json`,
   kpis:        `${DATA_BASE}/campaign_kpis.json`,
   adversarios: `${DATA_BASE}/adversarios.json`,

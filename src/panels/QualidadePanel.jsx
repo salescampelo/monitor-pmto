@@ -2,6 +2,11 @@ import React, { useState, memo } from 'react';
 import { Database, ChevronUp, ChevronDown, AlertTriangle, CheckCircle2, XCircle } from 'lucide-react';
 import { Card, useWW, PanelSkeleton } from '../components/ui.jsx';
 
+const fmtUpdated = d => {
+  if (!d || d.length < 10) return d || '—';
+  return d.slice(8,10) + '/' + d.slice(5,7) + '/' + d.slice(0,4) + d.slice(10);
+};
+
 const StatusIcon = ({status}) => {
   if (status === 'ok') return <CheckCircle2 size={14} style={{color:'#15803d'}}/>;
   if (status === 'not_run') return <span style={{color:'#8C93A8',fontSize:12}}>--</span>;
@@ -47,7 +52,7 @@ function QualidadePanel({data}) {
           <div>
             <h2 style={{fontSize:22,fontWeight:800,color:'#1A2744',margin:0}}>Qualidade do Coletor</h2>
             <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>
-              {hist?.total || 0} total · {hist?.last_7d || 0} (7d) · {hist?.last_30d || 0} (30d) · Atualizado {updated_at}
+              {hist?.total || 0} total · {hist?.last_7d || 0} (7d) · {hist?.last_30d || 0} (30d) · Atualizado {fmtUpdated(updated_at)}
             </p>
           </div>
         </div>

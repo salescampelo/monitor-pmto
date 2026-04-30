@@ -25,7 +25,8 @@ export const iC = i => ({Alto:'#ef4444',Médio:'#f59e0b',Baixo:'#22c55e'}[i]||'#
 export const fmt = d => {
   if(!d)return'—';
   const x=new Date(d+'T12:00:00');
-  return x.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});
+  if(isNaN(x))return'—';
+  return x.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});
 };
 
 export const fmtDt = d => {

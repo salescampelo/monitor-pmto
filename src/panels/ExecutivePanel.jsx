@@ -5,6 +5,7 @@ import {
   Newspaper, ArrowUpRight, BarChart3,
 } from 'lucide-react';
 import { Card, useWW } from '../components/ui.jsx';
+import { fmt } from '../lib/analytics.js';
 
 const SENTIMENT_COLORS = { positivo: '#15803d', neutro: '#8C93A8', negativo: '#b91c1c' };
 
@@ -223,7 +224,7 @@ function ExecutivePanel({ kpiData, socialData, sentimentData, articles, candidat
                   {item.title}
                 </p>
                 <p style={{ fontSize: 11, color: '#8C93A8', margin: '4px 0 0' }}>
-                  {item.source} · {item.date?.split(' ')[0] || ''}
+                  {item.source} · {fmt(item.date)}
                 </p>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>

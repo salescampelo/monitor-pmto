@@ -9,6 +9,7 @@ const ALLOWED_FILES = new Set([
   'mention_history.json',
   'social_metrics.json',
   'social_sentiment.json',
+  'social_sentiment_calibrado.json',
   'geo_electoral.json',
   'campaign_kpis.json',
   'adversarios.json',

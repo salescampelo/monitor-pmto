@@ -85,7 +85,7 @@ function SocialPanel({socialData,sentimentData}) {
             <h2 style={{fontSize:isMobile?18:22,fontWeight:800,color:'#1A2744',margin:0}}>Monitor de redes sociais</h2>
             <HelpTooltip panelId="social"/>
           </div>
-          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>{profiles.length} perfis · Instagram · {sentimentData?.data_coleta||profiles[0]?.data_coleta||''}</p>
+          <p style={{fontSize:12,color:'#8c93a8',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',margin:'2px 0 0'}}>{profiles.length} perfis · Instagram · {brDate(sentimentData?.data_coleta||profiles[0]?.data_coleta||'')}</p>
         </div>
       </div>
       <div style={{display:'flex',alignItems:'center',gap:16}}>

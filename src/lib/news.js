@@ -9,6 +9,9 @@ export const CL_RULES = [
 export const NW = ['morte','morto','denúncia','irregularidade','ilegal','ódio','censura','destruí','ferido','violência','abuso','crise','homicídio','tiroteio','baleado'];
 export const PW = ['homenage','homenagem','conquista','reconhec','reconhecimento','entrega','inaugur','capacita','formatur','solidariedade','integração','mediação','redução','queda','valorização','destaque','especial','podcast','entrevista','legado','liderança','convite','participação','presença','prestígio','elogio','condecoração','medalha','resultado','avanço'];
 
+const _SRC_FIX={'RR10 NOTÍCIAS |':'RR10 Notícias','Folha do Jalapão -':'Folha do Jalapão','Jornal Opção | Tocantins':'Jornal Opção Tocantins'};
+const normSrc=s=>{if(!s)return'?';s=s.trim();return _SRC_FIX[s]||s.replace(/\s*[\|–—\-]\s*$/,'').trim()||s;};
+
 export const classify = a => {
   const t=(a.title+' '+(a.snippet||'')+' '+(a.matched_terms||[]).join(' ')).toLowerCase();
   let cl=a.cluster||'Geral';
@@ -19,5 +22,5 @@ export const classify = a => {
   if(!a.sentiment){if(sc<=0.2)sn='Muito Negativo';else if(sc<=0.4)sn='Negativo';else if(sc>=0.7)sn='Positivo';}
   let imp='Médio';if(a.mention_type==='direta'||a.mention_type==='eleitoral')imp='Alto';else if(a.scope==='BR')imp='Alto';else if(a.priority==='complementar'&&ng===0)imp='Baixo';
   const dt=a.date||(a.detected_at?a.detected_at.split(' ')[0]:'');
-  return{id:a.hash_id||Math.random().toString(36).substr(2,9),date:dt,source:a.source_name||'?',title:a.title,sentiment:sn,score:Math.round(sc*100)/100,cluster:cl,impact:imp,keywords:a.matched_terms||[],url:a.url,mentionType:a.mention_type||'institucional',scope:a.scope||'TO',relevance:a.relevance_score||0,relevanceLabel:a.relevance_label||'',collectionMethod:a.collection_method||'RSS',indirectTerm:a.indirect_term||'',hostileSource:!!a.hostile_source,siteKey:a.site_key||'',analysisNote:`[${(a.scope||'TO')==='BR'?'NACIONAL':'LOCAL'}] ${a.mention_type||'institucional'} via ${a.source_name}. Termos: ${(a.matched_terms||[]).join(', ')}.${a.relevance_label?` Relevância: ${a.relevance_label} (${a.relevance_score})`:''}${a.indirect_term?` Ref. indireta: ${a.indirect_term}`:''}`};
+  return{id:a.hash_id||Math.random().toString(36).substr(2,9),date:dt,source:normSrc(a.source_name),title:a.title,sentiment:sn,score:Math.round(sc*100)/100,cluster:cl,impact:imp,keywords:a.matched_terms||[],url:a.url,mentionType:a.mention_type||'institucional',scope:a.scope||'TO',relevance:a.relevance_score||0,relevanceLabel:a.relevance_label||'',collectionMethod:a.collection_method||'RSS',indirectTerm:a.indirect_term||'',hostileSource:!!a.hostile_source,siteKey:a.site_key||'',analysisNote:`[${(a.scope||'TO')==='BR'?'NACIONAL':'LOCAL'}] ${a.mention_type||'institucional'} via ${a.source_name}. Termos: ${(a.matched_terms||[]).join(', ')}.${a.relevance_label?` Relevância: ${a.relevance_label} (${a.relevance_score})`:''}${a.indirect_term?` Ref. indireta: ${a.indirect_term}`:''}`};
 };
