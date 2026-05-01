@@ -19,14 +19,14 @@
     {
       "id": "seguidores_ig",
       "label": "Seguidores Instagram",
-      "current": 32238,
+      "current": 32235,
       "targets": {
         "1": 45000,
         "2": 60000,
         "3": 75000
       },
       "format": "number",
-      "previous": 32238
+      "previous": 32235
     },
     {
       "id": "engajamento_ig",
@@ -43,14 +43,14 @@
     {
       "id": "mencoes_imprensa",
       "label": "Menções imprensa (30 dias)",
-      "current": 47,
+      "current": 46,
       "targets": {
         "1": 60,
         "2": 120,
         "3": 200
       },
       "format": "number",
-      "previous": 47
+      "previous": 46
     },
     {
       "id": "municipios_visitados",
@@ -75,5 +75,5 @@
       "format": "number"
     }
   ],
-  "updated_at": "2026-05-01 11:01"
+  "updated_at": "2026-05-01 10:17"
 }
