@@ -1148,5 +1148,55 @@
     "collected_at": "2026-04-30T16:25:00",
     "year": 2026,
     "month": 4
+  },
+  {
+    "hash_id": "1b23a24f9026",
+    "title": "Passagem de comando no 13º BPM em São Félix inclui entrega de viaturas e equipamentos",
+    "url": "https://t1noticias.com.br/estado/passagem-de-comando-no-13o-bpm-em-sao-felix-inclui-entrega-de-viaturas-e-equipamentos/139747/",
+    "source_name": "T1 Notícias",
+    "source_type": "google_news",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "\"Marcio Barbosa\" \"polícia militar\" Tocantins after:2026-01-15 before:2026-01-28"
+    ],
+    "mention_type": "institucional",
+    "snippet": "O evento ocorreu no Centro de Convenções, no centro da cidade, e contou com a presença do comandante-geral da Polícia Militar do Tocantins, coronel Márcio Barbosa, além de autoridades civis e militares, policiais militares e representantes da comunidade.",
+    "relevance_score": 0.9,
+    "relevance_label": "DIRETA",
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.7,
+    "cluster": "Comando",
+    "date": "2026-01-16",
+    "date_display": "16/01/2026",
+    "detected_at": "2026-05-01 10:18",
+    "collected_at": "2026-05-01T10:18:22",
+    "year": 2026,
+    "month": 1
+  },
+  {
+    "hash_id": "2c931d022272",
+    "title": "Operação Canguçu pode virar filme nacional com roteirista de Tropa de Elite",
+    "url": "https://www.agenciatocantins.com.br/noticia/104376/operacao-cangucu-pode-virar-filme-nacional-com-roteirista-de-tropa-de-elite",
+    "source_name": "Agência Tocantins",
+    "source_type": "google_news",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "\"Barbosa de Mendonça\" Tocantins after:2026-01-15 before:2026-01-28"
+    ],
+    "mention_type": "institucional",
+    "snippet": "A informação foi confirmada durante a solenidade de passagem de comando do 1º Batalhão da Polícia Militar, em Palmas, quando o comandante-geral da PM do Tocantins, coronel Márcio Antônio Barbosa, mencionou o possível projeto audiovisual.",
+    "relevance_score": 0.9,
+    "relevance_label": "DIRETA",
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.5,
+    "cluster": "Comando",
+    "date": "2026-01-15",
+    "date_display": "15/01/2026",
+    "detected_at": "2026-05-01 10:19",
+    "collected_at": "2026-05-01T10:19:06",
+    "year": 2026,
+    "month": 1
   }
 ]

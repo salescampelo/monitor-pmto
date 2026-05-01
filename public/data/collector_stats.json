@@ -1,21 +1,23 @@
 {
-  "updated_at": "2026-05-01 10:17",
+  "updated_at": "2026-05-01 10:20",
   "run_stats": {
     "queries_rss": 35,
-    "entries_rss_raw": 12,
-    "duplicates": 4,
+    "entries_rss_raw": 37,
+    "duplicates": 25,
     "blocked_date": 0,
-    "blocked_id": 8,
+    "blocked_id": 10,
     "blocked_id_reasons": {
-      "nome do candidato ausente": 6,
-      "exclusão": 1,
-      "nome genérico sem contexto tocantinense": 1
+      "nome do candidato ausente": 7,
+      "exclusão": 3
     },
-    "approved_rss": 0,
+    "approved_rss": 2,
     "approved_scrape": 0,
     "approved_indirect": 0,
-    "total_new": 0,
-    "sources_approved": {}
+    "total_new": 2,
+    "sources_approved": {
+      "T1 Notícias": 1,
+      "Agência Tocantins": 1
+    }
   },
   "history_summary": {
     "total": 46,
