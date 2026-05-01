@@ -50,7 +50,7 @@
         "3": 200
       },
       "format": "number",
-      "previous": 45
+      "previous": 46
     },
     {
       "id": "municipios_visitados",
@@ -75,5 +75,5 @@
       "format": "number"
     }
   ],
-  "updated_at": "2026-04-30 16:25"
+  "updated_at": "2026-05-01 07:24"
 }
