@@ -10,7 +10,7 @@ export const NW = ['morte','morto','denúncia','irregularidade','ilegal','ódio'
 export const PW = ['homenage','homenagem','conquista','reconhec','reconhecimento','entrega','inaugur','capacita','formatur','solidariedade','integração','mediação','redução','queda','valorização','destaque','especial','podcast','entrevista','legado','liderança','convite','participação','presença','prestígio','elogio','condecoração','medalha','resultado','avanço'];
 
 const _SRC_FIX={'RR10 NOTÍCIAS |':'RR10 Notícias','Folha do Jalapão -':'Folha do Jalapão','Jornal Opção | Tocantins':'Jornal Opção Tocantins'};
-const normSrc=s=>{if(!s)return'?';s=s.trim();return _SRC_FIX[s]||s.replace(/\s*[\|–—\-]\s*$/,'').trim()||s;};
+export const normSrc=s=>{if(!s)return'?';s=s.trim();return _SRC_FIX[s]||s.replace(/\s*[\|–—\-]\s*$/,'').trim()||s;};
 
 export const classify = a => {
   const t=(a.title+' '+(a.snippet||'')+' '+(a.matched_terms||[]).join(' ')).toLowerCase();

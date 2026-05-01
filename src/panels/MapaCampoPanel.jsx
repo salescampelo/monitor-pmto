@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaf
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useWW, PanelSkeleton } from '../components/ui.jsx';
+import { fmt } from '../lib/analytics.js';
 import HelpTooltip from '../components/HelpTooltip.jsx';
 
 // Fix para ícones padrão do Leaflet com bundlers (Vite/Webpack)
@@ -131,7 +132,7 @@ function PopupConteudo({ m }) {
           </div>
           <div>
             <span style={{ fontSize: 10, color: '#8C93A8' }}>Última visita</span>
-            <div style={{ fontSize: 12, color: '#1A2744' }}>{m.data_visita || 'Não visitado'}</div>
+            <div style={{ fontSize: 12, color: '#1A2744' }}>{m.data_visita ? fmt(m.data_visita) : 'Não visitado'}</div>
           </div>
         </div>
         {m.notas_coordenacao && (

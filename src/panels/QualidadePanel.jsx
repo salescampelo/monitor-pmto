@@ -1,11 +1,10 @@
 import React, { useState, memo } from 'react';
 import { Database, ChevronUp, ChevronDown, AlertTriangle, CheckCircle2, XCircle } from 'lucide-react';
 import { Card, useWW, PanelSkeleton } from '../components/ui.jsx';
+import { fmtDt } from '../lib/analytics.js';
+import { normSrc } from '../lib/news.js';
 
-const fmtUpdated = d => {
-  if (!d || d.length < 10) return d || '—';
-  return d.slice(8,10) + '/' + d.slice(5,7) + '/' + d.slice(0,4) + d.slice(10);
-};
+const fmtUpdated = d => fmtDt(d);
 
 const StatusIcon = ({status}) => {
   if (status === 'ok') return <CheckCircle2 size={14} style={{color:'#15803d'}}/>;
@@ -33,7 +32,13 @@ function QualidadePanel({data}) {
 
   const {run_stats: run, history_summary: hist, sites_health: sites, updated_at} = data;
   const maxSource = Math.max(...Object.values(hist?.sources_30d || {1:1}), 1);
-  const sortedSources = Object.entries(hist?.sources_30d || {}).sort((a,b) => b[1] - a[1]);
+  const sortedSources = Object.entries(hist?.sources_30d || {}).reduce((acc, [src, count]) => {
+    const key = normSrc(src);
+    const existing = acc.find(([k]) => k === key);
+    if (existing) existing[1] += count;
+    else acc.push([key, count]);
+    return acc;
+  }, []).sort((a,b) => b[1] - a[1]);
   const sortedSites = Object.entries(sites || {}).sort((a,b) => {
     if (a[1].layer !== b[1].layer) return a[1].layer < b[1].layer ? -1 : 1;
     return b[1].mentions_30d - a[1].mentions_30d;

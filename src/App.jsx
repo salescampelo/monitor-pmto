@@ -12,7 +12,7 @@ import LoginScreen from './components/LoginScreen.jsx';
 import { CSS, Card, Met, Bd, Bt, NC, useWW, PanelSkeleton } from './components/ui.jsx';
 import { fetchJ, URLS } from './lib/fetch.js';
 import { classify } from './lib/news.js';
-import { CLUSTERS, metrics, calcHeaderMetrics } from './lib/analytics.js';
+import { CLUSTERS, metrics, calcHeaderMetrics, fmtDt } from './lib/analytics.js';
 import { CONFIG } from './lib/config.js';
 import { getStateFromUrl, setStateToUrl } from './lib/urlState.js';
 import { exportToCsv, exportToPdf } from './lib/export.js';
@@ -393,7 +393,7 @@ const App = ({onLogout, userEmail, role = 'coordenacao'}) => {
           </div>
           <div style={{margin:'8px 12px 0',background:dataAgeHours>24?'rgba(220,38,38,0.08)':dataAgeHours>12?'rgba(234,179,8,0.08)':'rgba(26,39,68,0.03)',borderRadius:8,padding:12}}>
             <p style={{fontSize:9,fontWeight:700,textTransform:'uppercase',color:dataAgeHours>24?'#DC2626':dataAgeHours>12?'#B45309':'#8C93A8',margin:'0 0 4px',letterSpacing:'0.08em'}}>Última coleta do scraper</p>
-            <p style={{fontSize:11,color:dataAgeHours>24?'#DC2626':'#5A6478',margin:0,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{collectorData?.updated_at||lastUpdate||'Aguardando'}</p>
+            <p style={{fontSize:11,color:dataAgeHours>24?'#DC2626':'#5A6478',margin:0,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{fmtDt(collectorData?.updated_at)||lastUpdate||'Aguardando'}</p>
             {dataAgeHours>24&&<p style={{fontSize:10,color:'#DC2626',margin:'4px 0 0',fontWeight:600}}>⚠ Dados desatualizados ({Math.round(dataAgeHours)}h)</p>}
           </div>
         </div>
@@ -451,7 +451,7 @@ const App = ({onLogout, userEmail, role = 'coordenacao'}) => {
         </div>}
         {dataAgeHours>24&&<div style={{background:'rgba(220,38,38,0.08)',border:'1px solid rgba(220,38,38,0.2)',borderRadius:8,padding:'10px 14px',marginBottom:14,display:'flex',alignItems:'center',gap:8}}>
           <AlertTriangle size={16} style={{color:'#DC2626',flexShrink:0}}/>
-          <p style={{fontSize:12,color:'#991B1B',margin:0,fontWeight:600}}>Dados desatualizados — última coleta há {Math.round(dataAgeHours)} horas ({collectorData?.updated_at}).</p>
+          <p style={{fontSize:12,color:'#991B1B',margin:0,fontWeight:600}}>Dados desatualizados — última coleta há {Math.round(dataAgeHours)} horas ({fmtDt(collectorData?.updated_at)}).</p>
         </div>}
 
         <div style={{display:'flex',gap:isMobile?6:8,marginBottom:16,flexWrap:'wrap'}}>
