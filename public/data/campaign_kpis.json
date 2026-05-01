@@ -19,14 +19,14 @@
     {
       "id": "seguidores_ig",
       "label": "Seguidores Instagram",
-      "current": 32235,
+      "current": 32238,
       "targets": {
         "1": 45000,
         "2": 60000,
         "3": 75000
       },
       "format": "number",
-      "previous": 32235
+      "previous": 32238
     },
     {
       "id": "engajamento_ig",
@@ -43,7 +43,7 @@
     {
       "id": "mencoes_imprensa",
       "label": "Menções imprensa (30 dias)",
-      "current": 49,
+      "current": 48,
       "targets": {
         "1": 60,
         "2": 120,
@@ -75,5 +75,5 @@
       "format": "number"
     }
   ],
-  "updated_at": "2026-05-01 10:23"
+  "updated_at": "2026-05-01 22:49"
 }
