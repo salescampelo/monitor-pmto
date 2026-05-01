@@ -1,26 +1,25 @@
 {
-  "updated_at": "2026-05-01 10:20",
+  "updated_at": "2026-05-01 10:23",
   "run_stats": {
     "queries_rss": 35,
-    "entries_rss_raw": 37,
-    "duplicates": 25,
+    "entries_rss_raw": 85,
+    "duplicates": 68,
     "blocked_date": 0,
-    "blocked_id": 10,
+    "blocked_id": 16,
     "blocked_id_reasons": {
-      "nome do candidato ausente": 7,
-      "exclusão": 3
+      "nome do candidato ausente": 15,
+      "exclusão": 1
     },
-    "approved_rss": 2,
+    "approved_rss": 1,
     "approved_scrape": 0,
     "approved_indirect": 0,
-    "total_new": 2,
+    "total_new": 1,
     "sources_approved": {
-      "T1 Notícias": 1,
-      "Agência Tocantins": 1
+      "Tribuna do Sertão": 1
     }
   },
   "history_summary": {
-    "total": 46,
+    "total": 48,
     "last_7d": 1,
     "last_30d": 9,
     "sources_7d": {

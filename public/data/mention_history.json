@@ -1198,5 +1198,30 @@
     "collected_at": "2026-05-01T10:19:06",
     "year": 2026,
     "month": 1
+  },
+  {
+    "hash_id": "0c43598b634d",
+    "title": "Quem é Amanda Vasconcelos, mulher do cantor Henrique, presa nos EUA",
+    "url": "https://www.tribunadosertao.com.br/curiosidades/2026/02/03/852935-quem-e-amanda-vasconcelos-mulher-do-cantor-henrique-presa-nos-eua",
+    "source_name": "Tribuna do Sertão",
+    "source_type": "google_news",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [
+      "\"Marcio Barbosa\" \"polícia militar\" Tocantins after:2026-01-29 before:2026-02-11"
+    ],
+    "mention_type": "institucional",
+    "snippet": "Amanda é filha de Márcio Barbosa, comandante-geral da Polícia Militar do Tocantins, o que ampliou a repercussão do caso nas redes sociais e na imprensa.",
+    "relevance_score": 0.9,
+    "relevance_label": "DIRETA",
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.5,
+    "cluster": "Comando",
+    "date": "2026-02-03",
+    "date_display": "03/02/2026",
+    "detected_at": "2026-05-01 10:21",
+    "collected_at": "2026-05-01T10:21:23",
+    "year": 2026,
+    "month": 2
   }
 ]
