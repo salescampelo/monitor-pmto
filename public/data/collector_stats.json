@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-05-01 07:24",
+  "updated_at": "2026-05-01 11:00",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 13,
-    "duplicates": 8,
+    "entries_rss_raw": 19,
+    "duplicates": 14,
     "blocked_date": 0,
     "blocked_id": 5,
     "blocked_id_reasons": {
       "nome do candidato ausente": 5
     },
     "approved_rss": 0,
-    "approved_scrape": 0,
+    "approved_scrape": 1,
     "approved_indirect": 0,
-    "total_new": 0,
+    "total_new": 1,
     "sources_approved": {}
   },
   "history_summary": {
@@ -44,7 +44,7 @@
       "layer": "A",
       "mentions_30d": 0,
       "last_run_status": "ok",
-      "last_run_mentions": 0
+      "last_run_mentions": 1
     },
     "clebertoledo": {
       "name": "Portal CT (Cleber Toledo)",
