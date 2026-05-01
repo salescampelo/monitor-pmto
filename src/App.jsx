@@ -51,6 +51,7 @@ const App = ({onLogout, userEmail, role = 'coordenacao'}) => {
   const[geoData,setGeoData]=useState(null);
   const[kpiData,setKpiData]=useState(null);
   const[adversariosData,setAdversariosData]=useState(null);
+  const[advMentionsData,setAdvMentionsData]=useState(null);
   const[tendenciaData,setTendenciaData]=useState(null);
   const[liderancasData,setLiderancasData]=useState(null);
   const[collectorData,setCollectorData]=useState(null);
@@ -127,7 +128,8 @@ const App = ({onLogout, userEmail, role = 'coordenacao'}) => {
     if(activePanel==='tendencia'&&!tendenciaData)fetchJ(URLS.tendencia).then(d=>{if(d)setTendenciaData(d);}).catch(onExpiry);
     if(activePanel==='campo'&&!liderancasData)fetchJ(URLS.liderancas).then(d=>{if(d)setLiderancasData(d);}).catch(onExpiry);
     if(activePanel==='qualidade'&&!collectorData)fetchJ(URLS.collector).then(d=>{if(d)setCollectorData(d);}).catch(onExpiry);
-  },[activePanel,newsRaw,geoData,tendenciaData,liderancasData,collectorData]);
+    if(activePanel==='adversarios'&&!advMentionsData)fetchJ(URLS.adversariosMentions).then(d=>{if(d)setAdvMentionsData(d);}).catch(onExpiry);
+  },[activePanel,newsRaw,geoData,tendenciaData,liderancasData,collectorData,advMentionsData]);
 
   const handleRefresh=useCallback(async()=>{
     setRefreshing(true);
@@ -408,7 +410,7 @@ const App = ({onLogout, userEmail, role = 'coordenacao'}) => {
       <div key={activePanel} className="panel-fade">
         {activePanel==='executive'&&<SafePanel><ExecutivePanel kpiData={kpiData} socialData={socialData} sentimentData={sentimentData} articles={articles} candidateUsername={CONFIG.CANDIDATE_USERNAME} onFullView={()=>setActivePanel('kpis')}/></SafePanel>}
         {activePanel==='tendencia'&&<SafePanel><TendenciaVotoPanel tendenciaData={tendenciaData}/></SafePanel>}
-        {activePanel==='adversarios'&&<SafePanel><AdversariosPanel adversariosData={adversariosData}/></SafePanel>}
+        {activePanel==='adversarios'&&<SafePanel><AdversariosPanel adversariosData={adversariosData} advMentionsData={advMentionsData}/></SafePanel>}
         {activePanel==='kpis'&&<SafePanel><KpiPanel kpiData={kpiData}/></SafePanel>}
         {activePanel==='geo'&&<SafePanel><GeoPanel geoData={geoData}/></SafePanel>}
         {activePanel==='campo'&&<SafePanel><MapaCampoPanel liderancasData={liderancasData}/></SafePanel>}

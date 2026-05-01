@@ -1,6 +1,6 @@
 import React, { useState, useMemo, memo } from 'react';
 import PropTypes from 'prop-types';
-import { Target, ChevronUp, ChevronDown } from 'lucide-react';
+import { Target, ChevronUp, ChevronDown, Newspaper } from 'lucide-react';
 import { Card, useWW } from '../components/ui.jsx';
 import HelpTooltip from '../components/HelpTooltip.jsx';
 import { fmtDt, fmtK } from '../lib/analytics.js';
@@ -15,7 +15,7 @@ const THREAT_C = {
 const NIVEL_ORDER = {baixa:1,média:2,alta:3};
 const DEST_C = {Senado:'#1a3a7a',Governo:'#22c55e',Desistiu:'#64748b'};
 
-function AdversariosPanel({adversariosData}) {
+function AdversariosPanel({adversariosData, advMentionsData}) {
   const[open,setOpen]=useState(true);
   const isMobile=useWW()<768;
   const d=adversariosData;
@@ -184,6 +184,35 @@ function AdversariosPanel({adversariosData}) {
             <p style={{fontSize:11,color:'#1A3A7A',margin:'0 0 6px',fontWeight:600}}>Instagram: {fmtK(t.seguidores)}</p>
             <p style={{fontSize:11,color:'#8C93A8',lineHeight:1.5,margin:0}}>{t.descricao}</p>
           </div>
+        ))}
+      </div>
+      </>}
+
+      {advMentionsData?.adversarios&&Object.keys(advMentionsData.adversarios).length>0&&<>
+      <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:10}}>
+        <Newspaper size={14} style={{color:'#1a3a7a'}}/>
+        <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',letterSpacing:'0.1em',margin:0}}>Imprensa dos adversários — últimos 7 dias</p>
+        {advMentionsData.updated_at&&<span style={{fontSize:10,color:'#8c93a8',fontWeight:400}}>· {fmtDt(advMentionsData.updated_at)}</span>}
+      </div>
+      <div style={{display:'grid',gridTemplateColumns:isMobile?'1fr':'repeat(3,1fr)',gap:10,marginBottom:14}}>
+        {Object.values(advMentionsData.adversarios).map(adv=>(
+          <Card key={adv.nome} style={{borderTop:`2px solid ${adv.nome==='Janad Valcari'?'#ef4444':adv.nome==='Tiago Dimas'?'#f59e0b':'#8b5cf6'}`}}>
+            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:8}}>
+              <div>
+                <strong style={{fontSize:13,color:'#1A2744'}}>{adv.nome}</strong>
+                <span style={{fontSize:10,color:'#8c93a8',marginLeft:6}}>{adv.partido}</span>
+              </div>
+              <span style={{fontSize:11,fontWeight:700,color:'#1a3a7a',background:'rgba(26,58,122,0.08)',padding:'2px 8px',borderRadius:8}}>{adv.total_mentions}</span>
+            </div>
+            <div style={{maxHeight:180,overflowY:'auto'}}>
+              {adv.mentions.slice(0,5).map((m,i)=>(
+                <a key={i} href={m.url} target="_blank" rel="noopener noreferrer" style={{display:'block',fontSize:11,color:'#1A2744',textDecoration:'none',padding:'4px 0',borderBottom:i<4?'1px solid #eef0f6':'none',lineHeight:1.4}}>
+                  <span style={{display:'block',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{m.title}</span>
+                  <span style={{fontSize:9,color:'#8c93a8'}}>{m.source} · {m.captured_at||''}</span>
+                </a>
+              ))}
+            </div>
+          </Card>
         ))}
       </div>
       </>}

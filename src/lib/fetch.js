@@ -9,6 +9,7 @@ export const URLS = {
   geo:         `${DATA_BASE}/geo_electoral.json`,
   kpis:        `${DATA_BASE}/campaign_kpis.json`,
   adversarios: `${DATA_BASE}/adversarios.json`,
+  adversariosMentions: `${DATA_BASE}/adversarios_mentions.json`,
   tendencia:   `${DATA_BASE}/tendencia_voto_2022.json`,
   liderancas:  `${DATA_BASE}/liderancas.json`,
   collector:   `${DATA_BASE}/collector_stats.json`,
