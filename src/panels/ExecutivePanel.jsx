@@ -7,7 +7,7 @@ import {
 import { Card, useWW } from '../components/ui.jsx';
 import { fmt } from '../lib/analytics.js';
 
-const SENTIMENT_COLORS = { positivo: '#15803d', neutro: '#8C93A8', negativo: '#b91c1c' };
+const SENTIMENT_COLORS = { positivo: '#22c55e', engajado: '#3b82f6', neutro: '#8C93A8', negativo: '#b91c1c' };
 
 function ExecutivePanel({ kpiData, socialData, sentimentData, articles, candidateUsername, onFullView }) {
   const isMobile = useWW() < 768;
@@ -46,6 +46,7 @@ function ExecutivePanel({ kpiData, socialData, sentimentData, articles, candidat
   const latestMentions = useMemo(() => {
     if (!Array.isArray(articles)) return [];
     return [...articles]
+      .filter(a => (a.relevance ?? 0) >= 0.5)
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
       .slice(0, 5);
   }, [articles]);
@@ -53,9 +54,10 @@ function ExecutivePanel({ kpiData, socialData, sentimentData, articles, candidat
   const sentiment = sentimentData?.sentiment || {};
   const sentParts = useMemo(() => {
     const pos = sentiment.pct_positivo || 0;
+    const eng = sentiment.pct_engajado || 0;
     const neg = sentiment.pct_negativo || 0;
-    const neu = Math.max(0, 100 - pos - neg);
-    return { pos, neg, neu };
+    const neu = Math.max(0, 100 - pos - eng - neg);
+    return { pos, eng, neg, neu };
   }, [sentiment]);
 
   const getDelta = (current, previous) => {
@@ -178,15 +180,17 @@ function ExecutivePanel({ kpiData, socialData, sentimentData, articles, candidat
         </p>
         <div style={{ display: 'flex', height: 12, borderRadius: 6, overflow: 'hidden', background: '#f1f5f9' }}>
           {sentParts.pos > 0 && <div style={{ width: `${sentParts.pos}%`, background: SENTIMENT_COLORS.positivo, transition: 'width 0.6s ease-out' }} />}
+          {sentParts.eng > 0 && <div style={{ width: `${sentParts.eng}%`, background: SENTIMENT_COLORS.engajado, transition: 'width 0.6s ease-out' }} />}
           {sentParts.neu > 0 && <div style={{ width: `${sentParts.neu}%`, background: SENTIMENT_COLORS.neutro, transition: 'width 0.6s ease-out' }} />}
           {sentParts.neg > 0 && <div style={{ width: `${sentParts.neg}%`, background: SENTIMENT_COLORS.negativo, transition: 'width 0.6s ease-out' }} />}
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8 }}>
           {[
             { label: 'Positivo', value: sentParts.pos, color: SENTIMENT_COLORS.positivo },
+            { label: 'Engajado', value: sentParts.eng, color: SENTIMENT_COLORS.engajado },
             { label: 'Neutro', value: sentParts.neu, color: SENTIMENT_COLORS.neutro },
             { label: 'Negativo', value: sentParts.neg, color: SENTIMENT_COLORS.negativo },
-          ].map(s => (
+          ].filter(s => s.value > 0).map(s => (
             <span key={s.label} style={{ fontSize: 11, color: s.color, fontWeight: 600 }}>
               {s.label} {Math.round(s.value)}%
             </span>
@@ -204,7 +208,8 @@ function ExecutivePanel({ kpiData, socialData, sentimentData, articles, candidat
           <p style={{ fontSize: 13, color: '#8C93A8', textAlign: 'center', margin: '16px 0' }}>Carregando menções...</p>
         )}
         {latestMentions.map((item, i) => {
-          const sentColor = item.sentiment === 'positivo' ? '#15803d' : item.sentiment === 'negativo' ? '#b91c1c' : '#8C93A8';
+          const sl = (item.sentiment || '').toLowerCase();
+          const sentColor = sl === 'positivo' ? '#22c55e' : sl === 'negativo' ? '#b91c1c' : '#8C93A8';
           return (
             <a
               key={item.id || i}

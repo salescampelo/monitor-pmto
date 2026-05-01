@@ -12,7 +12,7 @@ const getKpiColor = (type, value) => {
       return '#FFFFFF';
     case 'engajamento':
       if (value >= 3)   return '#22c55e';
-      if (value >= 1.5) return '#eab308';
+      if (value >= 1.5) return '#f59e0b';
       return '#ef4444';
     case 'mencoes':
       if (value >= 5) return '#22c55e';

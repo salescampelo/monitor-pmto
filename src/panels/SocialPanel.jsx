@@ -4,10 +4,10 @@ import { Users, ChevronUp, ChevronDown } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend } from 'recharts';
 import { Card, Bt, useWW, PanelSkeleton } from '../components/ui.jsx';
 import HelpTooltip from '../components/HelpTooltip.jsx';
-import { fmtK } from '../lib/analytics.js';
+import { fmtK, fmt } from '../lib/analytics.js';
 import { CONFIG } from '../lib/config.js';
 
-const brDate=d=>d&&d.length>=10?d.slice(8,10)+'/'+d.slice(5,7)+'/'+d.slice(0,4):d||'';
+const brDate=fmt;
 const DCOL = {positivo:'#22c55e',negativo:'#ef4444',neutro:'#64748b',engajado:'#3b82f6'};
 
 const PANEL_PROFILES = new Set([
@@ -90,7 +90,7 @@ function SocialPanel({socialData,sentimentData}) {
       </div>
       <div style={{display:'flex',alignItems:'center',gap:16}}>
         {cand&&<div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#1A3A7A',margin:0}}>#{candRank}</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>no ranking</p></div>}
-        {cand&&<div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#d4a017',margin:0}}>{cand.taxa_engajamento_pct}%</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>engajamento</p></div>}
+        {cand&&<div style={{textAlign:'center'}}><p style={{fontSize:20,fontWeight:800,color:'#d4a017',margin:0}}>{(cand.taxa_engajamento_pct||0).toFixed(1)}%</p><p style={{fontSize:11,color:'#8c93a8',margin:0,textTransform:'uppercase',fontWeight:700}}>engajamento</p></div>}
         {open?<ChevronUp size={18} style={{color:'#8c93a8'}}/>:<ChevronDown size={18} style={{color:'#8c93a8'}}/>}
       </div>
     </div>
@@ -100,7 +100,7 @@ function SocialPanel({socialData,sentimentData}) {
       <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10,letterSpacing:'0.1em'}}>Cel. Barbosa · @{cand.username}</p>
       <div style={{display:'flex',gap:28,flexWrap:'wrap'}}>
         <div><p style={{fontSize:26,fontWeight:700,color:'#1A2744',margin:0,fontFamily:'var(--font-mono)'}}>{cand.seguidores.toLocaleString('pt-BR')}</p><p className="metric-label">seguidores</p></div>
-        <div><p style={{fontSize:26,fontWeight:700,color:'#1A3A7A',margin:0,fontFamily:'var(--font-mono)'}}>{cand.taxa_engajamento_pct}%</p><p className="metric-label">engajamento</p></div>
+        <div><p style={{fontSize:26,fontWeight:700,color:'#1A3A7A',margin:0,fontFamily:'var(--font-mono)'}}>{(cand.taxa_engajamento_pct||0).toFixed(1)}%</p><p className="metric-label">engajamento</p></div>
         <div><p style={{fontSize:26,fontWeight:700,color:'#D4A017',margin:0,fontFamily:'var(--font-mono)'}}>{cand.media_likes_recentes}</p><p className="metric-label">likes/post</p></div>
         <div><p style={{fontSize:26,fontWeight:700,color:'#22c55e',margin:0,fontFamily:'var(--font-mono)'}}>#{candRank}</p><p className="metric-label">no ranking</p></div>
       </div>
@@ -151,16 +151,16 @@ function SocialPanel({socialData,sentimentData}) {
               <span className="table-cell" style={{fontWeight:700,color:'#8C93A8',fontFamily:'var(--font-mono)'}}>#{p.rank}</span>
               <span className="table-cell" style={{color:isCand?'#D4A017':'#1A2744',fontWeight:isCand?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>@{p.username}</span>
               {!isMobile&&<span className="table-cell" style={{fontWeight:600,color:'#5A6478',textAlign:'right',fontFamily:'var(--font-mono)'}}>{p.seguidores.toLocaleString('pt-BR')}</span>}
-              <span className="table-cell" style={{fontWeight:700,color:p.taxa_engajamento_pct>=3?'#22c55e':p.taxa_engajamento_pct>=1.5?'#f59e0b':'#ef4444',textAlign:'right',fontFamily:'var(--font-mono)'}}>{p.taxa_engajamento_pct}%</span>
+              <span className="table-cell" style={{fontWeight:700,color:p.taxa_engajamento_pct>=3?'#22c55e':p.taxa_engajamento_pct>=1.5?'#f59e0b':'#ef4444',textAlign:'right',fontFamily:'var(--font-mono)'}}>{(p.taxa_engajamento_pct||0).toFixed(1)}%</span>
               {!isMobile&&<span className="table-cell" style={{fontWeight:700,color:trendColor,textAlign:'center',fontFamily:'var(--font-mono)'}}>{trendIcon} {label}</span>}
             </div>);
           })}
         </div>
         <div style={{display:'flex',gap:12,marginTop:8,paddingTop:6,borderTop:'1px solid rgba(51,65,85,0.2)'}}>
           <span style={{fontSize:10,color:'#8c93a8'}}>Engajamento:</span>
-          <span style={{fontSize:10,color:'#15803d'}}>■ alto (3%+)</span>
-          <span style={{fontSize:10,color:'#d4a017'}}>■ médio (1.5-3%)</span>
-          <span style={{fontSize:10,color:'#b91c1c'}}>■ baixo (&lt;1.5%)</span>
+          <span style={{fontSize:10,color:'#22c55e'}}>■ alto (3%+)</span>
+          <span style={{fontSize:10,color:'#f59e0b'}}>■ médio (1.5-3%)</span>
+          <span style={{fontSize:10,color:'#ef4444'}}>■ baixo (&lt;1.5%)</span>
           <span style={{fontSize:10,color:'#8c93a8',marginLeft:8}}>Tendência:</span>
           <span style={{fontSize:10,color:'#15803d'}}>↑ crescente</span>
           <span style={{fontSize:10,color:'#8c93a8'}}>→ estável</span>
@@ -173,9 +173,9 @@ function SocialPanel({socialData,sentimentData}) {
       <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:10}}>
         <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',margin:0}}>Top 10 — taxa de engajamento (%)</p>
         <div style={{display:'flex',gap:10}}>
-          <span style={{fontSize:10,color:'#15803d'}}>■ alto (3%+)</span>
-          <span style={{fontSize:10,color:'#d4a017'}}>■ médio</span>
-          <span style={{fontSize:10,color:'#b91c1c'}}>■ baixo</span>
+          <span style={{fontSize:10,color:'#22c55e'}}>■ alto (3%+)</span>
+          <span style={{fontSize:10,color:'#f59e0b'}}>■ médio</span>
+          <span style={{fontSize:10,color:'#ef4444'}}>■ baixo</span>
           <span style={{fontSize:9,color:'#1A3A7A'}}>■ candidato</span>
         </div>
       </div>
@@ -391,7 +391,7 @@ function SocialPanel({socialData,sentimentData}) {
     <Card style={{borderLeft:'3px solid #22c55e'}}>
       <p style={{fontSize:12,fontWeight:700,textTransform:'uppercase',color:'#8C93A8',marginBottom:10}}>Insights para a campanha</p>
       <div style={{fontSize:14,color:'#8C93A8',lineHeight:1.7}}>
-        {cand&&<p style={{margin:'0 0 4px'}}>Cel. Barbosa: #{candRank} em seguidores ({cand.seguidores.toLocaleString('pt-BR')}) com engajamento de {cand.taxa_engajamento_pct}% — {cand.taxa_engajamento_pct>1.5?'acima da média de políticos brasileiros (~1%)':'dentro da média'}.</p>}
+        {cand&&<p style={{margin:'0 0 4px'}}>Cel. Barbosa: #{candRank} em seguidores ({cand.seguidores.toLocaleString('pt-BR')}) com engajamento de {(cand.taxa_engajamento_pct||0).toFixed(1)}% — {cand.taxa_engajamento_pct>1.5?'acima da média de políticos brasileiros (~1%)':'dentro da média'}.</p>}
         {cand&&<p style={{margin:'0 0 4px'}}>Média de {cand.media_likes_recentes} likes/post. Investir em Reels e vídeos curtos tende a amplificar o alcance orgânico em 3-5x no Instagram.</p>}
         {sentimentData?.sentiment?.total>0&&<p style={{margin:0}}>Análise calibrada de {sentimentData.sentiment.total} comentários{sentimentData?.periodo?` (${brDate(sentimentData.periodo.de)} a ${brDate(sentimentData.periodo.ate)})`:''}: {sentimentData.sentiment.pct_positivo}% positivos, {sentimentData.sentiment.pct_engajado||0}% engajados, {sentimentData.sentiment.pct_negativo}% negativos. {sentimentData.sentiment.pct_positivo>50?'Percepção pública favorável — explorar UGC e depoimentos.':'Monitorar narrativas negativas e preparar contra-narrativas.'}</p>}
         {!sentimentData?.sentiment?.total&&<p style={{margin:0}}>Execute o scraper de comentários para gerar a análise de sentimento do público nas redes.</p>}

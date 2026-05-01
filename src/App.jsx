@@ -256,7 +256,10 @@ const App = ({onLogout, userEmail, role = 'coordenacao'}) => {
   },[articles,filters.type,filters.scope]);
 
   // ── Header KPIs ──────────────────────────────────────────────────────────
-  const daysToElection=useMemo(()=>Math.ceil((new Date('2026-10-04')-new Date())/(1000*60*60*24)),[]);
+  const daysToElection=useMemo(()=>{
+    const ed=kpiData?.election_date||'2026-10-04';
+    return Math.max(0,Math.ceil((new Date(ed+'T00:00:00')-new Date())/(1000*60*60*24)));
+  },[kpiData]);
 
   // Snapshots do candidato ordenados por data (mais recente primeiro)
   const candidateSnapshots=useMemo(()=>{
@@ -298,7 +301,7 @@ const App = ({onLogout, userEmail, role = 'coordenacao'}) => {
     if(!articles.length)return 0;
     const h48ago=new Date(Date.now()-48*60*60*1000);
     const parseD=n=>{try{return new Date((n.date||'').replace(' ','T'));}catch{return new Date(0);}};
-    return articles.filter(n=>parseD(n)>h48ago).length;
+    return articles.filter(n=>n.relevance>=0.5&&parseD(n)>h48ago).length;
   },[articles]);
 
   const positiveCommentsPct=useMemo(()=>
