@@ -19,14 +19,14 @@
     {
       "id": "seguidores_ig",
       "label": "Seguidores Instagram",
-      "current": 32235,
+      "current": 32238,
       "targets": {
         "1": 45000,
         "2": 60000,
         "3": 75000
       },
       "format": "number",
-      "previous": 32235
+      "previous": 32238
     },
     {
       "id": "engajamento_ig",
@@ -75,5 +75,5 @@
       "format": "number"
     }
   ],
-  "updated_at": "2026-05-01 11:00"
+  "updated_at": "2026-05-01 11:01"
 }
