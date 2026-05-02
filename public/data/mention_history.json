@@ -1256,5 +1256,32 @@
     "collected_at": "2026-05-02T15:44:20",
     "year": 2026,
     "month": 5
+  },
+  {
+    "hash_id": "38ce11e59dce",
+    "title": "DO publica mais 258 condecorações com Medalha Tiradentes da PM. No mesmo dia em que um dos agraciados com a mesma honraria no dia  31 de março pela Corporação é denunciado por triplo homicídio pelo MP de Goiás",
+    "url": "https://www.luizarmandocosta.com.br/noticia/do-publica-mais-258-condecoracoes-com-medalha-tiradentes-da-pm-no-mesmo-dia-em-que-um-dos-agraciados-com-a-mesma-honraria-no-dia-31-de-marco-pela-corporacao-e-denunciado-por-triplo-homicidio-pelo-mp-de-goias/54003",
+    "source_name": "Blog Luiz Armando Costa",
+    "source_type": "direct_scrape",
+    "collection_method": "DIRECT_SCRAPE",
+    "site_key": "luizarmandocosta",
+    "indirect_term": "",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [],
+    "mention_type": "direta",
+    "snippet": "Mesmo dia da desincompatibilização do ex-Comandante, coronel Márcio Barbosa, pré-candidato a deputado federal.",
+    "relevance_score": 1.0,
+    "relevance_label": "DIRETA_ELEITORAL",
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.8,
+    "cluster": "Eleitoral",
+    "hostile_source": true,
+    "date": "2026-05-02",
+    "date_display": "02/05/2026",
+    "detected_at": "2026-05-02 22:35",
+    "collected_at": "2026-05-02T22:35:04",
+    "year": 2026,
+    "month": 5
   }
 ]

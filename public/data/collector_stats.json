@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-02 15:50",
+  "updated_at": "2026-05-02 22:40",
   "run_stats": {
     "queries_rss": 20,
     "entries_rss_raw": 8,
@@ -16,15 +16,15 @@
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 49,
-    "last_7d": 4,
-    "last_30d": 10,
+    "total": 50,
+    "last_7d": 5,
+    "last_30d": 11,
     "sources_7d": {
-      "Blog Luiz Armando Costa": 3,
+      "Blog Luiz Armando Costa": 4,
       "Luiz Armando Costa": 1
     },
     "sources_30d": {
-      "Blog Luiz Armando Costa": 3,
+      "Blog Luiz Armando Costa": 4,
       "RR10 Notícias": 2,
       "G1": 2,
       "Jornal Folha Capital": 1,
@@ -33,18 +33,18 @@
     },
     "methods_30d": {
       "RSS": 7,
-      "DIRECT_SCRAPE": 3
+      "DIRECT_SCRAPE": 4
     },
     "sentiment_30d": {
       "Neutro": 4,
-      "Positivo": 6
+      "Positivo": 7
     }
   },
   "sites_health": {
     "luizarmandocosta": {
       "name": "Blog Luiz Armando Costa",
       "layer": "A",
-      "mentions_30d": 3,
+      "mentions_30d": 4,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
