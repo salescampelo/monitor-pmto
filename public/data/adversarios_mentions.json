@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-01 19:40",
+  "updated_at": "2026-05-02 10:58",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 13,
-      "new_this_run": 13,
+      "new_this_run": 0,
       "mentions": [
         {
           "title": "Do Tocantins, apenas Irajá e Ricardo Ayres votaram pela manutenção dos vetos do governo Lula ao PL da Dosimetria",
@@ -116,8 +116,8 @@
     "ricardo_ayres": {
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
-      "total_mentions": 10,
-      "new_this_run": 10,
+      "total_mentions": 12,
+      "new_this_run": 2,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -142,6 +142,14 @@
           "published": "Wed, 29 Apr 2026 18:50:00 GMT",
           "hash": "4930766c862d",
           "captured_at": "2026-05-01"
+        },
+        {
+          "title": "Ricardo Ayres garante R$ 10 milhões em veículos para transporte de pacientes no Tocantins",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOSU5mN25rSWNJOGZHY2JzaHp4TUpzMVptOFoyMTBqRGl0dHdweEx5OEd2b0EyOEVQNDRRUzRMV2JsNVRXQWJzUDFGVElLY25SUVQ4UVlyRkhNMEZEZE1DVUdWa2R3NHZyQm9Qa3pLUVUwSVh1VEVpUC1nSDBrWWdNelY2bURKbDRVNjJCblRrRS0yalNvczNJOUNCTXNwbklFYWxyXzlIMk8za3ZOM0JWR2RVd2FiOHRf?oc=5",
+          "source": "RR10 NOTÍCIAS |",
+          "published": "Wed, 29 Apr 2026 16:49:27 GMT",
+          "hash": "d547b303e726",
+          "captured_at": "2026-05-02"
         },
         {
           "title": "Miracema: Em parceria com Ricardo Ayres, prefeita Camila Fernandes recebe veículo para saúde",
@@ -198,6 +206,14 @@
           "published": "Fri, 01 May 2026 20:51:00 GMT",
           "hash": "0806c210faac",
           "captured_at": "2026-05-01"
+        },
+        {
+          "title": "Maioria da bancada do Tocantins vota para reduzir penas de condenados pelos atos golpistas",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQckhlR3BZTXdfcU1fVHhPUkhYR3prUF95OE9oeEg5RHl0NVpDei1vamgyMTFOajlkc3RlZG5vUzZCZ1g2TkczaHlldmhXQkZ6bHNlTk5JUG9IOTVfNmlZZURYTi1xSmQtSDhiZlQzUEN3cGRRblJycDN1WU02a1djYU4wZVB1cXAwQ2NXSkZhRDY1ckR0VV9EekQ4MHhSM0xUQWZ1VzVxTEphUkppQUpiRUpxempXbEsxYnNXQjk4QjZ0cTQ?oc=5",
+          "source": "Portal O Girassol",
+          "published": "Fri, 01 May 2026 01:08:53 GMT",
+          "hash": "09bc8d6f23a1",
+          "captured_at": "2026-05-02"
         }
       ]
     },
@@ -205,7 +221,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 60,
+      "new_this_run": 35,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
@@ -286,6 +302,14 @@
           "published": "Wed, 29 Apr 2026 19:17:21 GMT",
           "hash": "242da0b27230",
           "captured_at": "2026-05-01"
+        },
+        {
+          "title": "Janad é conduzida à PF após sacar R$ 500 mil; \"o dinheiro é meu e tem origem lícita\", diz deputada",
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPU01NX3M4ZVBoNHJzancyVUhucnlnM1BXMmp0UWxoRXFVQ2JNWnlPOGNOUkdKRzNET0hNNjE4N0h6c3RlekxRUUxYSkxsb3pWdk9nT1I4Y3JqT1hQTDVYeFhJbk5VaTdhai1iTXp0cUFPUmVJSTBlbVVld0tQNGdMQ21ITU1hQjZpMGt5TFdQQ1NTWWFCMGxwOWVWUkFVU1VNTE9VMktIdno3ZUxnbEtUOTR1cWZXWkItN2x4ejlIYzFNeHRHVTAxLWVTZkp6MjRveDJaa184dw?oc=5",
+          "source": "Araguaína Notícias",
+          "published": "Wed, 29 Apr 2026 18:36:00 GMT",
+          "hash": "0875faac5e8a",
+          "captured_at": "2026-05-02"
         },
         {
           "title": "Deputada Professora Janad Valcari esclarece saque de R$ 500 mil após ser conduzida à sede da PF em Palmas",
@@ -437,14 +461,6 @@
           "source": "Jornal Opção | Tocantins",
           "published": "Wed, 29 Apr 2026 15:44:00 GMT",
           "hash": "80092764d052",
-          "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Deputada Janad é abordada por agentes da PF após saque e garante: “recursos de conta pessoal, com origem lícita e compatível com seu patrimônio e trajetória”",
-          "url": "https://news.google.com/rss/articles/CBMioAJBVV95cUxOQkdHMHh2Q1lhZVZ6ZlJ4WTVIQi0tQkc0WGRHMFN5ZHFDaDEzZGtPSzZWQllNWldEaXVSek9TamR6Y2tRWGNlT2pRWFMtSHVYR014MGhxUnN4TDhKX2wxNktxQXNrUm5WWEhkNnN4TURIQXZjblN0TEt1dUVadjktM0FONkhfZW1ycUVudjBuakdqeVRPSlhKOW1nNHZyVGRVRUZBN3YzZDVmcDhWcFBORTk1MGtfSWl0cm5Mc1JGWGNibEpTTS1EV3JVWEhkQ29nS0hIeXRXR0hvUXlKeXBtQi1rRFM3eEQ4dThKaFBxRElpUUpOOWhqZ0ZvNU1UaUxIZjJKUjcwODdjNWpRMUlhRVd3OU5aR1kxc0NpU29fTi0?oc=5",
-          "source": "Gazeta do Cerrado",
-          "published": "Wed, 29 Apr 2026 15:19:51 GMT",
-          "hash": "4d926ca61846",
           "captured_at": "2026-05-01"
         }
       ]

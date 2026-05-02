@@ -1,14 +1,12 @@
 {
-  "updated_at": "2026-05-01 22:49",
+  "updated_at": "2026-05-02 10:58",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 9,
-    "duplicates": 8,
+    "entries_rss_raw": 7,
+    "duplicates": 7,
     "blocked_date": 0,
-    "blocked_id": 1,
-    "blocked_id_reasons": {
-      "nome do candidato ausente": 1
-    },
+    "blocked_id": 0,
+    "blocked_id_reasons": {},
     "approved_rss": 0,
     "approved_scrape": 1,
     "approved_indirect": 0,
@@ -16,36 +14,35 @@
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 47,
-    "last_7d": 2,
-    "last_30d": 10,
+    "total": 48,
+    "last_7d": 3,
+    "last_30d": 9,
     "sources_7d": {
-      "Luiz Armando Costa": 1,
-      "Blog Luiz Armando Costa": 1
+      "Blog Luiz Armando Costa": 2,
+      "Luiz Armando Costa": 1
     },
     "sources_30d": {
-      "G1": 3,
-      "Jornal Folha Capital": 2,
       "RR10 Notícias": 2,
+      "G1": 2,
+      "Blog Luiz Armando Costa": 2,
+      "Jornal Folha Capital": 1,
       "Cleber Toledo": 1,
-      "Luiz Armando Costa": 1,
-      "Blog Luiz Armando Costa": 1
+      "Luiz Armando Costa": 1
     },
     "methods_30d": {
-      "RSS": 9,
-      "DIRECT_SCRAPE": 1
+      "RSS": 7,
+      "DIRECT_SCRAPE": 2
     },
     "sentiment_30d": {
       "Neutro": 4,
-      "Positivo": 5,
-      "Negativo": 1
+      "Positivo": 5
     }
   },
   "sites_health": {
     "luizarmandocosta": {
       "name": "Blog Luiz Armando Costa",
       "layer": "A",
-      "mentions_30d": 1,
+      "mentions_30d": 2,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
