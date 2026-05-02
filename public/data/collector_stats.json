@@ -1,12 +1,14 @@
 {
-  "updated_at": "2026-05-02 10:58",
+  "updated_at": "2026-05-02 15:50",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 7,
+    "entries_rss_raw": 8,
     "duplicates": 7,
     "blocked_date": 0,
-    "blocked_id": 0,
-    "blocked_id_reasons": {},
+    "blocked_id": 1,
+    "blocked_id_reasons": {
+      "nome do candidato ausente": 1
+    },
     "approved_rss": 0,
     "approved_scrape": 1,
     "approved_indirect": 0,
@@ -14,35 +16,35 @@
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 48,
-    "last_7d": 3,
-    "last_30d": 9,
+    "total": 49,
+    "last_7d": 4,
+    "last_30d": 10,
     "sources_7d": {
-      "Blog Luiz Armando Costa": 2,
+      "Blog Luiz Armando Costa": 3,
       "Luiz Armando Costa": 1
     },
     "sources_30d": {
+      "Blog Luiz Armando Costa": 3,
       "RR10 Notícias": 2,
       "G1": 2,
-      "Blog Luiz Armando Costa": 2,
       "Jornal Folha Capital": 1,
       "Cleber Toledo": 1,
       "Luiz Armando Costa": 1
     },
     "methods_30d": {
       "RSS": 7,
-      "DIRECT_SCRAPE": 2
+      "DIRECT_SCRAPE": 3
     },
     "sentiment_30d": {
       "Neutro": 4,
-      "Positivo": 5
+      "Positivo": 6
     }
   },
   "sites_health": {
     "luizarmandocosta": {
       "name": "Blog Luiz Armando Costa",
       "layer": "A",
-      "mentions_30d": 2,
+      "mentions_30d": 3,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
