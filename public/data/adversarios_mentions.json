@@ -1,12 +1,20 @@
 {
-  "updated_at": "2026-05-02 15:50",
+  "updated_at": "2026-05-03 11:01",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
-      "total_mentions": 13,
-      "new_this_run": 0,
+      "total_mentions": 14,
+      "new_this_run": 1,
       "mentions": [
+        {
+          "title": "PL da Dosimetria: como votaram os parlamentares na derrubada do veto de Lula",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNc0kyWF9nNUpFbThoYUFsRTBrRkc2RFRid3hMWW03OFE3UFpoZHdYUnNQc1NJMnVBTHJHMEtxVXpfX2FWYk51dFVoa0ZoaVc1MWgtdVZqZ3VyalZPU0JYUmNVa0pDRWNXTGFrdXREWVJneDlsTzd2bkJkNUlTMFl0Zkc4RWdiQWE0VE9CUTVtLUY1ak1mVGFoQlBJR1M2eC15dmdXRUtOWjZlRDdZZ0lwMTVaVXgyOTJj?oc=5",
+          "source": "Diário do Centro do Mundo",
+          "published": "Thu, 30 Apr 2026 23:07:00 GMT",
+          "hash": "1ebf91845ae9",
+          "captured_at": "2026-05-03"
+        },
         {
           "title": "Do Tocantins, apenas Irajá e Ricardo Ayres votaram pela manutenção dos vetos do governo Lula ao PL da Dosimetria",
           "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNSmNTb09aMEZVSm9EZjltZHo5X3NwRWQzX21MQ2FEQlFsR3c3RXVibU9EYmVkYnl3ZlgzbUxrU3Y3bWxpaS1fRURaejBRZDhwcDBFMHFsc0ExTWNNX2RpcmxlR0NEVERHVnAydF9RZW5PdC1vYXdhdi10dTZwZlNkNjZJeFl2TkxfX1BzdG9OcHFJMHI3bmVrU0stLXpOdmQ0ODVSbnh1bVpEZEIxYWxEdE93dXdaSWlmNFFoWGNwdnFDUk1wUWY3RTlLVUtiTElveDBCX2ZB?oc=5",
@@ -248,6 +256,14 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "Janad Valcari: saque de 500 mil é que levou a deputada a ser conduzida pela policia federal",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOUzdPQ09uWWlYY3piSlQyTzVmQ3U0TFkyRHhUdmRiVDJCVGpZT0ozNHlqVGVZWnZQWlFMMHRoS1NsTnZ5OGtQeDZXeGkzNmN2VE12czg2Q3d5SGNCeHFheHRITDhWdnk0TFNTbnRhdUxoZUx6aHhDVlJrUW1nRUNDZ0VpaEFxZ1lXSkdWSXotZkFDeTRjY3djR1RIeWFUSkpveURXUm5CcDg2d2tWVjg4RVBOSlctYWM1LUtxbzNvenRKM0RO0gHKAUFVX3lxTE95TjZoWU0xMnFfbVBRdndMN2VSOTVEaUc0a0ZJcXcyUHduS3doRjZTWDVEMHdOUVdLNS1FMHZDWGR6bVllMXJDbmVoMmduMloxeXExQy11ejd1NmlRcVM1TGxyTUQtYmpycWFtWUNiVXMyd3ExM2RJT3Vfbm5BeFRXMnByNFhkcGNISjhnc1lNS1FaTTR0YW1KRGZuVDFyWnJ0cHZzRklEUEdOYjZjZjVPcFBMUkJ5SGx6cmtuSmwwejJ2dUlSaC12VUE?oc=5",
+          "source": "jornalprimeirapaginato.com",
+          "published": "Wed, 29 Apr 2026 20:36:00 GMT",
+          "hash": "2268c3985e0c",
+          "captured_at": "2026-05-03"
+        },
+        {
           "title": "Deputada reage após ação da PF e levanta suspeita de perseguição política",
           "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQN1duaWZOVkJCZkZjU3JpSVlWT1VGZkRtY2tfc3ZnTjVuZkZLeTVWcDVFekY4eVlqd2ZDa3owaXBPbFl1dXJUc0pJLUhvdy1GRWZpc3lkYm1BRTZUUm5fa0ZRanNZSWZTU09FTmg1bHp6U1ZYQ3ZYQUtIQjZ4M2dnLWNfUXVHeWUtYjR1alVHd0RDZk1RZ2RyX2ZsTlR0Ql9Hcmc5VUpldzZxTldaQ3UtZHVCLVV6Nm_SAbcBQVVfeXFMUDdXbmlmTlZCQmZGY1NyaUlZVk9VRmZEbWNrX3N2Z041bmZGS3k1VnA1RXpGOHlZandmQ2t6MGlwT2xZdXVyVHNKSS1Ib3ctRkVmaXN5ZGJtQUU2VFJuX2tGUWpzWUlmU1NPRU5oNWx6elNWWEN2WEFLSEI2eDNnZy1jX1F1R3llLWI0dWpVR3dEQ2ZNUWdkcl9mbE5UdEJfR3JnOVVKZXc2cU5XWkN1LWR1Qi1VejZv?oc=5",
           "source": "Portal O Norte",
@@ -296,12 +312,28 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "Deputada reage após ação da PF e levanta suspeita de perseguição política",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPbEJRQWxrSGh2QjMyRnpYWTlpTHF2Ujlxa3BhMkhxODdxWFJwdkF4Q3dTMnlCd25CQzJrejJFYkF2RkpWaUt5cmJMcEwxZElCMDR6ZDFMUmc5NUhuNEdYWVFZY0x3MjBLTHdzYmoxcnlEWVVCUzhaejZrcU1IWHJ4bVNvVi1wcmVBWDNmWkQzSlh1Y3lVRThVTnlMdEhiWDdjNmc2UFMxUHlTWmQxb2VLVEk3NERrMDjSAbcBQVVfeXFMUDdXbmlmTlZCQmZGY1NyaUlZVk9VRmZEbWNrX3N2Z041bmZGS3k1VnA1RXpGOHlZandmQ2t6MGlwT2xZdXVyVHNKSS1Ib3ctRkVmaXN5ZGJtQUU2VFJuX2tGUWpzWUlmU1NPRU5oNWx6elNWWEN2WEFLSEI2eDNnZy1jX1F1R3llLWI0dWpVR3dEQ2ZNUWdkcl9mbE5UdEJfR3JnOVVKZXc2cU5XWkN1LWR1Qi1VejZv?oc=5",
+          "source": "Portal O Norte",
+          "published": "Wed, 29 Apr 2026 19:21:00 GMT",
+          "hash": "3f4cdb62a7ac",
+          "captured_at": "2026-05-03"
+        },
+        {
           "title": "“Isso é uma vagabundagem”, dispara Janad após ser abordada pela PF enquanto sacava dinheiro em banco",
           "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPNVl1VFM4SWx0dEZNS0R2MHNmM1I4NUR6NjBXaktnY0lHMHMwUnp6aXEzdzlZWV80TjEydjlGc1NMdXkyeXJTM1hyVXlwWkdRNmJIUTJ2Sm1WbktlbU50bTJ1UVRqUWpRU1Yydms2bVdiRFFyVzBPUk5jdzQ1ZUoyQXFDakcxeFlwU3hyTnZlOENobjhESEJJeXhqZ0xwSlZva01hLTBYaUZhLUMyUk5kNTBMb3BNeVVwa0lzaXp3ZURyLTZQOEVUUUFDdEJSLXVDSWtpZHZn?oc=5",
           "source": "Tocantins Em Voz",
           "published": "Wed, 29 Apr 2026 19:17:21 GMT",
           "hash": "242da0b27230",
           "captured_at": "2026-05-01"
+        },
+        {
+          "title": "Janad Valcari rebate operação da PF: \"Saquei dinheiro da minha conta pessoal\"",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPVWdOSFJweDA0TkRubGpQNTVYbFZjbFdRc2ZyaFp2azdEc3V1SnJxYWJaRkx3a2FROXlpeFNsc1lMay00dnJpWWtaMDJPNGJCcWItdkpOOEZXcWNPVk9MaXd3UWRva29OaERXYXBUbkx4RjU4bWlvVlBJM0ZYSFhtV1lTQXp2WXUwX2F4dGhoaTFIRmpFak5DMmp6c1JITk8tV3c?oc=5",
+          "source": "JORNAL O COLETIVO",
+          "published": "Wed, 29 Apr 2026 18:53:00 GMT",
+          "hash": "6083904813b5",
+          "captured_at": "2026-05-03"
         },
         {
           "title": "Janad é conduzida à PF após sacar R$ 500 mil; \"o dinheiro é meu e tem origem lícita\", diz deputada",
@@ -437,30 +469,6 @@
           "source": "T1 Notícias",
           "published": "Wed, 29 Apr 2026 16:45:24 GMT",
           "hash": "2a0d2c676c91",
-          "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Deputada Janad é levada para sede da PF após fazer saque de R$ 500 mil em banco de Palmas",
-          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOLXVkQkRiUVZOaF9FTUV2YVZscHdHcGpFc2FtdWFvbGRqbVRWcnV2S3FDTElPa3pUaWFYd1dMTFRDWEg2WWIyMVIzWUpwbTlxRWZmTWROaUctZHBaWUFGTDdWR2s2eXRIOE5jemVtdlJLeTdmUmRBR0h1MlZaMUpGU3NVVEVGa19Sdno3VEtMZHJzMmtHaWtINHV4cTMxNVpqVDVzSkRUcTNGRlI3MDFCM044MU9fZkZtRjlVeUN5UXh1QzFuWmJqcG1IRjEwR1HSAd4BQVVfeXFMUDdJOFozZEFsSWQzVlJlUnFpWFpKLVJma19CNjI4LXRrdV9rdmtnZk93VUZ4dDIySTJKUXV0eHFXT1k1STBFOXJ2dGVEcDJLQjNKTWdyWllvSVpHUnBqRWJPek42V1FzOGhVcHppcGthZ3FzWE1kUEZyY0hOU0M0SkhuNml4Rm95MFAzY2laTnFvdTJJQWlxaDB6LXYwVm1NNlVGVzZaQUJvV1E5WHM1RFpMQUJZRDJFRlRlMWZkRW44YVVYaUU5UzRFQklQVnNZcnNWS3RUZl9GdmE5MXdB?oc=5",
-          "source": "G1",
-          "published": "Wed, 29 Apr 2026 16:39:59 GMT",
-          "hash": "cc12ec09fc50",
-          "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Deputada Janad Valcari é conduzida à Polícia Federal após saque chamar atenção de banco em Palmas; defesa diz que valores são lícitos e compatíveis com patrimônio",
-          "url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxPci1xREdCYTVDRnp3LTN4STZET0hoZS1qYnFGeURGaWVaaTBudWxVai00dW9udFg4RkIxVHFtMnZQZi1HbGRvWFJrOGFkZW11OWNkSjJ4WkZ1ZV96QWZnWEdwd2JnV3ZiT3g5dFRBdHdvSGFkam1FdGlXUWVLdzloSTFiZlVTYmxNZl9TN0JYdmFKVDE3aXVZS0xNVmxaclJxRkZtemFWVTN4Rm1MQTBMVUVyYnlHVE9mUW1ENHJWYmNPTjF1NVFLNkZsSXItVkg5R0tTWV9XV25JMVVHZmFLNG9TVGxHNTE3OEJJNzNnR0YwaDRyaVN3UnNJeXVGczVVUktRdU5IdVVWbW9udE1SNmlLY1pCTWNjTXMtSmVES3Z2WWc?oc=5",
-          "source": "Sou de Palmas",
-          "published": "Wed, 29 Apr 2026 16:08:56 GMT",
-          "hash": "d18733614142",
-          "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Em nota, Janad fala em “tensão” política após abordagem da PF e nega irregularidade em saque",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPblhqWk4zazEtZVpzdUduMmY5bEhqV253dGVoZVVzSWppc0c3TDB1X2Q2R2FjTWZwb1dLSzF4NjBac0QtNlpOUkRKNTV4czdqbnpVcUZsUnBGbk1aRzAxTXNjRjN0TDRKUWNPUnVOMFdQUHJPd1hfamJZdWxHd2dRTTN1TmU0UlQtMWxCdS1qVWVWWXU3VlZCZXFZR29VTDFiOUdYb24tWWd6bjRkR2lybW5ORnpwNXR2QnFFM2liM3VWTXNURWlyZ3dBRFMwSjNGN0pRUnB0ODd0dUU?oc=5",
-          "source": "Jornal Opção | Tocantins",
-          "published": "Wed, 29 Apr 2026 15:44:00 GMT",
-          "hash": "80092764d052",
           "captured_at": "2026-05-01"
         }
       ]

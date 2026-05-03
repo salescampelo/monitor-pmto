@@ -1,42 +1,41 @@
 {
-  "updated_at": "2026-05-02 22:40",
+  "updated_at": "2026-05-03 11:01",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 8,
+    "entries_rss_raw": 9,
     "duplicates": 7,
     "blocked_date": 0,
-    "blocked_id": 1,
+    "blocked_id": 2,
     "blocked_id_reasons": {
-      "nome do candidato ausente": 1
+      "nome do candidato ausente": 2
     },
     "approved_rss": 0,
-    "approved_scrape": 1,
+    "approved_scrape": 0,
     "approved_indirect": 0,
-    "total_new": 1,
+    "total_new": 0,
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 50,
-    "last_7d": 5,
-    "last_30d": 11,
+    "total": 51,
+    "last_7d": 6,
+    "last_30d": 10,
     "sources_7d": {
-      "Blog Luiz Armando Costa": 4,
+      "Blog Luiz Armando Costa": 5,
       "Luiz Armando Costa": 1
     },
     "sources_30d": {
-      "Blog Luiz Armando Costa": 4,
+      "Blog Luiz Armando Costa": 5,
       "RR10 Notícias": 2,
-      "G1": 2,
       "Jornal Folha Capital": 1,
-      "Cleber Toledo": 1,
+      "G1": 1,
       "Luiz Armando Costa": 1
     },
     "methods_30d": {
-      "RSS": 7,
-      "DIRECT_SCRAPE": 4
+      "RSS": 5,
+      "DIRECT_SCRAPE": 5
     },
     "sentiment_30d": {
-      "Neutro": 4,
+      "Neutro": 3,
       "Positivo": 7
     }
   },
@@ -44,9 +43,9 @@
     "luizarmandocosta": {
       "name": "Blog Luiz Armando Costa",
       "layer": "A",
-      "mentions_30d": 4,
+      "mentions_30d": 5,
       "last_run_status": "ok",
-      "last_run_mentions": 1
+      "last_run_mentions": 0
     },
     "clebertoledo": {
       "name": "Portal CT (Cleber Toledo)",
