@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-03 11:01",
+  "updated_at": "2026-05-03 15:51",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 14,
-      "new_this_run": 1,
+      "new_this_run": 0,
       "mentions": [
         {
           "title": "PL da Dosimetria: como votaram os parlamentares na derrubada do veto de Lula",
@@ -124,8 +124,8 @@
     "ricardo_ayres": {
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
-      "total_mentions": 12,
-      "new_this_run": 0,
+      "total_mentions": 15,
+      "new_this_run": 3,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -150,6 +150,14 @@
           "published": "Wed, 29 Apr 2026 18:50:00 GMT",
           "hash": "4930766c862d",
           "captured_at": "2026-05-01"
+        },
+        {
+          "title": "20 cidades do Tocantins recebem ambulâncias e micro-ônibus para transporte de pacientes",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQbGlYZGlLTlFhbzJaM1pVaTlfRnJaREtoUlNLTFZDZTZOa3I4d2tpWlppR2w2cjRfVWR0X2l6SFJBU2pjZnd5Ync4UFV1RTAtblhRS0RkMWNJRmVUQ3NqMklGRjdoYmJWTTNiZVhWTUpKNElkZ09kN2pyajEzLVg5c1pLVGdYNXRmaDdlSklRQ1BsY0lOVnVqRVNqSTBtWTlWTG9tVFNrbi1ldGxzY2hnaXZpYVdDdkFrVHd0TnpWeDl4WWg4SEVsZDE4c2lrQ0t4?oc=5",
+          "source": "afnoticias.com.br",
+          "published": "Wed, 29 Apr 2026 17:00:00 GMT",
+          "hash": "5d21b694a466",
+          "captured_at": "2026-05-03"
         },
         {
           "title": "Ricardo Ayres garante R$ 10 milhões em veículos para transporte de pacientes no Tocantins",
@@ -192,6 +200,22 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "Tocantins acompanha maioria e vota para derrubar veto de Lula ao PL da Dosimetria; Irajá e Ayres votam pela manutenção",
+          "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxPUkdYZHNEZF9OTFVsMGNUblliUkNzeWtrNk9mWDdjQWFHM2tzWWhiSkFXZzgzY21ncklGQmJUdWhrZEE0U05wTWc4dFVkakRpVW41Vm9Jc2d4akJlMHJFbHQyc2FobExjNWEycGluOEN1bXNaeWt6UGlmVGpveFV1UzJvaEVwTDh6WEc4RjdpU2JmcnlrQlAwUHVNdFJVbWtlNkhyMEota2t2SHJsVHppTWpmVEUxMWNQc3EyM2RHaFNRUC1hM3JHR2tJcWZtZVYxU1dzcTRyb0xLamFFQ3NxM3ViUXN4ZzVmSWtHSDYyVHQ?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Thu, 30 Apr 2026 19:14:40 GMT",
+          "hash": "be9c2386e860",
+          "captured_at": "2026-05-03"
+        },
+        {
+          "title": "Congresso derruba veto de Lula e mantém PL da Dosimetria; 9 dos 11 tocantinenses foram favoráveis aos golpistas",
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNclFsLThfWDNrSkVFWlRpamh4QWJ1dzR6clhGa1ZsdW9lNGRnMU44QXZIa3VMYVV3OEdfWGt3VnVKcHJOLU85emIyTGhzcEJFYUxaRV9VWWlJUUd4dVQ5TVRwcE9tYlF2ZEJrR1dsaDQzeVVOdDVyVHVPZWZhdG5Pazd6bEo5Um1QcHNzc0NKb0hlZmFwRlFkVE00Yk5MRHpMNEFhRjhYRWZJWF9ycEFPd2poZm5CdWVKSkM3eHNVTXpPcmdNSkpfWmpaS04ycDJjZzFHSGlNLWlZWmJNd1lIeGVB?oc=5",
+          "source": "Cleber Toledo",
+          "published": "Thu, 30 Apr 2026 19:12:00 GMT",
+          "hash": "0cfd4db19ae9",
+          "captured_at": "2026-05-03"
+        },
+        {
           "title": "Ricardo Ayres destina R$ 10 milhões para transporte de pacientes no Tocantins",
           "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOMTdOcnR5S1Y5MnFraGE5djI5dUVTS0NaVFpBMnRfMnBrclR2ampVZ3pmRVZ3TjdORkVNRHpnMXBYMGlLX01mQ0RBWGVNTTFsYlN1Zl96dko5TFMxeHhaNmRELXp2cE9wWm9XUE1Vakg3MEVFTlRKamxiS0NUWkhDb0xiTkhSQjlNN1BrRU92OEp5RnRGNVU1WDVZZ1JRZTROSUwzTFNzTQ?oc=5",
           "source": "Folha do Bico",
@@ -229,7 +253,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 33,
+      "new_this_run": 34,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
