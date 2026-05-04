@@ -19,26 +19,26 @@
     {
       "id": "seguidores_ig",
       "label": "Seguidores Instagram",
-      "current": 32238,
+      "current": 32242,
       "targets": {
         "1": 45000,
         "2": 60000,
         "3": 75000
       },
       "format": "number",
-      "previous": 32238
+      "previous": 32242
     },
     {
       "id": "engajamento_ig",
       "label": "Engajamento médio IG",
-      "current": 1.99,
+      "current": 2.0,
       "targets": {
         "1": 4.5,
         "2": 5.5,
         "3": 6.0
       },
       "format": "percent",
-      "previous": 1.99
+      "previous": 2.0
     },
     {
       "id": "mencoes_imprensa",
@@ -75,5 +75,5 @@
       "format": "number"
     }
   ],
-  "updated_at": "2026-05-03 22:41"
+  "updated_at": "2026-05-04 08:14"
 }
