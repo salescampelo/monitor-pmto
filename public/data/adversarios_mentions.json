@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-04 11:54",
+  "updated_at": "2026-05-04 16:51",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
-      "total_mentions": 17,
-      "new_this_run": 3,
+      "total_mentions": 18,
+      "new_this_run": 1,
       "mentions": [
         {
           "title": "PL da Dosimetria: como votaram os parlamentares na derrubada do veto de Lula",
@@ -112,6 +112,14 @@
           "captured_at": "2026-05-04"
         },
         {
+          "title": "Luxemburgo percorre cidades do Norte, se aproxima da população e amplia diálogo com lideranças",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOX2pmNWtDeEZkM19aclBJamROLW9FUk5IN2lGTWdkdVd6Ql9ja0drTmRaQ1dKNHpDV2EwSHZLUzBmR0prWmUwSzk1YjFDUk8yWngwaG15VlBfLXUxUFd6RFR4SE94WjB3YnNJWm9nRzN6NDJ0bDhCOVlXT0JDWE9QN2IybnNvMU9xck5kTkZhX29LaWVfNFRtaE9pR3g1NFlOSU16b2E1X3ZVajh5YVVlVW5TTlU5MVNKcDVZYzB1amlaZC1CQ2pEeWExandVNWdO?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Mon, 04 May 2026 13:13:00 GMT",
+          "hash": "5d51bcfa6678",
+          "captured_at": "2026-05-04"
+        },
+        {
           "title": "Dimensão e leitura dadas ao sincericídio de Hallun sobre porporcional apontam que Laurez seria adversário a ser combatido na majoritária. Contra pré-candidato sem a máquina, não é indicativo de percepção de fragilidade",
           "url": "https://news.google.com/rss/articles/CBMi_wJBVV95cUxONkdWNnJha1IzOTBsRDVaTHIyaGZJeGJuTVdZZ3ZqN2doUVZzcWdSU1lZeU5qdkdRTVA3VlRKUFJtb3dOZGNkQlM3WDlMc2k2WFFQRTdpaUF2UEpkMGR3eGhmNk4yZVVOSXhsWUN2aWx2OTJtRjJub1pGQUtZWTNPTWpJODkxS2RmUDItTWpwOUlQY21pLTJGMjZYMTNNcXREbHY3UE5TLUdSdTcxVUtsY3BjVGM3SVVuSE0tQzBsc3ZkVjFaV0ZuVVg3ZE5PMjdka0FwSUJ1Y09VelFja0xNcndBR25hc1RhVjdIeW1fRjhGb2MxM1BqTk9kbGZKSjlNcnZSLUxoekJpYjRRM3NrNjFJdGFmbGV0cVV4ZlZ1NldFUGtBdkJtRWxoUU85dFVfd2F3SnFhSkRXZDYzNWpvLW8yMTRQazcyWUNmQ3g5WmVwSkUyeWxMUlNEZlh0c0g2enJtTTh4eTFqRXAzbkgyOFNMN2UySldMbzZ3UnhXOA?oc=5",
           "source": "Luiz Armando Costa",
@@ -149,7 +157,7 @@
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
       "total_mentions": 16,
-      "new_this_run": 1,
+      "new_this_run": 0,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -285,7 +293,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 36,
+      "new_this_run": 39,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
@@ -294,6 +302,14 @@
           "published": "Wed, 29 Apr 2026 23:59:24 GMT",
           "hash": "038f0903aa2d",
           "captured_at": "2026-05-01"
+        },
+        {
+          "title": "Prefeito Eduardo Siqueira Campos sofre infarto e passa por angioplastia em Palmas TO",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNeFZPYUtGQzBMZzVlTXNzbUptQmVEeW41Sml3OVh2c3VZY2czbTc1VFlwLVNnQjd2Z3l0Z0cwOTZWQU5UM3BZQWo3b0g5OEJEMWEwZmM4VDhWYTEyOTdKek9sanVMQ1FMaUVHcEc0dWZneE9KcXV4ODBoLUdwYkUyUVp5ZVFyeGNmTlBDdnNmZ2V2OGlSbmJFYlA0SnZoOXpRSGNSSmpBbUduRTdvVnNxZWc1TEVRaTlnMWc?oc=5",
+          "source": "Surgiu",
+          "published": "Wed, 29 Apr 2026 23:34:00 GMT",
+          "hash": "c4eea46f1e20",
+          "captured_at": "2026-05-04"
         },
         {
           "title": "Duas pessoas são presas pela DRF em Campina Grande",
@@ -517,14 +533,6 @@
           "source": "Daqui",
           "published": "Wed, 29 Apr 2026 17:01:00 GMT",
           "hash": "cb790b463053",
-          "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Deputada presta esclarecimentos após saque em Palmas e afirma legalidade dos valores",
-          "url": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxOdnpLU29fNXZyZGMzeTU1ZW12Qnp6YlMzOGoxaHh5Mmszd09reGNUS0QwTWplUWtxZ2ZlNzFBZ0ZJOFRGUGlEOU4yTkM4VDhtREZhOVNpelRqN0F4S05aVFpTaFVFZW1wUFpBY2RsbVhROTN3bkhjYmFCWEl3ZzRGUDNlRnV6WHFNN3RhMnk3TzBxbVlIVjZKM1g2bDJ1eURvckhZeGtRX0FWcVZvX21wR09Ic3BVTjlFZ05TMEFBbTZaNWZWLXRib1Q4N2pfNEZ5cXoxQ2ZQdHgxTnp3WE84VVg2NS1hVHhmUm5KcVdHZEw5UWx3WlFJRjF3SXhjUGdnZHROQmdxb3ltU09zUnBaVVBWNVYydkczOTBzbGRaMHF3ZGw2aS1pRm9veDViNmJneWNYelNwZFNPY1E?oc=5",
-          "source": "Portal O Girassol",
-          "published": "Wed, 29 Apr 2026 17:00:29 GMT",
-          "hash": "07c7265b3816",
           "captured_at": "2026-05-01"
         }
       ]
