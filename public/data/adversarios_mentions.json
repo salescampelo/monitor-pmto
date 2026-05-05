@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-04 16:51",
+  "updated_at": "2026-05-05 11:22",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 18,
-      "new_this_run": 1,
+      "new_this_run": 0,
       "mentions": [
         {
           "title": "PL da Dosimetria: como votaram os parlamentares na derrubada do veto de Lula",
@@ -156,8 +156,8 @@
     "ricardo_ayres": {
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
-      "total_mentions": 16,
-      "new_this_run": 0,
+      "total_mentions": 17,
+      "new_this_run": 1,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -272,6 +272,14 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "Política | Ricardo Ayres articula retomada de obras de creches paralisadas há 15 anos no TO",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNbFdNOWpIcDNSbTlya3poOVlVVTZPN3diV2liVEt1dFN3REtBZGNCN21ybDY1UW55d01EWlJMUHVaci14bGZmM0RWOFFpXzVIZmNWdWt2MXVFRDlZR1dWWjF3QTlWRzBwNG82bTl2LUktdnJqR2hzMFcybXVyQW53X3BITnhfLW1jcEliWkx4UmlTZnVKaEtVZlVKU19mTFFPR3BNNktLUnBxTS12UGloX1U2cW9KTnp4VnFxdlpDWDE?oc=5",
+          "source": "T1 Notícias",
+          "published": "Mon, 04 May 2026 17:39:19 GMT",
+          "hash": "68ddd06ddd34",
+          "captured_at": "2026-05-05"
+        },
+        {
           "title": "Deputado Ricardo Ayres é o 1º congressista do Tocantins a se colocar a favor do fim da escala 6×1",
           "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOaUlYYTRvUHhSSHItSVJkZmxRQ1cyaFBzU2owZTdJYXZUZzV4aFlzTnd6a1otcERxdVQ4QllkRXV4cHRuQW5EUi1veTJuM3VGaFBaT3JaenJncm83NmNndFprR3gwNzhNOWxNX3BzMHE4LUtnUGcxdEpqY21nb1ZrdFdPdTlSTFZacWUyUEY1VGV4b1Q3Z1A5VFYyT1pEcGpIZnJDdmlEeFowR2pmNWtSOHZhZ0RDTWllTXBJZ3cwaFdlaU1iOVRmam5WTTVBdw?oc=5",
           "source": "Cleber Toledo",
@@ -293,7 +301,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 39,
+      "new_this_run": 35,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
