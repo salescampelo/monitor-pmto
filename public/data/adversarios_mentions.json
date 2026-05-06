@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-06 11:54",
+  "updated_at": "2026-05-06 16:33",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 19,
-      "new_this_run": 1,
+      "new_this_run": 0,
       "mentions": [
         {
           "title": "PL da Dosimetria: como votaram os parlamentares na derrubada do veto de Lula",
@@ -164,8 +164,8 @@
     "ricardo_ayres": {
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
-      "total_mentions": 19,
-      "new_this_run": 2,
+      "total_mentions": 22,
+      "new_this_run": 3,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -222,6 +222,30 @@
           "published": "Wed, 29 Apr 2026 12:51:50 GMT",
           "hash": "e6e6a3a1bae1",
           "captured_at": "2026-05-01"
+        },
+        {
+          "title": "Ricardo Ayres afirma mobilizar deputados pelo fim da escala 6×1 e projeta aprovação da PEC em Plenário até junho",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNRVYxWG4tTlEwYUtMTkg0WF9xWk8wTVNYMUxHclR2MjM4TG9jVXJ1cFRwWXRXekpmNTFFRTV3dlh3YW9JRUVmckljSVRNTzl6YURKc1REMHoxSC0yWnl3X2lyem5URlVfMmJRR2FndmhZTGZBeGR2OFhNamo4SUtFUmRzaFF2NEQxVDloeGZWWTdlSTJVd194NW50VDZDa3JmcVA3R1Y2NzZIdnktUzdFX1ZSVjhKUnF1SkxZQTNnamhlNUxYcm5tcE9veUdYYTJfT3J4NHRKdURPT190MjItNTd4LTI?oc=5",
+          "source": "Cleber Toledo",
+          "published": "Wed, 06 May 2026 15:13:00 GMT",
+          "hash": "cd0b76aea434",
+          "captured_at": "2026-05-06"
+        },
+        {
+          "title": "Ricardo Ayres aciona TCU para auditar R$ 73 milhões investidos em ponte interditada entre Araguatins-TO e Palestina-PA",
+          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPNERlMEg5NHRjNUpaZ3Y2UHRnMUp3SFNJYWl4Y3pkaVJxTnptRlJneXVnT1VvQzRGR3BJSXJzYW9IZFZtSW0wOVUxLWFheW1BdW1BZnFUWGFFYnFuYWx3Q1lhTHFfUzFvd21iWUx3Smt4RzN4dDFKaW5CczhsVzU5YzlVdVB4aVlGSlpxZThkMkJDSXV6V1ZTNVJ5Q2gwa0dLeExtRmkyQlkzZXVEcmtGVVRiX3ZWUFl6bzQ0LUI3blRXYWVmYUdnYVJIR1Fob2hhd0F4UFhOcTBNd3hLbXc?oc=5",
+          "source": "Folha do Bico",
+          "published": "Wed, 06 May 2026 12:54:53 GMT",
+          "hash": "bf8fbebb9092",
+          "captured_at": "2026-05-06"
+        },
+        {
+          "title": "TCU é acionado para auditar R$ 73 milhões aplicados em ponte interditada no Rio Araguaia",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPTU82V2tsUkpxYzF1T1hCa2NLQTNya2JDZXl6VFVmNUhrYUx6d3c5T1lUQjI1M1JzTWhqakFlLVdxSmVuV1pCcXNicjVDWEVmYzJIWWJxNUhaMV81dmttcEtLNDhrV3VTbGV4akJsRERkUWl2RjJoV0FMbW1pRFA0dy01S3RJYnVZSEtWVURPeGVxYXV5eEgtajF1Tl8wU19RYkNiSzNFVWVjU3NGd29pRVl0Z1l1Nk56VExIa1dlSGQzQ3JGT0ozcjRJYlBJa3ZX?oc=5",
+          "source": "afnoticias.com.br",
+          "published": "Wed, 06 May 2026 11:20:00 GMT",
+          "hash": "61b11c148763",
+          "captured_at": "2026-05-06"
         },
         {
           "title": "Ayres aciona TCU para auditar R$ 73 milhões investidos em ponte interditada sobre o Araguaia",
@@ -325,7 +349,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 33,
+      "new_this_run": 27,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
