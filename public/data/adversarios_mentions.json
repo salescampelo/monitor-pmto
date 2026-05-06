@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-05 11:22",
+  "updated_at": "2026-05-06 11:54",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
-      "total_mentions": 18,
-      "new_this_run": 0,
+      "total_mentions": 19,
+      "new_this_run": 1,
       "mentions": [
         {
           "title": "PL da Dosimetria: como votaram os parlamentares na derrubada do veto de Lula",
@@ -96,6 +96,14 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "Com emenda de Tiago Dimas, reforma e modernização da Clínica Escola Mundo Autista são entregues em Araguaína",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQMTJtS21SVXlxNWNZTUNUTHF0TUYxQlIwWjN6RG9FSXJxWC1tRVM2TlFqZkViQW54VS1CTjl2MjMxSDBwWDF3bWU4YTI0QmdPQVFxeEdMRHUtd3A1aVgtM0I2Z1p2ZmJXSVVVWjBHcDNKOTNFck1Pdi14WkpaU0tXNEpiaExlbzAwaWJBVDlwQXl2bTcwa21IWGVEZlcweWlvSW1wa2UySGt3WmFZckFTTW1ONlFVc1dac1h1ZE9mbzU3VnRKSjlPNTNYZVhXTFRiS0dac1cySjMtXzc0OGtSN1pBbWM?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Thu, 30 Apr 2026 18:01:21 GMT",
+          "hash": "68e5e9c1e6a5",
+          "captured_at": "2026-05-06"
+        },
+        {
           "title": "Prefeitura de Araguaína reinaugura Clínica Escola Mundo Autista",
           "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQU1g2NWlYdzVRQ0FTME5qT3ZjUzI1ZXIyQXBTOWZ5TGZuWFN4ZWxKY3ZERmZ4OC1GdnJmX3k4cWZzUV80RjhJa0VRcGVDRnZDTjBSRDhpUjc4SGk4SkNkS0xIZ1ROV0dMS01fMXFKV29jY1FGT3N0M1BlRlN0eXA4RVdNaWpyOXBsSmt2VVhYUTZaUVZBUVRVS281VFUyZTlVMHc2bkFfQkVhUG96VGNvag?oc=5",
           "source": "Prefeitura de Araguaína",
@@ -156,8 +164,8 @@
     "ricardo_ayres": {
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
-      "total_mentions": 17,
-      "new_this_run": 1,
+      "total_mentions": 19,
+      "new_this_run": 2,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -216,12 +224,28 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "Ayres aciona TCU para auditar R$ 73 milhões investidos em ponte interditada sobre o Araguaia",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOcE13OTFfWkg4dlpSWl9ZSjFLOGhoamJGUmNqRXBLMmphcU81QVQ0QnpINm52T3B5SndZTFI3ZnppalA3NHlyOV9McEFDby1USTJteUtUalNFN01xdkE1dkEtTW51UDRiQ1hPY3hKM1NfNXV2a2FfbFZXbHRpY2M5MmJ6bkQwMVFPS1NNMHVUMEpGcEIxREtTQUE2RmFyOGZ3aHhMUW9BUmd1a3JLMUlSWjVSVWxDTUZncVFCdXd3VkxPQVFXNTRiSk9fSk5yQQ?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Wed, 06 May 2026 10:54:04 GMT",
+          "hash": "af8f6325b172",
+          "captured_at": "2026-05-06"
+        },
+        {
           "title": "Aleto realiza cerimônia de entrega de Títulos de Cidadão Tocantinense",
           "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNU0VlZkV0Rmdyb0pZeTdOT0JMYVhhd2JTamFsSHoxV01XajJXR3JpUWtxTUttQ1g2cHB1TVNham5rWVROQUJvWURGTnJqX3YxTGlfei1JRlJzV20wWDhLalF5MXBjWGx5TlVTajRabXM2cFFvSndFX2NPc1JOMjZkckJBNGdNa1lJZ0V6dGFiMmpYYThxREZ0TFFvWnNhRzVFXzd3d2FLTFdRejQy?oc=5",
           "source": "Assembleia Legislativa do Estado do Tocantins",
           "published": "Tue, 28 Apr 2026 07:00:00 GMT",
           "hash": "3d7c786570d6",
           "captured_at": "2026-05-01"
+        },
+        {
+          "title": "Creches paralisadas há anos voltam a avançar com ação de Ricardo Ayres e legado de João Ribeiro",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNbGJNVGtUR3ZSZE1MVzdOQlc4eFN4QzZCeXB6NS1DRDhVTkZ2d3JGc2ppeU44UXpQdTNmUWZ5cjFWM2pBSXB5RE1MSzYzOUtSUXFpb2FOUVlSZjJZcnlYZGpwUDhMZlFESVNyZGVnb1VzMTBSc0RnZE1MbEFUZmhFamwtbG5BVTZCcUg4VlVwSm85Z3VrejNzTlQ5b2dLUEFSeVJpSVp6UUNqVEFoamFYRnJpaU9kQ3hIZGxSSFM0bVI?oc=5",
+          "source": "Folha do Bico",
+          "published": "Tue, 05 May 2026 00:55:09 GMT",
+          "hash": "a49e21978819",
+          "captured_at": "2026-05-06"
         },
         {
           "title": "Do Tocantins, apenas Irajá e Ricardo Ayres votaram pela manutenção dos vetos do governo Lula ao PL da Dosimetria",
@@ -301,7 +325,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 35,
+      "new_this_run": 33,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
