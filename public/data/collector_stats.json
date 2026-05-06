@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-05-06 16:33",
+  "updated_at": "2026-05-06 22:49",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 2,
+    "entries_rss_raw": 1,
     "duplicates": 0,
     "blocked_date": 0,
-    "blocked_id": 2,
+    "blocked_id": 1,
     "blocked_id_reasons": {
-      "nome do candidato ausente": 2
+      "nome do candidato ausente": 1
     },
     "approved_rss": 0,
     "approved_scrape": 0,
