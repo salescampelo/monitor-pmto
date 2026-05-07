@@ -137,12 +137,8 @@ function AdversariosPanel({adversariosData, advMentionsData}) {
                   <div style={{flex:1,background:'#eef0f6',borderRadius:3,height:16,overflow:'hidden'}}>
                     <div style={{width:`${w}%`,height:'100%',background:barColor,borderRadius:3,display:'flex',alignItems:'center',paddingLeft:6,fontSize:10,fontWeight:700,color:'#fff',whiteSpace:'nowrap'}}>{fmtK(r.seguidores)}</div>
                   </div>
-                  <div style={{width:76,textAlign:'right',flexShrink:0}}>
-                    <div style={{display:'flex',alignItems:'center',justifyContent:'flex-end',gap:3,marginBottom:r.isMe||r.score_ameaca==null?0:2}}>
-                      <span style={{fontSize:9,fontWeight:700,padding:'2px 6px',borderRadius:8,background:tc.bg,color:tc.c}}>{nivelDin}</span>
-                      {trend&&<span style={{fontSize:10,fontWeight:800,color:trendC,lineHeight:1}}>{trend}</span>}
-                    </div>
-                    {!r.isMe&&r.score_ameaca!=null&&<span style={{fontSize:9,fontWeight:700,color:scoreC}}>{r.score_ameaca}</span>}
+                  <div style={{width:76,textAlign:'right',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'flex-end'}}>
+                    {!r.isMe&&r.score_ameaca!=null&&<span style={{fontSize:11,fontWeight:700,color:scoreC}}>{r.score_ameaca}</span>}
                   </div>
                 </>
               )}
