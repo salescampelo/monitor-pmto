@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-07 19:11",
+  "updated_at": "2026-05-07 19:43",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
@@ -180,7 +180,7 @@
     "ricardo_ayres": {
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
-      "total_mentions": 25,
+      "total_mentions": 26,
       "new_this_run": 1,
       "mentions": [
         {
@@ -245,6 +245,14 @@
           "source": "Republicanos 10",
           "published": "Wed, 06 May 2026 21:27:29 GMT",
           "hash": "4c74c4b3a2d1",
+          "captured_at": "2026-05-07"
+        },
+        {
+          "title": "Ricardo-Ayres-por-Julio-Dutra-6-5-26",
+          "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQVmZMNlhpYnlHSVFFbWNYLU5TRTFGb1VRbkN4NEtJb29aM2YteWdWXzlLZEYyd0p2QnZrMjhLdXF6TlJVM2lPQ3ZBaWdlQjBwLU5ta2VBZkhzclowVVJyeHdlMkNseVdFTGF3MFhLa0l6NlJtOXJnWDRaNEdLMmRkM0lUWFc5MmxYYTY0RGNqNGFOdkpzVENPd0F6WlVDenBWRmgySHJuOVJJbTFJLXY2b2dPbDFqdU12SElvdGVrZ1lINDlxSms4eEhmS25obnpDRmpNYWs2eXJYWllxeFZhUVdlZ0wyN0JKS0FETDRleXR3Q3NTV3NIUWEwMG5Da2IyTFd6MUV6WnM0TVk?oc=5",
+          "source": "Republicanos 10",
+          "published": "Wed, 06 May 2026 19:34:26 GMT",
+          "hash": "3793d9bace9d",
           "captured_at": "2026-05-07"
         },
         {
@@ -389,7 +397,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 28,
+      "new_this_run": 29,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
