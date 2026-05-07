@@ -119,10 +119,12 @@ function AdversariosPanel({adversariosData, advMentionsData}) {
                   <strong style={{fontSize:12,color:r.isMe?'#1a3a7a':'#1a1d2e',display:'block',lineHeight:1.2,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{r.nome}</strong>
                   <span style={{fontSize:10,color:'#8c93a8'}}>{r.partido}{r.nivel_ameaca==='interno'?'*':''}</span>
                 </div>
-                <div style={{display:'flex',alignItems:'center',gap:3,flexShrink:0}}>
-                  <span style={{fontSize:9,fontWeight:700,padding:'2px 6px',borderRadius:8,background:tc.bg,color:tc.c}}>{nivelDin}</span>
-                  {trend&&<span style={{fontSize:10,fontWeight:800,color:trendC,lineHeight:1}}>{trend}</span>}
-                </div>
+                {isMobile&&(
+                  <div style={{display:'flex',alignItems:'center',gap:3,flexShrink:0}}>
+                    <span style={{fontSize:9,fontWeight:700,padding:'2px 6px',borderRadius:8,background:tc.bg,color:tc.c}}>{nivelDin}</span>
+                    {trend&&<span style={{fontSize:10,fontWeight:800,color:trendC,lineHeight:1}}>{trend}</span>}
+                  </div>
+                )}
               </div>
               {/* Linha 2: barra + score */}
               {isMobile?(
@@ -137,8 +139,10 @@ function AdversariosPanel({adversariosData, advMentionsData}) {
                   <div style={{flex:1,background:'#eef0f6',borderRadius:3,height:16,overflow:'hidden'}}>
                     <div style={{width:`${w}%`,height:'100%',background:barColor,borderRadius:3,display:'flex',alignItems:'center',paddingLeft:6,fontSize:10,fontWeight:700,color:'#fff',whiteSpace:'nowrap'}}>{fmtK(r.seguidores)}</div>
                   </div>
-                  <div style={{width:76,textAlign:'right',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'flex-end'}}>
-                    {!r.isMe&&r.score_ameaca!=null&&<span style={{fontSize:11,fontWeight:700,color:scoreC}}>{r.score_ameaca}</span>}
+                  <div style={{width:90,flexShrink:0,display:'flex',alignItems:'center',justifyContent:'flex-end',gap:6}}>
+                    <span style={{fontSize:9,fontWeight:700,padding:'2px 6px',borderRadius:8,background:tc.bg,color:tc.c}}>{nivelDin}</span>
+                    {trend&&<span style={{fontSize:10,fontWeight:800,color:trendC,lineHeight:1}}>{trend}</span>}
+                    {!r.isMe&&r.score_ameaca!=null&&<span style={{fontSize:11,fontWeight:700,color:scoreC,minWidth:24,textAlign:'right'}}>{r.score_ameaca}</span>}
                   </div>
                 </>
               )}
