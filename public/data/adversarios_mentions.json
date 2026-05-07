@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-07 16:55",
+  "updated_at": "2026-05-07 19:10",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 21,
-      "new_this_run": 1,
+      "new_this_run": 0,
       "mentions": [
         {
           "title": "PL da Dosimetria: como votaram os parlamentares na derrubada do veto de Lula",
@@ -180,8 +180,8 @@
     "ricardo_ayres": {
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
-      "total_mentions": 24,
-      "new_this_run": 0,
+      "total_mentions": 25,
+      "new_this_run": 1,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -352,6 +352,14 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "Ayres testa pauta trabalhista, Senado impõe derrota a Lula e 2026 se antecipa no TO e no país",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPOHFtNlp1bFhiSjVuZnFmWUEtZU5HTVdsV0RMaE9kNWFLNDI2QUV1TEdnSFhzcm00cWZIaGFsbTY3S0V1SzFTUkxuellsTGZZbUg3d1pRcWpDb3gwWnduOEVGbk1VcjJzLUNsV2hHVGtsNlZFaWdEYWdRWkEyN2wwZ3lrZnJMLThtQmFXMEpZbVFseF9pNG1TSjl1aXRoZjFvYTZYT0htTEwtYXhUVWp5d0RLelU1blNFZm9LOUxTcDdKZ2xidDVkR1hPWGl3MkhBTzVGbQ?oc=5",
+          "source": "Diário Tocantinense",
+          "published": "Mon, 04 May 2026 18:59:59 GMT",
+          "hash": "9156abc969e6",
+          "captured_at": "2026-05-07"
+        },
+        {
           "title": "Política | Ricardo Ayres articula retomada de obras de creches paralisadas há 15 anos no TO",
           "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNbFdNOWpIcDNSbTlya3poOVlVVTZPN3diV2liVEt1dFN3REtBZGNCN21ybDY1UW55d01EWlJMUHVaci14bGZmM0RWOFFpXzVIZmNWdWt2MXVFRDlZR1dWWjF3QTlWRzBwNG82bTl2LUktdnJqR2hzMFcybXVyQW53X3BITnhfLW1jcEliWkx4UmlTZnVKaEtVZlVKU19mTFFPR3BNNktLUnBxTS12UGloX1U2cW9KTnp4VnFxdlpDWDE?oc=5",
           "source": "T1 Notícias",
@@ -381,7 +389,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 31,
+      "new_this_run": 29,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
