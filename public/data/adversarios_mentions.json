@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-05-07 11:55",
+  "updated_at": "2026-05-07 16:55",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
-      "total_mentions": 20,
+      "total_mentions": 21,
       "new_this_run": 1,
       "mentions": [
         {
@@ -112,6 +112,14 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "No Bico, Tiago Dimas visita 10 cidades, destaca obras e mais de R$ 50 milhões para a região",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQVm44S0VqZl9fTHRlOE5OT0tTLVJGcXFfR0JnRldmWkdCRHFBS2lyeEptVEhnNVV2WFZheUZjOTBuTFpNa2htWndXN3RQVVJVWUp6LXIxQmp0TDFZYTNLNm5MQVJtMGlUNTRGOHhsM2RTS1BUTUd5c0tvempGcE12dll4eXFqZlI5RUJIUGZ1dXZCZFVpU05BQ1ZFTF93cjhwZ3VQdUw3Mm9OQnAxRTVDRXdMQUVuay1STnJPZUswM0tMNXR3ZHNnX3dMZGEycTA5UVE?oc=5",
+          "source": "afnoticias.com.br",
+          "published": "Thu, 07 May 2026 11:24:00 GMT",
+          "hash": "dbbda8bb5bd8",
+          "captured_at": "2026-05-07"
+        },
+        {
           "title": "No Bico do Papagaio, Tiago Dimas fortalece luta em prol dos autistas, respaldo a educação, contatos com aliados e destaca grande obra portuária",
           "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNVXdOUmhxWmczOS1oNHFmZDZibVVPOWVoUmoyai1vbmpORGp0YU9DdXdOQVo0TVRKMy11alRRcjdNSWEwcUg3bjlaeVA4UldrOVMtUUpZLXVMd1I3YnZyMEt0YmNnbE85MEVDUExOREsxb0FJYl9EWURoMzc2bkxyaHJ6X19uUlNxOHV5V0VkYmlibERFM2dURlBmODBoVjc4RXpFVEcwdEVMRk1HUVlHQUtnb21hUm02NXJ3VjlBSzlMX0NHZ1JRRFFkQnQxVENXdW0xRDB1VGRzNjh5TjVhZ0hLdVV2cmFhcFFmTXdFU3Z2WGktRXB2ck4yQy1IekZVbjF4NFViOHp5YS1CbUtZ?oc=5",
           "source": "Gazeta do Cerrado",
@@ -173,7 +181,7 @@
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
       "total_mentions": 24,
-      "new_this_run": 2,
+      "new_this_run": 0,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -373,7 +381,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 36,
+      "new_this_run": 31,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
