@@ -1,14 +1,12 @@
 {
-  "updated_at": "2026-05-06 22:49",
+  "updated_at": "2026-05-07 11:55",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 1,
+    "entries_rss_raw": 0,
     "duplicates": 0,
     "blocked_date": 0,
-    "blocked_id": 1,
-    "blocked_id_reasons": {
-      "nome do candidato ausente": 1
-    },
+    "blocked_id": 0,
+    "blocked_id_reasons": {},
     "approved_rss": 0,
     "approved_scrape": 0,
     "approved_indirect": 0,
@@ -17,11 +15,10 @@
   },
   "history_summary": {
     "total": 51,
-    "last_7d": 6,
+    "last_7d": 5,
     "last_30d": 9,
     "sources_7d": {
-      "Blog Luiz Armando Costa": 5,
-      "Luiz Armando Costa": 1
+      "Blog Luiz Armando Costa": 5
     },
     "sources_30d": {
       "Blog Luiz Armando Costa": 5,

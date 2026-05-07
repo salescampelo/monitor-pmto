@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-06 16:33",
+  "updated_at": "2026-05-07 11:55",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
-      "total_mentions": 19,
-      "new_this_run": 0,
+      "total_mentions": 20,
+      "new_this_run": 1,
       "mentions": [
         {
           "title": "PL da Dosimetria: como votaram os parlamentares na derrubada do veto de Lula",
@@ -112,6 +112,14 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "No Bico do Papagaio, Tiago Dimas fortalece luta em prol dos autistas, respaldo a educação, contatos com aliados e destaca grande obra portuária",
+          "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNVXdOUmhxWmczOS1oNHFmZDZibVVPOWVoUmoyai1vbmpORGp0YU9DdXdOQVo0TVRKMy11alRRcjdNSWEwcUg3bjlaeVA4UldrOVMtUUpZLXVMd1I3YnZyMEt0YmNnbE85MEVDUExOREsxb0FJYl9EWURoMzc2bkxyaHJ6X19uUlNxOHV5V0VkYmlibERFM2dURlBmODBoVjc4RXpFVEcwdEVMRk1HUVlHQUtnb21hUm02NXJ3VjlBSzlMX0NHZ1JRRFFkQnQxVENXdW0xRDB1VGRzNjh5TjVhZ0hLdVV2cmFhcFFmTXdFU3Z2WGktRXB2ck4yQy1IekZVbjF4NFViOHp5YS1CbUtZ?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Thu, 07 May 2026 09:45:06 GMT",
+          "hash": "424068ea5010",
+          "captured_at": "2026-05-07"
+        },
+        {
           "title": "Senador Eduardo Gomes recebe apoio político em Rio dos Bois durante aniversário da cidade",
           "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNYU83UnRQck52YWpBeVNLaE8zaFpfUlRPVFBFVmNPbFBrMTN1SkJBamdoWlVLQnFDUkdabmhtdi1JX1ZwZmRVUVVDSGZ6NFNHMmhvUWxYMEVFdVRBMHBoaGFrcXV4ZXRvcjd3V2ZoMnVLMF9TU3hNdWtTbENpWkVSdEJwYjR3aGszRnItSnFmRTJvSTloR056S051b3B2UHJMLXJqa3ljNzBaMzBYUWVyRXpfQzJhWmNiZEFz0gG7AUFVX3lxTE1hTzdSdFByTnZhakF5U0toTzNoWl9SVE9UUEVWY09sUGsxM3VKQkFqZ2haVUtCcUNSR1puaG12LUlfVnBmZFVRVUNIZno0U0cyaG9RbFgwRUV1VEEwcGhoYWtxdXhldG9yN3dXZmgydUswX1NTeE11a1NsQ2laRVJ0QnBiNHdoazNGci1KcWZFMm9JOWhHTnpLTnVvcHZQckwtcmpreWM3MFozMFhRZXJFel9DMmFaY2JkQXM?oc=5",
           "source": "jm notícia",
@@ -164,8 +172,8 @@
     "ricardo_ayres": {
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
-      "total_mentions": 22,
-      "new_this_run": 3,
+      "total_mentions": 24,
+      "new_this_run": 2,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -224,6 +232,14 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "Aprovado projeto de Ricardo Ayres que inclui jovens aprendizes e PcD em contratos públicos",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNYmFmUEI0cWg3a2NmVllXSUZlOHV2ckJiMVlrczh2R0p5a25nZm5TMVVtNlNqaG9VSDZ1QUVnVmtINk5VQXg2a1BhdEt5c0VLVlZtUE5ONTQzQ0g0TEtVYkdKbG9fcl81T0IyZmFtUXdzY2hINzZSald0a19uN3NPeTRWY0pYalk2RXdXcVRtc3RPbnBkY1FtM1JwcEtlZ1FLV2tNTzhUM1NWTnJUM1dlY3R6LTFGbi1DUXFlRlBRdVRfSWxnbk1iME02SQ?oc=5",
+          "source": "Republicanos 10",
+          "published": "Wed, 06 May 2026 21:27:29 GMT",
+          "hash": "4c74c4b3a2d1",
+          "captured_at": "2026-05-07"
+        },
+        {
           "title": "Ricardo Ayres afirma mobilizar deputados pelo fim da escala 6×1 e projeta aprovação da PEC em Plenário até junho",
           "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNRVYxWG4tTlEwYUtMTkg0WF9xWk8wTVNYMUxHclR2MjM4TG9jVXJ1cFRwWXRXekpmNTFFRTV3dlh3YW9JRUVmckljSVRNTzl6YURKc1REMHoxSC0yWnl3X2lyem5URlVfMmJRR2FndmhZTGZBeGR2OFhNamo4SUtFUmRzaFF2NEQxVDloeGZWWTdlSTJVd194NW50VDZDa3JmcVA3R1Y2NzZIdnktUzdFX1ZSVjhKUnF1SkxZQTNnamhlNUxYcm5tcE9veUdYYTJfT3J4NHRKdURPT190MjItNTd4LTI?oc=5",
           "source": "Cleber Toledo",
@@ -246,6 +262,14 @@
           "published": "Wed, 06 May 2026 11:20:00 GMT",
           "hash": "61b11c148763",
           "captured_at": "2026-05-06"
+        },
+        {
+          "title": "Política | Ayres aciona TCU para auditar R$ 73 mi investidos em ponte inativa no Rio Araguaia",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNUVqMTRXZDRGdldMeF91Nk9hOFlCcVExdVdEUTU3elA5YjVselp2WUdheW9BS2VLem52a3pDODdoVkNSbmhYSGlyZXFlaVE5U21VbkYtWlpWNDVvRXpuUXhoQjVVdWJ5UW92NjdfQ1dHeEYzTHd2elNfQjh5THVweDJRSWFRZWd6Y3B2N2RmNnFSUHE0UkVNVElEUnhLNE1qVGhvaEdIRjNHUmJ0NlRPdVFRejlkSUtIbmlnYTBWVXhjUQ?oc=5",
+          "source": "T1 Notícias",
+          "published": "Wed, 06 May 2026 11:01:19 GMT",
+          "hash": "d1a2d1b86b4d",
+          "captured_at": "2026-05-07"
         },
         {
           "title": "Ayres aciona TCU para auditar R$ 73 milhões investidos em ponte interditada sobre o Araguaia",
@@ -349,7 +373,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 27,
+      "new_this_run": 36,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
