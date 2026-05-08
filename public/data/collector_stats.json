@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-05-08 11:23",
+  "updated_at": "2026-05-08 16:19",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 3,
-    "duplicates": 2,
+    "entries_rss_raw": 5,
+    "duplicates": 4,
     "blocked_date": 0,
     "blocked_id": 1,
     "blocked_id_reasons": {
       "nome do candidato ausente": 1
     },
     "approved_rss": 0,
-    "approved_scrape": 0,
+    "approved_scrape": 16,
     "approved_indirect": 0,
-    "total_new": 0,
+    "total_new": 16,
     "sources_approved": {}
   },
   "history_summary": {
@@ -92,7 +92,7 @@
       "layer": "A",
       "mentions_30d": 0,
       "last_run_status": "ok",
-      "last_run_mentions": 0
+      "last_run_mentions": 1
     },
     "soudepalmas": {
       "name": "Sou de Palmas",
@@ -106,7 +106,7 @@
       "layer": "A",
       "mentions_30d": 0,
       "last_run_status": "ok",
-      "last_run_mentions": 0
+      "last_run_mentions": 15
     },
     "portalonorte": {
       "name": "Portal O Norte",
