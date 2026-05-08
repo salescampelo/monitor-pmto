@@ -1,40 +1,43 @@
 {
-  "updated_at": "2026-05-08 16:19",
+  "updated_at": "2026-05-08 22:58",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 5,
-    "duplicates": 4,
+    "entries_rss_raw": 6,
+    "duplicates": 5,
     "blocked_date": 0,
     "blocked_id": 1,
     "blocked_id_reasons": {
       "nome do candidato ausente": 1
     },
     "approved_rss": 0,
-    "approved_scrape": 16,
+    "approved_scrape": 1,
     "approved_indirect": 0,
-    "total_new": 16,
+    "total_new": 1,
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 51,
-    "last_7d": 5,
-    "last_30d": 9,
+    "total": 67,
+    "last_7d": 21,
+    "last_30d": 25,
     "sources_7d": {
-      "Blog Luiz Armando Costa": 5
+      "RR10 Notícias": 15,
+      "Blog Luiz Armando Costa": 5,
+      "Atitude Tocantins": 1
     },
     "sources_30d": {
+      "RR10 Notícias": 17,
       "Blog Luiz Armando Costa": 5,
-      "RR10 Notícias": 2,
       "Jornal Folha Capital": 1,
-      "Luiz Armando Costa": 1
+      "Luiz Armando Costa": 1,
+      "Atitude Tocantins": 1
     },
     "methods_30d": {
       "RSS": 4,
-      "DIRECT_SCRAPE": 5
+      "DIRECT_SCRAPE": 21
     },
     "sentiment_30d": {
       "Neutro": 2,
-      "Positivo": 7
+      "Positivo": 23
     }
   },
   "sites_health": {
@@ -90,7 +93,7 @@
     "atitudeto": {
       "name": "Atitude Tocantins",
       "layer": "A",
-      "mentions_30d": 0,
+      "mentions_30d": 1,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
@@ -104,9 +107,9 @@
     "rr10noticias": {
       "name": "RR10 Notícias",
       "layer": "A",
-      "mentions_30d": 0,
+      "mentions_30d": 15,
       "last_run_status": "ok",
-      "last_run_mentions": 15
+      "last_run_mentions": 0
     },
     "portalonorte": {
       "name": "Portal O Norte",
