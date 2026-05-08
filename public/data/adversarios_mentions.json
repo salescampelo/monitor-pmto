@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-07 19:43",
+  "updated_at": "2026-05-08 11:23",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
@@ -180,7 +180,7 @@
     "ricardo_ayres": {
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
-      "total_mentions": 26,
+      "total_mentions": 27,
       "new_this_run": 1,
       "mentions": [
         {
@@ -352,6 +352,14 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "Ricardo Ayres vai ao DNIT, cobra balsa gratuita e solução para ponte Araguatins-TO/Palestina-PA",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOb2owemgzRngwSjhubWNLVDdZNmtxQ3lCc2ZYZUIwSGQ2ODlvTjBhcTJ5RVJqbnFXWThudUMtZEhHdDE4UzVhQWpzdVZ3TTNRY1gzUmZ4Mnh5VmRwWUgyTWZfNU5nRGpUYWZSb0hMM21sUVI2R2NvMWRGc2sweVpvaHZ4RDlDUFpZMnY3SGRDVnEwaDNZTTVGQllHZ1JfNWlMNktWTUN2LXBYNFd0REtsdzZBSWhJUnNvMUJRM0dlOA?oc=5",
+          "source": "Folha do Bico",
+          "published": "Thu, 07 May 2026 22:30:07 GMT",
+          "hash": "47ff9de14867",
+          "captured_at": "2026-05-08"
+        },
+        {
           "title": "O deputado federal que não faltou um dia sequer e se tornou o maior relator da história do Tocantins no Congresso",
           "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQcExhd0ZUaVpEWDN2bkhSM2lYbFZoejBLRjAxMXN1akRiN2V1b05pM2FfZWFqUWZNZTJ0OWxpWGZ5Yjd2cS1Nbmd4cDk4UFdQWGtZUS1LYWtXRzl4N2otWkNiXzJQYnRfM3J0LWtrbEJTRG1wcGlGeUd6UDJBOUZNZnd6b1hmU0c3Z0YzN19oZU5SZkNUd0IyYktlZ0FESlZJZkg0U1hhMkZWajBINF91cWJOcWd3cGZBZ21ibjBBZjMxRjRackZ3OC1IZjFRR2hqYzBfT2J5N1h5eDRta0pZWjJjU1l4bDIySHA4?oc=5",
           "source": "Gazeta do Cerrado",
@@ -397,7 +405,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 29,
+      "new_this_run": 25,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
