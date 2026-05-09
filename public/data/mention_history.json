@@ -1777,5 +1777,31 @@
     "collected_at": "2026-05-09T15:54:10",
     "year": 2026,
     "month": 5
+  },
+  {
+    "hash_id": "d6bc06d838ee",
+    "title": "Coronel Márcio Antônio Barbosa apresenta propostas para Câmara Federal em Gurupi",
+    "url": "https://atitudeto.com.br/politica/coronel-marcio-antonio-barbosa-apresenta-propostas-para-camara-federal-em-gurupi/",
+    "source_name": "Atitude Tocantins",
+    "source_type": "direct_scrape",
+    "collection_method": "DIRECT_SCRAPE",
+    "site_key": "atitudeto",
+    "indirect_term": "",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [],
+    "mention_type": "direta",
+    "snippet": "Por Wesley Silas O ex-comandante-geral da Polícia Militar do Tocantins (PMTO), coronel Márcio Antônio Barbosa (Republicanos), reuniu-se na última quinta-feira com membros da Associação de Subtenentes e Sargentos (ASSPMETO) em Gurupi.",
+    "relevance_score": 1.0,
+    "relevance_label": "DIRETA_ELEITORAL",
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.8,
+    "cluster": "Eleitoral",
+    "date": "2026-05-09",
+    "date_display": "09/05/2026",
+    "detected_at": "2026-05-09 22:40",
+    "collected_at": "2026-05-09T22:40:46",
+    "year": 2026,
+    "month": 5
   }
 ]
