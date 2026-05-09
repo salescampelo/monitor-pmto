@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-09 11:04",
+  "updated_at": "2026-05-09 15:57",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 22,
-      "new_this_run": 1,
+      "new_this_run": 0,
       "mentions": [
         {
           "title": "PL da Dosimetria: como votaram os parlamentares na derrubada do veto de Lula",
@@ -189,7 +189,7 @@
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
       "total_mentions": 30,
-      "new_this_run": 4,
+      "new_this_run": 3,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -320,12 +320,28 @@
           "captured_at": "2026-05-09"
         },
         {
+          "title": "Comissão aprova uso de faixas exclusivas por ônibus de fretamento",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOblExeVh0Y2FQOHotb0NWT2YwcFFmUkRIQzlEaFpIRzhpWXR3a0QxbFdFWnNVYUtMNzRrSXZoWWRKN1JDNnd4V2pZQWhhTFprNlQ0TDV4cFUwNjB5WXFxSk9WWGlXa3g2b19NeUltN25FVXhaY3NNVS1GQVRxZ3p6eTBxWU9admFnVThrMlpidjEtREJKaVFSMHNNUlhjdXpJOXl5OGowOVdFV1htZ3c?oc=5",
+          "source": "Portal da Câmara dos Deputados",
+          "published": "Tue, 05 May 2026 14:47:00 GMT",
+          "hash": "cbf6d9c4f8ac",
+          "captured_at": "2026-05-09"
+        },
+        {
           "title": "Creches paralisadas há anos voltam a avançar com ação de Ricardo Ayres e legado de João Ribeiro",
           "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNbGJNVGtUR3ZSZE1MVzdOQlc4eFN4QzZCeXB6NS1DRDhVTkZ2d3JGc2ppeU44UXpQdTNmUWZ5cjFWM2pBSXB5RE1MSzYzOUtSUXFpb2FOUVlSZjJZcnlYZGpwUDhMZlFESVNyZGVnb1VzMTBSc0RnZE1MbEFUZmhFamwtbG5BVTZCcUg4VlVwSm85Z3VrejNzTlQ5b2dLUEFSeVJpSVp6UUNqVEFoamFYRnJpaU9kQ3hIZGxSSFM0bVI?oc=5",
           "source": "Folha do Bico",
           "published": "Tue, 05 May 2026 00:55:09 GMT",
           "hash": "a49e21978819",
           "captured_at": "2026-05-06"
+        },
+        {
+          "title": "Creches paradas há mais de 15 anos no Tocantins serão retomadas",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUG0tWVl4WUFISGxNczV1SlJ4Nm85Vk1mbnVYc1Z5R2dvUDdnMEVkT193VDMzajYyZkU1MEhBVUFzdUFBejltcC1TTGJxVVZ2LTM5M09mTzZReGpybzdtd2ZfZ01EUHZSdUZVV2JxN0t3bFpGNXhoU2t5M1NvNFYwSkxVbklyMEpaM3o3MDUtNzlmc3o5YmpjakVQTkdRbUNDZWFka0RwaGdWcllyNlFpeXdWOEpoU1prQXZVaWxmSFbSAbYBQVVfeXFMT3Q3TW4tSXFqNWI2X3BaMlNDaW42V0FiMGV1MTFyS05vcU81VThrZUxMbm01bHlVQlpkSHVmN25sSjhUazRVczBELXQ1U2RWdkVlWU1FcDNwdnZCeWpuYk93SmlVekRHTHhEUUpPR3diWjl5UTJQT3g5YnNjcjJOcGpwYjNtc25YMXNLWVRvaFozX19tYkphUVBsal9nY2Jjb0Y5ZTV2RkF6UURpMWhDMW1FUU1BNnc?oc=5",
+          "source": "Portal O Norte",
+          "published": "Tue, 05 May 2026 00:11:00 GMT",
+          "hash": "20b53b94003b",
+          "captured_at": "2026-05-09"
         },
         {
           "title": "Do Tocantins, apenas Irajá e Ricardo Ayres votaram pela manutenção dos vetos do governo Lula ao PL da Dosimetria",
@@ -408,28 +424,12 @@
           "captured_at": "2026-05-09"
         },
         {
-          "title": "Política | Ricardo Ayres articula retomada de obras de creches paralisadas há 15 anos no TO",
-          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNbFdNOWpIcDNSbTlya3poOVlVVTZPN3diV2liVEt1dFN3REtBZGNCN21ybDY1UW55d01EWlJMUHVaci14bGZmM0RWOFFpXzVIZmNWdWt2MXVFRDlZR1dWWjF3QTlWRzBwNG82bTl2LUktdnJqR2hzMFcybXVyQW53X3BITnhfLW1jcEliWkx4UmlTZnVKaEtVZlVKU19mTFFPR3BNNktLUnBxTS12UGloX1U2cW9KTnp4VnFxdlpDWDE?oc=5",
-          "source": "T1 Notícias",
-          "published": "Mon, 04 May 2026 17:39:19 GMT",
-          "hash": "68ddd06ddd34",
-          "captured_at": "2026-05-05"
-        },
-        {
-          "title": "Comissão aprova limite para atuação de empresas em juizados especiais",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOUlZtczRQalBQejlLVWZYY05RdEdocUJ3WEpFVktqbTdGZmZRWTBjZ3FBREpYMmRWVEdkOGc2RjNRMzhTeEc2RzhMLV8xakI3Wi0takJGUjJERzVZZ3lNTkdDeExqWGtqU2NtRDVIc1dqWnIybm1td2VVaGptVk5mUHhMOTFsdUowRS12THJJSlQ2OHdIcExVcjdXaE1LS1JkTjE0YWQ5MGkyb2tQRVFRakpLWQ?oc=5",
-          "source": "Portal da Câmara dos Deputados",
-          "published": "Fri, 08 May 2026 17:26:00 GMT",
-          "hash": "caf1a9b503bb",
+          "title": "Ricardo Ayres retoma obras de creches ligadas ao ex-senador João Ribeiro, paralisadas há mais de uma década",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNNWU4dGR1RW1qeEJGdnBEdGNyYzRRa3BodzdqV2FvaTRxZ05abjlkM3h3UnVPaFZxZVJUYUNvX3ZfWkxkLWJKaHQ2VENid3NfdzFOY3lUOWZnN1VET0lXUFZkVmJJZnI0MmMzZ2w4Z3NZb3JYQUZvWXZxbklGSzFZclE5SFNzOWhKczFIX1BsSlJMdGxuMkhvcHB4S3F1OGg2bVZGTmF4RXVNVkk2cFozTS1acGZrajlVSGJMZF9VaVMwVXdlM0tKdGZyWE1DOGp1?oc=5",
+          "source": "RR10 NOTÍCIAS |",
+          "published": "Mon, 04 May 2026 17:40:46 GMT",
+          "hash": "957e76c16a1a",
           "captured_at": "2026-05-09"
-        },
-        {
-          "title": "Deputado Ricardo Ayres é o 1º congressista do Tocantins a se colocar a favor do fim da escala 6×1",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOaUlYYTRvUHhSSHItSVJkZmxRQ1cyaFBzU2owZTdJYXZUZzV4aFlzTnd6a1otcERxdVQ4QllkRXV4cHRuQW5EUi1veTJuM3VGaFBaT3JaenJncm83NmNndFprR3gwNzhNOWxNX3BzMHE4LUtnUGcxdEpqY21nb1ZrdFdPdTlSTFZacWUyUEY1VGV4b1Q3Z1A5VFYyT1pEcGpIZnJDdmlEeFowR2pmNWtSOHZhZ0RDTWllTXBJZ3cwaFdlaU1iOVRmam5WTTVBdw?oc=5",
-          "source": "Cleber Toledo",
-          "published": "Fri, 01 May 2026 20:51:00 GMT",
-          "hash": "0806c210faac",
-          "captured_at": "2026-05-01"
         }
       ]
     },
@@ -437,7 +437,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 25,
+      "new_this_run": 27,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
