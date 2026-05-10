@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-10 11:06",
+  "updated_at": "2026-05-10 15:58",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 30,
-      "new_this_run": 16,
+      "new_this_run": 7,
       "mentions": [
         {
           "title": "Com discurso de gratidão, Eduardo Siqueira participa de evento político de Jair Farias e garante: “aqui é uma campanha popular e tem um deputado federal eleito”; Prefeito reforça seu apoio a Gomes e Dorinha",
@@ -184,6 +184,14 @@
           "captured_at": "2026-05-10"
         },
         {
+          "title": "Em cenário de palanque oposto, Vicentinho Jr discursa em Santa Teresa após cavalgada e a prefeita garante respeito: “líderes, fiquem em paz”",
+          "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNZURkVzF5UWNHQWhJVDhtaTg3WkJicF9hN2dad2FaZDltYnpsVnYyeDA2Z0NqZHhPWnVwdk1iMkRBM2dMZFdkMlpacDdxZEg3cjZSUmZ4YXo3VzV1SmlQMWdKOXMzUF9nX0pTZnRPeUxSbnhjMWl0TmdlbWF2Nm5sbUpoMGJXWHdXWEtNb0R6aUJlZEhVc1d3MkFYYndTMFp4RFZjVy1BbEpCQXZPVW1XSkVRYWprSWZCUDRQekhKVVlNMTNwZW9VcFdpYk5ZZzhSdEJ0YjlIOWx6NzFHamFueGxPTnVUVXZoR2J2MEJvR09mdjBzdzU3cmJURnY5YVJfWE9pWXdiSjg?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Sun, 03 May 2026 20:33:02 GMT",
+          "hash": "e04229d0c606",
+          "captured_at": "2026-05-10"
+        },
+        {
           "title": "Senador Eduardo Gomes recebe apoio político em Rio dos Bois durante aniversário da cidade",
           "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNYU83UnRQck52YWpBeVNLaE8zaFpfUlRPVFBFVmNPbFBrMTN1SkJBamdoWlVLQnFDUkdabmhtdi1JX1ZwZmRVUVVDSGZ6NFNHMmhvUWxYMEVFdVRBMHBoaGFrcXV4ZXRvcjd3V2ZoMnVLMF9TU3hNdWtTbENpWkVSdEJwYjR3aGszRnItSnFmRTJvSTloR056S051b3B2UHJMLXJqa3ljNzBaMzBYUWVyRXpfQzJhWmNiZEFz0gG7AUFVX3lxTE1hTzdSdFByTnZhakF5U0toTzNoWl9SVE9UUEVWY09sUGsxM3VKQkFqZ2haVUtCcUNSR1puaG12LUlfVnBmZFVRVUNIZno0U0cyaG9RbFgwRUV1VEEwcGhoYWtxdXhldG9yN3dXZmgydUswX1NTeE11a1NsQ2laRVJ0QnBiNHdoazNGci1KcWZFMm9JOWhHTnpLTnVvcHZQckwtcmpreWM3MFozMFhRZXJFel9DMmFaY2JkQXM?oc=5",
           "source": "jm notícia",
@@ -238,14 +246,6 @@
           "published": "Fri, 08 May 2026 18:51:39 GMT",
           "hash": "a6719f33bf27",
           "captured_at": "2026-05-09"
-        },
-        {
-          "title": "Pré-campanha esquenta! Damaso faz almoço com aliados majoritários e líderes em Paraíso; Vicentinho dispara: “As casas que batemos na porta não foram construídas com tintas de diário oficial”",
-          "url": "https://news.google.com/rss/articles/CBMiywJBVV95cUxNTFBGaThEX0lCQkJZc2taSDFyQWpzY1ZIczlKX0trN05zUFQ3SXNURGptTEQ5aF9KV01lNENDZ01iMER2SlVSdFc2V240MFhSdEc1dHRocEN6Wk0weUVYemFHZjRaSmxTeUNXd3ZVUlNoR0xyb2kzV2hRbkRTVzBqeHgtakVhcU5FcER6TURtakhlTW50QV9wa0NWVXowZFlBR3U3MWhPLTg1b2RHQlVaZjZyYXBYMGxWQ2h2M2prX29iRXBUcE5QM1VXWHBaMExtS0JMUEQzYUVvTFB1T2hwRld1WVZrMnYyZE9yT2VBR0RTbVpkUlhGU2VYVDZ5Wm0wU3E4M3RSWFNkT1JUVVBWYXdwRUJsRkNIbzNoSkE2dm5RbnlxeGZQM1M5Mmw1UExFZi14aXVydmwwRnY4WmZzSG1uaVlDeDNxLV9F?oc=5",
-          "source": "Gazeta do Cerrado",
-          "published": "Fri, 08 May 2026 17:37:36 GMT",
-          "hash": "c2503e02eaca",
-          "captured_at": "2026-05-10"
         }
       ]
     },
@@ -501,7 +501,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 23,
+      "new_this_run": 21,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
