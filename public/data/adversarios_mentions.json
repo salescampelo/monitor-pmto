@@ -1,12 +1,60 @@
 {
-  "updated_at": "2026-05-09 15:57",
+  "updated_at": "2026-05-10 11:06",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
-      "total_mentions": 22,
-      "new_this_run": 0,
+      "total_mentions": 30,
+      "new_this_run": 16,
       "mentions": [
+        {
+          "title": "Com discurso de gratidão, Eduardo Siqueira participa de evento político de Jair Farias e garante: “aqui é uma campanha popular e tem um deputado federal eleito”; Prefeito reforça seu apoio a Gomes e Dorinha",
+          "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPXzJ4V011bk5GVmF0X280MndoblBQT2lvTnNzRER2QWZxOGpMWmViVGhzMmw4VVFkQ0QtUUxaVWlaQ0xfYzdkTDBaamFvaFpzY2s2RnF5SnYzY3ZvSjhuNk1UOGYycGNLd1hCb3N0Um93X3l4UGFEV0kxVy1qRERCY1J3WnpYRVVoZUJHXzlCdElacm5wTXdiajF5eUM5VzhteDRlZFNhVUNXNkM2S3dQMlNfc05Xdlh6UnJ1X0dVYkx3TkczQ012aVlvcEQzMGRBLTk0SXhjTS1lSjdid2NrSkJlQlhnYmd6T2tTbF9HTmowUmd4TkdlajluWWlxblgxZ1ZQcGtBTS1IeVJfQXZfb1ppN2t6OC1KZkwweU9HWVJ6Q0ZIZUJoeE9mUTdmM1FWZFNkVmFtdGQ4NWhSU0w2UXRR?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Wed, 06 May 2026 23:59:12 GMT",
+          "hash": "8c86b3ed327d",
+          "captured_at": "2026-05-10"
+        },
+        {
+          "title": "Léo Barbosa propõe proibir nomeação de condenados por feminicídio em cargos públicos no Tocantins",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPd3hDcUN5YkNtMFJEWUtkWUlxOW0yTThRckVBd0RGeV9Ud05SU0ZHOC1INTJhQTNFT3pwdmJEdFBmbGlwT1gyNGh5aG9oMDNYb2U3d01Bd1N2VUpjei15d3VtenAxcTJXMTI2UkdKM0xsSnpQVC1lejBTTU5ROXd1NjdTSjktSTNUM0Q0M3ZVVFVMUmQ1RnhCendDV3pFcWthYUx5OEJTVEtSLUZDTWlZOFlkS1lFZkRuRU5XU0t6ZWxIU0YxTVBmcEUtUGc1emVSRjBXWFdR?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Wed, 06 May 2026 19:07:27 GMT",
+          "hash": "af01feef343d",
+          "captured_at": "2026-05-10"
+        },
+        {
+          "title": "Estudante do Tocantins conquista 1º lugar em Concurso Internacional de Redação de Cartas",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOb0xNbUttdGRPTWpjRWtuRFNtR2pvMXkwOUJ4OGJITE5VV09hUnlnYTdvMUZUVjVTdHdGa1FodVhQNmVadGQ3a3M3SnlvVlVBbmcwa1hKZlR0S3NYcWgxVDlpR1AyaTFVbUEtTE9melVMdFVPQ0lzeFpMOXhBYVVqSXdCTFZnNVp1N3ZqRkJEZTdsRDVDZFJBTXY2Um10dENqZzBCYkRsUy0xNnBubEo1czlucU5hTGx5cXZFdDFrUGtoU2VndVdOWg?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Wed, 06 May 2026 13:21:22 GMT",
+          "hash": "f9291c0e9416",
+          "captured_at": "2026-05-10"
+        },
+        {
+          "title": "Investimento de R$ 14 milhões: Wanderlei Barbosa entrega obras no Parque Agroindustrial de Paraíso nesta 5ª",
+          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOMGM5OTVWbGVuVjlzU002Z3h6SzhsY2tsQXl0Z2NETFJGSmRSQk14MldTQ3k4LURSOXVWREotNHA2QzVCQXJEYzV0UnE3eFFXNU5pMFlzNFNxRGtoNGh0QVRpMjdSQnZPNzBleFRLU2E2VjlMYmtEelhLNmpTUGpQTE1PT2VTWHdGUmlPaXlTZ0VseTB0TkpCS1V2TjF0MEhnWEwtNVpwMDYtZ2E3VVdqZzFENThsMmRvUXV2V2FxSHh6aFhDV1RmeGYwNzJRSzV1cVlLaTJRbVNvanZKNUNPUA?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Wed, 06 May 2026 12:26:00 GMT",
+          "hash": "a36c50b0381a",
+          "captured_at": "2026-05-10"
+        },
+        {
+          "title": "Compromisso com Filadélfia: Marcus Marcelo reforça fortalecimento da educação e anuncia recursos para manter tradições locais",
+          "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxPbmYxbklqNy1Qb3QwR1ZBNldDVGhHUldVYWNkOXlqU2hOQ2hZUWMwSjJlU3h2Z0VSQzJNNl81ZGlZMDEwanhaTTN6dzI0b0VmZGNkaGFJSE5Tbnl0MHZWM1pXbGViU2lwNG5WUmV5cDhNdkFqNVFicmFNNkNZYlRMNWhZbU5jQlFIYldfMmRFd1FKR3FMNDZsZzZ6RFA2NW8tWUtjRi05ZmN2N3FLcUFBUWpOYVoyTmZMdC13NUZlZ2g3dWZMdUZGdkNfcncwc0RjOFpTSHJ0Z0tIQmthN3BOekx0dF80Q1JCbUlEZjRfY2N4NFBPY0RLdUxB?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Wed, 06 May 2026 11:52:56 GMT",
+          "hash": "b369b60211bc",
+          "captured_at": "2026-05-10"
+        },
+        {
+          "title": "Últimos dias: Araguaína reforça chamada para vacinação contra dengue em pessoas de 15 a 59 anos",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNaGNyRlRKVmJaM1J5R3QxVWNjejZKUkhlblktT2xYNVVobWY0TUo4b285VUZuNkMwYlR1OTMzVnNTZnhhMllDaXU1aTY5X05JUTRUMDQyd28xNUl1YTBWYlZQcnN6emFjTFZXNFdQbmVtM2ZPM2kweWZfNVVZQnRZbkNJYUdZd3BLSzh0eG1zOEt5NGZ1NmlLRElfcHIza19UNVhvVTU0alR2eFp1VzZYeFFPVDZwYlBCLXdFaUlBYlBlNFRmN0VUV3FJWFlmZ1QwNXFZ?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Tue, 05 May 2026 19:57:48 GMT",
+          "hash": "92983ac2c892",
+          "captured_at": "2026-05-10"
+        },
         {
           "title": "PL da Dosimetria: como votaram os parlamentares na derrubada do veto de Lula",
           "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNc0kyWF9nNUpFbThoYUFsRTBrRkc2RFRid3hMWW03OFE3UFpoZHdYUnNQc1NJMnVBTHJHMEtxVXpfX2FWYk51dFVoa0ZoaVc1MWgtdVZqZ3VyalZPU0JYUmNVa0pDRWNXTGFrdXREWVJneDlsTzd2bkJkNUlTMFl0Zkc4RWdiQWE0VE9CUTVtLUY1ak1mVGFoQlBJR1M2eC15dmdXRUtOWjZlRDdZZ0lwMTVaVXgyOTJj?oc=5",
@@ -128,12 +176,28 @@
           "captured_at": "2026-05-07"
         },
         {
+          "title": "“Lá o grupo do Laurez enfraqueceu”: Áudio de Halum a aliado repercute e ele se manifesta: “disse sem maldade”",
+          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOZnp4X01MbEZKRXdIZUxrb25UZTJsdldVc1BpcHQ3VlVST3RnOGFoeHJXbk5JNmZaT2ZTTVQzVEFBQWE5NFFZT2FHNkp3ekhnWFdlMGVITW5uMk5zYnBSOTdvcGRmbzM2N0xKSWQwazRLVHRNUDRWc3ZaZUY1TjY2cE1hOVBQR1VwRUFXemhqN01ULWJ6VVJ2T1JhMUFBNExaWUZXQ3IzTjZlOWZzdHdZcWZvUEs5eDhNWkNYMXVMSUc1T3NMV2JfZWVsano0eDN0M0MzZ2hSQ0tGNXBqRlE?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Sun, 03 May 2026 20:49:22 GMT",
+          "hash": "17e68451b839",
+          "captured_at": "2026-05-10"
+        },
+        {
           "title": "Senador Eduardo Gomes recebe apoio político em Rio dos Bois durante aniversário da cidade",
           "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNYU83UnRQck52YWpBeVNLaE8zaFpfUlRPVFBFVmNPbFBrMTN1SkJBamdoWlVLQnFDUkdabmhtdi1JX1ZwZmRVUVVDSGZ6NFNHMmhvUWxYMEVFdVRBMHBoaGFrcXV4ZXRvcjd3V2ZoMnVLMF9TU3hNdWtTbENpWkVSdEJwYjR3aGszRnItSnFmRTJvSTloR056S051b3B2UHJMLXJqa3ljNzBaMzBYUWVyRXpfQzJhWmNiZEFz0gG7AUFVX3lxTE1hTzdSdFByTnZhakF5U0toTzNoWl9SVE9UUEVWY09sUGsxM3VKQkFqZ2haVUtCcUNSR1puaG12LUlfVnBmZFVRVUNIZno0U0cyaG9RbFgwRUV1VEEwcGhoYWtxdXhldG9yN3dXZmgydUswX1NTeE11a1NsQ2laRVJ0QnBiNHdoazNGci1KcWZFMm9JOWhHTnpLTnVvcHZQckwtcmpreWM3MFozMFhRZXJFel9DMmFaY2JkQXM?oc=5",
           "source": "jm notícia",
           "published": "Sun, 03 May 2026 11:34:55 GMT",
           "hash": "f9c89dc8df85",
           "captured_at": "2026-05-04"
+        },
+        {
+          "title": "Professores de Gurupi representam Tocantins em prêmio nacional de educação inovadora",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNQ18zMjNEUk9JY2xfTFJlbk5oZWR1aG9RS1E1c0VGU0NsczJDQ042a3g3MGxNUE1leHFXVUpMNHRaaWRUQXp0S183VHVlVGdhNVNyZDBLaG5zWk1ocGpJQUtlM0YxRFlQLTlmMzlQeDRUcVlLd0dzVzRWcGo5Mks0TFV3bm5QbDBZUkFsMnNnNEVRQWlMV1BMRnNOZEhtVkE5QjFMTzZYek9URUZpZVh3Uks0MmxIb09OS253ZmdySUJHZlk?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Mon, 04 May 2026 20:24:48 GMT",
+          "hash": "177c335b7fc2",
+          "captured_at": "2026-05-10"
         },
         {
           "title": "Luxemburgo percorre cidades do Norte, se aproxima da população e amplia diálogo com lideranças",
@@ -160,6 +224,14 @@
           "captured_at": "2026-05-04"
         },
         {
+          "title": "Vídeo de perseguição a adolescentes no TO viraliza após policial cair durante abordagem",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPYVBtT2V6bTFQZkFOVkxtMk1xVFQ0VDhlWmgxaS1vWHNVQXptUnZ5N2tQWXc0Z0l1RnhuWENqRkkyaG5Wa2prM2hEeF9wYzJySUVDZXh4M01WXzFza1hBS2xrWmRUUlluZkd4Q3ppQ3dFVDJaNDQ2QTc5Y0F6Z196aXFlRDFWZFhWOVdGWkZKbHFDZ25hVmFuYlZwRVI3U2xDSlB6Y0thY2RQcWdCTjFiUllqX1Q4YktXUVJNVjhlOTJhUXlaYkxv?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Fri, 08 May 2026 19:59:11 GMT",
+          "hash": "a1758e25edcd",
+          "captured_at": "2026-05-10"
+        },
+        {
           "title": "Avança projeto que muda regra para cálculo do preço do seguro",
           "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOYkM0V3J1UEJ4YzNKLW5hb2tRUFVrcnphMHlMQjFTZzcwZmJIMFpaM0dxVlluYTVkTTRCWXZYbG9xWkU2aUtxN0RUUFYweWJQZ0ZfRllicVhuUU1yUi1fVGNUYnVIRWdwNVRPX2lobWRnV3YzdklkLUEyZm1JYlAyckxBYzVLdTVnRmh0ZEpiVUk3YVl5?oc=5",
           "source": "CQCS",
@@ -168,20 +240,12 @@
           "captured_at": "2026-05-09"
         },
         {
-          "title": "PL da Dosimetria: veja como votaram deputados e senadores na derrubada do veto de Lula",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxORnFXa1BkQkppSzlPYkxvbzVpeHQ0TTJJUEpxNEM4X2xTcDR1al9iZjhpY1ItbFBhcTR0ZGR5MEF5LUZ6bU0xX1ZuSVFlNDF0bHVXajRMaFdsUmpBcXBKQjRaVmktS3JFTWtJbW80RTdvaUNGWDZSNm9ub3FndWhiRDhHaXUtNS1yWFZ1SXQyMm81U2I5MjNDZU5BS1g2ejd4djJTaTJDcGFCU1QwZ0x1MUd1X1lsVkE2RFgtVUZTMjlsTUQ4NngzcA?oc=5",
-          "source": "SBT News",
-          "published": "Fri, 01 May 2026 13:42:47 GMT",
-          "hash": "cbd70613ae33",
-          "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Maioria da bancada do Tocantins vota para reduzir penas de condenados pelos atos golpistas",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQckhlR3BZTXdfcU1fVHhPUkhYR3prUF95OE9oeEg5RHl0NVpDei1vamgyMTFOajlkc3RlZG5vUzZCZ1g2TkczaHlldmhXQkZ6bHNlTk5JUG9IOTVfNmlZZURYTi1xSmQtSDhiZlQzUEN3cGRRblJycDN1WU02a1djYU4wZVB1cXAwQ2NXSkZhRDY1ckR0VV9EekQ4MHhSM0xUQWZ1VzVxTEphUkppQUpiRUpxempXbEsxYnNXQjk4QjZ0cTQ?oc=5",
-          "source": "Portal O Girassol",
-          "published": "Fri, 01 May 2026 01:08:53 GMT",
-          "hash": "09bc8d6f23a1",
-          "captured_at": "2026-05-01"
+          "title": "Pré-campanha esquenta! Damaso faz almoço com aliados majoritários e líderes em Paraíso; Vicentinho dispara: “As casas que batemos na porta não foram construídas com tintas de diário oficial”",
+          "url": "https://news.google.com/rss/articles/CBMiywJBVV95cUxNTFBGaThEX0lCQkJZc2taSDFyQWpzY1ZIczlKX0trN05zUFQ3SXNURGptTEQ5aF9KV01lNENDZ01iMER2SlVSdFc2V240MFhSdEc1dHRocEN6Wk0weUVYemFHZjRaSmxTeUNXd3ZVUlNoR0xyb2kzV2hRbkRTVzBqeHgtakVhcU5FcER6TURtakhlTW50QV9wa0NWVXowZFlBR3U3MWhPLTg1b2RHQlVaZjZyYXBYMGxWQ2h2M2prX29iRXBUcE5QM1VXWHBaMExtS0JMUEQzYUVvTFB1T2hwRld1WVZrMnYyZE9yT2VBR0RTbVpkUlhGU2VYVDZ5Wm0wU3E4M3RSWFNkT1JUVVBWYXdwRUJsRkNIbzNoSkE2dm5RbnlxeGZQM1M5Mmw1UExFZi14aXVydmwwRnY4WmZzSG1uaVlDeDNxLV9F?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Fri, 08 May 2026 17:37:36 GMT",
+          "hash": "c2503e02eaca",
+          "captured_at": "2026-05-10"
         }
       ]
     },
@@ -189,7 +253,7 @@
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
       "total_mentions": 30,
-      "new_this_run": 3,
+      "new_this_run": 2,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -417,18 +481,18 @@
         },
         {
           "title": "Ricardo Ayres retoma obras de creches ligadas ao ex-senador João Ribeiro, paralisadas há mais de uma década",
+          "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPQkZaUFY2MU0wZ3U3WWJLNVRJQjZfSXlxdmltTFhzbU9MSGFuc2FlRkQ1WldRSU5fekx6Rk5ILUNFdksta2RJTzFOOTFEdTZldUFCSG84TG1oVVJZQXNfZzBwWHpyMGw1anV4eWQ4Z3dSOUxadmwtbjJYRjNGdXNPQzF4SkpuUkJ6SjByNDZlc2RnOTJsTk41SldhaFdDZUt2SUMyLVRIYTFkNVZLN2RKX01uWVpLRGtZR1JhUHJoN1BJaUYzUTVSV01zT1NCR0cyZG9WQ3MtRlQ5bmVzMnRoN1h0WQ?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Mon, 04 May 2026 18:15:07 GMT",
+          "hash": "50b05d1262e5",
+          "captured_at": "2026-05-10"
+        },
+        {
+          "title": "Ricardo Ayres retoma obras de creches ligadas ao ex-senador João Ribeiro, paralisadas há mais de uma década",
           "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNQVk4NmZOTXU2aDRvazBzQ2pkblpEZWdhaEY3TnQ5QUs0b1Q2QzRuWDc2a2JOMWhPcERBd2hkUTdJU2M2OEt5T0VBV3lWVXhMYnRndnh3ZXNCQjZBMlJoOFpQQzltT21wZUp4SEpXY1lNQnFKRDEwS2RNU21pVWVpODBNR0hRdkx1b2JqSHhXckZDTjA4NktQc2VzRF9KZnlQS29STFl3UFBsNzBxQWh4djUyV2FKOVM4N2R2ZDV6YVpVZExqaExwcWlPcnVMeU1lVURZblF5WFQ?oc=5",
           "source": "Cleber Toledo",
           "published": "Mon, 04 May 2026 18:08:00 GMT",
           "hash": "9a0f3f1cce47",
-          "captured_at": "2026-05-09"
-        },
-        {
-          "title": "Ricardo Ayres retoma obras de creches ligadas ao ex-senador João Ribeiro, paralisadas há mais de uma década",
-          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNNWU4dGR1RW1qeEJGdnBEdGNyYzRRa3BodzdqV2FvaTRxZ05abjlkM3h3UnVPaFZxZVJUYUNvX3ZfWkxkLWJKaHQ2VENid3NfdzFOY3lUOWZnN1VET0lXUFZkVmJJZnI0MmMzZ2w4Z3NZb3JYQUZvWXZxbklGSzFZclE5SFNzOWhKczFIX1BsSlJMdGxuMkhvcHB4S3F1OGg2bVZGTmF4RXVNVkk2cFozTS1acGZrajlVSGJMZF9VaVMwVXdlM0tKdGZyWE1DOGp1?oc=5",
-          "source": "RR10 NOTÍCIAS |",
-          "published": "Mon, 04 May 2026 17:40:46 GMT",
-          "hash": "957e76c16a1a",
           "captured_at": "2026-05-09"
         }
       ]
@@ -437,7 +501,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 27,
+      "new_this_run": 23,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",

@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-05-09 22:44",
+  "updated_at": "2026-05-10 11:06",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 6,
+    "entries_rss_raw": 8,
     "duplicates": 5,
     "blocked_date": 0,
-    "blocked_id": 1,
+    "blocked_id": 3,
     "blocked_id_reasons": {
-      "nome do candidato ausente": 1
+      "nome do candidato ausente": 3
     },
     "approved_rss": 0,
     "approved_scrape": 1,
@@ -16,28 +16,27 @@
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 70,
-    "last_7d": 22,
-    "last_30d": 28,
+    "total": 71,
+    "last_7d": 20,
+    "last_30d": 29,
     "sources_7d": {
       "RR10 Notícias": 15,
-      "Atitude Tocantins": 4,
-      "Blog Luiz Armando Costa": 3
+      "Atitude Tocantins": 5
     },
     "sources_30d": {
       "RR10 Notícias": 17,
       "Blog Luiz Armando Costa": 5,
-      "Atitude Tocantins": 4,
+      "Atitude Tocantins": 5,
       "Jornal Folha Capital": 1,
       "Luiz Armando Costa": 1
     },
     "methods_30d": {
       "RSS": 4,
-      "DIRECT_SCRAPE": 24
+      "DIRECT_SCRAPE": 25
     },
     "sentiment_30d": {
       "Neutro": 2,
-      "Positivo": 26
+      "Positivo": 27
     }
   },
   "sites_health": {
@@ -93,7 +92,7 @@
     "atitudeto": {
       "name": "Atitude Tocantins",
       "layer": "A",
-      "mentions_30d": 4,
+      "mentions_30d": 5,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
