@@ -1,364 +1,364 @@
 {
-    "data_coleta": "2026-05-07",
+    "data_coleta": "2026-05-10",
     "candidato": "marciobarbosa_cel",
     "sentiment": {
-        "positivo": 628,
-        "negativo": 8,
-        "neutro": 1121,
-        "total": 1757,
-        "pct_positivo": 35.7,
-        "pct_negativo": 0.5,
-        "pct_neutro": 63.8
+        "positivo": 708,
+        "negativo": 14,
+        "neutro": 1289,
+        "total": 2011,
+        "pct_positivo": 35.2,
+        "pct_negativo": 0.7,
+        "pct_neutro": 64.1
     },
     "comments_sample": [
         {
-            "text": "👏🏽👏🏽👏🏽👏🏽",
-            "sentiment": "neutro",
-            "timestamp": "2026-01-11T14:39:13.000Z",
-            "owner": "jansley.nutri",
-            "likes": 0
+            "text": "Parabéns ao @sargentonantes meu amigo e também ao @marciobarbosa_cel merecedor do trabalho e do cargo,homens de bem😍😍😍👏👏👏👏",
+            "sentiment": "positivo",
+            "timestamp": "2025-12-14T09:32:28.000Z",
+            "owner": "valtinhotocantins",
+            "likes": 1
         },
         {
-            "text": "👏👏👏👏",
+            "text": "Força e Honra sempre",
             "sentiment": "neutro",
-            "timestamp": "2026-01-11T21:48:48.000Z",
-            "owner": "revistaguiaturisticotocantins_",
-            "likes": 0
+            "timestamp": "2025-12-11T19:11:33.000Z",
+            "owner": "djinaldomoraes",
+            "likes": 5
         },
         {
             "text": "👏👏👏",
             "sentiment": "neutro",
-            "timestamp": "2026-01-11T12:17:26.000Z",
-            "owner": "dennermoraisdsm",
+            "timestamp": "2025-12-11T17:33:36.000Z",
+            "owner": "valdeonne7",
+            "likes": 3
+        },
+        {
+            "text": "Se está com você nós confiamos 💪🏽⚡️",
+            "sentiment": "neutro",
+            "timestamp": "2025-12-11T16:14:29.000Z",
+            "owner": "nicmavan",
+            "likes": 17
+        },
+        {
+            "text": "👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2025-12-11T16:12:22.000Z",
+            "owner": "chikinho_bonsai",
             "likes": 1
+        },
+        {
+            "text": "Excelente 👏🏼👏🏼👏🏼🫡",
+            "sentiment": "positivo",
+            "timestamp": "2025-12-11T17:38:02.000Z",
+            "owner": "thiago_mont_",
+            "likes": 9
         },
         {
             "text": "👏👏👏👏👏👏👏",
             "sentiment": "neutro",
-            "timestamp": "2026-01-11T13:50:47.000Z",
+            "timestamp": "2025-12-11T16:14:54.000Z",
+            "owner": "charles_pereira_200269",
+            "likes": 1
+        },
+        {
+            "text": "Coronel Barbosa esse fez faz e vai continuar fazendo o melhor pelo nosso Estado... Sou seu fã  @sargentonantes",
+            "sentiment": "positivo",
+            "timestamp": "2025-12-11T18:32:33.000Z",
+            "owner": "gomesfernandog88",
+            "likes": 3
+        },
+        {
+            "text": "👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2025-12-11T16:54:52.000Z",
+            "owner": "ara_eng1969",
+            "likes": 2
+        },
+        {
+            "text": "👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2025-12-11T16:12:58.000Z",
+            "owner": "projetovisaodeaguia_.mab",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2025-12-11T18:12:15.000Z",
+            "owner": "drrogeriohamu",
+            "likes": 1
+        },
+        {
+            "text": "Se você diz confiamos 👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2025-12-11T20:26:56.000Z",
+            "owner": "vieiradulce678dulcevieira",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2025-12-11T17:12:17.000Z",
+            "owner": "gtrisijr2025",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2025-12-11T16:40:44.000Z",
+            "owner": "sofi.landmann_echenique",
+            "likes": 1
+        },
+        {
+            "text": "🙌🙌👏👏👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2025-12-11T16:30:11.000Z",
+            "owner": "antoniamarochi",
+            "likes": 1
+        },
+        {
+            "text": "👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-02-22T10:50:11.000Z",
+            "owner": "claertobritode",
+            "likes": 0
+        },
+        {
+            "text": "Meu futuro Dep federal 👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-02-23T18:20:31.000Z",
+            "owner": "rochalussivando",
+            "likes": 0
+        },
+        {
+            "text": "Parabéns Comandante pelo belo trabalho.",
+            "sentiment": "positivo",
+            "timestamp": "2026-02-22T15:52:28.000Z",
+            "owner": "andersonadv1985",
+            "likes": 0
+        },
+        {
+            "text": "Parabéns ao comandante pelo belo trabalho 👏👏👏",
+            "sentiment": "positivo",
+            "timestamp": "2026-02-24T04:11:38.000Z",
+            "owner": "ruthilene_c.s",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-02-25T23:11:58.000Z",
+            "owner": "odcleyson_2026",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-02-22T11:46:16.000Z",
+            "owner": "adilsonfrancadeoliveira",
+            "likes": 0
+        },
+        {
+            "text": "Grande coronel Barbosa",
+            "sentiment": "neutro",
+            "timestamp": "2026-02-24T08:01:24.000Z",
+            "owner": "sampa.marcos",
+            "likes": 0
+        },
+        {
+            "text": "👏👏 força e honra",
+            "sentiment": "neutro",
+            "timestamp": "2026-02-23T12:26:47.000Z",
+            "owner": "deilson.alves.1650",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-02-22T14:46:29.000Z",
             "owner": "goreteffarias13",
             "likes": 0
         },
         {
-            "text": "👏👏👏👏👏",
+            "text": "👏👏👏👏",
             "sentiment": "neutro",
-            "timestamp": "2026-01-11T19:05:28.000Z",
-            "owner": "fernandoalvesfotografo",
-            "likes": 0
-        },
-        {
-            "text": "👏👏👏👏👏👏",
-            "sentiment": "neutro",
-            "timestamp": "2026-01-11T21:32:00.000Z",
-            "owner": "elmaaraujo2408",
-            "likes": 1
-        },
-        {
-            "text": "Que lindoo , parabéns Primeira Dama 🥹👏🏻👏🏻",
-            "sentiment": "positivo",
-            "timestamp": "2026-01-11T13:13:21.000Z",
-            "owner": "ana_paulams26",
-            "likes": 0
-        },
-        {
-            "text": "👏👏👏👏👏👏",
-            "sentiment": "neutro",
-            "timestamp": "2026-01-11T13:23:26.000Z",
-            "owner": "jaimeporfiriodesouza",
+            "timestamp": "2026-02-22T12:47:06.000Z",
+            "owner": "l.mourabarros",
             "likes": 0
         },
         {
             "text": "👏👏👏",
             "sentiment": "neutro",
-            "timestamp": "2026-01-11T12:52:09.000Z",
-            "owner": "leilakraho",
+            "timestamp": "2026-02-22T15:21:30.000Z",
+            "owner": "thyagoalvaro",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-02-22T16:00:09.000Z",
+            "owner": "paderinhoto",
             "likes": 0
         },
         {
             "text": "👏👏👏👏",
             "sentiment": "neutro",
-            "timestamp": "2026-01-11T12:52:25.000Z",
-            "owner": "maariabeatrizz_",
-            "likes": 1
-        },
-        {
-            "text": "Que legal 😍",
-            "sentiment": "neutro",
-            "timestamp": "2026-01-11T15:35:03.000Z",
-            "owner": "karise_paula",
+            "timestamp": "2026-02-23T14:09:21.000Z",
+            "owner": "jeremiasmjunior",
             "likes": 0
         },
         {
-            "text": "👏👏👏👏",
+            "text": "👏👏👏",
             "sentiment": "neutro",
-            "timestamp": "2026-01-11T12:41:33.000Z",
-            "owner": "roniimperatriz",
+            "timestamp": "2026-02-28T01:48:28.000Z",
+            "owner": "di.ferreira_",
             "likes": 0
         },
         {
-            "text": "👏👏👏🙌🙌",
-            "sentiment": "neutro",
-            "timestamp": "2026-01-12T00:25:43.000Z",
-            "owner": "mariabarrosoalmeida",
-            "likes": 0
-        },
-        {
-            "text": "👏👏👏👏👏👏👏👏👏👏👏👏👏👏👏👏",
-            "sentiment": "neutro",
-            "timestamp": "2026-01-11T12:58:20.000Z",
-            "owner": "thallessevero2026",
-            "likes": 0
-        },
-        {
-            "text": "Márcio Antônio, que orgulho eu tenho de você! Foram quatro anos à frente da Polícia Militar, conduzindo tudo com seriedade, compromisso e, acima de tudo, honestidade. Em um tempo em que tantos se perd",
+            "text": "Parabéns meu CMT, o senhor. É um CMT diferenciado fora da curva. Graças a DEUS e continue firme Tmj.",
             "sentiment": "positivo",
-            "timestamp": "2026-04-13T13:57:59.000Z",
-            "owner": "naracris72",
-            "likes": 2
+            "timestamp": "2026-02-22T14:06:00.000Z",
+            "owner": "uriasalves.freitas",
+            "likes": 0
         },
         {
-            "text": "❤️👏",
-            "sentiment": "neutro",
-            "timestamp": "2026-04-06T00:52:11.000Z",
-            "owner": "amandavasconcelosbm",
-            "likes": 5
-        },
-        {
-            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
+            "text": "Excelente comandante 👏🪖⚡",
             "sentiment": "positivo",
-            "timestamp": "2026-04-06T00:03:22.000Z",
-            "owner": "ry4n_carloss",
-            "likes": 14
-        },
-        {
-            "text": "Merece a confiança do povo tocantinense para ser eleito Deputado Federal, pois construiu uma trajetória marcada por dedicação, compromisso e um excelente trabalho prestado na Polícia Militar do Tocant",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-10T22:28:18.000Z",
-            "owner": "jarleterocha",
-            "likes": 2
-        },
-        {
-            "text": "Um novo cenário politico se aproxima 🙌🚀🫡",
-            "sentiment": "neutro",
-            "timestamp": "2026-04-05T23:17:00.000Z",
-            "owner": "nubyperes",
-            "likes": 20
-        },
-        {
-            "text": "@marciobarbosa_cel A verdadeira inovação na política tocantinense 🔥🚀 alguém pra fazer a diferença",
-            "sentiment": "neutro",
-            "timestamp": "2026-04-06T00:03:53.000Z",
-            "owner": "major_anisiovaz",
+            "timestamp": "2026-03-30T01:20:16.000Z",
+            "owner": "giro_rondonia",
             "likes": 3
         },
         {
-            "text": "Parabéns, Sr. Coronel. Sua atuação vem fazendo a diferença na segurança do nosso estado. Esperamos seu apoio para a convocação dos mais de 1.000 aprovados da PMTO — e saiba que estamos juntos nessa ca",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-06T10:46:07.000Z",
-            "owner": "alyf_caua",
-            "likes": 1
-        },
-        {
-            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-05T23:59:41.000Z",
-            "owner": "jota_negrao",
-            "likes": 7
-        },
-        {
-            "text": "Parabéns, Sr. Coronel. Seu trabalho fortalece a segurança do nosso estado. Contamos com seu apoio para o chamamento dos mais de 1.000 aprovados da PMTO — e o senhor pode contar conosco nessa missão.",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-06T10:45:18.000Z",
-            "owner": "alyf_caua",
-            "likes": 1
-        },
-        {
-            "text": "Parabéns, Sr. Coronel. Seu trabalho fortalece a segurança do nosso estado. Contamos com seu apoio para o chamamento dos mais de 1.000 aprovados da PMTO — e o senhor pode contar conosco nessa missão.",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-06T10:45:19.000Z",
-            "owner": "alyf_caua",
-            "likes": 1
-        },
-        {
-            "text": "Parabéns, Sr. Coronel. Seu trabalho fortalece a segurança do nosso estado. Contamos com seu apoio para o chamamento dos mais de 1.000 aprovados da PMTO — e o senhor pode contar conosco nessa missão.",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-06T10:45:24.000Z",
-            "owner": "alyf_caua",
-            "likes": 1
-        },
-        {
-            "text": "Parabéns, Sr. Coronel. Seu trabalho fortalece a segurança do nosso estado. Contamos com seu apoio para o chamamento dos mais de 1.000 aprovados da PMTO — e o senhor pode contar conosco nessa missão.",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-06T10:45:16.000Z",
-            "owner": "alyf_caua",
-            "likes": 1
-        },
-        {
-            "text": "Parabéns, Sr. Coronel. Seu trabalho fortalece a segurança do nosso estado. Contamos com seu apoio para o chamamento dos mais de 1.000 aprovados da PMTO — e o senhor pode contar conosco nessa missão.",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-06T10:45:22.000Z",
-            "owner": "alyf_caua",
-            "likes": 1
-        },
-        {
-            "text": "Parabéns, Sr. Coronel. Seu trabalho fortalece a segurança do nosso estado. Contamos com seu apoio para o chamamento dos mais de 1.000 aprovados da PMTO — e o senhor pode contar conosco nessa missão.",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-06T10:45:26.000Z",
-            "owner": "alyf_caua",
-            "likes": 1
-        },
-        {
-            "text": "Parabéns, Sr. Coronel. Isso é sinal do excelente trabalho que o senhor vem realizando na segurança pública do nosso estado. Contamos com o seu apoio junto ao governo para o chamamento de mais de 1.000",
-            "sentiment": "positivo",
-            "timestamp": "2026-04-05T23:58:21.000Z",
-            "owner": "thiagoalencarf",
-            "likes": 6
-        },
-        {
-            "text": "Meu Deputado Federal 🇧🇷",
+            "text": "🔥🔥🏇🏇🏇🏇🏇🏇🏇🏇❤️‍🔥❤️‍🔥",
             "sentiment": "neutro",
-            "timestamp": "2026-03-04T23:36:03.000Z",
-            "owner": "arlam_pinheiro",
-            "likes": 0
+            "timestamp": "2026-03-30T13:55:52.000Z",
+            "owner": "henriquesosioficial",
+            "likes": 2
         },
         {
-            "text": "Você é melhor 👏👏 grande orgulho da família 🙏🙏🤩",
+            "text": "Grande você tbm é, meu amigo! Parabéns pelo reconhecimento recebido! 👏🏽👏🏽👏🏽",
             "sentiment": "positivo",
-            "timestamp": "2026-03-31T17:05:28.000Z",
-            "owner": "milhomem921",
-            "likes": 0
+            "timestamp": "2026-03-30T02:14:27.000Z",
+            "owner": "glaubersouto86",
+            "likes": 2
         },
         {
-            "text": "Tem meu Total respeito e apoio 👏👏👏👏👏",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-05T03:27:52.000Z",
-            "owner": "leandrobotelho.54",
-            "likes": 0
-        },
-        {
-            "text": "👏👏👏",
+            "text": "Pra cima, comando",
             "sentiment": "neutro",
-            "timestamp": "2026-03-05T00:27:08.000Z",
-            "owner": "reginaldovieira2011",
-            "likes": 0
+            "timestamp": "2026-03-30T14:11:09.000Z",
+            "owner": "eduardohadad",
+            "likes": 1
         },
         {
-            "text": "👏👏🏻",
-            "sentiment": "neutro",
-            "timestamp": "2026-03-05T00:46:59.000Z",
-            "owner": "programa.coisademae",
-            "likes": 0
-        },
-        {
-            "text": "NELE SIM EU CONFIO E VOTO PARA DEPUTADO FEDERAL COM TODAS CLAREZAS E EVIDÊNCIAS SERÁ ELEITO VITORIOSO NAS URNAS ELETRÔNICAS EM OUTUBRO DESTE ANO DE 2026.🙌🙌🔥🔥👏👏",
+            "text": "Parabéns comando! Que Deus te abençoe com sabedoria para dar continuidade naquilo que ele tem te chamado.",
             "sentiment": "positivo",
-            "timestamp": "2026-03-04T23:49:51.000Z",
-            "owner": "reginaldomagalhaesss",
-            "likes": 0
+            "timestamp": "2026-04-05T19:18:16.000Z",
+            "owner": "elycarlos7",
+            "likes": 1
         },
         {
-            "text": "Muito bom cmt 👏👏👏👏👏",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-07T22:37:54.000Z",
-            "owner": "hefersonsuartelopes",
-            "likes": 0
-        },
-        {
-            "text": "👏👏👏",
+            "text": "Força e honra sempre 🫡👊🏻",
             "sentiment": "neutro",
-            "timestamp": "2026-03-05T13:16:10.000Z",
-            "owner": "kellyaaraujomartins",
+            "timestamp": "2026-04-03T01:47:41.000Z",
+            "owner": "sargentonantes",
+            "likes": 3
+        },
+        {
+            "text": "Zerou o game com o a curtida do monstro @joaocordeirojr . Pra cima meu consagrado",
+            "sentiment": "neutro",
+            "timestamp": "2026-03-31T01:45:21.000Z",
+            "owner": "felipehenriquemartins",
+            "likes": 1
+        },
+        {
+            "text": "Registros pesadíssimos! 👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-03-30T02:50:47.000Z",
+            "owner": "mayconsis",
             "likes": 0
         },
         {
             "text": "👏👏👏👏",
             "sentiment": "neutro",
-            "timestamp": "2026-03-04T23:53:58.000Z",
-            "owner": "teixeiraalewagner",
+            "timestamp": "2026-03-30T02:08:20.000Z",
+            "owner": "ozana_blindada",
             "likes": 0
         },
         {
-            "text": "👏👏👏👏👏",
-            "sentiment": "neutro",
-            "timestamp": "2026-03-04T23:38:03.000Z",
-            "owner": "adaorodrigodemoura",
-            "likes": 0
-        },
-        {
-            "text": "Meu deputado Federal!",
-            "sentiment": "neutro",
-            "timestamp": "2026-03-05T13:16:26.000Z",
-            "owner": "kellyaaraujomartins",
-            "likes": 0
-        },
-        {
-            "text": "👏👏👏",
-            "sentiment": "neutro",
-            "timestamp": "2026-03-05T09:34:05.000Z",
-            "owner": "subjoaovictor",
-            "likes": 0
-        },
-        {
-            "text": "Parceria que deu certo!👏👏",
-            "sentiment": "neutro",
-            "timestamp": "2025-12-13T01:43:19.000Z",
-            "owner": "pallonbrazil",
-            "likes": 2
-        },
-        {
-            "text": "👏👏👏👏🙌",
-            "sentiment": "neutro",
-            "timestamp": "2025-12-14T22:09:13.000Z",
-            "owner": "hercyayresfilho",
+            "text": "Boa comandante",
+            "sentiment": "positivo",
+            "timestamp": "2026-03-30T12:50:21.000Z",
+            "owner": "daniel_dasilvva",
             "likes": 1
         },
         {
             "text": "👏👏👏",
             "sentiment": "neutro",
-            "timestamp": "2025-12-13T01:41:24.000Z",
-            "owner": "narubia_javae",
-            "likes": 0
-        },
-        {
-            "text": "Nossa, q maravilha de Parcerias! Nunca tinha visto um Encontro desses! NOTA 10 pra Ambas as partes q respeito , admiro e quero bem! Q esta PARCERIA seja frutífera  especial pros nossos IRMÃOS  INDÍGEN",
-            "sentiment": "positivo",
-            "timestamp": "2025-12-13T12:11:16.000Z",
-            "owner": "lucosta311",
+            "timestamp": "2026-03-30T01:24:38.000Z",
+            "owner": "tiagobravobr",
             "likes": 1
         },
         {
-            "text": "Excelente iniciativa 👏🏽",
-            "sentiment": "positivo",
-            "timestamp": "2025-12-13T08:36:31.000Z",
-            "owner": "prof.flaviofacundes",
-            "likes": 0
-        },
-        {
-            "text": "Parabéns 👏👏👏",
-            "sentiment": "positivo",
-            "timestamp": "2025-12-13T08:30:51.000Z",
-            "owner": "reginaldovieira2011",
-            "likes": 0
-        },
-        {
-            "text": "Eu tenho tanto orgulho de vc Micael ❤️",
-            "sentiment": "positivo",
-            "timestamp": "2025-12-13T10:57:13.000Z",
-            "owner": "paulinhanuns",
-            "likes": 0
-        },
-        {
-            "text": "👏👏👏",
+            "text": "Foto de peso só os brabos👏💀",
             "sentiment": "neutro",
-            "timestamp": "2025-12-13T08:57:51.000Z",
-            "owner": "sgt.udsondmeloteles",
+            "timestamp": "2026-03-30T04:07:11.000Z",
+            "owner": "ryan_marfort_",
+            "likes": 1
+        },
+        {
+            "text": "Só os brabos",
+            "sentiment": "neutro",
+            "timestamp": "2026-03-30T01:59:32.000Z",
+            "owner": "fabricio_santoss64",
             "likes": 0
         },
         {
-            "text": "👏👏👏",
+            "text": "Padrão! 💯",
             "sentiment": "neutro",
-            "timestamp": "2025-12-13T01:46:58.000Z",
-            "owner": "franksyneth",
+            "timestamp": "2026-03-30T01:26:44.000Z",
+            "owner": "wadson.barros.18",
+            "likes": 0
+        },
+        {
+            "text": "👏👏👏👏",
+            "sentiment": "neutro",
+            "timestamp": "2026-03-30T01:50:46.000Z",
+            "owner": "michel.saint.clair",
+            "likes": 0
+        },
+        {
+            "text": "Parabéns pela excelente gestão à frente da nossa gloriosa PMTO, Comandante-Geral @marciobarbosa_cel! O senhor, que conhece como ninguém a realidade das ruas, sabe que o reforço é vital para a nossa se",
+            "sentiment": "positivo",
+            "timestamp": "2026-03-29T14:09:54.000Z",
+            "owner": "mateus.albuquerque.23",
+            "likes": 3
+        },
+        {
+            "text": "Nossa que evento maravilhoso não  poderia faltar o Sargento  Castro Nantes  e Pires  três  feras",
+            "sentiment": "positivo",
+            "timestamp": "2026-03-29T15:13:12.000Z",
+            "owner": "nairsampaio51",
+            "likes": 1
+        },
+        {
+            "text": "Sensacional. Parabéns 🙌👏",
+            "sentiment": "positivo",
+            "timestamp": "2026-03-29T17:47:13.000Z",
+            "owner": "glauciane.dossantos",
+            "likes": 0
+        },
+        {
+            "text": "Somos mais de mil prontos para servir",
+            "sentiment": "neutro",
+            "timestamp": "2026-03-29T16:37:55.000Z",
+            "owner": "calebeamorim1",
+            "likes": 1
+        },
+        {
+            "text": "Parabéns a todos pela organização, muiiiito tooop🙌",
+            "sentiment": "positivo",
+            "timestamp": "2026-03-29T13:34:09.000Z",
+            "owner": "claudim_pmw",
             "likes": 0
         }
     ],
@@ -406,17 +406,17 @@
             "likes": 35
         },
         {
-            "text": "@marciobarbosa_cel Não foram apenas nomes em uma lista… foram histórias de luta.\n\nSomos cerca de 1000 aprovados. 1000 pessoas que enfrentaram o cansaço, a dúvida, a falta de recursos, a pressão e, mui",
-            "sentiment": "positivo",
-            "timestamp": "2026-03-26T19:34:59.000Z",
-            "owner": "haniel.castro.sd",
-            "likes": 33
-        },
-        {
             "text": "Ao nosso Governador e ao nosso Comandante-Geral, o nosso grande respeito e admiração! Vimos que o Tocantins e a nossa Capital tem se destacado no cenário nacional, na diminuição dos índices de crimina",
             "sentiment": "positivo",
             "timestamp": "2026-01-19T23:17:10.000Z",
             "owner": "creigsantos",
+            "likes": 33
+        },
+        {
+            "text": "@marciobarbosa_cel Não foram apenas nomes em uma lista… foram histórias de luta.\n\nSomos cerca de 1000 aprovados. 1000 pessoas que enfrentaram o cansaço, a dúvida, a falta de recursos, a pressão e, mui",
+            "sentiment": "positivo",
+            "timestamp": "2026-03-26T19:34:59.000Z",
+            "owner": "haniel.castro.sd",
             "likes": 33
         },
         {
@@ -435,6 +435,20 @@
         }
     ],
     "top_negative": [
+        {
+            "text": "NO TOCANTINS O LADRÃO NÃO SE CRIA. 👊🏼",
+            "sentiment": "negativo",
+            "timestamp": "2026-01-07T14:52:21.000Z",
+            "owner": "vanderlei_vargas_30_44",
+            "likes": 7
+        },
+        {
+            "text": "A POLICIA MILITAR DO ESTADO DO TOCANTINS desde o anão de dois mil e vinte, dentre vários projetos bem executados venho destacar nove deles que através da plataforma transfergov, onde foram bem executa",
+            "sentiment": "negativo",
+            "timestamp": "2026-02-22T12:59:56.000Z",
+            "owner": "emenegildoribeiro",
+            "likes": 4
+        },
         {
             "text": "No Tocantins Bandido nao se cria. 👏👏👏👏@marciobarbosa_cel",
             "sentiment": "negativo",
@@ -457,17 +471,24 @@
             "likes": 1
         },
         {
-            "text": "Uma ação que demonstra a preocupação em proteger o público público feminino de qualquer tipo de violência contra a mulher. Isso é muito importante para o nosso Estado.",
+            "text": "Aqui não tem bandido famoso , dono de área , chefão .",
             "sentiment": "negativo",
-            "timestamp": "2026-01-11T13:31:36.000Z",
-            "owner": "marielegfranca",
+            "timestamp": "2026-01-07T18:18:53.000Z",
+            "owner": "joao0662",
             "likes": 1
         },
         {
-            "text": "👏👏👏👏👏👏 NÃO A TANTA VIOLÊNCIA DOMÉSTICA NO NOSSO ESTADO",
+            "text": "Terra Remosa pra Ladrão🔥🔥🔥🔥🔥",
             "sentiment": "negativo",
-            "timestamp": "2026-01-11T13:41:19.000Z",
-            "owner": "nayaralcavalcante",
+            "timestamp": "2026-01-07T10:12:42.000Z",
+            "owner": "jmachado_palmas",
+            "likes": 1
+        },
+        {
+            "text": "TO é reimoso pra ladrão, comando!🤨🔵⚪️🟡",
+            "sentiment": "negativo",
+            "timestamp": "2026-01-07T13:18:27.000Z",
+            "owner": "lucasfelipe__99",
             "likes": 0
         },
         {
@@ -478,17 +499,10 @@
             "likes": 0
         },
         {
-            "text": "Tomara que com esse susto, aprenda a gastar somente com o seu dinheiro , vê se não esbanje com dinheiro público, se tudo que falaram for verdade é uma vergonha nacional 🌹",
+            "text": "Aqui no Tocantins ladrão não se cria!",
             "sentiment": "negativo",
-            "timestamp": "2025-12-06T16:40:42.000Z",
-            "owner": "katiashirlenefonse",
-            "likes": 0
-        },
-        {
-            "text": "O ciclo tá fechando para criminoso no Tocantins dois policiais foram presos no Guaraí graças a Deus menos dois melícianos nas ruas do Tocantins",
-            "sentiment": "negativo",
-            "timestamp": "2026-04-24T22:00:34.000Z",
-            "owner": "paradadafrutta",
+            "timestamp": "2026-05-08T22:35:22.000Z",
+            "owner": "augustocsilva78",
             "likes": 0
         }
     ]
