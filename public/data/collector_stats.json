@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-05-11 12:45",
+  "updated_at": "2026-05-11 17:31",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 6,
-    "duplicates": 4,
+    "entries_rss_raw": 14,
+    "duplicates": 12,
     "blocked_date": 0,
     "blocked_id": 2,
     "blocked_id_reasons": {
       "nome do candidato ausente": 2
     },
     "approved_rss": 0,
-    "approved_scrape": 0,
+    "approved_scrape": 2,
     "approved_indirect": 0,
-    "total_new": 0,
+    "total_new": 2,
     "sources_approved": {}
   },
   "history_summary": {
@@ -136,7 +136,7 @@
       "layer": "B",
       "mentions_30d": 0,
       "last_run_status": "ok",
-      "last_run_mentions": 0
+      "last_run_mentions": 2
     },
     "agenciatocantins": {
       "name": "Agência Tocantins",
