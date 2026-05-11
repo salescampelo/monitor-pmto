@@ -14,15 +14,16 @@
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi-wFBVV95cUxNVk1SQmJsMEM0N21NcWVDTEhmY19ZMjJvOFFRNjN4eUx1VzcyM1o4Tm1hR1dXWHdfNzhHcHJURmRlZkM1M1JDd2QtZVJkRkt5Rm5GM0U1VS0wTjFXTG1WeEJ3ci1VU3pQMHRaMWtoMk",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.75,
     "cluster": "Eleitoral",
     "date": "2026-01-30",
     "date_display": "30/01/2026",
     "detected_at": "2026-04-30 15:47",
     "collected_at": "2026-04-30T15:47:07",
     "year": 2026,
-    "month": 1
+    "month": 1,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "d87989d28ab5",
@@ -39,15 +40,16 @@
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi3AFBVV95cUxQNzN0bnBtY0U1MkVJVUxMMzMtcDhVMzZTRUY4UGFxeUdUQ2Z6MW5QNzZhWXBkcDAzVF9lejBJRW5TanJlZFVuMmxxV1VOVDlBbmhrWllYeFVTaTFUQlR5RlRjNlJmYzQxd0xQTkpLRE",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "date": "2026-02-01",
     "date_display": "01/02/2026",
     "detected_at": "2026-04-30 15:47",
     "collected_at": "2026-04-30T15:47:07",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "772a69fed45f",
@@ -64,15 +66,16 @@
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi-wFBVV95cUxPeTFiNnFubGNteFdETDlzSTNRLVRjT29ILTJoZXhIS2pFYy1PMExDZUEtbktnQXRwbFc4dXViYlpkVGoybm5TV0NEbWJaczZWRWdnMWRfbEphTFNKQlBuaUNkYmg5TE9TaXlhdVp1ej",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Negativo",
+    "sentiment_confidence": 0.7,
     "cluster": "Geral",
     "date": "2026-02-04",
     "date_display": "04/02/2026",
     "detected_at": "2026-04-30 15:47",
     "collected_at": "2026-04-30T15:47:09",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "1206d4366634",
@@ -89,15 +92,16 @@
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxPak5IaVdnbnl1SXBLZ2FfTWhDTkRVVFQ5a3l3YXdJM1NrMUpnckw1RTZ6YkluTEI2aGZsX1lGd1M2ZUVDSE56V2ZSRk5oQzh0ajFSbUZzVGRaWUQ4d0hGcndKQmlUVWhjU1ZlSHc0dG",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Negativo",
+    "sentiment_confidence": 0.65,
     "cluster": "Comando",
     "date": "2026-04-10",
     "date_display": "10/04/2026",
     "detected_at": "2026-04-30 15:50",
     "collected_at": "2026-04-30T15:50:54",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "c441c7d2a323",
@@ -115,14 +119,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-04-20",
     "date_display": "20/04/2026",
     "detected_at": "2026-04-30 15:50",
     "collected_at": "2026-04-30T15:50:54",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "1adef43837b6",
@@ -140,14 +145,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.75,
     "cluster": "Eleitoral",
     "date": "2026-04-18",
     "date_display": "18/04/2026",
     "detected_at": "2026-04-30 15:50",
     "collected_at": "2026-04-30T15:50:56",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "e469d352fd95",
@@ -164,15 +170,16 @@
     "snippet": "O Comandante‑Geral da Polícia Militar do Tocantins (PMTO), Coronel PM Márcio Antônio Barbosa de Mendonça, acompanhou de perto nesta quinta-feira, 08, a participação do Batalhão Futebol Clube na Copa São Paulo de Futebol Júnior (a Copinha) 2026, principal competição de base do futebol brasileiro, realizada em São Paulo com 128 clubes participantes.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.7,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.8,
     "cluster": "Comando",
     "date": "2026-01-10",
     "date_display": "10/01/2026",
     "detected_at": "2026-04-30 16:08",
     "collected_at": "2026-04-30T16:08:08",
     "year": 2026,
-    "month": 1
+    "month": 1,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "b3a9af2e3495",
@@ -190,14 +197,15 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment_confidence": 0.75,
     "cluster": "Comando",
     "date": "2026-01-10",
     "date_display": "10/01/2026",
     "detected_at": "2026-04-30 16:08",
     "collected_at": "2026-04-30T16:08:38",
     "year": 2026,
-    "month": 1
+    "month": 1,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "c5e00187cb32",
@@ -214,15 +222,16 @@
     "snippet": "A solenidade ocorreu no Centro de Convenções, localizado no centro da cidade, e contou com a presença do comandante-geral da Polícia Militar do Tocantins, coronel Márcio Barbosa, além de autoridades civis e militares, policiais militares e representantes da comunidade local.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.85,
     "cluster": "Comando",
     "date": "2026-01-16",
     "date_display": "16/01/2026",
     "detected_at": "2026-04-30 16:09",
     "collected_at": "2026-04-30T16:09:56",
     "year": 2026,
-    "month": 1
+    "month": 1,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "275c5593b84d",
@@ -239,15 +248,16 @@
     "snippet": "E determinou ao comandante da PM, Márcio Barbosa (em desbragada movimentação política desde 2024), levar à sua mesa os nomes.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Negativo",
+    "sentiment_confidence": 0.72,
     "cluster": "Comando",
     "date": "2026-01-18",
     "date_display": "18/01/2026",
     "detected_at": "2026-04-30 16:10",
     "collected_at": "2026-04-30T16:10:45",
     "year": 2026,
-    "month": 1
+    "month": 1,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "c3c9ef903756",
@@ -265,14 +275,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-02-01",
     "date_display": "01/02/2026",
     "detected_at": "2026-04-30 16:11",
     "collected_at": "2026-04-30T16:11:28",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "26bced49ffb2",
@@ -289,15 +300,16 @@
     "snippet": "A empresária é esposa do cantor Henrique, da dupla sertaneja com Juliano, e também filha do ex-comandante-geral da Polícia Militar do Tocantins, o coronel Márcio Barbosa .",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Muito Negativo",
+    "sentiment_confidence": 0.88,
     "cluster": "Comando",
     "date": "2026-02-03",
     "date_display": "03/02/2026",
     "detected_at": "2026-04-30 16:11",
     "collected_at": "2026-04-30T16:11:53",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "bb7874e91e58",
@@ -314,15 +326,16 @@
     "snippet": "Ela também é filha do comandante-geral da Polícia Militar do Tocantins, coronel Márcio Barbosa .",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Muito Negativo",
+    "sentiment_confidence": 0.85,
     "cluster": "Comando",
     "date": "2026-02-03",
     "date_display": "03/02/2026",
     "detected_at": "2026-04-30 16:12",
     "collected_at": "2026-04-30T16:12:08",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "281909b6358f",
@@ -339,15 +352,16 @@
     "snippet": "A esposa do cantor costuma a frequentar regularmente Orlando, nos Estados Unidos, e é filha do comandante-geral da Polícia Militar do Tocantins, coronel Márcio Barbosa.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Muito Negativo",
+    "sentiment_confidence": 0.87,
     "cluster": "Comando",
     "date": "2026-02-03",
     "date_display": "03/02/2026",
     "detected_at": "2026-04-30 16:12",
     "collected_at": "2026-04-30T16:12:15",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "fd54bc9cfd59",
@@ -364,15 +378,16 @@
     "snippet": "Amanda também é filha do comandante-geral da Polícia Militar do Tocantins, coronel Márcio Barbosa.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Muito Negativo",
+    "sentiment_confidence": 0.86,
     "cluster": "Comando",
     "date": "2026-02-03",
     "date_display": "03/02/2026",
     "detected_at": "2026-04-30 16:12",
     "collected_at": "2026-04-30T16:12:23",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "fbaee6292870",
@@ -389,15 +404,16 @@
     "snippet": "Polícia Militar do Tocantins recebe doação de kits Starlink para reforçar comunicação em áreas remotas Últimas notícias Editorias Municípios Vídeos Páginas Classificados Fale conosco 23 °C 31 °C Palmas, TO Geral Saúde Economia Política Educação Concursos Justiça Polícia Empregos Publicação Legal Eleições 2026 Publicidade Polícia Militar do Tocantins recebe doação de kits Starlink para reforçar comunicação em áreas remotas Equipamentos doados pela Energisa Tocantins ampliam conectividade de equipes do Batalhão Ambiental e fortalecem parceria institucional Por: Allessandro Ferreira Fonte: Redação | Agência Tocantins 03/02/2026 às 17h48 Atualizada em 03/02/2026 às 22h47 Comandante-Geral da Polícia Militar do Tocantins, coronel PM Márcio Antônio Barbosa de Mendonça, ressaltou a relevância dos equipamentos para as atividades operacionais da corporação.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.7,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.9,
     "cluster": "Eleitoral",
     "date": "2026-02-03",
     "date_display": "03/02/2026",
     "detected_at": "2026-04-30 16:12",
     "collected_at": "2026-04-30T16:12:42",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "ebcd262d3e5a",
@@ -414,15 +430,16 @@
     "snippet": "Quem é Amanda Vasconcelos Ela é filha do comandante-geral da Polícia Militar do Tocantins , coronel Márcio Antônio Barbosa de Mendonça.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Muito Negativo",
+    "sentiment_confidence": 0.87,
     "cluster": "Comando",
     "date": "2026-02-03",
     "date_display": "03/02/2026",
     "detected_at": "2026-04-30 16:12",
     "collected_at": "2026-04-30T16:12:52",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "353331b23f5d",
@@ -439,15 +456,16 @@
     "snippet": "Por: Allessandro Ferreira Fonte: Redação | Agência Tocantins 31/01/2026 às 22h54 Após ser preso pela equipe de Rotam comando, João Paulo Fernandes de Oliveira foi apresentado á autoridade policial na 1ª CAPC – Foto: Allessandro Ferreira / Agência Tocantins Dando continuidade às ações de combate à criminalidade e ao tráfico de drogas no âmbito da Operação Cidade Blindada II, desencadeada em Palmas pela Polícia Militar por determinação do comandante-geral, coronel Márcio Barbosa, policiais militares do Batalhão de Polícia de Choque (BPCHOQUE), por meio da equipe da ROTAM Comando, desarticularam um ponto de comercialização de substâncias entorpecentes na região norte da capital e efetuaram a prisão de um indivíduo de 28 anos, suspeito de tráfico de drogas.",
     "relevance_score": 0.85,
     "relevance_label": "ELEITORAL",
-    "sentiment": "Negativo",
-    "sentiment_confidence": 0.95,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.85,
     "cluster": "Comando",
     "date": "2026-01-31",
     "date_display": "31/01/2026",
     "detected_at": "2026-04-30 16:13",
     "collected_at": "2026-04-30T16:13:13",
     "year": 2026,
-    "month": 1
+    "month": 1,
+    "sentiment_original": "Negativo"
   },
   {
     "hash_id": "0bc4cc70f754",
@@ -464,15 +482,16 @@
     "snippet": "É filha do coronel Márcio Barbosa, comandante-geral da Polícia Militar do Tocantins.",
     "relevance_score": 0.8,
     "relevance_label": "INSTITUCIONAL",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Muito Negativo",
+    "sentiment_confidence": 0.86,
     "cluster": "Comando",
     "date": "2026-02-03",
     "date_display": "03/02/2026",
     "detected_at": "2026-04-30 16:13",
     "collected_at": "2026-04-30T16:13:37",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "2f7a20c7912b",
@@ -490,14 +509,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment_confidence": 0.8,
     "cluster": "Comando",
     "date": "2026-02-20",
     "date_display": "20/02/2026",
     "detected_at": "2026-04-30 16:17",
     "collected_at": "2026-04-30T16:17:04",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "bc609d7a6b3c",
@@ -514,15 +534,16 @@
     "snippet": "“Nós somos um dos estados que mais reduziu a criminalidade no país e nós devemos muito ao trabalho do coronel Márcio Antônio Barbosa e de toda a Polícia Militar.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.82,
     "cluster": "Geral",
     "date": "2026-02-21",
     "date_display": "21/02/2026",
     "detected_at": "2026-04-30 16:17",
     "collected_at": "2026-04-30T16:17:15",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "ce2575ecb2a5",
@@ -540,14 +561,15 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Negativo",
-    "sentiment_confidence": 0.7,
+    "sentiment_confidence": 0.68,
     "cluster": "Comando",
     "date": "2026-02-22",
     "date_display": "22/02/2026",
     "detected_at": "2026-04-30 16:17",
     "collected_at": "2026-04-30T16:17:26",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Negativo"
   },
   {
     "hash_id": "49f729f94563",
@@ -572,7 +594,8 @@
     "detected_at": "2026-04-30 16:17",
     "collected_at": "2026-04-30T16:17:32",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Negativo"
   },
   {
     "hash_id": "1638b28910ec",
@@ -590,14 +613,15 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Negativo",
-    "sentiment_confidence": 0.7,
+    "sentiment_confidence": 0.72,
     "cluster": "Comando",
     "date": "2026-02-23",
     "date_display": "23/02/2026",
     "detected_at": "2026-04-30 16:17",
     "collected_at": "2026-04-30T16:17:38",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Negativo"
   },
   {
     "hash_id": "ccba73e3bedf",
@@ -622,7 +646,8 @@
     "detected_at": "2026-04-30 16:17",
     "collected_at": "2026-04-30T16:17:48",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Negativo"
   },
   {
     "hash_id": "272780e0b5ee",
@@ -639,15 +664,16 @@
     "snippet": "📱 Clique aqui para seguir o canal do g1 TO no WhatsApp O comandante-geral da PM do Tocantins, coronel Márcio Barbosa, afirmou que os criminosos que fugiram estão fortemente armados.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Negativo",
+    "sentiment_confidence": 0.65,
     "cluster": "Comando",
     "date": "2026-02-24",
     "date_display": "24/02/2026",
     "detected_at": "2026-04-30 16:17",
     "collected_at": "2026-04-30T16:17:58",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "d535069b556d",
@@ -665,14 +691,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment_confidence": 0.8,
     "cluster": "Comando",
     "date": "2026-02-20",
     "date_display": "20/02/2026",
     "detected_at": "2026-04-30 16:18",
     "collected_at": "2026-04-30T16:18:21",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "ea5c302b58b7",
@@ -689,15 +716,16 @@
     "snippet": "Notícias Relacionadas Porto Nacional Pitbull é morto a facadas ao tentar proteger tutor durante invasão no TO; suspeito é preso 2ª fase da Operação Rollback Polícia prende segundo suspeito de invadir sistemas de segurança e vender dados sigilosos Segundo o comandante-geral da corporação, Márcio Barbosa, o avião transportava aproximadamente 500 quilos de pasta base de droga e seis suspeitos fugiram para uma área de mata após a interceptação.",
     "relevance_score": 0.8,
     "relevance_label": "INSTITUCIONAL",
-    "sentiment": "Negativo",
-    "sentiment_confidence": 0.95,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.85,
     "cluster": "Comando",
     "date": "2026-02-23",
     "date_display": "23/02/2026",
     "detected_at": "2026-04-30 16:18",
     "collected_at": "2026-04-30T16:18:54",
     "year": 2026,
-    "month": 2
+    "month": 2,
+    "sentiment_original": "Negativo"
   },
   {
     "hash_id": "007cd76cddd1",
@@ -714,15 +742,16 @@
     "snippet": "O partido tem, além dele, os nomes do secretário da Educação, Fábio Vaz, do Comandante da PM, Coronel Barbosa, do líder Atos Gomes e está em articulação para vários outros.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.78,
     "cluster": "Comando",
     "date": "2026-03-09",
     "date_display": "09/03/2026",
     "detected_at": "2026-04-30 16:19",
     "collected_at": "2026-04-30T16:19:33",
     "year": 2026,
-    "month": 3
+    "month": 3,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "597de89d9734",
@@ -740,14 +769,15 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.7,
+    "sentiment_confidence": 0.8,
     "cluster": "Comando",
     "date": "2026-03-11",
     "date_display": "11/03/2026",
     "detected_at": "2026-04-30 16:19",
     "collected_at": "2026-04-30T16:19:54",
     "year": 2026,
-    "month": 3
+    "month": 3,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "91b4d726ce7b",
@@ -764,15 +794,16 @@
     "snippet": "Na ocasião, o comandante-geral da corporação, coronel Márcio Antônio Barbosa, falou dos projetos que pretende enviar à Casa de Leis.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.8,
     "cluster": "Comando",
     "date": "2026-03-10",
     "date_display": "10/03/2026",
     "detected_at": "2026-04-30 16:20",
     "collected_at": "2026-04-30T16:20:09",
     "year": 2026,
-    "month": 3
+    "month": 3,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "d51756102339",
@@ -789,15 +820,16 @@
     "snippet": "Durante a cerimônia, o comandante-geral da Polícia Militar do Tocantins (PMTO), coronel Márcio Antônio Barbosa de Mendonça, destacou a importância da valorização do efetivo e anunciou que propostas de interesse da corporação devem ser encaminhadas nos próximos dias à Assembleia Legislativa, entre elas a reconvocação de militares da reserva e o Plano de Cargos, Carreiras e Remuneração (",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.8,
     "cluster": "Comando",
     "date": "2026-03-11",
     "date_display": "11/03/2026",
     "detected_at": "2026-04-30 16:20",
     "collected_at": "2026-04-30T16:20:16",
     "year": 2026,
-    "month": 3
+    "month": 3,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "f37dbf32762a",
@@ -815,14 +847,15 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment_confidence": 0.75,
     "cluster": "Comando",
     "date": "2026-03-10",
     "date_display": "10/03/2026",
     "detected_at": "2026-04-30 16:20",
     "collected_at": "2026-04-30T16:20:26",
     "year": 2026,
-    "month": 3
+    "month": 3,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "a51c004ceda3",
@@ -840,14 +873,15 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment_confidence": 0.85,
     "cluster": "Comando",
     "date": "2026-03-19",
     "date_display": "19/03/2026",
     "detected_at": "2026-04-30 16:21",
     "collected_at": "2026-04-30T16:21:17",
     "year": 2026,
-    "month": 3
+    "month": 3,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "cfe6af6443f8",
@@ -865,14 +899,15 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment_confidence": 0.85,
     "cluster": "Comando",
     "date": "2026-03-19",
     "date_display": "19/03/2026",
     "detected_at": "2026-04-30 16:21",
     "collected_at": "2026-04-30T16:21:23",
     "year": 2026,
-    "month": 3
+    "month": 3,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "185ba0c2bfb5",
@@ -889,15 +924,16 @@
     "snippet": "IMPACTA NA MOTIVAÇÃO O coronel Márcio Antônio Barbosa de Mendonça, ressaltou o avanço que a medida representa para a corporação.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.75,
     "cluster": "Geral",
     "date": "2026-03-24",
     "date_display": "24/03/2026",
     "detected_at": "2026-04-30 16:21",
     "collected_at": "2026-04-30T16:21:30",
     "year": 2026,
-    "month": 3
+    "month": 3,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "f581b4fea76e",
@@ -915,14 +951,15 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment_confidence": 0.85,
     "cluster": "Comando",
     "date": "2026-03-19",
     "date_display": "19/03/2026",
     "detected_at": "2026-04-30 16:21",
     "collected_at": "2026-04-30T16:21:43",
     "year": 2026,
-    "month": 3
+    "month": 3,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "1844f4d53ea5",
@@ -947,7 +984,8 @@
     "detected_at": "2026-04-30 16:22",
     "collected_at": "2026-04-30T16:22:38",
     "year": 2026,
-    "month": 3
+    "month": 3,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "6b51da721e88",
@@ -964,15 +1002,16 @@
     "snippet": "Na lista dos nomes observados está ainda o comandante-geral da Polícia Militar, coronel Barbosa, apontado como pré-candidato a deputado federal.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.7,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-03-30",
     "date_display": "30/03/2026",
     "detected_at": "2026-04-30 16:22",
     "collected_at": "2026-04-30T16:22:46",
     "year": 2026,
-    "month": 3
+    "month": 3,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "9a28206712ab",
@@ -989,15 +1028,16 @@
     "snippet": "À lista se somam Lázaro Botelho (UB), de Ações Governamentais; e o coronel Márcio Barbosa (Republicanos), que já tinham deixado a gestão.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.7,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-04-02",
     "date_display": "02/04/2026",
     "detected_at": "2026-04-30 16:23",
     "collected_at": "2026-04-30T16:23:05",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "f4a19b499f30",
@@ -1014,15 +1054,16 @@
     "snippet": "Além das homenagens, a cerimônia formalizou a passagem de comando da corporação, com a saída do coronel Márcio Antônio Barbosa de Mendonça e a posse do coronel Cláudio Thomaz Coêlho de Souza no comando-geral da Polícia Militar.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.7,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.85,
     "cluster": "Comando",
     "date": "2026-04-01",
     "date_display": "01/04/2026",
     "detected_at": "2026-04-30 16:23",
     "collected_at": "2026-04-30T16:23:14",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "0caed51eeaeb",
@@ -1039,15 +1080,16 @@
     "snippet": "1 de 1\rMárcio Antônio Barbosa de Mendonça e Lázaro Botelho Martins — Foto: Reprodução/Governo do Tocantins/redes sociais Márcio Antônio Barbosa de Mendonça e Lázaro Botelho Martins — Foto: Reprodução/Governo do Tocantins/redes sociais Foram exonerados, a pedido, o comandante-geral da Polícia Militar do Toc",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Negativo",
-    "sentiment_confidence": 0.7,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.85,
     "cluster": "Comando",
     "date": "2026-04-01",
     "date_display": "01/04/2026",
     "detected_at": "2026-04-30 16:23",
     "collected_at": "2026-04-30T16:23:25",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Negativo"
   },
   {
     "hash_id": "3b383420b358",
@@ -1065,14 +1107,15 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment_confidence": 0.85,
     "cluster": "Comando",
     "date": "2026-04-03",
     "date_display": "03/04/2026",
     "detected_at": "2026-04-30 16:23",
     "collected_at": "2026-04-30T16:23:31",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "457dc2e1f6cf",
@@ -1090,14 +1133,15 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment_confidence": 0.85,
     "cluster": "Comando",
     "date": "2026-04-02",
     "date_display": "02/04/2026",
     "detected_at": "2026-04-30 16:23",
     "collected_at": "2026-04-30T16:23:37",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "28bb2d160862",
@@ -1114,15 +1158,16 @@
     "snippet": "A divulgação foi formalizada pelo Comandante-Geral da PMTO e Presidente da Comissão de Promoção de Oficiais (CPO), Coronel QOPM Márcio Antônio Barbosa de Mendonça, em conjunto com o Chefe do Estado-Maior e Presidente da Comissão de Promoção de Praças (CPP), Coronel PM Cláudio Thomaz Coelho de Souza.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.7,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.8,
     "cluster": "Comando",
     "date": "2026-03-31",
     "date_display": "31/03/2026",
     "detected_at": "2026-04-30 16:23",
     "collected_at": "2026-04-30T16:23:45",
     "year": 2026,
-    "month": 3
+    "month": 3,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "da1b53c61559",
@@ -1140,14 +1185,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment_confidence": 0.75,
     "cluster": "Eleitoral",
     "date": "2026-04-29",
     "date_display": "29/04/2026",
     "detected_at": "2026-04-30 16:25",
     "collected_at": "2026-04-30T16:25:00",
     "year": 2026,
-    "month": 4
+    "month": 4,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "38ce11e59dce",
@@ -1165,8 +1211,8 @@
     "snippet": "Mesmo dia da desincompatibilização do ex-Comandante, coronel Márcio Barbosa, pré-candidato a deputado federal.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment": "Muito Negativo",
+    "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "hostile_source": true,
     "date": "2026-05-01",
@@ -1174,7 +1220,8 @@
     "detected_at": "2026-05-01 10:55",
     "collected_at": "2026-05-01T10:55:05",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "38ce11e59dce",
@@ -1192,8 +1239,8 @@
     "snippet": "Mesmo dia da desincompatibilização do ex-Comandante, coronel Márcio Barbosa, pré-candidato a deputado federal.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment": "Muito Negativo",
+    "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "hostile_source": true,
     "date": "2026-05-01",
@@ -1201,7 +1248,8 @@
     "detected_at": "2026-05-01 22:43",
     "collected_at": "2026-05-01T22:43:56",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "38ce11e59dce",
@@ -1219,8 +1267,8 @@
     "snippet": "Mesmo dia da desincompatibilização do ex-Comandante, coronel Márcio Barbosa, pré-candidato a deputado federal.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment": "Muito Negativo",
+    "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "hostile_source": true,
     "date": "2026-05-02",
@@ -1228,7 +1276,8 @@
     "detected_at": "2026-05-02 10:53",
     "collected_at": "2026-05-02T10:53:23",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "38ce11e59dce",
@@ -1246,8 +1295,8 @@
     "snippet": "Mesmo dia da desincompatibilização do ex-Comandante, coronel Márcio Barbosa, pré-candidato a deputado federal.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment": "Muito Negativo",
+    "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "hostile_source": true,
     "date": "2026-05-02",
@@ -1255,7 +1304,8 @@
     "detected_at": "2026-05-02 15:44",
     "collected_at": "2026-05-02T15:44:20",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "38ce11e59dce",
@@ -1273,8 +1323,8 @@
     "snippet": "Mesmo dia da desincompatibilização do ex-Comandante, coronel Márcio Barbosa, pré-candidato a deputado federal.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment": "Muito Negativo",
+    "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "hostile_source": true,
     "date": "2026-05-02",
@@ -1282,7 +1332,8 @@
     "detected_at": "2026-05-02 22:35",
     "collected_at": "2026-05-02T22:35:04",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "d6bc06d838ee",
@@ -1301,14 +1352,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.75,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
     "date_display": "08/05/2026",
     "detected_at": "2026-05-08 16:15",
     "collected_at": "2026-05-08T16:15:45",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "ccee4939cabe",
@@ -1326,15 +1378,16 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.95,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.9,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
     "date_display": "08/05/2026",
     "detected_at": "2026-05-08 16:15",
     "collected_at": "2026-05-08T16:15:54",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "fc9794e4d85e",
@@ -1352,15 +1405,16 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.95,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.9,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
     "date_display": "08/05/2026",
     "detected_at": "2026-05-08 16:15",
     "collected_at": "2026-05-08T16:15:55",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "2cd8d163e239",
@@ -1378,15 +1432,16 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.95,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.9,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
     "date_display": "08/05/2026",
     "detected_at": "2026-05-08 16:15",
     "collected_at": "2026-05-08T16:15:56",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "35c25e8535bf",
@@ -1404,15 +1459,16 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.95,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.9,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
     "date_display": "08/05/2026",
     "detected_at": "2026-05-08 16:15",
     "collected_at": "2026-05-08T16:15:57",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "d1c543486ae9",
@@ -1431,14 +1487,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.95,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
     "date_display": "08/05/2026",
     "detected_at": "2026-05-08 16:15",
     "collected_at": "2026-05-08T16:15:58",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "47bb41f6cda1",
@@ -1456,15 +1513,16 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.95,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.9,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
     "date_display": "08/05/2026",
     "detected_at": "2026-05-08 16:15",
     "collected_at": "2026-05-08T16:15:58",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "1147440137b1",
@@ -1482,15 +1540,16 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.95,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.9,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
     "date_display": "08/05/2026",
     "detected_at": "2026-05-08 16:15",
     "collected_at": "2026-05-08T16:15:59",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "5990e2622831",
@@ -1508,15 +1567,16 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.95,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.9,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
     "date_display": "08/05/2026",
     "detected_at": "2026-05-08 16:16",
     "collected_at": "2026-05-08T16:16:00",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "80310f421fe2",
@@ -1534,7 +1594,7 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
+    "sentiment": "Neutro",
     "sentiment_confidence": 0.95,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
@@ -1542,7 +1602,8 @@
     "detected_at": "2026-05-08 16:16",
     "collected_at": "2026-05-08T16:16:01",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "1da4ff39370e",
@@ -1560,7 +1621,7 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
+    "sentiment": "Neutro",
     "sentiment_confidence": 0.95,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
@@ -1568,7 +1629,8 @@
     "detected_at": "2026-05-08 16:16",
     "collected_at": "2026-05-08T16:16:01",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "8997ebda881d",
@@ -1586,7 +1648,7 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
+    "sentiment": "Neutro",
     "sentiment_confidence": 0.95,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
@@ -1594,7 +1656,8 @@
     "detected_at": "2026-05-08 16:16",
     "collected_at": "2026-05-08T16:16:02",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "1d93c246ce96",
@@ -1612,7 +1675,7 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
+    "sentiment": "Neutro",
     "sentiment_confidence": 0.95,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
@@ -1620,7 +1683,8 @@
     "detected_at": "2026-05-08 16:16",
     "collected_at": "2026-05-08T16:16:03",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "ac0f7c743a58",
@@ -1638,7 +1702,7 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
+    "sentiment": "Neutro",
     "sentiment_confidence": 0.95,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
@@ -1646,7 +1710,8 @@
     "detected_at": "2026-05-08 16:16",
     "collected_at": "2026-05-08T16:16:04",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "830c9956e2ab",
@@ -1664,7 +1729,7 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
+    "sentiment": "Neutro",
     "sentiment_confidence": 0.95,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
@@ -1672,7 +1737,8 @@
     "detected_at": "2026-05-08 16:16",
     "collected_at": "2026-05-08T16:16:04",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "45381ec529dd",
@@ -1690,7 +1756,7 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Prefeitura de Paraíso entrega maior frente de pavimentação asfáltica da história do município durante abertura da 5ª FestMicro Sandoval Cardoso confirma presença no lançamento da pré-campanha de Drª Ângela em Araguaína Vicentinho recebe apoio de prefeito, vice e vereadores de Almas, e garante tirar do papel pavimentação de trecho da TO-040 Governo do Tocantins publica progressões e garante direitos a mais de 10 mil servidores Coronel Barbosa promove grande reunião em Gurupi para ouvir demandas dos moradores e discutir ideias para um Brasil mais justo e seguro Senador Eduardo Gomes destaca investimentos de mais de R$ 40 milhões em asfalto e garante obra do Córrego Pernada durante entregas em Paraíso Governo do Tocantins i",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
+    "sentiment": "Neutro",
     "sentiment_confidence": 0.95,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
@@ -1698,7 +1764,8 @@
     "detected_at": "2026-05-08 16:16",
     "collected_at": "2026-05-08T16:16:05",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "d6bc06d838ee",
@@ -1724,7 +1791,8 @@
     "detected_at": "2026-05-08 22:54",
     "collected_at": "2026-05-08T22:54:14",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "d6bc06d838ee",
@@ -1750,7 +1818,8 @@
     "detected_at": "2026-05-09 11:00",
     "collected_at": "2026-05-09T11:00:27",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "d6bc06d838ee",
@@ -1776,7 +1845,8 @@
     "detected_at": "2026-05-09 15:54",
     "collected_at": "2026-05-09T15:54:10",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "d6bc06d838ee",
@@ -1802,7 +1872,8 @@
     "detected_at": "2026-05-09 22:40",
     "collected_at": "2026-05-09T22:40:46",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "d6bc06d838ee",
@@ -1828,7 +1899,8 @@
     "detected_at": "2026-05-10 11:03",
     "collected_at": "2026-05-10T11:03:06",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "d6bc06d838ee",
@@ -1854,7 +1926,8 @@
     "detected_at": "2026-05-10 15:55",
     "collected_at": "2026-05-10T15:55:25",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "d6bc06d838ee",
@@ -1880,6 +1953,7 @@
     "detected_at": "2026-05-10 22:43",
     "collected_at": "2026-05-10T22:43:01",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   }
 ]
