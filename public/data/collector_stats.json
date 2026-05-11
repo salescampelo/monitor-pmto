@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-10 22:46",
+  "updated_at": "2026-05-11 12:45",
   "run_stats": {
     "queries_rss": 20,
     "entries_rss_raw": 6,
@@ -10,33 +10,33 @@
       "nome do candidato ausente": 2
     },
     "approved_rss": 0,
-    "approved_scrape": 1,
+    "approved_scrape": 0,
     "approved_indirect": 0,
-    "total_new": 1,
+    "total_new": 0,
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 73,
-    "last_7d": 22,
+    "total": 74,
+    "last_7d": 23,
     "last_30d": 31,
     "sources_7d": {
       "RR10 Notícias": 15,
-      "Atitude Tocantins": 7
+      "Atitude Tocantins": 8
     },
     "sources_30d": {
       "RR10 Notícias": 17,
-      "Atitude Tocantins": 7,
+      "Atitude Tocantins": 8,
       "Blog Luiz Armando Costa": 5,
-      "Jornal Folha Capital": 1,
       "Luiz Armando Costa": 1
     },
     "methods_30d": {
-      "RSS": 4,
-      "DIRECT_SCRAPE": 27
+      "RSS": 3,
+      "DIRECT_SCRAPE": 28
     },
     "sentiment_30d": {
-      "Neutro": 2,
-      "Positivo": 29
+      "Positivo": 11,
+      "Neutro": 15,
+      "Muito Negativo": 5
     }
   },
   "sites_health": {
@@ -92,9 +92,9 @@
     "atitudeto": {
       "name": "Atitude Tocantins",
       "layer": "A",
-      "mentions_30d": 7,
+      "mentions_30d": 8,
       "last_run_status": "ok",
-      "last_run_mentions": 1
+      "last_run_mentions": 0
     },
     "soudepalmas": {
       "name": "Sou de Palmas",

@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-10 15:58",
+  "updated_at": "2026-05-11 12:45",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 30,
-      "new_this_run": 7,
+      "new_this_run": 8,
       "mentions": [
         {
           "title": "Com discurso de gratidão, Eduardo Siqueira participa de evento político de Jair Farias e garante: “aqui é uma campanha popular e tem um deputado federal eleito”; Prefeito reforça seu apoio a Gomes e Dorinha",
@@ -40,6 +40,14 @@
           "captured_at": "2026-05-10"
         },
         {
+          "title": "Prazo para regularizar título eleitoral termina nesta quarta-feira",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQaEphbUdSNW5RUzdXZ2NtVks2OERyOGt4V21QSHp3ZnhsV2pRMnQ3WF9WOFAxaU0wQkdNTmxJcnZRWlJocDRPUEF6OFJWallPMTY2eC1OcXRjNkFzUFFmbjBTTnNoQVRyanNjWlpnRzVvYUtvcUZCRjYyTkozVU4wUkpucDNyYXF6N215enA2a0dDUXowMFVyQ0k4SFgzdXR3ZnRfRXZuNWZneEFC?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Wed, 06 May 2026 12:07:54 GMT",
+          "hash": "86d611094329",
+          "captured_at": "2026-05-11"
+        },
+        {
           "title": "Compromisso com Filadélfia: Marcus Marcelo reforça fortalecimento da educação e anuncia recursos para manter tradições locais",
           "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxPbmYxbklqNy1Qb3QwR1ZBNldDVGhHUldVYWNkOXlqU2hOQ2hZUWMwSjJlU3h2Z0VSQzJNNl81ZGlZMDEwanhaTTN6dzI0b0VmZGNkaGFJSE5Tbnl0MHZWM1pXbGViU2lwNG5WUmV5cDhNdkFqNVFicmFNNkNZYlRMNWhZbU5jQlFIYldfMmRFd1FKR3FMNDZsZzZ6RFA2NW8tWUtjRi05ZmN2N3FLcUFBUWpOYVoyTmZMdC13NUZlZ2g3dWZMdUZGdkNfcncwc0RjOFpTSHJ0Z0tIQmthN3BOekx0dF80Q1JCbUlEZjRfY2N4NFBPY0RLdUxB?oc=5",
           "source": "Gazeta do Cerrado",
@@ -54,6 +62,22 @@
           "published": "Tue, 05 May 2026 19:57:48 GMT",
           "hash": "92983ac2c892",
           "captured_at": "2026-05-10"
+        },
+        {
+          "title": "Claudia Lelis e Auri Wulange intensificam luta por pavimentação de rodovias no Bico do Papagaio",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPaGNadlVPa3NxTEMzNzRWZ3RGV2U4dlcyT1dPTWJ0eVdaeldwcEdHVnpxc3dfZWVNWS1kcE44ZzJRWk54UGY2d1pjYlFMZHJhQmdFcmN3UGJ6Yktpc2VMbXhNU0d2MUtpUnB6LUdQTUFycWFteWphN1dVNzJzZ0ZydjVSSXl5dzFGUUxxcVRZaTFoZEY4MkR2UFlMVXR2Y1VFcnZPNU4xOERUYm1LOEVVX2FIdWtKVVd4THlTckRxZUJmVFNES0hsT3kxeFQ4d2ZxTGdB?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Tue, 05 May 2026 17:09:09 GMT",
+          "hash": "2a4b4663b974",
+          "captured_at": "2026-05-11"
+        },
+        {
+          "title": "Mulher morre após cair de moto e ser atropelada em rodovia no sul do TO",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOX2UtaTRqQWp0YV9Tc2V4aTNYRDZtcjFoR25SWjZOSGlUbTJTSkI0ckFvOGlnOGVLcnpsOG9GQlUzVkJHS0IwR0NvbjB3YmtDODBkT3JXa0FPRU0yd2xNdDhkSGtmcXdBaVBxZHZsRjJiM2V0OURuUnBWNURDNERwRVdzdVRLMEUzNXhwVE1KTlhXVnJtemxqNDhxdElqWE16aWtPTEFvVXNXdkJvb1BSY0NadFA?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Tue, 05 May 2026 14:03:14 GMT",
+          "hash": "2e1806dfd7c8",
+          "captured_at": "2026-05-11"
         },
         {
           "title": "PL da Dosimetria: como votaram os parlamentares na derrubada do veto de Lula",
@@ -222,30 +246,6 @@
           "published": "Mon, 04 May 2026 11:39:00 GMT",
           "hash": "669ba2f42d0d",
           "captured_at": "2026-05-04"
-        },
-        {
-          "title": "Dimensão e leitura dadas ao sincericídio de Hallun sobre porporcional aponta que Laurez seria adversário a ser combatido na majoritária. Contra um pré-candidato sem a máquina, não é indicativo de percepção de fragilidade",
-          "url": "https://news.google.com/rss/articles/CBMiggNBVV95cUxPNzFpTDNEcGpJNWIwUzRxd1VqNUdXenNMcGFBU3JHSV9MYzQ3blpPOHZsZHU2WEo0d3NJdFZKMEFrazVKZmo0QmQ1c3B0ZEM2cHFCcDcyX1IzT0psb0laVHBYUXp3UHNpVGF0bFFidmV0Yzg1dWFId19vMEVTd3dzbUJheHJOaDdmLTFSWHB3RUJUWTRDbkxjSmF2eGJwNGRnMk9LWXdueXFyYkhIVDBIY2ZSenlmT3YxSE02SkNZSm4zM2FhNmtUUzdMXy1zdzJGTktrSExUUlFaRmhMRlN0dEhabmdISHVjdzlFWkpTQURVVmFON2Q4UjZNZDNtVW1yd21BRXpPS2VDSTdCeFBjRVFmUFlVcmxPQ1FPZ0pEQ0RXVnhseUhhY2Q1ZlN6X3ltT09ZaTUzTy05b2JXNWRVb19ZcU5GdUVEWmEzUlpDTFozZWpkTzdsR19BbkVfZzhtTzFBbEhCU0hTNTNwNjBWcnNtT3NrdHFwUExpQ1EzZHU0QQ?oc=5",
-          "source": "Luiz Armando Costa",
-          "published": "Mon, 04 May 2026 11:15:57 GMT",
-          "hash": "bb98e8322439",
-          "captured_at": "2026-05-04"
-        },
-        {
-          "title": "Vídeo de perseguição a adolescentes no TO viraliza após policial cair durante abordagem",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPYVBtT2V6bTFQZkFOVkxtMk1xVFQ0VDhlWmgxaS1vWHNVQXptUnZ5N2tQWXc0Z0l1RnhuWENqRkkyaG5Wa2prM2hEeF9wYzJySUVDZXh4M01WXzFza1hBS2xrWmRUUlluZkd4Q3ppQ3dFVDJaNDQ2QTc5Y0F6Z196aXFlRDFWZFhWOVdGWkZKbHFDZ25hVmFuYlZwRVI3U2xDSlB6Y0thY2RQcWdCTjFiUllqX1Q4YktXUVJNVjhlOTJhUXlaYkxv?oc=5",
-          "source": "Gazeta do Cerrado",
-          "published": "Fri, 08 May 2026 19:59:11 GMT",
-          "hash": "a1758e25edcd",
-          "captured_at": "2026-05-10"
-        },
-        {
-          "title": "Avança projeto que muda regra para cálculo do preço do seguro",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOYkM0V3J1UEJ4YzNKLW5hb2tRUFVrcnphMHlMQjFTZzcwZmJIMFpaM0dxVlluYTVkTTRCWXZYbG9xWkU2aUtxN0RUUFYweWJQZ0ZfRllicVhuUU1yUi1fVGNUYnVIRWdwNVRPX2lobWRnV3YzdklkLUEyZm1JYlAyckxBYzVLdTVnRmh0ZEpiVUk3YVl5?oc=5",
-          "source": "CQCS",
-          "published": "Fri, 08 May 2026 18:51:39 GMT",
-          "hash": "a6719f33bf27",
-          "captured_at": "2026-05-09"
         }
       ]
     },
@@ -501,7 +501,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 21,
+      "new_this_run": 16,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
