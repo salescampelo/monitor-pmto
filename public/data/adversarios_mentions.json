@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-12 12:03",
+  "updated_at": "2026-05-12 17:16",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 30,
-      "new_this_run": 7,
+      "new_this_run": 5,
       "mentions": [
         {
           "title": "Com discurso de gratidão, Eduardo Siqueira participa de evento político de Jair Farias e garante: “aqui é uma campanha popular e tem um deputado federal eleito”; Prefeito reforça seu apoio a Gomes e Dorinha",
@@ -253,7 +253,7 @@
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
       "total_mentions": 30,
-      "new_this_run": 5,
+      "new_this_run": 4,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -392,6 +392,22 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "Ofício de quebradeiras de coco babaçu é manifestação da cultura nacional, aprova CE",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNazRTUGw0SnpoalhTOW1pbHNUSlU3am0yN0JXbXY4cUlkS2gyREdEMXMyMDhyb0JodVpJTUpYeTVkTDVvVURtQ2ZBUWt0Tzk1ZF90Y0dwM3REb1VFSXhmMFhfcmNYcVpTQlNIUGd1cG1RRFpWWW5uM3lGRnhmLUFlY05qa2JzY0xDNXNMdkdoa2VScUpVTC1wcDJ6Mm5JbG9VbUZMVEswVkRrbi0wTzlyR1pnbmFDSFFqbnVMbnQyb3pjRk5pQ2c?oc=5",
+          "source": "Blog do Elvis",
+          "published": "Tue, 12 May 2026 14:50:00 GMT",
+          "hash": "0c653cabd9b1",
+          "captured_at": "2026-05-12"
+        },
+        {
+          "title": "Reconhecimento nacional: ofício das quebradeiras de coco babaçu avança para sanção presidencial",
+          "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPSjNOTnBra1F0dnd1STI2amV2UDI2RU1mT2h0Yk9wOEZ3LXQ2Y1B1eHFLYzRYenpxMzUtSUx6eDlqQV9LVktlZkJWaDluY0lDXzBxZ2xXWlVjNkpSSWgxVm5yNEVqdDBzakE5VnVTRXZJRXNJaTR5eW11MGxNS3ZkcHN4d2FVaVo2VE1LLUZwQVVJRVpMRmJMMHdsTGdDQWd0UGJzX0dQN2dGUUlqNGdYYUFXNmpnYUV4OGhac0UwWWhUZlV2NlQ2V0NUZE9vbjFtUEJJdmxOanFqSVF4alR2VDRQRDI3RTBWWFJYTg?oc=5",
+          "source": "Tribuna do Sertão",
+          "published": "Tue, 12 May 2026 14:41:00 GMT",
+          "hash": "6b35febfa8f6",
+          "captured_at": "2026-05-12"
+        },
+        {
           "title": "Comissão aprova uso de faixas exclusivas por ônibus de fretamento",
           "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZzFrZkFxQ2VMbGhBbFFLdmpveVFHTjQzUUNlMmZHU2cySGNSRGNiaDVNSmdqV1AxWnZ6UktMamx3SFk3Vl9aSXlObWJ5OU4zdmtYemJDakxOcFNxLUdqSE5PMDVFNGtDQmI0Q010UTA2N3VzMUVTZU0yR1BvUjZmSTBNdURfZTBuc1NzbENpNkt6V3BIT0tCZzhJeUNiMkJFUmppZ2lkamJEUG1v?oc=5",
           "source": "Portal da Câmara dos Deputados",
@@ -478,22 +494,6 @@
           "published": "Sun, 26 Apr 2026 14:01:14 GMT",
           "hash": "ddeb4ba21cbe",
           "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Comissão aprova regra que facilita trabalho de aprendizes e PCDs em órgãos públicos",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNTDNkRXhRMzlaR1NmVmlxOTFrZEVVaVhFMjBaNkNmUkg5QzNPdUQwaGpzNWdpTUpjZHJQb3J5a3RFQ3c3bmFmQV9KX0NWc2tMck9JbXBEZGUzWHpGbnBVd3VVR0dOLV9TMXQtZFpPU0lMcWpoUGxWdFBpcUtiajBlSEtjYWVnVm9GSElJQnBZUVBBWE80OWdITm5zX09pdjR1amN0Zndxa1ZvQkk5WWxnWmRZQXpTUGVjUzFxVTVTRmVLTEtm?oc=5",
-          "source": "Portal da Câmara dos Deputados",
-          "published": "Mon, 11 May 2026 13:27:00 GMT",
-          "hash": "0ef47451e229",
-          "captured_at": "2026-05-11"
-        },
-        {
-          "title": "Comissão aprova regra que facilita trabalho de aprendizes e PCDs em órgãos públicos",
-          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQejU2Tm8xTzFRMUFsMWVCYmtlTGdjenFiVUMtUzItcjJ0Vm14bzVTTnVBNUhtLS01SGpibmtXRU9SYXQwcEtYcmdzWnpaQ2ZzOWp3Z1d3TGpJeEZuVmFTYXVGYXNmLTVESUpKTWo5cVlfUW16RlF2RDJrcGs3dXFtdVU2N0RibVJfdGRxRS12VWNYejB3UHpsV3g4eGxFcFBZc01XMlJSSlBidHdSR3hRRFE1TFY0X3A2QnlILVZhdzNPUTZ0U3c?oc=5",
-          "source": "Portal da Câmara dos Deputados",
-          "published": "Mon, 11 May 2026 13:27:00 GMT",
-          "hash": "0b2f2332e05d",
-          "captured_at": "2026-05-12"
         }
       ]
     },
@@ -501,7 +501,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 20,
+      "new_this_run": 18,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
