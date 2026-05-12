@@ -1,42 +1,42 @@
 {
-  "updated_at": "2026-05-12 17:16",
+  "updated_at": "2026-05-12 23:01",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 14,
+    "entries_rss_raw": 12,
     "duplicates": 12,
     "blocked_date": 0,
-    "blocked_id": 2,
-    "blocked_id_reasons": {
-      "nome do candidato ausente": 2
-    },
+    "blocked_id": 0,
+    "blocked_id_reasons": {},
     "approved_rss": 0,
-    "approved_scrape": 2,
+    "approved_scrape": 1,
     "approved_indirect": 0,
-    "total_new": 2,
+    "total_new": 1,
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 78,
-    "last_7d": 27,
-    "last_30d": 35,
+    "total": 80,
+    "last_7d": 29,
+    "last_30d": 37,
     "sources_7d": {
       "RR10 Notícias": 15,
       "Atitude Tocantins": 8,
-      "Portal do Amaral": 4
+      "Portal do Amaral": 5,
+      "Portal LJ (Leal Junior)": 1
     },
     "sources_30d": {
       "RR10 Notícias": 17,
       "Atitude Tocantins": 8,
       "Blog Luiz Armando Costa": 5,
-      "Portal do Amaral": 4,
-      "Luiz Armando Costa": 1
+      "Portal do Amaral": 5,
+      "Luiz Armando Costa": 1,
+      "Portal LJ (Leal Junior)": 1
     },
     "methods_30d": {
       "RSS": 3,
-      "DIRECT_SCRAPE": 32
+      "DIRECT_SCRAPE": 34
     },
     "sentiment_30d": {
-      "Positivo": 15,
+      "Positivo": 17,
       "Neutro": 15,
       "Muito Negativo": 5
     }
@@ -136,7 +136,7 @@
     "portaldoamaral": {
       "name": "Portal do Amaral",
       "layer": "B",
-      "mentions_30d": 4,
+      "mentions_30d": 5,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
@@ -157,9 +157,9 @@
     "lealjunior": {
       "name": "Portal LJ (Leal Junior)",
       "layer": "B",
-      "mentions_30d": 0,
+      "mentions_30d": 1,
       "last_run_status": "ok",
-      "last_run_mentions": 1
+      "last_run_mentions": 0
     },
     "jornalopcaoto": {
       "name": "Jornal Opção Tocantins",

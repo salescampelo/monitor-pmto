@@ -2111,5 +2111,31 @@
     "collected_at": "2026-05-12T17:15:18",
     "year": 2026,
     "month": 5
+  },
+  {
+    "hash_id": "e0fba12ff7b5",
+    "title": "PLANTÃO POLICIAL",
+    "url": "https://portaldoamaral.com.br/category/plantao-policial",
+    "source_name": "Portal do Amaral",
+    "source_type": "direct_scrape",
+    "collection_method": "DIRECT_SCRAPE",
+    "site_key": "portaldoamaral",
+    "indirect_term": "",
+    "priority": "alta",
+    "scope": "TO",
+    "matched_terms": [],
+    "mention_type": "direta",
+    "snippet": "encontro popular em Gurupi Pré-candidato a deputado federal, Coronel Márcio Barbosa reúne apoiadores em grande encontro popular em Gurupi Jonas Amaral 11 de maio de 2026 | 09:55",
+    "relevance_score": 1.0,
+    "relevance_label": "DIRETA_ELEITORAL",
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.8,
+    "cluster": "Eleitoral",
+    "date": "2026-05-12",
+    "date_display": "12/05/2026",
+    "detected_at": "2026-05-12 22:59",
+    "collected_at": "2026-05-12T22:59:27",
+    "year": 2026,
+    "month": 5
   }
 ]
