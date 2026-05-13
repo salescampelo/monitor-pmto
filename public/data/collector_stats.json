@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-13 17:26",
+  "updated_at": "2026-05-13 23:08",
   "run_stats": {
     "queries_rss": 20,
     "entries_rss_raw": 44,
@@ -11,38 +11,38 @@
       "nome do candidato ausente": 2
     },
     "approved_rss": 0,
-    "approved_scrape": 18,
+    "approved_scrape": 3,
     "approved_indirect": 0,
-    "total_new": 18,
+    "total_new": 3,
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 84,
-    "last_7d": 33,
-    "last_30d": 41,
+    "total": 102,
+    "last_7d": 51,
+    "last_30d": 59,
     "sources_7d": {
-      "RR10 Notícias": 15,
-      "Atitude Tocantins": 8,
-      "Portal do Amaral": 7,
-      "Agência Tocantins": 2,
+      "RR10 Notícias": 30,
+      "Atitude Tocantins": 9,
+      "Portal do Amaral": 8,
+      "Agência Tocantins": 3,
       "Portal LJ (Leal Junior)": 1
     },
     "sources_30d": {
-      "RR10 Notícias": 17,
-      "Atitude Tocantins": 8,
-      "Portal do Amaral": 7,
+      "RR10 Notícias": 32,
+      "Atitude Tocantins": 9,
+      "Portal do Amaral": 8,
       "Blog Luiz Armando Costa": 5,
-      "Agência Tocantins": 2,
+      "Agência Tocantins": 3,
       "Luiz Armando Costa": 1,
       "Portal LJ (Leal Junior)": 1
     },
     "methods_30d": {
       "RSS": 4,
-      "DIRECT_SCRAPE": 37
+      "DIRECT_SCRAPE": 55
     },
     "sentiment_30d": {
-      "Positivo": 21,
-      "Neutro": 15,
+      "Positivo": 25,
+      "Neutro": 29,
       "Muito Negativo": 5
     }
   },
@@ -99,7 +99,7 @@
     "atitudeto": {
       "name": "Atitude Tocantins",
       "layer": "A",
-      "mentions_30d": 8,
+      "mentions_30d": 9,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
@@ -113,9 +113,9 @@
     "rr10noticias": {
       "name": "RR10 Notícias",
       "layer": "A",
-      "mentions_30d": 15,
+      "mentions_30d": 30,
       "last_run_status": "ok",
-      "last_run_mentions": 15
+      "last_run_mentions": 0
     },
     "portalonorte": {
       "name": "Portal O Norte",
@@ -141,14 +141,14 @@
     "portaldoamaral": {
       "name": "Portal do Amaral",
       "layer": "B",
-      "mentions_30d": 7,
+      "mentions_30d": 8,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
     "agenciatocantins": {
       "name": "Agência Tocantins",
       "layer": "B",
-      "mentions_30d": 1,
+      "mentions_30d": 2,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
