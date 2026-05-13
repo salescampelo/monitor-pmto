@@ -1,12 +1,44 @@
 {
-  "updated_at": "2026-05-12 17:16",
+  "updated_at": "2026-05-13 12:11",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 30,
-      "new_this_run": 5,
+      "new_this_run": 12,
       "mentions": [
+        {
+          "title": "Dorinha amplia alianças no Tocantins, recebe apoio em Araguaína e fortalece grupo político no Bico do Papagaio",
+          "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNdENFVENOMEZNUUZBWV9KZjI1VkV6ZVZGTkhSYU9TT2hpdGtLRWlIc1UtOF9lckFqVnUtblJKSjF4b25kc2UwRV9JRjM5SDN3RTJwREh6b0VvMFJoMmJ2blhNRFlSd1JrUE01ME1KUlVZMkd3MmphRTBVM2YwZXZIVmpjcFZUdVYyaWlzLTVQeDJvZ2E5OGxiUmNYbm5BUXBpU0FSRnJwbmw3TjNaaGppbFVWUUhSbkI0VzBmZkt2SXlxbzk5aTFSdk84bTI2WUFUTDlGWGdMQV96cTNuVXZKeEdwaHQyN204SUFr?oc=5",
+          "source": "Diário Tocantinense",
+          "published": "Wed, 13 May 2026 11:59:43 GMT",
+          "hash": "34ef80b80daf",
+          "captured_at": "2026-05-13"
+        },
+        {
+          "title": "Araguaína lança novo residencial popular com 352 apartamentos previstos no Jardim do Lago",
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOM0NzZWtOSXU5NzBaMEtEVjR0VGdCaUFwUlpWY3J6N1NVY0FYZ2lSUVpocXpiTmQ3N2Iwd25lNTZHeXU0N1QwTWY3TWRreGVuRnVJVFBVV3ZERUR1ajVtQmxiLTFxdTc2S1dURjI1MmstYlpYc3dacEhaVUotQzVoQ1pnazRkUWstQnBHRjd2Tm0xcVg5a0hCRlhYbDFlQTF3YWx1MjhBZlJFNVQ4VmthSnlrQ3BvT1RrTVpWaEtOb0FVRGdiSHlOV0R4cmVjMTRPRnF3U2dBUXRzQms?oc=5",
+          "source": "Jornal Opção | Tocantins",
+          "published": "Wed, 13 May 2026 11:53:00 GMT",
+          "hash": "2d370e058bfd",
+          "captured_at": "2026-05-13"
+        },
+        {
+          "title": "Dorinha conquista apoio do presidente da Câmara Max Baroli e amplia força política em Araguaína",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQdHpGYlZ2YWZGOElsajRtakUtb1BFV1pBU2RWNWx1MzhnRVVzZTFuM2VTSzRiVDdQOWVIdTdhQy1ocmxfWVh2T1RGVUFLeUVPZVRYTERHcGp6VTlfOGxRZGxCRGxxbVRkVG5ldXBrN2F3SXZaWmpqRnZoLXZMRVBJTmpteUxibl9jOHhKeXNYLVduTVA1cDVNS2JweC11Ny11eXl0emlaYVZDYjB5a0lxX0V3Vy1DY2hIU2JmbjRqMUNhNEU?oc=5",
+          "source": "T1 Notícias",
+          "published": "Wed, 13 May 2026 11:28:25 GMT",
+          "hash": "e82f74f18529",
+          "captured_at": "2026-05-13"
+        },
+        {
+          "title": "Com investimento de R$ 32 milhões, Araguaína inicia primeira etapa de conjunto residencial com 352 apartamentos populares",
+          "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQc2ZzN2R5M1pqWWZtR0VvUm9hMWtELUVuWVhacENZTVFabmZrcU9zZFgtQW5JeElpcUV4Q21LZmhRU1hST0lJMzU5RE1NTnVaQ19rbWpoNFpFNVlDTTdsc2V0Y3RGdS1VOUtHeF9CbGltZEJMWHFwVnRUUmtXMVpfUkJ0cXFXWXRzV2lINl94dmRMUGlocjYxSUpDNEJIRVgzb2Y1T0tBTnFzbFdzenk0MGNSbEVuN1h4N1c3S1pmVTB4cV9Eak8xSFlGbHBjTkhrcDhpMHVhSmdaUjlXVE9zVDZfQVdXZFlIeEs4Qmh6cw?oc=5",
+          "source": "Cleber Toledo",
+          "published": "Wed, 13 May 2026 11:14:00 GMT",
+          "hash": "ab1f53836a07",
+          "captured_at": "2026-05-13"
+        },
         {
           "title": "Com discurso de gratidão, Eduardo Siqueira participa de evento político de Jair Farias e garante: “aqui é uma campanha popular e tem um deputado federal eleito”; Prefeito reforça seu apoio a Gomes e Dorinha",
           "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPXzJ4V011bk5GVmF0X280MndoblBQT2lvTnNzRER2QWZxOGpMWmViVGhzMmw4VVFkQ0QtUUxaVWlaQ0xfYzdkTDBaamFvaFpzY2s2RnF5SnYzY3ZvSjhuNk1UOGYycGNLd1hCb3N0Um93X3l4UGFEV0kxVy1qRERCY1J3WnpYRVVoZUJHXzlCdElacm5wTXdiajF5eUM5VzhteDRlZFNhVUNXNkM2S3dQMlNfc05Xdlh6UnJ1X0dVYkx3TkczQ012aVlvcEQzMGRBLTk0SXhjTS1lSjdid2NrSkJlQlhnYmd6T2tTbF9HTmowUmd4TkdlajluWWlxblgxZ1ZQcGtBTS1IeVJfQXZfb1ppN2t6OC1KZkwweU9HWVJ6Q0ZIZUJoeE9mUTdmM1FWZFNkVmFtdGQ4NWhSU0w2UXRR?oc=5",
@@ -62,6 +94,38 @@
           "published": "Wed, 06 May 2026 11:17:48 GMT",
           "hash": "372ca135b1bb",
           "captured_at": "2026-05-11"
+        },
+        {
+          "title": "Araguaína terá mais 352 apartamentos do Minha Casa, Minha Vida na região do Jardim do Lago",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNT1FuZ0tkRkRqdFpmanFIalpLUlJIWG1hak1nUk54VEpPZk1vbzV3OUprWXpNWGw1bmdKazdzZV9aUGNMS3RVZDAtN1M3X2VRd3F6MFBVQi1RMVFkSElIS3M5RFRCSTd0NzdJSDQ3N2xPNE9SeXVkY3hPNUI5Q05wNkR4UTJHdUpyeGN5WW1oajM4QlVSUE91Y1liUDZyVENqT01XOXhFTDVrRzc2UEhEX01YVVZYTnpLYjZOV2t2UWJFbGVyWk5YLTE3cTJZTk1TVnc?oc=5",
+          "source": "Araguaína Notícias",
+          "published": "Tue, 12 May 2026 22:45:00 GMT",
+          "hash": "e7dbf155f26e",
+          "captured_at": "2026-05-13"
+        },
+        {
+          "title": "Dorinha consolida aliança estratégica com cúpula política de Araguaína com apoio do prefeito, presidente da Câmara e do deputado Tiago Dimas",
+          "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxNbW9sUHdjbG1LTXJsUFZjZktCLV81M1JLSE5lM2pNM2dtcDdkR0R6clNxcmdPR0VIMGJuN0V1bnc2Y012ZEZMWU9iN3lRZ3kwUFM3Z3FaSGJQcTdHLWJibUtTOVpaS3MtT0w2WUdEbDFKajNJeHpmTU5nSURjTldUQjJNdTdVMjhqUHdnMlMzWHo2cWdRZFh2QmlTdndlLVJBVmZ4YzNubmJUSG1PRl91TUtTeTZNTV9WQWxRWWZaT3hOaUpjNTVCY3lnYll0MElvWWNVM2tERG53NzE5eV9NWGY1UlZKZWpaYkZfWDV4SUtsV0YzeDlZS04wVmRmakNDdlUwQw?oc=5",
+          "source": "Atitude Tocantins",
+          "published": "Tue, 12 May 2026 21:52:32 GMT",
+          "hash": "e41643f5ee67",
+          "captured_at": "2026-05-13"
+        },
+        {
+          "title": "Presidente da Câmara Max Baroli declara apoio a Dorinha que amplia força política em Araguaína",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQQXJuanRGSlpqYTBpUTlZR0RUbFNKVTZzMUdTZG9vSW9OOWZZU0FEUUtNRVh1VXJ0M004cUFIZGJOVWlmNlVTWU56QVNTMi1BZWRkLUhKY1NTQ0IxV3c0M3hDSVJCbzJYN0pvWlJMSkNBSEJCLURuYnZRUUtZTXJPTG5PVlo5Zl9sQ0FzN09rT2lybk5vT0w1NEFHX0pxdFBKV3ZUbzlrR3RISU15UmZseXctOElXN2NDcV9ieTBmWjk1SkxubkdKZFZqeTl2V3d1UEE?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Tue, 12 May 2026 21:24:17 GMT",
+          "hash": "b7a1f9f1cbe5",
+          "captured_at": "2026-05-13"
+        },
+        {
+          "title": "Em almoço, Wagner, secretários de Araguaína e base na Câmara, inclusive Max Baroli, confirmam apoio a Dorinha para o governo do TO",
+          "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPeDVRX3ZRTFhibUpYakY2QkdzWW1KdTZjc3RsWnIwR3p4Q0UwUDJXUVRPQklMUVhwcjBtaWJkYkFBTUxLMURNNmhIRGd2TGg0TE83ZkotbUVmOFdMcHIyeUxqZGdQTXNFa0NXQWJLMl85VGpDSWd1NVBzZG5uZ3BuaWlMUmI5VWdodWN2R0YtVmFUNGhoWXc0WHdVRnBSelRFQkk4Ny1DSmNvRURPYWJqUkFYX1pVRGRGR1ZnQW5pWThvaHhNTXF3TUcxOFA0Q1hYbmRGQUxKSXpETmVhdzVYZVNaMVZBUVAwenY2cTNLWC1sNkR0?oc=5",
+          "source": "Cleber Toledo",
+          "published": "Tue, 12 May 2026 18:59:00 GMT",
+          "hash": "cbcb050faf43",
+          "captured_at": "2026-05-13"
         },
         {
           "title": "Últimos dias: Araguaína reforça chamada para vacinação contra dengue em pessoas de 15 a 59 anos",
@@ -182,70 +246,6 @@
           "published": "Thu, 30 Apr 2026 18:19:00 GMT",
           "hash": "379aa179410b",
           "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Com emenda de Tiago Dimas, reforma e modernização da Clínica Escola Mundo Autista são entregues em Araguaína",
-          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQMTJtS21SVXlxNWNZTUNUTHF0TUYxQlIwWjN6RG9FSXJxWC1tRVM2TlFqZkViQW54VS1CTjl2MjMxSDBwWDF3bWU4YTI0QmdPQVFxeEdMRHUtd3A1aVgtM0I2Z1p2ZmJXSVVVWjBHcDNKOTNFck1Pdi14WkpaU0tXNEpiaExlbzAwaWJBVDlwQXl2bTcwa21IWGVEZlcweWlvSW1wa2UySGt3WmFZckFTTW1ONlFVc1dac1h1ZE9mbzU3VnRKSjlPNTNYZVhXTFRiS0dac1cySjMtXzc0OGtSN1pBbWM?oc=5",
-          "source": "Gazeta do Cerrado",
-          "published": "Thu, 30 Apr 2026 18:01:21 GMT",
-          "hash": "68e5e9c1e6a5",
-          "captured_at": "2026-05-06"
-        },
-        {
-          "title": "Prefeitura de Araguaína reinaugura Clínica Escola Mundo Autista",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQU1g2NWlYdzVRQ0FTME5qT3ZjUzI1ZXIyQXBTOWZ5TGZuWFN4ZWxKY3ZERmZ4OC1GdnJmX3k4cWZzUV80RjhJa0VRcGVDRnZDTjBSRDhpUjc4SGk4SkNkS0xIZ1ROV0dMS01fMXFKV29jY1FGT3N0M1BlRlN0eXA4RVdNaWpyOXBsSmt2VVhYUTZaUVZBUVRVS281VFUyZTlVMHc2bkFfQkVhUG96VGNvag?oc=5",
-          "source": "Prefeitura de Araguaína",
-          "published": "Thu, 30 Apr 2026 15:40:00 GMT",
-          "hash": "4ae489d5ed0b",
-          "captured_at": "2026-05-01"
-        },
-        {
-          "title": "No Bico, Tiago Dimas visita 10 cidades, destaca obras e mais de R$ 50 milhões para a região",
-          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQVm44S0VqZl9fTHRlOE5OT0tTLVJGcXFfR0JnRldmWkdCRHFBS2lyeEptVEhnNVV2WFZheUZjOTBuTFpNa2htWndXN3RQVVJVWUp6LXIxQmp0TDFZYTNLNm5MQVJtMGlUNTRGOHhsM2RTS1BUTUd5c0tvempGcE12dll4eXFqZlI5RUJIUGZ1dXZCZFVpU05BQ1ZFTF93cjhwZ3VQdUw3Mm9OQnAxRTVDRXdMQUVuay1STnJPZUswM0tMNXR3ZHNnX3dMZGEycTA5UVE?oc=5",
-          "source": "afnoticias.com.br",
-          "published": "Thu, 07 May 2026 11:24:00 GMT",
-          "hash": "dbbda8bb5bd8",
-          "captured_at": "2026-05-07"
-        },
-        {
-          "title": "No Bico do Papagaio, Tiago Dimas fortalece luta em prol dos autistas, respaldo a educação, contatos com aliados e destaca grande obra portuária",
-          "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNVXdOUmhxWmczOS1oNHFmZDZibVVPOWVoUmoyai1vbmpORGp0YU9DdXdOQVo0TVRKMy11alRRcjdNSWEwcUg3bjlaeVA4UldrOVMtUUpZLXVMd1I3YnZyMEt0YmNnbE85MEVDUExOREsxb0FJYl9EWURoMzc2bkxyaHJ6X19uUlNxOHV5V0VkYmlibERFM2dURlBmODBoVjc4RXpFVEcwdEVMRk1HUVlHQUtnb21hUm02NXJ3VjlBSzlMX0NHZ1JRRFFkQnQxVENXdW0xRDB1VGRzNjh5TjVhZ0hLdVV2cmFhcFFmTXdFU3Z2WGktRXB2ck4yQy1IekZVbjF4NFViOHp5YS1CbUtZ?oc=5",
-          "source": "Gazeta do Cerrado",
-          "published": "Thu, 07 May 2026 09:45:06 GMT",
-          "hash": "424068ea5010",
-          "captured_at": "2026-05-07"
-        },
-        {
-          "title": "Avança projeto que muda regra para cálculo do preço do seguro",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOYkM0V3J1UEJ4YzNKLW5hb2tRUFVrcnphMHlMQjFTZzcwZmJIMFpaM0dxVlluYTVkTTRCWXZYbG9xWkU2aUtxN0RUUFYweWJQZ0ZfRllicVhuUU1yUi1fVGNUYnVIRWdwNVRPX2lobWRnV3YzdklkLUEyZm1JYlAyckxBYzVLdTVnRmh0ZEpiVUk3YVl5?oc=5",
-          "source": "CQCS",
-          "published": "Thu, 07 May 2026 06:51:53 GMT",
-          "hash": "a6719f33bf27",
-          "captured_at": "2026-05-11"
-        },
-        {
-          "title": "“Lá o grupo do Laurez enfraqueceu”: Áudio de Halum a aliado repercute e ele se manifesta: “disse sem maldade”",
-          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOZnp4X01MbEZKRXdIZUxrb25UZTJsdldVc1BpcHQ3VlVST3RnOGFoeHJXbk5JNmZaT2ZTTVQzVEFBQWE5NFFZT2FHNkp3ekhnWFdlMGVITW5uMk5zYnBSOTdvcGRmbzM2N0xKSWQwazRLVHRNUDRWc3ZaZUY1TjY2cE1hOVBQR1VwRUFXemhqN01ULWJ6VVJ2T1JhMUFBNExaWUZXQ3IzTjZlOWZzdHdZcWZvUEs5eDhNWkNYMXVMSUc1T3NMV2JfZWVsano0eDN0M0MzZ2hSQ0tGNXBqRlE?oc=5",
-          "source": "Gazeta do Cerrado",
-          "published": "Sun, 03 May 2026 20:49:22 GMT",
-          "hash": "17e68451b839",
-          "captured_at": "2026-05-10"
-        },
-        {
-          "title": "Em cenário de palanque oposto, Vicentinho Jr discursa em Santa Teresa após cavalgada e a prefeita garante respeito: “líderes, fiquem em paz”",
-          "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNZURkVzF5UWNHQWhJVDhtaTg3WkJicF9hN2dad2FaZDltYnpsVnYyeDA2Z0NqZHhPWnVwdk1iMkRBM2dMZFdkMlpacDdxZEg3cjZSUmZ4YXo3VzV1SmlQMWdKOXMzUF9nX0pTZnRPeUxSbnhjMWl0TmdlbWF2Nm5sbUpoMGJXWHdXWEtNb0R6aUJlZEhVc1d3MkFYYndTMFp4RFZjVy1BbEpCQXZPVW1XSkVRYWprSWZCUDRQekhKVVlNMTNwZW9VcFdpYk5ZZzhSdEJ0YjlIOWx6NzFHamFueGxPTnVUVXZoR2J2MEJvR09mdjBzdzU3cmJURnY5YVJfWE9pWXdiSjg?oc=5",
-          "source": "Gazeta do Cerrado",
-          "published": "Sun, 03 May 2026 20:33:02 GMT",
-          "hash": "e04229d0c606",
-          "captured_at": "2026-05-10"
-        },
-        {
-          "title": "Senador Eduardo Gomes recebe apoio político em Rio dos Bois durante aniversário da cidade",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNYU83UnRQck52YWpBeVNLaE8zaFpfUlRPVFBFVmNPbFBrMTN1SkJBamdoWlVLQnFDUkdabmhtdi1JX1ZwZmRVUVVDSGZ6NFNHMmhvUWxYMEVFdVRBMHBoaGFrcXV4ZXRvcjd3V2ZoMnVLMF9TU3hNdWtTbENpWkVSdEJwYjR3aGszRnItSnFmRTJvSTloR056S051b3B2UHJMLXJqa3ljNzBaMzBYUWVyRXpfQzJhWmNiZEFz0gG7AUFVX3lxTE1hTzdSdFByTnZhakF5U0toTzNoWl9SVE9UUEVWY09sUGsxM3VKQkFqZ2haVUtCcUNSR1puaG12LUlfVnBmZFVRVUNIZno0U0cyaG9RbFgwRUV1VEEwcGhoYWtxdXhldG9yN3dXZmgydUswX1NTeE11a1NsQ2laRVJ0QnBiNHdoazNGci1KcWZFMm9JOWhHTnpLTnVvcHZQckwtcmpreWM3MFozMFhRZXJFel9DMmFaY2JkQXM?oc=5",
-          "source": "jm notícia",
-          "published": "Sun, 03 May 2026 11:34:55 GMT",
-          "hash": "f9c89dc8df85",
-          "captured_at": "2026-05-04"
         }
       ]
     },
@@ -253,7 +253,7 @@
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
       "total_mentions": 30,
-      "new_this_run": 4,
+      "new_this_run": 6,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -310,6 +310,22 @@
           "published": "Wed, 29 Apr 2026 12:51:50 GMT",
           "hash": "e6e6a3a1bae1",
           "captured_at": "2026-05-01"
+        },
+        {
+          "title": "Presidente Lula edita MP para acabar com “taxa das blusinhas”; crítico à cobrança, Ricardo Ayres vê governo reconhecendo erro",
+          "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNYl9kMWhvU1F2S2FlUlI4cUFOaUM2NW5hdkdKbkd3ZlV5M2FmMnJzOWlnME1xR2pJYnF3V2Z6Nl9jMjFWSlRSMUNBbHBkLVcxVkRPRkxOdTZZa1lGSXQ3bmd0YjN6Tmd6TzMxVUdoQk00NXl2d1J1NklNdWtFaUVjZklSNzI3SlU0NWdkUWpaa0IwLUFIZXFHa1NHYlFNMjhQak9LeENGWjVVU3JSOXQxZThFZWM4REFTYk1Yemo1NGpzcnBhUWd2ajN5SlVkNjNENl9pcjJJVzc3X05wSW1JWmJiVnktYnc5eFZvNw?oc=5",
+          "source": "Cleber Toledo",
+          "published": "Wed, 13 May 2026 11:13:00 GMT",
+          "hash": "92b44cc99565",
+          "captured_at": "2026-05-13"
+        },
+        {
+          "title": "Política | Lula revoga “taxa das blusinhas” após mobilização e projeto de Ricardo Ayres",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxORW1uRkw3WWVNa0NQZVFCbHlCWXdaQkhhZVhzTTRGZ1k4YnRncTd2TG1YRWZCNjlVR3BUc2g0MlV1YUdvNmM1NlVtZUdkNjhwOElkbVZaLXdFcUdsSjNiN1FiV0RwS3JTZElUczlWSTByRFh4d0Q5b05vNHZUR21MeHAxc2ZYbjdjeHloWmRRb3hCUWxkSEhTVi1hX09uZDBnbHI1WVl0dUt1QmdiMkFPLWJ2Z0U3N25z?oc=5",
+          "source": "T1 Notícias",
+          "published": "Wed, 13 May 2026 11:02:07 GMT",
+          "hash": "cdd76e13328e",
+          "captured_at": "2026-05-13"
         },
         {
           "title": "Aprovado projeto de Ricardo Ayres que inclui jovens aprendizes e PcD em contratos públicos",
@@ -392,6 +408,14 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "Quebradeiras de coco babaçu são reconhecidas como cultura nacional",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOODlrVW15UXhBbVpOeXYxbGtleks4eUotQUptT19rQU9rRm1xcEFNd1BneFNwNW5zbkNldXd3NWI2QVhqN0pwbmJOeHhlUFU4Qm1JUVZyaktEUWFoTmF2UWNRblRJcmt4bV9lT3U0bUJya0dqR1podGhWcUN1UlRyeTdra1FUbF92Mjc3X29TR0JKbVNuTFdMSk1qRUVqbjZLd0FxMDg1WU1PaHJ2RGZWbFBaMklHdE0w?oc=5",
+          "source": "Portal Piauí Hoje",
+          "published": "Tue, 12 May 2026 20:51:12 GMT",
+          "hash": "5754d4bc711b",
+          "captured_at": "2026-05-13"
+        },
+        {
           "title": "Ofício de quebradeiras de coco babaçu é manifestação da cultura nacional, aprova CE",
           "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNazRTUGw0SnpoalhTOW1pbHNUSlU3am0yN0JXbXY4cUlkS2gyREdEMXMyMDhyb0JodVpJTUpYeTVkTDVvVURtQ2ZBUWt0Tzk1ZF90Y0dwM3REb1VFSXhmMFhfcmNYcVpTQlNIUGd1cG1RRFpWWW5uM3lGRnhmLUFlY05qa2JzY0xDNXNMdkdoa2VScUpVTC1wcDJ6Mm5JbG9VbUZMVEswVkRrbi0wTzlyR1pnbmFDSFFqbnVMbnQyb3pjRk5pQ2c?oc=5",
           "source": "Blog do Elvis",
@@ -470,30 +494,6 @@
           "published": "Thu, 30 Apr 2026 19:12:00 GMT",
           "hash": "0cfd4db19ae9",
           "captured_at": "2026-05-03"
-        },
-        {
-          "title": "Ricardo Ayres destina R$ 10 milhões para transporte de pacientes no Tocantins",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOMTdOcnR5S1Y5MnFraGE5djI5dUVTS0NaVFpBMnRfMnBrclR2ampVZ3pmRVZ3TjdORkVNRHpnMXBYMGlLX01mQ0RBWGVNTTFsYlN1Zl96dko5TFMxeHhaNmRELXp2cE9wWm9XUE1Vakg3MEVFTlRKamxiS0NUWkhDb0xiTkhSQjlNN1BrRU92OEp5RnRGNVU1WDVZZ1JRZTROSUwzTFNzTQ?oc=5",
-          "source": "Folha do Bico",
-          "published": "Thu, 30 Apr 2026 14:14:35 GMT",
-          "hash": "295bebbce8ca",
-          "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Ricardo Ayres vai ao DNIT, cobra balsa gratuita e solução para ponte Araguatins-TO/Palestina-PA",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOb2owemgzRngwSjhubWNLVDdZNmtxQ3lCc2ZYZUIwSGQ2ODlvTjBhcTJ5RVJqbnFXWThudUMtZEhHdDE4UzVhQWpzdVZ3TTNRY1gzUmZ4Mnh5VmRwWUgyTWZfNU5nRGpUYWZSb0hMM21sUVI2R2NvMWRGc2sweVpvaHZ4RDlDUFpZMnY3SGRDVnEwaDNZTTVGQllHZ1JfNWlMNktWTUN2LXBYNFd0REtsdzZBSWhJUnNvMUJRM0dlOA?oc=5",
-          "source": "Folha do Bico",
-          "published": "Thu, 07 May 2026 22:30:07 GMT",
-          "hash": "47ff9de14867",
-          "captured_at": "2026-05-08"
-        },
-        {
-          "title": "O deputado federal que não faltou um dia sequer e se tornou o maior relator da história do Tocantins no Congresso",
-          "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQcExhd0ZUaVpEWDN2bkhSM2lYbFZoejBLRjAxMXN1akRiN2V1b05pM2FfZWFqUWZNZTJ0OWxpWGZ5Yjd2cS1Nbmd4cDk4UFdQWGtZUS1LYWtXRzl4N2otWkNiXzJQYnRfM3J0LWtrbEJTRG1wcGlGeUd6UDJBOUZNZnd6b1hmU0c3Z0YzN19oZU5SZkNUd0IyYktlZ0FESlZJZkg0U1hhMkZWajBINF91cWJOcWd3cGZBZ21ibjBBZjMxRjRackZ3OC1IZjFRR2hqYzBfT2J5N1h5eDRta0pZWjJjU1l4bDIySHA4?oc=5",
-          "source": "Gazeta do Cerrado",
-          "published": "Sun, 26 Apr 2026 14:01:14 GMT",
-          "hash": "ddeb4ba21cbe",
-          "captured_at": "2026-05-01"
         }
       ]
     },
@@ -501,7 +501,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 18,
+      "new_this_run": 20,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
