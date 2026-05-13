@@ -1,12 +1,20 @@
 {
-  "updated_at": "2026-05-13 12:11",
+  "updated_at": "2026-05-13 17:26",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 30,
-      "new_this_run": 12,
+      "new_this_run": 7,
       "mentions": [
+        {
+          "title": "Araguaína terá mais 352 apartamentos pelo Minha Casa, Minha Vida",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOSFRUc3NUOU9NQzI0TS1vYTNSS0xxaHcyQVFNZE1RZ2p0Q1k4N2dPMEJiX0F4QkdJbVFPT1NLNDlvNFMxWTFrWi12Z2ZJWlktTG5XQ2Y3VV9ZdDhhczE5UjlRdDN4bi0yb3U4RGg5Z21WRWNqNFpKUXV3cGpDNEF5ZUlGaFdOUkQ0ckxRdVhSaHVwTTjSAZgBQVVfeXFMTnVydHZfbkl4QXBwY3VCRElnX05vZlZtLWluYjhmVjBiLWpoeXVTU3hrdWQ5eDVLSkpVMDRHdDN1bmNkZjcwOEFUX1JzUTlLTW5zQmZyNXoxWFYyVGR6bUZjZWV2T2NnQnNub3RfUmhCUW9rNnJrVlNGS3BXcXFCZW5XbHA5aTFtRFBhMUhoWHREQm00Y01Pb28?oc=5",
+          "source": "jm notícia",
+          "published": "Wed, 13 May 2026 12:41:00 GMT",
+          "hash": "207bfa618366",
+          "captured_at": "2026-05-13"
+        },
         {
           "title": "Dorinha amplia alianças no Tocantins, recebe apoio em Araguaína e fortalece grupo político no Bico do Papagaio",
           "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNdENFVENOMEZNUUZBWV9KZjI1VkV6ZVZGTkhSYU9TT2hpdGtLRWlIc1UtOF9lckFqVnUtblJKSjF4b25kc2UwRV9JRjM5SDN3RTJwREh6b0VvMFJoMmJ2blhNRFlSd1JrUE01ME1KUlVZMkd3MmphRTBVM2YwZXZIVmpjcFZUdVYyaWlzLTVQeDJvZ2E5OGxiUmNYbm5BUXBpU0FSRnJwbmw3TjNaaGppbFVWUUhSbkI0VzBmZkt2SXlxbzk5aTFSdk84bTI2WUFUTDlGWGdMQV96cTNuVXZKeEdwaHQyN204SUFr?oc=5",
@@ -37,6 +45,14 @@
           "source": "Cleber Toledo",
           "published": "Wed, 13 May 2026 11:14:00 GMT",
           "hash": "ab1f53836a07",
+          "captured_at": "2026-05-13"
+        },
+        {
+          "title": "Senadora Dorinha recebe apoio do vereador Max Baroli em Araguaína",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNM21PYmlKNW5uU3YtbGNKVWNPNEVPdU1hck8teEZtZFFFMTczcEh0YVNGYTVtWWZtZTVrSl9vYnI1SFFrY1VjWXp0VW9HMFFFbTNfYnFIS3lweVlJRHN2TzRJNk1xbVpaaUl2MnNhVG5QcEFXSlJPX2VWVDdCNGRVOXFkelFNck1XRU83VWltNmI3eHY2M1HSAZsBQVVfeXFMTk1jUjI1TEF1RVotbVBkdVlFUUw3Zll3MjV1YXRWQmFha3paa2VwTmZxVzA4LVlnUXBZdDRGRHo3ODE1MHF5SUNGeWRGR01ZYnZsTXNpSkNnYXpYWE1FbEN5YkJKQzM1SXVkaGdoX0YzRDhncDM3a2JHdjBlNTUtV0ttYU9rMVVnekZqZlpXeGp4TmJ0T1B5YzF1ZXM?oc=5",
+          "source": "jm notícia",
+          "published": "Wed, 13 May 2026 10:59:00 GMT",
+          "hash": "7cc36e8de37f",
           "captured_at": "2026-05-13"
         },
         {
@@ -230,22 +246,6 @@
           "published": "Thu, 30 Apr 2026 19:12:00 GMT",
           "hash": "0cfd4db19ae9",
           "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Com emenda de Tiago Dimas, modernização da Clínica Escola Mundo Autista são entregues em Araguaína",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNN18xRUJ4Y0JoWXdyVVRyal9kOXgxd254ZUQtaEhTVnVxc2k4QzM3cXNjM2JyWHZXWWkySVZsREZTaTJqblMwTEtabk1VWTFHeThLLXpOeDFMLWkwMl94RXFDQVpZN0Y0N0RPQ0hkQnktRGNwOXRuMWJsZ2lNU24yQkNhSkllMDhnTUszZXVzQUx6a3FxWnRGUzNYdm0tYnliQWFpTG9ZcmhMQ19vMkVJUmo3ZjltX2JISWJrdmdBY0Q3QVRNalo2X1U1MGwydw?oc=5",
-          "source": "Conexão Tocantins",
-          "published": "Thu, 30 Apr 2026 19:11:00 GMT",
-          "hash": "eed7ee355321",
-          "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Atendendo 700 alunos, Clínica Escola Mundo Autista é reinaugurada com nova estrutura em Araguaína",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOcGNCZmRoWV84R2JWTnh6TE8xdXM5aTA4MEp5YlpYUGtPd1AwLVYxSVVTZEdzQnBnM2daY1U1dzJCUDdPQjFXNTB2RlRnckpXNmwtb0lKMExaN0FlaWNvZEpFY3A3Ym5aSDlhMHNPeHp2bU1SNVhMeTZkN0x0bmdVbmU3X2JERnJ5YnRjZmpwc0UtME1wc1RpNlhMN2dOT3g0bFpUNDM0ODhWTUlrVEQwbVJndTRfSnU4bmNwa09SMEJ2ZmpkYW9rd0NYSlZGZkhLUmk4U2JmRmhBczg?oc=5",
-          "source": "Araguaína Notícias",
-          "published": "Thu, 30 Apr 2026 18:19:00 GMT",
-          "hash": "379aa179410b",
-          "captured_at": "2026-05-01"
         }
       ]
     },
@@ -310,6 +310,14 @@
           "published": "Wed, 29 Apr 2026 12:51:50 GMT",
           "hash": "e6e6a3a1bae1",
           "captured_at": "2026-05-01"
+        },
+        {
+          "title": "Governo Lula revoga 'taxa das blusinhas' após reação liderada pelo deputado Ricardo Ayres",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNamhxSGJKOS1mNmxfbVpUMHlNZTlkVG5uT2ZuZmpMX3E4bVpVZFRWcTJ4OVdiakRUQkVRam5rTVB2VTBTN2ZQc0J4N3NoMmZQdUdlQi1uN3NQS1A2UWc1cDREci0ySmVsX0hhNm5aMW5nMDBfTUs3bDJDSDFXeDhoQng3cUxyWVJPSFNlMDdBN0wxMWJBQVI2cTNlUlJTZHBYbmFaa0hkc0dnZ1ZNdjUwN0JhT3VFNmlSQjRjdkdGRGtnRGlEbVJSQUJEVXRnaUN1?oc=5",
+          "source": "afnoticias.com.br",
+          "published": "Wed, 13 May 2026 12:42:00 GMT",
+          "hash": "7243cb7796e6",
+          "captured_at": "2026-05-13"
         },
         {
           "title": "Presidente Lula edita MP para acabar com “taxa das blusinhas”; crítico à cobrança, Ricardo Ayres vê governo reconhecendo erro",
@@ -432,6 +440,14 @@
           "captured_at": "2026-05-12"
         },
         {
+          "title": "Reconhecimento nacional: ofício das quebradeiras de coco babaçu avança para sanção presidencial",
+          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNb1VTRzdrVkNCRE5QRWxfLUVIMEpyb3dNczltZzB1dWc3M1RBMW1jT0dJdEs2ZkFPT0FGQjJ6NFZxcl9SemlMU2FOdDBqbGpyMjVIdndjRDI3VHlJMVNyTGNPTUowSVdyNFJpdDBjWHBKSUxnVEItcDVjT3FKNzNaMGJ4WGdEZjVfVU1IVGR2Y3laalQwLU5pVDYxYXc5VDl0N0kyaC1kTk5RSGw3TDdQX3JZemdoZlRWTTgxYVVraVVKa1ZqWHdGdmNZa3VESFgzb05rQVUtUFNfUVdDZUROOEFfajJZLWg4c2Z4WEVR?oc=5",
+          "source": "Tribuna do Agreste",
+          "published": "Tue, 12 May 2026 14:41:00 GMT",
+          "hash": "5a1dafe65221",
+          "captured_at": "2026-05-13"
+        },
+        {
           "title": "Comissão aprova uso de faixas exclusivas por ônibus de fretamento",
           "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZzFrZkFxQ2VMbGhBbFFLdmpveVFHTjQzUUNlMmZHU2cySGNSRGNiaDVNSmdqV1AxWnZ6UktMamx3SFk3Vl9aSXlObWJ5OU4zdmtYemJDakxOcFNxLUdqSE5PMDVFNGtDQmI0Q010UTA2N3VzMUVTZU0yR1BvUjZmSTBNdURfZTBuc1NzbENpNkt6V3BIT0tCZzhJeUNiMkJFUmppZ2lkamJEUG1v?oc=5",
           "source": "Portal da Câmara dos Deputados",
@@ -478,22 +494,6 @@
           "published": "Thu, 30 Apr 2026 19:37:52 GMT",
           "hash": "01251a2055b5",
           "captured_at": "2026-05-04"
-        },
-        {
-          "title": "Tocantins acompanha maioria e vota para derrubar veto de Lula ao PL da Dosimetria; Irajá e Ayres votam pela manutenção",
-          "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxPUkdYZHNEZF9OTFVsMGNUblliUkNzeWtrNk9mWDdjQWFHM2tzWWhiSkFXZzgzY21ncklGQmJUdWhrZEE0U05wTWc4dFVkakRpVW41Vm9Jc2d4akJlMHJFbHQyc2FobExjNWEycGluOEN1bXNaeWt6UGlmVGpveFV1UzJvaEVwTDh6WEc4RjdpU2JmcnlrQlAwUHVNdFJVbWtlNkhyMEota2t2SHJsVHppTWpmVEUxMWNQc3EyM2RHaFNRUC1hM3JHR2tJcWZtZVYxU1dzcTRyb0xLamFFQ3NxM3ViUXN4ZzVmSWtHSDYyVHQ?oc=5",
-          "source": "Gazeta do Cerrado",
-          "published": "Thu, 30 Apr 2026 19:14:40 GMT",
-          "hash": "be9c2386e860",
-          "captured_at": "2026-05-03"
-        },
-        {
-          "title": "Congresso derruba veto de Lula e mantém PL da Dosimetria; 9 dos 11 tocantinenses foram favoráveis aos golpistas",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNclFsLThfWDNrSkVFWlRpamh4QWJ1dzR6clhGa1ZsdW9lNGRnMU44QXZIa3VMYVV3OEdfWGt3VnVKcHJOLU85emIyTGhzcEJFYUxaRV9VWWlJUUd4dVQ5TVRwcE9tYlF2ZEJrR1dsaDQzeVVOdDVyVHVPZWZhdG5Pazd6bEo5Um1QcHNzc0NKb0hlZmFwRlFkVE00Yk5MRHpMNEFhRjhYRWZJWF9ycEFPd2poZm5CdWVKSkM3eHNVTXpPcmdNSkpfWmpaS04ycDJjZzFHSGlNLWlZWmJNd1lIeGVB?oc=5",
-          "source": "Cleber Toledo",
-          "published": "Thu, 30 Apr 2026 19:12:00 GMT",
-          "hash": "0cfd4db19ae9",
-          "captured_at": "2026-05-03"
         }
       ]
     },
@@ -501,7 +501,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 20,
+      "new_this_run": 19,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",

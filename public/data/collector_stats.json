@@ -1,46 +1,47 @@
 {
-  "updated_at": "2026-05-13 12:11",
+  "updated_at": "2026-05-13 17:26",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 23,
-    "duplicates": 21,
+    "entries_rss_raw": 44,
+    "duplicates": 41,
     "blocked_date": 0,
-    "blocked_id": 1,
+    "blocked_id": 3,
     "blocked_id_reasons": {
-      "nome do candidato ausente": 1
+      "nome genérico sem contexto tocantinense": 1,
+      "nome do candidato ausente": 2
     },
-    "approved_rss": 1,
-    "approved_scrape": 2,
+    "approved_rss": 0,
+    "approved_scrape": 18,
     "approved_indirect": 0,
-    "total_new": 3,
-    "sources_approved": {
-      "Agência Tocantins": 1
-    }
+    "total_new": 18,
+    "sources_approved": {}
   },
   "history_summary": {
-    "total": 81,
-    "last_7d": 30,
-    "last_30d": 38,
+    "total": 84,
+    "last_7d": 33,
+    "last_30d": 41,
     "sources_7d": {
       "RR10 Notícias": 15,
       "Atitude Tocantins": 8,
-      "Portal do Amaral": 6,
+      "Portal do Amaral": 7,
+      "Agência Tocantins": 2,
       "Portal LJ (Leal Junior)": 1
     },
     "sources_30d": {
       "RR10 Notícias": 17,
       "Atitude Tocantins": 8,
-      "Portal do Amaral": 6,
+      "Portal do Amaral": 7,
       "Blog Luiz Armando Costa": 5,
+      "Agência Tocantins": 2,
       "Luiz Armando Costa": 1,
       "Portal LJ (Leal Junior)": 1
     },
     "methods_30d": {
-      "RSS": 3,
-      "DIRECT_SCRAPE": 35
+      "RSS": 4,
+      "DIRECT_SCRAPE": 37
     },
     "sentiment_30d": {
-      "Positivo": 18,
+      "Positivo": 21,
       "Neutro": 15,
       "Muito Negativo": 5
     }
@@ -100,7 +101,7 @@
       "layer": "A",
       "mentions_30d": 8,
       "last_run_status": "ok",
-      "last_run_mentions": 0
+      "last_run_mentions": 1
     },
     "soudepalmas": {
       "name": "Sou de Palmas",
@@ -114,7 +115,7 @@
       "layer": "A",
       "mentions_30d": 15,
       "last_run_status": "ok",
-      "last_run_mentions": 0
+      "last_run_mentions": 15
     },
     "portalonorte": {
       "name": "Portal O Norte",
@@ -140,14 +141,14 @@
     "portaldoamaral": {
       "name": "Portal do Amaral",
       "layer": "B",
-      "mentions_30d": 6,
+      "mentions_30d": 7,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
     "agenciatocantins": {
       "name": "Agência Tocantins",
       "layer": "B",
-      "mentions_30d": 0,
+      "mentions_30d": 1,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
