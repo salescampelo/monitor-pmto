@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-13 17:26",
+  "updated_at": "2026-05-14 12:01",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 30,
-      "new_this_run": 7,
+      "new_this_run": 4,
       "mentions": [
         {
           "title": "Araguaína terá mais 352 apartamentos pelo Minha Casa, Minha Vida",
@@ -22,6 +22,14 @@
           "published": "Wed, 13 May 2026 11:59:43 GMT",
           "hash": "34ef80b80daf",
           "captured_at": "2026-05-13"
+        },
+        {
+          "title": "Presidente da Câmara de Araguaína anuncia apoio a Dorinha e diz que ela terá apoio da maioria dos vereadores",
+          "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQWlo5a1pQblBrel9VUGxpX3A4Q3ZXUi1GQkFIVDV4clE1VjNUcWR2d2wtaEd3MHVxZ2JjZkRxRzlYTFJWNWlSeTV5aUNwcWMycXhmNVg0Sm5SalJua1dRdXpUdTRONDVwUDF5Wk1yVG5ENUdRa0VjdEdCNTV5WGJNdUJxVnJvYmFXS3MwV05nLVk5OFFJV2l0enY4X3ZyQ2JsWWliT0Q0UGdPTWFDT2VVQ0F5RFlLS0NRdnJnOFhtMnRwQTRWd01iUnFDQjV5eU5DM3B5UDZYd0QzLWhhdFVneXAxU1hycUtkbkRz?oc=5",
+          "source": "Araguaína Notícias",
+          "published": "Wed, 13 May 2026 11:57:00 GMT",
+          "hash": "d91be73dcb48",
+          "captured_at": "2026-05-14"
         },
         {
           "title": "Araguaína lança novo residencial popular com 352 apartamentos previstos no Jardim do Lago",
@@ -238,14 +246,6 @@
           "published": "Thu, 30 Apr 2026 19:14:40 GMT",
           "hash": "be9c2386e860",
           "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Congresso derruba veto de Lula e mantém PL da Dosimetria; 9 dos 11 tocantinenses foram favoráveis aos golpistas",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNclFsLThfWDNrSkVFWlRpamh4QWJ1dzR6clhGa1ZsdW9lNGRnMU44QXZIa3VMYVV3OEdfWGt3VnVKcHJOLU85emIyTGhzcEJFYUxaRV9VWWlJUUd4dVQ5TVRwcE9tYlF2ZEJrR1dsaDQzeVVOdDVyVHVPZWZhdG5Pazd6bEo5Um1QcHNzc0NKb0hlZmFwRlFkVE00Yk5MRHpMNEFhRjhYRWZJWF9ycEFPd2poZm5CdWVKSkM3eHNVTXpPcmdNSkpfWmpaS04ycDJjZzFHSGlNLWlZWmJNd1lIeGVB?oc=5",
-          "source": "Cleber Toledo",
-          "published": "Thu, 30 Apr 2026 19:12:00 GMT",
-          "hash": "0cfd4db19ae9",
-          "captured_at": "2026-05-01"
         }
       ]
     },
@@ -310,6 +310,14 @@
           "published": "Wed, 29 Apr 2026 12:51:50 GMT",
           "hash": "e6e6a3a1bae1",
           "captured_at": "2026-05-01"
+        },
+        {
+          "title": "Abertura da Agrotins reúne palacianos e pré-candidatos de outro grupo; Wanderlei dá o tom: “Sabemos a hora de fazer política e a hora de fazer governo”",
+          "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxORXlqRWZ0OVdkeFI3dTlGcmU1b2RFLUktQS1iXzBObFZaM3RZR0F3ZURUdWVOUjJXcEdqZnZHLUZYSjU5d1ZjM0F1cERQQkc3OGVJVzNUbGN2ckk3VHJBY1JEN2dOd2dNM3pYclo0X0ZhN1IzTkdvU2NnaC1lZkVtM1daNGJwSWFGajlUVnlGZEVKTjhQU0t2dElkMmZLZlFDM2NSUmFSOENfTDE1SzJyajktWHE3SU9OaTlZSG5TVmdDeUliNHVZdGpjemowZFZJR2lZV210NHNjS1doQnZDVkJxUTExRndyTlVYSF84eko1YnVudHVQUERYcXNDeUZBOXNJVjVRZUVCbE1OMmxKU19iVFg4bmRj?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Wed, 13 May 2026 15:33:54 GMT",
+          "hash": "83f6d4f895a2",
+          "captured_at": "2026-05-14"
         },
         {
           "title": "Governo Lula revoga 'taxa das blusinhas' após reação liderada pelo deputado Ricardo Ayres",
@@ -486,14 +494,6 @@
           "published": "Thu, 30 Apr 2026 20:24:00 GMT",
           "hash": "b63c60e5b9da",
           "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Congresso derruba veto ao PL da Dosimetria; veja o voto de cada parlamentar",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNdVVpdDkxanhNNDV1YUttZHZESVNjbWI0bEtMLXRMQlZhYjJQWEt3RE1BdFJHc1h5WTd1bUs5X0FNN3I2NTFGYnRJTmdjM1NhZmsxeDgtVjBIRy1EWUJqODJLZHUydXVWV3Zkckc3RHVlRHM3TWdQUzVreExNa3g2cHRPZ2Z6blJ2R00xNzByMHRKWVFCU1FMN3FZSkprZTVsS1E5Q1dDZkxmcUhGazNKUEVINFdmd25zSXVIZ2txeEJCMEEyMHl4cTItLWR3RFFUcGdOMExYTmdqaUE?oc=5",
-          "source": "UOL Notícias",
-          "published": "Thu, 30 Apr 2026 19:37:52 GMT",
-          "hash": "01251a2055b5",
-          "captured_at": "2026-05-04"
         }
       ]
     },
