@@ -1,48 +1,47 @@
 {
-  "updated_at": "2026-05-14 17:06",
+  "updated_at": "2026-05-14 22:59",
   "run_stats": {
     "queries_rss": 20,
     "entries_rss_raw": 45,
-    "duplicates": 40,
+    "duplicates": 41,
     "blocked_date": 0,
-    "blocked_id": 5,
+    "blocked_id": 4,
     "blocked_id_reasons": {
       "nome genérico sem contexto tocantinense": 2,
-      "nome do candidato ausente": 3
+      "nome do candidato ausente": 2
     },
     "approved_rss": 0,
-    "approved_scrape": 3,
+    "approved_scrape": 2,
     "approved_indirect": 0,
-    "total_new": 3,
+    "total_new": 2,
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 108,
-    "last_7d": 57,
-    "last_30d": 65,
+    "total": 56,
+    "last_7d": 22,
+    "last_30d": 29,
     "sources_7d": {
-      "RR10 Notícias": 30,
-      "Atitude Tocantins": 11,
-      "Portal do Amaral": 10,
-      "Agência Tocantins": 5,
-      "Portal LJ (Leal Junior)": 1
+      "Atitude Tocantins": 12,
+      "Agência Tocantins": 6,
+      "RR10 Notícias": 2,
+      "Portal LJ (Leal Junior)": 1,
+      "Portal do Amaral": 1
     },
     "sources_30d": {
-      "RR10 Notícias": 32,
-      "Atitude Tocantins": 11,
-      "Portal do Amaral": 10,
+      "Atitude Tocantins": 12,
+      "Agência Tocantins": 6,
       "Blog Luiz Armando Costa": 5,
-      "Agência Tocantins": 5,
-      "Luiz Armando Costa": 1,
-      "Portal LJ (Leal Junior)": 1
+      "RR10 Notícias": 4,
+      "Portal LJ (Leal Junior)": 1,
+      "Portal do Amaral": 1
     },
     "methods_30d": {
-      "RSS": 4,
-      "DIRECT_SCRAPE": 61
+      "DIRECT_SCRAPE": 26,
+      "RSS": 3
     },
     "sentiment_30d": {
-      "Positivo": 31,
-      "Neutro": 29,
+      "Positivo": 23,
+      "Neutro": 1,
       "Muito Negativo": 5
     }
   },
@@ -99,7 +98,7 @@
     "atitudeto": {
       "name": "Atitude Tocantins",
       "layer": "A",
-      "mentions_30d": 11,
+      "mentions_30d": 12,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
@@ -113,7 +112,7 @@
     "rr10noticias": {
       "name": "RR10 Notícias",
       "layer": "A",
-      "mentions_30d": 30,
+      "mentions_30d": 2,
       "last_run_status": "ok",
       "last_run_mentions": 0
     },
@@ -141,14 +140,14 @@
     "portaldoamaral": {
       "name": "Portal do Amaral",
       "layer": "B",
-      "mentions_30d": 10,
+      "mentions_30d": 1,
       "last_run_status": "ok",
-      "last_run_mentions": 1
+      "last_run_mentions": 0
     },
     "agenciatocantins": {
       "name": "Agência Tocantins",
       "layer": "B",
-      "mentions_30d": 4,
+      "mentions_30d": 5,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
