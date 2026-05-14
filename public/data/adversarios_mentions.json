@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-14 12:01",
+  "updated_at": "2026-05-14 17:06",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 30,
-      "new_this_run": 4,
+      "new_this_run": 3,
       "mentions": [
         {
           "title": "Araguaína terá mais 352 apartamentos pelo Minha Casa, Minha Vida",
@@ -424,6 +424,14 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "Governo recua na taxa das blusinhas; Ayres liderou reação contra cobrança",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOcWNMTEtqYi1xV1dFVV9lZ3l6dG9MX2tfdE1JeExjdjN1T1VCaEpLTDZJVzYtbG9oRXFpbDlVQktGV0s2V2VrRW56WjNuanlad2lQSmdrYUZvd2s1RFllUUpqckUtRjlYa0ZQajZ0M2NPX3VkUnRKNFpMOVJnZmNJTWg1cE9mQVhSbjhTQUtQR05veU5sUXBiMlRxNmdGWi1EREhfVHJPbDYydkJiNU9fbWE1dE8?oc=5",
+          "source": "Gazeta do Cerrado",
+          "published": "Tue, 12 May 2026 23:14:19 GMT",
+          "hash": "0f2fa99d21b9",
+          "captured_at": "2026-05-14"
+        },
+        {
           "title": "Quebradeiras de coco babaçu são reconhecidas como cultura nacional",
           "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOODlrVW15UXhBbVpOeXYxbGtleks4eUotQUptT19rQU9rRm1xcEFNd1BneFNwNW5zbkNldXd3NWI2QVhqN0pwbmJOeHhlUFU4Qm1JUVZyaktEUWFoTmF2UWNRblRJcmt4bV9lT3U0bUJya0dqR1podGhWcUN1UlRyeTdra1FUbF92Mjc3X29TR0JKbVNuTFdMSk1qRUVqbjZLd0FxMDg1WU1PaHJ2RGZWbFBaMklHdE0w?oc=5",
           "source": "Portal Piauí Hoje",
@@ -486,14 +494,6 @@
           "published": "Tue, 05 May 2026 00:11:00 GMT",
           "hash": "20b53b94003b",
           "captured_at": "2026-05-09"
-        },
-        {
-          "title": "Do Tocantins, apenas Irajá e Ricardo Ayres votaram pela manutenção dos vetos do governo Lula ao PL da Dosimetria",
-          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNSmNTb09aMEZVSm9EZjltZHo5X3NwRWQzX21MQ2FEQlFsR3c3RXVibU9EYmVkYnl3ZlgzbUxrU3Y3bWxpaS1fRURaejBRZDhwcDBFMHFsc0ExTWNNX2RpcmxlR0NEVERHVnAydF9RZW5PdC1vYXdhdi10dTZwZlNkNjZJeFl2TkxfX1BzdG9OcHFJMHI3bmVrU0stLXpOdmQ0ODVSbnh1bVpEZEIxYWxEdE93dXdaSWlmNFFoWGNwdnFDUk1wUWY3RTlLVUtiTElveDBCX2ZB?oc=5",
-          "source": "Jornal Opção | Tocantins",
-          "published": "Thu, 30 Apr 2026 20:24:00 GMT",
-          "hash": "b63c60e5b9da",
-          "captured_at": "2026-05-01"
         }
       ]
     },
