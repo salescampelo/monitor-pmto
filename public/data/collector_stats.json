@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-05-14 22:59",
+  "updated_at": "2026-05-15 12:04",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 45,
-    "duplicates": 41,
+    "entries_rss_raw": 44,
+    "duplicates": 40,
     "blocked_date": 0,
     "blocked_id": 4,
     "blocked_id_reasons": {
@@ -11,36 +11,36 @@
       "nome do candidato ausente": 2
     },
     "approved_rss": 0,
-    "approved_scrape": 2,
+    "approved_scrape": 1,
     "approved_indirect": 0,
-    "total_new": 2,
+    "total_new": 1,
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 56,
-    "last_7d": 22,
-    "last_30d": 29,
+    "total": 58,
+    "last_7d": 24,
+    "last_30d": 31,
     "sources_7d": {
-      "Atitude Tocantins": 12,
-      "Agência Tocantins": 6,
+      "Atitude Tocantins": 13,
+      "Agência Tocantins": 7,
       "RR10 Notícias": 2,
       "Portal LJ (Leal Junior)": 1,
       "Portal do Amaral": 1
     },
     "sources_30d": {
-      "Atitude Tocantins": 12,
-      "Agência Tocantins": 6,
+      "Atitude Tocantins": 13,
+      "Agência Tocantins": 7,
       "Blog Luiz Armando Costa": 5,
       "RR10 Notícias": 4,
       "Portal LJ (Leal Junior)": 1,
       "Portal do Amaral": 1
     },
     "methods_30d": {
-      "DIRECT_SCRAPE": 26,
+      "DIRECT_SCRAPE": 28,
       "RSS": 3
     },
     "sentiment_30d": {
-      "Positivo": 23,
+      "Positivo": 25,
       "Neutro": 1,
       "Muito Negativo": 5
     }
@@ -98,9 +98,9 @@
     "atitudeto": {
       "name": "Atitude Tocantins",
       "layer": "A",
-      "mentions_30d": 12,
+      "mentions_30d": 13,
       "last_run_status": "ok",
-      "last_run_mentions": 1
+      "last_run_mentions": 0
     },
     "soudepalmas": {
       "name": "Sou de Palmas",
@@ -147,7 +147,7 @@
     "agenciatocantins": {
       "name": "Agência Tocantins",
       "layer": "B",
-      "mentions_30d": 5,
+      "mentions_30d": 6,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
