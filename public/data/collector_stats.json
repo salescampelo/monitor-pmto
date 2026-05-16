@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-05-16 11:09",
+  "updated_at": "2026-05-16 16:04",
   "run_stats": {
     "queries_rss": 20,
-    "entries_rss_raw": 27,
-    "duplicates": 21,
+    "entries_rss_raw": 22,
+    "duplicates": 18,
     "blocked_date": 0,
-    "blocked_id": 6,
+    "blocked_id": 4,
     "blocked_id_reasons": {
-      "nome genérico sem contexto tocantinense": 2,
-      "nome do candidato ausente": 4
+      "nome genérico sem contexto tocantinense": 1,
+      "nome do candidato ausente": 3
     },
     "approved_rss": 0,
     "approved_scrape": 1,
@@ -17,30 +17,30 @@
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 61,
-    "last_7d": 24,
-    "last_30d": 34,
+    "total": 62,
+    "last_7d": 25,
+    "last_30d": 35,
     "sources_7d": {
+      "Agência Tocantins": 11,
       "Atitude Tocantins": 11,
-      "Agência Tocantins": 10,
       "RR10 Notícias": 1,
       "Portal LJ (Leal Junior)": 1,
       "Portal do Amaral": 1
     },
     "sources_30d": {
       "Atitude Tocantins": 13,
-      "Agência Tocantins": 10,
+      "Agência Tocantins": 11,
       "Blog Luiz Armando Costa": 5,
       "RR10 Notícias": 4,
       "Portal LJ (Leal Junior)": 1,
       "Portal do Amaral": 1
     },
     "methods_30d": {
-      "DIRECT_SCRAPE": 31,
+      "DIRECT_SCRAPE": 32,
       "RSS": 3
     },
     "sentiment_30d": {
-      "Positivo": 28,
+      "Positivo": 29,
       "Neutro": 1,
       "Muito Negativo": 5
     }
@@ -147,7 +147,7 @@
     "agenciatocantins": {
       "name": "Agência Tocantins",
       "layer": "B",
-      "mentions_30d": 9,
+      "mentions_30d": 10,
       "last_run_status": "ok",
       "last_run_mentions": 1
     },
