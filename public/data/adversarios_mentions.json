@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-15 16:56",
+  "updated_at": "2026-05-16 11:09",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 30,
-      "new_this_run": 2,
+      "new_this_run": 1,
       "mentions": [
         {
           "title": "Araguaína terá mais 352 apartamentos pelo Minha Casa, Minha Vida",
@@ -118,6 +118,14 @@
           "published": "Wed, 06 May 2026 11:17:48 GMT",
           "hash": "372ca135b1bb",
           "captured_at": "2026-05-11"
+        },
+        {
+          "title": "Presidente da Câmara de Araguaína declara apoio à pré-candidatura de Dorinha ao Governo do Tocantins",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQUnhWcFQ2YTVVc2tGZmhpT3JuYVR6WHpTLXVwZ0o4VVUxSk1WTXlFbGR0Z1EwZmxlUDZ6VGhnOV84RnJSc0E0c2syajl1aXZGYVhJYWZVWDVWTFdTd1JSemg2RzBxU1Q0ZjE1M2xOblNlZHlqQ2ZXV0JrRUFNUjItaDNzVWVmMUdubFg5eXViRmRsdkZSVkRLaU5MaVpYWWNldXA1SkNQRlNhLWxKb2F1QXNINFlQNXZlV2xGWldnbDFMb0FDTkQ4ZDhJZ1NKalU?oc=5",
+          "source": "Surgiu",
+          "published": "Tue, 12 May 2026 22:54:00 GMT",
+          "hash": "82e2fa1406e8",
+          "captured_at": "2026-05-16"
         },
         {
           "title": "Araguaína terá mais 352 apartamentos do Minha Casa, Minha Vida na região do Jardim do Lago",
@@ -238,14 +246,6 @@
           "published": "Thu, 30 Apr 2026 19:17:00 GMT",
           "hash": "a711312a858d",
           "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Tocantins acompanha maioria e vota para derrubar veto de Lula ao PL da Dosimetria; Irajá e Ayres votam pela manutenção",
-          "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxPUkdYZHNEZF9OTFVsMGNUblliUkNzeWtrNk9mWDdjQWFHM2tzWWhiSkFXZzgzY21ncklGQmJUdWhrZEE0U05wTWc4dFVkakRpVW41Vm9Jc2d4akJlMHJFbHQyc2FobExjNWEycGluOEN1bXNaeWt6UGlmVGpveFV1UzJvaEVwTDh6WEc4RjdpU2JmcnlrQlAwUHVNdFJVbWtlNkhyMEota2t2SHJsVHppTWpmVEUxMWNQc3EyM2RHaFNRUC1hM3JHR2tJcWZtZVYxU1dzcTRyb0xLamFFQ3NxM3ViUXN4ZzVmSWtHSDYyVHQ?oc=5",
-          "source": "Gazeta do Cerrado",
-          "published": "Thu, 30 Apr 2026 19:14:40 GMT",
-          "hash": "be9c2386e860",
-          "captured_at": "2026-05-01"
         }
       ]
     },
@@ -253,7 +253,7 @@
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
       "total_mentions": 30,
-      "new_this_run": 5,
+      "new_this_run": 4,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -501,7 +501,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 22,
+      "new_this_run": 19,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
