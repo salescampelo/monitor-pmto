@@ -16,14 +16,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.75,
     "cluster": "Eleitoral",
     "date": "2026-05-14",
     "date_display": "14/05/2026",
     "detected_at": "2026-05-14 17:04",
     "collected_at": "2026-05-14T17:04:36",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "516f9875d0cc",
@@ -42,14 +43,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-05-14",
     "date_display": "14/05/2026",
     "detected_at": "2026-05-14 17:02",
     "collected_at": "2026-05-14T17:02:37",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "8a0cbf789924",
@@ -68,14 +70,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.75,
     "cluster": "Eleitoral",
     "date": "2026-05-14",
     "date_display": "14/05/2026",
     "detected_at": "2026-05-14 11:58",
     "collected_at": "2026-05-14T11:58:54",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "516f9875d0cc",
@@ -94,14 +97,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-05-14",
     "date_display": "14/05/2026",
     "detected_at": "2026-05-14 11:56",
     "collected_at": "2026-05-14T11:56:58",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "8a0cbf789924",
@@ -120,14 +124,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.75,
     "cluster": "Eleitoral",
     "date": "2026-05-13",
     "date_display": "13/05/2026",
     "detected_at": "2026-05-13 23:06",
     "collected_at": "2026-05-13T23:06:04",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "516f9875d0cc",
@@ -146,14 +151,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-05-13",
     "date_display": "13/05/2026",
     "detected_at": "2026-05-13 23:04",
     "collected_at": "2026-05-13T23:04:00",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "8a0cbf789924",
@@ -172,14 +178,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.75,
     "cluster": "Eleitoral",
     "date": "2026-05-13",
     "date_display": "13/05/2026",
     "detected_at": "2026-05-13 17:24",
     "collected_at": "2026-05-13T17:24:15",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "516f9875d0cc",
@@ -198,14 +205,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-05-13",
     "date_display": "13/05/2026",
     "detected_at": "2026-05-13 17:22",
     "collected_at": "2026-05-13T17:22:16",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "f23d3bd36957",
@@ -223,15 +231,16 @@
     "snippet": "RR10 NOTÍCIAS | VEJA TAMBÉM Agrotins 2026 destaca rastreabilidade e fortalece abertura do agro tocantinense para mercados internacionais Vicentinho Júnior discute atração de investimentos e potencial do Tocantins com embaixador do Catar Articuladores políticos da capital se reúnem para construção coletiva da campanha de Claudia Lelis Amélio Cayres se reúne com categorias e busca consenso jurídico para garantir indenizações Ao lado de Henrique e Juliano e Flávio Bolsonaro, Coronel Barbosa prestigia posse de Nunes Marques na presidência do TSE 4ª Caminhada, Corrida e Passeio Ciclístico do Amor reúne cerca de 800 pessoas em Gurupi e arrecada mais de R$ 32 mil para o Hospital de Amor Multidão acompanha senadora Dorinha em lançamento de obras históricas do Residencial Atl",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Neutro",
-    "sentiment_confidence": 0.5,
+    "sentiment": "Positivo",
+    "sentiment_confidence": 0.75,
     "cluster": "Eleitoral",
     "date": "2026-05-13",
     "date_display": "13/05/2026",
     "detected_at": "2026-05-13 17:22",
     "collected_at": "2026-05-13T17:22:26",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "1813388e4b9a",
@@ -249,14 +258,15 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.75,
     "cluster": "Geral",
     "date": "2026-05-13",
     "date_display": "13/05/2026",
     "detected_at": "2026-05-13 12:11",
     "collected_at": "2026-05-13T12:11:43",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "86033a7ed9de",
@@ -275,14 +285,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.78,
     "cluster": "Eleitoral",
     "date": "2026-05-13",
     "date_display": "13/05/2026",
     "detected_at": "2026-05-13 12:09",
     "collected_at": "2026-05-13T12:09:00",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "46a3483abc7c",
@@ -300,15 +311,16 @@
     "snippet": "ARTIGOS RELACIONADOS Vereadores miracemenses apresentam reivindicações 12/05/2026 OPINIÃO : Uma homenagem de respeito! 11/05/2026 Fazem parte da Foto Histórica, além de Siqueira, a prefeita Magda Borba, os Deputados Stalin Bucar e Sandoval Cardoso, Bispo da Diocese de Miracema Dom Philip Dickman, Coronel Márcio Bandeira, e os vereadores Leal Junior, Nasci da Ótica, Alberane Borba e Professora Marlene.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Positivo",
-    "sentiment_confidence": 0.7,
+    "sentiment": "Neutro",
+    "sentiment_confidence": 0.65,
     "cluster": "Eleitoral",
     "date": "2026-05-12",
     "date_display": "12/05/2026",
     "detected_at": "2026-05-12 17:15",
     "collected_at": "2026-05-12T17:15:18",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "c23f8a387172",
@@ -327,14 +339,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.72,
     "cluster": "Eleitoral",
     "date": "2026-05-11",
     "date_display": "11/05/2026",
     "detected_at": "2026-05-11 17:28",
     "collected_at": "2026-05-11T17:28:29",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "d6bc06d838ee",
@@ -353,7 +366,7 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.7,
     "cluster": "Eleitoral",
     "date": "2026-05-10",
     "date_display": "10/05/2026",
@@ -380,7 +393,7 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.7,
     "cluster": "Eleitoral",
     "date": "2026-05-10",
     "date_display": "10/05/2026",
@@ -407,7 +420,7 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.7,
     "cluster": "Eleitoral",
     "date": "2026-05-10",
     "date_display": "10/05/2026",
@@ -434,7 +447,7 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.7,
     "cluster": "Eleitoral",
     "date": "2026-05-09",
     "date_display": "09/05/2026",
@@ -461,7 +474,7 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.7,
     "cluster": "Eleitoral",
     "date": "2026-05-09",
     "date_display": "09/05/2026",
@@ -488,7 +501,7 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.7,
     "cluster": "Eleitoral",
     "date": "2026-05-09",
     "date_display": "09/05/2026",
@@ -515,7 +528,7 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.7,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
     "date_display": "08/05/2026",
@@ -542,7 +555,7 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.75,
+    "sentiment_confidence": 0.7,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
     "date_display": "08/05/2026",
@@ -569,7 +582,7 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.72,
     "cluster": "Eleitoral",
     "date": "2026-05-08",
     "date_display": "08/05/2026",
@@ -595,7 +608,7 @@
     "snippet": "Mesmo dia da desincompatibilização do ex-Comandante, coronel Márcio Barbosa, pré-candidato a deputado federal.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Muito Negativo",
+    "sentiment": "Negativo",
     "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "hostile_source": true,
@@ -605,7 +618,7 @@
     "collected_at": "2026-05-02T22:35:04",
     "year": 2026,
     "month": 5,
-    "sentiment_original": "Positivo"
+    "sentiment_original": "Muito Negativo"
   },
   {
     "hash_id": "38ce11e59dce",
@@ -623,7 +636,7 @@
     "snippet": "Mesmo dia da desincompatibilização do ex-Comandante, coronel Márcio Barbosa, pré-candidato a deputado federal.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Muito Negativo",
+    "sentiment": "Negativo",
     "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "hostile_source": true,
@@ -633,7 +646,7 @@
     "collected_at": "2026-05-02T15:44:20",
     "year": 2026,
     "month": 5,
-    "sentiment_original": "Positivo"
+    "sentiment_original": "Muito Negativo"
   },
   {
     "hash_id": "38ce11e59dce",
@@ -651,7 +664,7 @@
     "snippet": "Mesmo dia da desincompatibilização do ex-Comandante, coronel Márcio Barbosa, pré-candidato a deputado federal.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Muito Negativo",
+    "sentiment": "Negativo",
     "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "hostile_source": true,
@@ -661,7 +674,7 @@
     "collected_at": "2026-05-02T10:53:23",
     "year": 2026,
     "month": 5,
-    "sentiment_original": "Positivo"
+    "sentiment_original": "Muito Negativo"
   },
   {
     "hash_id": "38ce11e59dce",
@@ -679,7 +692,7 @@
     "snippet": "Mesmo dia da desincompatibilização do ex-Comandante, coronel Márcio Barbosa, pré-candidato a deputado federal.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Muito Negativo",
+    "sentiment": "Negativo",
     "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "hostile_source": true,
@@ -689,7 +702,7 @@
     "collected_at": "2026-05-01T22:43:56",
     "year": 2026,
     "month": 5,
-    "sentiment_original": "Positivo"
+    "sentiment_original": "Muito Negativo"
   },
   {
     "hash_id": "38ce11e59dce",
@@ -707,7 +720,7 @@
     "snippet": "Mesmo dia da desincompatibilização do ex-Comandante, coronel Márcio Barbosa, pré-candidato a deputado federal.",
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
-    "sentiment": "Muito Negativo",
+    "sentiment": "Negativo",
     "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "hostile_source": true,
@@ -717,7 +730,7 @@
     "collected_at": "2026-05-01T10:55:05",
     "year": 2026,
     "month": 5,
-    "sentiment_original": "Positivo"
+    "sentiment_original": "Muito Negativo"
   },
   {
     "hash_id": "f4a19b499f30",
@@ -735,7 +748,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.85,
+    "sentiment_confidence": 0.68,
     "cluster": "Comando",
     "date": "2026-04-01",
     "date_display": "01/04/2026",
@@ -743,7 +756,7 @@
     "collected_at": "2026-04-30T16:23:14",
     "year": 2026,
     "month": 4,
-    "sentiment_original": "Positivo"
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "0caed51eeaeb",
@@ -761,7 +774,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.85,
+    "sentiment_confidence": 0.7,
     "cluster": "Comando",
     "date": "2026-04-01",
     "date_display": "01/04/2026",
@@ -769,7 +782,7 @@
     "collected_at": "2026-04-30T16:23:25",
     "year": 2026,
     "month": 4,
-    "sentiment_original": "Negativo"
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "3b383420b358",
@@ -787,7 +800,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.85,
+    "sentiment_confidence": 0.7,
     "cluster": "Comando",
     "date": "2026-04-03",
     "date_display": "03/04/2026",
@@ -839,7 +852,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.9,
     "cluster": "Comando",
     "date": "2026-03-31",
     "date_display": "31/03/2026",
@@ -847,7 +860,7 @@
     "collected_at": "2026-04-30T16:23:45",
     "year": 2026,
     "month": 3,
-    "sentiment_original": "Positivo"
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "1844f4d53ea5",
@@ -865,7 +878,7 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.7,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-03-26",
     "date_display": "26/03/2026",
@@ -891,7 +904,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.85,
+    "sentiment_confidence": 0.95,
     "cluster": "Comando",
     "date": "2026-03-19",
     "date_display": "19/03/2026",
@@ -917,7 +930,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.85,
+    "sentiment_confidence": 0.95,
     "cluster": "Comando",
     "date": "2026-03-19",
     "date_display": "19/03/2026",
@@ -943,7 +956,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.85,
+    "sentiment_confidence": 0.95,
     "cluster": "Comando",
     "date": "2026-03-19",
     "date_display": "19/03/2026",
@@ -969,7 +982,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.75,
     "cluster": "Comando",
     "date": "2026-03-10",
     "date_display": "10/03/2026",
@@ -977,7 +990,7 @@
     "collected_at": "2026-04-30T16:20:09",
     "year": 2026,
     "month": 3,
-    "sentiment_original": "Neutro"
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "d51756102339",
@@ -995,7 +1008,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.75,
     "cluster": "Comando",
     "date": "2026-03-11",
     "date_display": "11/03/2026",
@@ -1003,7 +1016,7 @@
     "collected_at": "2026-04-30T16:20:16",
     "year": 2026,
     "month": 3,
-    "sentiment_original": "Neutro"
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "f37dbf32762a",
@@ -1021,7 +1034,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.75,
+    "sentiment_confidence": 0.85,
     "cluster": "Comando",
     "date": "2026-03-10",
     "date_display": "10/03/2026",
@@ -1073,7 +1086,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Negativo",
-    "sentiment_confidence": 0.7,
+    "sentiment_confidence": 0.75,
     "cluster": "Comando",
     "date": "2026-02-22",
     "date_display": "22/02/2026",
@@ -1099,7 +1112,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Negativo",
-    "sentiment_confidence": 0.72,
+    "sentiment_confidence": 0.8,
     "cluster": "Comando",
     "date": "2026-02-23",
     "date_display": "23/02/2026",
@@ -1125,7 +1138,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Negativo",
-    "sentiment_confidence": 0.7,
+    "sentiment_confidence": 0.75,
     "cluster": "Comando",
     "date": "2026-02-23",
     "date_display": "23/02/2026",
@@ -1151,7 +1164,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Negativo",
-    "sentiment_confidence": 0.65,
+    "sentiment_confidence": 0.7,
     "cluster": "Comando",
     "date": "2026-02-24",
     "date_display": "24/02/2026",
@@ -1159,7 +1172,7 @@
     "collected_at": "2026-04-30T16:17:58",
     "year": 2026,
     "month": 2,
-    "sentiment_original": "Neutro"
+    "sentiment_original": "Negativo"
   },
   {
     "hash_id": "353331b23f5d",
@@ -1177,7 +1190,7 @@
     "relevance_score": 0.85,
     "relevance_label": "ELEITORAL",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.85,
+    "sentiment_confidence": 0.9,
     "cluster": "Comando",
     "date": "2026-01-31",
     "date_display": "31/01/2026",
@@ -1185,7 +1198,7 @@
     "collected_at": "2026-04-30T16:13:13",
     "year": 2026,
     "month": 1,
-    "sentiment_original": "Negativo"
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "281909b6358f",
@@ -1202,8 +1215,8 @@
     "snippet": "A esposa do cantor costuma a frequentar regularmente Orlando, nos Estados Unidos, e é filha do comandante-geral da Polícia Militar do Tocantins, coronel Márcio Barbosa.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Muito Negativo",
-    "sentiment_confidence": 0.87,
+    "sentiment": "Negativo",
+    "sentiment_confidence": 0.75,
     "cluster": "Comando",
     "date": "2026-02-03",
     "date_display": "03/02/2026",
@@ -1211,7 +1224,7 @@
     "collected_at": "2026-04-30T16:12:15",
     "year": 2026,
     "month": 2,
-    "sentiment_original": "Neutro"
+    "sentiment_original": "Muito Negativo"
   },
   {
     "hash_id": "ebcd262d3e5a",
@@ -1228,8 +1241,8 @@
     "snippet": "Quem é Amanda Vasconcelos Ela é filha do comandante-geral da Polícia Militar do Tocantins , coronel Márcio Antônio Barbosa de Mendonça.",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Muito Negativo",
-    "sentiment_confidence": 0.87,
+    "sentiment": "Negativo",
+    "sentiment_confidence": 0.7,
     "cluster": "Comando",
     "date": "2026-02-03",
     "date_display": "03/02/2026",
@@ -1237,7 +1250,7 @@
     "collected_at": "2026-04-30T16:12:52",
     "year": 2026,
     "month": 2,
-    "sentiment_original": "Neutro"
+    "sentiment_original": "Muito Negativo"
   },
   {
     "hash_id": "26bced49ffb2",
@@ -1254,8 +1267,8 @@
     "snippet": "A empresária é esposa do cantor Henrique, da dupla sertaneja com Juliano, e também filha do ex-comandante-geral da Polícia Militar do Tocantins, o coronel Márcio Barbosa .",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Muito Negativo",
-    "sentiment_confidence": 0.88,
+    "sentiment": "Negativo",
+    "sentiment_confidence": 0.75,
     "cluster": "Comando",
     "date": "2026-02-03",
     "date_display": "03/02/2026",
@@ -1263,7 +1276,7 @@
     "collected_at": "2026-04-30T16:11:53",
     "year": 2026,
     "month": 2,
-    "sentiment_original": "Neutro"
+    "sentiment_original": "Muito Negativo"
   },
   {
     "hash_id": "c5e00187cb32",
@@ -1289,7 +1302,7 @@
     "collected_at": "2026-04-30T16:09:56",
     "year": 2026,
     "month": 1,
-    "sentiment_original": "Positivo"
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "e469d352fd95",
@@ -1307,7 +1320,7 @@
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
     "sentiment": "Neutro",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.9,
     "cluster": "Comando",
     "date": "2026-01-10",
     "date_display": "10/01/2026",
@@ -1315,7 +1328,7 @@
     "collected_at": "2026-04-30T16:08:08",
     "year": 2026,
     "month": 1,
-    "sentiment_original": "Positivo"
+    "sentiment_original": "Neutro"
   },
   {
     "hash_id": "1206d4366634",
@@ -1332,7 +1345,7 @@
     "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxPak5IaVdnbnl1SXBLZ2FfTWhDTkRVVFQ5a3l3YXdJM1NrMUpnckw1RTZ6YkluTEI2aGZsX1lGd1M2ZUVDSE56V2ZSRk5oQzh0ajFSbUZzVGRaWUQ4d0hGcndKQmlUVWhjU1ZlSHc0dG",
     "relevance_score": 0.9,
     "relevance_label": "DIRETA",
-    "sentiment": "Negativo",
+    "sentiment": "Muito Negativo",
     "sentiment_confidence": 0.65,
     "cluster": "Comando",
     "date": "2026-04-10",
@@ -1341,7 +1354,7 @@
     "collected_at": "2026-04-30T15:50:54",
     "year": 2026,
     "month": 4,
-    "sentiment_original": "Neutro"
+    "sentiment_original": "Negativo"
   },
   {
     "hash_id": "c441c7d2a323",
@@ -1359,7 +1372,7 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.8,
+    "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "date": "2026-04-20",
     "date_display": "20/04/2026",
@@ -1385,7 +1398,7 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.75,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-04-18",
     "date_display": "18/04/2026",
@@ -1419,7 +1432,7 @@
     "collected_at": "2026-04-30T15:47:07",
     "year": 2026,
     "month": 1,
-    "sentiment_original": "Neutro"
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "d87989d28ab5",
@@ -1437,7 +1450,7 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.85,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-02-01",
     "date_display": "01/02/2026",
@@ -1445,7 +1458,7 @@
     "collected_at": "2026-04-30T15:47:07",
     "year": 2026,
     "month": 2,
-    "sentiment_original": "Neutro"
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "772a69fed45f",
@@ -1471,7 +1484,7 @@
     "collected_at": "2026-04-30T15:47:09",
     "year": 2026,
     "month": 2,
-    "sentiment_original": "Neutro"
+    "sentiment_original": "Negativo"
   },
   {
     "hash_id": "516f9875d0cc",
@@ -1490,14 +1503,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "date": "2026-05-14",
     "date_display": "14/05/2026",
     "detected_at": "2026-05-14 22:55",
     "collected_at": "2026-05-14T22:55:28",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "8a0cbf789924",
@@ -1516,14 +1530,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "date": "2026-05-14",
     "date_display": "14/05/2026",
     "detected_at": "2026-05-14 22:57",
     "collected_at": "2026-05-14T22:57:44",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "8a0cbf789924",
@@ -1542,14 +1557,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "date": "2026-05-15",
     "date_display": "15/05/2026",
     "detected_at": "2026-05-15 12:02",
     "collected_at": "2026-05-15T12:02:00",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "6d325d021ec3",
@@ -1568,14 +1584,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.85,
     "cluster": "Eleitoral",
     "date": "2026-05-15",
     "date_display": "15/05/2026",
     "detected_at": "2026-05-15 16:54",
     "collected_at": "2026-05-15T16:54:55",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "6d325d021ec3",
@@ -1594,14 +1611,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-05-15",
     "date_display": "15/05/2026",
     "detected_at": "2026-05-15 22:54",
     "collected_at": "2026-05-15T22:54:58",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "6d325d021ec3",
@@ -1620,14 +1638,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-05-16",
     "date_display": "16/05/2026",
     "detected_at": "2026-05-16 11:07",
     "collected_at": "2026-05-16T11:07:22",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "6d325d021ec3",
@@ -1646,14 +1665,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-05-16",
     "date_display": "16/05/2026",
     "detected_at": "2026-05-16 16:02",
     "collected_at": "2026-05-16T16:02:10",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "6d325d021ec3",
@@ -1672,14 +1692,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-05-16",
     "date_display": "16/05/2026",
     "detected_at": "2026-05-16 22:43",
     "collected_at": "2026-05-16T22:43:51",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "6d325d021ec3",
@@ -1698,14 +1719,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-05-17",
     "date_display": "17/05/2026",
     "detected_at": "2026-05-17 11:11",
     "collected_at": "2026-05-17T11:11:52",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "6d325d021ec3",
@@ -1724,14 +1746,15 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-05-17",
     "date_display": "17/05/2026",
     "detected_at": "2026-05-17 16:03",
     "collected_at": "2026-05-17T16:03:07",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   },
   {
     "hash_id": "6d325d021ec3",
@@ -1750,13 +1773,14 @@
     "relevance_score": 1.0,
     "relevance_label": "DIRETA_ELEITORAL",
     "sentiment": "Positivo",
-    "sentiment_confidence": 0.9,
+    "sentiment_confidence": 0.8,
     "cluster": "Eleitoral",
     "date": "2026-05-17",
     "date_display": "17/05/2026",
     "detected_at": "2026-05-17 22:52",
     "collected_at": "2026-05-17T22:52:47",
     "year": 2026,
-    "month": 5
+    "month": 5,
+    "sentiment_original": "Positivo"
   }
 ]

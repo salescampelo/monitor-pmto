@@ -196,5 +196,71 @@
         "lealdade_pct": 100
       }
     ]
+  },
+  {
+    "semana": "2026-W21",
+    "data": "2026-05-18",
+    "top_10": [
+      {
+        "username": "heitor_pereirabr",
+        "score": 232,
+        "comentarios": 75,
+        "lealdade_pct": 100
+      },
+      {
+        "username": "ry4n_carloss",
+        "score": 200,
+        "comentarios": 47,
+        "lealdade_pct": 100
+      },
+      {
+        "username": "teixeiraalewagner",
+        "score": 166,
+        "comentarios": 31,
+        "lealdade_pct": 100
+      },
+      {
+        "username": "sampa.marcos",
+        "score": 127,
+        "comentarios": 26,
+        "lealdade_pct": 100
+      },
+      {
+        "username": "alyf_caua",
+        "score": 117,
+        "comentarios": 42,
+        "lealdade_pct": 100
+      },
+      {
+        "username": "mhenriquereis_",
+        "score": 116,
+        "comentarios": 23,
+        "lealdade_pct": 100
+      },
+      {
+        "username": "carllossilva24",
+        "score": 113,
+        "comentarios": 36,
+        "lealdade_pct": 92
+      },
+      {
+        "username": "reginaldomagalhaesss",
+        "score": 104,
+        "comentarios": 19,
+        "lealdade_pct": 100
+      },
+      {
+        "username": "arlam_pinheiro",
+        "score": 80,
+        "comentarios": 12,
+        "lealdade_pct": 92
+      },
+      {
+        "username": "coroneledsonraiado",
+        "score": 74,
+        "comentarios": 7,
+        "lealdade_pct": 100
+      }
+    ]
   }
 ]
