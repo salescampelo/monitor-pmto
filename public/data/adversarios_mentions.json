@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-05-17 16:04",
+  "updated_at": "2026-05-18 13:54",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 30,
-      "new_this_run": 0,
+      "new_this_run": 2,
       "mentions": [
         {
           "title": "Araguaína terá mais 352 apartamentos pelo Minha Casa, Minha Vida",
@@ -136,6 +136,14 @@
           "captured_at": "2026-05-13"
         },
         {
+          "title": "Araguaína inicia primeira etapa de novo conjunto residencial com 352 apartamentos populares",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNTXk2eWM1WE5KOVZJYmxUUk9WZ2dXQlYwN3FBVzgzR0Jtd2o0Z1o0dnp3UzlydzgyVlM4N0ZYNVZTdzVmNU5BdzEyQ1JLR0dyNUVpTjltVkVrNUJGSDU5anY5emZweklCdHk4OExSTHhoaUxxN2tvVG4tMmRkN21zTjdTdWh4Z0xvVzBUb2NjTkVya2dKTk9vXzBGUVYtTjR2NG9CUlhGTWg3ZUE4T0FVdDdzZUk4N1ZxSS0tcWloWU1PcEFSdGpjSGlxYU1CUlRNbXc?oc=5",
+          "source": "Prefeitura de Araguaína",
+          "published": "Tue, 12 May 2026 22:08:00 GMT",
+          "hash": "d22bd8dcfd59",
+          "captured_at": "2026-05-18"
+        },
+        {
           "title": "Dorinha consolida aliança estratégica com cúpula política de Araguaína com apoio do prefeito, presidente da Câmara e do deputado Tiago Dimas",
           "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxNbW9sUHdjbG1LTXJsUFZjZktCLV81M1JLSE5lM2pNM2dtcDdkR0R6clNxcmdPR0VIMGJuN0V1bnc2Y012ZEZMWU9iN3lRZ3kwUFM3Z3FaSGJQcTdHLWJibUtTOVpaS3MtT0w2WUdEbDFKajNJeHpmTU5nSURjTldUQjJNdTdVMjhqUHdnMlMzWHo2cWdRZFh2QmlTdndlLVJBVmZ4YzNubmJUSG1PRl91TUtTeTZNTV9WQWxRWWZaT3hOaUpjNTVCY3lnYll0MElvWWNVM2tERG53NzE5eV9NWGY1UlZKZWpaYkZfWDV4SUtsV0YzeDlZS04wVmRmakNDdlUwQw?oc=5",
           "source": "Atitude Tocantins",
@@ -238,14 +246,6 @@
           "published": "Thu, 30 Apr 2026 19:20:00 GMT",
           "hash": "30df79b79dbd",
           "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Como votou cada deputado e senador na derrubada do veto de Lula ao PL da dosimetria",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPS2kxaEFqc2EzRGlxMUZFWnloRHE4SUJxSmEtRzNlYVl2WU1HVWUzaTFQNV84S1I5QkRTWUZfRDE0V2xfc3dHcU51dmVCalJBME9FMm1HWENXenZtb1JHdENDSG1iTGd4YThPZnJVRW1zMkxOQ3RFUjFOYzU0VWZoS3RpLUF3eVhLVnA4TWlueWRZSlJfOEJvMlk5dXl6aHVmRnpiWWxtVDlCZHMwd1VKRkhMQUFzV0pBck80ZktqNjVwUzBI?oc=5",
-          "source": "Gazeta do Povo",
-          "published": "Thu, 30 Apr 2026 19:17:00 GMT",
-          "hash": "a711312a858d",
-          "captured_at": "2026-05-01"
         }
       ]
     },
@@ -253,7 +253,7 @@
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
       "total_mentions": 30,
-      "new_this_run": 5,
+      "new_this_run": 6,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -501,7 +501,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 20,
+      "new_this_run": 22,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
