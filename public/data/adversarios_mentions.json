@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-18 17:36",
+  "updated_at": "2026-05-19 12:45",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
@@ -253,7 +253,7 @@
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
       "total_mentions": 30,
-      "new_this_run": 7,
+      "new_this_run": 8,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -424,6 +424,14 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "Comissão da Câmara aprova projeto que libera ônibus de fretamento em faixas exclusivas",
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQQ0ppcVVlNUxPbFNnTlNDeE0wZGFuSVRzZ1lFaWJoT00ybG1oazhPZFZVWXpqNFU0OXFwa25TMUhvMHpFM2NKUEJSejBUVVRWUXhDdkxxU2dIVFZOUmFqREpVajZURVVNUEFVMF9yVVBxWG0xSkdZbVFHWlRtbGk3TlUwbmZYcWVXcW9MaE8tNzQ3bHRLNFRDMTByR2dGNWZ4ZXhsejhVclBfa1AwclMta2NYZ0lrMm9NMlRiTmZlOWFSS0p5TmllYWU3eWJiWGloaDFvQ1BWcw?oc=5",
+          "source": "Republicanos 10",
+          "published": "Tue, 19 May 2026 12:00:39 GMT",
+          "hash": "46991d9e266a",
+          "captured_at": "2026-05-19"
+        },
+        {
           "title": "Governo recua na taxa das blusinhas; Ayres liderou reação contra cobrança",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOcWNMTEtqYi1xV1dFVV9lZ3l6dG9MX2tfdE1JeExjdjN1T1VCaEpLTDZJVzYtbG9oRXFpbDlVQktGV0s2V2VrRW56WjNuanlad2lQSmdrYUZvd2s1RFllUUpqckUtRjlYa0ZQajZ0M2NPX3VkUnRKNFpMOVJnZmNJTWg1cE9mQVhSbjhTQUtQR05veU5sUXBiMlRxNmdGWi1EREhfVHJPbDYydkJiNU9fbWE1dE8?oc=5",
           "source": "Gazeta do Cerrado",
@@ -486,14 +494,6 @@
           "published": "Tue, 05 May 2026 00:55:09 GMT",
           "hash": "a49e21978819",
           "captured_at": "2026-05-06"
-        },
-        {
-          "title": "Creches paradas há mais de 15 anos no Tocantins serão retomadas",
-          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUG0tWVl4WUFISGxNczV1SlJ4Nm85Vk1mbnVYc1Z5R2dvUDdnMEVkT193VDMzajYyZkU1MEhBVUFzdUFBejltcC1TTGJxVVZ2LTM5M09mTzZReGpybzdtd2ZfZ01EUHZSdUZVV2JxN0t3bFpGNXhoU2t5M1NvNFYwSkxVbklyMEpaM3o3MDUtNzlmc3o5YmpjakVQTkdRbUNDZWFka0RwaGdWcllyNlFpeXdWOEpoU1prQXZVaWxmSFbSAbYBQVVfeXFMT3Q3TW4tSXFqNWI2X3BaMlNDaW42V0FiMGV1MTFyS05vcU81VThrZUxMbm01bHlVQlpkSHVmN25sSjhUazRVczBELXQ1U2RWdkVlWU1FcDNwdnZCeWpuYk93SmlVekRHTHhEUUpPR3diWjl5UTJQT3g5YnNjcjJOcGpwYjNtc25YMXNLWVRvaFozX19tYkphUVBsal9nY2Jjb0Y5ZTV2RkF6UURpMWhDMW1FUU1BNnc?oc=5",
-          "source": "Portal O Norte",
-          "published": "Tue, 05 May 2026 00:11:00 GMT",
-          "hash": "20b53b94003b",
-          "captured_at": "2026-05-09"
         }
       ]
     },
@@ -501,7 +501,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 30,
+      "new_this_run": 31,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
