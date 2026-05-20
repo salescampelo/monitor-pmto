@@ -1,12 +1,28 @@
 {
-  "updated_at": "2026-05-20 12:32",
+  "updated_at": "2026-05-20 18:00",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 30,
-      "new_this_run": 4,
+      "new_this_run": 3,
       "mentions": [
+        {
+          "title": "Pré-candidato a deputado estadual, José Miguel declara apoio a Mauro Carlesse na disputa pelo Senado",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNcGM2Z3ZKaTRVSXFCdnNZbkZkblhnbDhlZVd5ZmZWRmRDb25QLW5WbmJkUk51d2FsUVZBaktuREFIZk5uTTE2MkN5OUJKU1RHUnZVa05HQWF2OFhJQ3RPWDI3TDVINUx0QlhIdzJSMFh5c0hSMkdVa0p4R3RFTU5URTBsSEhRLUs0VGxtLWRZNW5rdWJxekhFUmQzSFhBdjhaMDJtNENRRkNXN1IzLUtPUVlVTzRkSllRY0pKOGdYSFRxVHPSAcgBQVVfeXFMTnNiMlBDWlA1YmpMMTBWbjFHMlBPRlA3aTVERFBWVlJMeE9UVTBVYklqUHZQZ1JmOUd4NUEtc0gwR3lINnlpVExDTGdZd2RGWG1PbEdOVUNOR28yTUlxcUN0NmNIb1hPd1g1MHh4UjhTNEhrWHRTWnYtdV91bWlWUnhMUTFiMXR0bU9IVDdHZ3FfZ1hfeUFBZ3ZCb1VFNzBmcEV1cmZjbzBXV1NVbndUSTQxSWFkTUNwVnFhaEUydmJYY0FwLUE1T3E?oc=5",
+          "source": "jm notícia",
+          "published": "Wed, 20 May 2026 12:36:00 GMT",
+          "hash": "04debdfb9784",
+          "captured_at": "2026-05-20"
+        },
+        {
+          "title": "Deputado Tiago Dimas diz ter viabilizado R$ 118,3 milhões para municípios do Tocantins",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNVUZZUzFKYzRrVHNISXFiQzM4UGpPT2lEeXEwTndlMkQ2eng2ODlRZngxRDc0Z3JfRnBWNURrWjlJOWMzcmZJVm5tYTR0bWZUMlRvVERLMUNxeUNvUDlIckg2RDQ0VU15amF0aVc2YnJqcEdMSU9penpWTmFNOTk0d0FrSmkwMUl2NUZzY2ZBOV82bGtra0xfd0JvZjQteU11U3BWSExGdlhSQ3VGVzRZ0gG0AUFVX3lxTFBpU2NaV2phT3pyaXlPRlBEYWxMdWNzaGctNm13WXZncG1XSkpNcmVvaVF6NmQwa2dLOGE3YmFFZE5LNVQtYTdEYmxnTC1idkpzWU50OXRpZnBlVGtWSG1iZm56X1Z3VDZnbWdGcEswRlNMalhxaDVKeG9LczB5TFA0X2QxZHdUZm5LR0JKYUs0VjZFZUcwMnRrUE04OUgtYTEwWVVSQWo4Q3BkVDdnTWpObUVYRg?oc=5",
+          "source": "jm notícia",
+          "published": "Wed, 20 May 2026 12:32:00 GMT",
+          "hash": "0becf5b01891",
+          "captured_at": "2026-05-20"
+        },
         {
           "title": "Em dez meses, deputado Tiago Dimas viabiliza quase R$ 120 milhões para cidades do Tocantins",
           "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNMHAydFBOTjdmdFV1bVRwMlVUeEUtSDhSOEFuLWdhRk93R2puamZ6alZUYi00N3RiMHp0UTFLWjBaUHRFak4zdGhmNUhwdlJ1Y01TcWMtbUxfSVhIUTY5SlRSZmIwak5scl9LNVdTSjlSX0dXelBTSnF5dU1peXVhWGhYZHo4cjNVVGE5U3VnekFlU3locmhpVV9NeVJrUXd3TFByZWhlTmdCWUpRR1p0UU9oaXVNSVMtUGxabkhDckFqVzFxOVJMd1FfS0puV2VPODYw?oc=5",
@@ -21,6 +37,14 @@
           "source": "afnoticias.com.br",
           "published": "Wed, 20 May 2026 11:23:00 GMT",
           "hash": "9a3a5a4c2635",
+          "captured_at": "2026-05-20"
+        },
+        {
+          "title": "Articulação politica e a consolidação de alianças eleitorais .",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOaWotT3hDZjViQm1hWEZRaDFBUkxyYVBxdi1HTUNYUENZb0dvWkFIR2lVOVVWSU0zSGpOd2JncTIxVUo0dk9CWk0tUkZCQ1Y4UHJXSUtfYlNHTGdzSzVJTUZwa29ZV3lxNy1zVHI1bkdaV2NuYzlTVFpreTlBd0FLVnVhVEpHZmk2RGVMZUlHYlJQTU9B0gGUAUFVX3lxTE5pai1PeENmNWJCbWFYRlFoMUFSTHJhUHF2LUdNQ1hQQ1lvR29aQUhHaVU5VVZJTTNIak53YmdxMjFVSjR2T0JaTS1SRkJDVjhQcldJS19iU0dMZ3NLNUlNRnBrb1lXeXE3LXNUcjVuR1pXY25jOVNUWmt5OUF3QUtWdWFUSkdmaTZEZUxlSUdiUlBNT0E?oc=5",
+          "source": "jm notícia",
+          "published": "Wed, 20 May 2026 09:13:06 GMT",
+          "hash": "b43c01c4cf52",
           "captured_at": "2026-05-20"
         },
         {
@@ -222,30 +246,6 @@
           "published": "Tue, 05 May 2026 11:18:05 GMT",
           "hash": "bc11972f2f9b",
           "captured_at": "2026-05-11"
-        },
-        {
-          "title": "PL da Dosimetria: como votaram os parlamentares na derrubada do veto de Lula",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNc0kyWF9nNUpFbThoYUFsRTBrRkc2RFRid3hMWW03OFE3UFpoZHdYUnNQc1NJMnVBTHJHMEtxVXpfX2FWYk51dFVoa0ZoaVc1MWgtdVZqZ3VyalZPU0JYUmNVa0pDRWNXTGFrdXREWVJneDlsTzd2bkJkNUlTMFl0Zkc4RWdiQWE0VE9CUTVtLUY1ak1mVGFoQlBJR1M2eC15dmdXRUtOWjZlRDdZZ0lwMTVaVXgyOTJj?oc=5",
-          "source": "Diário do Centro do Mundo",
-          "published": "Thu, 30 Apr 2026 23:07:00 GMT",
-          "hash": "1ebf91845ae9",
-          "captured_at": "2026-05-03"
-        },
-        {
-          "title": "Do Tocantins, apenas Irajá e Ricardo Ayres votaram pela manutenção dos vetos do governo Lula ao PL da Dosimetria",
-          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNSmNTb09aMEZVSm9EZjltZHo5X3NwRWQzX21MQ2FEQlFsR3c3RXVibU9EYmVkYnl3ZlgzbUxrU3Y3bWxpaS1fRURaejBRZDhwcDBFMHFsc0ExTWNNX2RpcmxlR0NEVERHVnAydF9RZW5PdC1vYXdhdi10dTZwZlNkNjZJeFl2TkxfX1BzdG9OcHFJMHI3bmVrU0stLXpOdmQ0ODVSbnh1bVpEZEIxYWxEdE93dXdaSWlmNFFoWGNwdnFDUk1wUWY3RTlLVUtiTElveDBCX2ZB?oc=5",
-          "source": "Jornal Opção | Tocantins",
-          "published": "Thu, 30 Apr 2026 20:24:00 GMT",
-          "hash": "b63c60e5b9da",
-          "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Prefeitura reinaugura Clínica Escola Mundo Autista com mais de 5,2 mil atendimentos mensais",
-          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOY2xrcHZMNDhsVWdOSU9jVFhzQThPUWxYX2FybU54b2tUTW9IaDBnaFhaUjU1LTM5NnpVTzdkV3Z2SWJzN09YSW9vNEg1X2cwandhY1hRRV92X0syUXNDQXVXdXc3QzJIdXpHT202RWo4ejlkU3F4czE2Q2dXRDVSWDVhSUtZODY0bTJUdHFIc3JVdmFueTNsU0R2XzgxR2hwa3Q3S2p0WUpTOElEYjJ0aUU5WGZ6R3VpV1JWaW43WWR0UnBNTGpFbXZraUg5OHJXaEl2T0tjNmN0ZkpC?oc=5",
-          "source": "Jornal Opção | Tocantins",
-          "published": "Thu, 30 Apr 2026 20:17:00 GMT",
-          "hash": "d43ccda00612",
-          "captured_at": "2026-05-01"
         }
       ]
     },
@@ -253,7 +253,7 @@
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
       "total_mentions": 30,
-      "new_this_run": 12,
+      "new_this_run": 10,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -310,6 +310,14 @@
           "published": "Wed, 29 Apr 2026 12:51:50 GMT",
           "hash": "e6e6a3a1bae1",
           "captured_at": "2026-05-01"
+        },
+        {
+          "title": "Deputados do Tocantins assinam emendas que podem aumentar carga horária dos trabalhadores",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNWG9hYXMxS3VnODRUVlRxRldPVjRnZno0RWZzalRyajBzc0JVbVIzMnR1UUNtTllfVmtCYUNjR3Rmc0tfV0tmMG13ejV4WF9NS1ZtYklVQUFhbzFtTEtETzAxRE8xb2lsaERzNHhicXk3V2tyV2Y2Ylhia1VqcFJSUUtBZ1FhX0tKRTM5cHVISDh1U3JDS1hWOVg0UUt2d3o3VnFuZExOTmdrZWstRVBBQ2JJX0g?oc=5",
+          "source": "Portal Agora Tocantins",
+          "published": "Wed, 20 May 2026 06:52:33 GMT",
+          "hash": "79861056f503",
+          "captured_at": "2026-05-20"
         },
         {
           "title": "Abertura da Agrotins reúne palacianos e pré-candidatos de outro grupo; Wanderlei dá o tom: “Sabemos a hora de fazer política e a hora de fazer governo”",
@@ -456,6 +464,14 @@
           "captured_at": "2026-05-19"
         },
         {
+          "title": "Por ofensas a Hugo Motta, deputado do PL pode ter mandato suspenso por 90 dias",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQUmI1MHZhVWdGZGJGUmU1cG1tTlZGb2NjZEdFRWhTTG1jMXFoc3BSRVpKaVZqY01GeFZ6bTZVWEFEVFU2TTVEZmNraFQ5bjViQXdoQ1gzcGVoZXpPWGtvbWNXZjNQalYyZlRqLUFFNjNZNTFkWFV2NVZUbzNscjhxM1ZoekJuSUo3cktfS2VhdFgtS1loTmtIZVV5NTFCRFQ5UFFIenZQM2ZnRDZDaEVwWEwtekdsSWRnMDY1UVpB?oc=5",
+          "source": "Gazeta do Paraná",
+          "published": "Tue, 19 May 2026 09:45:00 GMT",
+          "hash": "8f047edc69d9",
+          "captured_at": "2026-05-20"
+        },
+        {
           "title": "Governo recua na taxa das blusinhas; Ayres liderou reação contra cobrança",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOcWNMTEtqYi1xV1dFVV9lZ3l6dG9MX2tfdE1JeExjdjN1T1VCaEpLTDZJVzYtbG9oRXFpbDlVQktGV0s2V2VrRW56WjNuanlad2lQSmdrYUZvd2s1RFllUUpqckUtRjlYa0ZQajZ0M2NPX3VkUnRKNFpMOVJnZmNJTWg1cE9mQVhSbjhTQUtQR05veU5sUXBiMlRxNmdGWi1EREhfVHJPbDYydkJiNU9fbWE1dE8?oc=5",
           "source": "Gazeta do Cerrado",
@@ -478,22 +494,6 @@
           "published": "Tue, 12 May 2026 14:50:00 GMT",
           "hash": "0c653cabd9b1",
           "captured_at": "2026-05-12"
-        },
-        {
-          "title": "Reconhecimento nacional: ofício das quebradeiras de coco babaçu avança para sanção presidencial",
-          "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPSjNOTnBra1F0dnd1STI2amV2UDI2RU1mT2h0Yk9wOEZ3LXQ2Y1B1eHFLYzRYenpxMzUtSUx6eDlqQV9LVktlZkJWaDluY0lDXzBxZ2xXWlVjNkpSSWgxVm5yNEVqdDBzakE5VnVTRXZJRXNJaTR5eW11MGxNS3ZkcHN4d2FVaVo2VE1LLUZwQVVJRVpMRmJMMHdsTGdDQWd0UGJzX0dQN2dGUUlqNGdYYUFXNmpnYUV4OGhac0UwWWhUZlV2NlQ2V0NUZE9vbjFtUEJJdmxOanFqSVF4alR2VDRQRDI3RTBWWFJYTg?oc=5",
-          "source": "Tribuna do Sertão",
-          "published": "Tue, 12 May 2026 14:41:00 GMT",
-          "hash": "6b35febfa8f6",
-          "captured_at": "2026-05-12"
-        },
-        {
-          "title": "Reconhecimento nacional: ofício das quebradeiras de coco babaçu avança para sanção presidencial",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNb1VTRzdrVkNCRE5QRWxfLUVIMEpyb3dNczltZzB1dWc3M1RBMW1jT0dJdEs2ZkFPT0FGQjJ6NFZxcl9SemlMU2FOdDBqbGpyMjVIdndjRDI3VHlJMVNyTGNPTUowSVdyNFJpdDBjWHBKSUxnVEItcDVjT3FKNzNaMGJ4WGdEZjVfVU1IVGR2Y3laalQwLU5pVDYxYXc5VDl0N0kyaC1kTk5RSGw3TDdQX3JZemdoZlRWTTgxYVVraVVKa1ZqWHdGdmNZa3VESFgzb05rQVUtUFNfUVdDZUROOEFfajJZLWg4c2Z4WEVR?oc=5",
-          "source": "Tribuna do Agreste",
-          "published": "Tue, 12 May 2026 14:41:00 GMT",
-          "hash": "5a1dafe65221",
-          "captured_at": "2026-05-13"
         }
       ]
     },
@@ -501,7 +501,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 36,
+      "new_this_run": 35,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
