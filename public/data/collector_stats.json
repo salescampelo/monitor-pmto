@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-19 23:06",
+  "updated_at": "2026-05-20 12:32",
   "run_stats": {
     "queries_rss": 20,
     "entries_rss_raw": 3,
@@ -10,23 +10,22 @@
       "nome do candidato ausente": 1
     },
     "approved_rss": 0,
-    "approved_scrape": 1,
+    "approved_scrape": 0,
     "approved_indirect": 0,
-    "total_new": 1,
+    "total_new": 0,
     "sources_approved": {}
   },
   "history_summary": {
-    "total": 72,
+    "total": 73,
     "last_7d": 28,
-    "last_30d": 44,
+    "last_30d": 45,
     "sources_7d": {
-      "Agência Tocantins": 21,
+      "Agência Tocantins": 22,
       "Atitude Tocantins": 5,
-      "RR10 Notícias": 1,
-      "Portal LJ (Leal Junior)": 1
+      "RR10 Notícias": 1
     },
     "sources_30d": {
-      "Agência Tocantins": 21,
+      "Agência Tocantins": 22,
       "Atitude Tocantins": 13,
       "Blog Luiz Armando Costa": 5,
       "RR10 Notícias": 3,
@@ -34,11 +33,11 @@
       "Portal do Amaral": 1
     },
     "methods_30d": {
-      "DIRECT_SCRAPE": 42,
+      "DIRECT_SCRAPE": 43,
       "RSS": 2
     },
     "sentiment_30d": {
-      "Positivo": 38,
+      "Positivo": 39,
       "Neutro": 1,
       "Negativo": 5
     }
@@ -145,9 +144,9 @@
     "agenciatocantins": {
       "name": "Agência Tocantins",
       "layer": "B",
-      "mentions_30d": 20,
+      "mentions_30d": 21,
       "last_run_status": "ok",
-      "last_run_mentions": 1
+      "last_run_mentions": 0
     },
     "ogirassol": {
       "name": "O Girassol",

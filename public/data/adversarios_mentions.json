@@ -1,12 +1,28 @@
 {
-  "updated_at": "2026-05-19 17:44",
+  "updated_at": "2026-05-20 12:32",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
       "partido": "Podemos",
       "total_mentions": 30,
-      "new_this_run": 1,
+      "new_this_run": 4,
       "mentions": [
+        {
+          "title": "Em dez meses, deputado Tiago Dimas viabiliza quase R$ 120 milhões para cidades do Tocantins",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNMHAydFBOTjdmdFV1bVRwMlVUeEUtSDhSOEFuLWdhRk93R2puamZ6alZUYi00N3RiMHp0UTFLWjBaUHRFak4zdGhmNUhwdlJ1Y01TcWMtbUxfSVhIUTY5SlRSZmIwak5scl9LNVdTSjlSX0dXelBTSnF5dU1peXVhWGhYZHo4cjNVVGE5U3VnekFlU3locmhpVV9NeVJrUXd3TFByZWhlTmdCWUpRR1p0UU9oaXVNSVMtUGxabkhDckFqVzFxOVJMd1FfS0puV2VPODYw?oc=5",
+          "source": "afnoticias.com.br",
+          "published": "Wed, 20 May 2026 11:23:00 GMT",
+          "hash": "d87b8b8cc235",
+          "captured_at": "2026-05-20"
+        },
+        {
+          "title": "Em dez meses, deputado Tiago Dimas viabiliza quase R$ 120 milhões para cidades do Tocantins",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQY0sxX3luMlZRT1pDcTRVUlQ4elpDR2JMajJGOEt3bjJQSzd5YUJieUFIbHlQdnFTZFVvajZQUVQzNmhma09ENVVDSGVLUHhXc1p3bWZhSUk5NVA1bi0yZTB3cG1WTFFqQ3NoTW91N0xmWkVOOHYtOHhuRkI2ZFVpdlBxUjgzR0dwSnN4QnU4Smo2OTZIaEtiY3EwdEVQcm5xeDR1VFhENXNkeGVpVEl4cmRJSDJjN01paXJIaWhLSnhTUnlMX3dKSEhuR3M4SnFPYkhfRjZR?oc=5",
+          "source": "afnoticias.com.br",
+          "published": "Wed, 20 May 2026 11:23:00 GMT",
+          "hash": "9a3a5a4c2635",
+          "captured_at": "2026-05-20"
+        },
         {
           "title": "Araguaína terá mais 352 apartamentos pelo Minha Casa, Minha Vida",
           "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOSFRUc3NUOU9NQzI0TS1vYTNSS0xxaHcyQVFNZE1RZ2p0Q1k4N2dPMEJiX0F4QkdJbVFPT1NLNDlvNFMxWTFrWi12Z2ZJWlktTG5XQ2Y3VV9ZdDhhczE5UjlRdDN4bi0yb3U4RGg5Z21WRWNqNFpKUXV3cGpDNEF5ZUlGaFdOUkQ0ckxRdVhSaHVwTTjSAZgBQVVfeXFMTnVydHZfbkl4QXBwY3VCRElnX05vZlZtLWluYjhmVjBiLWpoeXVTU3hrdWQ5eDVLSkpVMDRHdDN1bmNkZjcwOEFUX1JzUTlLTW5zQmZyNXoxWFYyVGR6bUZjZWV2T2NnQnNub3RfUmhCUW9rNnJrVlNGS3BXcXFCZW5XbHA5aTFtRFBhMUhoWHREQm00Y01Pb28?oc=5",
@@ -120,6 +136,14 @@
           "captured_at": "2026-05-11"
         },
         {
+          "title": "Tiago Dimas viabiliza quase R$ 120 milhões para municípios do Tocantins em 10 meses",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNUU1lSmxYcGR4REZ2Y3Fzck51a1ZkRWttZ0ZDTHpxMnpFeTRyMjZRNG1tLVpJNUNWU3c4YW9FVmZnWXVlTWg5bmt6WVh5YnVobXBKMUhLeU5qMG11Wm1XdjVqNExkSzFmMTVlb2QtTlRYd1dwUzIzS3oya2dVSkhGdVItMTMyTWtzalphUVg4cVhDVVpJMnF5ZTlCNFlqZktvQUcxSVJrSmNUTGU3YkFoWmZ0RlpGQ0RnaVM4VEVucm9pRnZFWFVCMQ?oc=5",
+          "source": "Araguaína Notícias",
+          "published": "Tue, 19 May 2026 20:28:00 GMT",
+          "hash": "0a1c90950cad",
+          "captured_at": "2026-05-20"
+        },
+        {
           "title": "Presidente da Câmara de Araguaína declara apoio à pré-candidatura de Dorinha ao Governo do Tocantins",
           "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQUnhWcFQ2YTVVc2tGZmhpT3JuYVR6WHpTLXVwZ0o4VVUxSk1WTXlFbGR0Z1EwZmxlUDZ6VGhnOV84RnJSc0E0c2syajl1aXZGYVhJYWZVWDVWTFdTd1JSemg2RzBxU1Q0ZjE1M2xOblNlZHlqQ2ZXV0JrRUFNUjItaDNzVWVmMUdubFg5eXViRmRsdkZSVkRLaU5MaVpYWWNldXA1SkNQRlNhLWxKb2F1QXNINFlQNXZlV2xGWldnbDFMb0FDTkQ4ZDhJZ1NKalU?oc=5",
           "source": "Surgiu",
@@ -222,30 +246,6 @@
           "published": "Thu, 30 Apr 2026 20:17:00 GMT",
           "hash": "d43ccda00612",
           "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Emenda de Tiago Dimas viabiliza reforma de clínica que atende 700 crianças em Araguaína",
-          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxObE1wQXdURUNHMHNRQUZpNkNwWndYeG43bmJSdEVUdi1qYTQzZFpPa0ZMOVVsd1h2ZTEzcmdUMmRrVFRkY0ZpbXI5SFhHdFlHek5sRDJOWGhpXzZzUXpreVFrZGxOaWpORFdGalhWTjZwTW5EY1ZKR2VoTHQtdDlwLWpxRTk0UExFQmVDT3R2Wjg0SU1yRnhPMjJNSWlyS2V1LTRSYXhoV3NHREZ1OHFKNzUxU0E5MkpSaXBuLTNURTZYRmZvMnhzZFQ0b1JISk5P?oc=5",
-          "source": "afnoticias.com.br",
-          "published": "Thu, 30 Apr 2026 20:05:00 GMT",
-          "hash": "2482f55e5069",
-          "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Veja como votou cada parlamentar na derrubada do veto de Lula ao PL da Dosimetria",
-          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNVVFicjF2MVBQaDFVWWY4cjBuMkxWLW9LNVFGY3BZYnpRTzJNbWJZQXRDb25NaG05ZTZkREQ5Vno2ZUNxeXFLd2JZQjFaUEpHNS02ZC1tTzJzSFJIT3hTbm14Zkx0OXVvQjFOejNCcHFhN2JqTnUwaXZwOWsxT242cElpa1R2X3EwbS11MzJGeU9lMEpnV01yS19IZDViVllGOVRCZmtGcmJDUFFwUGNhbTF5UWEtQXVITDM0dUtTRkJMZmNtNGtkWDFqNzNwZkJl0gHQAUFVX3lxTE1VUWJyMXYxUFBoMVVZZjhyMG4yTFYtb0s1UUZjcFlielFPMk1tYllBdENvbk1obTllNmRERDlWejZlQ3F5cUt3YllCMVpQSkc1LTZkLW1PMnNIUkhPeFNubXhmTHQ5dW9CMU56M0JwcWE3YmpOdTBpdnA5azFPbjZwSWlrVHZfcTBtLXUzMkZ5T2UwSmdXTXJLX0hkNWJWWUY5VEJma0ZyYkNQUXBQY2FtMXlRYS1BdUhMMzR1S1NGQkxmY200a2RYMWo3M3BmQmU?oc=5",
-          "source": "Folha de S.Paulo",
-          "published": "Thu, 30 Apr 2026 19:26:00 GMT",
-          "hash": "9b53389be1e1",
-          "captured_at": "2026-05-01"
-        },
-        {
-          "title": "Cidades | Clínica Mundo Autista ganha nova estrutura e reforça atendimento a crianças em Araguaína",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOeDlWbkd1LXlJZHFFWHBSZzJ1RXNiYkpmRWxDZDdiRGdVQkpJOTNtNmRRNFFhdE5DZXdwNVJTRDNadDVFN3BTT3p3ZDNZT1hoNjUwcWZaQV84QUhPVnpKM24yM19xNUwzM2lTLTczLUlHWGp1NFVRcWpVcTVvcXJON01jZDI0cjdGXzFVWHRtMkhyRWRoT3dZa0V4R2hhNllILXQ1X0ZfUUFrZlA1Zlk0RTFZY3BNbGRsS2JhRFplTQ?oc=5",
-          "source": "afnoticias.com.br",
-          "published": "Thu, 30 Apr 2026 19:20:00 GMT",
-          "hash": "30df79b79dbd",
-          "captured_at": "2026-05-01"
         }
       ]
     },
@@ -253,7 +253,7 @@
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
       "total_mentions": 30,
-      "new_this_run": 7,
+      "new_this_run": 12,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -318,6 +318,14 @@
           "published": "Wed, 13 May 2026 15:33:54 GMT",
           "hash": "83f6d4f895a2",
           "captured_at": "2026-05-14"
+        },
+        {
+          "title": "Governo recua na taxa das blusinhas; Ayres liderou reação contra cobrança",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPRnlTejdZWnRjcmJ3aENvRDU3RV8tdndfS19FNEFNalkwMTl1eGR1TnNZOFlIVEdBVjFBZUpoaVRnWnBtb2dVdG5YSUxxaFp0RWgwMmhFVzVRQ3dSZHk5YWRhdVB0R0Iyek1oNThBVC1waWpmcGRZbDNyc3Y3a1NyV3JjN01MZDVkak44YTB0MHV1S2dRSlh1aTR0WU9TSVNqMnc?oc=5",
+          "source": "Folha do Bico",
+          "published": "Wed, 13 May 2026 13:41:53 GMT",
+          "hash": "5df4fc99a54f",
+          "captured_at": "2026-05-20"
         },
         {
           "title": "Governo Lula revoga 'taxa das blusinhas' após reação liderada pelo deputado Ricardo Ayres",
@@ -424,6 +432,22 @@
           "captured_at": "2026-05-01"
         },
         {
+          "title": "RICARDO AYRES E A PEC 6×1: DEFESA DO TRABALHADOR OU POPULISMO ELEITOREIRO?",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxORTJ6azBaQjdlN2JjLV8wWEJZYlVsUEw5VjBSM09VMlhTYmlMTjVfYjR6cnVxMWhkV0s4VnZsYUNPdmN6V25FU2wwS05zTW1ZenRMSXE4dUFkSVc0Z0lNRTA2N0RhVzF0ZmppcE1KWFZpMHJ5N3pSOHV0Y1dZenNzOHIxMVZfRmpLbjVtdW9PYUswMFVLaDZ4bnJKNXJXVW8?oc=5",
+          "source": "JORNAL O COLETIVO",
+          "published": "Tue, 19 May 2026 19:58:00 GMT",
+          "hash": "6b489ee10658",
+          "captured_at": "2026-05-20"
+        },
+        {
+          "title": "Ricardo Ayres critica tentativa de desidratar PEC do fim da escala 6×1: “Usam o medo como justificativa para impedir avanços sociais”",
+          "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxQb3RBaUlWYkhpbmhpRDJyQTJpblRDSjQ2cXRTMHhrdlhQSVo2Vzh4c3FPVU1zeEh6YUdPaGlWRFEzRjVoYnF6bkotRFFCZXVuWGRHSWdpdm1RMVdkVXlIX0tyd0ZCd1NXSXlGalBMY0tndzN0Sy1hMEVmU0MtbmVObF9nTDg2MXp1Vk5vVkhiRFdhZmxFeTdPMTlISmRTNkcwMDNjWGRXU3V2eTJsVGl4R21uQWJkT01kelRaQmpncjFCc2tWODNuYWVQZjd1MmNRUjVQaU5zcU5HczFoZDVmdExzMlJQVUNTLTk0NWdUenM5Tkxha3RwWXJ3SW8?oc=5",
+          "source": "Cleber Toledo",
+          "published": "Tue, 19 May 2026 18:36:00 GMT",
+          "hash": "e84833a705ef",
+          "captured_at": "2026-05-20"
+        },
+        {
           "title": "Comissão da Câmara aprova projeto que libera ônibus de fretamento em faixas exclusivas",
           "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQQ0ppcVVlNUxPbFNnTlNDeE0wZGFuSVRzZ1lFaWJoT00ybG1oazhPZFZVWXpqNFU0OXFwa25TMUhvMHpFM2NKUEJSejBUVVRWUXhDdkxxU2dIVFZOUmFqREpVajZURVVNUEFVMF9yVVBxWG0xSkdZbVFHWlRtbGk3TlUwbmZYcWVXcW9MaE8tNzQ3bHRLNFRDMTByR2dGNWZ4ZXhsejhVclBfa1AwclMta2NYZ0lrMm9NMlRiTmZlOWFSS0p5TmllYWU3eWJiWGloaDFvQ1BWcw?oc=5",
           "source": "Republicanos 10",
@@ -470,30 +494,6 @@
           "published": "Tue, 12 May 2026 14:41:00 GMT",
           "hash": "5a1dafe65221",
           "captured_at": "2026-05-13"
-        },
-        {
-          "title": "Comissão aprova uso de faixas exclusivas por ônibus de fretamento",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZzFrZkFxQ2VMbGhBbFFLdmpveVFHTjQzUUNlMmZHU2cySGNSRGNiaDVNSmdqV1AxWnZ6UktMamx3SFk3Vl9aSXlObWJ5OU4zdmtYemJDakxOcFNxLUdqSE5PMDVFNGtDQmI0Q010UTA2N3VzMUVTZU0yR1BvUjZmSTBNdURfZTBuc1NzbENpNkt6V3BIT0tCZzhJeUNiMkJFUmppZ2lkamJEUG1v?oc=5",
-          "source": "Portal da Câmara dos Deputados",
-          "published": "Tue, 05 May 2026 14:47:00 GMT",
-          "hash": "0a5b379f258d",
-          "captured_at": "2026-05-09"
-        },
-        {
-          "title": "Comissão aprova uso de faixas exclusivas por ônibus de fretamento",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOblExeVh0Y2FQOHotb0NWT2YwcFFmUkRIQzlEaFpIRzhpWXR3a0QxbFdFWnNVYUtMNzRrSXZoWWRKN1JDNnd4V2pZQWhhTFprNlQ0TDV4cFUwNjB5WXFxSk9WWGlXa3g2b19NeUltN25FVXhaY3NNVS1GQVRxZ3p6eTBxWU9admFnVThrMlpidjEtREJKaVFSMHNNUlhjdXpJOXl5OGowOVdFV1htZ3c?oc=5",
-          "source": "Portal da Câmara dos Deputados",
-          "published": "Tue, 05 May 2026 14:47:00 GMT",
-          "hash": "cbf6d9c4f8ac",
-          "captured_at": "2026-05-09"
-        },
-        {
-          "title": "Creches paralisadas há anos voltam a avançar com ação de Ricardo Ayres e legado de João Ribeiro",
-          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNbGJNVGtUR3ZSZE1MVzdOQlc4eFN4QzZCeXB6NS1DRDhVTkZ2d3JGc2ppeU44UXpQdTNmUWZ5cjFWM2pBSXB5RE1MSzYzOUtSUXFpb2FOUVlSZjJZcnlYZGpwUDhMZlFESVNyZGVnb1VzMTBSc0RnZE1MbEFUZmhFamwtbG5BVTZCcUg4VlVwSm85Z3VrejNzTlQ5b2dLUEFSeVJpSVp6UUNqVEFoamFYRnJpaU9kQ3hIZGxSSFM0bVI?oc=5",
-          "source": "Folha do Bico",
-          "published": "Tue, 05 May 2026 00:55:09 GMT",
-          "hash": "a49e21978819",
-          "captured_at": "2026-05-06"
         }
       ]
     },
@@ -501,7 +501,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 33,
+      "new_this_run": 36,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
