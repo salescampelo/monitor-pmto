@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-20 18:00",
+  "updated_at": "2026-05-21 12:51",
   "adversarios": {
     "tiago_dimas": {
       "nome": "Tiago Dimas",
@@ -7,6 +7,22 @@
       "total_mentions": 30,
       "new_this_run": 3,
       "mentions": [
+        {
+          "title": "Ronaldo Dimas acelera articulação em Brasília e pode entrar na disputa pelo Senado",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQVGVUaVR4YUZQVnM4NURPVFd6dlhtWUxNYm5kb1JGWVB5QzNYcEFtTmctU2R4c2ZPZGxTZ3J3TWROMzhRLVZRYkNUdFNUSV90c1gxY0ZSYTNGa0V3RjRCbXBYTWRMdXRGcWhISXdoVVJKSzFxUHI0Y2JOSjMwV0ZXQVdveEM1VU1xZ2txNHk2QlNxdUh3bUMteWQtZ1ZZTGtrcXY3d0p4bFlyWEZw?oc=5",
+          "source": "jm notícia",
+          "published": "Wed, 20 May 2026 23:11:00 GMT",
+          "hash": "f54977bdcc0e",
+          "captured_at": "2026-05-21"
+        },
+        {
+          "title": "Jornalista revela que Dimas e Wagner podem “desembarcar” do apoio a Dorinha",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPbUVZbG9GSEpVaDRMdEFTX3BEaGlvSGJEN21xa05oUVg5X2pfaGhMS2ZDQ1RDZEpITlJlMDlJcVJqQ1VEWjhNTERMQVNZTTF5T2RIakNnNnI1bHVScC14Q2VnY1hWMjlaR0E2S2JUYVBmWWt1ZEVhTF9POG9pSnFrNVZ3WEZhWnd6X2hJOWpIeXJlUExPVHI2OHJwUklRNzI2MFR3?oc=5",
+          "source": "Folha do Bico",
+          "published": "Wed, 20 May 2026 18:23:59 GMT",
+          "hash": "21496e66c38b",
+          "captured_at": "2026-05-21"
+        },
         {
           "title": "Pré-candidato a deputado estadual, José Miguel declara apoio a Mauro Carlesse na disputa pelo Senado",
           "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNcGM2Z3ZKaTRVSXFCdnNZbkZkblhnbDhlZVd5ZmZWRmRDb25QLW5WbmJkUk51d2FsUVZBaktuREFIZk5uTTE2MkN5OUJKU1RHUnZVa05HQWF2OFhJQ3RPWDI3TDVINUx0QlhIdzJSMFh5c0hSMkdVa0p4R3RFTU5URTBsSEhRLUs0VGxtLWRZNW5rdWJxekhFUmQzSFhBdjhaMDJtNENRRkNXN1IzLUtPUVlVTzRkSllRY0pKOGdYSFRxVHPSAcgBQVVfeXFMTnNiMlBDWlA1YmpMMTBWbjFHMlBPRlA3aTVERFBWVlJMeE9UVTBVYklqUHZQZ1JmOUd4NUEtc0gwR3lINnlpVExDTGdZd2RGWG1PbEdOVUNOR28yTUlxcUN0NmNIb1hPd1g1MHh4UjhTNEhrWHRTWnYtdV91bWlWUnhMUTFiMXR0bU9IVDdHZ3FfZ1hfeUFBZ3ZCb1VFNzBmcEV1cmZjbzBXV1NVbndUSTQxSWFkTUNwVnFhaEUydmJYY0FwLUE1T3E?oc=5",
@@ -230,22 +246,6 @@
           "published": "Tue, 05 May 2026 17:09:09 GMT",
           "hash": "2a4b4663b974",
           "captured_at": "2026-05-11"
-        },
-        {
-          "title": "Mulher morre após cair de moto e ser atropelada em rodovia no sul do TO",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOX2UtaTRqQWp0YV9Tc2V4aTNYRDZtcjFoR25SWjZOSGlUbTJTSkI0ckFvOGlnOGVLcnpsOG9GQlUzVkJHS0IwR0NvbjB3YmtDODBkT3JXa0FPRU0yd2xNdDhkSGtmcXdBaVBxZHZsRjJiM2V0OURuUnBWNURDNERwRVdzdVRLMEUzNXhwVE1KTlhXVnJtemxqNDhxdElqWE16aWtPTEFvVXNXdkJvb1BSY0NadFA?oc=5",
-          "source": "Gazeta do Cerrado",
-          "published": "Tue, 05 May 2026 14:03:14 GMT",
-          "hash": "2e1806dfd7c8",
-          "captured_at": "2026-05-11"
-        },
-        {
-          "title": "Hemocentro tem estoques críticos e precisa de doadores de todos os tipos de sangue",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOZUFoZ0JnUk11dVNic0VhRGQ0cXh6bGFHUFJpUi1RWjkxVTdfTzR2UUh6X19fZkZkRHBaUDk4S2FBcHZ5YlRpQ3l6cklxSV9FczNtd0loQk5sSXNMLTl4enA1LW5faDZnQWw2X2tvT2l3MWdiTlVabjJGZU10NE1yTzFWQm5BTGZsZVVILXhpYlUxaDFPQklyVzhheV9HMlB1TUdPODhQNzd0ZUdIT01odTRiSUpsbXRXSlNvTg?oc=5",
-          "source": "Gazeta do Cerrado",
-          "published": "Tue, 05 May 2026 11:18:05 GMT",
-          "hash": "bc11972f2f9b",
-          "captured_at": "2026-05-11"
         }
       ]
     },
@@ -253,7 +253,7 @@
       "nome": "Ricardo Ayres",
       "partido": "Republicanos",
       "total_mentions": 30,
-      "new_this_run": 10,
+      "new_this_run": 7,
       "mentions": [
         {
           "title": "Saúde: Via Ricardo Ayres",
@@ -501,7 +501,7 @@
       "nome": "Janad Valcari",
       "partido": "PP",
       "total_mentions": 30,
-      "new_this_run": 35,
+      "new_this_run": 29,
       "mentions": [
         {
           "title": "Educação de Rolim de Moura supera meta estadual com alunos do 2º ano",
